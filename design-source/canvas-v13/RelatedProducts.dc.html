@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>RelatedProducts</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 var(--sisi) 0 0">
+      <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" rata="left" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    </div>
+    <dc-import name="Rail" items="{{ kartu }}" lebar="40%" gutter="calc(var(--rapat) / 2)" snap="{{ false }}" pad="{{ pad }}" margKanan="{{ margKanan }}" hint-size="100%,16rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.9rem"></dc-import>
+    </div>
+    <dc-import name="Rail" items="{{ kartu }}" kolom="{{ 6 }}" gutter="1rem" celahY="1rem" hint-size="100%,20rem"></dc-import>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Produk Terkait"},"href":{"editor":null,"default":"#produk"},"butir":{"editor":null},"pad":{"editor":null},"margKanan":{"editor":null},"teksKecil":{"editor":"boolean","default":false},"$preview":{"width":345,"height":210}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const butir = this.props.butir ?? [
+      { n: 'Wiremesh', v: 16, foto: '/_blob/2f0e519d8e8ec397d9c2c6d971788eef' },
+      { n: 'Plat Besi Hitam', v: 54, foto: '/_blob/e1474c92af7d2b81503b90b37b2e4758' },
+      { n: 'Besi CNP', v: 120, foto: '/_blob/baf32a1187b00ce8dfb51a4627d7a4b6' }
+    ];
+    const href = this.props.href ?? '#produk';
+    return {
+      pad: this.props.pad ?? '2rem 0 0.2rem 0',
+      margKanan: this.props.margKanan ?? '1.6rem',
+      isPonsel: !d,
+      isDesktop: d,
+      judul: this.props.judul ?? 'Produk Terkait',
+      kartu: butir.map((p) => ({ jenis: 'terkait', tata: d ? 'desktop' : 'ponsel', nama: p.n, varian: 'Tersedia ' + p.v + ' varian', foto: p.foto, alt: p.alt, href: p.href ?? href, teksKecil: !!this.props.teksKecil }))
+    };
+  }
+}
+</script>
+</body>
+</html>

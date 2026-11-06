@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Blog — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="ponsel" buka="{{ awasBuka }}" onTutup="{{ awasTutup }}" hint-size="100%,6rem"></dc-import>
+  <dc-import name="SiteHeader" tata="ponsel" sisiPonsel="var(--sisi-artikel)" hrefLogo="Artboard-pp1u.dc.html" hint-size="100%,5.6rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--talang)">
+    <div style="margin-top: var(--dalam)"><dc-import name="BlogHero" hint-size="100%,24.8rem"></dc-import></div>
+    <div style="margin-top: var(--dalam)"><dc-import name="BlogSection" gaya="lama" kepala="nyala" judul="ARTIKEL BARU" jenisBaris="baru" latarBaris="{{ true }}" deskripsi="{{ null }}" lihatHref="{{ null }}" baris="{{ artikelBaru }}" hint-size="100%,24.2rem"></dc-import></div>
+    <sc-if value="{{ cariAktif }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top: var(--seksi)"><dc-import name="BlogSearchResults" gaya="lama" hitung="{{ cariHitung }}" hasil="{{ hasil }}" hint-size="100%,30rem"></dc-import></div>
+    </sc-if>
+    <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{ seksi }}" as="x" hint-placeholder-count="5">
+        <div style="{{ x.gaya }}"><dc-import name="BlogSection" dc-props="{{ x.props }}" hint-size="100%,85rem"></dc-import></div>
+      </sc-for>
+    </sc-if>
+  </main>
+  <div style="margin-top: calc(var(--seksi) / 2)"><dc-import name="Footer" tata="ponsel" sisiPonsel="var(--sisi-artikel)" hrefKategori="#produk" sosial="{{ sosial }}" hint-size="100%,181rem"></dc-import></div>
+  <dc-import name="BottomGlassBar" jenis="blog" terbuka="{{ navOpen }}" cariTerbuka="{{ cariOpen }}" bantuanTerbuka="{{ bantuanOpen }}" kueri="{{ cariQ }}" onKetik="{{ cariKetik }}" onNav="{{ navToggle }}" onCari="{{ cariToggle }}" onBantuan="{{ bantuanToggle }}" hint-size="100%,5.2rem"></dc-import>
+  <dc-import name="SectionSheet" varian="kategori" terbuka="{{ navOpen }}" seksi="{{ lembarSeksi }}" onTutup="{{ navTutup }}" hint-size="33.6rem,6.8rem"></dc-import>
+  <dc-import name="HelpCentre" tata="ponsel" buka="{{ bantuanOpen }}" online="{{ online }}" formProps="{{ formBantu }}" chatProps="{{ chatBantu }}" onTutup="{{ bantuanTutup }}" hint-size="36rem,80rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  state = { awas: false, nav: false, kat: -1, cari: false, q: '', bantuan: false, gulir: false };
+  
+  renderVals() {
+    var self = this;
+    var s = this.state;
+    var BANNER = ['gambar', '/_blob/2d26f7e4c06bd13a1b14d8952b4a6262', 'Halo! Ada yang bisa kami bantu? Pilih salah satu layanan di bawah ini untuk terhubung dengan tim sales kami.'];
+    var ARTIKEL = [
+      ["Cara Quality Control Menghindari Penolakan Material Kementerian PUPR", "menghindari-penolakan-material-kementerian-pupr", "Berita Besi Baja", "5 Okt 2026", "/_blob/4a254e10b1f06660a1911ba3c813977f", "Panduan taktis bagi tim Quality Control kontraktor untuk mengukur deviasi diameter besi beton polos dan ulir agar lolos audit teknis PUPR."],
+      ["Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF", "perbedaan-h-beam-dan-wf", "Berita Besi Baja", "29 Jul 2026", "/_blob/e59baf3f84be4e49c58d026350c8d3ea", "Mengevaluasi perbedaan H Beam dan WF secara presisi adalah kewajiban mutlak bagi tim pengadaan material konstruksi. Kesalahan membedakan kedua baja profil ini m"],
+      ["Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien", "standarisasi-struktur-baja-bangunan-sekolah", "Berita Besi Baja", "25 Jul 2026", "/_blob/d9d55768978d94b71a7b932d82625603", "Keamanan fasilitas pendidikan dasar menuntut jaminan struktural mutlak dari para perancang konstruksi demi keselamatan jangka panjang. Bangunan fasilitas publik"],
+      ["Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh", "konstruksi-pelat-lantai-jalan-layang", "Berita Besi Baja", "14 Jul 2026", "/_blob/e5907f6a2d0576cfb96384f890f9e859", "Metode modern bekisting permanen bondek monolit dan kawat baja pracetak wiremesh terbukti mampu mempercepat durasi konstruksi pelat lantai jembatan layang hingg"],
+      ["Harga Besi Baja: Tren dan Cara Menyiasati Proyek", "memahami-pergerakan-harga-besi-baja", "Berita Besi Baja", "11 Jul 2026", "/_blob/a99bab86ecca79d21fcfe2eedcfe9f9d", "Memenangkan tender proyek pemerintah adalah target utama kontraktor. Namun, pergerakan harga besi baja nasional kerap mengancam margin keuntungan. Proyek jangka"],
+      ["Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!", "prediksi-harga-besi-2024-industri-konstruksi-dan-investasi-wajib-tau", "Berita Besi Baja", "2 Jul 2026", "/_blob/cc872e39be6f6e13f79dc4c7b6618ee8", "Besi merupakan salah satu komoditas terpenting di dunia, terutama dalam industri konstruksi. Kestabilan dan perkembangan sektor ini sangat bergantung pada harga"],
+      ["Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja", "tantangan-dan-peluang-penggunaan-artificial-intelligence-ai-dalam-fabrikasi-baja", "Industri Besi Baja", "9 Okt 2026", "/_blob/ebacf14138b3291bfebf9cf6bd58abe7", "Penggunaan Artificial Intelligence (AI) dalam fabrikasi baja berfokus pada pemanfaatan machine learning dan analisis prediktif untuk memodernisasi seluruh ranta"],
+      ["Pondasi Cakar Ayam | Solusi Stabilitas Konstruksi Bangunan", "pondasi-cakar-ayam-solusi-stabilitas-konstruksi-bangunan", "Industri Besi Baja", "7 Okt 2026", "/_blob/ad7dc9b9d4424d5a5bd2a607d35bc176", "Pondasi cakar ayam merupakan salah satu jenis pondasi yang inovatif dan sangat efektif digunakan pada berbagai jenis bangunan. Diciptakan oleh Prof. Dr. Ir. Sed"],
+      ["Pondasi Bangunan | Pengertian, Fungsi dan Jenisnya", "pondasi-bangunan-pengertian-fungsi-dan-jenisnya", "Industri Besi Baja", "7 Okt 2026", "/_blob/22f3a8bb1eb5fb29199f6081e1a46eff", "Pondasi merupakan elemen krusial dalam setiap konstruksi bangunan yang berfungsi menyalurkan beban dari struktur atas ke tanah di bawahnya. Pemilihan jenis pond"],
+      ["Cara Menghitung Kebutuhan Besi Hollow untuk Partisi", "cara-menghitung-kebutuhan-besi-hollow-untuk-partisi", "Industri Besi Baja", "6 Okt 2026", "/_blob/86929f2b06edc4d1ff8cd7af4d31b399", "Kunci utama dari cara menghitung kebutuhan besi hollow untuk partisi secara presisi adalah menjumlahkan total meter lari dari tiga komponen karkas: bingkai keli"],
+      ["Baja Karbon Rendah | Solusi Konstruksi Dan Komitmen ESG", "baja-karbon-rendah-solusi-konstruksi-dan-komitmen-esg", "Industri Besi Baja", "6 Okt 2026", "/_blob/4f1fe96368319017176ee4f14f4c4b69", "Setiap hari, kita dikelilingi oleh baja. Material ini menjadi kerangka kokoh bagi gedung-gedung pencakar langit, jembatan yang menghubungkan kota, hingga kendar"],
+      ["Cara Kontraktor Surabaya Mengatasi Selisih BOQ Besi Beton Proyek Sekolah", "cara-mengatasi-selisih-boq-besi-beton-proyek-sekolah", "Industri Besi Baja", "5 Okt 2026", "/_blob/543433e6f73f4e809da2a670fbd0133b", "Pasokan besi beton proyek sekolah merupakan elemen struktural paling kritis, namun pengadaannya sering kali memicu konflik akibat selisih volume antara perencan"],
+      ["Penerapan Besi Beton dalam Konstruksi Gedung Tinggi", "penerapan-besi-beton-dalam-konstruksi-gedung-tinggi", "Produk Besi", "9 Okt 2026", "/_blob/5bdea1f4eac5fa5d4975d50d933cabb1", "Penerapan besi beton dalam konstruksi gedung tinggi berfungsi secara krusial sebagai struktur tulangan penahan gaya tarik (tensile strength) yang melengkapi sif"],
+      ["Standar Presisi Potongan Besi Beton 12 Meter: Pengaruhnya pada Kekuatan Struktur", "presisi-potongan-besi-beton-12-meter", "Produk Besi", "8 Okt 2026", "/_blob/b125431aa461cf049d0be68b8e52f7d5", "Standar panjang besi beton di Indonesia ditetapkan sejauh 12 meter berdasarkan SNI 2052:2017, dengan toleransi ukuran minus 0 milimeter dan maksimal plus 70 mil"],
+      ["Besi Siku Adalah Solusi Rangka Atap Kuat dan Hemat Biaya", "besi-siku-adalah-solusi-rangka-atap-kuat", "Produk Besi", "7 Okt 2026", "/_blob/3433a598238478037523d700f1abd4fd", "Bayangkan Anda sedang membangun atau merenovasi properti impian. Perencanaan denah sudah sempurna, namun saat musim hujan tiba, Anda mulai cemas membayangkan ap"],
+      ["15 Bahan Bangunan Yang Populer dalam Konstruksi", "15-bahan-bangunan-yang-populer-dalam-konstruksi", "Produk Besi", "7 Okt 2026", "/_blob/3abcb3f6c419482423a5d7df6494d571", "Bagi para Mid-Tier Private General Contractors (GCs) dan firma design-build yang mengelola beberapa concurrent sites di koridor industri, tantangan terbesar di"],
+      ["Rangka Atap Besi Hollow vs Baja Ringan untuk Fasilitas Umum", "rangka-atap-besi-hollow-vs-baja-ringan", "Produk Besi", "7 Okt 2026", "/_blob/cfce69dd335e197b413949401ddd1e6b", "Memilih material atap untuk fasilitas umum seperti balai desa atau aula sekolah membutuhkan pertimbangan struktural yang matang. Keputusan yang salah tidak hany"],
+      ["Cara Memilih Besi Bangunan Terbaik, Sudah Tau?", "memilih-besi-bangunan", "Produk Besi", "5 Okt 2026", "/_blob/60b2c468d3553d8977e687cf91f4dac3", "Cara terbaik memilih besi bangunan agar struktur kokoh dan tahan lama adalah dengan memastikan material tersebut berstandar SNI (Standar Nasional Indonesia). Un"],
+      ["Mau Bisnis Sukses? Pahami Etika Bisnis dan Stakeholder Terlebih Dulu!", "mau-bisnis-sukses-pahami-etika-bisnis-dan-stakeholder-terlebih-dulu", "Team", "3 Jul 2026", "/_blob/7d9319fb9f5df07e952380182faa7ed4", "Di era bisnis modern, etika bisnis bukan lagi sekadar kepatuhan terhadap peraturan, melainkan telah menjadi aspek fundamental bagi operasional bisnis yang berke"],
+      ["Inspirasi Buku The Magic of Thinking Big | David J. Schwartz", "inspirasi-dari-buku-the-magic-of-thinking-big-david-j-schwartz", "Team", "22 Apr 2026", "/_blob/9970c1558c871042772107d2dc626f01", "Inspirasi buku kali ini, tidak peduli apakah tujuan hidup Anda sangat besar dan menakutkan atau cukup kecil dan dapat dicapai, kemungkinan Anda telah berpikir &"],
+      ["Kegiatan CSR SMS Perkasa di Panti Asuhan Bhakti Luhur Malang", "kegiatan-csr-pt-sms-perkasa-di-panti-asuhan-bhakti-luhur-malang", "Team", "6 Apr 2026", "/_blob/a016150dad6b16d26bfa00a087e0e559", "Sebagai bagian dari agenda tahunan, PT SMS Perkasa kembali melaksanakan kegiatan Corporate Social Responsibility (CSR) dengan mengunjungi Panti Asuhan Yayasan B"],
+      ["Yuk Intip!! 5 Hal Menarik Lingkungan Kerja di SMS Perkasa", "yuk-intip-5-hal-menarik-di-sms-perkasa", "Team", "31 Mar 2026", "/_blob/80c11fe02943972958454adb0f427512", "Hai Perkasa Partners! Salah satu faktor yang membuat seseorang merasa nyaman dengan tempat kerjanya adalah lingkungan kerja. Selain membuat nyaman, lingkungan k"],
+      ["Yuk Sadari Pentingnya Menghargai Keragaman di Dunia Kerja!", "yuk-sadari-pentingnya-menghargai-keragaman-di-dunia-kerja", "Team", "31 Mar 2026", "/_blob/31cc20bb39e8a704df5c146eb683f08f", "Sebagai makhluk sosial, tentu saja kita selalu dihadapkan dengan beragam jenis karakter kepribadian, latar belakang budaya, cara bergaul sampai pada pola pikir"],
+      ["Mengenali Kepemimpinan Efektif", "mengenali-kepemimpinan-efektif", "Team", "11 Feb 2026", "/_blob/28c17c04c9687d30b3ac4f7f81c6b815", "Perkasa Partner, kali ini kami akan mengulas tentang kepempimpinan. Salah satu kutipan menarik dari Rosalynn Carter, “seorang pemimpin biasa membawa orang"],
+      ["Jenis Alat Berat dalam Konstruksi dengan Teknologi Terbaru", "jenis-alat-berat-dalam-konstruksi-dengan-teknologi-terbaru", "Trivia", "9 Okt 2026", "/_blob/57976b71faf9dbc2a797dcfe29e8b46d", "Ragam jenis alat berat dalam konstruksi seperti excavator, loader, bulldozer, dan crane kini mengalami modernisasi signifikan melalui integrasi sistem kontrol o"],
+      ["Penerapan Besi Beton dalam Teknologi Green Building: Menuju Konstruksi yang Lebih Ramah Lingkungan", "penerapan-besi-beton-dalam-teknologi-green-building-menuju-konstruksi-yang-lebih-ramah-lingkungan", "Trivia", "9 Okt 2026", "/_blob/ef058aaffae1a9d13426f6417e078015", "Penerapan besi beton dalam teknologi green building berperan penting untuk menekan dampak lingkungan konstruksi melalui efisiensi energi massa termal, umur paka"],
+      ["Konstruksi Lantai Gudang Industri | Kuat, Halus, dan Berstandar SNI", "konstruksi-lantai-gudang-industri-kuat-halus-dan-berstandar-sni", "Trivia", "8 Okt 2026", "/_blob/025fbd964fbbad5e4588b358ee0c06f5", "Pernahkah Anda membayangkan apa yang terjadi jika pusat distribusi raksasa memiliki alas yang retak atau tidak rata? Dalam lanskap industri, lantai gudang bukan"],
+      ["Rumah Mewah Modern | Inspirasi Desain Hingga Material Terbaik", "rumah-mewah-modern-inspirasi-desain-hingga-material-terbaik", "Trivia", "8 Okt 2026", "/_blob/97ddd3aca0c654bec6553d78618928cf", "Pernahkah Anda terpukau melihat gambar rumah mewah di majalah atau media sosial dan bertanya-tanya, “Apa rahasia di baliknya?” Kemewahan sejati dala"],
+      ["5 Inspirasi Desain Rumah Tradisional Modern Estetik", "5-inspirasi-desain-rumah-tradisional-modern-estetik", "Trivia", "8 Okt 2026", "/_blob/10d51ac98a84499aec7d35dc816ed62e", "Pernahkah Anda merasa bosan dengan desain perumahan masa kini yang seragam kotak, minimalis, dan terkesan “dingin”? Di tengah gempuran tren arsitekt"],
+      ["Genteng Beton Terbaik untuk Atap Rumah Tahan Lama, Apa Iya?", "genteng-beton-terbaik-untuk-atap-rumah-tahan-lama-apa-iya", "Trivia", "7 Okt 2026", "/_blob/4cd8657dc9404e7f734b61a1c898ce16", "Genteng merupakan elemen penting dalam membangun hunian yang aman, nyaman, dan estetis. Salah satu jenis genteng yang semakin populer di kalangan arsitek dan pe"]
+    ];
+    var BULAN = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5, Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11 };
+    function waktu(tgl) {
+      var p = String(tgl).split(' ');
+      var b = BULAN[p[1]];
+      if (p.length !== 3 || b === undefined) { return 0; }
+      return new Date(parseInt(p[2], 10), b, parseInt(p[0], 10)).getTime();
+    }
+    function lalu(tgl) {
+      var t = waktu(tgl);
+      if (!t) { return tgl; }
+      var hari = Math.floor((Date.now() - t) / 86400000);
+      if (hari < 1) { return 'hari ini'; }
+      if (hari === 1) { return 'kemarin'; }
+      if (hari < 30) { return hari + ' hari yang lalu'; }
+      if (hari < 365) { return Math.floor(hari / 30) + ' bulan yang lalu'; }
+      return Math.floor(hari / 365) + ' tahun yang lalu';
+    }
+    var PENDEK = { 'Berita Besi Baja': 'Berita Baja', 'Industri Besi Baja': 'Industri Baja' };
+    function pendek(k) { return PENDEK[k] || k; }
+    function kartu(a) {
+      return {
+        judul: a[0],
+        href: 'SalinanArtikel2M3.dc.html',
+        target: '_self',
+        kategori: pendek(a[2]),
+        tanggal: a[3],
+        lalu: lalu(a[3]),
+        foto: a[4] || null,
+        ringkas: a[5],
+        ariaLabel: 'Artikel: ' + a[0] + ', ' + pendek(a[2]) + ', ' + a[3] + ', oleh Sofia, buka halaman artikel'
+      };
+    }
+    function kat(k) { return ARTIKEL.filter(function (a) { return a[2] === k; }).map(kartu); }
+    var URUT = ARTIKEL.slice().sort(function (a, c) { return waktu(c[3]) - waktu(a[3]); });
+    var qq = (s.q || '').trim().toLowerCase();
+    var HASIL = qq ? ARTIKEL.filter(function (a) { return a[0].toLowerCase().indexOf(qq) !== -1; }) : [];
+    var SEKSI = [
+      { i: 0, id: 'kat-berita', judul: 'Berita Baja', deskripsi: 'Perkembangan industri, kebijakan dan pergerakan harga besi baja.', kunci: 'Berita Besi Baja' },
+      { i: 1, id: 'kat-industri', judul: 'Industri Baja', deskripsi: 'Teknologi produksi, metode konstruksi dan praktik di lapangan.', kunci: 'Industri Besi Baja' },
+      { i: 2, id: 'kat-produk', judul: 'Produk Besi', deskripsi: 'Jenis, ukuran dan penggunaan tiap produk besi dan baja.', kunci: 'Produk Besi' },
+      { i: 3, id: 'kat-team', judul: 'Team', deskripsi: 'Budaya kerja, kegiatan dan pengembangan tim SMS Perkasa.', kunci: 'Team' },
+      { i: 4, id: 'kat-trivia', judul: 'Trivia', deskripsi: 'Serba-serbi desain, hunian dan fakta menarik seputar konstruksi.', kunci: 'Trivia' }
+    ];
+    var seksi = SEKSI.map(function (x, n) {
+      return {
+        gaya: 'margin-top: ' + (n === 0 ? 'var(--seksi)' : 'calc(var(--seksi) / 2)') + (n === SEKSI.length - 1 ? '' : '; padding-bottom: calc(var(--seksi) / 2)'),
+        props: { gaya: 'lama', id: x.id, judul: x.judul, deskripsi: x.deskripsi, baris: kat(x.kunci) }
+      };
+    });
+    var d = new Date();
+    var menit = d.getHours() * 60 + d.getMinutes();
+    var hari = d.getDay();
+    var online = hari !== 0 && menit >= 510 && menit < (hari === 6 ? 840 : 1020);
+    return {
+      seksi: seksi,
+      sosial: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { label: l, href: '#sosial' }; }),
+      awasBuka: s.awas,
+      awasTutup: function () { self.setState({ awas: false }); },
+      online: online,
+      formBantu: { gaya: 'blog', bannerJenis: BANNER[0], bannerGambar: BANNER[1], bannerAlt: BANNER[2], ajakan: 'Yuk isi form dibawah ini \u{1F609}', ajakanIkon: false },
+      chatBantu: { gaya: 'blog' },
+      artikelBaru: URUT.slice(0, 3).map(kartu),
+      navOpen: s.nav,
+      navToggle: function () { self.setState({ nav: !s.nav }); },
+      navTutup: function () { self.setState({ nav: false }); },
+      cariOpen: s.cari,
+      cariQ: s.q,
+      cariToggle: function () { self.setState({ cari: !s.cari, q: s.cari ? '' : s.q, bantuan: false, nav: false }); },
+      cariKetik: function (v) { self.setState({ q: v }); },
+      cariAktif: !!qq,
+      indeksTampil: !qq,
+      hasil: HASIL.map(kartu),
+      cariHitung: HASIL.length + ' artikel cocok dengan "' + qq + '"',
+      bantuanOpen: s.bantuan,
+      bantuanToggle: function () { self.setState({ bantuan: !s.bantuan, nav: false }); },
+      bantuanTutup: function () { self.setState({ bantuan: false }); },
+      lembarSeksi: [
+        { id: 'kat-berita', label: 'Berita Baja', ikon: 'berita' },
+        { id: 'kat-industri', label: 'Industri Baja', ikon: 'pabrik' },
+        { id: 'kat-produk', label: 'Produk Besi', ikon: 'balok' },
+        { id: 'kat-team', label: 'Team', ikon: 'tim' },
+        { id: 'kat-trivia', label: 'Trivia', ikon: 'lampu' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

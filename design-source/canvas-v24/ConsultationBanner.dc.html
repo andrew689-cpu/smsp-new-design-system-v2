@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ConsultationBanner</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+  <div style="display: flex; align-items: stretch; gap: 0; min-height: 14.8rem">
+    <span style="flex-shrink: 0; width: 40%; align-self: stretch; border-radius: var(--card); overflow: hidden; background: var(--line); display: block">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="{{ muatM }}" style="width: 120%; height: 100%; margin-left: -20%; object-fit: cover; object-position: 50% 42%; display: block">
+    </span>
+    <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--rapat)">
+      <p style="margin: 0; font-size: var(--teks-unit-lg); line-height: var(--tinggi-spanduk); font-weight: var(--bobot-bold); color: var(--ink); text-align: left; word-break: normal; -webkit-hyphens: none; hyphens: none">
+        <sc-for list="{{ baris }}" as="b" hint-placeholder-count="3"><span style="display: block">{{ b }}</span></sc-for>
+      </p>
+      <dc-import name="Button" variant="kecil" label="{{ label }}" href="{{ href }}" hint-size="16rem,3rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isGambar }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ alt }}" style="display: block">
+    <img src="{{ foto }}" alt="{{ alt }}" style="width: 100%; height: auto; display: block; border-radius: 0.5rem">
+  </a>
+</sc-if>
+<sc-if value="{{ isStaf }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" style="{{ gayaStaf }}">
+    <span style="flex: 0 0 13.4rem; box-sizing: border-box; padding-left: 1.4rem; align-self: flex-end; display: block">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="{{ muat }}" style="width: 100%; height: auto; display: block">
+    </span>
+    <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem 1.2rem">
+      <div style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+        <p style="{{ gayaStafTeks }}"><sc-for list="{{ baris }}" as="b" hint-placeholder-count="1"><span style="display: block">{{ b }}</span></sc-for></p>
+        <span style="align-self: flex-start; box-sizing: border-box; min-height: 2.6rem; padding: 0.4rem 1.5rem; border-radius: 0.2rem; background: var(--brand); color: var(--surface); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); text-align: center; display: flex; align-items: center; justify-content: center">{{ label }}</span>
+      </div>
+    </div>
+    <sc-if value="{{ isGelap }}" hint-placeholder-val="{{ false }}">
+      <span aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 2rem; background: var(--kons-tirai); pointer-events: none"></span>
+    </sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="display: flex; align-items: stretch; gap: 0; min-height: 18rem; border-radius: var(--quote); overflow: hidden">
+    <span style="display: block; width: 34%; flex-shrink: 0; overflow: hidden">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="{{ muat }}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+    </span>
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.8rem; padding: 2.8rem 3.6rem">
+      <p style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); color: var(--ink); line-height: var(--tinggi-sempit); word-break: normal; -webkit-hyphens: none; hyphens: none">
+        <sc-for list="{{ baris }}" as="b" hint-placeholder-count="3"><span style="display: block">{{ b }}</span></sc-for>
+      </p>
+      <dc-import name="Button" variant="spanduk" label="{{ label }}" href="{{ href }}" hint-size="36rem,6rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"rupa":{"editor":"enum","options":["bawaan","gambar","staf"],"default":"bawaan","section":"Resep"},"nada":{"editor":"enum","options":["terang","gelap"],"default":"terang","section":"Resep"},"baris":{"editor":null,"tsType":"string|string[]"},"foto":{"editor":"text","default":"","section":"Isi"},"alt":{"editor":"text","default":"","section":"Isi"},"muat":{"editor":"text","default":"","section":"Isi"},"label":{"editor":"text","default":"Konsultasi Sekarang","section":"Isi"},"href":{"editor":"text","default":"#whatsapp","section":"Isi"},"isi":{"editor":"enum","options":["konsultasi","beranda","penawaran","butuh","temukan"],"default":"konsultasi","section":"Isi"},"$preview":{"width":330,"height":150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const rupa = this.props.rupa ?? 'bawaan';
+    const gelap = this.props.nada === 'gelap';
+    const d = tata === 'desktop';
+    const isi = this.props.isi ?? 'konsultasi';
+    const altStaf = 'Staf sales SMS Perkasa berambut panjang, berkaus merah bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan';
+    const ISI = {
+      konsultasi: { b: ['Cek ketersediaan stok', 'dan estimasi pengiriman', 'untuk proyekmu'], f: '/_blob/70fa270c0d20fb5923a3557ecde3c3c4', a: altStaf },
+      beranda: { b: ['Tanya Kebutuhan Besi Proyekmu, Dibalas Kurang dari 10 Menit'], f: '/_blob/70fa270c0d20fb5923a3557ecde3c3c4', a: altStaf },
+      penawaran: { b: d ? ['Cari ukuran atau', 'spesifikasi besi lainnya?'] : ['Cari ukuran atau spesifikasi besi lainnya?'], f: '/_blob/9d29a67feb67999003f7cde57e92fab0', a: 'Sales SMS Perkasa berkaus merah bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan' },
+      butuh: gelap
+        ? { b: ['Butuh Rekomendasi Material yang Tepat untuk Proyek Anda?'], f: '/_blob/d2b23d9cf824bcd14c2be44d6db72470', a: 'Staf sales SMS Perkasa berkaus hitam bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan' }
+        : { b: ['Butuh Rekomendasi Material yang Tepat untuk Proyek Anda?'], f: '/_blob/2e03c9e2c75464a8c3455ab3b5c6d11e', a: 'Staf sales SMS Perkasa berkaus hitam bertuliskan SMS Perkasa Team, tersenyum sambil memberi salam dengan kedua telapak tangan dirapatkan' },
+      temukan: { b: ['Temukan Solusi Tepat untuk Kebutuhan Baja Proyek Anda'], f: '/_blob/d2b23d9cf824bcd14c2be44d6db72470', a: 'Staf sales SMS Perkasa berkaus hitam bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan' },
+      gambar: { b: [], f: '/_blob/a0ce4f3517f22b858c309d65e3ce5f1e', a: 'Pastikan Kebutuhan Besi Proyek Anda Aman! Dapatkan penawaran terbaik hari ini! Konsultasi Sekarang' }
+    };
+    const pilihan = ISI[rupa === 'gambar' ? 'gambar' : isi] || ISI.konsultasi;
+    const b = this.props.baris ?? pilihan.b;
+    const muatBawaan = rupa === 'bawaan' ? (isi === 'beranda' && !d ? 'lazy' : 'eager') : (isi === 'temukan' ? 'eager' : 'lazy');
+    const muat = this.props.muat || muatBawaan;
+    return {
+      muatM: muat,
+      isMobile: tata === 'ponsel' && rupa === 'bawaan',
+      isDesktop: tata === 'desktop' && rupa === 'bawaan',
+      isGambar: rupa === 'gambar',
+      isStaf: rupa === 'staf',
+      isGelap: gelap,
+      gayaStaf: 'position: relative; box-sizing: border-box; display: flex; align-items: stretch; gap: 0; min-height: 20.1rem; overflow: hidden; text-decoration: none; ' + (gelap ? 'background: var(--kons-gelap); color: var(--surface)' : 'background: var(--surface); color: var(--ink)'),
+      gayaStafTeks: 'margin: 0; font-size: var(--teks-spanduk-staf); line-height: var(--tinggi-baca); font-weight: var(--bobot-bold); color: ' + (gelap ? 'var(--surface)' : 'var(--ink)') + '; text-align: left; word-break: normal; -webkit-hyphens: none; hyphens: none',
+      baris: Array.isArray(b) ? b : [b],
+      foto: this.props.foto || pilihan.f,
+      alt: this.props.alt || pilihan.a,
+      muat,
+      label: this.props.label ?? 'Konsultasi Sekarang',
+      href: this.props.href ?? '#whatsapp'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogRow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBaru }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: flex-start; column-gap: 0; color: var(--ink)">
+    <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-right: calc(var(--rapat) / 2)">
+      <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      </sc-if>
+    </span>
+    <span style="min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+      <span title="{{ lalu }}" style="display: block; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)">{{ tanggal }}</span>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isTerkait }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; color: var(--ink)">
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.6rem; margin-right: calc(var(--rapat) / 2)">
+      <span style="font-size: var(--teks-body); line-height: var(--tinggi-artikel); font-weight: var(--bobot-semibold); color: var(--ink)">{{ judul }}</span>
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ ringkas }}</span>
+    </span>
+    <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="chevron-kanan" hint-size="1.8rem,1.8rem"></dc-import></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isIndeksM }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: center; column-gap: 0; box-sizing: border-box; padding: 0; color: var(--ink)">
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.8rem; margin-right: calc(var(--rapat) / 2)">
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+      <span style="margin-top: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: var(--tinggi-lega); font-weight: var(--bobot-light); color: var(--ink-2)">{{ ringkas }}</span>
+      <span title="{{ lalu }}" style="margin-top: 0; display: block; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)">{{ tanggal }}</span>
+    </span>
+    <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="chevron-kanan" hint-size="1.8rem,1.8rem"></dc-import></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isIndeksLama }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: flex-start; column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+    <span style="min-width: 0; flex-grow: 1; display: block; margin-right: calc(var(--rapat) / 2)">
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+      <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: var(--tinggi-lega); font-weight: var(--bobot-light); color: var(--ink-2)">{{ ringkas }}</span>
+      <span title="{{ lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)">{{ tanggal }}</span>
+    </span>
+    <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      </sc-if>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isIndeksKartu }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: center; column-gap: 0; box-sizing: border-box; padding: 1rem var(--rapat) 1rem 0; border-radius: var(--card); background: transparent; box-shadow: none; color: var(--ink)">
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; margin-right: calc(var(--rapat) / 2)">
+      <sc-if value="{{ kategoriTampil }}" hint-placeholder-val="{{ true }}">
+        <span style="font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--brand)">{{ kategori }}</span>
+      </sc-if>
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: var(--tinggi-baris-judul); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+      <span style="margin-top: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: var(--tinggi-rapat); font-weight: var(--bobot-light); color: var(--ink-2)">{{ ringkas }}</span>
+      <span title="{{ lalu }}" style="margin-top: 0; display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)"><dc-import name="Icon" ikon="kalender" hint-size="1.3rem,1.3rem"></dc-import>{{ tanggal }}</span>
+    </span>
+    <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: 0"><dc-import name="Icon" ikon="chevron-kanan" hint-size="1.8rem,1.8rem"></dc-import></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isIndeksD }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="display: flex; align-items: flex-start; column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0 0 0; color: var(--ink)">
+    <span style="flex-shrink: 0; width: 12rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: grid; place-items: center; margin-right: calc(var(--rapat) / 2)">
+      <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ foto }}" alt="{{ judul }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+      </sc-if>
+    </span>
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.6rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold)">{{ judul }}</span>
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-lead); line-height: var(--tinggi-lega); font-weight: var(--bobot-light); color: var(--ink-2)">{{ ringkas }}</span>
+      <sc-if value="{{ metaTampil }}" hint-placeholder-val="{{ false }}">
+        <span aria-hidden="true" style="display: flex; align-items: center; column-gap: 0; font-size: var(--teks-body)">
+          <span style="font-weight: var(--bobot-semibold); color: var(--ink-2); margin-right: 0.35rem">{{ kategori }}</span>
+          <span style="flex-shrink: 0; width: 0.1rem; height: 1.1rem; background: var(--ink-4); margin-left: 0.35rem; margin-right: 0.35rem"></span>
+          <span title="{{ tanggal }}" style="font-weight: var(--bobot-light); color: var(--ink-2); margin-left: 0.35rem; margin-right: 0.35rem">{{ lalu }}</span>
+        </span>
+      </sc-if>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isSamping }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ ariaLabel }}" style="display: flex; align-items: flex-start; column-gap: 0; box-sizing: border-box; padding: var(--rapat) 0; color: var(--ink)">
+    <span style="flex-shrink: 0; width: 9.6rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; margin-right: calc(var(--rapat) / 2)">
+      <img src="{{ foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+    </span>
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.6rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold)">{{ judul }}</span>
+      <span aria-hidden="true" style="display: flex; align-items: center; column-gap: 0; font-size: var(--teks-meta)">
+        <span style="font-weight: var(--bobot-semibold); color: var(--ink-2); margin-right: 0.35rem">{{ kategori }}</span>
+        <span style="flex-shrink: 0; width: 0.1rem; height: 1.1rem; background: var(--ink-4); margin-left: 0.35rem; margin-right: 0.35rem"></span>
+        <span style="font-weight: var(--bobot-light); color: var(--ink-2); margin-left: 0.35rem; margin-right: 0.35rem">{{ tanggal }}</span>
+      </span>
+    </span>
+  </a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["baru","indeks","samping","terkait"],"default":"baru"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"metaTampil":{"editor":"boolean","default":false},"gaya":{"editor":"enum","options":["lama","kartu"]},"kategoriTampil":{"editor":"boolean","default":true},"judul":{"editor":null},"ringkas":{"editor":null},"kategori":{"editor":null},"tanggal":{"editor":null},"lalu":{"editor":null},"foto":{"editor":null},"href":{"editor":null},"target":{"editor":null},"ariaLabel":{"editor":null},"$preview":{"width":330,"height":90}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'baru';
+    const desktop = this.props.tata === 'desktop';
+    const judul = this.props.judul ?? 'Cara Quality Control Menghindari Penolakan Material Kementerian PUPR';
+    const kategori = this.props.kategori ?? 'Berita Baja';
+    const tanggal = this.props.tanggal ?? '5 Okt 2026';
+    const foto = this.props.foto === undefined ? '/_blob/4a254e10b1f06660a1911ba3c813977f' : this.props.foto;
+    return {
+      isBaru: jenis === 'baru',
+      isTerkait: jenis === 'terkait',
+      isIndeksM: jenis === 'indeks' && !desktop && !this.props.gaya,
+      isIndeksLama: jenis === 'indeks' && !desktop && this.props.gaya === 'lama',
+      isIndeksKartu: jenis === 'indeks' && !desktop && this.props.gaya === 'kartu',
+      kategoriTampil: this.props.kategoriTampil ?? true,
+      isIndeksD: jenis === 'indeks' && desktop,
+      isSamping: jenis === 'samping',
+      metaTampil: !!this.props.metaTampil,
+      judul,
+      kategori,
+      tanggal,
+      ringkas: this.props.ringkas ?? 'Panduan taktis bagi tim Quality Control kontraktor untuk mengukur deviasi diameter besi beton.',
+      lalu: this.props.lalu ?? '29 hari yang lalu',
+      foto,
+      adaFoto: !!foto,
+      href: this.props.href ?? '#',
+      target: this.props.target ?? '_self',
+      ariaLabel: this.props.ariaLabel ?? 'Artikel: ' + judul + ', ' + kategori + ', ' + tanggal + (jenis === 'samping' ? '' : ', oleh Sofia') + ', buka halaman artikel'
+    };
+  }
+}
+</script>
+</body>
+</html>

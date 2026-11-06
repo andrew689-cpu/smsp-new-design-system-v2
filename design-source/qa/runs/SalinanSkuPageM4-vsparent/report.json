@@ -1,0 +1,107 @@
+{
+ "board": "SalinanSkuPageM4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": false,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": false,
+  "pixels": true
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 3200,
+   "new": 3200,
+   "delta": 0
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [
+   {
+    "text": "Besi Hollow 40 × 40 × 1,8 mm × 6 M [STD, NB]",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgb(215, 1, 0)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow 40 × 40 × 2,3 mm × 6 M [STD, NB]",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgb(215, 1, 0)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow 40 × 60 × 2 mm × 6 M [STD, NB]",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgb(215, 1, 0)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow 30 × 30 × 2 mm × 6 M [STD, NB]",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgb(215, 1, 0)"
+     ]
+    }
+   }
+  ],
+  "type_styles_count": 4,
+  "pixels": {
+   "pct": 0.1,
+   "orig_size": [
+    360,
+    3200
+   ],
+   "new_size": [
+    360,
+    3200
+   ],
+   "first_y_over_0.5pct": 1800,
+   "worst_bands_y_pct": [
+    [
+     1800,
+     1.5
+    ],
+    [
+     2600,
+     0.06
+    ],
+    [
+     2400,
+     0.04
+    ]
+   ]
+  }
+ }
+}

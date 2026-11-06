@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CategoryChipRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ true }}">
+  <div data-kat-rel="1" style="overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity">
+    <div data-kat-set="1" style="position: relative; width: max-content; display: flex; align-items: stretch; column-gap: 0">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+        <span style="{{ c.wadah }}"><dc-import name="Chip" dc-props="{{ c.chip }}" hint-size="9.6rem,5.2rem"></dc-import></span>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisi }}" hint-placeholder-val="{{ false }}">
+  <div data-set="{{ set }}" style="display: grid; grid-template-columns: {{ kolom }}; row-gap: 0; column-gap: 0">
+    <sc-for list="{{ chips }}" as="c" hint-placeholder-count="3">
+      <span style="{{ c.wadah }}"><dc-import name="Chip" dc-props="{{ c.chip }}" hint-size="100%,6.2rem"></dc-import></span>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kategori","bagian"],"default":"kategori","section":"Resep"},"set":{"editor":"enum","options":["bagian","pintu"],"default":"bagian","section":"Resep"},"kolom":{"editor":"text","default":"","section":"Resep"},"butir":{"editor":null,"section":"Isi","tsType":"Array<{id?:string,label:string,ikon?:string,href?:string}>"},"nilai":{"editor":null,"section":"Keadaan"},"onPilih":{"editor":null},"$preview":{"width":336,"height":70}}'>
+class Component extends DCLogic {
+  state = { kat: null };
+  renderVals() {
+    const bagian = this.props.jenis === 'bagian';
+    const pintu = this.props.set === 'pintu';
+    const BAWAAN = {
+      kategori: [
+        { id: 'kat-baru', label: 'Artikel Baru', ikon: 'nyala' },
+        { id: 'kat-berita', label: 'Berita Baja', ikon: 'berita' },
+        { id: 'kat-industri', label: 'Industri Baja', ikon: 'pabrik' },
+        { id: 'kat-produk', label: 'Produk Besi', ikon: 'balok' },
+        { id: 'kat-team', label: 'Team', ikon: 'tim' },
+        { id: 'kat-trivia', label: 'Trivia', ikon: 'lampu' }
+      ],
+      bagian: [
+        { id: 's-ringkas', label: 'Info', ikon: 'info' },
+        { id: 's-faq', label: 'FAQ', ikon: 'tanya' },
+        { id: 's-ulasan', label: 'Ulasan', ikon: 'bintang-garis' }
+      ]
+    };
+    const butir = this.props.butir ?? (bagian ? BAWAAN.bagian : BAWAAN.kategori);
+    const kini = this.props.nilai ?? this.state.kat ?? (bagian && butir.length ? butir[0].id : null);
+    const perBaris = 3;
+    const n = butir.length;
+    const chips = butir.map((b, i) => {
+      const pilih = (e) => {
+        this.setState({ kat: b.id });
+        if (this.props.onPilih) this.props.onPilih(b.id, e);
+      };
+      const wadah = bagian
+        ? '--tunda: ' + (pintu ? '125ms' : (70 + i * 55) + 'ms') + '; display: flex; width: 100%; min-width: 0; box-sizing: border-box; margin: ' + (i < perBaris ? '0' : '0.3rem') + ' 0.3rem ' + (i >= n - perBaris ? '0' : '0.3rem') + ' ' + (i === 0 ? '0' : '0.3rem')
+        : '--tunda: ' + (15 + i * 55) + 'ms; display: flex; flex-shrink: 0; scroll-snap-align: center; margin-left: ' + (i === 0 ? '0' : '0.3rem') + '; margin-right: 0.3rem';
+      return {
+        wadah,
+        chip: { jenis: bagian ? 'bagian' : 'kategori', label: b.label, ikon: b.ikon, href: b.href ?? '#' + b.id, terpilih: kini === b.id, onPress: pilih }
+      };
+    });
+    return {
+      isRel: !bagian,
+      isKisi: bagian,
+      set: pintu ? 'pintu' : 'bagian',
+      kolom: this.props.kolom || 'repeat(' + n + ', minmax(0, 1fr))',
+      chips
+    };
+  }
+}
+</script>
+</body>
+</html>

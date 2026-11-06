@@ -1,0 +1,301 @@
+
+### font-size resolved
+canon m total=565 distinct=16: 14.0px×227, 13.0px×89, 11.0px×73, 12.0px×54, 20.0px×49, 10.0px×26, 16.0px×11, 62.5%×8, 28.0px×8, 17.0px×5, 9.5px×4, 23.0px×4, 8.0px×3, 30.0px×2, 15.0px×1, var(--teks-chip)×1
+canon d total=547 distinct=20: 13.0px×141, 20.0px×127, 14.0px×111, 11.0px×52, 26.0px×27, 12.0px×22, 22.0px×11, 16.0px×10, 44.0px×10, 62.5%×8, 29.0px×7, 10.0px×6, 18.0px×5, 35.0px×3, 8.0px×2, 30.0px×1, 9.5px×1, 56.0px×1, 32.0px×1, 60.0px×1
+all m total=2000 distinct=22: 14.0px×764, 13.0px×338, 11.0px×250, 12.0px×217, 20.0px×155, 10.0px×106, 16.0px×43, 28.0px×26, 62.5%×24, 23.0px×20, 17.0px×12, 9.5px×10, 8.0px×10, 15.0px×7, 30.0px×5, 19.0px×4, 24.0px×2, 33.0px×2, 32.0px×2, 34.0px×1, 38.0px×1, var(--teks-chip)×1
+all d total=830 distinct=21: 13.0px×206, 14.0px×172, 20.0px×172, 11.0px×103, 12.0px×43, 26.0px×36, 22.0px×18, 44.0px×14, 16.0px×13, 62.5%×10, 29.0px×10, 18.0px×9, 10.0px×6, 35.0px×6, 8.0px×4, 30.0px×2, 9.5px×2, 17.0px×1, 56.0px×1, 32.0px×1, 60.0px×1
+
+### font-size token vs literal
+canon m total=565 distinct=2: token×477, literal×88
+canon d total=547 distinct=2: token×467, literal×80
+all m total=2000 distinct=2: token×1462, literal×538
+all d total=830 distinct=2: token×719, literal×111
+
+### font-size LITERAL values only
+canon m total=88 distinct=10: 12.0px×40, 16.0px×11, 20.0px×10, 62.5%×8, 14.0px×6, 23.0px×4, 8.0px×3, 13.0px×3, 30.0px×2, 15.0px×1
+canon d total=80 distinct=12: 12.0px×22, 13.0px×17, 14.0px×13, 16.0px×10, 62.5%×8, 35.0px×3, 8.0px×2, 56.0px×1, 32.0px×1, 60.0px×1, 26.0px×1, 22.0px×1
+all m total=538 distinct=21: 12.0px×156, 14.0px×114, 13.0px×71, 20.0px×48, 16.0px×34, 62.5%×24, 23.0px×20, 11.0px×16, 8.0px×10, 15.0px×7, 28.0px×7, 17.0px×5, 9.5px×5, 30.0px×5, 10.0px×4, 19.0px×4, 24.0px×2, 33.0px×2, 32.0px×2, 34.0px×1, 38.0px×1
+all d total=111 distinct=12: 12.0px×43, 13.0px×17, 16.0px×13, 14.0px×13, 62.5%×10, 35.0px×6, 8.0px×4, 56.0px×1, 32.0px×1, 60.0px×1, 26.0px×1, 22.0px×1
+
+### font-size tokens used raw
+canon m total=477 distinct=9: var(--teks-body)×221, var(--teks-meta)×86, var(--teks-tiny)×73, var(--teks-section)×39, var(--teks-micro)×26, var(--teks-chip)×15, var(--teks-page)×8, var(--teks-price)×5, var(--teks-sup)×4
+canon d total=467 distinct=13: var(--teks-lead)×127, var(--teks-meta)×124, var(--teks-body)×98, var(--teks-tiny)×52, var(--teks-section-md)×26, var(--teks-display)×10, var(--teks-cta)×7, var(--teks-micro)×6, var(--teks-subsection)×5, var(--teks-subhead)×5, var(--teks-price-lg)×5, var(--teks-section-lg)×1, var(--teks-sup)×1
+all m total=1462 distinct=10: var(--teks-body)×650, var(--teks-meta)×267, var(--teks-tiny)×234, var(--teks-section)×107, var(--teks-micro)×102, var(--teks-chip)×62, var(--teks-page)×19, var(--teks-seksi)×9, var(--teks-price)×7, var(--teks-sup)×5
+all d total=719 distinct=14: var(--teks-meta)×189, var(--teks-lead)×172, var(--teks-body)×159, var(--teks-tiny)×103, var(--teks-section-md)×35, var(--teks-display)×14, var(--teks-cta)×10, var(--teks-subhead)×9, var(--teks-price-lg)×9, var(--teks-subsection)×8, var(--teks-micro)×6, var(--teks-section-lg)×2, var(--teks-sup)×2, var(--teks-advantage)×1
+
+### font-weight resolved
+canon m total=422 distinct=7: 700×206, 500×84, 600×56, 800×28, 300×25, 900×14, 400×9
+canon d total=435 distinct=7: 700×185, 500×121, 600×57, 300×36, 800×17, 900×14, 400×5
+all m total=1532 distinct=7: 700×760, 500×271, 600×199, 800×113, 300×100, 900×45, 400×44
+all d total=637 distinct=7: 700×279, 500×166, 600×93, 300×43, 800×34, 900×16, 400×6
+
+### line-height
+canon m total=362 distinct=14: 1.35×181, 1.2×79, 1.45×39, 1.3×26, 1.25×11, 1.4×5, 1×4, 1.04×4, 1.13×4, 2rem×4, 1.5×2, 1.1×1, 1.12×1, 0.9×1
+canon d total=282 distinct=16: 1.2×89, 1.35×70, 1.45×31, 1.3×29, 1.5×20, 1.25×19, 1.1×7, 1.55×4, 1.6×4, 1.65×2, 1×2, 1.15×1, 1.4×1, 1.06×1, 0.9×1, 0.95×1
+all m total=1333 distinct=28: 1.35×562, 1.2×263, 1.45×139, 1.3×135, 1.25×41, 1.16×21, 1.4×20, 1.04×20, 1.13×20, 1.5×19, 2rem×16, 1×14, 1.6rem×13, 1.5rem×9, 1.6×7, 1.1×6, 1.8rem×6, 1.15×5, 3.3rem×3, 1.3rem×3, 3.6rem×3, 1.12×2, 0×1, 120%×1, 140%×1, 150%×1, 1.4rem×1, 0.9×1
+all d total=445 distinct=16: 1.2×150, 1.35×127, 1.45×49, 1.3×34, 1.25×25, 1.5×25, 1.1×12, 1.6×7, 1.55×6, 1×3, 1.65×2, 1.15×1, 1.4×1, 1.06×1, 0.9×1, 0.95×1
+
+### letter-spacing
+canon m total=94 distinct=14: 0.12em×29, 0.06em×18, 0.01em×10, 0.1em×8, 0.12rem×7, 0.02em×6, -0.01em×4, 0.1rem×4, 0.08em×3, 0.04em×1, -0.04rem×1, 0.2em×1, -0.02rem×1, -0.06rem×1
+canon d total=78 distinct=10: 0.1em×30, 0.06em×13, 0.01em×10, 0.12rem×8, 0.02em×7, -0.01em×5, -0.08rem×2, 0.12em×1, -0.14rem×1, 0.08em×1
+all m total=313 distinct=15: 0.12em×97, 0.06em×73, 0.01em×32, 0.12rem×23, 0.1em×20, 0.1rem×16, 0.02em×14, 0.08em×14, -0.01em×12, -0.04rem×3, -0.02rem×3, 0×3, 0.04em×1, 0.2em×1, -0.06rem×1
+all d total=112 distinct=10: 0.1em×43, 0.06em×21, 0.01em×15, 0.02em×11, 0.12rem×10, -0.01em×5, -0.08rem×4, 0.12em×1, -0.14rem×1, 0.08em×1
+
+### font-family
+canon m total=27 distinct=3: inherit×16, -apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-×8, var(--font-harga)×3
+canon d total=28 distinct=3: inherit×16, -apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-×8, var(--font-harga)×4
+all m total=83 distinct=3: inherit×50, -apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-×24, var(--font-harga)×9
+all d total=36 distinct=3: inherit×20, -apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-×10, var(--font-harga)×6
+
+### text-transform
+canon m total=65 distinct=1: uppercase×65
+canon d total=51 distinct=1: uppercase×51
+all m total=228 distinct=2: uppercase×226, none×2
+all d total=73 distinct=1: uppercase×73
+
+### font-variant-numeric/feature
+canon m total=34 distinct=1: tabular-nums×34
+canon d total=25 distinct=1: tabular-nums×25
+all m total=93 distinct=1: tabular-nums×93
+all d total=46 distinct=1: tabular-nums×46
+
+### padding*
+canon m total=829 distinct=27: 0.0×257, 14.0×100, 12.0×98, 15.0×80, 4.0×52, 10.0×50, 6.0×49, 16.0×30, 20.0×22, 8.0×18, 5.0×14, 18.0×10, 3.0×7, 2.0×7, 250.0×6, 13.0×6, 5.5×4, 26.0×4, 11.0×3, 22.0×3, 7.0×3, 42.0×1, 24.0×1, 140.0×1, clamp(3rem, 3.75svh, 4rem)×1, 120.0×1, 40.0×1
+canon d total=668 distinct=28: 0.0×148, 120.0×108, 12.0×69, 14.0×63, 30.0×42, 4.0×31, 6.0×28, 20.0×23, 10.0×22, 16.0×20, 18.0×16, 36.0×16, 40.0×12, 11.0×10, 56.0×10, 8.0×9, 22.0×8, 28.0×7, 13.0×6, 60.0×3, 2.0×3, 3.0×3, 24.0×3, 26.0×3, 64.0×2, 7.0×1, 9.0×1, 48.0×1
+all m total=2952 distinct=32: 0.0×844, 14.0×388, 12.0×386, 4.0×222, 10.0×216, 15.0×199, 6.0×177, 16.0×147, 20.0×98, 8.0×76, 5.0×34, 2.0×27, 13.0×23, 250.0×21, 18.0×21, 3.0×13, 11.0×8, 5.5×7, 26.0×6, clamp(3rem, 3.75svh, 4rem)×5, 22.0×5, calc(clamp(6rem, 7.5svh, 8rem) / 2)×5, 7.0×4, 28.0×4, 21.0×4, 42.0×3, 30.0×3, 120.0×2, 24.0×1, 140.0×1, 36.0×1, 40.0×1
+all d total=1052 distinct=28: 0.0×222, 120.0×151, 12.0×124, 14.0×123, 30.0×62, 4.0×49, 6.0×49, 10.0×40, 16.0×36, 20.0×30, 36.0×24, 18.0×20, 40.0×17, 11.0×15, 8.0×15, 56.0×13, 13.0×12, 22.0×9, 28.0×9, 2.0×6, 3.0×6, 60.0×5, 24.0×5, 26.0×3, 7.0×2, 9.0×2, 64.0×2, 48.0×1
+
+### margin*
+canon m total=1850 distinct=34: 0.0×453, 6.0×389, 4.0×209, 3.0×128, 5.0×111, 10.0×70, 4.5×58, 1.0×51, 20.0×51, 15.0×50, clamp(6rem, 7.5svh, 8rem)×42, 2.5×34, 2.0×28, 7.5×26, 8.0×23, auto×17, 7.0×17, 9.0×16, 3.5×12, 12.0×11, 13.0×9, 14.0×9, 16.0×8, 24.0×7, 0.5×6, calc(auto + 0.5rem)×4, -20%×3, 28.0×2, 30.0×1, clamp(3rem, 3.75svh, 4rem)×1, calc(auto + 0.4rem)×1, 18.0×1, 40.0×1, 11.0×1
+canon d total=2037 distinct=33: 0.0×424, 6.0×298, 8.0×241, 5.0×171, 3.0×138, 4.0×126, 12.0×124, 30.0×86, 10.0×72, 3.5×70, 20.0×70, 1.0×40, 4.5×36, 24.0×30, 2.0×19, auto×13, 28.0×9, 7.0×9, 60.0×8, 36.0×8, 48.0×8, 2.5×8, 16.0×8, 11.0×4, 18.0×3, 14.0×3, 120.0×2, 9.0×2, 1.5×2, 22.0×2, 33.0×1, 13.0×1, 32.0×1
+all m total=6238 distinct=41: 0.0×1575, 6.0×1330, 4.0×702, 3.0×418, 5.0×332, 10.0×215, 4.5×181, 15.0×152, clamp(6rem, 7.5svh, 8rem)×138, 1.0×137, 2.0×136, 20.0×132, 2.5×122, 7.5×110, 7.0×74, 8.0×73, auto×66, 13.0×48, 12.0×44, 3.5×42, 9.0×32, 14.0×29, 40.0×25, 0.5×21, 16.0×18, calc(auto + 0.5rem)×16, 24.0×16, 22.0×8, -20%×7, 28.0×7, clamp(3rem, 3.75svh, 4rem)×5, 18.0×5, calc(clamp(6rem, 7.5svh, 8rem) / 2)×5, 32.0×4, 36.0×4, 11.0×3, calc(auto + 0.4rem)×2, 30.0×1, 25.0×1, 23.0×1, calc(auto + 0.6rem)×1
+all d total=3011 distinct=33: 0.0×610, 6.0×479, 8.0×347, 5.0×265, 4.0×224, 3.0×204, 12.0×156, 10.0×109, 20.0×102, 30.0×102, 3.5×86, 1.0×63, 4.5×56, 24.0×47, 2.0×38, 2.5×16, auto×15, 28.0×14, 16.0×12, 36.0×10, 48.0×10, 7.0×9, 60.0×8, 18.0×5, 14.0×5, 120.0×4, 11.0×4, 13.0×2, 32.0×2, 9.0×2, 1.5×2, 22.0×2, 33.0×1
+
+### gap*
+canon m total=674 distinct=20: 0.0×278, 12.0×117, 6.0×53, 8.0×48, 10.0×37, 2.0×23, 15.0×20, 4.0×20, 5.0×19, 9.0×17, 3.0×14, 4.5×8, 20.0×7, 30.0×3, 16.0×3, 1.0×2, 7.0×2, 28.0×1, 14.0×1, 2.5×1
+canon d total=703 distinct=25: 0.0×301, 12.0×65, 6.0×50, 10.0×49, 16.0×37, 8.0×35, 4.0×22, 7.0×20, 5.0×18, 2.0×17, 24.0×16, 3.0×15, 3.5×12, 9.0×11, 20.0×8, 4.5×8, 48.0×5, 18.0×5, 56.0×2, 14.0×2, 60.0×1, 40.0×1, 22.0×1, 1.0×1, 32.0×1
+all m total=2317 distinct=22: 0.0×929, 12.0×382, 6.0×193, 8.0×140, 10.0×129, 5.0×112, 4.0×95, 15.0×85, 9.0×54, 2.0×49, 3.0×47, 4.5×28, 20.0×27, 30.0×11, 7.0×9, 1.0×8, 16.0×7, 14.0×5, 2.5×3, 28.0×2, 22.0×1, 26.0×1
+all d total=1071 distinct=25: 0.0×443, 12.0×108, 10.0×76, 6.0×66, 16.0×62, 8.0×56, 4.0×38, 5.0×30, 7.0×27, 2.0×27, 3.0×22, 9.0×21, 24.0×20, 3.5×18, 4.5×16, 20.0×11, 48.0×8, 18.0×8, 56.0×3, 14.0×3, 40.0×2, 22.0×2, 1.0×2, 60.0×1, 32.0×1
+
+### ALL spacing
+canon m total=3353 distinct=41: 0.0×988, 6.0×491, 4.0×281, 12.0×226, 10.0×157, 15.0×150, 3.0×149, 5.0×144, 14.0×110, 8.0×89, 20.0×80, 4.5×66, 2.0×58, 1.0×53, clamp(6rem, 7.5svh, 8rem)×42, 16.0×41, 2.5×35, 9.0×33, 7.5×26, 7.0×22, auto×17, 13.0×15, 3.5×12, 18.0×11, 24.0×8, 0.5×6, 250.0×6, 5.5×4, 30.0×4, 11.0×4, 26.0×4, calc(auto + 0.5rem)×4, -20%×3, 28.0×3, 22.0×3, clamp(3rem, 3.75svh, 4rem)×2, 40.0×2, 42.0×1, 140.0×1, 120.0×1, calc(auto + 0.4rem)×1
+canon d total=3408 distinct=37: 0.0×873, 6.0×376, 8.0×285, 12.0×258, 5.0×189, 4.0×179, 3.0×156, 10.0×143, 30.0×128, 120.0×110, 20.0×101, 3.5×82, 14.0×68, 16.0×65, 24.0×49, 4.5×44, 1.0×41, 2.0×39, 7.0×30, 18.0×24, 36.0×24, 28.0×16, 11.0×14, 48.0×14, 9.0×14, auto×13, 40.0×13, 60.0×12, 56.0×12, 22.0×11, 2.5×8, 13.0×7, 26.0×3, 32.0×2, 1.5×2, 64.0×2, 33.0×1
+all m total=11507 distinct=48: 0.0×3348, 6.0×1700, 4.0×1019, 12.0×812, 10.0×560, 5.0×478, 3.0×478, 15.0×436, 14.0×422, 8.0×289, 20.0×257, 2.0×212, 4.5×209, 16.0×172, 1.0×145, clamp(6rem, 7.5svh, 8rem)×138, 2.5×125, 7.5×110, 7.0×87, 9.0×86, 13.0×71, auto×66, 3.5×42, 18.0×26, 40.0×26, 0.5×21, 250.0×21, 24.0×17, calc(auto + 0.5rem)×16, 30.0×15, 22.0×14, 28.0×13, 11.0×11, clamp(3rem, 3.75svh, 4rem)×10, calc(clamp(6rem, 7.5svh, 8rem) / 2)×10, 5.5×7, -20%×7, 26.0×7, 36.0×5, 32.0×4, 21.0×4, 42.0×3, 120.0×2, calc(auto + 0.4rem)×2, 140.0×1, 25.0×1, 23.0×1, calc(auto + 0.6rem)×1
+all d total=5134 distinct=37: 0.0×1275, 6.0×594, 8.0×418, 12.0×388, 4.0×311, 5.0×295, 3.0×232, 10.0×225, 30.0×164, 120.0×155, 20.0×143, 14.0×131, 16.0×110, 3.5×104, 24.0×72, 4.5×72, 2.0×71, 1.0×65, 7.0×38, 36.0×34, 18.0×33, 9.0×25, 28.0×23, 11.0×19, 40.0×19, 48.0×19, 56.0×16, 2.5×16, auto×15, 60.0×14, 13.0×14, 22.0×13, 32.0×3, 26.0×3, 1.5×2, 64.0×2, 33.0×1
+
+### spacing grid fit (numeric, non-zero)
+canon m base 2 68.7% ; canon m base 4 31.9% ; canon m base 8 6.1% ; canon m base 5 23.7% ; canon m base 3 46.8% ; canon m base 6 32.3% ; distinct 34 total 2296 fraction px 149
+canon d base 2 76.7% ; canon d base 4 45.3% ; canon d base 8 21.9% ; canon d base 5 27.6% ; canon d base 3 46.2% ; canon d base 6 39.5% ; distinct 35 total 2522 fraction px 136
+all m base 2 70.8% ; all m base 4 33.1% ; all m base 8 6.4% ; all m base 5 22.7% ; all m base 3 45.3% ; all m base 6 32.6% ; distinct 39 total 7909 fraction px 514
+all d base 2 77.0% ; all d base 4 44.9% ; all d base 8 21.2% ; all d base 5 26.4% ; all d base 3 45.0% ; all d base 6 38.3% ; distinct 35 total 3844 fraction px 194
+
+### spacing token vs literal
+canon m total=2736 distinct=2: literal×1932, token×804
+canon d total=2822 distinct=2: literal×2218, token×604
+all m total=9384 distinct=2: literal×6806, token×2578
+all d total=4245 distinct=2: literal×3388, token×857
+
+### spacing tokens raw
+canon m total=825 distinct=12: var(--rapat)×501, var(--dalam)×110, var(--talang)×51, var(--sisi)×45, var(--jarak-y-dalam)×44, var(--jarak-y-antar)×41, var(--selokan-ubin)×10, var(--jarak-x-dua)×9, var(--selokan-sempit)×8, var(--jarak-x-tiga)×3, var(--jarak-y-antar-rapat)×2, var(--seksi)×1
+canon d total=692 distinct=7: var(--rapat)×366, var(--seksi)×140, var(--dalam)×81, var(--sisi)×69, var(--footer-jarak)×16, var(--selokan-dalam)×12, var(--footer-pad)×8
+all m total=2669 distinct=12: var(--rapat)×1625, var(--dalam)×374, var(--talang)×206, var(--jarak-y-dalam)×171, var(--jarak-y-antar)×128, var(--sisi)×72, var(--selokan-ubin)×28, var(--seksi)×20, var(--jarak-x-dua)×17, var(--jarak-x-tiga)×10, var(--jarak-y-antar-rapat)×10, var(--selokan-sempit)×8
+all d total=986 distinct=7: var(--rapat)×583, var(--seksi)×178, var(--sisi)×99, var(--dalam)×84, var(--footer-jarak)×20, var(--selokan-dalam)×12, var(--footer-pad)×10
+
+### max-width
+canon m total=46 distinct=7: 100%×28, calc(100% - 13.6rem)×8, 86%×4, calc(100% - 2.4rem)×3, 16.634rem×1, 16.416rem×1, none×1
+canon d total=25 distinct=4: 100%×19, 86%×4, 30rem×1, 52rem×1
+all m total=166 distinct=14: 100%×79, calc(100% - 13.6rem)×40, 86%×14, calc(100% - 2.4rem)×11, 16.634rem×3, 16.416rem×3, none×3, 123rem×3, 20rem×3, 25rem×3, 14.6rem×1, 50rem×1, 41rem×1, 23rem×1
+all d total=39 distinct=4: 100%×28, 86%×8, 52rem×2, 30rem×1
+
+### min-width
+canon m total=128 distinct=3: 0×125, 1.8rem×2, 52rem×1
+canon d total=87 distinct=3: 0×84, 4rem×2, 52rem×1
+all m total=392 distinct=6: 0×376, 52rem×6, 1.8rem×4, 32rem×3, 1.6rem×2, 16rem×1
+all d total=135 distinct=3: 0×131, 4rem×3, 52rem×1
+
+### width
+canon m total=379 distinct=49: 100%×103, 4.4rem×42, 4rem×36, 1.8rem×28, 36rem×21, 2.4rem×12, 5.2rem×10, 0.1rem×10, 3.2rem×9, 0×9, 7rem×8, 0.8rem×7, 3.5rem×6, 9.6rem×6, 3.4rem×5, 40%×4, 1.4rem×4, 0.7rem×4, 4.8rem×4, 3.6rem×4, auto×4, 2.8rem×3, 120%×3, 33.6rem×3, 2.2rem×3, 5rem×2, 48%×2, 1.6rem×2, 0.3rem×2, max-content×2, 2rem×2, 80%×2, 8rem×1, 0.2rem×1, calc(100% + 5rem)×1, 75rem×1, 73.2rem×1, 0.9rem×1, 23.2rem×1, 1.2rem×1
+canon d total=309 distinct=45: 100%×90, 0.1rem×28, 4.4rem×26, 4rem×26, 1.8rem×20, 144rem×10, 3.6rem×10, 3.8rem×9, 7rem×8, 0.4rem×7, 3.2rem×6, 12rem×6, 0.8rem×5, 3.4rem×5, 7.2rem×5, 3.3rem×4, 9.6rem×3, fit-content×3, 34%×3, 5rem×2, 1.6rem×2, 8.4rem×2, 5.2rem×2, 2.4rem×2, 2.6rem×2, 36rem×2, 2.8rem×2, dynamic×2, 0.2rem×1, calc(100% + 5rem)×1, 75rem×1, 73.2rem×1, calc((100% - 2 * 1.2rem) / 3)×1, 5.6rem×1, 0.9rem×1, 23.2rem×1, 1.2rem×1, 1.5rem×1, 0.5rem×1, 3.5rem×1
+all m total=1303 distinct=56: 100%×378, 4.4rem×137, 4rem×117, 1.8rem×95, 36rem×61, 2.4rem×45, 5.2rem×39, 0.1rem×39, 9.6rem×35, 7rem×28, 3.2rem×25, 0.8rem×25, 0×25, 3.5rem×21, auto×20, 2rem×16, 3.6rem×15, 33.6rem×11, 2.2rem×11, 40%×10, 3.4rem×10, 6.4rem×10, 4.8rem×9, 2.5rem×9, 5rem×8, 48%×7, 120%×7, 1.4rem×7, 0.7rem×7, 0.3rem×7, max-content×7, 2.8rem×6, 3.8rem×5, 15rem×5, 8rem×4, 0.2rem×4, calc(100% + 5rem)×4, 75rem×4, 73.2rem×4, 1.6rem×4
+all d total=505 distinct=46: 100%×153, 4rem×50, 4.4rem×45, 1.8rem×40, 0.1rem×38, 7rem×16, 144rem×14, 3.6rem×14, 3.8rem×11, 3.4rem×10, 0.8rem×9, 7.2rem×9, 3.3rem×8, 3.2rem×7, 0.4rem×7, fit-content×6, 12rem×6, 34%×5, 8.4rem×4, 5.2rem×4, 2.4rem×4, 2.6rem×4, 36rem×4, 9.6rem×3, 2.8rem×3, 5rem×2, 1.6rem×2, 0.9rem×2, 23.2rem×2, 1.2rem×2, 1.5rem×2, 0.5rem×2, 3.5rem×2, 2rem×2, dynamic×2, 0.2rem×1, calc(100% + 5rem)×1, 75rem×1, 73.2rem×1, calc((100% - 2 * 1.2rem) / 3)×1
+
+### height
+canon m total=274 distinct=36: 4.4rem×48, 100%×40, 4rem×36, 1.1rem×26, 0.1rem×14, 3.2rem×11, 5.2rem×10, 1.4rem×10, 0.8rem×9, 5.6rem×7, 3.5rem×6, auto×5, 3.4rem×5, 3.6rem×5, 2.8rem×4, 0.7rem×4, 4.8rem×4, 2.2rem×4, 5rem×3, 1.2rem×3, 5.4rem×2, 1.8rem×2, 0.3rem×2, 4.6rem×2, 8rem×1, 0.9rem×1, 1.5rem×1, 1.6rem×1, 10.2rem×1, 0.5rem×1, 2.4rem×1, 4.2rem×1, 2rem×1, 3.8rem×1, 0.4rem×1, 0.6rem×1
+canon d total=238 distinct=31: 100%×36, 4rem×29, 4.4rem×27, 1.1rem×26, 0.1rem×18, 7.2rem×14, 3.6rem×11, 3.2rem×9, 3.8rem×9, 4.6rem×8, 2rem×8, 0.8rem×6, auto×5, 5rem×4, 3.4rem×4, 1.9rem×4, 2.2rem×2, 6.4rem×2, 5.2rem×2, 0.5rem×2, 6.75rem×2, 9.6rem×1, 5.6rem×1, 1.8rem×1, 0.9rem×1, 1.2rem×1, 1.5rem×1, 25rem×1, 3.5rem×1, 2.8rem×1, 0.7rem×1
+all m total=942 distinct=40: 4.4rem×156, 100%×143, 4rem×121, 1.1rem×91, 0.1rem×50, 5.2rem×39, 1.4rem×39, 3.2rem×33, 0.8rem×31, 5.6rem×24, auto×24, 3.5rem×21, 2.2rem×17, 3.6rem×16, 1.2rem×13, 5rem×12, 2.8rem×10, 3.4rem×10, 4.8rem×9, 2.5rem×9, 5.4rem×7, 0.7rem×7, 2rem×7, 0.3rem×7, 1.8rem×6, 1.6rem×5, 3.8rem×5, 4.6rem×5, 8rem×4, 0.9rem×3, 10.2rem×3, 0.5rem×3, 0.6rem×3, 6.4rem×2, 15.8rem×2, 1.5rem×1, 2.4rem×1, 4.2rem×1, fit-content×1, 0.4rem×1
+all d total=381 distinct=31: 100%×56, 4rem×55, 4.4rem×48, 1.1rem×45, 0.1rem×30, 7.2rem×21, 3.6rem×15, 3.2rem×11, 3.8rem×11, 0.8rem×11, 4.6rem×10, 2rem×10, 3.4rem×8, 1.9rem×8, auto×6, 5rem×4, 6.4rem×4, 5.2rem×4, 2.2rem×3, 0.5rem×3, 1.8rem×2, 0.9rem×2, 1.2rem×2, 1.5rem×2, 25rem×2, 3.5rem×2, 6.75rem×2, 9.6rem×1, 5.6rem×1, 2.8rem×1, 0.7rem×1
+
+### min-height
+canon m total=174 distinct=18: 4.4rem×40, 0×31, 7.6rem×26, 4rem×18, 4.8rem×11, 100vh×8, 3rem×7, 5.6rem×7, 3.6rem×6, 5.2rem×6, 14.8rem×4, 8.4rem×2, 3.5rem×2, 3.4rem×2, 5.8rem×1, 2.8rem×1, 3.2rem×1, 6.2rem×1
+canon d total=216 distinct=18: 4.4rem×111, 0×20, 4rem×15, 7.6rem×15, 3rem×9, 100vh×8, 5.2rem×8, 2rem×7, 3.2rem×4, 4.8rem×4, 18rem×3, 3.6rem×3, 8.1rem×2, 58.727rem×2, 2.4rem×2, 12.9rem×1, 5.6rem×1, 6rem×1
+all m total=585 distinct=23: 4.4rem×138, 0×101, 7.6rem×91, 4rem×66, 5.2rem×35, 4.8rem×30, 100vh×24, 3.6rem×17, 3rem×13, 5.6rem×13, 14.8rem×10, 3.5rem×7, 3.4rem×7, 6.2rem×6, 8.4rem×5, 2.6rem×5, 5.8rem×4, 3.2rem×4, 20.1rem×4, 6.4rem×2
+all d total=335 distinct=18: 4.4rem×157, 0×40, 7.6rem×30, 4rem×23, 3rem×15, 100vh×10, 5.2rem×10, 3.2rem×8, 4.8rem×8, 2rem×7, 3.6rem×6, 18rem×5, 58.727rem×4, 2.4rem×4, 6rem×3, 8.1rem×2, 5.6rem×2, 12.9rem×1
+
+### grid-template-columns
+canon m total=11 distinct=5: repeat(2, minmax(0, 1fr))×4, repeat(3, minmax(0, 1fr))×3, dynamic×2, repeat(4, minmax(0, 1fr))×1, repeat(1, minmax(0, 1fr))×1
+canon d total=50 distinct=15: repeat(2, minmax(0, 1fr))×15, minmax(0, 1.4fr) repeat(3, minmax(0, 1fr))×8, repeat(3, minmax(0, 1fr))×6, repeat(6, minmax(0, 1fr))×4, repeat(4, minmax(0, 1fr))×3, minmax(0, 1fr)×3, 25% minmax(0, 1fr)×2, auto×2, minmax(0, 8fr) minmax(0, 4fr)×1, repeat(5, minmax(0, 1fr))×1, minmax(0, 1fr) minmax(0, 1fr)×1, minmax(0, 1fr) 20%×1, minmax(0, 1fr) 20% auto×1, minmax(0, 1fr) 44%×1, 28% minmax(0, 1fr)×1
+all m total=30 distinct=5: repeat(2, minmax(0, 1fr))×11, repeat(3, minmax(0, 1fr))×10, dynamic×5, repeat(4, minmax(0, 1fr))×3, repeat(1, minmax(0, 1fr))×1
+all d total=72 distinct=15: repeat(2, minmax(0, 1fr))×20, minmax(0, 1.4fr) repeat(3, minmax(0, 1fr))×10, repeat(3, minmax(0, 1fr))×9, repeat(6, minmax(0, 1fr))×6, repeat(4, minmax(0, 1fr))×5, minmax(0, 1fr)×5, auto×4, 25% minmax(0, 1fr)×3, minmax(0, 1fr) 20%×2, minmax(0, 1fr) 20% auto×2, minmax(0, 1fr) 44%×2, minmax(0, 8fr) minmax(0, 4fr)×1, repeat(5, minmax(0, 1fr))×1, minmax(0, 1fr) minmax(0, 1fr)×1, 28% minmax(0, 1fr)×1
+
+### flex (basis)
+canon m total=33 distinct=6: 1 1 0×18, 1.5 1 0×8, 0 0 48%×2, 4 1 0×2, 0 0 45%×2, 0 0 30%×1
+canon d total=13 distinct=2: 1 1 0×11, 0 0 23%×2
+all m total=102 distinct=11: 1 1 0×49, 1.5 1 0×20, 1 1 auto×6, 4 1 0×5, 0 0 30%×4, 0 0 48%×4, 0 0 13.4rem×4, 0 1 auto×4, 0 0 calc(1.5rem - 1.4rem)×2, 0 0 52%×2, 0 0 45%×2
+all d total=23 distinct=2: 1 1 0×19, 0 0 23%×4
+
+### display
+canon m total=948 distinct=7: flex×439, block×287, grid×137, inline-flex×49, -webkit-box×22, none×9, inline-block×5
+canon d total=864 distinct=7: flex×321, block×228, grid×156, inline-flex×136, -webkit-box×16, none×6, inline-block×1
+all m total=3376 distinct=7: flex×1536, block×1056, grid×424, inline-flex×213, -webkit-box×109, none×33, inline-block×5
+all d total=1336 distinct=7: flex×508, block×366, grid×241, inline-flex×191, -webkit-box×18, none×11, inline-block×1
+
+### position
+canon m total=255 distinct=4: absolute×114, relative×112, fixed×20, sticky×9
+canon d total=164 distinct=4: absolute×81, relative×55, sticky×25, fixed×3
+all m total=901 distinct=4: relative×407, absolute×403, fixed×59, sticky×32
+all d total=286 distinct=4: absolute×139, relative×104, sticky×37, fixed×6
+
+### aspect-ratio
+canon m total=27 distinct=11: 360 / 150×10, 4 / 3×6, 16 / 9×3, 1200 / 400×1, 2000 / 971×1, 560 / 365×1, 1447 / 1087×1, 3 / 2×1, 1170 / 675×1, 1 / 1×1, 1448 / 1086×1
+canon d total=33 distinct=11: 4 / 3×12, 360 / 150×8, 1 / 1×3, 16 / 9×3, 1713 / 1105×1, 1200 / 400×1, 2000 / 971×1, 560 / 365×1, 1447 / 1087×1, 1170 / 675×1, 1448 / 1086×1
+all m total=103 distinct=14: 360 / 150×35, 4 / 3×27, 16 / 9×14, 1 / 1×7, 2000 / 971×4, 1447 / 1087×3, 1170 / 675×3, 1200 / 400×2, auto×2, 1448 / 1086×2, 560 / 365×1, 3 / 2×1, 1713 / 1105×1, 146 / 130×1
+all d total=48 distinct=11: 360 / 150×16, 4 / 3×15, 16 / 9×4, 1 / 1×3, 1447 / 1087×2, 1170 / 675×2, 1448 / 1086×2, 1713 / 1105×1, 1200 / 400×1, 2000 / 971×1, 560 / 365×1
+
+### object-fit
+canon m total=44 distinct=3: cover×36, contain×6, dynamic×2
+canon d total=45 distinct=3: cover×36, dynamic×5, contain×4
+all m total=139 distinct=3: cover×121, contain×16, dynamic×2
+all d total=67 distinct=3: cover×51, dynamic×10, contain×6
+
+### overflow
+canon m total=137 distinct=4: hidden×83, auto×33, break-word×12, anywhere×9
+canon d total=97 distinct=4: hidden×72, auto×18, break-word×5, anywhere×2
+all m total=505 distinct=4: hidden×296, auto×124, anywhere×43, break-word×42
+all d total=153 distinct=4: hidden×108, auto×33, break-word×8, anywhere×4
+
+### scroll-snap
+canon m total=16 distinct=4: center×6, start×5, x mandatory×4, x proximity×1
+canon d total=7 distinct=2: start×4, x mandatory×3
+all m total=65 distinct=4: center×35, start×13, x mandatory×11, x proximity×6
+all d total=10 distinct=2: start×6, x mandatory×4
+
+### border-radius resolved px
+canon m total=294 distinct=13: 999.0×133, 5.0×44, 50%×41, 16.0×29, 9.0×19, 14.0×12, 26.0×4, 18.0×4, 4.0×2, calc(0.9rem - 0.1rem)×2, 8.0×2, 2.0×1, 12.0×1
+canon d total=231 distinct=14: 999.0×73, 5.0×55, 9.0×33, 50%×23, 16.0×18, 14.0×13, 18.0×4, 0.0×2, 20.0×2, 14.0 14.0 14.0 4.0×2, 14.0 14.0 4.0 14.0×2, 26.0×2, 2.0×1, calc(0.9rem - 0.1rem)×1
+all m total=1004 distinct=17: 999.0×428, 50%×147, 5.0×126, 16.0×99, 14.0×56, 9.0×49, 10.0×22, 18.0×14, 26.0×13, 8.0×12, 12.0×11, 4.0×10, 22.0×7, 2.0×6, calc(0.9rem - 0.1rem)×2, 0.0×1, 28.0 28.0 0.0 0.0×1
+all d total=391 distinct=14: 999.0×127, 5.0×84, 9.0×49, 50%×46, 16.0×36, 14.0×19, 18.0×6, 0.0×4, 20.0×4, 14.0 14.0 14.0 4.0×4, 14.0 14.0 4.0 14.0×4, 26.0×4, 2.0×2, calc(0.9rem - 0.1rem)×2
+
+### border-radius tokens raw
+canon m total=294 distinct=10: var(--pill)×133, LITERAL×47, var(--sheet)×29, var(--tile)×28, var(--action)×19, var(--control)×16, var(--card)×12, var(--island)×4, var(--quote)×4, calc(var(--action) - 0.1rem)×2
+canon d total=231 distinct=12: var(--pill)×73, var(--tile)×42, var(--action)×33, LITERAL×28, var(--sheet)×18, var(--card)×13, var(--control)×13, var(--quote)×4, var(--card) var(--card) var(--card) 0.4rem×2, var(--card) var(--card) 0.4rem var(--card)×2, var(--island)×2, calc(var(--action) - 0.1rem)×1
+all m total=1004 distinct=10: var(--pill)×426, LITERAL×240, var(--sheet)×99, var(--tile)×79, var(--card)×46, var(--control)×46, var(--action)×43, var(--quote)×14, var(--island)×9, calc(var(--action) - 0.1rem)×2
+all d total=391 distinct=12: var(--pill)×127, var(--tile)×59, LITERAL×56, var(--action)×49, var(--sheet)×36, var(--control)×25, var(--card)×19, var(--quote)×6, var(--card) var(--card) var(--card) 0.4rem×4, var(--card) var(--card) 0.4rem var(--card)×4, var(--island)×4, calc(var(--action) - 0.1rem)×2
+
+### border (all)
+canon m total=119 distinct=9: 0×99, 0.1rem solid #ececec×11, 0.1rem solid #dfe4f0×3, 0.15rem solid #d4d4d4×1, 0.4rem solid #0a0a0a×1, 0.2rem solid #ececec×1, 0.2rem solid #ffffff×1, 0.15rem solid #ffffff×1, 0.1rem solid #d4d4d4×1
+canon d total=87 distinct=9: 0×54, 0.1rem solid #ececec×19, 0.1rem solid transparent×6, 0.1rem solid #0a0a0a×3, 0.1rem solid #d4d4d4×1, 0.15rem solid #d4d4d4×1, 0.5rem solid #0a0a0a×1, 0.2rem solid #D70100×1, 0.2rem solid #ffffff×1
+all m total=391 distinct=15: 0×331, 0.1rem solid #ececec×28, 0.1rem solid #d4d4d4×6, 0.3rem solid transparent×4, 0.1rem solid #dfe4f0×3, 0.15rem solid #d4d4d4×3, 0.2rem solid #ececec×3, 0.1rem solid #ffffff×3, 0.5rem solid #0a0a0a×2, 0.2rem solid #0a0a0a×2, 0.15rem solid #0a0a0a×2, 0.4rem solid #0a0a0a×1, 0.2rem solid #ffffff×1, 0.15rem solid #ffffff×1, 0.1rem solid rgba(255,255,255,0.22)×1
+all d total=151 distinct=9: 0×95, 0.1rem solid #ececec×30, 0.1rem solid transparent×12, 0.1rem solid #0a0a0a×5, 0.15rem solid #d4d4d4×2, 0.5rem solid #0a0a0a×2, 0.2rem solid #D70100×2, 0.2rem solid #ffffff×2, 0.1rem solid #d4d4d4×1
+
+### border-width
+canon m total=6 distinct=2: 0.1rem×4, 0.2rem×2
+canon d total=1 distinct=1: 0.1rem×1
+all m total=26 distinct=2: 0.1rem×20, 0.2rem×6
+all d total=2 distinct=1: 0.1rem×2
+
+### box-shadow raw
+canon m total=124 distinct=21: var(--cair-rim), var(--cair-bayang)×45, 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)×24, 0 -0.1rem 0 var(--line)×12, inset 0 0 0 0.1rem var(--line)×9, inset 0 0 0 0.1rem rgba(17,25,33,0.11)×6, var(--el-2)×6, inset 0 -0.1rem 0 var(--line)×3, var(--bayang-kartu)×2, inset 0 0 0 0.1rem rgba(17,25,33,0.10), inset 0 0.5rem 0.8rem -0.3rem rgba(17,25,33,0.30), inset 0 -0.25rem 0.×2, var(--kaca-bayang)×2, 0 0.1rem 0.3rem rgba(17,25,33,0.28)×2, inset 0 0 0 0.1rem #ecdcfe×2, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12), 0 0.1rem 0.1rem rgba(17,25,33,0.07)×1, 0 0 0 0.1rem rgba(17,25,33,0.08), 0 1.2rem 3rem -0.8rem rgba(17,25,33,0.26)×1, -0.1rem -0.1rem 0 rgba(17,25,33,0.06)×1, 0 0.1rem 0 var(--line)×1, inset 0.3rem 0 0 rgba(255, 30, 0)×1, inset 0.3rem 0 0 var(--line-kuat)×1, 0 0.6rem 1.8rem rgba(0,0,0,0.14)×1, 0 0 0 0.1rem rgba(17,25,33,0.06), 0 1rem 2.6rem -1.2rem rgba(17,25,33,0.26)×1, 0 0 0 0.1rem rgba(17,25,33,0.11)×1
+canon d total=100 distinct=17: var(--cair-rim), var(--cair-bayang)×32, 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)×17, inset 0 0 0 0.1rem var(--line)×15, inset 0 -0.1rem 0 var(--line)×9, 0 -0.1rem 0 var(--line)×8, var(--el-2)×3, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12)×2, var(--cair-rim), 0 0.1rem 0 rgba(17,25,33,0.06)×2, 0 2rem 4.8rem -1.4rem rgba(17,25,33,0.34), 0 0.2rem 0.8rem rgba(17,25,33,0.12)×2, 0 0.1rem 0.3rem rgba(17,25,33,0.28)×2, var(--cair-rim-chip), var(--cair-bayang-chip)×2, inset 0.3rem 0 0 var(--line-kuat)×1, 0 0 0 0.1rem rgba(17,25,33,0.08), 0 1.2rem 3rem -0.8rem rgba(17,25,33,0.26)×1, -0.1rem -0.1rem 0 rgba(17,25,33,0.06)×1, var(--cair-rim)×1, 0 0 0 0.1rem rgba(17,25,33,0.06), 0 1rem 2.6rem -1.2rem rgba(17,25,33,0.28)×1, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.14)×1
+all m total=485 distinct=29: var(--cair-rim), var(--cair-bayang)×169, 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)×84, none×65, 0 -0.1rem 0 var(--line)×37, inset 0 0 0 0.1rem var(--line)×29, inset 0 -0.1rem 0 var(--line)×13, 0 0 0 0.1rem rgba(0,0,0,0.06), 0 0.2rem 0.8rem rgba(0,0,0,0.10), 0 1rem 2.8rem rgba(0,0,0,0.16)×10, var(--el-2)×8, var(--kaca-rim), var(--kaca-bayang)×8, 0 0.1rem 0.3rem rgba(17,25,33,0.28)×7, inset 0 0 0 0.1rem #ecdcfe×7, inset 0.3rem 0 0 var(--line-kuat)×6, inset 0 0 0 0.1rem rgba(17,25,33,0.11)×6, var(--kaca-bayang)×5, inset 0.3rem 0 0 rgba(255, 30, 0)×4, 0 0.6rem 1.8rem rgba(0,0,0,0.14)×4, 0 0 0 0.2rem var(--surface)×4, 0 0 0 0.2rem #ffffff×4, var(--bayang-kartu)×2, inset 0 0 0 0.1rem rgba(17,25,33,0.10), inset 0 0.5rem 0.8rem -0.3rem rgba(17,25,33,0.30), inset 0 -0.25rem 0.×2, 0 0.1rem 0.2rem rgba(0,0,0,0.12)×2, 0.1rem 0.4rem 0.6rem 0.1rem rgba(88,88,88,0.1)×2, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12), 0 0.1rem 0.1rem rgba(17,25,33,0.07)×1, 0 0 0 0.1rem rgba(17,25,33,0.08), 0 1.2rem 3rem -0.8rem rgba(17,25,33,0.26)×1, -0.1rem -0.1rem 0 rgba(17,25,33,0.06)×1, 0 0.1rem 0 var(--line)×1, 0 0.4rem 1.2rem rgba(11,39,75,0.12), 0 0.1rem 0.3rem rgba(11,39,75,0.08)×1, 0 0 0 0.1rem rgba(17,25,33,0.06), 0 1rem 2.6rem -1.2rem rgba(17,25,33,0.26)×1, 0 0 0 0.1rem rgba(17,25,33,0.11)×1
+all d total=181 distinct=17: var(--cair-rim), var(--cair-bayang)×63, 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)×34, inset 0 0 0 0.1rem var(--line)×23, 0 -0.1rem 0 var(--line)×16, inset 0 -0.1rem 0 var(--line)×11, var(--el-2)×5, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12)×4, var(--cair-rim), 0 0.1rem 0 rgba(17,25,33,0.06)×4, 0 2rem 4.8rem -1.4rem rgba(17,25,33,0.34), 0 0.2rem 0.8rem rgba(17,25,33,0.12)×4, 0 0.1rem 0.3rem rgba(17,25,33,0.28)×4, var(--cair-rim-chip), var(--cair-bayang-chip)×4, 0 0 0 0.1rem rgba(17,25,33,0.08), 0 1.2rem 3rem -0.8rem rgba(17,25,33,0.26)×2, -0.1rem -0.1rem 0 rgba(17,25,33,0.06)×2, var(--cair-rim)×2, inset 0.3rem 0 0 var(--line-kuat)×1, 0 0 0 0.1rem rgba(17,25,33,0.06), 0 1rem 2.6rem -1.2rem rgba(17,25,33,0.28)×1, var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.14)×1
+
+### opacity
+canon m total=8 distinct=2: 0×5, 1×3
+canon d total=2 distinct=1: 0×2
+all m total=36 distinct=2: 0×22, 1×14
+all d total=2 distinct=1: 0×2
+
+### z-index
+canon m total=56 distinct=10: 2×15, 1×9, 3×9, 9999×6, 10002×4, 10003×4, 10001×3, 0×3, 10000×2, 5×1
+canon d total=40 distinct=9: 2×12, 40×8, 35×8, 3×4, 30×2, 1×2, 60×2, 10002×1, 10003×1
+all m total=175 distinct=10: 2×59, 3×31, 1×26, 9999×19, 10002×12, 10001×10, 10003×9, 10000×5, 0×3, 5×1
+all d total=68 distinct=9: 2×24, 40×10, 35×10, 3×8, 30×4, 1×4, 60×4, 10002×2, 10003×2
+
+### backdrop-filter
+canon m total=92 distinct=3: var(--cair-tombol-blur)×76, var(--cair-blur)×14, blur(1rem)×2
+canon d total=82 distinct=3: var(--cair-tombol-blur)×64, var(--cair-blur)×16, blur(1rem)×2
+all m total=346 distinct=4: var(--cair-tombol-blur)×278, var(--cair-blur)×50, var(--kaca-blur)×16, blur(1rem)×2
+all d total=158 distinct=3: var(--cair-tombol-blur)×126, var(--cair-blur)×30, blur(1rem)×2
+
+### filter
+canon m total=0 distinct=0: 
+canon d total=0 distinct=0: 
+all m total=0 distinct=0: 
+all d total=0 distinct=0: 
+
+### background gradients
+canon m total=47 distinct=9: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%×38, linear-gradient(180deg, rgba(9,12,17,0.56) 0%, rgba(9,12,17,0.44) 38%, rgba(9,12,17,0.70) ×2, linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.72) 100%)×1, linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.28) 40%, rgba(10,10,10,0) ×1, radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.36) 0%, rgba(255,255,255,0.15) 26×1, radial-gradient(62% 100% at 50% 18%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.38) 55%×1, radial-gradient(60% 100% at 50% 100%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.20) 60×1, linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.52) 66%, rgba(10,10,10,0.88)×1, linear-gradient(115deg, #fdecec 0%, rgba(253,236,236,0.72) 26%, rgba(255,255,255,0) 62%)×1
+canon d total=27 distinct=5: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%×23, linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.72) 100%)×1, linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.52) 66%, rgba(10,10,10,0.88)×1, linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.28) 40%, rgba(10,10,10,0) ×1, linear-gradient(115deg, var(--awas-bg) 0%, rgba(253,236,236,0.86) 46%, rgba(253,236,236,0.×1
+all m total=177 distinct=17: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%×142, linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.52) 66%, rgba(10,10,10,0.88)×6, linear-gradient(180deg, rgba(9,12,17,0.56) 0%, rgba(9,12,17,0.44) 38%, rgba(9,12,17,0.70) ×5, linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.72) 100%)×4, url(/_blob/13a15840bc04a4bf200253c0f3549431),url(/_blob/13a15840bc04a4bf200253c0f3549431),×3, url(/_blob/87f727daa9c33c61af6ad1ec033ee635) right top / auto 100% no-repeat, linear-gradi×3, linear-gradient(180deg, rgba(9,12,17,0.34) 0%, rgba(9,12,17,0.10) 42%, rgba(9,12,17,0.52) ×2, radial-gradient(15.07rem 14.31rem at 4.79rem 50.2%, var(--brand) 0%, var(--ink) 100%)×2, linear-gradient(to bottom, transparent, var(--ink))×2, linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.28) 40%, rgba(10,10,10,0) ×1, radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.36) 0%, rgba(255,255,255,0.15) 26×1, radial-gradient(62% 100% at 50% 18%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.38) 55%×1, radial-gradient(60% 100% at 50% 100%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.20) 60×1, linear-gradient(rgba(255, 30, 0) 0%, rgba(255, 30, 0) 100%, rgba(255, 30, 0, 0) 100%)×1, linear-gradient(rgba(255, 30, 0) 0%, rgba(255, 30, 0) 100%)×1, linear-gradient(100deg, #ffffff 0%, #ffffff 44%, rgba(255,255,255,0.82) 58%, rgba(253,236,×1, linear-gradient(115deg, #fdecec 0%, rgba(253,236,236,0.72) 26%, rgba(255,255,255,0) 62%)×1
+all d total=50 distinct=5: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%×46, linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.72) 100%)×1, linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.52) 66%, rgba(10,10,10,0.88)×1, linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.28) 40%, rgba(10,10,10,0) ×1, linear-gradient(115deg, var(--awas-bg) 0%, rgba(253,236,236,0.86) 46%, rgba(253,236,236,0.×1
+
+### transition
+canon m total=23 distinct=10: none×5, color 200ms ease×3, transform 220ms cubic-bezier(.16,1,.3,1)×3, none !important×2, transform 420ms×2, transform 150ms ease, background 150ms ease, width 200ms ease×2, opacity 240ms ease, transform 440ms cubic-bezier(.16,1,.3,1)×2, transform 440ms cubic-bezier(.16,1,.3,1)×2, background-color 100000s ease-in-out 0s×1, transform 260ms cubic-bezier(.16,1,.3,1)×1
+canon d total=8 distinct=4: transform 220ms cubic-bezier(.16,1,.3,1)×3, transform 440ms cubic-bezier(.16,1,.3,1)×2, none×2, transform 160ms cubic-bezier(.16,1,.3,1)×1
+all m total=59 distinct=10: none×12, color 200ms ease×11, none !important×6, transform 420ms×6, transform 150ms ease, background 150ms ease, width 200ms ease×6, transform 220ms cubic-bezier(.16,1,.3,1)×6, opacity 240ms ease, transform 440ms cubic-bezier(.16,1,.3,1)×5, transform 440ms cubic-bezier(.16,1,.3,1)×5, background-color 100000s ease-in-out 0s×1, transform 260ms cubic-bezier(.16,1,.3,1)×1
+all d total=20 distinct=7: transform 220ms cubic-bezier(.16,1,.3,1)×6, none×5, transform 440ms cubic-bezier(.16,1,.3,1)×4, transform 160ms cubic-bezier(.16,1,.3,1)×2, none !important×1, transform 420ms×1, transform 150ms ease, background 150ms ease, width 150ms ease×1
+
+### animation
+canon m total=30 distinct=12: none×8, sheet-up 460ms cubic-bezier(.16,1,.3,1) both×3, scrim-in 300ms ease both×3, chip-a 520ms cubic-bezier(.16,1,.3,1) both×3, hdr-thumb 260ms ease-out both×2, baris-in 440ms cubic-bezier(.16,1,.3,1) both×2, chip-b 520ms cubic-bezier(.16,1,.3,1) both×2, bantu-in 380ms cubic-bezier(.16,1,.3,1) both×2, baris-in 420ms cubic-bezier(.16,1,.3,1) both×2, lazy-spin 800ms linear infinite×1, geser 46s linear infinite×1, masuk 420ms cubic-bezier(.16,1,.3,1) both×1
+canon d total=14 distinct=7: none×3, bantu-pop 320ms cubic-bezier(.16,1,.3,1) both×2, baris-in 420ms cubic-bezier(.16,1,.3,1) both×2, baris-in 240ms cubic-bezier(.16,1,.3,1) both×2, pulau-naik 420ms cubic-bezier(.16,1,.3,1) both×2, chip-a 520ms cubic-bezier(.16,1,.3,1) both×2, pita 48s linear infinite×1
+all m total=87 distinct=13: none×21, chip-a 520ms cubic-bezier(.16,1,.3,1) both×11, sheet-up 460ms cubic-bezier(.16,1,.3,1) both×10, scrim-in 300ms ease both×10, bantu-in 380ms cubic-bezier(.16,1,.3,1) both×7, baris-in 420ms cubic-bezier(.16,1,.3,1) both×7, hdr-thumb 260ms ease-out both×5, baris-in 440ms cubic-bezier(.16,1,.3,1) both×5, chip-b 520ms cubic-bezier(.16,1,.3,1) both×5, lazy-spin 800ms linear infinite×3, pulau-in 380ms cubic-bezier(.16,1,.3,1) both×1, geser 46s linear infinite×1, masuk 420ms cubic-bezier(.16,1,.3,1) both×1
+all d total=26 distinct=7: none×5, bantu-pop 320ms cubic-bezier(.16,1,.3,1) both×4, baris-in 420ms cubic-bezier(.16,1,.3,1) both×4, baris-in 240ms cubic-bezier(.16,1,.3,1) both×4, pulau-naik 420ms cubic-bezier(.16,1,.3,1) both×4, chip-a 520ms cubic-bezier(.16,1,.3,1) both×4, pita 48s linear infinite×1
+
+### transform
+canon m total=49 distinct=9: translateX(-50%)×18, rotate(180deg)×12, translateX(×4, translateY(-50%)×4, translateY(1.6rem) scale(0.95)×3, none×3, scale(.92)×2, rotate(30deg)×2, rotate(45deg)×1
+canon d total=17 distinct=7: rotate(180deg)×6, translateX(-50%)×4, scale(.96)×2, rotate(30deg)×2, scale(.97)×1, rotate(45deg)×1, translateX(×1
+all m total=163 distinct=9: translateX(-50%)×56, rotate(180deg)×35, translateY(-50%)×31, translateY(1.6rem) scale(0.95)×11, none×11, translateX(×8, scale(.92)×5, rotate(30deg)×5, rotate(45deg)×1
+all d total=33 distinct=8: rotate(180deg)×12, translateX(-50%)×6, scale(.96)×4, rotate(30deg)×4, scale(.97)×2, rotate(45deg)×2, translateX(×2, translateX(calc(-50% +×1
+
+### cursor
+canon m total=39 distinct=4: pointer×27, default×9, grab×2, grabbing×1
+canon d total=27 distinct=5: pointer×14, not-allowed×5, default×4, grab×2, grabbing×2
+all m total=104 distinct=4: pointer×65, default×27, grab×8, grabbing×4
+all d total=40 distinct=5: pointer×20, not-allowed×8, default×8, grab×2, grabbing×2
+
+### outline
+canon m total=15 distinct=4: none×12, 0.3rem solid #0a0a0a×1, -0.3rem×1, -0.2rem !important×1
+canon d total=18 distinct=3: none×16, 0.3rem solid #0a0a0a×1, -0.3rem×1
+all m total=52 distinct=4: none×42, 0.3rem solid #0a0a0a×4, -0.3rem×4, -0.2rem !important×2
+all d total=29 distinct=4: none×26, 0.3rem solid #0a0a0a×1, -0.3rem×1, -0.2rem !important×1
+
+### color-scheme
+canon m total=0 distinct=0: 
+canon d total=0 distinct=0: 
+all m total=0 distinct=0: 
+all d total=0 distinct=0: 
+
+### Helmet selectors & media
+media all [('@media (prefers-reduced-motion: reduce)', 43), ('@supports not (height: 1svh)', 20), ('@media (min-width: 400px) and (max-width: 767px)', 2), ('@media (min-width: 768px)', 2), ('@media (min-width: 40rem) and (max-width: 76.7rem)', 1), ('@media (min-width: 76.8rem)', 1)]
+media canon [('@media (prefers-reduced-motion: reduce)', 18), ('@supports not (height: 1svh)', 7), ('@media (min-width: 40rem) and (max-width: 76.7rem)', 1), ('@media (min-width: 76.8rem)', 1)]
+keyframes all [('@keyframes chip-a', 15), ('@keyframes sheet-up', 10), ('@keyframes scrim-in', 10), ('@keyframes baris-in', 9), ('@keyframes revFillA', 7), ('@keyframes revFillB', 7), ('@keyframes bantu-in', 7), ('@keyframes hdr-thumb', 5), ('@keyframes chip-b', 5), ('@keyframes bantu-pop', 4), ('@keyframes pulau-naik', 4), ('@keyframes lazy-spin', 3), ('@keyframes pita', 1), ('@keyframes pulau-in', 1), ('@keyframes geser', 1), ('@keyframes masuk', 1)]
+keyframes canon [('@keyframes chip-a', 5), ('@keyframes baris-in', 4), ('@keyframes sheet-up', 3), ('@keyframes scrim-in', 3), ('@keyframes revFillA', 2), ('@keyframes revFillB', 2), ('@keyframes bantu-pop', 2), ('@keyframes pulau-naik', 2), ('@keyframes hdr-thumb', 2), ('@keyframes chip-b', 2), ('@keyframes bantu-in', 2), ('@keyframes pita', 1), ('@keyframes lazy-spin', 1), ('@keyframes geser', 1), ('@keyframes masuk', 1)]
+pseudos all [(':nth-child', 86), (':first-child', 73), (':root', 54), (':nth-last-child', 44), (':last-child', 39), ('::-webkit-scrollbar', 26), (':active', 18), ('::-webkit-slider-thumb', 10), (':focus-visible', 8), ('::-moz-range-thumb', 6), (':checked', 5), (':-webkit-autofill', 4), (':hover', 3), ('::before', 3), (':focus-within', 2), (':focus', 1)]
+pseudos canon [(':nth-child', 53), (':first-child', 33), (':nth-last-child', 25), (':root', 23), (':last-child', 17), (':active', 9), ('::-webkit-scrollbar', 8), ('::-webkit-slider-thumb', 4), (':-webkit-autofill', 4), ('::-moz-range-thumb', 3), (':focus-visible', 3), (':hover', 3), (':checked', 2), (':focus-within', 2), (':focus', 1)]
+css hover/focus rules (canon, sample)
+2 ('[data-banding]::-webkit-slider-thumb:active', 'cursor:grabbing')
+2 ('[data-banding]:focus-visible', 'outline:0.3rem solid var(--ink);outline-offset:-0.3rem')
+2 ('[data-grid]:active', 'transform:scale(.96)')
+2 ('[data-grid]:active', 'transform:scale(.92)')
+1 ('[data-banding]::-moz-range-thumb:active', 'cursor:grabbing')
+1 ('[data-bul]:checked', 'border:0.5rem solid #0a0a0a')
+1 ('[data-grid-tile]:active', 'transform:scale(.97)')
+1 ('[data-pita-wrap]:hover [data-pita],[data-pita-wrap]:focus-within [data', 'animation-play-state:paused')
+1 ('[data-bul]:checked', 'border:0.4rem solid #0a0a0a')
+1 ('input:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-au', '-webkit-text-fill-color:var(--ink);caret-color:var(--ink);transition:background-color 100000s ease-in-out 0s')
+1 ('[data-rev-viewport="1"]:focus-visible', 'outline-offset:-0.2rem !important')
+1 ('[data-pita]:hover,[data-pita]:focus-within', 'animation-play-state:paused')
+### js-driven events
+[('Click', 603), ('Change', 79), ('Focus', 12), ('PointerEnter', 7), ('PointerLeave', 7), ('Blur', 7), ('KeyDown', 7), ('PointerDown', 7), ('PointerMove', 7), ('PointerUp', 7), ('PointerCancel', 7), ('MouseDown', 5)]
+### mq token overrides
+[(('--jarak-y-antar', '@supports not (height: 1svh)', 'clamp(6rem, 7.5vh, 8rem)'), 19), (('--seksi', '@supports not (height: 1svh)', 'clamp(6rem, 7.5vh, 8rem)'), 19), (('--jarak-y-antar-rapat', '@supports not (height: 1svh)', 'clamp(3rem, 3.75vh, 4rem)'), 5), (('--seksi', '@supports not (height: 1svh)', 'clamp(4rem, 7.5vh, 8rem)'), 1)]

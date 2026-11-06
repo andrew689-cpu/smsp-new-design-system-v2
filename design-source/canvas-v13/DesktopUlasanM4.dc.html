@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Ulasan Pelanggan SMS Perkasa (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="SiteHeader" tata="desktop" menuTampil="{{ true }}" hrefLogo="Artboard-pp1u.dc.html" navProduk="{{ navProduk }}" navTautan="{{ navTautan }}" hint-size="100%,12.4rem"></dc-import>
+  <dc-import name="ReviewHero" tata="desktop" foto="{{ fotoLatar }}" ulasan="{{ pita }}" hint-size="100%,52rem"></dc-import>
+  <div style="box-sizing: border-box; padding: 5.6rem 12rem 0 12rem; display: flex; align-items: flex-start">
+    <div style="flex: 0 0 28%; min-width: 0; box-sizing: border-box; padding-right: 2.8rem">
+      <dc-import name="ReviewSummary" jenis="panel" nilai="{{ 4.8 }}" jumlah="{{ 128 }}" sebaran="{{ sebaran }}" hint-size="100%,42rem"></dc-import>
+    </div>
+    <div style="flex: 1 1 0; min-width: 0; margin-left: 2.8rem; margin-right: 2.8rem">
+      <dc-import name="ReviewMentions" tata="desktop" butir="{{ seringDisebut }}" hint-size="100%,31rem"></dc-import>
+    </div>
+  </div>
+  <div style="box-sizing: border-box; padding: 6.4rem 12rem 0 12rem">
+    <dc-import name="ReviewList" tata="desktop" ulasan="{{ ulasan }}" per="{{ 9 }}" hint-size="100%,70rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: 6.4rem 12rem calc(var(--footer-jarak) / 2) 12rem">
+    <dc-import name="ReviewInvite" hint-size="100%,8rem"></dc-import>
+  </div>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" sosial="{{ tanpaSosial }}" kolom="{{ kolomFooter }}" hint-size="100%,40rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  _data() {
+    return [
+      { j: 'Presisi dan cepat', t: 'Barangnya sesuai ukuran, pengiriman ke Sidoarjo cuma sehari. Sales-nya responsif.', w: 'Pak Hendra', k: 'Sidoarjo', d: 'Maret 2026', n: 5 },
+      { j: 'Toleransi tebal konsisten', t: 'Las-lasan rapat tanpa penyesuaian di lapangan. Untuk rangka kanopi ini penting sekali.', w: 'Bu Ratna', k: 'Surabaya', d: 'Februari 2026', n: 5 },
+      { j: 'Penawaran cepat keluar', t: 'Tonase dan ongkos kirim dihitung sekalian, jadi tidak perlu bolak-balik tanya.', w: 'Pak Yusuf', k: 'Gresik', d: 'Januari 2026', n: 4 },
+      { j: 'Stok jelas sejak awal', t: 'Ditanya ketersediaan langsung dicek gudang, tidak digantung berhari-hari.', w: 'Pak Dimas', k: 'Malang', d: 'Januari 2026', n: 5 },
+      { j: 'Muat rapi', t: 'Batang diikat per kelompok ukuran, bongkar di proyek jadi gampang dihitung.', w: 'Bu Sari', k: 'Mojokerto', d: 'Desember 2025', n: 5 },
+      { j: 'Harga transparan', t: 'Harga per kg dan per batang dua-duanya disebut, tidak ada biaya yang muncul belakangan.', w: 'Pak Anwar', k: 'Pasuruan', d: 'Desember 2025', n: 4 },
+      { j: 'Pengiriman tepat janji', t: 'Dijanjikan Rabu, datang Rabu pagi. Untuk jadwal cor ini menentukan.', w: 'Pak Bagus', k: 'Lamongan', d: 'November 2025', n: 5 },
+      { j: 'Dibantu pilih ukuran', t: 'Saya salah hitung tebal, tim sales mengoreksi sebelum pesanan diproses.', w: 'Bu Wulan', k: 'Kediri', d: 'November 2025', n: 5 },
+      { j: 'Permukaan bersih', t: 'Tidak banyak karat permukaan walau stok lama, jadi pengecatan lebih hemat.', w: 'Pak Rizal', k: 'Jombang', d: 'Oktober 2025', n: 4 },
+      { j: 'Komunikasi enak', t: 'Balasan WhatsApp cepat dan tidak template. Pertanyaan teknis dijawab teknis.', w: 'Pak Toni', k: 'Sidoarjo', d: 'Oktober 2025', n: 5 },
+      { j: 'Sertifikat dikirim', t: 'Minta mill certificate untuk keperluan audit proyek, dikirim tanpa dipersulit.', w: 'Bu Ayu', k: 'Surabaya', d: 'September 2025', n: 5 },
+      { j: 'Potong sesuai permintaan', t: 'Minta potong 3 meter untuk muat di pickup, dikerjakan dengan biaya wajar.', w: 'Pak Eko', k: 'Madiun', d: 'September 2025', n: 4 },
+      { j: 'Barang sesuai foto', t: 'Yang datang sama dengan yang ditawarkan, tidak ada substitusi diam-diam.', w: 'Pak Haris', k: 'Tuban', d: 'Agustus 2025', n: 5 },
+      { j: 'Tim gudang membantu', t: 'Saat ambil sendiri, dibantu muat dan dihitung ulang di depan saya.', w: 'Pak Slamet', k: 'Surabaya', d: 'Agustus 2025', n: 5 },
+      { j: 'Pesanan besar lancar', t: 'Dua truk untuk proyek gudang, dijadwalkan bertahap supaya lahan tidak penuh.', w: 'Bu Nadia', k: 'Bangkalan', d: 'Juli 2025', n: 5 },
+      { j: 'Ukuran lengkap', t: 'Ukuran yang jarang ada di tempat lain justru ready di sini.', w: 'Pak Imam', k: 'Probolinggo', d: 'Juli 2025', n: 4 },
+      { j: 'Faktur rapi', t: 'Dokumen lengkap untuk klaim pajak, tidak perlu minta revisi.', w: 'Bu Fitri', k: 'Surabaya', d: 'Juni 2025', n: 5 },
+      { j: 'Jadi langganan', t: 'Sudah pesanan keempat, kualitasnya tetap sama. Itu yang bikin balik lagi.', w: 'Pak Gunawan', k: 'Sidoarjo', d: 'Juni 2025', n: 5 }
+    ];
+  }
+  renderVals() {
+    var semua = this._data();
+    var hitung = [0, 0, 0, 0, 0];
+    semua.forEach(function (u) { hitung[5 - u.n] += 1; });
+    var ulasan = semua.map(function (u) {
+      return { judul: u.j, teks: u.t, nama: u.w, kota: u.k, tanggal: u.d, rating: u.n };
+    });
+    var tautanFooter = function (l) { return { label: l, href: '#produk' }; };
+    return {
+      navProduk: { label: 'Semua Produk', href: '#produk', ikon: 'kotak' },
+      navTautan: [
+        { label: 'Besi Hollow Hitam', href: 'DesktopProdukM4.dc.html' },
+        { label: 'Besi H Beam', href: '#besi-h-beam' },
+        { label: 'Besi WF', href: '#besi-wf' },
+        { label: 'Besi Beton', href: '#besi-beton' },
+        { label: 'Pipa Galvanis', href: '#pipa-galvanis' },
+        { label: 'Besi Siku', href: '#besi-siku' },
+        { label: 'Plat Besi Hitam', href: '#plat-besi-hitam' }
+      ],
+      fotoLatar: '/_blob/210aaa875210ebff1daa24732dc74f8f',
+      pita: ulasan.slice(0, 8).map(function (u) {
+        return { teks: u.teks, nama: u.nama, tanggal: u.tanggal, rating: u.rating };
+      }),
+      sebaran: [5, 4, 3, 2, 1].map(function (n, i) {
+        var j = hitung[i];
+        return { n: n, jml: j, pct: Math.round(j / semua.length * 100) + '%' };
+      }),
+      seringDisebut: [
+        { label: 'Ukuran sesuai', persen: 82, ikon: 'perisai' },
+        { label: 'Pengiriman tepat waktu', persen: 74, ikon: 'truk' },
+        { label: 'Sales responsif', persen: 69, ikon: 'obrol' },
+        { label: 'Harga transparan', persen: 58, ikon: 'label' }
+      ],
+      ulasan: ulasan,
+      tanpaSosial: [],
+      kolomFooter: [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF'].map(tautanFooter) },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'].map(tautanFooter) },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'].map(tautanFooter) }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

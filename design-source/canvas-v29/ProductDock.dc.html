@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductDock</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="display: contents">
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{ lembar }}" hint-placeholder-val="{{ false }}"><dc-import name="Scrim" ariaLabel="Tutup daftar bagian" onPress="{{ navTutup }}" hint-size="0,0"></dc-import></sc-if>
+    <div data-pulau-l="{{ dataPulau }}" data-sheet="{{ dataSheet }}" role="{{ peranPulau }}" aria-label="{{ ariaPulau }}" style="position: fixed; left: 50%; transform: translateX(-50%); bottom: {{ bawah }}; width: 33.6rem; max-width: calc(100% - 2.4rem); z-index: 10002; box-sizing: border-box; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border-radius: var(--island); padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem">
+      <div data-ltepi="1" data-set="{{ navSet }}" data-ltepi-kisi-y="3" style="display: grid; grid-template-columns: repeat({{ navKolom }}, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ seksiChip }}" as="sk" hint-placeholder-count="4">
+          <span style="{{ sk.wadah }}"><dc-import name="Chip" jenis="bagian" dc-props="{{ sk.chip }}" hint-size="100%,6.2rem"></dc-import></span>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+  <div style="position: fixed; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; box-sizing: border-box; padding: 0 1.2rem; bottom: {{ bawah }}; {{ barWadah }} z-index: 9999; display: flex; flex-direction: column; align-items: stretch; gap: 1.2rem">
+    <sc-if value="{{ fabTampil }}" hint-placeholder-val="{{ true }}">
+      <div data-bar="1" style="{{ barGaya }}; align-self: flex-end; display: flex; flex-direction: column; align-items: flex-end; gap: 1.2rem">
+        <sc-if value="{{ bantuanOpen }}" hint-placeholder-val="{{ false }}">
+          <ul aria-label="Pusat bantuan" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem">
+            <li><dc-import name="Button" variant="apung" ikon="chat-polos" ikonGaris="{{ 1.9 }}" href="#whatsapp" label="Hubungi Sales" hint-size="16rem,4.8rem"></dc-import></li>
+          </ul>
+        </sc-if>
+      </div>
+    </sc-if>
+    <sc-if value="{{ ocTerbuka }}" hint-placeholder-val="{{ false }}">
+      <div role="region" aria-label="Filter" style="box-sizing: border-box; background: var(--surface); box-shadow: var(--dok-bayang); border-radius: 2.2rem; padding: 1rem 1.2rem 1.4rem 1.2rem">
+        <div data-ltepi="1" style="display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0">
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="chevron-lama" ukuran="{{ 36 }}" nada="abu" warna="inherit" ikonUkuran="{{ 18 }}" ariaLabel="Tutup filter dan urutkan" onPress="{{ ocToggle }}" hint-size="3.6rem,3.6rem"></dc-import></span>
+          <p aria-live="polite" style="flex-grow: 1; min-width: 0; margin: 0; font-size: var(--teks-meta); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: 0.4rem; margin-right: 0.4rem">{{ ocPilText }}</p>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Button" variant="terap-gelap" disabled="{{ ocNol }}" label="{{ ocCta }}" onPress="{{ ocTerap }}" hint-size="10rem,4rem"></dc-import></span>
+        </div>
+        <span style="display: block; margin-top: 1rem"><dc-import name="SearchField" tata="abu" placeholder="Cari ukuran, mis. 40 40 2" ariaLabel="Cari ukuran di Besi Hollow Hitam" nilai="{{ q }}" onUbah="{{ ubahQ }}" hint-size="100%,4.4rem"></dc-import></span>
+        <div style="margin-top: 1rem">
+          <div data-ltepi="1" style="display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0">
+            <span style="flex-grow: 1; display: flex; margin-right: 0.4rem"><dc-import name="Segmented" jenis="lama" opsi="{{ opsiSeg }}" nilai="{{ segKini }}" onPilih="{{ pilihSegmen }}" ariaLabel="Filter dan urutkan" hint-size="100%,3.8rem"></dc-import></span>
+            <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="ulang" ukuran="{{ 38 }}" nada="abu" disabled="{{ ocBersih }}" ariaLabel="Reset filter dan urutan" onPress="{{ ocReset }}" hint-size="3.8rem,3.8rem"></dc-import></span>
+          </div>
+          <p style="margin: 1rem 0 0 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ catJudul }}</p>
+          <p style="margin: 0.2rem 0 0 0; font-size: var(--teks-meta); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ catCatatan }}</p>
+          <sc-if value="{{ isUkuran }}" hint-placeholder-val="{{ true }}">
+            <div data-ltepi="1" data-ltepi-kisi-y="3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 0.2rem; padding: 0.8rem 0.8rem 0 0.8rem; box-sizing: border-box; max-height: 20.4rem; overflow-y: auto">
+              <sc-for list="{{ ocUkuran }}" as="c" hint-placeholder-count="9">
+                <span style="display: grid; min-width: 0; margin: 0.4rem"><dc-import name="Chip" jenis="ubin" sudut="var(--sudut-lama)" warnaTerpilih="var(--ink)" centang="{{ true }}" label="{{ c.label }}" jumlah="{{ c.jumlahLabel }}" terpilih="{{ c.aktif }}" disabled="{{ c.mati }}" ariaLabel="{{ c.aria }}" onPress="{{ c.pick }}" hint-size="100%,4.8rem"></dc-import></span>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isTebal }}" hint-placeholder-val="{{ false }}">
+            <div data-ltepi="1" data-ltepi-kisi-y="4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 0.2rem; padding: 0.8rem 0.8rem 0 0.8rem; box-sizing: border-box; max-height: 20.4rem; overflow-y: auto">
+              <sc-for list="{{ ocTebal }}" as="c" hint-placeholder-count="8">
+                <span style="display: grid; min-width: 0; margin: 0.4rem"><dc-import name="Chip" jenis="ubin" rapat="{{ true }}" sudut="var(--sudut-lama)" warnaTerpilih="var(--ink)" centang="{{ true }}" label="{{ c.label }}" jumlah="{{ c.jumlahLabel }}" terpilih="{{ c.aktif }}" disabled="{{ c.mati }}" ariaLabel="{{ c.aria }}" onPress="{{ c.pick }}" hint-size="100%,4.8rem"></dc-import></span>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ urutTerbuka }}" hint-placeholder-val="{{ false }}">
+      <div role="region" aria-label="Urutkan daftar harga" style="box-sizing: border-box; background: var(--surface); box-shadow: var(--dok-bayang); border-radius: 2.2rem; padding: 1rem 1.2rem 1.4rem 1.2rem">
+        <div data-ltepi="1" style="display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0">
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="chevron-lama" ukuran="{{ 36 }}" nada="abu" warna="inherit" ikonUkuran="{{ 18 }}" ariaLabel="Tutup urutkan" onPress="{{ urutBuka }}" hint-size="3.6rem,3.6rem"></dc-import></span>
+          <p aria-live="polite" style="flex-grow: 1; min-width: 0; margin: 0; font-size: var(--teks-meta); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: 0.4rem; margin-right: 0.4rem">{{ ocPilText }}</p>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Button" variant="terap-gelap" disabled="{{ ocNol }}" label="{{ ocCta }}" onPress="{{ urutTerap }}" hint-size="10rem,4rem"></dc-import></span>
+        </div>
+        <div style="margin-top: 1rem">
+          <div data-ltepi="1" style="display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0">
+            <p style="flex-grow: 1; min-width: 0; margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); margin-left: 0.4rem; margin-right: 0.4rem">Urutkan berdasarkan</p>
+            <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="ulang" ukuran="{{ 38 }}" nada="abu" disabled="{{ urutBersih }}" ariaLabel="Reset urutan" onPress="{{ urutReset }}" hint-size="3.8rem,3.8rem"></dc-import></span>
+          </div>
+          <div role="radiogroup" aria-label="Urutkan daftar harga" data-ltepi-y="1" style="display: flex; flex-direction: column; margin-top: 0.8rem; row-gap: 0; column-gap: 0">
+              <sc-for list="{{ ocUrut }}" as="o" hint-placeholder-count="3">
+                <span style="display: block; margin-top: 0.1rem; margin-bottom: 0.1rem"><dc-import name="Radio" tata="desktop" tinggiMin="4.4rem" padding="0 0.6rem" kelompok="oc-urut" nilai="{{ o.value }}" label="{{ o.label }}" terpilih="{{ o.checked }}" onPilih="{{ o.pick }}" hint-size="100%,4.4rem"></dc-import></span>
+              </sc-for>
+            </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ cariOpen }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="SearchDialog" dc-props="{{ cari }}" hint-size="100%,44rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ cariTutup2 }}" hint-placeholder-val="{{ true }}">
+    <div data-ltepi="1" data-bar="1" style="{{ barGaya }}; display: flex; align-items: stretch; row-gap: 1rem; column-gap: 0">
+      <span style="display: grid; align-self: center; flex-shrink: 0; margin-right: auto"><dc-import name="GlassButton" ukuran="{{ 52 }}" ikon="navigasi-isi" ikonWarna="{{ navWarna }}" titik="{{ navDot }}" ariaExpanded="{{ navExp }}" ariaLabel="{{ navAria }}" onPress="{{ navToggle }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+      <span style="display: grid; align-self: center; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="GlassButton" ukuran="{{ 52 }}" tekan="{{ false }}" ikon="cari" ikonUkuran="{{ 21 }}" ikonGaris="{{ 2 }}" ikonWarna="var(--ink)" ariaLabel="Cari di seluruh SMS Perkasa" onPress="{{ cariBuka }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+      <span style="display: grid; align-self: center; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="GlassButton" ukuran="{{ 52 }}" tekan="{{ false }}" ikon="lambang" ikonUkuran="{{ 34 }}" ikonWarna="var(--brand-hero)" ariaExpanded="{{ bantuanExp }}" ariaLabel="Pusat bantuan" onPress="{{ bantuanToggle }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+    </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"lembar":{"editor":"boolean","default":false,"section":"Resep"},"bawah":{"editor":"text","default":"3.4rem","section":"Tata letak"},"navOpen":{"editor":"boolean","default":false,"section":"Keadaan"},"navSet":{"editor":"enum","options":["bagian","pintu"],"default":"bagian","section":"Keadaan"},"navDot":{"editor":"boolean","default":false,"section":"Keadaan"},"navExp":{"editor":"enum","options":["false","true"],"default":"false","section":"Keadaan"},"navAria":{"editor":"text","default":"Daftar bagian halaman","section":"Isi"},"fabTampil":{"editor":"boolean","default":true,"section":"Keadaan"},"bantuanOpen":{"editor":"boolean","default":false,"section":"Keadaan"},"bantuanExp":{"editor":"enum","options":["false","true"],"default":"false","section":"Keadaan"},"ocTerbuka":{"editor":"boolean","default":false,"section":"Keadaan"},"urutTerbuka":{"editor":"boolean","default":false,"section":"Keadaan"},"cariOpen":{"editor":"boolean","default":false,"section":"Keadaan"},"cariTutup2":{"editor":"boolean","default":true,"section":"Keadaan"},"ocNol":{"editor":"boolean","default":false,"section":"Keadaan"},"ocBersih":{"editor":"boolean","default":true,"section":"Keadaan"},"urutBersih":{"editor":"boolean","default":true,"section":"Keadaan"},"ocSeg":{"editor":"enum","options":["ukuran","tebal"],"default":"ukuran","section":"Keadaan"},"ocPilText":{"editor":"text","default":"Semua 297 SKU · urut ukuran","section":"Isi"},"ocCta":{"editor":"text","default":"Lihat 297","section":"Isi"},"nUkuran":{"editor":"int","default":0,"section":"Isi"},"nTebal":{"editor":"int","default":0,"section":"Isi"},"q":{"editor":"text","default":"","section":"Isi"},"cariQ":{"editor":"text","default":"","section":"Isi"},"seksi":{"editor":null,"tsType":"Array<{href?:string,label:string,tunda:string,isLink?:boolean,isAksi?:boolean,ikon?:string,kini?:string,exp?:string,aria?:string,adaFilter?:boolean,pergi:Function}>"},"ocUkuran":{"editor":null,"tsType":"Array<{label:string,jumlahLabel:string,aktif:boolean,mati:boolean,aria:string,pick:Function}>"},"ocTebal":{"editor":null,"tsType":"Array<{label:string,jumlahLabel:string,aktif:boolean,mati:boolean,aria:string,pick:Function}>"},"ocUrut":{"editor":null,"tsType":"Array<{value:string,label:string,checked:boolean,pick:Function}>"},"navTutup":{"editor":null},"navToggle":{"editor":null},"bantuanToggle":{"editor":null},"ocToggle":{"editor":null},"ocTerap":{"editor":null},"ocReset":{"editor":null},"pilihSeg":{"editor":null},"setQ":{"editor":null},"urutBuka":{"editor":null},"urutTerap":{"editor":null},"urutReset":{"editor":null},"cariBuka":{"editor":null},"cariTutup":{"editor":null},"korpus":{"editor":"enum","options":["baku","lama"],"default":"lama","section":"Isi"},"cariUbah":{"editor":null},"$preview":{"width":360,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const lembar = !!p.lembar;
+    /* Semua nilai polos: tidak ada string gaya yang dibaca dari layar. */
+    const navBuka = p.navExp === 'true';
+    const opsiSeg = [{ id: 'ukuran', label: 'Ukuran', n: p.nUkuran ?? 0 }, { id: 'tebal', label: 'Tebal', n: p.nTebal ?? 0 }];
+    const segKini = p.ocSeg ?? 'ukuran';
+    const tebal = segKini === 'tebal';
+    const ikonBagian = (s) => s.ikon ?? (s.isFoto ? 'info' : s.isHarga ? 'daftar' : s.isFaq ? 'tanya' : s.isProduk ? 'lapisan' : s.isHubungi ? 'chat-polos' : 'info');
+    const seksiChip = (p.seksi || []).map((s) => ({
+      wadah: '--tunda: ' + (s.tunda || '0ms') + '; display: flex; width: 100%; min-width: 0; margin: 0.4rem',
+      chip: s.isAksi
+        ? { ikon: 'filter', ikonTitik: !!s.adaFilter, ariaExpanded: s.exp, label: s.label, ariaLabel: s.aria, onPress: s.pergi }
+        : { ikon: ikonBagian(s), href: s.href, terpilih: s.kini === 'true', label: s.label, onPress: s.pergi }
+    }));
+    return Object.assign({}, p, {
+      lembar,
+      dataPulau: lembar ? undefined : '1',
+      dataSheet: lembar ? '1' : undefined,
+      peranPulau: lembar ? undefined : 'group',
+      ariaPulau: lembar ? undefined : 'Daftar bagian halaman',
+      bawah: p.bawah ?? '3.4rem',
+      barGaya: navBuka ? 'opacity: 0; transform: translateY(1.6rem) scale(0.95); pointer-events: none' : 'opacity: 1; transform: none',
+      barWadah: navBuka ? 'pointer-events: none;' : '',
+      navKolom: p.navSet === 'pintu' ? 2 : 4,
+      seksiChip,
+      opsiSeg,
+      segKini,
+      isUkuran: !tebal,
+      isTebal: tebal,
+      pilihSegmen: (id) => { if (p.pilihSeg) p.pilihSeg(id); },
+      catJudul: tebal ? 'Tebal dinding' : 'Ukuran penampang',
+      catCatatan: tebal ? '20 pilihan t dalam mm · ubin yang kosong tidak bisa dipilih' : '41 ukuran · A × B dalam mm',
+      ubahQ: (v, e) => { if (p.setQ) p.setQ(e); },
+      cari: { varian: 'apung', tertanam: true, korpus: p.korpus ?? 'lama', idKolom: 'cari-situs', ikonHapus: 'tutup-lama', hapusSelalu: true, kueri: p.cariQ ?? '', onUbah: p.cariUbah, onTutup: p.cariTutup },
+      cariTutup2: p.cariTutup2 ?? true,
+      navAria: p.navAria ?? 'Daftar bagian halaman',
+      navWarna: navBuka ? 'var(--nav-aktif)' : 'var(--ink)'
+    });
+  }
+}
+</script>
+</body>
+</html>

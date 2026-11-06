@@ -1,0 +1,1735 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Blog — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+
+<helmet>
+<style>
+
+[data-tepi="1"] > *:first-child{margin-left:0 !important}
+
+[data-tepi-y="1"] > *:first-child{margin-top:0 !important}
+[data-tepi-y="1"] > *:last-child{margin-bottom:0 !important}
+:root{
+  --surface:#ffffff;
+  
+  --surface-2:#f6f6f6;
+  --line:#ececec;
+  --chat-ikon:#2563eb;
+  --chat-mati:#9ca3af;
+  --line-kuat:#d4d4d4;
+  --online-ikon:#16a34a;
+  --whatsapp:#25d366;
+  --ink:#0a0a0a;
+  --ink-2:#5f5f5f;
+  --ink-4:#c9c9cb;
+  --brand:#D70100;
+  --brand-hero:#FF0000;
+  --brand-subtle:#fdecec;
+  --price:#15763b;
+  --price-bg:#eaf7ee;
+  --pill:99.9rem;
+  --action:0.9rem;
+  --control:0.5rem;
+  --card:1.4rem;
+  --sheet:1.6rem;
+  --quote:1.8rem;
+  --panel:2.2rem;
+  --island:2.6rem;
+  --tile:0.5rem;
+  --teks-sup:0.95rem;
+  
+  --teks-micro:1rem;
+  --teks-tiny:1.1rem;
+  
+  --teks-chip:1.2rem;
+  --teks-meta:1.3rem;
+  --teks-body:1.4rem;
+  --teks-price:1.7rem;
+  --teks-section:2rem;
+  --teks-page:2.8rem;
+  --bobot-light:300;
+  --bobot-regular:400;
+  --bobot-medium:500;
+  --bobot-semibold:600;
+  --bobot-bold:700;
+  --bobot-heavy:800;
+  --bobot-black:900;
+  
+  
+  --seksi:clamp(6rem, 7.5svh, 8rem);
+  --dalam:2rem;
+  --sisi:1.6rem;
+  --rapat:1.2rem;
+  
+  --talang:1.5rem;
+  --font-harga:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --cair:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.56) 26%, rgba(255,255,255,0.42) 52%, rgba(255,255,255,0.54) 100%);
+  --cair-blur:blur(1.4rem) saturate(165%) brightness(1.03) contrast(1.02);
+  --cair-tombol:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.74) 26%, rgba(255,255,255,0.64) 52%, rgba(255,255,255,0.74) 100%);
+  --cair-tombol-blur:blur(1.8rem) saturate(160%) brightness(1.02);
+  --cair-rim:inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem rgba(255,255,255,0.40), inset 0.2rem 0 0.3rem rgba(255,255,255,0.28), inset -0.2rem 0 0.3rem rgba(255,255,255,0.28), inset 0 0 0 0.1rem rgba(255,255,255,0.62), inset 0 0 1.2rem rgba(17,25,33,0.12);
+  --cair-bayang:0 0.6rem 1.4rem rgba(17,25,33,0.16), 0 0.1rem 0.2rem rgba(17,25,33,0.10);
+  
+  --cair-bayang-chip:0 0.2rem 0.6rem rgba(17,25,33,0.10), 0 0.1rem 0.1rem rgba(17,25,33,0.05);
+  --kaca:linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0.45) 100%), rgba(250,252,253,0.93);
+  --kaca-blur:blur(1.8rem) saturate(140%);
+  --kaca-rim:inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(255,255,255,0.90);
+  --kaca-bayang:0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.07), 0 1.6rem 3.4rem -1.4rem rgba(17,25,33,0.12);
+  --el-2:0 0.2rem 1rem rgba(0,0,0,0.08), 0 0.1rem 0.2rem rgba(0,0,0,0.06);
+}
+html{font-size:62.5%}
+  body{font-size:1.6rem;margin:0;font-family:-apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+  
+  button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+  input{font:inherit;color:inherit}
+  
+  [data-kat-rel]::-webkit-scrollbar{display:none}
+[data-keping-rel]::-webkit-scrollbar{display:none}
+@keyframes bantu-in{0%{opacity:0;transform:translate(-50%,1.6rem)}100%{opacity:1;transform:translate(-50%,0)}}
+[data-bantu]{animation:bantu-in 380ms cubic-bezier(.16,1,.3,1) both}
+[data-bantu-row]{animation:baris-in 420ms cubic-bezier(.16,1,.3,1) both}
+  
+  @keyframes sheet-up{0%{transform:translate(-50%,103%);opacity:.5}100%{transform:translate(-50%,0);opacity:1}}
+  @keyframes scrim-in{from{opacity:0}to{opacity:1}}
+  @keyframes chip-a{0%{opacity:0;transform:translateY(1.6rem) scale(.90)}100%{opacity:1;transform:none}}
+  [data-sheet]{animation:sheet-up 460ms cubic-bezier(.16,1,.3,1) both}
+  [data-scrim]{animation:scrim-in 300ms ease both}
+  [data-set="bagian"] a{animation:chip-a 520ms cubic-bezier(.16,1,.3,1) both}
+  [data-set] a{transition:color 200ms ease}
+  @media (prefers-reduced-motion: reduce){[data-sheet],[data-scrim],[data-set="bagian"] a{animation:none}}
+
+
+@supports not (height: 1svh) {
+  :root { --seksi: clamp(4rem, 7.5vh, 8rem); }
+}
+</style>
+</helmet>
+
+
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+    <sc-if value="{{ awasBuka }}" hint-placeholder-val="{{ true }}">
+    <div data-tepi="1" style="box-sizing: border-box; padding: 1rem 1rem 1rem 1.4rem; background: #fdecec; display: flex; align-items: flex-start; row-gap: 0.9rem; column-gap: 0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.1rem; margin-left: 0.45rem; margin-right: 0.45rem"><path d="M12 3.6L2.6 20h18.8z"></path><path d="M12 10v4.4M12 17.3h.01"></path></svg>
+      <p style="margin: 0; font-size: var(--teks-micro); line-height: 1.35; color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word; margin-left: 0.45rem; margin-right: 0.45rem"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: 0.01em">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="https://www.smsperkasa.com/hati-hati-penipuan" target="_blank" rel="noopener" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem; text-decoration-thickness: 0.1rem; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none">Cek selengkapnya</a></p>
+      <button type="button" onClick="{{ awasTutup }}" aria-label="Tutup peringatan penipuan" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; margin: -0.4rem -0.4rem -0.4rem 0; padding: 0; border: 0; background: none; display: grid; place-items: center; align-self: center; margin-left: 0.45rem; margin-right: calc(-0.4rem + 0.45rem)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6.4 6.4l11.2 11.2M17.6 6.4L6.4 17.6"></path></svg>
+      </button>
+    </div>
+    </sc-if>
+    <header data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0; height: 5.6rem; box-sizing: border-box; padding: 0 var(--sisi); background: var(--surface)">
+      
+      <a href="Artboard-pp1u.dc.html" aria-label="SMS Perkasa — beranda" style="display: flex; align-items: flex-start; min-height: 4.4rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+        <svg width="102" height="30" viewBox="0 0 364 107" fill="none" aria-hidden="true" style="flex-shrink: 0; display: block">
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.27 78.64c-.18.11-.37.26-.55.02-.1-.13-.1-.28.01-.4.18-.2.36-.09.54.05.13-.32.29-.61.62-.75.21-.09.42-.1.63-.04.43.11.76.59.73 1.02-.03.48-.39.87-.87.95-.47.08-.85-.21-1.12-.85h.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M44.36 77.47c0-.21-.1-.38-.02-.58.14-.34.44-.53.78-.45.31.08.54.41.51.72a.68.68 0 01-.67.61c-.04 0-.09 0-.13-.02-.15-.07-.23-.03-.26.14-.01.06-.07.13-.12.17-.13.09-.27.08-.38-.04-.11-.12-.12-.26-.03-.4.08-.12.21-.14.34-.15h-.02z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.92 80.52c0 .92-.72 1.7-1.61 1.72-.89.02-1.67-.77-1.67-1.71 0-.92.74-1.69 1.64-1.7.88-.01 1.64.77 1.65 1.68l-.01.01zM43.57 77.12c-.07 1.58-1.15 2.72-2.64 2.73-1.5 0-2.63-1.15-2.63-2.72 0-1.77 1.38-2.73 2.63-2.73 1.24 0 2.57.95 2.65 2.73l-.01-.01zM46.3 76.07c-2.42-.07-4.3-1.92-4.31-4.43 0-2.47 1.84-4.42 4.29-4.43 2.42 0 4.3 1.9 4.31 4.41 0 2.48-1.84 4.37-4.29 4.45z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M48.04 80.54c0-3.9 3.11-7.1 6.9-7.11 3.66-.02 6.97 2.92 6.98 7.12.01 4.02-3.05 7.16-6.94 7.15-4.12 0-6.96-3.44-6.94-7.16zM39.47 106.44c-3.78-.62-6.61-2.64-8.45-6.08-.77-1.45-1.16-3.02-1.27-4.67-.36-5.6 3.28-10.46 8.18-11.86 6.33-1.82 12.83 2.3 14.09 8.93 1.18 6.24-2.74 12.3-8.86 13.57-.22.05-.45.08-.68.12-.13.07-.28.02-.42.04-.2.02-.42-.05-.62.05h-.86c-.23-.1-.46-.02-.7-.05-.14-.02-.29.04-.42-.04l.01-.01zM.16 69.65c.35-3.01 1.27-5.81 2.93-8.32 2.89-4.39 6.86-7.13 11.93-8.09 9.55-1.81 18.8 4.42 20.99 14.17 2.33 10.4-4.09 20.21-13.63 22.47C12.67 92.17 3.1 86.1.63 76.28c-.23-.9-.37-1.81-.47-2.73-.05-.28-.1-.56-.12-.85-.02-.16.05-.33-.04-.48V70.9c.09-.14.02-.3.04-.44 0-.07 0-.13.02-.2.06-.19.05-.4.1-.6v-.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M84.56 35.91c-.41 5.32-2.09 10.18-5.05 14.55-4.27 6.33-10.07 10.43-17.34 12.31-1.61.42-3.25.65-4.9.77-1.19.08-2.37.1-3.56.04-2.84-.16-5.6-.71-8.29-1.69-9.44-3.44-16.56-11.61-18.86-21.66-.43-1.89-.68-3.81-.74-5.75-.24-7.69 1.99-14.54 6.75-20.47 4.33-5.4 9.88-8.82 16.54-10.32 1.38-.31 2.79-.48 4.19-.61.11-.07.22-.02.34-.04h.34c.17-.02.36.05.53-.05h1.2c.14.09.3.02.44.05h1.01c2.16.03 4.26.46 6.32 1.07 4.2 1.24 7.94 3.38 11.23 6.32 2.61 2.34 4.73 5.09 6.41 8.2 1.68 3.1 2.75 6.42 3.31 9.91.12.77.16 1.55.15 2.32v.46c0 .08-.02.17.04.25v3.44c-.08.09-.03.2-.04.3v.39c0 .07 0 .13-.03.19l.01.02z" clip-rule="evenodd"></path>
+          <path fill="var(--ink)" d="M92.04 94.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM108.184 52h9.42l4.2 30.06h.12l4.2-30.06h9.42v42h-6.24V62.2h-.12l-4.8 31.8h-5.52l-4.8-31.8h-.12V94h-5.76V52zm43.265 42.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM179.603 52h9.72c3.28 0 5.74.88 7.38 2.64 1.64 1.76 2.46 4.34 2.46 7.74v4.14c0 3.4-.82 5.98-2.46 7.74-1.64 1.76-4.1 2.64-7.38 2.64h-3.12V94h-6.6V52zm9.72 18.9c1.08 0 1.88-.3 2.4-.9.56-.6.84-1.62.84-3.06v-4.98c0-1.44-.28-2.46-.84-3.06-.52-.6-1.32-.9-2.4-.9h-3.12v12.9h3.12zM205.148 52h18v6h-11.4v11.1h9.06v6h-9.06V88h11.4v6h-18V52zm24.196 0h9.78c3.4 0 5.88.8 7.44 2.4 1.56 1.56 2.34 3.98 2.34 7.26v2.58c0 4.36-1.44 7.12-4.32 8.28v.12c1.6.48 2.72 1.46 3.36 2.94.68 1.48 1.02 3.46 1.02 5.94v7.38c0 1.2.04 2.18.12 2.94.08.72.28 1.44.6 2.16h-6.72a9.62 9.62 0 01-.48-1.92c-.08-.6-.12-1.68-.12-3.24v-7.68c0-1.92-.32-3.26-.96-4.02-.6-.76-1.66-1.14-3.18-1.14h-2.28v18h-6.6V52zm9 18c1.32 0 2.3-.34 2.94-1.02.68-.68 1.02-1.82 1.02-3.42v-3.24c0-1.52-.28-2.62-.84-3.3-.52-.68-1.36-1.02-2.52-1.02h-3v12h2.4zm17.6-18h6.6v17.7l8.4-17.7h6.6l-7.86 15.42 7.98 26.58h-6.9l-5.58-18.72-2.64 5.34V94h-6.6V52zm32.343 0h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94zm22.587 14.52c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM339.142 52h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94z"></path>
+        </svg>
+      </a>
+      
+      
+      <div style="flex-shrink: 0; display: flex; align-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+      
+      <sc-if value="{{ teleponHeaderTampil }}" hint-placeholder-val="{{ false }}">
+      <a href="tel:+628112689889" aria-label="Telepon +62 811-2689-889" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; color: var(--ink)">
+        
+        <sc-if value="{{ labelTeleponTampil }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size: var(--teks-micro); line-height: 1.2; font-weight: var(--bobot-bold); color: var(--ink-2); white-space: nowrap">Hubungi Sekarang!</span>
+        </sc-if>
+        <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.5rem; column-gap: 0">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex-shrink: 0; fill: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem"><path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A15.9 15.9 0 0 1 3.6 6.1 1.6 1.6 0 0 1 5.2 4.3h2.4a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-1 1a12.8 12.8 0 0 0 4.8 4.8l1-1a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6a1.6 1.6 0 0 1 1.5 1.7z"></path></svg>
+          
+              
+              
+              <span style="margin-top: 0.2rem; font-size: var(--teks-chip); font-weight: var(--bobot-bold); white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem">+628112689889</span>
+        </span>
+      </a>
+      </sc-if>
+        <button type="button" aria-label="Opsi lainnya" style="flex-shrink: 0; margin-right: -1.3rem; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><path d="M4.4 7h15.2M4.4 12h15.2M4.4 17h15.2"></path></svg>
+      </button>
+      </div>
+    </header>
+
+  <main style="padding-bottom: calc(var(--seksi) / 2); box-sizing: border-box; padding: 0 var(--talang)">
+    
+    
+    
+    <header style="margin-top: var(--dalam)">
+      
+      
+      <h1 style="margin: 0"><img src="/_blob/8cc73bf0290ff7121113e24280430f81" alt="Blog SMS Perkasa — Mau bedah standar SNI, bandingkan material atau pelajari teknik konstruksi? Semuanya dirangkum secara praktis dan teruji." style="width: 100%; height: auto; display: block; border-radius: var(--card)"></h1>
+      
+    </header>
+
+      
+      
+      
+      <section style="margin-top: var(--dalam)">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--dalam)">
+          <div data-tepi="1" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--brand)" aria-hidden="true" style="flex-shrink: 0; display: block; margin-left: 0.5rem; margin-right: 0.5rem"><path d="M12 1.8c0 3.4 1.6 5.2 3.3 7.1 1.9 2.1 3 4 3 6.4a6.3 6.3 0 0 1-12.6 0c0-1.9.7-3.5 1.9-4.9.1 1.4.8 2.4 1.9 2.8-.5-4.3.9-7.8 2.5-11.4z"></path></svg>
+            <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2); margin-left: 0.5rem; margin-right: 0.5rem">ARTIKEL BARU</h2>
+          </div>
+        </div>
+        <div data-tepi-y="1" style="margin-top: var(--rapat); box-sizing: border-box; padding: var(--rapat); border-radius: var(--action); background: var(--surface-2); display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+          <sc-for list="{{ artikelBaru }}" as="ar" hint-placeholder-count="3">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; color: var(--ink); margin-top: calc(var(--rapat) / 2); margin-bottom: calc(var(--rapat) / 2)">
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+            <span style="min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span title="{{ ar.lalu }}" style="display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+          </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <sc-if value="{{ daftarSemuaTampil }}" hint-placeholder-val="{{ false }}">
+      <section style="margin-top: var(--dalam)">
+        <sc-for list="{{ daftarKat }}" as="ar" hint-placeholder-count="5">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </section>
+      </sc-if>
+
+    
+    <sc-if value="{{ cariAktif }}" hint-placeholder-val="{{ false }}">
+    <section style="margin-top: var(--seksi)">
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Hasil pencarian</h2>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); font-weight: var(--bobot-light); color: var(--ink-2)">{{ cariHitung }}</p>
+      <div style="margin-top: var(--rapat)">
+        <sc-for list="{{ hasil }}" as="ar" hint-placeholder-count="3">
+          <a href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--card); overflow: hidden; background: var(--line); color: #ffffff">
+            <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ ar.foto }}" alt="{{ ar.judul }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            </sc-if>
+            <span aria-hidden="true" style="position: absolute; inset: 0; display: block; background: linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.52) 66%, rgba(10,10,10,0.88) 100%)"></span>
+            <span style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: var(--dalam); display: flex; flex-direction: column; gap: 0.6rem">
+              <span aria-hidden="true" style="align-self: flex-start; display: inline-flex; align-items: center; height: 2.2rem; padding: 0 0.8rem; border-radius: var(--tile); background: var(--brand); font-size: var(--teks-chip); line-height: 1; font-weight: var(--bobot-bold); color: #ffffff">{{ ar.kategori }}</span>
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-section); line-height: 1.25; font-weight: var(--bobot-bold); color: #ffffff">{{ ar.judul }}</span>
+              <span aria-hidden="true" title="{{ ar.tanggal }}" style="font-size: var(--teks-chip); font-weight: var(--bobot-light); color: rgba(255,255,255,0.82)">{{ ar.lalu }}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+
+    
+    <sc-if value="{{ daftarDatarTampil }}" hint-placeholder-val="{{ false }}">
+    <section style="margin-top: var(--seksi)">
+      <sc-for list="{{ daftar }}" as="ar" hint-placeholder-count="8">
+        <a href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: block; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+          <span style="display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+          <span style="margin-top: 0.8rem; display: block; font-size: var(--teks-section); line-height: 1.25; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+          <span style="margin-top: 0.8rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-body); line-height: 1.5; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+          <span data-tepi="1" style="margin-top: var(--rapat); display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0">
+              <span aria-hidden="true" style="flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: var(--pill); background: var(--line); display: grid; place-items: center; font-size: var(--teks-micro); line-height: 1; font-weight: var(--bobot-bold); color: var(--ink-2); margin-left: 0.4rem; margin-right: 0.4rem">S</span>
+              <span style="font-size: var(--teks-meta); line-height: 1.3; color: var(--ink); margin-left: 0.4rem; margin-right: 0.4rem">{{ ar.penulis }}</span>
+            </span>
+        </a>
+      </sc-for>
+      <sc-if value="{{ muatAda }}" hint-placeholder-val="{{ true }}">
+        <span style="margin-top: var(--dalam); display: flex; justify-content: center">
+          <button type="button" onClick="{{ muatLagi }}" style="box-sizing: border-box; min-height: 3.6rem; padding: 0.8rem 1.8rem; border: 0.1rem solid var(--line-kuat); border-radius: var(--pill); background: var(--surface); font-size: var(--teks-meta); line-height: 1.3; font-weight: var(--bobot-medium); color: var(--ink); cursor: pointer">Muat lebih banyak</button>
+        </span>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    
+    <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+    <div>
+    <section id="kat-berita" style="margin-top: var(--seksi); padding-bottom: calc(var(--seksi) / 2); scroll-margin-top: 5.6rem">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--dalam); column-gap: 0">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Berita Baja</h2>
+      </div>
+        <sc-if value="{{ tautanIndeksTampil }}" hint-placeholder-val="{{ false }}">
+          <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Indeks Berita Baja, buka di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+            Indeks
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13M12.5 6l6 6-6 6"></path></svg>
+          </a>
+        </sc-if>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">Perkembangan industri, kebijakan dan pergerakan harga besi baja.</p>
+      <div style="margin-top: var(--rapat); display: block">
+        <sc-for list="{{ katBerita }}" as="ar" hint-placeholder-count="6">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Lihat semua artikel, buka indeks blog di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">
+        Lihat Semua
+      </a>
+    </section>
+    <section id="kat-industri" style="margin-top: calc(var(--seksi) / 2); padding-bottom: calc(var(--seksi) / 2); scroll-margin-top: 5.6rem">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--dalam); column-gap: 0">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Industri Baja</h2>
+      </div>
+        <sc-if value="{{ tautanIndeksTampil }}" hint-placeholder-val="{{ false }}">
+          <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Indeks Industri Baja, buka di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+            Indeks
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13M12.5 6l6 6-6 6"></path></svg>
+          </a>
+        </sc-if>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">Teknologi produksi, metode konstruksi dan praktik di lapangan.</p>
+      <div style="margin-top: var(--rapat); display: block">
+        <sc-for list="{{ katIndustri }}" as="ar" hint-placeholder-count="6">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Lihat semua artikel, buka indeks blog di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">
+        Lihat Semua
+      </a>
+    </section>
+    <section id="kat-produk" style="margin-top: calc(var(--seksi) / 2); padding-bottom: calc(var(--seksi) / 2); scroll-margin-top: 5.6rem">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--dalam); column-gap: 0">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Produk Besi</h2>
+      </div>
+        <sc-if value="{{ tautanIndeksTampil }}" hint-placeholder-val="{{ false }}">
+          <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Indeks Produk Besi, buka di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+            Indeks
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13M12.5 6l6 6-6 6"></path></svg>
+          </a>
+        </sc-if>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">Jenis, ukuran dan penggunaan tiap produk besi dan baja.</p>
+      <div style="margin-top: var(--rapat); display: block">
+        <sc-for list="{{ katProduk }}" as="ar" hint-placeholder-count="6">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Lihat semua artikel, buka indeks blog di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">
+        Lihat Semua
+      </a>
+    </section>
+    <section id="kat-team" style="margin-top: calc(var(--seksi) / 2); padding-bottom: calc(var(--seksi) / 2); scroll-margin-top: 5.6rem">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--dalam); column-gap: 0">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Team</h2>
+      </div>
+        <sc-if value="{{ tautanIndeksTampil }}" hint-placeholder-val="{{ false }}">
+          <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Indeks Team, buka di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+            Indeks
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13M12.5 6l6 6-6 6"></path></svg>
+          </a>
+        </sc-if>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">Budaya kerja, kegiatan dan pengembangan tim SMS Perkasa.</p>
+      <div style="margin-top: var(--rapat); display: block">
+        <sc-for list="{{ katTeam }}" as="ar" hint-placeholder-count="6">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Lihat semua artikel, buka indeks blog di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">
+        Lihat Semua
+      </a>
+    </section>
+    <section id="kat-trivia" style="margin-top: calc(var(--seksi) / 2); scroll-margin-top: 5.6rem">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--dalam); column-gap: 0">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; letter-spacing: 0.12em; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2)">Trivia</h2>
+      </div>
+        <sc-if value="{{ tautanIndeksTampil }}" hint-placeholder-val="{{ false }}">
+          <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Indeks Trivia, buka di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2)">
+            Indeks
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13M12.5 6l6 6-6 6"></path></svg>
+          </a>
+        </sc-if>
+      </div>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">Serba-serbi desain, hunian dan fakta menarik seputar konstruksi.</p>
+      <div style="margin-top: var(--rapat); display: block">
+        <sc-for list="{{ katTrivia }}" as="ar" hint-placeholder-count="6">
+          <a data-tepi="1" href="{{ ar.url }}" target="{{ ar.target }}" rel="noopener" aria-label="{{ ar.aria }}" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; box-sizing: border-box; padding: var(--dalam) 0; color: var(--ink)">
+            <span style="min-width: 0; flex-grow: 1; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ ar.judul }}</span>
+              <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: var(--teks-meta); line-height: 1.45; font-weight: var(--bobot-light); color: var(--ink-2)">{{ ar.ringkas }}</span>
+              <span title="{{ ar.lalu }}" style="margin-top: 0.8rem; display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-semibold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">{{ ar.tanggal }}</span>
+            </span>
+            <span style="flex-shrink: 0; width: 6.4rem; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+              <sc-if value="{{ ar.tampilFoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ ar.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+              </sc-if>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.smsperkasa.com/blog" target="_blank" rel="noopener" aria-label="Lihat semua artikel, buka indeks blog di smsperkasa.com" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">
+        Lihat Semua
+      </a>
+    </section>
+    </div>
+    </sc-if>
+  </main>
+    
+<div style="margin-top: calc(var(--seksi) / 2); background: var(--ink); color: #ffffff; padding: var(--dalam) var(--sisi) 25rem var(--sisi)">
+      <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: 0.12rem; color: rgba(255,255,255,0.68)">DISTRIBUTOR BESI TERPERCAYA</p>
+      <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-bold); text-align: justify; -webkit-hyphens: auto; hyphens: auto">Besi dan material konstruksi untuk proyek Anda</p>
+
+      
+      <div data-tepi-y="1" style="margin-top: var(--dalam); display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ footCats }}" as="fc" hint-placeholder-count="11">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <button type="button" onClick="{{ fc.toggle }}" aria-expanded="{{ fc.exp }}" style="width: 100%; min-height: 4rem; display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: calc(var(--rapat) / 2); color: #ffffff; font-size: var(--teks-body); font-weight: var(--bobot-bold)">
+              {{ fc.h }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="{{ fc.chev }}; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+            <sc-if value="{{ fc.open }}" hint-placeholder-val="{{ false }}">
+              <div data-tepi-y="1" style="display: flex; flex-direction: column; padding: 0.6rem 0 0 0.4rem; row-gap: 0; column-gap: 0">
+                <sc-for list="{{ fc.items }}" as="fi" hint-placeholder-count="3">
+                  <a href="#produk" style="font-size: var(--teks-body); color: rgba(255,255,255,0.68); margin-top: 0.4rem; margin-bottom: 0.4rem">{{ fi.l }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi-y="1" style="display: flex; flex-direction: column; margin-top: var(--dalam); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ footInfo }}" as="fo" hint-placeholder-count="7">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <p style="margin: 0 0 0.4rem 0; font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ fo.h }}</p>
+            <p style="margin: 0; font-size: var(--teks-body); line-height: 1.35; color: rgba(255,255,255,0.68); white-space: pre-line">{{ fo.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi="1" style="display: flex; flex-wrap: wrap; row-gap: var(--rapat); column-gap: 0; margin-top: var(--dalam)">
+        <sc-for list="{{ socials }}" as="so" hint-placeholder-count="6">
+          <a href="#sosial" style="font-size: var(--teks-body); font-weight: var(--bobot-bold); color: #ffffff; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">{{ so.l }}</a>
+        </sc-for>
+      </div>
+
+      <p style="margin: var(--dalam) 0 0 0; font-size: var(--teks-meta); line-height: 1.35; color: rgba(255,255,255,0.68)">2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.</p>
+    </div>
+  
+  <div style="position: fixed; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; box-sizing: border-box; padding: 0 1.2rem; bottom: 3.4rem; z-index: 9999; {{ barWadah }} display: flex; flex-direction: column; align-items: stretch">
+      <sc-if value="{{ cariOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-tepi="1" data-cari="1" style="margin-bottom: 1rem; box-sizing: border-box; display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; min-height: 4.8rem; padding: 0 1.4rem; border-radius: var(--pill); background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2.1" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.2-3.2"></path></svg>
+        <label style="flex-grow: 1; min-width: 0; display: flex; align-items: center; margin-left: 0.4rem; margin-right: 0.4rem">
+          <span style="position: absolute; width: 0.1rem; height: 0.1rem; overflow: hidden; clip-path: inset(50%)">Cari judul artikel</span>
+          <input type="text" value="{{ cariQ }}" onChange="{{ cariKetik }}" placeholder="Cari judul artikel" style="flex-grow: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: var(--teks-body); color: var(--ink)">
+        </label>
+      </div>
+      </sc-if>
+      <div data-tepi="1" data-bar="1" style="{{ barGaya }}; display: flex; align-items: stretch; row-gap: 1rem; column-gap: 0">
+        <button type="button" data-grid="1" onClick="{{ navToggle }}" aria-expanded="{{ navExp }}" aria-label="{{ navAria }}" style="box-sizing: border-box; background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--ink); width: 5.2rem; height: 5.2rem; align-self: center; margin-right: auto; position: relative; border-radius: var(--pill); display: grid; place-items: center; flex-shrink: 0; margin-left: 0.5rem; margin-right: calc(auto + 0.5rem)">
+          <span aria-hidden="true" style="position: absolute; left: 1rem; top: 0.7rem; width: 2.4rem; height: 1.4rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="{{ navTinta }}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.9 4.2h1.8M2.9 9.9h5.1M2.9 15.1h5.1M2.9 20.4h18.2"></path><path d="M12.2 4.2h1.5a3.4 3.4 0 0 1 3.4 3.4v8.2"></path><path d="M12.1 10.8l5.0 5.0 5.0-5.0"></path></svg>
+        </button>
+        <button type="button" onClick="{{ cariToggle }}" aria-expanded="{{ cariExp }}" aria-label="{{ cariAria }}" style="box-sizing: border-box; background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--ink); width: 5.2rem; height: 5.2rem; align-self: center; position: relative; border-radius: var(--pill); display: grid; place-items: center; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+          <span aria-hidden="true" style="position: absolute; left: 1rem; top: 0.7rem; width: 2.4rem; height: 1.4rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.2-3.2"></path></svg>
+        </button>
+        <button type="button" onClick="{{ bantuanToggle }}" aria-expanded="{{ bantuanExp }}" aria-label="{{ bantuanAria }}" style="box-sizing: border-box; background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--ink); width: 5.2rem; height: 5.2rem; align-self: center; position: relative; border-radius: var(--pill); display: grid; place-items: center; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+          <span aria-hidden="true" style="position: absolute; left: 1rem; top: 0.7rem; width: 2.4rem; height: 1.4rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+          <svg width="34" height="34" viewBox="45.5 44.25 330 330" aria-hidden="true" style="display: block; fill: var(--brand-hero)"><circle cx="259" cy="146" r="98"></circle><circle cx="124" cy="258" r="60"></circle><circle cx="199" cy="333" r="37.5"></circle><circle cx="246" cy="287" r="23"></circle><circle cx="217" cy="258" r="14"></circle><circle cx="199" cy="275" r="9.5"></circle><circle cx="210" cy="286" r="6.5"></circle><circle cx="215" cy="280" r="4"></circle></svg>
+        </button>
+      </div>
+  </div>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <button type="button" data-scrim="1" onClick="{{ navTutup }}" aria-label="Tutup daftar kategori" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 10001; background: transparent; border: 0; padding: 0"></button>
+    <div data-sheet="1" role="group" aria-label="Kategori artikel" style="position: fixed; left: 50%; transform: translateX(-50%); bottom: 3.4rem; width: 33.6rem; max-width: calc(100% - 2.4rem); z-index: 10002; box-sizing: border-box; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border-radius: var(--island); padding: 0.8rem 1rem; display: flex; flex-direction: column; gap: 0.6rem">
+      <div data-kat-rel="1" style="overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity">
+        <div data-tepi="1" data-set="bagian" style="position: relative; width: max-content; display: flex; align-items: stretch; row-gap: 0.6rem; column-gap: 0">
+          <a href="#kat-berita" onClick="{{ kat0Pilih }}" aria-current="{{ kat0Kini }}" style="{{ kat0Gaya }}; position: relative; animation-delay: 70ms; width: 9.6rem; flex-shrink: 0; scroll-snap-align: center; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35; overflow-wrap: anywhere; border: 0; padding-left: 0.4rem; margin-left: 0.3rem; padding-right: 0.4rem; margin-right: 0.3rem">
+            <svg width="{{ kat0Ikon }}" height="{{ kat0Ikon }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><rect x="3.5" y="5" width="17" height="14" rx="1.5"></rect><path d="M7 9.2h7M7 12.4h7M7 15.6h4"></path></svg>Berita Baja</a>
+          <a href="#kat-industri" onClick="{{ kat1Pilih }}" aria-current="{{ kat1Kini }}" style="{{ kat1Gaya }}; position: relative; animation-delay: 125ms; width: 9.6rem; flex-shrink: 0; scroll-snap-align: center; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35; overflow-wrap: anywhere; border: 0; padding-left: 0.4rem; margin-left: 0.3rem; padding-right: 0.4rem; margin-right: 0.3rem">
+            <svg width="{{ kat1Ikon }}" height="{{ kat1Ikon }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M3.5 19.5v-7.2l5 2.9v-2.9l5 2.9v-2.9l5 2.9v4.3z"></path><path d="M17 9.6V4.5"></path></svg>Industri Baja</a>
+          <a href="#kat-produk" onClick="{{ kat2Pilih }}" aria-current="{{ kat2Kini }}" style="{{ kat2Gaya }}; position: relative; animation-delay: 180ms; width: 9.6rem; flex-shrink: 0; scroll-snap-align: center; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35; overflow-wrap: anywhere; border: 0; padding-left: 0.4rem; margin-left: 0.3rem; padding-right: 0.4rem; margin-right: 0.3rem">
+            <svg width="{{ kat2Ikon }}" height="{{ kat2Ikon }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M6 5h12M6 19h12M12 5v14"></path></svg>
+            Produk Besi
+          </a>
+          <a href="#kat-team" onClick="{{ kat3Pilih }}" aria-current="{{ kat3Kini }}" style="{{ kat3Gaya }}; position: relative; animation-delay: 235ms; width: 9.6rem; flex-shrink: 0; scroll-snap-align: center; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35; overflow-wrap: anywhere; border: 0; padding-left: 0.4rem; margin-left: 0.3rem; padding-right: 0.4rem; margin-right: 0.3rem">
+            <svg width="{{ kat3Ikon }}" height="{{ kat3Ikon }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="9.3" cy="9.4" r="2.6"></circle><path d="M4.6 18.6a4.7 4.7 0 0 1 9.4 0"></path><circle cx="16.8" cy="10.6" r="1.9"></circle><path d="M14.6 18.6a3.4 3.4 0 0 1 4.8-2.9"></path></svg>
+            Team
+          </a>
+          <a href="#kat-trivia" onClick="{{ kat4Pilih }}" aria-current="{{ kat4Kini }}" style="{{ kat4Gaya }}; position: relative; animation-delay: 290ms; width: 9.6rem; flex-shrink: 0; scroll-snap-align: center; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35; overflow-wrap: anywhere; border: 0; padding-left: 0.4rem; margin-left: 0.3rem; padding-right: 0.4rem; margin-right: 0.3rem">
+            <svg width="{{ kat4Ikon }}" height="{{ kat4Ikon }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M12 4.5a5 5 0 0 1 3 9v2.6H9V13.5a5 5 0 0 1 3-9z"></path><path d="M10 19.3h4"></path></svg>
+            Trivia
+          </a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+      <sc-if value="{{ bantuanOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-bantu="1" role="dialog" aria-label="Pusat bantuan SMS Perkasa" style="position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; z-index: 10003; box-sizing: border-box; background: var(--surface); color: var(--ink); overflow-y: auto; display: flex; flex-direction: column">
+
+          
+          <sc-if value="{{ barJudulTampil }}" hint-placeholder-val="{{ true }}">
+            <div data-tepi="1" style="flex-shrink: 0; position: relative; z-index: 2; box-sizing: border-box; padding: 1.6rem; background: var(--brand); color: #ffffff; display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; box-shadow: 0 0.1rem 0.3rem rgba(17,25,33,0.28)">
+              
+            <sc-if value="{{ barLogoTampil }}" hint-placeholder-val="{{ false }}">
+              <span aria-hidden="true" style="flex-shrink: 0; width: 4rem; height: 4rem; border-radius: var(--pill); background: var(--cair-tombol), #ffffff; -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M4.5 13.5v-1.6a7.5 7.5 0 0 1 15 0v1.6"></path><path d="M4.5 13h1.2a1.3 1.3 0 0 1 1.3 1.3v2.4A1.3 1.3 0 0 1 5.7 18H4.5A1.5 1.5 0 0 1 3 16.5v-2A1.5 1.5 0 0 1 4.5 13z"></path><path d="M19.5 13h-1.2a1.3 1.3 0 0 0-1.3 1.3v2.4a1.3 1.3 0 0 0 1.3 1.3h1.2a1.5 1.5 0 0 0 1.5-1.5v-2a1.5 1.5 0 0 0-1.5-1.5z"></path><path d="M19 18v.6a2.4 2.4 0 0 1-2.4 2.4H13"></path></svg>
+                </span>
+            </sc-if>
+              <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                <span style="display: block; font-size: var(--teks-body); line-height: 1.2; font-weight: var(--bobot-bold)">SMS Perkasa</span>
+                
+              <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; margin-top: 0.4rem">
+                <span aria-hidden="true" style="{{ statusTitik }}; margin-left: 0.3rem; margin-right: 0.3rem"></span>
+                <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); color: #ffffff; margin-left: 0.3rem; margin-right: 0.3rem">{{ statusLabel }}</span>
+              </span>
+              </span>
+              
+            <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="flex-shrink: 0; width: 3.6rem; height: 3.6rem; padding: 0; border: 0; background: transparent; border-radius: var(--pill); color: #ffffff; display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+              </button>
+            </div>
+          </sc-if>
+
+          
+          <sc-if value="{{ bMenu }}" hint-placeholder-val="{{ true }}">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+
+              
+              
+              
+                <div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; margin: 1.5rem; overflow: hidden; background: var(--surface)">
+                
+                
+                <img src="/_blob/245d1342fb00af4c7c58ad1877eec21c" alt="Halo! Ada yang bisa kami bantu? Solusi cepat kebutuhan besi, info gudang, dan konsultasi langsung dengan tim sales kami." style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+                
+                <sc-if value="{{ tutupFotoTampil }}" hint-placeholder-val="{{ false }}">
+                <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="position: absolute; top: -1rem; right: -1rem; z-index: 2; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+                    
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                  </button>
+                </sc-if>
+              </div>
+
+              <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: 1rem">
+
+                
+              
+                
+                <a data-tepi="1" href="https://wa.me/628112689889" rel="noopener" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: relative; display: block">
+                      <path d="M4.6 7.4A3.2 3.2 0 0 1 7.8 4.2h8.4a3.2 3.2 0 0 1 3.2 3.2v5.2a3.2 3.2 0 0 1-3.2 3.2H9.9l-3.1 3.1a.7.7 0 0 1-1.2-.5v-2.9a3.2 3.2 0 0 1-1-2.3z" fill="var(--brand)"></path>
+                      <circle cx="8.6" cy="10" r="1.3" fill="#ffffff"></circle>
+                      <circle cx="12" cy="10" r="1.3" fill="#ffffff"></circle>
+                      <circle cx="15.4" cy="10" r="1.3" fill="#ffffff"></circle>
+                    </svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Chat di WhatsApp</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Tanya stok, harga &amp; penawaran terbaik.</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+
+                
+                <button data-tepi="1" type="button" data-bantu-row="1" onClick="{{ bKeChat }}" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: relative; display: block"><path d="M20.5 11.3a7.6 7.6 0 0 1-8 7.6l-4.3 2 .6-3.1a7.6 7.6 0 1 1 11.7-6.5z"></path><path d="M8.9 11.3h.01M12 11.3h.01M15.1 11.3h.01"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Mulai Live Chat</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Atau ngobrol di halaman ini</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                
+              
+                                
+                <sc-if value="{{ teleponRowTampil }}" hint-placeholder-val="{{ false }}">
+                <a data-tepi="1" href="tel:+628112689889" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="display: block; fill: var(--brand)"><path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A15.9 15.9 0 0 1 3.6 6.1 1.6 1.6 0 0 1 5.2 4.3h2.4a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-1 1a12.8 12.8 0 0 0 4.8 4.8l1-1a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6a1.6 1.6 0 0 1 1.5 1.7z"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Call Sales</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Telepon langsung <span style="color: var(--ink)">+62 811-2689-889</span> untuk respon cepat.</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                </sc-if>
+
+                
+                
+                                
+                <sc-if value="{{ kalkRowTampil }}" hint-placeholder-val="{{ false }}">
+                <button data-tepi="1" type="button" onClick="{{ bKeKalk }}" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><rect x="5" y="3" width="14" height="18" rx="2.2"></rect><path d="M8.5 7.2h7"></path><path d="M8.6 11.3h.01M12 11.3h.01M15.4 11.3h.01M8.6 14.6h.01M12 14.6h.01M15.4 14.6h.01M8.6 17.9h3.4M15.4 17.9h.01"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Kalkulator</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Hitung Kebutuhan Besi Anda</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                </sc-if>
+
+
+                
+                                
+                <sc-if value="{{ gudangRowTampil }}" hint-placeholder-val="{{ false }}">
+                <button data-tepi="1" type="button" onClick="{{ bKeGudang }}" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 21.2s6.8-5.4 6.8-10.9a6.8 6.8 0 1 0-13.6 0c0 5.5 6.8 10.9 6.8 10.9z"></path><circle cx="12" cy="10.1" r="2.6"></circle></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Lokasi Gudang</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Alamat dan petunjuk arah gudang kami.</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                </sc-if>
+
+                
+                <sc-if value="{{ blogRowTampil }}" hint-placeholder-val="{{ false }}">
+                <button data-tepi="1" type="button" data-bantu-row="1" onClick="{{ bKeBlog }}" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: #faf5ff; box-shadow: inset 0 0 0 0.1rem #ecdcfe">
+                  <span aria-hidden="true" style="width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: #7c3aed; display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.2A1.2 1.2 0 0 1 5.2 5h10.6A1.2 1.2 0 0 1 17 6.2v11.6A1.9 1.9 0 0 0 18.9 19.7H6.4A2.4 2.4 0 0 1 4 17.3z"></path><path d="M17 9.2h1.9a1.2 1.2 0 0 1 1.2 1.2v7.4a1.9 1.9 0 0 1-1.9 1.9"></path><path d="M7.2 8.6h6.6M7.2 11.6h6.6M7.2 14.6h4"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Baca Blog</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Tips &amp; <span style="font-weight: var(--bobot-bold)">info terbaru</span> seputar besi baja.</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                </sc-if>
+
+                
+                
+                
+                
+                <sc-if value="{{ jamMenuTampil }}" hint-placeholder-val="{{ false }}">
+                  <div data-tepi="1" style="display: flex; align-items: flex-start; row-gap: 1rem; column-gap: 0; box-sizing: border-box">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.1rem; margin-left: 0.5rem; margin-right: 0.5rem"><circle cx="12" cy="12" r="8.4"></circle><path d="M12 7.4V12l3 1.8"></path></svg>
+                    <span style="min-width: 0; flex-grow: 1; margin-left: 0.5rem; margin-right: 0.5rem">
+                      <span style="display: block; font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold)">Jam Operasional</span>
+                      <span data-tepi="1" style="display: flex; align-items: baseline; row-gap: var(--rapat); column-gap: 0; margin-top: 0.5rem">
+                        <span style="width: 7rem; flex-shrink: 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Senin - Jumat</span>
+                        <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">08.30 - 17.00</span>
+                      </span>
+                      <span data-tepi="1" style="display: flex; align-items: baseline; row-gap: var(--rapat); column-gap: 0; margin-top: 0.3rem">
+                        <span style="width: 7rem; flex-shrink: 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Sabtu</span>
+                        <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">08.30 - 14.00</span>
+                      </span>
+                      <span style="display: block; margin-top: 0.6rem; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">*Tanggal Merah dan Hari Besar Nasional Libur</span>
+                    </span>
+                  </div>
+                </sc-if>
+
+              </div>
+            </div>
+          </sc-if>
+
+          
+          <sc-if value="{{ bForm }}" hint-placeholder-val="{{ false }}">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+              
+              
+              <sc-if value="{{ bannerFormTampil }}" hint-placeholder-val="{{ false }}">
+                
+                <div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; margin: 1.5rem; overflow: hidden; background: var(--surface)">
+                  <img src="/_blob/b488b010294b080c8874975e39b8f5a2" alt="Halo! Ada yang bisa kami bantu? Pilih salah satu layanan di bawah ini untuk terhubung dengan tim sales kami." style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+                  <sc-if value="{{ tutupFotoTampil }}" hint-placeholder-val="{{ false }}">
+                  <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="position: absolute; top: -1rem; right: -1rem; z-index: 2; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                    </button>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+
+                <p style="margin: 0; font-size: var(--teks-meta); line-height: 1.35; color: var(--ink-2)">Yuk isi form dibawah ini 😉</p>
+
+                
+                
+                <p style="margin: 0; font-size: var(--teks-tiny); line-height: 1.2; text-align: center; color: var(--ink-2)">isi dengan</p>
+                <div data-tepi="1" style="display: flex; row-gap: 0.8rem; column-gap: 0">
+                  <button data-tepi="1" type="button" onClick="{{ bSosialGoogle }}" style="flex: 1 1 0; min-width: 0; min-height: 4rem; border-radius: var(--control); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); font-size: var(--teks-meta); font-weight: var(--bobot-bold); display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem; margin-left: 0.4rem; margin-right: 0.4rem">
+                    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem">
+                      <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3.01h3.88c2.27-2.09 3.58-5.17 3.58-8.82z"></path>
+                      <path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.94-2.91l-3.88-3.01c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.11A12 12 0 0 0 12 24z"></path>
+                      <path fill="#FBBC05" d="M5.29 14.28a7.2 7.2 0 0 1 0-4.56V6.61H1.28a12 12 0 0 0 0 10.78l4.01-3.11z"></path>
+                      <path fill="#EA4335" d="M12 4.77c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.95 1.19 15.23 0 12 0 7.31 0 3.26 2.69 1.28 6.61l4.01 3.11C6.23 6.88 8.88 4.77 12 4.77z"></path>
+                    </svg>
+                    Google
+                  </button>
+                  <button data-tepi="1" type="button" onClick="{{ bSosialFb }}" style="flex: 1 1 0; min-width: 0; min-height: 4rem; border-radius: var(--control); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); font-size: var(--teks-meta); font-weight: var(--bobot-bold); display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem; margin-left: 0.4rem; margin-right: 0.4rem">
+                    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem">
+                      <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.5c-1.49 0-1.95.93-1.95 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"></path>
+                    </svg>
+                    Facebook
+                  </button>
+                </div>
+                <sc-if value="{{ bSosialAda }}" hint-placeholder-val="{{ false }}">
+                  <p aria-live="polite" style="margin: -0.4rem 0 0 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">{{ bSosialPesan }}</p>
+                </sc-if>
+
+                <span data-tepi="1" aria-hidden="true" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0; font-size: var(--teks-tiny); color: var(--ink-2)"><span style="flex: 1 1 0; height: 0.1rem; background: var(--line); margin-left: 0.5rem; margin-right: 0.5rem"></span>atau<span style="flex: 1 1 0; height: 0.1rem; background: var(--line); margin-left: 0.5rem; margin-right: 0.5rem"></span></span>
+
+                <span style="display: flex; flex-direction: column; gap: 0.5rem">
+                  <label for="b-nama" style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">Nama</label>
+                  <input id="b-nama" type="text" value="{{ bNama }}" onChange="{{ bSetNama }}" placeholder="Nama lengkap" style="box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: var(--line); outline: none; font-size: var(--teks-body)">
+                </span>
+
+                <span style="display: flex; flex-direction: column; gap: 0.5rem">
+                  <label for="b-wa" style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">Nomor WhatsApp</label>
+                  <input id="b-wa" type="tel" value="{{ bWaNo }}" onChange="{{ bSetWaNo }}" placeholder="08xx xxxx xxxx" style="box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: var(--line); outline: none; font-size: var(--teks-body); font-variant-numeric: tabular-nums">
+                </span>
+
+                <span style="display: flex; flex-direction: column; gap: 0.5rem">
+                  <label for="b-email" style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2)">Email</label>
+                  <input id="b-email" type="email" value="{{ bEmail }}" onChange="{{ bSetEmail }}" placeholder="nama@perusahaan.com" style="box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: var(--line); outline: none; font-size: var(--teks-body)">
+                </span>
+
+                
+                <p style="margin: 0; font-size: 0.8rem; line-height: 1.45; text-align: center; color: var(--ink-2)">Dengan mengirim, Anda menyetujui <a href="https://www.smsperkasa.com/kebijakan-privasi" rel="noopener" style="color: var(--brand); font-weight: var(--bobot-bold); text-decoration: underline 0.1rem; text-underline-offset: 0.2rem">Kebijakan Privasi</a> kami.</p>
+
+                
+                
+                                
+                <sc-if value="{{ bFormSiap }}" hint-placeholder-val="{{ false }}">
+                <a data-tepi="1" href="https://wa.me/628112689889" rel="noopener" onClick="{{ bKirimForm }}" style="{{ bKirimFormGaya }}; width: 100%; box-sizing: border-box; min-height: 4.4rem; padding: 0.4rem 1.2rem; border-radius: var(--action); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0; display: block; fill: currentColor; margin-left: 0.4rem; margin-right: 0.4rem"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.24-.7.24-1.29.17-1.42-.08-.12-.27-.2-.57-.35M12.05 21.78h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.42"></path></svg>WhatsApp</a>
+                </sc-if>
+                <sc-if value="{{ bFormKurang }}" hint-placeholder-val="{{ true }}">
+                <button data-tepi="1" type="button" onClick="{{ bKirimForm }}" disabled="{{ bFormKurang }}" style="{{ bKirimFormGaya }}; width: 100%; box-sizing: border-box; min-height: 4.4rem; padding: 0.4rem 1.2rem; border: 0; border-radius: var(--action); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0; display: block; fill: currentColor; margin-left: 0.4rem; margin-right: 0.4rem"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.24-.7.24-1.29.17-1.42-.08-.12-.27-.2-.57-.35M12.05 21.78h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.42"></path></svg>WhatsApp</button>
+                </sc-if>
+                <button data-tepi="1" type="button" onClick="{{ bKirimFormChat }}" disabled="{{ bFormKurang }}" style="{{ bKirimChatGaya }}; width: 100%; box-sizing: border-box; min-height: 4.4rem; padding: 0.4rem 1.2rem; border: 0; border-radius: var(--action); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; display: block; margin-left: 0.4rem; margin-right: 0.4rem"><path d="M20.5 11.3a7.6 7.6 0 0 1-8 7.6l-4.3 2 .6-3.1a7.6 7.6 0 1 1 11.7-6.5z"></path><path d="M8.9 11.3h.01M12 11.3h.01M15.1 11.3h.01"></path></svg>Live Chat</button>
+                
+                <p style="margin: -0.6rem 0 0 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--brand)">*Dengan menekan tombol diatas Anda setuju untuk kami hubungi kembali</p>
+
+              </div>
+
+              
+            </div>
+          </sc-if>
+
+          
+          
+    <sc-if value="{{ bWa }}" hint-placeholder-val="{{ false }}">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+
+              
+              
+              
+              <sc-if value="{{ bannerWaTampil }}" hint-placeholder-val="{{ false }}">
+                
+                <div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; margin: 1.5rem; overflow: hidden; background: var(--surface)">
+                  <img src="/_blob/b488b010294b080c8874975e39b8f5a2" alt="Halo! Ada yang bisa kami bantu? Pilih salah satu layanan di bawah ini untuk terhubung dengan tim sales kami." style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+                  <sc-if value="{{ tutupFotoTampil }}" hint-placeholder-val="{{ false }}">
+                  <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="position: absolute; top: -1rem; right: -1rem; z-index: 2; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                    </button>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+
+              
+                
+                <a data-tepi="1" href="https://wa.me/628112689889" rel="noopener" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: relative; display: block; fill: var(--brand)"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.24-.7.24-1.29.17-1.42-.08-.12-.27-.2-.57-.35M12.05 21.78h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.42"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Chat di WhatsApp</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Chat langsung dengan tim sales</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+
+                <button data-tepi="1" type="button" data-bantu-row="1" onClick="{{ bKeChat }}" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: relative; display: block"><path d="M20.5 11.3a7.6 7.6 0 0 1-8 7.6l-4.3 2 .6-3.1a7.6 7.6 0 1 1 11.7-6.5z"></path><path d="M8.9 11.3h.01M12 11.3h.01M15.1 11.3h.01"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Mulai Live Chat</span>
+                    <span style="display: block; margin-top: 0.4rem; font-size: 1.2rem; line-height: 1.35; color: var(--ink-2)">Atau ngobrol di halaman ini</span>
+                  </span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+              
+              <sc-if value="{{ jamWaTampil }}" hint-placeholder-val="{{ false }}">
+                  <div data-tepi="1" data-bantu-row="1" style="display: flex; align-items: flex-start; row-gap: 1rem; column-gap: 0; box-sizing: border-box">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.1rem; margin-left: 0.5rem; margin-right: 0.5rem"><circle cx="12" cy="12" r="8.4"></circle><path d="M12 7.4V12l3 1.8"></path></svg>
+                    <span style="min-width: 0; flex-grow: 1; margin-left: 0.5rem; margin-right: 0.5rem">
+                      <span style="display: block; font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold)">Jam Operasional</span>
+                      <span data-tepi="1" style="display: flex; align-items: baseline; row-gap: var(--rapat); column-gap: 0; margin-top: 0.5rem">
+                        <span style="width: 7rem; flex-shrink: 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Senin - Jumat</span>
+                        <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">08.30 - 17.00</span>
+                      </span>
+                      <span data-tepi="1" style="display: flex; align-items: baseline; row-gap: var(--rapat); column-gap: 0; margin-top: 0.3rem">
+                        <span style="width: 7rem; flex-shrink: 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Sabtu</span>
+                        <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">08.30 - 14.00</span>
+                      </span>
+                      <span style="display: block; margin-top: 0.6rem; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">*Tanggal Merah dan Hari Besar Nasional Libur</span>
+                    </span>
+                  </div>
+              </sc-if>
+
+              </div>
+
+              
+              <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; padding: 0.6rem 1.4rem 1rem 1.4rem; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+                <button data-tepi="1" type="button" onClick="{{ bKembali }}" style="display: inline-flex; align-items: center; row-gap: 0.9rem; column-gap: 0.45rem; min-height: 4.4rem; padding: 0 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); color: var(--brand)">
+                  <svg style="margin-left: 0.45rem; margin-right: 0.45rem" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </sc-if>
+
+          
+          <sc-if value="{{ bChat }}" hint-placeholder-val="{{ false }}">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+
+              
+              
+              <sc-if value="{{ bannerChatTampil }}" hint-placeholder-val="{{ false }}">
+                
+                <div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; margin: 1.5rem; overflow: hidden; background: var(--surface)">
+                  <img src="/_blob/b488b010294b080c8874975e39b8f5a2" alt="Halo! Ada yang bisa kami bantu? Pilih salah satu layanan di bawah ini untuk terhubung dengan tim sales kami." style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+                  <sc-if value="{{ tutupFotoTampil }}" hint-placeholder-val="{{ false }}">
+                  <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="position: absolute; top: -1rem; right: -1rem; z-index: 2; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                    </button>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+
+                
+              
+                <div style="position: relative; display: flex; align-items: center; row-gap: 1rem; column-gap: 0; padding: 0.6rem 0 0.2rem 0">
+                
+                
+                
+                
+                <sc-if value="{{ kembaliTampil }}" hint-placeholder-val="{{ false }}">
+                <button type="button" onClick="{{ bKembali }}" aria-label="Kembali" style="flex-shrink: 0; margin-left: -0.6rem; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; border-radius: var(--pill); color: var(--brand); display: grid; place-items: center; margin-left: calc(-0.6rem + 0.5rem); margin-right: 0.5rem">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+                </button>
+                </sc-if>
+                
+                
+                
+                <img src="/_blob/456472aa4dc3903e9ee803c8e4168330" alt="" aria-hidden="true" style="width: 4.8rem; height: 4.8rem; flex-shrink: 0; border-radius: var(--pill); object-fit: cover; display: block; margin-left: 0.5rem; margin-right: 0.5rem">
+                <span style="min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-left: 0.5rem; margin-right: 0.5rem">
+                  
+                  <span style="display: block; font-size: var(--teks-body); line-height: 1.2; font-weight: var(--bobot-semibold)">SMS Perkasa</span>
+                  <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0">
+                  <span aria-hidden="true" style="{{ statusTitikTerang }}; margin-left: 0.3rem; margin-right: 0.3rem"></span>
+                  <span style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); color: var(--ink-2); margin-left: 0.3rem; margin-right: 0.3rem">{{ statusLabel }}</span>
+                </span>
+                </span>
+                
+                <div style="flex-shrink: 0; margin-left: auto; margin-right: -0.6rem; display: flex; align-items: center; margin-left: calc(auto + 0.5rem); margin-right: calc(-0.6rem + 0.5rem)">
+                  
+                  <div data-tepi="1" style="display: flex; align-items: center; row-gap: 0.5rem; column-gap: 0">
+                    
+                    
+                    
+                    <a href="https://wa.me/628112689889" target="_blank" rel="noopener" aria-label="WhatsApp Sales" style="box-sizing: border-box; flex-shrink: 0; position: relative; width: 4.4rem; height: 4.4rem; border-radius: var(--pill); background: var(--cair-tombol); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--whatsapp); display: grid; place-items: center; margin-left: 0.25rem; margin-right: 0.25rem">
+                      <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.6rem; width: 2rem; height: 1.2rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="display: block; fill: currentColor"><g transform="translate(3.5 4.21) scale(0.667)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.825 9.825 0 016.993 2.898 9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></g></svg>
+                    </a>
+                    
+                    <a href="tel:+628112689889" aria-label="Call Sales" style="box-sizing: border-box; flex-shrink: 0; position: relative; width: 4.4rem; height: 4.4rem; border-radius: var(--pill); background: var(--cair-tombol); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--brand); display: grid; place-items: center; margin-left: 0.25rem; margin-right: 0.25rem">
+                      <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.6rem; width: 2rem; height: 1.2rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="display: block; fill: currentColor"><path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A15.9 15.9 0 0 1 3.6 6.1 1.6 1.6 0 0 1 5.2 4.3h2.4a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-1 1a12.8 12.8 0 0 0 4.8 4.8l1-1a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6a1.6 1.6 0 0 1 1.5 1.7z"></path></svg>
+                    </a>
+                  </div>
+                  
+                  <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="flex-shrink: 0; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; border-radius: var(--pill); color: var(--brand); display: grid; place-items: center">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <p style="margin: 0; text-align: center; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">Hari ini</p>
+
+                <div role="log" aria-label="Percakapan dengan customer service" data-tepi-y="1" style="display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+                  
+                                    
+                  
+                  <div data-bantu-row="1" style="align-self: flex-start; max-width: 86%; box-sizing: border-box; padding: 1rem 1.4rem; border-radius: var(--quote); background: var(--line); margin-top: 0.4rem; margin-bottom: 0.4rem">
+                    <p style="margin: 0; font-size: var(--teks-body); line-height: 1.45">Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.</p>
+                    <span style="display: block; margin-top: 0.2rem; text-align: right; font-size: var(--teks-tiny); color: var(--ink-2); white-space: nowrap">09:41</span>
+                  </div>
+                  <sc-for list="{{ bLog }}" as="pesan" hint-placeholder-count="0">
+                    
+                  <div data-bantu-row="1" style="align-self: flex-end; max-width: 86%; box-sizing: border-box; padding: 1rem 1.4rem; border-radius: var(--quote); background: var(--brand-subtle); color: var(--ink); margin-top: 0.4rem; margin-bottom: 0.4rem">
+                      <p style="margin: 0; font-size: var(--teks-body); line-height: 1.45">{{ pesan.t }}</p>
+                    <span style="display: block; margin-top: 0.2rem; text-align: right; font-size: var(--teks-tiny); color: var(--ink-2); white-space: nowrap">{{ pesan.jam }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+
+              
+              <sc-if value="{{ csatTampil }}" hint-placeholder-val="{{ false }}">
+                  <div style="box-sizing: border-box; padding: 1.2rem 1.4rem; border-radius: var(--card); background: var(--line)">
+                    <div data-tepi="1" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+                      
+                      <span aria-hidden="true" style="width: 3.4rem; height: 3.4rem; flex-shrink: 0; border-radius: var(--tile); background: var(--awas-bg); display: grid; place-items: center; margin-left: 0.5rem; margin-right: 0.5rem">
+                        <svg width="20" height="20" viewBox="45.5 44.25 330 330" aria-hidden="true" style="display: block; fill: var(--brand-hero)"><circle cx="259" cy="146" r="98"></circle><circle cx="124" cy="258" r="60"></circle><circle cx="199" cy="333" r="37.5"></circle><circle cx="246" cy="287" r="23"></circle><circle cx="217" cy="258" r="14"></circle><circle cx="199" cy="275" r="9.5"></circle><circle cx="210" cy="286" r="6.5"></circle><circle cx="215" cy="280" r="4"></circle></svg>
+                      </span>
+                      <span style="min-width: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+                        <span style="display: block; font-size: var(--teks-meta); line-height: 1.35; font-weight: var(--bobot-bold)">CSAT (Customer Satisfaction)</span>
+                        <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">Bagaimana pengalaman Anda hari ini?</span>
+                      </span>
+                    </div>
+                    <div role="group" aria-label="Beri nilai pengalaman Anda" style="margin-top: 0.4rem; display: flex; align-items: center; justify-content: space-between">
+                      <sc-for list="{{ bBintang }}" as="bt" hint-placeholder-count="5">
+                        <button type="button" onClick="{{ bt.pick }}" aria-pressed="{{ bt.sel }}" aria-label="{{ bt.aria }}" style="width: 4.4rem; height: 4.4rem; border-radius: var(--pill); display: grid; place-items: center">
+                          <svg width="24" height="24" viewBox="0 0 16 16" aria-hidden="true" style="display: block"><path d="M8 1.5l1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.3 4 13.5l1-4.4-3.4-3 4.5-.5z" stroke-width="1.2" stroke-linejoin="round" style="fill: {{ bt.isi }}; stroke: {{ bt.garis }}"></path></svg>
+                        </button>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ bCsatAda }}" hint-placeholder-val="{{ false }}">
+                      <p aria-live="polite" style="margin: 0.2rem 0 0 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">{{ bCsatKet }}</p>
+                    </sc-if>
+                  </div>
+              </sc-if>
+
+              </div>
+
+              
+              <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+                
+                <div style="box-sizing: border-box; padding: 1rem 1.4rem 0 1.4rem; display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+                  <button type="button" aria-label="Lampirkan berkas" style="flex-shrink: 0; width: 4.4rem; height: 4.4rem; margin-left: -0.4rem; border-radius: var(--pill); display: grid; place-items: center; margin-left: calc(-0.4rem + 0.5rem); margin-right: 0.5rem">
+                    <span aria-hidden="true" style="width: 3.5rem; height: 3.5rem; border-radius: var(--pill); background: var(--line); display: grid; place-items: center">
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 5.5v13"></path><path d="M5.5 12h13"></path></svg>
+                    </span>
+                  </button>
+                  <div style="flex-grow: 1; min-width: 0; box-sizing: border-box; padding: 0.5rem 0.5rem 0.5rem 1.4rem; border-radius: var(--pill); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; padding-left: 1.4rem; margin-left: 0.5rem; padding-right: 0.5rem; margin-right: 0.5rem">
+                    <label for="b-pesan" style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; margin-left: calc(-0.1rem + 0.4rem); margin-right: calc(-0.1rem + 0.4rem)">Tulis pesan Anda</label>
+                    <input id="b-pesan" type="text" value="{{ bPesan }}" onChange="{{ bSetPesan }}" placeholder="Tulis pesan Anda..." style="flex-grow: 1; min-width: 0; box-sizing: border-box; min-height: 3.5rem; border: 0; background: transparent; outline: none; font-size: var(--teks-body); margin-left: 0.4rem; margin-right: 0.4rem">
+                    <sc-if value="{{ emojiTampil }}" hint-placeholder-val="{{ false }}">
+                      <button type="button" aria-label="Sisipkan emotikon" style="flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: var(--pill); display: grid; place-items: center; margin-left: 0.4rem; margin-right: 0.4rem">
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"></circle><path d="M9.2 14.4a3.6 3.6 0 0 0 5.6 0"></path><path d="M9.4 9.6h.01M14.6 9.6h.01"></path></svg>
+                      </button>
+                    </sc-if>
+                    <button type="button" onClick="{{ bKirim }}" disabled="{{ bKosongPesan }}" aria-label="Kirim pesan" style="{{ bKirimGaya }}; flex-shrink: 0; width: 3.5rem; height: 3.5rem; border-radius: var(--pill); display: grid; place-items: center; margin-left: 0.4rem; margin-right: 0.4rem">
+                      <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" style="display: block"><path d="M21 12L3.2 4.8 7 12l-3.8 7.2z" style="fill: #ffffff"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+          </sc-if>
+
+          
+          <sc-if value="{{ bBlog }}" hint-placeholder-val="{{ false }}">
+            <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+
+              
+              
+                <div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; margin: 1.5rem; overflow: hidden; background: var(--surface)">
+                <img src="/_blob/b488b010294b080c8874975e39b8f5a2" alt="Halo! Ada yang bisa kami bantu? Pilih salah satu layanan di bawah ini untuk terhubung dengan tim sales kami." style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+                <sc-if value="{{ tutupFotoTampil }}" hint-placeholder-val="{{ false }}">
+                <button type="button" onClick="{{ bantuanTutup }}" aria-label="Tutup pusat bantuan" style="position: absolute; top: -1rem; right: -1rem; z-index: 2; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+                  </button>
+                </sc-if>
+              </div>
+
+              
+              <div data-tepi="1" data-keping-rel="1" role="group" aria-label="Kategori artikel" style="flex-shrink: 0; box-sizing: border-box; padding: 1.2rem 1.4rem 0 1.4rem; display: flex; row-gap: 0.6rem; column-gap: 0; overflow-x: auto; scrollbar-width: none">
+                <sc-for list="{{ bKategori }}" as="kt" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ kt.pick }}" aria-pressed="{{ kt.sel }}" style="{{ kt.gaya }}; flex-shrink: 0; min-height: 3.4rem; padding: 0 1.3rem; border-radius: var(--pill); font-size: var(--teks-meta); white-space: nowrap; padding-left: 1.3rem; margin-left: 0.3rem; padding-right: 1.3rem; margin-right: 0.3rem">{{ kt.l }}</button>
+                </sc-for>
+              </div>
+
+              <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 0.6rem 1.4rem 1.4rem 1.4rem">
+
+                <sc-for list="{{ bArtikel }}" as="ar" hint-placeholder-count="6">
+                  <a href="{{ ar.url }}" rel="noopener" data-bantu-row="1" style="display: block; box-sizing: border-box; padding: 1.1rem 0; box-shadow: inset 0 -0.1rem 0 var(--line)">
+                    <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.7rem; column-gap: 0">
+                      <span style="min-width: 0; font-size: var(--teks-tiny); font-weight: var(--bobot-heavy); letter-spacing: 0.06em; text-transform: uppercase; color: #6d28d9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-left: 0.35rem; margin-right: 0.35rem">{{ ar.kat }}</span>
+                      <span aria-hidden="true" style="flex-shrink: 0; width: 0.3rem; height: 0.3rem; border-radius: var(--pill); background: var(--ink-4); margin-left: 0.35rem; margin-right: 0.35rem"></span>
+                      <span style="flex-shrink: 0; font-size: var(--teks-tiny); color: var(--ink-2); margin-left: 0.35rem; margin-right: 0.35rem">{{ ar.tgl }}</span>
+                    </span>
+                    <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin-top: 0.4rem; font-size: var(--teks-meta); line-height: 1.35; font-weight: var(--bobot-bold)">{{ ar.judul }}</span>
+                  </a>
+                </sc-for>
+
+                <p style="margin: 1.2rem 0 0 0; font-size: var(--teks-tiny); line-height: 1.2; color: var(--ink-2)">{{ bHitung }}</p>
+
+                
+                <a href="https://www.smsperkasa.com/blog" rel="noopener" style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; row-gap: 0.8rem; column-gap: 0.4rem; width: 100%; box-sizing: border-box; min-height: 4.8rem; border-radius: var(--control); background: var(--brand); color: #ffffff; font-size: var(--teks-body); font-weight: var(--bobot-bold)">
+                  Lihat Selengkapnya
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><path d="M7.5 16.5L16.5 7.5"></path><path d="M9 7.5h7.5V15"></path></svg>
+                </a>
+
+              </div>
+
+              <div style="flex-shrink: 0; box-sizing: border-box; padding: 0.6rem 1.4rem 1rem 1.4rem; box-shadow: 0 -0.1rem 0 var(--line)">
+                <button data-tepi="1" type="button" onClick="{{ bKembali }}" style="display: inline-flex; align-items: center; row-gap: 0.9rem; column-gap: 0.45rem; min-height: 4.4rem; padding: 0 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); color: var(--brand)">
+                  <svg style="margin-left: 0.45rem; margin-right: 0.45rem" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </sc-if>
+
+
+          
+          <sc-if value="{{ bKalk }}" hint-placeholder-val="{{ false }}">
+              <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+                <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+                <a data-tepi="1" href="https://www.smsperkasa.com/tools/kalkulator-berat-besi-beton" target="_blank" rel="noopener" aria-label="Berat Besi Beton, buka di smsperkasa.com" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><rect x="5" y="3" width="14" height="18" rx="2.2"></rect><path d="M8.5 7.2h7"></path><path d="M8.6 11.3h.01M12 11.3h.01M15.4 11.3h.01M8.6 14.6h.01M12 14.6h.01M15.4 14.6h.01M8.6 17.9h3.4M15.4 17.9h.01"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Berat Besi Beton</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                <a data-tepi="1" href="https://www.smsperkasa.com/tools/kalkulator-atap" target="_blank" rel="noopener" aria-label="Kebutuhan Atap, buka di smsperkasa.com" data-bantu-row="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M2.6 12.2L12 4.6l9.4 7.6"></path><path d="M5.4 12.2v7.2h13.2v-7.2"></path><path d="M9.6 19.4v-4.2h4.8v4.2"></path></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Kebutuhan Atap</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                </div>
+              
+              <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; padding: 0.6rem 1.4rem 1rem 1.4rem; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+                <button data-tepi="1" type="button" onClick="{{ bKembali }}" style="display: inline-flex; align-items: center; row-gap: 0.9rem; column-gap: 0.45rem; min-height: 4.4rem; padding: 0 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); color: var(--brand)">
+                  <svg style="margin-left: 0.45rem; margin-right: 0.45rem" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+                  Kembali
+                </button>
+              </div>
+              </div>
+          </sc-if>
+
+          
+          <sc-if value="{{ bGudang }}" hint-placeholder-val="{{ false }}">
+              <div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+                <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+                <a data-tepi="1" href="https://www.google.com/maps/place/SMS+Perkasa+%7C+Toko+Besi+%7C+Harga+Distributor,+Pengiriman+Cepat/@-7.2576621,112.7521415,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd7f97ac6b73b71:0xfc739fd4d35a3868!8m2!3d-7.2576621!4d112.7521415!16s%2Fg%2F11bz0xbzcc?entry=tts&amp;shorturl=1" target="_blank" rel="noopener" data-bantu-row="1" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 21.2s6.8-5.4 6.8-10.9a6.8 6.8 0 1 0-13.6 0c0 5.5 6.8 10.9 6.8 10.9z"></path><circle cx="12" cy="10.1" r="2.6"></circle></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Kantor</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Jl. BKR Pelajar 51, Ketabang,</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Kec. Genteng, Kota Surabaya,</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Jawa Timur, 60272</span>
+                  </span>
+                  <span style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; margin-left: calc(-0.1rem + calc(var(--rapat) / 2)); margin-right: calc(-0.1rem + calc(var(--rapat) / 2))">Buka di Google Maps</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; align-self: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                <a data-tepi="1" href="https://www.google.com/maps/place/Distributor+Besi+Baja+%7C+SMS+Perkasa+%7C+Surabaya+%7C+Gudang/@-7.229027,112.6652445,457m/data=!3m1!1e3!4m6!3m5!1s0x2dd7ff570e17a265:0x81cf40ba8e7dd406!8m2!3d-7.2299648!4d112.6651077!16s%2Fg%2F11g0h7xdsy!5m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" data-bantu-row="1" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 21.2s6.8-5.4 6.8-10.9a6.8 6.8 0 1 0-13.6 0c0 5.5 6.8 10.9 6.8 10.9z"></path><circle cx="12" cy="10.1" r="2.6"></circle></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Gudang Surabaya</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Jl. Mutiara Tambak Langon Blok I / 23H</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Tambak Langon, Asem Rowo</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Kota Surabaya,</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Jawa Timur, 60184</span>
+                  </span>
+                  <span style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; margin-left: calc(-0.1rem + calc(var(--rapat) / 2)); margin-right: calc(-0.1rem + calc(var(--rapat) / 2))">Buka di Google Maps</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; align-self: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                <a data-tepi="1" href="https://www.google.com/maps/place/6%C2%B012%2740.5%22S+106%C2%B035%2716.3%22E/@-6.2107569,106.5879089,229m/data=!3m1!1e3!4m4!3m3!8m2!3d-6.21125!4d106.5878611!5m1!1e1?hl=id&amp;entry=ttu&amp;g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" data-bantu-row="1" style="display: flex; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: 1.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: 0 0.1rem 0.2rem rgba(17,25,33,0.06), 0 1rem 2.4rem -1.4rem rgba(17,25,33,0.20)">
+                  <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: block"><path d="M12 21.2s6.8-5.4 6.8-10.9a6.8 6.8 0 1 0-13.6 0c0 5.5 6.8 10.9 6.8 10.9z"></path><circle cx="12" cy="10.1" r="2.6"></circle></svg>
+                  </span>
+                  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+                    <span style="display: block; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-heavy)">Gudang Jakarta</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Jl. Palem Manis Raya, RT.001/RW.004</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Gandasari, Kecamatan. Jatiuwung,</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Kota Tangerang</span>
+                    <span style="display: block; margin-top: 0.3rem; font-size: 1.2rem; line-height: 1.45; color: var(--ink-2)">Banten, 15137</span>
+                  </span>
+                  <span style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; margin-left: calc(-0.1rem + calc(var(--rapat) / 2)); margin-right: calc(-0.1rem + calc(var(--rapat) / 2))">Buka di Google Maps</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; align-self: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                </div>
+              
+              <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; padding: 0.6rem 1.4rem 1rem 1.4rem; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+                <button data-tepi="1" type="button" onClick="{{ bKembali }}" style="display: inline-flex; align-items: center; row-gap: 0.9rem; column-gap: 0.45rem; min-height: 4.4rem; padding: 0 0.6rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); color: var(--brand)">
+                  <svg style="margin-left: 0.45rem; margin-right: 0.45rem" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+                  Kembali
+                </button>
+              </div>
+              </div>
+          </sc-if>
+
+        </div>
+      </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { awas: false, foot: -1, nav: false, kat: -1, cari: false, q: '',
+      // Keadaan panel Pusat Bantuan, disalin apa adanya dari RecCreateM3.
+      bantuan: false, bTab: 'form', bKat: '', bPesan: '', bLog: [], bCsat: '',
+      bNama: '', bWaNo: '', bEmail: '', bTerisi: false, bSosial: '', bTujuan: 'wa' };
+  }
+
+  _jamKerja() {
+    var d = new Date();
+    var menit = d.getHours() * 60 + d.getMinutes();
+    var hari = d.getDay();                        // 0 Minggu, 1 Senin ... 6 Sabtu
+    if (hari === 0) return false;                 // Minggu tutup
+    var tutup = hari === 6 ? 14 * 60 : 17 * 60;   // Sabtu lebih awal
+    return menit >= (8 * 60 + 30) && menit < tutup;
+  }
+
+  _bantuanBlog() {
+    return [
+      ['Jenis Alat Berat dalam Konstruksi dengan Teknologi Terbaru', 'jenis-alat-berat-dalam-konstruksi-dengan-teknologi-terbaru', 'Trivia', '9 Okt 2026'],
+      ['Penerapan Besi Beton dalam Teknologi Green Building: Menuju Konstruksi yang Lebih Ramah Lingkungan', 'penerapan-besi-beton-dalam-teknologi-green-building-menuju-konstruksi-yang-lebih-ramah-lingkungan', 'Trivia', '9 Okt 2026'],
+      ['Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja', 'tantangan-dan-peluang-penggunaan-artificial-intelligence-ai-dalam-fabrikasi-baja', 'Industri Besi Baja', '9 Okt 2026'],
+      ['Penerapan Besi Beton dalam Konstruksi Gedung Tinggi', 'penerapan-besi-beton-dalam-konstruksi-gedung-tinggi', 'Produk Besi', '9 Okt 2026'],
+      ['Standar Presisi Potongan Besi Beton 12 Meter: Pengaruhnya pada Kekuatan Struktur', 'presisi-potongan-besi-beton-12-meter', 'Produk Besi', '8 Okt 2026'],
+      ['Konstruksi Lantai Gudang Industri | Kuat, Halus, dan Berstandar SNI', 'konstruksi-lantai-gudang-industri-kuat-halus-dan-berstandar-sni', 'Trivia', '8 Okt 2026'],
+      ['Rumah Mewah Modern | Inspirasi Desain Hingga Material Terbaik', 'rumah-mewah-modern-inspirasi-desain-hingga-material-terbaik', 'Trivia', '8 Okt 2026'],
+      ['5 Inspirasi Desain Rumah Tradisional Modern Estetik', '5-inspirasi-desain-rumah-tradisional-modern-estetik', 'Trivia', '8 Okt 2026'],
+      ['Pondasi Cakar Ayam | Solusi Stabilitas Konstruksi Bangunan', 'pondasi-cakar-ayam-solusi-stabilitas-konstruksi-bangunan', 'Industri Besi Baja', '7 Okt 2026'],
+      ['Pondasi Bangunan | Pengertian, Fungsi dan Jenisnya', 'pondasi-bangunan-pengertian-fungsi-dan-jenisnya', 'Industri Besi Baja', '7 Okt 2026'],
+      ['Besi Siku Adalah Solusi Rangka Atap Kuat dan Hemat Biaya', 'besi-siku-adalah-solusi-rangka-atap-kuat', 'Produk Besi', '7 Okt 2026'],
+      ['15 Bahan Bangunan Yang Populer dalam Konstruksi', '15-bahan-bangunan-yang-populer-dalam-konstruksi', 'Produk Besi', '7 Okt 2026'],
+      ['Rangka Atap Besi Hollow vs Baja Ringan untuk Fasilitas Umum', 'rangka-atap-besi-hollow-vs-baja-ringan', 'Produk Besi', '7 Okt 2026'],
+      ['Genteng Beton Terbaik untuk Atap Rumah Tahan Lama, Apa Iya?', 'genteng-beton-terbaik-untuk-atap-rumah-tahan-lama-apa-iya', 'Trivia', '7 Okt 2026'],
+      ['Cara Menghitung Kebutuhan Besi Hollow untuk Partisi', 'cara-menghitung-kebutuhan-besi-hollow-untuk-partisi', 'Industri Besi Baja', '6 Okt 2026'],
+      ['Baja Karbon Rendah | Solusi Konstruksi Dan Komitmen ESG', 'baja-karbon-rendah-solusi-konstruksi-dan-komitmen-esg', 'Industri Besi Baja', '6 Okt 2026'],
+      ['Cara Quality Control Menghindari Penolakan Material Kementerian PUPR', 'menghindari-penolakan-material-kementerian-pupr', 'Berita Besi Baja', '5 Okt 2026'],
+      ['Cara Kontraktor Surabaya Mengatasi Selisih BOQ Besi Beton Proyek Sekolah', 'cara-mengatasi-selisih-boq-besi-beton-proyek-sekolah', 'Industri Besi Baja', '5 Okt 2026'],
+      ['Cara Memilih Besi Bangunan Terbaik, Sudah Tau?', 'memilih-besi-bangunan', 'Produk Besi', '5 Okt 2026'],
+      ['Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF', 'perbedaan-h-beam-dan-wf', 'Berita Besi Baja', '29 Jul 2026'],
+      ['Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien', 'standarisasi-struktur-baja-bangunan-sekolah', 'Berita Besi Baja', '25 Jul 2026'],
+      ['Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh', 'konstruksi-pelat-lantai-jalan-layang', 'Berita Besi Baja', '14 Jul 2026'],
+      ['Harga Besi Baja: Tren dan Cara Menyiasati Proyek', 'memahami-pergerakan-harga-besi-baja', 'Berita Besi Baja', '11 Jul 2026'],
+      ['Mau Bisnis Sukses? Pahami Etika Bisnis dan Stakeholder Terlebih Dulu!', 'mau-bisnis-sukses-pahami-etika-bisnis-dan-stakeholder-terlebih-dulu', 'Team', '3 Jul 2026'],
+      ['Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!', 'prediksi-harga-besi-2024-industri-konstruksi-dan-investasi-wajib-tau', 'Berita Besi Baja', '2 Jul 2026'],
+      ['Inspirasi Buku The Magic of Thinking Big | David J. Schwartz', 'inspirasi-dari-buku-the-magic-of-thinking-big-david-j-schwartz', 'Team', '22 Apr 2026'],
+      ['Kegiatan CSR SMS Perkasa di Panti Asuhan Bhakti Luhur Malang', 'kegiatan-csr-pt-sms-perkasa-di-panti-asuhan-bhakti-luhur-malang', 'Team', '6 Apr 2026'],
+      ['Yuk Intip!! 5 Hal Menarik Lingkungan Kerja di SMS Perkasa', 'yuk-intip-5-hal-menarik-di-sms-perkasa', 'Team', '31 Mar 2026'],
+      ['Yuk Sadari Pentingnya Menghargai Keragaman di Dunia Kerja!', 'yuk-sadari-pentingnya-menghargai-keragaman-di-dunia-kerja', 'Team', '31 Mar 2026'],
+      ['Mengenali Kepemimpinan Efektif', 'mengenali-kepemimpinan-efektif', 'Team', '11 Feb 2026']
+    ];
+  }
+
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    // ARTIKEL — 30 artikel, [judul, slug, kategori, tanggal], disalin APA ADANYA dari
+    // _bantuanBlog() di RecCreateM3.dc.html, yang membacanya dari smsperkasa.com/blog pada
+    // 2026-10-13. Tidak ada judul, slug, kategori atau tanggal yang dikarang di papan ini.
+    // SATU DAFTAR, DUA PAPAN: papan Blog ponsel dan desktop membawa array yang sama persis.
+    // Kalau salah satu diperbarui, yang lain harus ikut — kalau tidak, keduanya memajang
+    // blog yang berbeda. Pola yang sama dengan seksi Artikel Terkait di dua papan Produk.
+    // FOTO, 2026-10-24: kolom KELIMA tiap baris, url unggahan /_blob/ di kanvas ini.
+    // ASALNYA og:image HALAMAN ARTIKELNYA MASING-MASING di smsperkasa.com, dibaca satu per satu
+    // pada 2026-10-24 — BUKAN dari halaman indeks /blog. Alasannya: indeks hanya memajang enam
+    // kartu per kategori, jadi cuma 14 dari 30 artikel ini tampil di sana; og:image ada di
+    // ketiga puluh halaman, dan itu memang gambar yang dipilih situs untuk artikel itu.
+    // BENTUKNYA 800 x 504, DAN ANGKANYA DARI SITUS: kartu blog smsperkasa.com berukuran
+    // 284 x 179, rasio 1,587. Berkas aslinya sendiri berkumpul di 1,55-1,58 (dua puluh tujuh
+    // dari tiga puluh), jadi memotongnya ke 1,587 membuang ±2% tinggi, bukan memotong subjek.
+    // Tiga berkas lebih lebar (1,78 / 1,79 / 2,09) dan kehilangan sisi kiri-kanannya; kalau
+    // salah satunya kelak terlihat terpotong, yang diganti berkas unggahannya, bukan rasionya.
+    // KOTAK FOTO DI KARTU IKUT 284/179, bukan 16/9 seperti waktu papan ini lahir — dengan
+    // begitu object-fit: cover tidak memotong apa pun lagi, aturan yang sama yang dipakai papan
+    // Semua Produk waktu fotonya dipangkas ke 4:3 persis.
+    // DUA CABANG adaFoto/takFoto DIPERTAHANKAN meski ketiga puluh artikel punya foto: artikel
+    // yang ditambahkan nanti tanpa unggahan akan jatuh ke glif dokumen, bukan ke kotak kosong.
+    var ARTIKEL = [
+      // Berita Besi Baja
+      ["Cara Quality Control Menghindari Penolakan Material Kementerian PUPR", "menghindari-penolakan-material-kementerian-pupr", "Berita Besi Baja", "5 Okt 2026", "/_blob/e80c4fd32999770d0024abe0fd223d3c", "Panduan taktis bagi tim Quality Control kontraktor untuk mengukur deviasi diameter besi beton polos dan ulir agar lolos audit teknis PUPR."],
+      ["Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF", "perbedaan-h-beam-dan-wf", "Berita Besi Baja", "29 Jul 2026", "/_blob/0964553e9a11b44ac2c3203a6203e673", "Mengevaluasi perbedaan H Beam dan WF secara presisi adalah kewajiban mutlak bagi tim pengadaan material konstruksi. Kesalahan membedakan kedua baja profil ini m"],
+      ["Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien", "standarisasi-struktur-baja-bangunan-sekolah", "Berita Besi Baja", "25 Jul 2026", "/_blob/f45e266e7c01641d4c910e13463f6c36", "Keamanan fasilitas pendidikan dasar menuntut jaminan struktural mutlak dari para perancang konstruksi demi keselamatan jangka panjang. Bangunan fasilitas publik"],
+      ["Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh", "konstruksi-pelat-lantai-jalan-layang", "Berita Besi Baja", "14 Jul 2026", "/_blob/3c78d3439cd7d201205f423b44d7d3d2", "Metode modern bekisting permanen bondek monolit dan kawat baja pracetak wiremesh terbukti mampu mempercepat durasi konstruksi pelat lantai jembatan layang hingg"],
+      ["Harga Besi Baja: Tren dan Cara Menyiasati Proyek", "memahami-pergerakan-harga-besi-baja", "Berita Besi Baja", "11 Jul 2026", "/_blob/8e1a000570caf74c7d2ad69f35f86dc5", "Memenangkan tender proyek pemerintah adalah target utama kontraktor. Namun, pergerakan harga besi baja nasional kerap mengancam margin keuntungan. Proyek jangka"],
+      ["Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!", "prediksi-harga-besi-2024-industri-konstruksi-dan-investasi-wajib-tau", "Berita Besi Baja", "2 Jul 2026", "/_blob/dc63f15162b934b3ba65d58b448c4a84", "Besi merupakan salah satu komoditas terpenting di dunia, terutama dalam industri konstruksi. Kestabilan dan perkembangan sektor ini sangat bergantung pada harga"],
+      // Industri Besi Baja
+      ["Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja", "tantangan-dan-peluang-penggunaan-artificial-intelligence-ai-dalam-fabrikasi-baja", "Industri Besi Baja", "9 Okt 2026", "/_blob/202f9c47b5510fe0388afd4e7ba8d71a", "Penggunaan Artificial Intelligence (AI) dalam fabrikasi baja berfokus pada pemanfaatan machine learning dan analisis prediktif untuk memodernisasi seluruh ranta"],
+      ["Pondasi Cakar Ayam | Solusi Stabilitas Konstruksi Bangunan", "pondasi-cakar-ayam-solusi-stabilitas-konstruksi-bangunan", "Industri Besi Baja", "7 Okt 2026", "/_blob/711c92c6f58095cc5670eebf6eca3f25", "Pondasi cakar ayam merupakan salah satu jenis pondasi yang inovatif dan sangat efektif digunakan pada berbagai jenis bangunan. Diciptakan oleh Prof. Dr. Ir. Sed"],
+      ["Pondasi Bangunan | Pengertian, Fungsi dan Jenisnya", "pondasi-bangunan-pengertian-fungsi-dan-jenisnya", "Industri Besi Baja", "7 Okt 2026", "/_blob/571d66aa4979e6d3c60f39a36c608188", "Pondasi merupakan elemen krusial dalam setiap konstruksi bangunan yang berfungsi menyalurkan beban dari struktur atas ke tanah di bawahnya. Pemilihan jenis pond"],
+      ["Cara Menghitung Kebutuhan Besi Hollow untuk Partisi", "cara-menghitung-kebutuhan-besi-hollow-untuk-partisi", "Industri Besi Baja", "6 Okt 2026", "/_blob/3c8b40474dbedf76366ed3f4f805770e", "Kunci utama dari cara menghitung kebutuhan besi hollow untuk partisi secara presisi adalah menjumlahkan total meter lari dari tiga komponen karkas: bingkai keli"],
+      ["Baja Karbon Rendah | Solusi Konstruksi Dan Komitmen ESG", "baja-karbon-rendah-solusi-konstruksi-dan-komitmen-esg", "Industri Besi Baja", "6 Okt 2026", "/_blob/7c86549e726fa31d13212fab864ca2b5", "Setiap hari, kita dikelilingi oleh baja. Material ini menjadi kerangka kokoh bagi gedung-gedung pencakar langit, jembatan yang menghubungkan kota, hingga kendar"],
+      ["Cara Kontraktor Surabaya Mengatasi Selisih BOQ Besi Beton Proyek Sekolah", "cara-mengatasi-selisih-boq-besi-beton-proyek-sekolah", "Industri Besi Baja", "5 Okt 2026", "/_blob/c057cda2a28209a6fea014582189a2fd", "Pasokan besi beton proyek sekolah merupakan elemen struktural paling kritis, namun pengadaannya sering kali memicu konflik akibat selisih volume antara perencan"],
+      // Produk Besi
+      ["Penerapan Besi Beton dalam Konstruksi Gedung Tinggi", "penerapan-besi-beton-dalam-konstruksi-gedung-tinggi", "Produk Besi", "9 Okt 2026", "/_blob/2524d376e4e04c88df560fea03ccca81", "Penerapan besi beton dalam konstruksi gedung tinggi berfungsi secara krusial sebagai struktur tulangan penahan gaya tarik (tensile strength) yang melengkapi sif"],
+      ["Standar Presisi Potongan Besi Beton 12 Meter: Pengaruhnya pada Kekuatan Struktur", "presisi-potongan-besi-beton-12-meter", "Produk Besi", "8 Okt 2026", "/_blob/a8db95d4bd59fe9b941ed467de5be7c0", "Standar panjang besi beton di Indonesia ditetapkan sejauh 12 meter berdasarkan SNI 2052:2017, dengan toleransi ukuran minus 0 milimeter dan maksimal plus 70 mil"],
+      ["Besi Siku Adalah Solusi Rangka Atap Kuat dan Hemat Biaya", "besi-siku-adalah-solusi-rangka-atap-kuat", "Produk Besi", "7 Okt 2026", "/_blob/eb07579fbb0a1574e4f5fbd972714e13", "Bayangkan Anda sedang membangun atau merenovasi properti impian. Perencanaan denah sudah sempurna, namun saat musim hujan tiba, Anda mulai cemas membayangkan ap"],
+      ["15 Bahan Bangunan Yang Populer dalam Konstruksi", "15-bahan-bangunan-yang-populer-dalam-konstruksi", "Produk Besi", "7 Okt 2026", "/_blob/3231b976323a96bf46dd3d0838dcbd42", "Bagi para Mid-Tier Private General Contractors (GCs) dan firma design-build yang mengelola beberapa concurrent sites di koridor industri, tantangan terbesar di"],
+      ["Rangka Atap Besi Hollow vs Baja Ringan untuk Fasilitas Umum", "rangka-atap-besi-hollow-vs-baja-ringan", "Produk Besi", "7 Okt 2026", "/_blob/9f1f37eeee27d7c59340864ad3001b42", "Memilih material atap untuk fasilitas umum seperti balai desa atau aula sekolah membutuhkan pertimbangan struktural yang matang. Keputusan yang salah tidak hany"],
+      ["Cara Memilih Besi Bangunan Terbaik, Sudah Tau?", "memilih-besi-bangunan", "Produk Besi", "5 Okt 2026", "/_blob/3a8753887630f21b2d958ac90ef993e6", "Cara terbaik memilih besi bangunan agar struktur kokoh dan tahan lama adalah dengan memastikan material tersebut berstandar SNI (Standar Nasional Indonesia). Un"],
+      // Team
+      ["Mau Bisnis Sukses? Pahami Etika Bisnis dan Stakeholder Terlebih Dulu!", "mau-bisnis-sukses-pahami-etika-bisnis-dan-stakeholder-terlebih-dulu", "Team", "3 Jul 2026", "/_blob/23546377323276ddc63c1eee437c31c0", "Di era bisnis modern, etika bisnis bukan lagi sekadar kepatuhan terhadap peraturan, melainkan telah menjadi aspek fundamental bagi operasional bisnis yang berke"],
+      ["Inspirasi Buku The Magic of Thinking Big | David J. Schwartz", "inspirasi-dari-buku-the-magic-of-thinking-big-david-j-schwartz", "Team", "22 Apr 2026", "/_blob/30c13b89c7c54a95c3d4bfd178c8d39c", "Inspirasi buku kali ini, tidak peduli apakah tujuan hidup Anda sangat besar dan menakutkan atau cukup kecil dan dapat dicapai, kemungkinan Anda telah berpikir &"],
+      ["Kegiatan CSR SMS Perkasa di Panti Asuhan Bhakti Luhur Malang", "kegiatan-csr-pt-sms-perkasa-di-panti-asuhan-bhakti-luhur-malang", "Team", "6 Apr 2026", "/_blob/505d10a4a39ecae104f6e20e8380f7d2", "Sebagai bagian dari agenda tahunan, PT SMS Perkasa kembali melaksanakan kegiatan Corporate Social Responsibility (CSR) dengan mengunjungi Panti Asuhan Yayasan B"],
+      ["Yuk Intip!! 5 Hal Menarik Lingkungan Kerja di SMS Perkasa", "yuk-intip-5-hal-menarik-di-sms-perkasa", "Team", "31 Mar 2026", "/_blob/26020d76372971ca6a4e1e39b95b1e26", "Hai Perkasa Partners! Salah satu faktor yang membuat seseorang merasa nyaman dengan tempat kerjanya adalah lingkungan kerja. Selain membuat nyaman, lingkungan k"],
+      ["Yuk Sadari Pentingnya Menghargai Keragaman di Dunia Kerja!", "yuk-sadari-pentingnya-menghargai-keragaman-di-dunia-kerja", "Team", "31 Mar 2026", "/_blob/6b3003afd37cad97311387c22444546d", "Sebagai makhluk sosial, tentu saja kita selalu dihadapkan dengan beragam jenis karakter kepribadian, latar belakang budaya, cara bergaul sampai pada pola pikir"],
+      ["Mengenali Kepemimpinan Efektif", "mengenali-kepemimpinan-efektif", "Team", "11 Feb 2026", "/_blob/4cb781fcd599145bc4419b6ec68359fa", "Perkasa Partner, kali ini kami akan mengulas tentang kepempimpinan. Salah satu kutipan menarik dari Rosalynn Carter, “seorang pemimpin biasa membawa orang"],
+      // Trivia
+      ["Jenis Alat Berat dalam Konstruksi dengan Teknologi Terbaru", "jenis-alat-berat-dalam-konstruksi-dengan-teknologi-terbaru", "Trivia", "9 Okt 2026", "/_blob/7eade53cdc2945e28dc43f1084d18a0b", "Ragam jenis alat berat dalam konstruksi seperti excavator, loader, bulldozer, dan crane kini mengalami modernisasi signifikan melalui integrasi sistem kontrol o"],
+      ["Penerapan Besi Beton dalam Teknologi Green Building: Menuju Konstruksi yang Lebih Ramah Lingkungan", "penerapan-besi-beton-dalam-teknologi-green-building-menuju-konstruksi-yang-lebih-ramah-lingkungan", "Trivia", "9 Okt 2026", "/_blob/c840cd3c789db9628609e49375a7994a", "Penerapan besi beton dalam teknologi green building berperan penting untuk menekan dampak lingkungan konstruksi melalui efisiensi energi massa termal, umur paka"],
+      ["Konstruksi Lantai Gudang Industri | Kuat, Halus, dan Berstandar SNI", "konstruksi-lantai-gudang-industri-kuat-halus-dan-berstandar-sni", "Trivia", "8 Okt 2026", "/_blob/44d16d51f3a4e39a0c2e6eb5ea1dde23", "Pernahkah Anda membayangkan apa yang terjadi jika pusat distribusi raksasa memiliki alas yang retak atau tidak rata? Dalam lanskap industri, lantai gudang bukan"],
+      ["Rumah Mewah Modern | Inspirasi Desain Hingga Material Terbaik", "rumah-mewah-modern-inspirasi-desain-hingga-material-terbaik", "Trivia", "8 Okt 2026", "/_blob/f9d9da0b9392b564df228f377715086e", "Pernahkah Anda terpukau melihat gambar rumah mewah di majalah atau media sosial dan bertanya-tanya, “Apa rahasia di baliknya?” Kemewahan sejati dala"],
+      ["5 Inspirasi Desain Rumah Tradisional Modern Estetik", "5-inspirasi-desain-rumah-tradisional-modern-estetik", "Trivia", "8 Okt 2026", "/_blob/ad831abb63cf3df7e9ee6981533f66b4", "Pernahkah Anda merasa bosan dengan desain perumahan masa kini yang seragam kotak, minimalis, dan terkesan “dingin”? Di tengah gempuran tren arsitekt"],
+      ["Genteng Beton Terbaik untuk Atap Rumah Tahan Lama, Apa Iya?", "genteng-beton-terbaik-untuk-atap-rumah-tahan-lama-apa-iya", "Trivia", "7 Okt 2026", "/_blob/dcb3951a425bf0f5dcec696c3da05711", "Genteng merupakan elemen penting dalam membangun hunian yang aman, nyaman, dan estetis. Salah satu jenis genteng yang semakin populer di kalangan arsitek dan pe"]
+    ];
+    // WAKTU RELATIF gaya detik. Dihitung dari tanggal asli artikel, jadi tidak ada tanggal
+    // karangan: yang berubah cuma CARA menulisnya. Tanggal lengkapnya tetap ada, pindah ke
+    // atribut title tiap baris — persis seperti detik menyimpannya di title.
+    // PERLU DIKETAHUI, ANGKANYA IKUT BERGERAK setiap papan ini dibuka, karena ia dihitung
+    // terhadap hari ini. Itu memang sifat pola ini; kalau suatu saat papan harus membeku pada
+    // satu tanggal, yang diganti Date.now() di sini, bukan datanya.
+    var BULAN = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5, Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11 };
+    function lalu(tgl) {
+      var p = String(tgl).split(' ');
+      var bln = BULAN[p[1]];
+      if (p.length !== 3 || bln === undefined) { return tgl; }
+      var hari = Math.floor((Date.now() - new Date(parseInt(p[2], 10), bln, parseInt(p[0], 10)).getTime()) / 86400000);
+      if (hari < 1) { return 'hari ini'; }
+      if (hari === 1) { return 'kemarin'; }
+      if (hari < 30) { return hari + ' hari yang lalu'; }
+      if (hari < 365) { return Math.floor(hari / 30) + ' bulan yang lalu'; }
+      return Math.floor(hari / 365) + ' tahun yang lalu';
+    }
+    // SATU SAKLAR FOTO untuk seluruh papan, DIBETULKAN 2026-10-24.
+    // BUG YANG DIBETULKAN, layak dicatat karena diam: benderanya dulu bernama fotoTampil dan
+    // dibaca markup sebagai nilai LINGKUP LUAR, tapi sisipannya nyasar ke dalam kartu(), jadi
+    // nama itu cuma ada sebagai properti tiap item dan tidak pernah ada di luar. Setiap sc-if
+    // membacanya kosong, dan ketiga puluh foto tidak tampil — kotaknya abu semua, tanpa pesan
+    // kesalahan apa pun. Itulah yang terlihat di v1365 dan v1366.
+    // SEKARANG PER-KARTU, pola yang sudah terbukti di papan Semua Produk (p.adaFoto): markup
+    // membaca ar.tampilFoto, nilai yang benar-benar ada di tiap item. Mematikan foto sepapan
+    // tetap satu kata — FOTO_AKTIF jadi false.
+    // FOTO MENYALA LAGI, 2026-10-26 atas permintaan ("make the image shown"). Saklar yang sama,
+    // satu kata — dan inilah gunanya: dalam dua hari ia sudah false (pass Ahrefs 2026-10-24),
+    // true (pass detik), false lagi ("Salinan Blog without image"), dan kini true. Tidak ada satu
+    // pun markup yang disentuh pada keempat putaran itu, dan ketiga puluh url /_blob/ tidak
+    // pernah meninggalkan kolom kelima ARTIKEL.
+    // YANG BERUBAH DI LAYAR: kotak abu var(--line) di kartu unggulan (16:9) dan di tiap baris
+    // daftar (84 px, 4:3) kini terisi foto artikelnya. Kotaknya sendiri tidak berubah ukuran,
+    // jadi tidak ada tata letak yang bergeser — foto memang dipasang object-fit: cover ke dalam
+    // kotak yang sudah ada. Acuan mock menggambar kotak abu karena pembuatnya tidak punya
+    // fotonya; kita punya.
+    // PAPAN BlogM3 TIDAK TERPENGARUH: berkas lain, saklar sendiri.
+    var FOTO_AKTIF = true;
+    // Baris meta (kategori · garis · waktu) di baris daftar: padam 2026-10-24.
+    var META_AKTIF = false;
+    // Nama tampil kategori: dua di antaranya dipendekkan 2026-10-24 atas permintaan.
+    // DATA tetap nama panjang (kolom a[2]); ini murni lapisan tampilan. kat() menyaring
+    // dengan nama panjang, jadi peta ini tidak boleh dipakai untuk menyaring.
+    var PENDEK = { 'Berita Besi Baja': 'Berita Baja', 'Industri Besi Baja': 'Industri Baja' };
+    function pendek(k) { return PENDEK[k] || k; }
+    function kartu(a) {
+      return {
+        judul: a[0],
+        // SASARAN TAUTAN PINDAH ke Salinan Detail Artikel 2, 2026-10-27 atas permintaan
+        // ("in Blog redirect to Detail Artikel", ditanya dan dijawab: papan salinannya).
+        // SATU NILAI INI MENGENAI SELURUH TAUTAN ARTIKEL DI PAPAN: kartu ARTIKEL BARU dan
+        // setiap baris daftar sama-sama lahir dari kartu(), jadi tidak ada tempat kedua yang
+        // perlu disetel.
+        // PAPAN BlogM3 SENGAJA TIDAK IKUT: ia masih menunjuk ArtikelM3.dc.html. Jadi ketiga
+        // papan blog kini tidak lagi sepakat soal artikel mana yang dibuka — itu memang yang
+        // diminta (hanya kedua salinan), bukan kelalaian.
+        // KALAU SASARANNYA HARUS KEMBALI, yang disetel satu string di sini.
+        url: 'SalinanArtikel2M3.dc.html',
+        target: '_self',
+        kategori: pendek(a[2]),
+        tanggal: a[3],
+        lalu: lalu(a[3]),
+        penulis: 'Oleh Sofia',
+        foto: a[4],
+        ringkas: a[5],
+        tampilFoto: FOTO_AKTIF && !!a[4],
+        metaTampil: META_AKTIF,
+        takFoto: !(FOTO_AKTIF && !!a[4]),
+        aria: 'Artikel: ' + a[0] + ', ' + pendek(a[2]) + ', ' + a[3] + ', oleh Sofia, buka halaman artikel'
+      };
+    }
+    function kat(k) { return ARTIKEL.filter(function (a) { return a[2] === k; }).map(kartu); }
+    // URUTAN MENURUN MENURUT TANGGAL, untuk daftar datar gaya Cloudflare (2026-10-26).
+    // ARTIKEL aslinya tersusun per KATEGORI, jadi tanpa pengurutan daftar datarnya akan
+    // melompat-lompat tahun. Pengurai tanggalnya memakai peta BULAN yang sudah ada di atas,
+    // bukan peta kedua: satu-satunya sumber nama bulan di papan ini.
+    // Tanggal yang tidak terbaca jatuh ke 0, jadi ia ke dasar daftar dan tidak pernah
+    // menjadi artikel utama secara kebetulan.
+    function capWaktu(tgl) {
+      var p = String(tgl).split(' ');
+      var b = BULAN[p[1]];
+      if (p.length !== 3 || b === undefined) { return 0; }
+      return new Date(parseInt(p[2], 10), b, parseInt(p[0], 10)).getTime();
+    }
+    var URUT = ARTIKEL.slice().sort(function (a, c) { return capWaktu(c[3]) - capWaktu(a[3]); });
+    var CF_SISA = URUT.slice(1);
+    var CF_BATAS = s.cfBatas || 8;
+    // PENYARING KATEGORI DIBUANG, 2026-10-26 atas permintaan ("dont use this" pada baris
+    // kepingnya). Kodenya ikut pergi, bukan dibiarkan menganggur — aturan papan ini. Bunyinya
+    // untuk kalau ia kembali: KATEGORI = daftar lima nama PANJANG dari kolom a[2]; KAT_KINI =
+    // s.katBlog || KATEGORI[0]; KEPING = KATEGORI.map(...) menghasilkan {nama: pendek(k), aktif,
+    // gaya, pilih: setState({katBlog: k})}; KAT_URUT = ARTIKEL disaring a[2] === KAT_KINI lalu
+    // diurutkan capWaktu menurun. Yang penting diingat kalau dipasang lagi: keadaannya menyimpan
+    // nama PANJANG, sebab kat() menyaring dengan nama panjang dan peta PENDEK murni tampilan.
+    // AKIBAT HARI INI, DAN INI PERLU DIPUTUSKAN ANDREW: badan papan ini jadi TIDAK MEMAKAI
+    // kategori sama sekali — satu daftar menurun tanggal, tanpa pembagian. Dua putaran lalu ia
+    // justru meminta kelima kategori tetap dipakai. Markup kelima seksi itu masih utuh di bawah,
+    // dan di v1474 pembagian kategori itu MEMANG dikembalikan ("show all kategori data"):
+    // kelima seksi menyala, daftar "semua artikel" padam. Jadi badan papan ini kini kartu
+    // unggulan + lima seksi kategori.
+    var qq = (s.q || '').trim().toLowerCase();
+    var HASIL = qq ? ARTIKEL.filter(function (a) { return a[0].toLowerCase().indexOf(qq) !== -1; }) : [];
+    // Panel Pusat Bantuan: locals-nya disalin dari RecCreateM3 apa adanya.
+    var buka = this._jamKerja();
+    var bSemua = this._bantuanBlog();
+    var bKatKini = s.bKat || 'Semua';
+    var bCocok = bSemua.filter(function (a) { return bKatKini === 'Semua' || a[2] === bKatKini; });
+    var bBatas = 10;
+    return {
+      // Tautan "Indeks" di kepala seksi: padam 2026-10-24 atas permintaan.
+      tautanIndeksTampil: false,
+      // DUA ARTIKEL TERBARU, bukan pilihan editorial — lihat catatan kepala papan.
+      pilihan: ARTIKEL.filter(function (a) { return a[3] === '9 Okt 2026'; }).slice(0, 2).map(kartu),
+      // GAYA CLOUDFLARE, 2026-10-26: satu artikel utama + daftar datar bertombol muat.
+      // LIMA SEKSI KATEGORI HIDUP LAGI, daftar datarnya yang padam (2026-10-26, atas
+      // permintaan: "still use Berita Baja, Industri Baja, Produk Besi, Team, Trivia as
+      // section category"). Kedua bendera ini BERLAWANAN DAN HARUS TETAP BERLAWANAN:
+      // keduanya menampilkan ARTIKEL yang sama, jadi dua-duanya true = tiga puluh artikel
+      // tampil dua kali. Seksi kategori kembali memakai indeksTampil (!qq) seperti semula,
+      // jadi ia tetap padam saat pencarian; daftar datarnya punya saklarnya sendiri.
+      // TIGA SUSUNAN BADAN HALAMAN HIDUP BERDAMPINGAN DI BERKAS INI, HANYA SATU BOLEH MENYALA:
+      // penyaring keping (sekarang), daftar datar Cloudflare (daftarDatarTampil), dan lima seksi
+      // kategori bertumpuk, yang kini memakai indeksTampil. Ketiganya memuat ARTIKEL yang sama.
+      // KELIMA KATEGORI TAMPIL SEMUA LAGI, 2026-10-26 ("show all kategori data"): seksi
+      // kategori kembali memakai indeksTampil (!qq) seperti semula, dan daftar "semua artikel"
+      // yang sempat menggantikannya padam. Kartu UNGGULAN di atas TETAP ADA — ia tidak ikut
+      // salah satu saklar ini, jadi susunannya kini: kepala, kartu unggulan, lalu lima seksi.
+      // TIGA SAKLAR BADAN HALAMAN, HANYA SATU BOLEH MENYALA: indeksTampil (lima seksi, menyala),
+      // daftarSemuaTampil (daftar semua artikel, padam), daftarDatarTampil (daftar datar
+      // Cloudflare, padam). Ketiganya memuat artikel yang sama.
+      // PERLU DIKETAHUI: artikel TERBARU kini muncul DUA KALI — sekali sebagai kartu unggulan,
+      // sekali lagi di dalam seksi kategorinya sendiri. Itu perilaku yang sama dengan papan
+      // BlogM3 sejak awal (blok pilihan di sana juga mengulang artikelnya), jadi dibiarkan.
+      // Kalau ia harus unik, saring satu judul itu keluar dari kat() — bukan memadamkan kartunya.
+      daftarDatarTampil: false,
+      daftarSemuaTampil: false,
+      // TANPA PENYARING LAGI (v1473): kartu unggulan dan daftarnya mengambil SELURUH artikel,
+      // terbaru dulu — bukan satu kategori. Ini bukan pilihan gaya melainkan syarat: selama
+      // kepingnya ada, daftar ini memang hanya memuat kategori terpilih; membuang kepingnya
+      // tanpa mengubah ini akan membuat papan menampilkan SATU kategori selamanya dan
+      // menyembunyikan 24 artikel lain tanpa ada yang bisa membukanya.
+      // DINAMAI artikelBaru, BUKAN unggulan, 2026-10-27 atas koreksi Andrew ("this section is
+      // not for Unggulan but its for New Article"). Koreksinya tepat dan namanya ikut dibetulkan,
+      // bukan cuma labelnya: nilai ini URUT.slice(0,3) — TIGA artikel dengan TANGGAL TERBARU
+      // (slice(0,1) sampai 2026-10-27). Tidak
+      // ada kolom "pilihan editor" di data papan ini, jadi "Unggulan" menjanjikan penilaian yang
+      // tidak pernah terjadi, sedangkan "Artikel Baru" menyatakan persis aturan yang dipakai.
+      // Kalau kelak ADA pilihan editorial, ia kolom baru di ARTIKEL — bukan nama baru untuk
+      // baris pertama hasil pengurutan ini.
+      // Papan BlogM3 sudah memakai kata yang sama ("ARTIKEL BARU") untuk blok yang sama sejak
+      // v1468, jadi kedua papan kini sepakat soal apa yang dijanjikan blok ini.
+      // TIGA, BUKAN SATU, sejak 2026-10-27: bloknya kini label + tiga baris, bukan satu kartu.
+      // daftarKat IKUT BERGESER ke slice(3) — itu syaratnya, bukan pilihan gaya: daftarKat dulu
+      // slice(1) karena blok di atasnya memakai satu artikel. Dibiarkan slice(1), artikel ke-2
+      // dan ke-3 akan tampil DUA KALI di satu layar, sekali sebagai baris Artikel Baru dan
+      // sekali sebagai baris daftar. Ditanyakan ke Andrew dan dijawab: tiga di atas, daftar
+      // mulai dari artikel ke-4.
+      // ANGKA 3 ADA DI DUA TEMPAT dan keduanya harus sama: slice(0, 3) di sini dan slice(3) di
+      // baris berikutnya. Kalau jumlah barisnya kelak berubah, dua-duanya disetel.
+      artikelBaru: URUT.slice(0, 3).map(kartu),
+      daftarKat: URUT.slice(3).map(kartu),
+      utama: URUT.slice(0, 1).map(kartu),
+      daftar: CF_SISA.slice(0, CF_BATAS).map(kartu),
+      muatAda: CF_SISA.length > CF_BATAS,
+      muatLagi: function () { self.setState({ cfBatas: CF_BATAS + 8 }); },
+      katBerita: kat('Berita Besi Baja'),
+      katIndustri: kat('Industri Besi Baja'),
+      katProduk: kat('Produk Besi'),
+      katTeam: kat('Team'),
+      katTrivia: kat('Trivia'),
+      kat0Kini: s.kat === 0 ? 'true' : 'false',
+      kat0Gaya: s.kat === 0 ? 'color: #A84C46; font-weight: var(--bobot-bold); font-size: var(--teks-body)'
+        : 'color: #0a0a0a; font-weight: var(--bobot-medium); font-size: var(--teks-meta)',
+      kat0Ikon: s.kat === 0 ? 24 : 18,
+      kat0Pilih: function () { self.setState({ kat: 0 }); },
+      kat1Kini: s.kat === 1 ? 'true' : 'false',
+      kat1Gaya: s.kat === 1 ? 'color: #A84C46; font-weight: var(--bobot-bold); font-size: var(--teks-body)'
+        : 'color: #0a0a0a; font-weight: var(--bobot-medium); font-size: var(--teks-meta)',
+      kat1Ikon: s.kat === 1 ? 24 : 18,
+      kat1Pilih: function () { self.setState({ kat: 1 }); },
+      kat2Kini: s.kat === 2 ? 'true' : 'false',
+      kat2Gaya: s.kat === 2 ? 'color: #A84C46; font-weight: var(--bobot-bold); font-size: var(--teks-body)'
+        : 'color: #0a0a0a; font-weight: var(--bobot-medium); font-size: var(--teks-meta)',
+      kat2Ikon: s.kat === 2 ? 24 : 18,
+      kat2Pilih: function () { self.setState({ kat: 2 }); },
+      kat3Kini: s.kat === 3 ? 'true' : 'false',
+      kat3Gaya: s.kat === 3 ? 'color: #A84C46; font-weight: var(--bobot-bold); font-size: var(--teks-body)'
+        : 'color: #0a0a0a; font-weight: var(--bobot-medium); font-size: var(--teks-meta)',
+      kat3Ikon: s.kat === 3 ? 24 : 18,
+      kat3Pilih: function () { self.setState({ kat: 3 }); },
+      kat4Kini: s.kat === 4 ? 'true' : 'false',
+      kat4Gaya: s.kat === 4 ? 'color: #A84C46; font-weight: var(--bobot-bold); font-size: var(--teks-body)'
+        : 'color: #0a0a0a; font-weight: var(--bobot-medium); font-size: var(--teks-meta)',
+      kat4Ikon: s.kat === 4 ? 24 : 18,
+      kat4Pilih: function () { self.setState({ kat: 4 }); },
+      // CARI — bendera, kolom dan hasilnya. Pola dan penamaannya disalin dari papan Blog
+      // DESKTOP, yang sudah menyaring judul dengan cara yang sama; bedanya di sini kolomnya
+      // hidup di bar bawah, bukan di header.
+      cariOpen: s.cari,
+      cariExp: s.cari ? 'true' : 'false',
+      cariAria: s.cari ? 'Tutup pencarian' : 'Cari artikel',
+      cariToggle: function () { self.setState({ cari: !s.cari, q: s.cari ? '' : s.q, bantuan: false, nav: false }); },
+      cariQ: s.q,
+      cariKetik: function (e) { self.setState({ q: e.target.value }); },
+      cariAktif: !!qq,
+      indeksTampil: !qq,
+      hasil: HASIL.map(kartu),
+      cariHitung: HASIL.length + ' artikel cocok dengan "' + qq + '"',
+      // PANEL PUSAT BANTUAN — disalin utuh dari RecCreateM3.
+      // Tombol SMS Perkasa di bar bawah: pembuka panel. bantuanToggle disalin dari
+      // RecCreateM3; Exp/Aria milik papan ini, untuk tombolnya sendiri.
+      bantuanToggle: function () { self.setState({ bantuan: !s.bantuan, bTab: 'form', nav: false, bSosial: '' }); },
+      bantuanExp: s.bantuan ? 'true' : 'false',
+      bantuanAria: s.bantuan ? 'Tutup pusat bantuan' : 'Pusat bantuan',
+      bArtikel: bCocok.slice(0, bBatas).map(function (a) {
+        return { judul: a[0], url: 'https://www.smsperkasa.com/blog/' + a[1], kat: a[2], tgl: a[3] };
+      }),
+      bBintang: [1, 2, 3, 4, 5].map(function (n) {
+        return {
+          isi: n <= s.bCsat ? '#ffb800' : 'transparent',
+          garis: '#9a6700',
+          sel: n === s.bCsat ? 'true' : 'false',
+          aria: 'Beri nilai ' + n + ' dari 5',
+          pick: function () { self.setState({ bCsat: n }); }
+        };
+      }),
+      bBlog: s.bTab === 'blog',
+      // Kartu WA / Live Chat LEWAT GERBANG dulu: kalau form belum pernah dikirim,
+      // keduanya mendarat di layar form, bukan di kanalnya.
+      // Cabang 'wa' DILEPAS 2026-10-22 bersama pembuangan layar WhatsApp: satu jalur saja,
+      // menu -> form -> wa.me. Isian form tersimpan di state, jadi yang kembali ke sini
+      // melihat kolomnya sudah terisi dan tautan hijaunya langsung hidup.
+      bChat: s.bTab === 'chat',
+      bCsatAda: s.bCsat > 0,
+      bCsatKet: s.bCsat > 0 ? ('Terima kasih — Anda memberi nilai ' + s.bCsat + ' dari 5.') : '',
+      // fabTampil tidak lagi dipakai markup mana pun sejak Pusat Bantuan keluar dari
+      // kolom bar bawah (2026-10-13). Dibiarkan di sini: pembungkus yang dulu memakainya
+      // mungkin kembali, dan nilainya tidak membebani apa pun.
+      bForm: s.bTab === 'form',
+      bFormKurang: !((s.bNama || '').trim() && (s.bWaNo || '').trim()),
+      // Satu tombol kirim; labelnya dari kanal yang sudah dipilih di menu.
+      // NAMANYA bKirimForm, BUKAN bKirim: komposer Live Chat di bawah sudah memakai
+      // bKirim dan bKirimGaya, dan dalam satu objek literal definisi TERAKHIR yang
+      // menang — tombol form ini sempat memakai gaya abu tombol kirim pesan dan
+      // menjalankan handler-nya, bukan handler form. Jebakan yang sama pernah kena
+      // urutBuka/ocUrut di panel Urutkan.
+      bFormSiap: !!((s.bNama || '').trim() && (s.bWaNo || '').trim()),
+      bGudang: s.bTab === 'gudang',
+      // Disalin apa adanya dari papan desktop 2026-10-22 bersama baris Mulai Live Chat:
+      // gerbang bTerisi sama seperti bKeWa — form dulu kalau datanya belum pernah dikirim.
+      bHitung: 'Menampilkan ' + Math.min(bBatas, bCocok.length) + ' dari ' + bCocok.length + ' artikel'
+        + (bKatKini === 'Semua' ? '' : ' · ' + bKatKini),
+
+      // Live chat: pesan yang diketik muncul sebagai gelembung terkirim. Tidak ada
+      // balasan otomatis — mockup ini tidak boleh terlihat seperti punya CS sungguhan.
+      bKalk: s.bTab === 'kalk',
+      bKategori: ['Semua', 'Berita Besi Baja', 'Industri Besi Baja', 'Produk Besi', 'Trivia', 'Team'].map(function (k) {
+        var on = bKatKini === k;
+        return {
+          l: k, sel: on ? 'true' : 'false',
+          gaya: on ? 'background:#0a0a0a;color:#ffffff;font-weight:700'
+                   : 'background:#ffffff;box-shadow:inset 0 0 0 0.1rem var(--line);color:#0a0a0a;font-weight:600',
+          pick: function () { self.setState({ bKat: k }); }
+        };
+      }),
+      bKeBlog: function () { self.setState({ bTab: 'blog', bKat: 'Semua' }); },
+      bKeChat: function () { self.setState({ bTab: s.bTerisi ? 'chat' : 'form', bTujuan: 'chat' }); },
+      // Tiga baris menu yang dipadamkan 2026-10-22; catatan akibatnya ada di markupnya.
+      bKeGudang: function () { self.setState({ bTab: 'gudang' }); },
+
+      // Keping kategori: urutannya mengikuti situs, bukan abjad. "Semua" diberi label
+      // pendek supaya relnya tidak langsung penuh oleh satu keping.
+      bKeKalk: function () { self.setState({ bTab: 'kalk' }); },
+      bKembali: function () { self.setState({ bTab: 'menu' }); },
+      // BILAH JUDUL PANEL, dibawa dari papan desktop 2026-10-19. Nilainya tetap flag, bukan
+      // ditanam di markup, supaya kedua papan bisa dibaca bersebelahan.
+      // BILAH JUDUL MERAH DIPADAMKAN, 2026-10-22 atas permintaan ("remove this"): seluruh
+      // bilah — cakram headset, "SMS Perkasa", lencana Online dan silang penutupnya.
+      // tutupFotoTampil IKUT DIBALIK ke true di baris yang sama, karena keduanya memang
+      // pasangan terbalik: bilah menyimpan SATU silang untuk seluruh panel, silang foto
+      // menyimpan satu per layar. Tanpa pembalikan itu panel ini tidak punya jalan keluar
+      // sama sekali — ia dialog LAYAR PENUH tanpa scrim dan tanpa tombol kembali.
+      // PERLU DIKETAHUI, TIGA LAYAR KINI TANPA SILANG — TAPI BUKAN TANPA JALAN KELUAR
+      // (koreksi atas kalimat pertama catatan ini, 2026-10-22): silang foto layar Form,
+      // WhatsApp dan Live Chat bersarang DI DALAM blok banner masing-masing
+      // (bannerFormTampil / bannerWaTampil / bannerChatTampil), dan ketiganya padam sejak
+      // 2026-10-20 — jadi silangnya tidak ikut tampil. Yang masih punya silang hanya layar
+      // MENU dan BLOG — lalu FORM ikut lagi sejak bannernya dihidupkan kembali (v1236),
+      // jadi yang tersisa tanpa silang tinggal WhatsApp dan Live Chat. KELUARNYA LEWAT
+      // TOMBOL KEMBALI: setiap sub-layar (Form, WhatsApp, Chat, Blog, Kalkulator, Gudang)
+      // punya bKembali yang hidup dan membawa balik ke MENU, tempat silangnya ada. Jadi
+      // biayanya satu ketukan tambahan, bukan layar buntu. Ditanyakan lebih dulu dengan tiga pilihan; jawabannya "just hide the
+      // bar". Perkara yang sama persis pernah terjadi 2026-10-19 dan waktu itu dibatalkan,
+      // jadi ini keputusan baru, bukan pengulangan yang terlupa.
+      // MENGEMBALIKAN: barJudulTampil true DAN tutupFotoTampil false — selalu berpasangan,
+      // supaya satu layar tidak pernah punya dua silang atau nol silang.
+      // Memperbaiki tiga layar itu tanpa menghidupkan bilahnya: angkat tombol silangnya ke
+      // luar blok banner, atau pasang satu silang mengambang di wadah [data-bantu].
+      bKirim: function () {
+        var t = (s.bPesan || '').trim();
+        if (!t) return;
+        var jam = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        self.setState({ bLog: (s.bLog || []).concat([{ t: t, jam: jam }]), bPesan: '' });
+      },
+      bKirimChatGaya: ((s.bNama || '').trim() && (s.bWaNo || '').trim())
+        ? 'background:var(--brand);color:#ffffff'
+        : 'background:#ececec;color:#c9c9cb;cursor:default',
+      // Masuk lewat akun belum tersambung: tidak ada OAuth di prototipe ini, dan
+      // mengisi nama dari "akun" yang tidak ada akan mengarang data. Tombolnya mengaku
+      // apa adanya daripada diam tidak melakukan apa-apa.
+      bKirimForm: function () {
+        if (!((s.bNama || '').trim() && (s.bWaNo || '').trim())) return;
+        self.setState({ bTerisi: true });
+      },
+      bKirimFormChat: function () {
+        if (!((s.bNama || '').trim() && (s.bWaNo || '').trim())) return;
+        self.setState({ bTerisi: true, bTab: 'chat' });
+      },
+      // Keadaan matinya PERSIS sama dengan tombol pertama, supaya keduanya hidup dan mati
+      // bersama dan tidak ada yang terlihat bisa ditekan padahal syaratnya belum terpenuhi.
+      bKirimFormGaya: ((s.bNama || '').trim() && (s.bWaNo || '').trim())
+        ? 'background:#157f3c;color:#ffffff'
+        : 'background:#ececec;color:#c9c9cb;cursor:default',
+      // DUA TOMBOL sejak 2026-10-19: yang pertama selalu ke WhatsApp, yang kedua selalu ke
+      // Live Chat — bukan lagi ke s.bTujuan, yang sesudah peleburan kartu kanal selalu 'wa'
+      // dan membuat layar Live Chat tak tercapai. Catatan lengkapnya di markup.
+      bKirimGaya: (s.bPesan || '').trim() ? 'background:var(--brand)' : 'background:var(--chat-mati)',
+      bKosongPesan: !(s.bPesan || '').trim(),
+      // MERAH saat ada teks, 2026-10-20 (dulu #1d4ed8, sewarna gelembung pesan): var(brand),
+      // merah aksi kanvas ini, putih di atasnya 5,39:1. Kosong tetap var(chat-mati), tempat
+      // tombolnya memang disabled — WCAG mengecualikan kontrol nonaktif dari syarat kontras.
+      bLog: s.bLog || [],
+      bMenu: s.bTab === 'menu',
+      bNama: s.bNama, bWaNo: s.bWaNo, bEmail: s.bEmail,
+      bPesan: s.bPesan,
+      bSetEmail: function (e) { self.setState({ bEmail: e.target.value }); },
+      // Wajib: nama DAN nomor. Email opsional — tim sales menghubungi lewat WhatsApp,
+      // jadi meminta email sebagai syarat hanya menambah gesekan tanpa gunanya.
+      // Kebalikan bFormKurang, 2026-10-22: dipakai sc-if yang memilih antara tautan
+      // wa.me (form sah) dan tombol mati (belum sah). Dua nilai, bukan satu yang
+      // dinegasikan di markup: sc-if membaca boolean apa adanya, tanpa negasi.
+      bSetNama: function (e) { self.setState({ bNama: e.target.value }); },
+      bSetPesan: function (e) { self.setState({ bPesan: e.target.value }); },
+      bSetWaNo: function (e) { self.setState({ bWaNo: e.target.value }); },
+      bSosialAda: !!s.bSosial,
+      bSosialFb: function () { self.setState({ bSosial: 'Masuk dengan Facebook belum tersambung di prototipe ini — isi datanya di bawah.' }); },
+      bSosialGoogle: function () { self.setState({ bSosial: 'Masuk dengan Google belum tersambung di prototipe ini — isi datanya di bawah.' }); },
+      bSosialPesan: s.bSosial,
+      bWa: s.bTab === 'wa',
+      bannerChatTampil: false,
+      // Blok CSAT di layar Live Chat — padam 2026-10-20, menyusul panel desktop.
+      bannerFormTampil: true,
+      // Banner layar LIVE CHAT — padam 2026-10-20; sesudah ini hanya layar menu yang
+      // berbanner di papan ini, sama seperti di papan desktop.
+      bannerWaTampil: false,
+      // Banner layar FORM — DIHIDUPKAN LAGI 2026-10-22 ("in top of if still has banner"),
+      // setelah panel ini mulai membuka langsung di layar Form (v1235). Dua hal kembali
+      // sekaligus, dan itu memang satu paket: gambar banner b488b010 di puncak layar
+      // (kotaknya terkunci aspect-ratio 360/150, jadi ia tidak bisa dihidupkan tanpa
+      // kotaknya), DAN silang penutupnya — tombol itu bersarang di dalam blok banner ini,
+      // jadi layar Form sekarang punya jalan keluar satu ketukan lagi, bukan dua.
+      // Layar WhatsApp dan Live Chat SENGAJA tetap padam: yang diminta layar ini saja.
+      bantuanOpen: s.bantuan,
+      bantuanTutup: function () { self.setState({ bantuan: false, bTab: 'menu' }); },
+      barJudulTampil: false,
+      barLogoTampil: true,
+      // Silang di atas banner: HIDUP lagi sejak 2026-10-22, karena bilah judul yang dulu
+      // membawanya sudah padam (lihat catatan di atas). Tampil di layar MENU, BLOG dan —
+      // sejak bannernya dihidupkan lagi hari ini — layar FORM. Di layar WhatsApp dan Live
+      // Chat ia masih bersarang di dalam banner yang padam, jadi di sana belum ada silang;
+      // keluarnya lewat tombol Kembali ke layar MENU.
+      blogRowTampil: false,
+      csatTampil: false,
+      // Status di bilah judul: jadwal, bukan keadaan sambungan (lihat _jamKerja).
+      emojiTampil: false,
+      gudangRowTampil: false,
+      jamMenuTampil: false,
+      // Salinannya di layar WhatsApp — padam 2026-10-20, menyusul panel desktop; sesudah ini
+      // panel ini tidak menyebut jam kerja di mana pun. Catatannya di markup.
+      jamWaTampil: false,
+      // Banner layar WhatsApp — padam 2026-10-20 bersama kotaknya.
+      kalkRowTampil: false,
+      statusLabel: buka ? 'Online' : 'Offline',
+      // Bulatan 8 px. Hijau dan abu versi TERANG — yang gelap tidak terlihat di atas merah:
+      // #157f3c cuma 1,06:1 dan #5f5f5f 1,18:1 di sana, sementara #4ade80 memberi 3,10:1 dan
+      // #d4d4d4 3,64:1. KATANYA yang membawa arti, bukan warnanya.
+      // Versi latar terang dari statusTitik, 2026-10-22, untuk blok identitas layar Live Chat:
+      // hijau var(--online-ikon) #16a34a 3,30:1 dan abu var(--ink-4) di atas putih. Yang di
+      // bilah merah TIDAK boleh dipakai di sana — #4ade80 cuma 1,2:1 di atas putih.
+      statusTitik: 'flex-shrink: 0; width: 0.8rem; height: 0.8rem; border-radius: var(--pill); background: '
+        + (buka ? '#4ade80' : '#d4d4d4'),
+      // DUA LAYAR SWALAYAN, dibawa dari papan desktop 2026-10-19: kalkulator dan daftar
+      // alamat. Keduanya TIDAK melewati gerbang data (bTerisi): yang butuh nama dan nomor
+      // hanya kanal yang menghubungkan ke orang.
+      statusTitikTerang: 'flex-shrink: 0; width: 0.8rem; height: 0.8rem; border-radius: var(--pill); background: ' + (buka ? 'var(--online-ikon)' : 'var(--ink-4)'),
+      // Tombol emotikon komposer Live Chat, padam 2026-10-22 bersama gaya X.
+      teleponRowTampil: false,
+      tutupFotoTampil: true,
+      // Tombol Kembali di kepala percakapan, padam 2026-10-27 atas permintaan.
+      kembaliTampil: false,
+      // Blok Jam Operasional di layar MENU — padam 2026-10-19.
+      // Lembar kategori di bar bawah: pola tombol+lembar RecCreateM3.
+      navOpen: s.nav,
+      navExp: s.nav ? 'true' : 'false',
+      navAria: s.nav ? 'Tutup daftar kategori' : 'Daftar kategori artikel',
+      navTinta: s.nav ? '#A84C46' : '#0a0a0a',
+      navToggle: function () { self.setState({ nav: !s.nav }); },
+      navTutup: function () { self.setState({ nav: false }); },
+      barGaya: (s.nav || s.bantuan) ? 'opacity: 0; transform: translateY(1.6rem) scale(0.95); pointer-events: none'
+                     : 'opacity: 1; transform: none',
+      barWadah: (s.nav || s.bantuan) ? 'pointer-events: none;' : '',
+      // Label "Hubungi Sekarang!" di blok telepon header; padam, sama seperti papan Produk.
+      labelTeleponTampil: false,
+      teleponHeaderTampil: false,
+      awasBuka: s.awas,
+      awasTutup: function () { self.setState({ awas: false }); },
+      footInfo: [
+        ['Gudang Surabaya', 'Jl. Mutiara Tambak Langon Blok I / 23H\nTambak Langon, Asem Rowo\nKota Surabaya, Jawa Timur, 60184'],
+        ['Gudang Jakarta', 'Jl. Palem Manis Raya, RT.001/RW.004\nGandasari, Kec. Jatiuwung,\nKota Tangerang, Banten, 15137'],
+        ['Kantor', 'Jl. BKR Pelajar 51, Ketabang,\nKec. Genteng, Kota Surabaya,\nJawa Timur, 60272'],
+        ['Kontak', 'WhatsApp: klik untuk chat\nMobile: +628112689889\nEmail: sales@smsperkasa.com'],
+        ['Perusahaan', 'Tentang Kami\nKarir\nBlog'],
+        ['Bantuan', 'Kontak Kami\nFAQ\nKebijakan Privasi\nSyarat dan Ketentuan\nCara Pemesanan'],
+        ['Tools', 'Kalkulator Material']
+      ].map(function (f) { return { h: f[0], t: f[1] }; }),
+      socials: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { l: l }; }),
+      footCats: [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']],
+      ['Plat Stainless Steel', ['Plat Stainless SS304', 'Plat Stainless SS316L']],
+      ['Hollow Stainless Steel', ['Hollow Stainless 201', 'Hollow Stainless 304']],
+      ['Pipa Stainless Steel', ['Pipa Stainless 201', 'Pipa Stainless 304']]
+      ].map(function (c, i) {
+        return {
+          h: c[0],
+          open: s.foot === i,
+          exp: s.foot === i ? 'true' : 'false',
+          chev: s.foot === i ? 'transform:rotate(180deg)' : '',
+          items: c[1].map(function (l) { return { l: l }; }),
+          toggle: function () { self.setState({ foot: s.foot === i ? -1 : i }); }
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Cari artikel\"]"}, {"wait": 500}, {"fill": ["input[placeholder=\"Cari judul artikel\"]", "cakar"]}, {"wait": 700}]

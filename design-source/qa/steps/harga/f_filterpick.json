@@ -1,0 +1,1 @@
+[{"click": "#btn-filter"}, {"wait": 500}, {"click": "button:has-text(\"20 \u00d7 40\")"}, {"wait": 500}]

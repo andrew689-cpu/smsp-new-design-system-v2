@@ -1,0 +1,1 @@
+[{"click":"[aria-label=\"Daftar isi artikel\"]"},{"wait":500},{"click":"[aria-label=\"Daftar isi\"] a[href=\"#bab-2\"]"},{"wait":800}]

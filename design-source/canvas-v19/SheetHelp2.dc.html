@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pecahan · Pusat bantuan · bagian 2 dari 3</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 48px">
+  <h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Pusat bantuan, dari besar ke kecil · bagian 2 dari 3</h1>
+  <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">HelpCentre tampil tertanam di sini supaya banyak layar muat bersebelahan; di halaman ia memakai posisi aslinya (ponsel: dialog penuh tetap; desktop: kartu yang diposisikan induknya). Halaman yang menentukan kapan terbuka, lewat buka dan onTutup. Semua bingkai bisa ditekan.</p>
+  
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">2b · HelpCentre desktop, gaya sku, DesktopSkuM4</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ sku }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="HelpCentre" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">3 · Layar: HelpMenu, HelpContactForm, WhatsAppPanel, LiveChatPanel, HelpRowsPanel</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ menu }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="HelpMenu" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ formulir }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="HelpContactForm" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ waPanel }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="WhatsAppPanel" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ chatPanel }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="LiveChatPanel" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 360px); gap: 28px 12px; align-items: start">
+      <sc-for list="{{ barisPanel }}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ f.judul }}</div>
+          <div style="width: 360px; height: {{ f.tinggi }}; box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; overflow: hidden; position: relative">
+            <dc-import name="HelpRowsPanel" dc-props="{{ f.props }}" hint-size="360px,100%"></dc-import>
+          </div>
+          <dc-import name="DocSpec" dc-props="{{ f.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">4 · Pecahan layar: HelpTitleBar, ChatHeader, HelpBanner, HelpBackBar</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start">
+      <sc-for list="{{ bilah }}" as="p" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="display: flex; flex-direction: column; min-width: 0; background: transparent"><dc-import name="HelpTitleBar" dc-props="{{ p.props }}" hint-size="100%,72px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start">
+      <sc-for list="{{ kepala }}" as="p" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="display: flex; flex-direction: column; min-width: 0; background: transparent"><dc-import name="ChatHeader" dc-props="{{ p.props }}" hint-size="100%,60px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start">
+      <sc-for list="{{ spanduk }}" as="p" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="display: flex; flex-direction: column; min-width: 0; background: transparent"><dc-import name="HelpBanner" dc-props="{{ p.props }}" hint-size="100%,150px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start">
+      <sc-for list="{{ kaki }}" as="p" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); min-width: 0">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="display: flex; flex-direction: column; min-width: 0; background: transparent"><dc-import name="HelpBackBar" dc-props="{{ p.props }}" hint-size="100%,60px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":8000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const kontak = { waHref: 'https://wa.me/628112689889', telHref: 'tel:+628112689889', telTeks: '+62 811-2689-889' };
+    const f = (judul, tinggi, props, spec) => ({ judul, tinggi, props: { tertanam: true, ...props }, spec });
+    const p = (judul, props, spec) => ({ judul, props, spec });
+    const log = [{ t: 'Halo, stok hollow 40x40 tebal 2 mm ada?', jam: '09:42' }, { t: 'Saya butuh 50 batang untuk Surabaya.', jam: '09:43' }];
+    const isi = { nama: 'Budi Santoso', wa: '0812 3456 7890', email: 'budi@perusahaan.com' };
+    const pesanSosial = 'Masuk dengan Google belum tersambung di prototipe ini — isi datanya di bawah.';
+    const spMenu = { warna: '--ink', dasar: '--surface', ukuran: '--teks-body', catatan: 'baris 76, --sheet, --bayang-baris' };
+    const spForm = { warna: '--ink-2', dasar: '--surface', ukuran: '--teks-meta', catatan: 'isian --line, label --teks-tiny' };
+    const spChat = { warna: '--ink', dasar: '--line', ukuran: '--teks-body', catatan: 'terkirim --brand-subtle, jam --teks-tiny' };
+    const spChatD = { warna: '--ink', dasar: '--line', ukuran: '--teks-meta', catatan: 'terkirim --brand-subtle, sudut ekor 0.4rem' };
+    const spBar = { warna: '--surface', dasar: '--brand', ukuran: '--teks-body', catatan: 'status --teks-tiny, titik --online-terang, --line-kuat' };
+    const ponsel = { tata: 'ponsel' };
+    const desktop = { tata: 'desktop' };
+    const spBaris = { warna: '--ink', dasar: '--surface', ukuran: '--teks-body', catatan: 'keterangan --teks-chip --ink-2' };
+    return {
+      ponsel: [
+        f('Form kosong, layar pertama', '780px', { ...ponsel, tab: 'form' }, { ...spForm, catatan: 'tombol mati tetap merah dan hijau' }),
+        f('Form terisi', '780px', { ...ponsel, tab: 'form', ...isi }, { ...spForm, catatan: 'Live Chat Button form, Whatsapp tautan wa.me' }),
+        f('Form, pesan Google / Facebook', '780px', { ...ponsel, tab: 'form', pesanSosial }, { ...spForm, catatan: 'pesan --teks-tiny, aria-live' }),
+        f('Menu', '420px', { ...ponsel, tab: 'menu' }, { ...spMenu, catatan: 'tak terjangkau di papan (cacat sumber), ditampilkan via tab' }),
+        f('WhatsApp', '420px', { ...ponsel, tab: 'wa' }, { ...spMenu, catatan: 'keluar dari alur 2026-10-22, ditampilkan via tab' }),
+        f('Kalkulator', '420px', { ...ponsel, tab: 'kalk' }, { ...spMenu, catatan: 'pintunya padam di papan, ditampilkan via tab' }),
+        f('Live chat kosong, online', '640px', { ...ponsel, tab: 'chat', online: true }, { ...spChat, catatan: 'titik --online-ikon, kirim mati --chat-mati' }),
+        f('Live chat kosong, offline', '640px', { ...ponsel, tab: 'chat', online: false }, { ...spChat, catatan: 'titik --ink-4' }),
+        f('Live chat, percakapan', '640px', { ...ponsel, tab: 'chat', online: true, log, pesan: 'Bisa kirim besok?' }, { ...spChat, catatan: 'kirim hidup --brand' }),
+        f('Live chat dengan CSAT, belum dinilai', '640px', { ...ponsel, tab: 'chat', online: true, csat: true }, { warna: '--ink', dasar: '--line', ukuran: '--teks-meta', catatan: 'padam di papan, csat true' }),
+        f('Live chat dengan CSAT, dinilai', '640px', { ...ponsel, tab: 'chat', online: true, csat: true, nilaiCsat: 4 }, { warna: '--bintang', dasar: '--line', ukuran: '--teks-tiny', catatan: 'padam di papan, csat true' }),
+        f('Lokasi Gudang', '640px', { ...ponsel, tab: 'gudang' }, { ...spMenu, catatan: 'pintunya padam di papan, ditampilkan via tab' })
+      ],
+      sku: [
+        f('Menu, tautan Kalkulator dan Gudang', '720px', { ...desktop, gaya: 'sku', tab: 'menu', online: true }, { ...spBar, catatan: 'kalkHref #kalkulator, gudangHref #gudang' }),
+        f('WhatsApp, kartu', '740px', { ...desktop, gaya: 'sku', tab: 'wa', online: true }, { ...spMenu, catatan: 'WhatsAppPanel jenis kartu' }),
+        f('Live chat, keluar biru', '740px', { ...desktop, gaya: 'sku', tab: 'chat', online: true, log, pesan: 'Bisa kirim besok?' }, { ...spChatD, catatan: 'LiveChatPanel rupaKeluar biru' })
+      ],
+      desktop: [
+        f('Menu, online', '720px', { ...desktop, tab: 'menu', online: true }, spBar),
+        f('Menu, offline', '720px', { ...desktop, tab: 'menu', online: false }, spBar),
+        f('Form kosong', '720px', { ...desktop, tab: 'form' }, { warna: '--ink-4', dasar: '--line', ukuran: '--teks-meta', catatan: 'tombol mati abu, Button form-aksi' }),
+        f('Form terisi', '740px', { ...desktop, tab: 'form', ...isi }, { warna: '--surface', dasar: '--wa-tombol', ukuran: '--teks-meta', catatan: 'WhatsApp --wa-tombol, Live Chat --brand' }),
+        f('WhatsApp', '740px', { ...desktop, tab: 'wa', online: true }, spMenu),
+        f('Live chat kosong', '740px', { ...desktop, tab: 'chat', online: true }, spChatD),
+        f('Live chat, percakapan', '720px', { ...desktop, tab: 'chat', online: true, log, pesan: 'Bisa kirim besok?' }, spChatD),
+        f('Live chat dengan CSAT, dinilai', '720px', { ...desktop, tab: 'chat', online: false, csat: true, log, nilaiCsat: 5 }, { warna: '--bintang', dasar: '--line', ukuran: '--teks-tiny', catatan: 'padam di papan, csat true' }),
+        f('Kalkulator', '720px', { ...desktop, tab: 'kalk', online: true }, spMenu),
+        f('Lokasi Gudang', '720px', { ...desktop, tab: 'gudang', online: true }, spMenu)
+      ],
+      menu: [
+        f('HelpMenu ponsel', '420px', { ...ponsel, ...kontak, tertanam: undefined }, spMenu),
+        f('HelpMenu desktop', '420px', { ...desktop, ...kontak, tertanam: undefined, tutup: false }, { ...spMenu, catatan: 'tanpa margin banner, tanpa silang' }),
+        f('HelpMenu dengan jadwal', '520px', { ...ponsel, ...kontak, tertanam: undefined, jadwal: true }, { ...spMenu, catatan: 'jadwal padam di papan' }),
+        f('HelpMenu, tautan SKU', '420px', { ...desktop, ...kontak, tertanam: undefined, kalkHref: '#kalkulator', gudangHref: '#gudang' }, { ...spMenu, catatan: 'gaya sku di HelpCentre' })
+      ],
+      formulir: [
+        f('HelpContactForm ponsel', '780px', { ...ponsel, ...kontak, tertanam: undefined }, spForm),
+        f('HelpContactForm desktop', '780px', { ...desktop, ...kontak, tertanam: undefined }, { ...spForm, catatan: 'kalimat persetujuan --brand, kaki Kembali' }),
+        f('HelpContactForm terisi', '780px', { ...desktop, ...kontak, tertanam: undefined, ...isi }, spForm)
+      ],
+      waPanel: [
+        f('WhatsAppPanel ponsel', '300px', { ...ponsel, ...kontak, tertanam: undefined }, spMenu),
+        f('WhatsAppPanel desktop', '300px', { ...desktop, ...kontak, tertanam: undefined }, spMenu),
+        f('WhatsAppPanel dengan jadwal', '380px', { ...desktop, ...kontak, tertanam: undefined, jadwal: true }, { ...spMenu, catatan: 'jadwal padam di papan' }),
+        f('WhatsAppPanel kartu, DesktopSkuM4', '380px', { ...desktop, ...kontak, tertanam: undefined, jenis: 'kartu' }, { ...spMenu, catatan: 'gaya sku di HelpCentre' })
+      ],
+      chatPanel: [
+        f('LiveChatPanel ponsel', '600px', { ...ponsel, ...kontak, tertanam: undefined, online: true, log }, spChat),
+        f('LiveChatPanel desktop', '600px', { ...desktop, ...kontak, tertanam: undefined, log }, spChatD),
+        f('LiveChatPanel desktop dengan CSAT', '600px', { ...desktop, ...kontak, tertanam: undefined, csat: true }, { ...spChatD, catatan: 'CSAT padam di papan' }),
+        f('LiveChatPanel, gaya sku', '600px', { ...desktop, ...kontak, tertanam: undefined, gaya: 'sku', log }, { ...spChatD, catatan: 'rupaKeluar biru' })
+      ],
+      barisPanel: [
+        f('HelpRowsPanel, Kalkulator', '300px', { ...ponsel, tertanam: undefined }, spMenu)
+      ],
+      bilah: [
+        p('HelpTitleBar, online', { online: true }, spBar),
+        p('HelpTitleBar, offline', { online: false }, spBar)
+      ],
+      kepala: [
+        p('ChatHeader, online', { online: true, ...kontak }, { warna: '--ink', ukuran: '--teks-body', catatan: 'pil --el-2, glif --wa-tombol, --brand' }),
+        p('ChatHeader, panah Kembali', { online: false, kembali: true, ...kontak }, { warna: '--brand', ukuran: '--teks-body', catatan: 'panah padam di papan sejak 2026-10-27' })
+      ],
+      spanduk: [
+        p('HelpBanner gambar ponsel', { jenis: 'gambar', tata: 'ponsel' }, { dasar: '--surface', catatan: 'margin 1.5rem, 360/150, silang -1rem' }),
+        p('HelpBanner gambar desktop', { jenis: 'gambar', tata: 'desktop', tutup: false }, { dasar: '--surface', catatan: 'tanpa margin, silang padam' }),
+        p('HelpBanner sapaan', { jenis: 'sapaan', tata: 'ponsel' }, { warna: '--brand', ukuran: '--teks-bantu-sapaan', catatan: 'isi --teks-tiny --ink' })
+      ],
+      kaki: [
+        p('HelpBackBar tempel', { jenis: 'tempel' }, { warna: '--brand', dasar: '--surface', ukuran: '--teks-body', catatan: 'sticky, garis --line' }),
+        p('HelpBackBar garis', { jenis: 'garis' }, { warna: '--brand', ukuran: '--teks-body', catatan: 'form desktop' }),
+        p('HelpBackBar polos', { jenis: 'polos' }, { warna: '--brand', ukuran: '--teks-body', catatan: 'chat desktop' })
+      ],
+      baris: [
+        p('Tombol, chat-isi', { judul: 'Chat Sales', ket: 'Tanya stok, harga & penawaran terbaik.', ikon: 'chat-isi' }, spBaris),
+        p('Tautan, telepon', { judul: 'Call Sales', ket: [{ t: 'Telepon langsung ' }, { t: '+62 811-2689-889', tegas: true }, { t: ' untuk respon cepat.' }], ikon: 'telepon', ikonUkuran: 20, ikonDepan: false, href: 'tel:+628112689889' }, { ...spBaris, catatan: 'nomor --ink' }),
+        p('Tanpa keterangan', { judul: 'Berat Besi Beton', ket: '', ikon: 'kalkulator', ikonDepan: false, href: '#' }, { warna: '--ink', ukuran: '--teks-body' }),
+        p('Alamat', { judul: 'Kantor', alamat: ['Jl. BKR Pelajar 51, Ketabang,', 'Kec. Genteng, Kota Surabaya,', 'Jawa Timur, 60272'], labelSr: 'Buka di Google Maps', ikon: 'pin', ikonDepan: false, href: '#' }, { warna: '--ink-2', ukuran: '--teks-chip', catatan: 'rata atas, padding 1.4rem' }),
+        p('Kalkulator', { judul: 'Kalkulator', ket: 'Hitung Kebutuhan Besi Anda', ikon: 'kalkulator', ikonDepan: false }, spBaris),
+        p('Live chat', { judul: 'Mulai Live Chat', ket: 'Atau ngobrol di halaman ini', ikon: 'chat', ikonUkuran: 21, ikonGaris: 1.9 }, spBaris)
+      ],
+      gelembung: [
+        p('Masuk ponsel', { tata: 'ponsel', arah: 'masuk' }, { warna: '--ink', dasar: '--line', ukuran: '--teks-body', catatan: 'sudut --quote' }),
+        p('Terkirim ponsel', { tata: 'ponsel', arah: 'keluar', teks: 'Halo, stok hollow 40x40 tebal 2 mm ada?', jam: '09:42' }, { warna: '--ink', dasar: '--brand-subtle', ukuran: '--teks-body' }),
+        p('Masuk desktop', { tata: 'desktop', arah: 'masuk' }, { warna: '--ink', dasar: '--line', ukuran: '--teks-meta', catatan: 'sudut --card, ekor 0.4rem' }),
+        p('Terkirim desktop', { tata: 'desktop', arah: 'keluar', teks: 'Halo, stok hollow 40x40 tebal 2 mm ada?', jam: '09:42' }, { warna: '--ink', dasar: '--brand-subtle', ukuran: '--teks-meta' })
+      ],
+      komposer: [
+        p('Ponsel, kosong', { tata: 'ponsel', nilai: '' }, { warna: '--surface', dasar: '--chat-mati', ukuran: '--teks-body', catatan: 'kirim 35, mati' }),
+        p('Ponsel, berisi', { tata: 'ponsel', nilai: 'Bisa kirim besok?' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-body', catatan: 'kirim 35, hidup' }),
+        p('Desktop, kosong', { tata: 'desktop', nilai: '' }, { warna: '--ink-2', dasar: '--chat-mati', ukuran: '--teks-body', catatan: 'lampiran, emotikon 44' }),
+        p('Desktop, berisi', { tata: 'desktop', nilai: 'Bisa kirim besok?' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-body' })
+      ],
+      jam: [
+        p('Status terang, online', { online: true }, { warna: '--online-ikon', ukuran: '--teks-tiny', catatan: 'label --ink-2' }),
+        p('Status terang, offline', { online: false }, { warna: '--ink-4', ukuran: '--teks-tiny', catatan: 'label --ink-2' }),
+        p('Jadwal', { jenis: 'jadwal' }, { warna: '--ink-2', ukuran: '--teks-tiny', catatan: 'padam di papan; jam dibaca _jamKerja' })
+      ],
+      jamGelap: [
+        p('Status gelap, online', { latar: 'gelap', online: true }, { warna: '--online-terang', dasar: '--brand', ukuran: '--teks-tiny', catatan: 'label --surface' }),
+        p('Status gelap, offline', { latar: 'gelap', online: false }, { warna: '--line-kuat', dasar: '--brand', ukuran: '--teks-tiny', catatan: 'label --surface' })
+      ],
+      csat: [
+        p('Belum dinilai', { nilai: 0 }, { warna: '--bintang-garis', dasar: '--line', ukuran: '--teks-meta', catatan: 'tile --awas-bg, marka --brand-hero' }),
+        p('Dinilai 4', { nilai: 4 }, { warna: '--bintang', dasar: '--line', ukuran: '--teks-tiny', catatan: 'pesan aria-live' })
+      ],
+      sosial: [
+        p('Bawaan', {}, { warna: '--ink', dasar: '--surface', ukuran: '--teks-meta', catatan: 'Button garis, glif merek' }),
+        p('Sesudah ditekan', { pesan: pesanSosial }, { warna: '--ink-2', ukuran: '--teks-tiny', catatan: 'tidak ada OAuth di prototipe' })
+      ],
+      ringan: [
+        p('HelpQuickList', {}, { warna: '--ink', dasar: '--surface', ukuran: '--teks-body', catatan: 'Button apung, --bayang-apung' })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

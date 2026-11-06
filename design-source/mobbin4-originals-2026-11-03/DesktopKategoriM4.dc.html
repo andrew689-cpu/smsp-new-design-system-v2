@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Kategori — SMS Perkasa · Desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- ================= HALAMAN KATEGORI, dibuat 2026-10-26 dari smsperkasa.com/kategori.
+     ISI: halaman itu PENDEK. Sesudah pita waspada, header dan remah roti, yang ada cuma judul
+     "Kategori" dan TIGA kartu kategori: Besi, Plastik, Stainless Steel. Itu saja. Tidak ada
+     deskripsi, tidak ada hitungan produk, tidak ada filter, tidak ada pengurutan, tidak ada
+     tab. Nama, urutan dan slug ketiganya disalin dari muatan halamannya sendiri.
+     YANG TIDAK ADA DI ASLINYA JUGA TIDAK ADA DI SINI. Menambahkan jumlah produk per kategori
+     akan terasa membantu dan tetap salah: halaman itu tidak menyebut angka apa pun, dan angka
+     yang dikarang akan dibaca sebagai data.
+     PERLU DIKETAHUI, SITUS INI PUNYA DUA TAKSONOMI YANG BERBEDA DAN KEDUANYA HIDUP:
+     halaman /kategori memakai TIGA kategori bahan (Besi, Plastik, Stainless Steel), sementara
+     FOOTER di halaman yang sama memakai SEBELAS kelompok produk (Besi Hollow dan Pipa Bulat,
+     Besi Kawat, Plat Besi, Besi Batangan, Baja Ringan, Plat Gelombang, Besi Profil Struktural,
+     Atap, Plat Stainless Steel, Hollow Stainless Steel, Pipa Stainless Steel) yang masing-masing
+     juga menunjuk ke /kategori/<slug>. Jadi ada sebelas halaman kategori lagi yang TIDAK
+     didaftar oleh indeks kategori. Kedua taksonomi itu sengaja dibiarkan berdampingan di papan
+     ini, persis seperti di situsnya: yang tiga di badan halaman, yang sebelas di footer. JANGAN
+     menggabungkan keduanya menjadi satu daftar — itu mendesain halaman lain, bukan halaman ini.
+     TUJUAN KARTU: ketiganya membuka papan Semua Produk. Di kanvas ini belum ada papan
+     kategori-detail, jadi tidak ada tujuan yang lebih tepat; polanya sama dengan ubin produk di
+     papan Semua Produk, yang semuanya membuka satu papan Produk yang sama. Kalau papan
+     kategori-detail kelak dibuat, yang diganti satu href di dalam sc-for.
+     BENTUK KARTU MENGIKUTI SITUS, WARNANYA MENGIKUTI KANVAS: foto sebagai alas kartu, nama di
+     kiri atas, panah di kanan bawah — itu anatomi kartu aslinya. Yang TIDAK disalin adalah keping
+     putih 31% di belakang namanya; putih setipis itu di atas foto tidak bisa dijamin kontrasnya.
+     Gantinya scrim gelap dari puncak kartu dan nama PUTIH di atasnya.
+     KONTRAS DIHITUNG UNTUK KEADAAN TERBURUK, yaitu kalau fotonya putih penuh: di bawah scrim
+     rgba(10,10,10,0.62) hasilnya setara #676767, dan putih di atasnya 4,7:1. Nama kartu 20 px
+     ponsel / 26 px desktop dengan bobot bold termasuk teks besar menurut WCAG, ambangnya 3:1,
+     jadi ia lewat dengan jarak — dan lewat juga kalau diukur dengan ambang teks kecil 4,5:1.
+     Foto yang lebih gelap hanya menambah selisih itu.
+     PANAHNYA MERAH DI ATAS KACA PUTIH, bukan merah langsung di atas foto: lingkaran
+     var(--cair-tombol) memberi alas yang pasti, jadi 5,39:1 merah-di-atas-putih yang sudah
+     tercatat di kanvas ini berlaku apa adanya. Di ponsel lingkarannya 44 px, yaitu sasaran
+     sentuh penuh; di desktop 56 px, ukuran yang sama dengan panah situsnya pada lebar besar.
+     RASIO KARTU 560/365 adalah rasio kartu di situsnya, bukan rasio fotonya (400 x 365). Jadi
+     object-fit: cover MEMOTONG foto di atas dan bawah; itu juga yang terjadi di situsnya.
+     BAHASA VISUAL: token yang sama dengan papan Mobbin 3 lainnya. ================= -->
+<helmet>
+<style>
+/* TEPI KIRI REL DAN KISI, 2026-10-28 atas permintaan ("for card in left remove margin left").
+   Tiap item membawa separuh selokannya di KIRI dan di KANAN (aturan 50/50). Akibatnya item
+   PERTAMA membawa separuh di tepi luar, yang tidak berbatasan dengan apa pun — itu yang dibuang
+   di sini. Batas DI DALAM baris tidak tersentuh: separuh kanan item sebelumnya + separuh kiri
+   item berikutnya tetap satu selokan penuh.
+   ATURAN INI TINGGAL DI HELMET, BUKAN DI STYLE INLINE, dengan alasan yang sama seperti media
+   query [data-nama] di papan Produk Page: :first-child tidak bisa ditulis di atribut style. Dan
+   kartunya memang tidak bisa diberi style satu-satu — satu template sc-for dipakai berulang,
+   jadi instance pertama tidak punya markup sendiri.
+   Tepi KANAN sengaja DIBIARKAN: di rel yang menggulir, separuh kanan item terakhir itulah yang
+   menjadi jarak akhir gulir.
+   !important DIPERLUKAN, bukan kebiasaan buruk: margin-left kartu ditulis di ATRIBUT STYLE, dan
+   deklarasi inline selalu mengalahkan aturan di stylesheet apa pun selektornya. Tanpa !important
+   aturan ini tidak berpengaruh sama sekali. Nilai inline-nya memang tetap terbaca
+   calc(var(--selokan-ubin) / 2) di panel properti; yang jadi 0 adalah nilai TERHITUNGnya. */
+[data-tepi="1"] > *:first-child{margin-left:0 !important}
+/* KISI N KOLOM, 2026-10-30 atas permintaan ("place on all page in Prototype Mobbin 4").
+   Disapu ke seluruh halaman salinan4 menyusul RecCreateM4 (Versi 1728/1736), yang lebih
+   dulu memakainya sendirian. SEBABNYA sama di mana-mana: data-tepi hanya membuang separuh
+   kiri item PERTAMA karena ia dibuat untuk REL yang menggulir. Di KISI, setiap baris punya
+   item paling kiri dan paling kanan sendiri, jadi selektornya harus nth-child dan penanda
+   harus tahu JUMLAH KOLOM — angka di nilai penanda itulah jumlahnya.
+   AKIBATNYA, dan ini yang terlihat: kolom terluar kini rata dengan tepi wadahnya, dan kartu
+   di semua kolom tetap sama lebar karena separuh luar dibuang di KEDUA sisi. Jarak DI DALAM
+   kisi tidak berubah sedikit pun — separuh kanan tetangga + separuh kiri item berikutnya.
+   NILAI SELOKANNYA TIDAK DISENTUH di papan mana pun: tiap kisi tetap memakai token yang
+   sudah dipilihnya (--rapat, --seksi, --dalam, --selokan-dalam, --jarak-x-dua). Yang
+   diseragamkan ATURAN TEPINYA, bukan angkanya.
+   !important WAJIB: margin kartu ditulis di ATRIBUT STYLE dan inline mengalahkan stylesheet
+   apa pun selektornya. Nilai inline tetap terbaca calc(...) di panel properti; yang jadi 0
+   nilai TERHITUNGnya. */
+[data-tepi-kisi="2"] > *:nth-child(2n+1){margin-left:0 !important}
+[data-tepi-kisi="2"] > *:nth-child(2n){margin-right:0 !important}
+/* TEPI ATAS DAN BAWAH DERET TEGAK, sapuan 2026-10-30 atas permintaan ("recheck all page in
+   Prototype Mobbin 4, is standard for distance x and distance y already true"). PASANGAN TEGAK
+   dari aturan tepi mendatar di atas, dan sekarang dipakai di SELURUH halaman Mobbin 4, bukan cuma
+   di deret footer: tiap butir deret membawa SEPARUH jaraknya di atas dan separuh di bawah
+   (aturan 50/50), row-gap wadahnya jadi 0, dan separuh di tepi LUAR — yang tidak berbatasan
+   dengan apa pun — dibuang di sini.
+   DIPERIKSA DULU, BUKAN DIKIRA: jarak MENDATAR di 28 papan Mobbin 4 sudah benar seluruhnya, nol
+   pelanggaran. Yang tertinggal memang jarak TEGAK: 174 wadah masih memakai gap hidup, dan 172
+   di antaranya disetel di sapuan ini.
+   HANYA DERET, BUKAN SETIAP TUMPUKAN: yang disetel wadah yang isinya PENGULANGAN (sc-for).
+   272 lockup tetap di dalam satu komponen — label + nilai berjarak 0,2rem dan sebangsanya —
+   SENGAJA DIBIARKAN, alasan yang sama dengan 168 gap inline-flex ikon+label yang dibiarkan waktu
+   sapuan mendatar: aturan 50/50 itu untuk selokan ANTAR butir, bukan untuk jarak di dalam satu
+   kartu. Mengubahnya cuma kebisingan tanpa perubahan tampilan. */
+[data-tepi-y="1"] > *:first-child{margin-top:0 !important}
+[data-tepi-y="1"] > *:last-child{margin-bottom:0 !important}
+/* TEPI TEGAK KISI, ATURAN BARU 2026-10-30. data-tepi-y TIDAK BISA dipakai di kisi, dan ini
+   sebabnya: ia membuang margin :first-child dan :last-child saja, sedangkan di kisi BARIS PERTAMA
+   itu anak 1..N — anak ke-2 sampai ke-N akan tetap membawa separuh di tepi atas. Jadi penanda
+   tegak untuk kisi harus tahu JUMLAH KOLOM, persis seperti data-tepi-kisi di sumbu mendatar, dan
+   angka di nilainya itulah jumlahnya.
+   BARIS TERAKHIR YANG TIDAK PENUH, dan ini satu-satunya ketidaktepatan aturan ini, ditulis
+   terang-terangan: nth-last-child(-n+N) memilih N anak TERAKHIR, bukan "baris terakhir". Kalau
+   jumlah butir tidak habis dibagi N, sebagian yang terpilih sebenarnya duduk di baris
+   KEDUA-DARI-BELAKANG. 13 dari 67 kisi di halaman ini begitu (mis. 11 kategori di 6 kolom,
+   3 kategori di 2 kolom). AKIBATNYA NOL dalam kasus biasa: butir yang salah terpilih itu justru
+   butir yang TIDAK punya apa pun di bawahnya, jadi membuang separuh bawahnya memang benar.
+   Ia baru terlihat kalau butir di baris kedua-dari-belakang BERBEDA TINGGI lebih dari separuh
+   selokan — di situ tinggi barisnya ditentukan butir lain dan selokannya menyusut. Belum ada
+   kasus begitu di halaman ini; kalau muncul, jalan keluarnya margin-bottom negatif separuh
+   selokan di WADAHNYA, yang tepat untuk jumlah butir berapa pun. */
+[data-tepi-kisi-y="2"] > *:nth-child(-n+2){margin-top:0 !important}
+[data-tepi-kisi-y="2"] > *:nth-last-child(-n+2){margin-bottom:0 !important}
+[data-tepi-kisi-y="3"] > *:nth-child(-n+3){margin-top:0 !important}
+[data-tepi-kisi-y="3"] > *:nth-last-child(-n+3){margin-bottom:0 !important}
+:root{
+  --surface:#ffffff;
+  --line:#ececec;
+  --chat-ikon:#2563eb;
+  --chat-mati:#9ca3af;
+  --line-kuat:#d4d4d4;
+  --online-ikon:#16a34a;
+  --whatsapp:#25d366;
+  --ink:#0a0a0a;
+  --ink-2:#5f5f5f;
+  --ink-4:#c9c9cb;
+  --brand:#D70100;
+  --brand-hero:#FF0000;
+  --brand-subtle:#fdecec;
+  --price:#15763b;
+  --nav-aktif:#A84C46;
+  --pill:99.9rem;
+  --action:0.9rem;
+  --control:0.5rem;
+  --card:1.4rem;
+  --sheet:1.6rem;
+  --quote:1.8rem;
+  --panel:2.2rem;
+  --island:2.6rem;
+  --tile:0.5rem;
+  --teks-sup:0.95rem;
+  /* 10 px DIBERI NAMA, 2026-10-23 atas permintaan, untuk pita WASPADA PENIPUAN. Rung
+     KESEMBILAN di ramp ini, dan yang KEDUA dibuka kembali sesudah ramp dirampingkan jadi tujuh
+     pada 2026-10-17 (yang pertama 12 px, 2026-10-22). Dinamai, bukan ditulis "1rem" mentah,
+     karena pita itu ada di ENAM papan sekaligus: satu nama membuat keenamnya bisa disetel dari
+     satu tempat, dan itulah gunanya token di kanvas ini.
+     Pemakainya saat ini HANYA pita itu. Kalau kelak tidak ada lagi yang memakainya, hapus
+     tokennya — rung yang tidak terpakai itu yang membuat ramp membengkak lagi.
+     PERLU DIKETAHUI, PITA INI KINI TEKS TERKECIL DI PAPAN: di bawah var(--teks-tiny) 11 px,
+     dan hanya var(--teks-sup) 9,5 px yang lebih kecil — itu pun cuma untuk "Rp" superskrip,
+     bukan kalimat. Pita ini kalimat peringatan; 10 px adalah batas yang disetujui, bukan
+     kebiasaan yang boleh menular ke teks lain. */
+  --teks-micro:1rem;
+  --teks-tiny:1.1rem;
+  --teks-meta:1.3rem;
+  --teks-body:1.4rem;
+  --teks-advantage:1.7rem;
+  --teks-subhead:1.8rem;
+  --teks-lead:2rem;
+  --teks-price-lg:2.2rem;
+  --teks-subsection:2.2rem;
+  --teks-section-md:2.6rem;
+  --teks-cta:2.9rem;
+  --teks-section-lg:3rem;
+  --teks-display:4.4rem;
+  --bobot-light:300;
+  --bobot-regular:400;
+  --bobot-medium:500;
+  --bobot-semibold:600;
+  --bobot-bold:700;
+  --bobot-heavy:800;
+  --bobot-black:900;
+  /* JARAK KHAS DESKTOP — ditambahkan 2026-10-22. Tiga angka yang sudah lama punya nama di
+     tokens/mobbin3.ts (space-m3-footer-gap, space-m3-footer-pad, space-m3-gutter-inner) dan di
+     variabel desktop/* file Figma, tapi belum pernah dideklarasikan di papan. Nilainya TIDAK
+     diubah — ini penamaan, bukan penyetelan ulang. */
+  --footer-jarak:7.2rem;
+  --footer-pad:5.6rem;
+  /* 48 px: tidak dipakai lagi sejak kisi footer naik ke var(--seksi) 60 px,
+     2026-10-22. Dibiarkan berdiri karena ia padanan space-m3-gutter-inner di repo
+     dan desktop/selokan-dalam di Figma — namanya tetap sah, cuma belum terpakai. */
+  --selokan-dalam:4.8rem;
+  --seksi:6rem;
+  --dalam:2rem;
+  --sisi:12rem;
+  --rapat:1.2rem;
+  --font-harga:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --cair:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.56) 26%, rgba(255,255,255,0.42) 52%, rgba(255,255,255,0.54) 100%);
+  --cair-blur:blur(1.4rem) saturate(165%) brightness(1.03) contrast(1.02);
+  --cair-rim:inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem rgba(255,255,255,0.40), inset 0.2rem 0 0.3rem rgba(255,255,255,0.28), inset -0.2rem 0 0.3rem rgba(255,255,255,0.28), inset 0 0 0 0.1rem rgba(255,255,255,0.62), inset 0 0 1.2rem rgba(17,25,33,0.12);
+  --cair-bayang:0 0.6rem 1.4rem rgba(17,25,33,0.16), 0 0.1rem 0.2rem rgba(17,25,33,0.10);
+  --cair-tombol:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.74) 26%, rgba(255,255,255,0.64) 52%, rgba(255,255,255,0.74) 100%);
+  --cair-tombol-blur:blur(1.8rem) saturate(160%) brightness(1.02);
+  --cair-rim-chip:inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem rgba(255,255,255,0.40), inset 0.2rem 0 0.3rem rgba(255,255,255,0.28), inset -0.2rem 0 0.3rem rgba(255,255,255,0.28), inset 0 0 0 0.1rem rgba(255,255,255,0.62);
+  --cair-bayang-chip:0 0.2rem 0.6rem rgba(17,25,33,0.10), 0 0.1rem 0.1rem rgba(17,25,33,0.05);
+  --el-2:0 0.2rem 1rem rgba(0,0,0,0.08), 0 0.1rem 0.2rem rgba(0,0,0,0.06);
+  --kaca:linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0.45) 100%), rgba(250,252,253,0.93);
+  --kaca-blur:blur(1.8rem) saturate(140%);
+  --kaca-rim:inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(255,255,255,0.90);
+  --kaca-bayang:0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.07), 0 1.6rem 3.4rem -1.4rem rgba(17,25,33,0.12);
+}
+html{font-size:62.5%}
+  body{font-size:1.6rem;margin:0;font-family:-apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+  /* RESET button DAN input, 2026-10-22. INILAH yang membuat header papan ini terlihat beda
+     dari papan Produk desktop, bukan markupnya: header kedua papan sudah identik byte demi
+     byte, tapi papan ini tidak pernah punya dua baris reset ini. Akibatnya keempat tombolnya
+     (tutup pita, Kategori, Cari, dan tombol di kisi) dan kolom carinya memakai gaya bawaan
+     peramban — latar abu, garis tepi, huruf sistem lain, teks ditengahkan — sementara di papan
+     Produk semuanya polos. Disalin apa adanya dari sana.
+     SISA CSS PAPAN PRODUK SENGAJA TIDAK IKUT: [data-harga], [data-bul], [data-sek], seluruh
+     keyframes dan aturan rel/pulau/kaca di sana melayani hal yang tidak ada di papan ini —
+     harga, karusel, rel seksi, Live Chat. Menyalinnya hanya menambah aturan mati. Yang dibawa
+     cuma yang dipakai elemen yang memang ada di sini. */
+  button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+  input{font:inherit;color:inherit}
+</style>
+</helmet>
+<!-- SEMUA NILAI PX DIUBAH JADI REM, 2026-10-28 atas permintaan ("all px in Prototype
+         Mobbin 3 change to rem"). 134 nilai di papan ini.
+         1rem = 10px sejak sekarang, aturan yang sama dengan repo design system (bagi 10,
+         jangan 16) dan dengan smsperkasa.com, yang juga memasang html font-size 10px. Jadi
+         14px jadi 1.4rem, 8px jadi 0.8rem, 1px jadi 0.1rem.
+         DUA BARIS BARU DI BLOK GAYA, DAN KEDUANYA SYARAT:
+         · html font-size 62,5%, itulah yang membuat 1rem = 10px.
+         · body font-size 1.6rem. Ini BUKAN hiasan. Tanpa baris itu, setiap teks yang tidak
+           menyebut ukurannya sendiri akan mewarisi 10px dari html, padahal sebelumnya ia
+           mewarisi 16px bawaan peramban. 1.6rem = 16px persis, jadi di layar tidak ada yang
+           bergeser. Membuangnya akan mengecilkan teks yang tidak bertanda di seluruh papan.
+         YANG SENGAJA TIDAK IKUT:
+         · ANGKA DI DALAM CATATAN BERTANGGAL, termasuk catatan ini. Semua komentar masih
+           menyebut px karena mengubah angka di tengah kalimat akan merusak kalimatnya. Baca
+           px di catatan sebagai nilai lama; yang hidup ada di markup.
+         · ATRIBUT SVG (width, height, stroke-width, viewBox) memang tanpa satuan, jadi tidak
+           tersentuh dan menggambar persis sama.
+         · rootMargin di IntersectionObserver, yang memang hanya mengerti px.
+         · 0px jadi 0, bukan 0rem.
+         TIDAK ADA YANG BERUBAH DI LAYAR. Ini penggantian satuan, bukan penyetelan ukuran. -->
+
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+  <sc-if value="{{ awasBuka }}" hint-placeholder-val="{{ true }}">
+  <div data-tepi="1" style="box-sizing: border-box; padding: 1.1rem 12rem; background: #fdecec; display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M12 3.6L2.6 20h18.8z"></path><path d="M12 10v4.4M12 17.3h.01"></path></svg>
+    <p style="margin: 0; flex-grow: 1; font-size: var(--teks-micro); line-height: 1.35; color: var(--ink); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: 0.01em">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="https://www.smsperkasa.com/hati-hati-penipuan" target="_blank" rel="noopener" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem">Cek selengkapnya</a></p>
+    <button type="button" onClick="{{ awasTutup }}" aria-label="Tutup peringatan penipuan" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; display: grid; place-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6.4 6.4l11.2 11.2M17.6 6.4L6.4 17.6"></path></svg>
+    </button>
+  </div>
+  </sc-if>
+  <header data-tepi="1" style="position: sticky; top: 0; z-index: 40; box-sizing: border-box; height: 7.2rem; padding: 0 12rem; background: var(--surface); display: flex; align-items: center; row-gap: 2.4rem; column-gap: 0">
+    <!-- LOGO RATA ATAS, 2026-10-23 atas permintaan: align-items center -> flex-start pada
+           tautan logo, di SEMUA papan M3 yang punya header ini (sembilan: empat ponsel,
+           lima desktop), supaya ketinggiannya tidak berbeda antar papan.
+           Tautannya tetap min-height 44 px — itu kotak sentuhnya, bukan tinggi logonya;
+           flex-start hanya memindahkan logo 30 px ke puncak kotak itu, jadi sasaran
+           sentuhnya tidak mengecil.
+           PERLU DIKETAHUI, DI HEADER PONSEL INI LOGO JADI TIDAK SEBARIS LAGI dengan
+           telepon dan tombol menu di sebelah kanannya, yang masih ditengahkan terhadap
+           bilah 56 px. Itu konsekuensi yang diminta; kalau nanti terasa jomplang, yang
+           disetel align-items header-nya, bukan menambah margin ke logo. -->
+      <!-- LOGO MENUNJUK DesktopBerandaM3, 2026-10-26, dan ini SATU-SATUNYA tempat header papan
+         ini menyimpang dari header DesktopProdukIndexM3 yang disalinnya. Kelima papan desktop
+         lain masih menunjuk Artboard-pp1u.dc.html, berkas yang tidak pernah ada. Resepnya bukan
+         karangan: ia ditulis di header BerandaM3 sendiri, "DesktopBerandaM3.dc.html di papan
+         desktop". Papan baru tidak perlu mewarisi tautan mati, jadi ia lahir dengan tujuan yang
+         benar.
+         PERLU DIKETAHUI, LIMA PAPAN DESKTOP LAIN BELUM DIUBAH dan itu memang tidak diminta:
+         yang diminta hari ini hanya header Semua Produk PONSEL. Jadi untuk sementara tautan
+         logo di papan ini berbeda dari tetangga desktopnya. -->
+    <a href="DesktopBerandaM4.dc.html" aria-label="SMS Perkasa — beranda" style="display: flex; align-items: flex-start; min-height: 4.4rem; flex-shrink: 0; margin-left: 1.2rem; margin-right: 1.2rem">
+      <svg width="150" height="44" viewBox="0 0 364 107" fill="none" aria-hidden="true" style="display: block">
+        <path fill="var(--brand-hero)" fill-rule="evenodd" d="M48.04 80.54c0-3.9 3.11-7.1 6.9-7.11 3.66-.02 6.97 2.92 6.98 7.12.01 4.02-3.05 7.16-6.94 7.15-4.12 0-6.96-3.44-6.94-7.16zM39.47 106.44c-3.78-.62-6.61-2.64-8.45-6.08-.77-1.45-1.16-3.02-1.27-4.67-.36-5.6 3.28-10.46 8.18-11.86 6.33-1.82 12.83 2.3 14.09 8.93 1.18 6.24-2.74 12.3-8.86 13.57-.22.05-.45.08-.68.12-.13.07-.28.02-.42.04-.2.02-.42-.05-.62.05h-.86c-.23-.1-.46-.02-.7-.05-.14-.02-.29.04-.42-.04l.01-.01zM.16 69.65c.35-3.01 1.27-5.81 2.93-8.32 2.89-4.39 6.86-7.13 11.93-8.09 9.55-1.81 18.8 4.42 20.99 14.17 2.33 10.4-4.09 20.21-13.63 22.47C12.67 92.17 3.1 86.1.63 76.28c-.23-.9-.37-1.81-.47-2.73-.05-.28-.1-.56-.12-.85-.02-.16.05-.33-.04-.48V70.9c.09-.14.02-.3.04-.44 0-.07 0-.13.02-.2.06-.19.05-.4.1-.6v-.01z" clip-rule="evenodd"></path>
+        <path fill="var(--brand-hero)" fill-rule="evenodd" d="M84.56 35.91c-.41 5.32-2.09 10.18-5.05 14.55-4.27 6.33-10.07 10.43-17.34 12.31-1.61.42-3.25.65-4.9.77-1.19.08-2.37.1-3.56.04-2.84-.16-5.6-.71-8.29-1.69-9.44-3.44-16.56-11.61-18.86-21.66-.43-1.89-.68-3.81-.74-5.75-.24-7.69 1.99-14.54 6.75-20.47 4.33-5.4 9.88-8.82 16.54-10.32 1.38-.31 2.79-.48 4.19-.61.11-.07.22-.02.34-.04h.34c.17-.02.36.05.53-.05h1.2c.14.09.3.02.44.05h1.01c2.16.03 4.26.46 6.32 1.07 4.2 1.24 7.94 3.38 11.23 6.32 2.61 2.34 4.73 5.09 6.41 8.2 1.68 3.1 2.75 6.42 3.31 9.91.12.77.16 1.55.15 2.32v.46c0 .08-.02.17.04.25v3.44c-.08.09-.03.2-.04.3v.39c0 .07 0 .13-.03.19l.01.02z" clip-rule="evenodd"></path>
+        <path fill="var(--ink)" d="M92.04 94.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM108.184 52h9.42l4.2 30.06h.12l4.2-30.06h9.42v42h-6.24V62.2h-.12l-4.8 31.8h-5.52l-4.8-31.8h-.12V94h-5.76V52zm43.265 42.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM179.603 52h9.72c3.28 0 5.74.88 7.38 2.64 1.64 1.76 2.46 4.34 2.46 7.74v4.14c0 3.4-.82 5.98-2.46 7.74-1.64 1.76-4.1 2.64-7.38 2.64h-3.12V94h-6.6V52zm9.72 18.9c1.08 0 1.88-.3 2.4-.9.56-.6.84-1.62.84-3.06v-4.98c0-1.44-.28-2.46-.84-3.06-.52-.6-1.32-.9-2.4-.9h-3.12v12.9h3.12zM205.148 52h18v6h-11.4v11.1h9.06v6h-9.06V88h11.4v6h-18V52zm24.196 0h9.78c3.4 0 5.88.8 7.44 2.4 1.56 1.56 2.34 3.98 2.34 7.26v2.58c0 4.36-1.44 7.12-4.32 8.28v.12c1.6.48 2.72 1.46 3.36 2.94.68 1.48 1.02 3.46 1.02 5.94v7.38c0 1.2.04 2.18.12 2.94.08.72.28 1.44.6 2.16h-6.72a9.62 9.62 0 01-.48-1.92c-.08-.6-.12-1.68-.12-3.24v-7.68c0-1.92-.32-3.26-.96-4.02-.6-.76-1.66-1.14-3.18-1.14h-2.28v18h-6.6V52zm9 18c1.32 0 2.3-.34 2.94-1.02.68-.68 1.02-1.82 1.02-3.42v-3.24c0-1.52-.28-2.62-.84-3.3-.52-.68-1.36-1.02-2.52-1.02h-3v12h2.4zm17.6-18h6.6v17.7l8.4-17.7h6.6l-7.86 15.42 7.98 26.58h-6.9l-5.58-18.72-2.64 5.34V94h-6.6V52zm32.343 0h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94zm22.587 14.52c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM339.142 52h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94z"></path>
+      </svg>
+    </a>
+    <button data-tepi="1" type="button" aria-label="Buka kategori produk" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 1rem; column-gap: 0.5rem; min-height: 4.4rem; padding: 0; font-size: var(--teks-body); font-weight: var(--bobot-semibold); color: var(--ink); margin-left: 1.2rem; margin-right: 1.2rem">
+      <span aria-hidden="true" style="width: 3.6rem; height: 3.6rem; flex-shrink: 0; display: grid; place-items: center; margin-left: 0.5rem; margin-right: 0.5rem">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="display: block"><rect x="1" y="1.5" width="7" height="7" rx="2.5" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="1" y="11.5" width="7" height="7" rx="2.5" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="11" y="1.5" width="7" height="7" rx="2.5" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="11" y="11.5" width="7" height="7" rx="2.5" stroke="var(--ink)" stroke-width="1.5"></rect></svg>
+      </span>
+      Kategori
+    </button>
+    <!-- Kolom cari header: pil penuh sampai 2026-10-16, lalu sudut 5 px (token control),
+         dan sejak 2026-10-20 var(--action) 9 px atas permintaan — token yang sama yang dipakai
+         kolom cari papan PONSEL sejak hari yang sama, jadi kedua platform sepakat pada satu
+         peran: "aksi", bukan "kontrol toolbar".
+         TOMBOL KACA PEMBESAR DI DALAMNYA IKUT, alasan yang sama yang ditulis waktu keduanya
+         pindah ke control: lingkaran tidak boleh duduk di dalam kotak yang sudutnya jauh lebih
+         siku daripada dirinya. Keduanya selalu satu nilai.
+         Untuk memulihkan: kembalikan KEDUANYA ke token yang sama, apa pun pilihannya. -->
+    <!-- KACA PEMBESAR PINDAH KE KIRI dan PLACEHOLDER DIGANTI, 2026-10-20 atas permintaan.
+         Tombolnya tetap tombol (aria-label "Cari", 38 x 38 px) dan tetap memanggil aksi yang
+         sama; yang berubah hanya urutannya di dalam baris flex, jadi ia kini mendahului kolom
+         teks alih-alih menutupnya.
+         PADDING IKUT DIBALIK, 0 4px 0 18px menjadi 0 18px 0 4px: angka 18 px itu dulu ruang
+         napas teks di kiri dan 4 px tempat tombol di kanan. Kalau tidak dibalik, tombol di kiri
+         akan terdorong 18 px ke dalam sementara tepi kanan kolom merapat ke huruf terakhir.
+         Teks kini mulai pada 4 + 38 + 6 = 48 px dari tepi kolom.
+         PLACEHOLDER jadi "Cari produk, ukuran, atau info", kalimat yang sama dengan kolom cari
+         papan PONSEL, jadi kedua platform menjanjikan cakupan yang sama.
+         LABEL TERSEMBUNYI IKUT DIGANTI, dan itu bukan tambahan permintaan: span sr-only itu
+         nama aksesibel kolom ini. Dibiarkan berbunyi "Cari produk besi" sementara yang terbaca
+         di layar "Cari produk, ukuran, atau info", pembaca layar dan pembaca awas akan diberi
+         dua nama berbeda untuk satu kolom. -->
+    <div data-tepi="1" style="flex-grow: 1; min-width: 0; box-sizing: border-box; display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; height: 4.6rem; padding: 0 1.8rem 0 0.4rem; border-radius: var(--action); box-shadow: inset 0 0 0 0.1rem var(--line); padding-left: 0.4rem; margin-left: 1.2rem; padding-right: 1.8rem; margin-right: 1.2rem">
+      <button type="button" aria-label="Cari" style="width: 3.8rem; height: 3.8rem; flex-shrink: 0; border-radius: var(--action); display: grid; place-items: center; margin-left: 0.3rem; margin-right: 0.3rem">
+        <svg width="21" height="21" viewBox="0 0 23 23" fill="none" aria-hidden="true" style="display: block"><ellipse cx="10.047" cy="9.958" rx="8.789" ry="8.333" stroke="var(--ink)" stroke-width="1.725" stroke-linecap="round" stroke-linejoin="round"></ellipse><path d="M16.086 16.164l5.493 5.208" stroke="var(--ink)" stroke-width="1.725" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <label style="flex-grow: 1; min-width: 0; display: flex; align-items: center; margin-left: 0.3rem; margin-right: 0.3rem">
+        <span style="position: absolute; width: 0.1rem; height: 0.1rem; overflow: hidden; clip-path: inset(50%)">Cari produk, ukuran, atau info</span>
+        <input type="text" value="{{ cariQ }}" onChange="{{ cariKetik }}" placeholder="Cari produk, ukuran, atau info" style="flex-grow: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: var(--teks-body); color: var(--ink)">
+      </label>
+    </div>
+    <!-- TOMBOL BURGER DIHILANGKAN atas permintaan 2026-10-20. Ditahan di balik sc-if
+         bernilai false, BUKAN dikomentari: markupnya memuat var(--tile) dan var(--ink).
+         Memunculkannya lagi: burgerTampil jadi true di renderVals.
+         PERLU DIKETAHUI: header ini sudah kehilangan tautan navUtama dan pil "Hubungi Sales"
+         waktu disamakan dengan smsperkasa.com, lalu blok teleponnya padam hari ini juga.
+         Sesudah burger ini padam, yang tersisa di header tinggal logo (tautannya menunjuk
+         Artboard-pp1u yang tidak ada), tombol Kategori, dan kolom cari. Kategori itulah satu
+         satunya pintu navigasi yang masih berdiri di sana.
+         TIDAK ADA YANG BERGESER: baris header ini flex dan burger anak TERAKHIRNYA, jadi
+         kolom cari yang flex-grow tinggal memakai ruang yang ditinggalkannya. -->
+    <sc-if value="{{ burgerTampil }}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Buka menu" style="flex-shrink: 0; width: 4.4rem; height: 4.4rem; border-radius: var(--tile); display: grid; place-items: center; margin-left: 1.2rem; margin-right: 1.2rem">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display: block"><path fill="var(--ink)" fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7a.75.75 0 01-.75.75H4a.75.75 0 010-1.5h16a.75.75 0 01.75.75zM20.75 12a.75.75 0 01-.75.75H4a.75.75 0 010-1.5h16a.75.75 0 01.75.75zM20.75 17a.75.75 0 01-.75.75H4a.75.75 0 010-1.5h16a.75.75 0 01.75.75z"></path></svg>
+    </button>
+    </sc-if>
+  </header>
+    <!-- ================= SUB-HEADER DISAMAKAN DENGAN PAPAN PRODUK DESKTOP, 2026-10-22 atas
+         permintaan. <nav> kategori di papan ini sebelumnya BERDIRI TELANJANG: tidak ada
+         pembungkus, jadi ia tidak menempel, tidak punya tinggi 52 px, tidak punya talang
+         120 px sendiri dan tidak punya garis rambut di bawahnya. Yang tampak "beda header"
+         itu bukan headernya — header kedua papan ini sudah IDENTIK byte demi byte; yang
+         hilang baris keduanya.
+         PEMBUNGKUSNYA DISALIN APA ADANYA dari DesktopProdukM3, termasuk angka-angka yang
+         saling bergantung di sana: top 72 px (tepat di bawah header) dengan z-index 35 —
+         di bawah header (40), di atas rel seksi (30). Tingginya 52 px, dan di papan Produk
+         angka itu merembet ke rel seksi (124 = 72 + 52) dan ke scroll-margin-top (200).
+         DI PAPAN INI TIDAK ADA REL SEKSI, jadi rembetan itu tidak berlaku — tapi angkanya
+         tetap 52 supaya kedua papan berbaris sama saat berpindah.
+         BLOK TELEPON IKUT DIBAWA beserta benderanya. teleponHeaderTampil BELUM ADA di papan
+         ini, jadi ia ditambahkan ke renderVals bernilai false — sama dengan kelima papan
+         desktop lain sejak 2026-10-20. Dibawa walau padam supaya menyalakannya nanti cukup
+         satu kata di sini, bukan menyalin markup dari papan sebelah lagi.
+         TALANG: pembungkus ini memakai 120px LITERAL seperti di papan Produk, bukan
+         var(--sisi). Keduanya 120 px di desktop, jadi nilainya sama; ditulis literal supaya
+         baris ini tetap sebangun dengan sumbernya kalau salah satunya disetel. ================= -->
+    <div data-tepi="1" style="position: sticky; top: 7.2rem; z-index: 35; box-sizing: border-box; min-height: 5.2rem; padding: 0 12rem; background: var(--surface); box-shadow: inset 0 -0.1rem 0 var(--line); display: flex; align-items: center; row-gap: 2.4rem; column-gap: 0">
+      <nav data-tepi="1" aria-label="Kategori produk" style="min-width: 0; flex-grow: 1; display: flex; align-items: center; row-gap: 1.6rem; column-gap: 0; margin-left: 1.2rem; margin-right: 1.2rem">
+        <a data-tepi="1" href="DesktopProdukIndexM4.dc.html" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.8rem; column-gap: 0.4rem; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: var(--ink); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink: 0; display: block; margin-left: 0.4rem; margin-right: 0.4rem"><path fill="var(--ink)" fill-rule="evenodd" clip-rule="evenodd" d="M7 .73c-.353 0-.678.087-1.033.234-.344.142-.742.351-1.24.612l-1.205.633c-.61.32-1.098.576-1.474.827-.39.26-.691.535-.91.907-.218.37-.316.771-.363 1.25-.046.463-.046 1.033-.046 1.75v.114c0 .717 0 1.287.046 1.75.047.479.145.88.363 1.25.219.372.52.646.91.907.376.251.864.507 1.474.827l1.206.633c.497.26.895.47 1.239.612.355.147.68.235 1.033.235.353 0 .678-.088 1.033-.235.344-.142.742-.351 1.24-.612l1.205-.633c.61-.32 1.098-.576 1.474-.827.39-.26.691-.535.91-.907.218-.37.316-.771.363-1.25.046-.463.046-1.033.046-1.75v-.114c0-.717 0-1.287-.046-1.75-.047-.479-.145-.88-.363-1.25-.219-.372-.52-.646-.91-.907-.376-.251-.864-.507-1.474-.827l-1.206-.633c-.496-.26-.895-.47-1.239-.612C7.678.817 7.353.729 7 .729zM5.116 2.36c.52-.272.883-.463 1.185-.587.294-.122.5-.169.699-.169.198 0 .405.047.699.168.302.125.666.316 1.185.588l1.166.612c.636.334 1.083.569 1.416.792.165.11.294.212.399.315l-1.943.971-4.958-2.61.152-.08zm-1.065.56l-.101.052c-.636.334-1.083.569-1.416.792a2.71 2.71 0 00-.399.315L7 6.51l1.958-.98-4.787-2.519a.437.437 0 01-.12-.093zM1.714 4.845c-.03.125-.052.266-.068.432-.041.416-.042.943-.042 1.688v.068c0 .745 0 1.272.042 1.688.04.407.116.67.246.891.13.22.317.407.642.623.333.223.78.458 1.416.792l1.166.612c.52.272.883.462 1.185.587.096.04.182.072.262.096V7.27l-4.85-2.424zm5.724 7.477c.08-.024.165-.056.26-.096.303-.125.667-.315 1.186-.587l1.166-.612c.636-.334 1.083-.569 1.416-.792.325-.216.512-.403.642-.623.13-.221.206-.484.246-.89.041-.417.042-.944.042-1.689v-.068c0-.745 0-1.272-.042-1.688a3.296 3.296 0 00-.068-.432l-1.932.966v1.771a.438.438 0 01-.875 0V6.25L7.438 7.27v5.053z"></path></svg>
+          Semua Produk
+        </a>
+        <span aria-hidden="true" style="flex-shrink: 0; width: 0.1rem; height: 2rem; background: var(--line); margin-left: 0.8rem; margin-right: 0.8rem"></span>
+        <a href="DesktopProdukM4.dc.html" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Besi Hollow Hitam</a>
+        <a href="#besi-h-beam" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Besi H Beam</a>
+        <a href="#besi-wf" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Besi WF</a>
+        <a href="#besi-beton" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Besi Beton</a>
+        <a href="#pipa-galvanis" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Pipa Galvanis</a>
+        <a href="#besi-siku" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Besi Siku</a>
+        <a href="#plat-besi-hitam" style="flex-shrink: 0; display: inline-flex; align-items: center; min-height: 4.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-medium); color: var(--ink-2); white-space: nowrap; margin-left: 0.8rem; margin-right: 0.8rem">Plat Besi Hitam</a>
+      </nav>
+      <sc-if value="{{ teleponHeaderTampil }}" hint-placeholder-val="{{ false }}">
+      <div data-tepi="1" style="flex-shrink: 0; display: flex; align-items: center; row-gap: 1rem; column-gap: 0; margin-left: 1.2rem; margin-right: 1.2rem">
+        <span style="font-size: var(--teks-meta); color: var(--ink-2); white-space: nowrap; margin-left: 0.5rem; margin-right: 0.5rem">Hubungi Sekarang!</span>
+        <a data-tepi="1" href="tel:+628112689889" style="display: inline-flex; align-items: center; row-gap: 0.7rem; column-gap: 0.35rem; min-height: 4.4rem; font-size: var(--teks-body); font-weight: var(--bobot-bold); color: var(--brand); white-space: nowrap; margin-left: 0.5rem; margin-right: 0.5rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; display: block; margin-left: 0.35rem; margin-right: 0.35rem"><path d="M6.6 3.5h2.9l1.5 3.7-2 1.3a10.4 10.4 0 0 0 4.9 4.9l1.3-2 3.7 1.5v2.9a1.8 1.8 0 0 1-2 1.8A14.6 14.6 0 0 1 4.8 5.5a1.8 1.8 0 0 1 1.8-2z"></path></svg>
+          +628112689889
+        </a>
+      </div>
+      </sc-if>
+    </div>
+  <main style="padding-bottom: calc(var(--footer-jarak) / 2); box-sizing: border-box; padding: 0 var(--sisi)">
+    <!-- REMAH ROTI DITAHAN, 2026-10-26 — sama seperti kembaran ponselnya, dan dengan keberatan
+         yang sama yang ditulis di sana: situsnya MEMANG menampilkan "Home / Kategori" di halaman
+         ini. Dipadamkan supaya sebaris dengan papan desktop lain, yang remah rotinya padam sejak
+         2026-10-22. Memunculkannya: remahTampil jadi true. -->
+    <sc-if value="{{ remahTampil }}" hint-placeholder-val="{{ false }}">
+    <nav data-tepi="1" aria-label="Remah roti" style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; margin-top: var(--dalam); font-size: var(--teks-meta); color: var(--ink-2)">
+      <a href="DesktopBerandaM4.dc.html" style="color: var(--ink-2); text-decoration: underline; margin-left: 0.3rem; margin-right: 0.3rem">Home</a>
+      <span style="margin-left: 0.3rem; margin-right: 0.3rem" aria-hidden="true">/</span>
+      <span aria-current="page" style="color: var(--ink); margin-left: 0.3rem; margin-right: 0.3rem">Kategori</span>
+    </nav>
+    </sc-if>
+    <h1 style="margin: var(--dalam) 0 0 0; font-size: var(--teks-display); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: -0.01em">Kategori</h1>
+    <!-- DUA KOLOM, BUKAN TIGA, dan itu bentuk situsnya: ketiga kartunya memakai kelas "half",
+         jadi masing-masing selebar setengah baris dan yang KETIGA turun sendirian ke baris
+         kedua dengan lebar yang sama. Kisi repeat(2, 1fr) menghasilkan susunan itu persis.
+         Menaruh ketiganya dalam satu baris akan terlihat lebih rapi dan tetap salah: kartunya
+         jadi sepertiga lebar dan halaman ini berhenti menyerupai halaman aslinya.
+         JARAK: situsnya 24 px antar kolom dan 32 px antar baris; var(--dalam) 20 px adalah rung
+         terdekat yang dipunyai kanvas ini, dipakai untuk keduanya.
+         TALANG DI DALAM KARTU: situsnya padding 24px 30px pada lebar 994 px ke atas. 30 px
+         ditulis literal karena ia tidak punya nama di kanvas ini — sama seperti 120 px talang
+         sub-header; 24 px dibulatkan ke var(--dalam). right: 110px pada nama kartu adalah
+         30 talang + 56 lingkaran panah + 24 napas, supaya nama panjang tidak merayap ke bawah
+         panahnya. -->
+    <div data-tepi-kisi="2" data-tepi="1" data-tepi-kisi-y="2" style="margin-top: var(--seksi); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <sc-for list="{{ kategori }}" as="k" hint-placeholder-count="3">
+        <a href="DesktopProdukIndexM4.dc.html" aria-label="{{ k.aria }}" style="position: relative; display: block; width: 100%; max-width: 100%; aspect-ratio: 560 / 365; border-radius: var(--card); overflow: hidden; background: var(--line); color: #ffffff; margin-left: calc(var(--dalam) / 2); margin-right: calc(var(--dalam) / 2); margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+          <img src="{{ k.foto }}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.28) 40%, rgba(10,10,10,0) 70%)"></span>
+          <span style="position: absolute; top: var(--dalam); left: 3rem; right: 11rem; font-size: var(--teks-section-md); line-height: 1.2; font-weight: var(--bobot-bold); color: #ffffff">{{ k.nama }}</span>
+          <span aria-hidden="true" style="position: absolute; right: 3rem; bottom: var(--dalam); width: 5.6rem; height: 5.6rem; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12h13M12.6 5.6l6.4 6.4-6.4 6.4"></path></svg>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </main>
+<div style="box-sizing: border-box; margin-top: calc(var(--footer-jarak) / 2); padding: var(--footer-pad) var(--sisi) 4rem var(--sisi); background: var(--ink); color: #ffffff">
+    <div data-tepi="1" data-tepi-kisi-y="3" style="display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <div style="margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2); margin-top: calc(var(--seksi) / 2); margin-bottom: calc(var(--seksi) / 2)">
+        <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: rgba(255,255,255,0.68); letter-spacing: 0.12rem">DISTRIBUTOR BESI TERPERCAYA</p>
+        <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold); line-height: 1.25">Besi dan material konstruksi untuk proyek Anda</p>
+        <div data-tepi="1" style="display: flex; row-gap: 1.6rem; column-gap: 0; margin-top: 2rem">
+          <sc-for list="{{ sosial }}" as="so" hint-placeholder-count="4">
+            <a href="#sosial" style="font-size: var(--teks-lead); font-weight: var(--bobot-bold); color: #ffffff; margin-left: 0.8rem; margin-right: 0.8rem">{{ so }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <sc-for list="{{ kolomFooter }}" as="kf" hint-placeholder-count="3">
+        <div style="margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2); margin-top: calc(var(--seksi) / 2); margin-bottom: calc(var(--seksi) / 2)">
+          <p style="margin: 0 0 1.2rem 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold)">{{ kf.h }}</p>
+          <div data-tepi-y="1" style="display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+            <sc-for list="{{ kf.items }}" as="fi" hint-placeholder-count="5">
+              <a href="#produk" style="font-size: var(--teks-lead); color: rgba(255,255,255,0.68); line-height: 1.5; margin-top: 0.45rem; margin-bottom: 0.45rem">{{ fi }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 4.8rem 0 0 0; font-size: var(--teks-meta); color: rgba(255,255,255,0.68); line-height: 1.5">2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { awas: true, q: '' };
+  }
+
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    var KATEGORI = [
+      // TIGA KATEGORI — disalin apa adanya dari smsperkasa.com/kategori (dibaca 2026-10-26).
+      // Nama, urutan dan slug datang dari muatan halaman itu sendiri (daftar "categories" di
+      // payload Next.js-nya, yang juga menjadi ItemList di JSON-LD halaman). Tidak ada yang
+      // dikarang, dan tidak ada yang ditambahkan: halaman itu memang cuma memuat TIGA kartu.
+      // FOTONYA FOTO ASLI SITUS, diunggah ke kanvas ini 2026-10-26 karena artboard hanya boleh
+      // menampilkan gambar /_blob/. Berkas sumbernya category_besi.webp, category_plastik.webp
+      // dan category_stainless_steel.webp dari img.besisni.com, ketiganya 400 x 365.
+      ['Besi', 'besi', '/_blob/5643ddd9c2c99d47e1899581a0d4aaa0'],
+      ['Plastik', 'plastik', '/_blob/78165b927b1cd3bd0b5efc7648e1faf3'],
+      ['Stainless Steel', 'stainless-steel', '/_blob/558ec9759aed356ff57a69ffb3751431']
+    ];
+    return {
+      kategori: KATEGORI.map(function (k) {
+        return { nama: k[0], slug: k[1], foto: k[2], aria: 'Kategori ' + k[0] };
+      }),
+      remahTampil: false,
+      teleponHeaderTampil: false,
+      burgerTampil: false,
+      // Kolom cari di header: hidup sebagai kolom teks, tapi di papan ini ia tidak menyaring
+      // apa pun — tidak ada kisi produk untuk disaring. Itu juga perilaku halaman aslinya:
+      // kolom cari di sana milik situs, berlaku lintas halaman, bukan penyaring halaman ini.
+      // Nilainya tetap disimpan di state supaya mengetik terasa seperti kolom sungguhan.
+      cariQ: s.q,
+      cariKetik: function (e) { self.setState({ q: e.target.value }); },
+      awasBuka: s.awas,
+      awasTutup: function () { self.setState({ awas: false }); },
+      sosial: ['Instagram', 'Facebook', 'YouTube', 'TikTok'],
+      kolomFooter: [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF', 'Wiremesh'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

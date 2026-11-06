@@ -1,0 +1,152 @@
+{
+ "board": "LearningM4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": false,
+ "gates": {
+  "no_errors": true,
+  "height": false,
+  "width": true,
+  "text": false,
+  "links": false,
+  "images": true,
+  "type_styles": true,
+  "pixels": false
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 3655,
+   "new": 5380,
+   "delta": 1725
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": [
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Besi",
+    "Baja",
+    "dan",
+    "dan",
+    "8",
+    "8",
+    "8",
+    "8",
+    "yang",
+    "Material",
+    "Beton",
+    "Beton",
+    "Beton",
+    "Beton",
+    "untuk",
+    "untuk",
+    "Siku",
+    "Berat",
+    "Bacaan",
+    "Produk",
+    "Produk",
+    "Produk",
+    "Produk",
+    "Produk",
+    "Produk",
+    "Penerapan",
+    "Penerapan",
+    "dalam",
+    "dalam"
+   ]
+  },
+  "links": {
+   "missing": [],
+   "extra": [
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "DetailArtikel3M4.dc.html"
+   ]
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 45.679,
+   "orig_size": [
+    360,
+    3655
+   ],
+   "new_size": [
+    360,
+    5380
+   ],
+   "first_y_over_0.5pct": 1800,
+   "worst_bands_y_pct": [
+    [
+     2600,
+     96.68
+    ],
+    [
+     3200,
+     96.56
+    ],
+    [
+     2200,
+     96.51
+    ],
+    [
+     2800,
+     96.24
+    ],
+    [
+     2400,
+     95.25
+    ],
+    [
+     2000,
+     94.94
+    ],
+    [
+     3000,
+     94.86
+    ],
+    [
+     3400,
+     84.03
+    ],
+    [
+     1800,
+     74.91
+    ],
+    [
+     3600,
+     16.98
+    ]
+   ]
+  }
+ }
+}

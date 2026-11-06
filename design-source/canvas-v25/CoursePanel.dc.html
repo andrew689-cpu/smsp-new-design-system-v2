@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CoursePanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="box-sizing: border-box; padding: 1.6rem; box-shadow: inset 0 0 0 0.1rem var(--line-kuat); display: flex; flex-direction: column; align-items: stretch; row-gap: 1.2rem">
+  <div style="display: flex; flex-direction: column; row-gap: 0.6rem">
+    <dc-import name="Heading" level="{{ 3 }}" varian="polos" ukuran="var(--teks-price)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,2.2rem"></dc-import>
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">{{ teks }}</p>
+  </div>
+  <dc-import name="Button" variant="lebar-garis" tinggi="4.4rem" href="" label="{{ label }}" ariaExpanded="{{ buka }}" onPress="{{ onPress }}" hint-size="100%,4.4rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":"text","default":"Semua materi","section":"Isi"},"teks":{"editor":"text","default":"Mulai dari dasar, lalu lanjut ke pemilihan material dan perencanaan proyek.","section":"Isi"},"terbuka":{"editor":"boolean","default":false,"section":"Resep"},"labelTutup":{"editor":"text","default":"Lihat semua","section":"Isi"},"labelBuka":{"editor":"text","default":"Tampilkan lebih sedikit","section":"Isi"},"onPress":{"editor":null,"section":"Aksi"},"$preview":{"width":330,"height":150}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    return {
+      judul: p.judul ?? 'Semua materi',
+      teks: p.teks ?? 'Mulai dari dasar, lalu lanjut ke pemilihan material dan perencanaan proyek.',
+      buka: p.terbuka ? 'true' : 'false',
+      label: p.terbuka ? (p.labelBuka ?? 'Tampilkan lebih sedikit') : (p.labelTutup ?? 'Lihat semua'),
+      onPress: p.onPress
+    };
+  }
+}
+</script>
+</body>
+</html>

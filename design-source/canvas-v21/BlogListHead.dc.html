@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogListHead</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<header id="kat-semua" style="scroll-margin-top: 5.6rem; margin-left: 0.8rem; margin-right: 0.2rem; display: flex; flex-direction: column; align-items: stretch; row-gap: 1.6rem; column-gap: 0">
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" ukuran="var(--teks-judul-lembar)" tinggi="var(--tinggi-ulasan-m)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,3rem"></dc-import>
+  <dc-import name="Segmented" jenis="pita" ariaLabel="{{ segAria }}" opsi="{{ opsi }}" nilai="{{ nilai }}" onPilih="{{ onPilih }}" hint-size="100%,3.6rem"></dc-import>
+  <div style="display: flex; flex-direction: column; row-gap: 1.2rem; column-gap: 0">
+    <p aria-live="polite" style="margin: 0; padding-bottom: 1.2rem; border-bottom: 0.1rem solid var(--line); display: flex; align-items: baseline; column-gap: 0.8rem; font-family: var(--font-harga); font-size: var(--teks-chip); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-kecil); color: var(--ink-2)"><span style="color: var(--ink)">{{ hitung }}</span>{{ satuan }}</p>
+    <dc-import name="SearchField" tata="bingkai" nilai="{{ cari }}" onUbah="{{ onCari }}" placeholder="{{ cariPlaceholder }}" ariaLabel="{{ cariAria }}" hint-size="100%,3.6rem"></dc-import>
+    <sc-if value="{{ kosong }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">{{ kosongTeks }}</p></sc-if>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":"text","default":"Semua Artikel","section":"Isi"},"segAria":{"editor":"text","default":"Kategori artikel","section":"Aksesibilitas"},"opsi":{"editor":null,"section":"Data","tsType":"Array<{id:string,label:string}>"},"nilai":{"editor":"text","default":"semua","section":"Data"},"onPilih":{"editor":null,"section":"Aksi"},"hitung":{"editor":"number","default":32,"section":"Data"},"satuan":{"editor":"text","default":"ARTIKEL","section":"Isi"},"cari":{"editor":"text","default":"","section":"Data"},"onCari":{"editor":null,"section":"Aksi"},"cariPlaceholder":{"editor":"text","default":"Cari artikel…","section":"Isi"},"cariAria":{"editor":"text","default":"Cari artikel","section":"Aksesibilitas"},"kosongTeks":{"editor":"text","default":"Tidak ada artikel yang cocok.","section":"Isi"},"$preview":{"width":330,"height":150}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const hitung = p.hitung ?? 32;
+    return {
+      judul: p.judul ?? 'Semua Artikel',
+      segAria: p.segAria ?? 'Kategori artikel',
+      opsi: p.opsi ?? [{ id: 'semua', label: 'Semua' }, { id: 'market', label: 'Market News' }, { id: 'company', label: 'Company' }],
+      nilai: p.nilai ?? 'semua',
+      onPilih: p.onPilih,
+      hitung,
+      satuan: p.satuan ?? 'ARTIKEL',
+      cari: p.cari ?? '',
+      onCari: p.onCari,
+      cariPlaceholder: p.cariPlaceholder ?? 'Cari artikel…',
+      cariAria: p.cariAria ?? 'Cari artikel',
+      kosong: hitung === 0,
+      kosongTeks: p.kosongTeks ?? 'Tidak ada artikel yang cocok.'
+    };
+  }
+}
+</script>
+</body>
+</html>

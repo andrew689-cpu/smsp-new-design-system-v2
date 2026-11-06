@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Ulasan Pelanggan SMS Perkasa (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="SiteHeader" tata="desktop" menuTampil="{{ true }}" hint-size="100%,12.4rem"></dc-import>
+  <dc-import name="ReviewHero" tata="desktop" hint-size="100%,52rem"></dc-import>
+  <div style="box-sizing: border-box; padding: 5.6rem 12rem 0 12rem; display: flex; align-items: flex-start">
+    <div style="flex: 0 0 28%; min-width: 0; box-sizing: border-box; padding-right: 2.8rem">
+      <dc-import name="ReviewSummary" jenis="panel" hint-size="100%,42rem"></dc-import>
+    </div>
+    <div style="flex: 1 1 0; min-width: 0; margin-left: 2.8rem; margin-right: 2.8rem">
+      <dc-import name="ReviewMentions" tata="desktop" hint-size="100%,31rem"></dc-import>
+    </div>
+  </div>
+  <div style="box-sizing: border-box; padding: 6.4rem 12rem 0 12rem">
+    <dc-import name="ReviewList" tata="desktop" hint-size="100%,70rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: 6.4rem 12rem calc(var(--footer-jarak) / 2) 12rem">
+    <dc-import name="ReviewInvite" hint-size="100%,8rem"></dc-import>
+  </div>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" isiDesktop="ringkas" hint-size="100%,40rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HeroCarousel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div>
+  <div data-rel="1" ref="{{ pasangRel }}" onScroll="{{ bnrSpy }}" style="{{ relGaya }}">
+    <div style="display: flex">
+      <sc-for list="{{ banner }}" as="b" hint-placeholder-count="12">
+        <img src="{{ b.img }}" alt="{{ b.alt }}" loading="lazy" style="flex-shrink: 0; width: 100%; {{ ukuranFoto }}; object-fit: cover; border-radius: var(--tile); background: var(--line); scroll-snap-align: start; display: block">
+      </sc-for>
+    </div>
+  </div>
+  <dc-import name="CarouselDots" tata="{{ tata }}" ariaLabel="Pilih spanduk" titik="{{ bnrTitik }}" hint-size="100%,3.6rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"koleksi":{"editor":"enum","options":["utama","kompak"],"default":"utama","section":"Isi"},"tinggiFoto":{"editor":"text","default":"","section":"Tata letak"},"banner":{"editor":null,"section":"Data","tsType":"Array<{img:string,alt:string}>"},"$preview":{"width":360,"height":150}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { bnr: 0 };
+    this._pasangRel = (el) => { this._rel = el; };
+  }
+  _langkah(el) {
+    const track = el && el.firstElementChild;
+    const kids = track ? track.children : null;
+    if (kids && kids.length > 1) {
+      const d = kids[1].offsetLeft - kids[0].offsetLeft;
+      if (d > 0) return d;
+    }
+    return (el && el.clientWidth) || 1;
+  }
+  _bnrSpy() {
+    const el = this._rel;
+    if (!el) return;
+    let i = Math.round(el.scrollLeft / this._langkah(el));
+    if (i < 0) i = 0;
+    if (i !== (this.state.bnr || 0)) this.setState({ bnr: i });
+  }
+  _bnrGo(i) {
+    const el = this._rel;
+    if (!el) return;
+    const left = i * this._langkah(el);
+    let rm = false;
+    try { rm = !!matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    try { el.scrollTo({ left, behavior: rm ? 'auto' : 'smooth' }); }
+    catch (e) { el.scrollLeft = left; }
+  }
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const UTAMA = [
+      { img: '/_blob/0069d80316aee01e6b4c7c511c5cee83', alt: 'Cara Pemesanan' },
+      { img: '/_blob/f23d77f53099afc4e6c3f709cc479a49', alt: 'Konstruksi Rumah' },
+      { img: '/_blob/b3c7702bb4c9a6cb98314feaf6e53885', alt: 'Gudang SMS Perkasa' },
+      { img: '/_blob/8547add4b8f06a738393b48d030b9b71', alt: 'SMS Perkasa hadir di Jakarta' },
+      { img: '/_blob/73e4e29862d7c025a9b738d05b296188', alt: 'SMS Perkasa Jual Besi di Surabaya' },
+      { img: '/_blob/2243eb766881059abebb14ba1a9cbf34', alt: 'Hati Hati Penipuan yang mengatasnamakan SMS Perkasa' },
+      { img: '/_blob/b248ebbc378bff4857260cc6dfa754a3', alt: 'Jangkauan Tanpa Batas dari Sabang sampai Jayapura' },
+      { img: '/_blob/252eb713226c0b4215bc8a3ef6edb6e2', alt: 'Kalkulator Atap' },
+      { img: '/_blob/40bd422f676a8ef001cf8cf42e28f1c9', alt: 'Produk Besi Siku SMS Perkasa' },
+      { img: '/_blob/5cf5b7df10aa0e809ba8dc5e50980efd', alt: 'Produk Besi Hollow 4x4 SMS Perkasa' },
+      { img: '/_blob/13471456b5f81316e28a55527af0bd21', alt: 'Tempo Banner' },
+      { img: '/_blob/21771d29ca49343974639293324f75d7', alt: 'Atap UPVC' }
+    ];
+    const KOMPAK = [
+      {"img": "/_blob/bd1aac7653f5fbad589b2934b76e29fd", "alt": "Cara Pemesanan"},
+      {"img": "/_blob/d1e36b1e16ae6d8ed2ac1018c7d27e4c", "alt": "Konstruksi Rumah"},
+      {"img": "/_blob/b3c7702bb4c9a6cb98314feaf6e53885", "alt": "Gudang SMS Perkasa"},
+      {"img": "/_blob/992c73c5087c48d4f28c8e956b8e5d66", "alt": "SMS Perkasa hadir di Jakarta"},
+      {"img": "/_blob/73e4e29862d7c025a9b738d05b296188", "alt": "SMS Perkasa Jual Besi di Surabaya"},
+      {"img": "/_blob/2243eb766881059abebb14ba1a9cbf34", "alt": "Hati Hati Penipuan yang mengatasnamakan SMS Perkasa"},
+      {"img": "/_blob/b248ebbc378bff4857260cc6dfa754a3", "alt": "Jangkauan Tanpa Batas dari Sabang sampai Jayapura"},
+      {"img": "/_blob/252eb713226c0b4215bc8a3ef6edb6e2", "alt": "Kalkulator Atap"},
+      {"img": "/_blob/40bd422f676a8ef001cf8cf42e28f1c9", "alt": "Produk Besi Siku SMS Perkasa"},
+      {"img": "/_blob/5cf5b7df10aa0e809ba8dc5e50980efd", "alt": "Produk Besi Hollow 4x4 SMS Perkasa"},
+      {"img": "/_blob/13471456b5f81316e28a55527af0bd21", "alt": "Tempo Banner"},
+      {"img": "/_blob/21771d29ca49343974639293324f75d7", "alt": "Atap UPVC"}
+    ];
+    const kompak = this.props.koleksi === 'kompak';
+    const banner = this.props.banner ?? (kompak ? KOMPAK : UTAMA);
+    const tinggiFoto = this.props.tinggiFoto || (kompak ? '15.8rem' : '');
+    const kini = Math.min(Math.max(this.state.bnr || 0, 0), banner.length - 1);
+    return {
+      tata: desktop ? 'desktop' : 'ponsel',
+      banner,
+      ukuranFoto: tinggiFoto ? 'aspect-ratio: auto; height: ' + tinggiFoto : 'aspect-ratio: 1200 / 400',
+      pasangRel: this._pasangRel,
+      bnrSpy: () => this._bnrSpy(),
+      relGaya: (desktop ? '' : 'margin-left: var(--talang); margin-right: var(--talang); ') + 'overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory',
+      bnrTitik: banner.map((x, i) => ({
+        aktif: i === kini,
+        aria: 'Spanduk ' + (i + 1) + ' dari ' + banner.length + (i === kini ? ', sedang tampil' : ''),
+        pergi: () => this._bnrGo(i)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

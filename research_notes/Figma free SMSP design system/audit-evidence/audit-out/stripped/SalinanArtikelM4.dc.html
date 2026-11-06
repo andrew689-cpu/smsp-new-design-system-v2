@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+
+<helmet>
+<style>
+
+[data-tepi="1"] > *:first-child{margin-left:0 !important}
+
+[data-tepi-y="1"] > *:first-child{margin-top:0 !important}
+[data-tepi-y="1"] > *:last-child{margin-bottom:0 !important}
+:root{
+  --surface:#ffffff;
+  --line:#ececec;
+  --chat-ikon:#2563eb;
+  --chat-mati:#9ca3af;
+  --line-kuat:#d4d4d4;
+  --online-ikon:#16a34a;
+  --whatsapp:#25d366;
+  --ink:#0a0a0a;
+  --ink-2:#5f5f5f;
+  --ink-4:#c9c9cb;
+  --brand:#D70100;
+  --brand-hero:#FF0000;
+  --brand-subtle:#fdecec;
+  --price:#15763b;
+  --price-bg:#eaf7ee;
+  --pill:99.9rem;
+  --action:0.9rem;
+  --control:0.5rem;
+  --card:1.4rem;
+  --sheet:1.6rem;
+  --quote:1.8rem;
+  --panel:2.2rem;
+  --island:2.6rem;
+  --tile:0.5rem;
+  --teks-sup:0.95rem;
+  
+  --teks-micro:1rem;
+  --teks-tiny:1.1rem;
+  
+  --teks-chip:1.2rem;
+  --teks-meta:1.3rem;
+  --teks-body:1.4rem;
+  --teks-price:1.7rem;
+  --teks-section:2rem;
+  --teks-page:2.8rem;
+  --bobot-light:300;
+  --bobot-regular:400;
+  --bobot-medium:500;
+  --bobot-semibold:600;
+  --bobot-bold:700;
+  --bobot-heavy:800;
+  --bobot-black:900;
+  
+  
+  --seksi:clamp(6rem, 7.5svh, 8rem);
+  
+  --jarak-y-dalam:1.5rem;
+  
+  
+  --jarak-y-antar:clamp(6rem, 7.5svh, 8rem);
+  --jarak-x-tiga:1.5rem;
+  --jarak-x-dua:3rem;
+  --dalam:2rem;
+  --sisi:1.6rem;
+  --rapat:1.2rem;
+  
+  --talang:1.5rem;
+  --font-harga:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --cair:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.56) 26%, rgba(255,255,255,0.42) 52%, rgba(255,255,255,0.54) 100%);
+  --cair-blur:blur(1.4rem) saturate(165%) brightness(1.03) contrast(1.02);
+  --cair-tombol:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.74) 26%, rgba(255,255,255,0.64) 52%, rgba(255,255,255,0.74) 100%);
+  --cair-tombol-blur:blur(1.8rem) saturate(160%) brightness(1.02);
+  --cair-rim:inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem rgba(255,255,255,0.40), inset 0.2rem 0 0.3rem rgba(255,255,255,0.28), inset -0.2rem 0 0.3rem rgba(255,255,255,0.28), inset 0 0 0 0.1rem rgba(255,255,255,0.62), inset 0 0 1.2rem rgba(17,25,33,0.12);
+  --cair-bayang:0 0.6rem 1.4rem rgba(17,25,33,0.16), 0 0.1rem 0.2rem rgba(17,25,33,0.10);
+  
+  --cair-bayang-chip:0 0.2rem 0.6rem rgba(17,25,33,0.10), 0 0.1rem 0.1rem rgba(17,25,33,0.05);
+  --kaca:linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0.45) 100%), rgba(250,252,253,0.93);
+  --kaca-blur:blur(1.8rem) saturate(140%);
+  --kaca-rim:inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(255,255,255,0.90);
+  --kaca-bayang:0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.07), 0 1.6rem 3.4rem -1.4rem rgba(17,25,33,0.12);
+  --el-2:0 0.2rem 1rem rgba(0,0,0,0.08), 0 0.1rem 0.2rem rgba(0,0,0,0.06);
+}
+html{font-size:62.5%}
+  body{font-size:1.6rem;margin:0;font-family:-apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+  
+  button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+  input{font:inherit;color:inherit}
+  
+  [data-kat-rel]::-webkit-scrollbar{display:none}
+
+
+@supports not (height: 1svh) {
+  :root {
+    --jarak-y-antar: clamp(6rem, 7.5vh, 8rem);
+    --seksi: clamp(6rem, 7.5vh, 8rem);
+  }
+}
+</style>
+</helmet>
+
+
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+    <sc-if value="{{ awasBuka }}" hint-placeholder-val="{{ true }}">
+    <div data-tepi="1" style="box-sizing: border-box; padding: 1rem 1rem 1rem 1.4rem; background: #fdecec; display: flex; align-items: flex-start; row-gap: 0.9rem; column-gap: 0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.1rem; margin-left: 0.45rem; margin-right: 0.45rem"><path d="M12 3.6L2.6 20h18.8z"></path><path d="M12 10v4.4M12 17.3h.01"></path></svg>
+      <p style="margin: 0; font-size: var(--teks-micro); line-height: 1.35; color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word; margin-left: 0.45rem; margin-right: 0.45rem"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: 0.01em">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="https://www.smsperkasa.com/hati-hati-penipuan" target="_blank" rel="noopener" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem; text-decoration-thickness: 0.1rem; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none">Cek selengkapnya</a></p>
+      <button type="button" onClick="{{ awasTutup }}" aria-label="Tutup peringatan penipuan" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; margin: -0.4rem -0.4rem -0.4rem 0; padding: 0; border: 0; background: none; display: grid; place-items: center; align-self: center; margin-left: 0.45rem; margin-right: calc(-0.4rem + 0.45rem)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6.4 6.4l11.2 11.2M17.6 6.4L6.4 17.6"></path></svg>
+      </button>
+    </div>
+    </sc-if>
+    <header data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0; height: 5.6rem; box-sizing: border-box; padding: 0 var(--sisi); background: var(--surface)">
+      
+      <a href="Artboard-pp1u.dc.html" aria-label="SMS Perkasa — beranda" style="display: flex; align-items: flex-start; min-height: 4.4rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+        <svg width="102" height="30" viewBox="0 0 364 107" fill="none" aria-hidden="true" style="flex-shrink: 0; display: block">
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.27 78.64c-.18.11-.37.26-.55.02-.1-.13-.1-.28.01-.4.18-.2.36-.09.54.05.13-.32.29-.61.62-.75.21-.09.42-.1.63-.04.43.11.76.59.73 1.02-.03.48-.39.87-.87.95-.47.08-.85-.21-1.12-.85h.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M44.36 77.47c0-.21-.1-.38-.02-.58.14-.34.44-.53.78-.45.31.08.54.41.51.72a.68.68 0 01-.67.61c-.04 0-.09 0-.13-.02-.15-.07-.23-.03-.26.14-.01.06-.07.13-.12.17-.13.09-.27.08-.38-.04-.11-.12-.12-.26-.03-.4.08-.12.21-.14.34-.15h-.02z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.92 80.52c0 .92-.72 1.7-1.61 1.72-.89.02-1.67-.77-1.67-1.71 0-.92.74-1.69 1.64-1.7.88-.01 1.64.77 1.65 1.68l-.01.01zM43.57 77.12c-.07 1.58-1.15 2.72-2.64 2.73-1.5 0-2.63-1.15-2.63-2.72 0-1.77 1.38-2.73 2.63-2.73 1.24 0 2.57.95 2.65 2.73l-.01-.01zM46.3 76.07c-2.42-.07-4.3-1.92-4.31-4.43 0-2.47 1.84-4.42 4.29-4.43 2.42 0 4.3 1.9 4.31 4.41 0 2.48-1.84 4.37-4.29 4.45z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M48.04 80.54c0-3.9 3.11-7.1 6.9-7.11 3.66-.02 6.97 2.92 6.98 7.12.01 4.02-3.05 7.16-6.94 7.15-4.12 0-6.96-3.44-6.94-7.16zM39.47 106.44c-3.78-.62-6.61-2.64-8.45-6.08-.77-1.45-1.16-3.02-1.27-4.67-.36-5.6 3.28-10.46 8.18-11.86 6.33-1.82 12.83 2.3 14.09 8.93 1.18 6.24-2.74 12.3-8.86 13.57-.22.05-.45.08-.68.12-.13.07-.28.02-.42.04-.2.02-.42-.05-.62.05h-.86c-.23-.1-.46-.02-.7-.05-.14-.02-.29.04-.42-.04l.01-.01zM.16 69.65c.35-3.01 1.27-5.81 2.93-8.32 2.89-4.39 6.86-7.13 11.93-8.09 9.55-1.81 18.8 4.42 20.99 14.17 2.33 10.4-4.09 20.21-13.63 22.47C12.67 92.17 3.1 86.1.63 76.28c-.23-.9-.37-1.81-.47-2.73-.05-.28-.1-.56-.12-.85-.02-.16.05-.33-.04-.48V70.9c.09-.14.02-.3.04-.44 0-.07 0-.13.02-.2.06-.19.05-.4.1-.6v-.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M84.56 35.91c-.41 5.32-2.09 10.18-5.05 14.55-4.27 6.33-10.07 10.43-17.34 12.31-1.61.42-3.25.65-4.9.77-1.19.08-2.37.1-3.56.04-2.84-.16-5.6-.71-8.29-1.69-9.44-3.44-16.56-11.61-18.86-21.66-.43-1.89-.68-3.81-.74-5.75-.24-7.69 1.99-14.54 6.75-20.47 4.33-5.4 9.88-8.82 16.54-10.32 1.38-.31 2.79-.48 4.19-.61.11-.07.22-.02.34-.04h.34c.17-.02.36.05.53-.05h1.2c.14.09.3.02.44.05h1.01c2.16.03 4.26.46 6.32 1.07 4.2 1.24 7.94 3.38 11.23 6.32 2.61 2.34 4.73 5.09 6.41 8.2 1.68 3.1 2.75 6.42 3.31 9.91.12.77.16 1.55.15 2.32v.46c0 .08-.02.17.04.25v3.44c-.08.09-.03.2-.04.3v.39c0 .07 0 .13-.03.19l.01.02z" clip-rule="evenodd"></path>
+          <path fill="var(--ink)" d="M92.04 94.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM108.184 52h9.42l4.2 30.06h.12l4.2-30.06h9.42v42h-6.24V62.2h-.12l-4.8 31.8h-5.52l-4.8-31.8h-.12V94h-5.76V52zm43.265 42.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM179.603 52h9.72c3.28 0 5.74.88 7.38 2.64 1.64 1.76 2.46 4.34 2.46 7.74v4.14c0 3.4-.82 5.98-2.46 7.74-1.64 1.76-4.1 2.64-7.38 2.64h-3.12V94h-6.6V52zm9.72 18.9c1.08 0 1.88-.3 2.4-.9.56-.6.84-1.62.84-3.06v-4.98c0-1.44-.28-2.46-.84-3.06-.52-.6-1.32-.9-2.4-.9h-3.12v12.9h3.12zM205.148 52h18v6h-11.4v11.1h9.06v6h-9.06V88h11.4v6h-18V52zm24.196 0h9.78c3.4 0 5.88.8 7.44 2.4 1.56 1.56 2.34 3.98 2.34 7.26v2.58c0 4.36-1.44 7.12-4.32 8.28v.12c1.6.48 2.72 1.46 3.36 2.94.68 1.48 1.02 3.46 1.02 5.94v7.38c0 1.2.04 2.18.12 2.94.08.72.28 1.44.6 2.16h-6.72a9.62 9.62 0 01-.48-1.92c-.08-.6-.12-1.68-.12-3.24v-7.68c0-1.92-.32-3.26-.96-4.02-.6-.76-1.66-1.14-3.18-1.14h-2.28v18h-6.6V52zm9 18c1.32 0 2.3-.34 2.94-1.02.68-.68 1.02-1.82 1.02-3.42v-3.24c0-1.52-.28-2.62-.84-3.3-.52-.68-1.36-1.02-2.52-1.02h-3v12h2.4zm17.6-18h6.6v17.7l8.4-17.7h6.6l-7.86 15.42 7.98 26.58h-6.9l-5.58-18.72-2.64 5.34V94h-6.6V52zm32.343 0h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94zm22.587 14.52c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM339.142 52h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94z"></path>
+        </svg>
+      </a>
+      
+      
+      <div style="flex-shrink: 0; display: flex; align-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+      
+      <sc-if value="{{ teleponHeaderTampil }}" hint-placeholder-val="{{ false }}">
+      <a href="tel:+628112689889" aria-label="Telepon +62 811-2689-889" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; color: var(--ink)">
+        
+        <sc-if value="{{ labelTeleponTampil }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size: var(--teks-micro); line-height: 1.2; font-weight: var(--bobot-bold); color: var(--ink-2); white-space: nowrap">Hubungi Sekarang!</span>
+        </sc-if>
+        <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.5rem; column-gap: 0">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex-shrink: 0; fill: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem"><path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A15.9 15.9 0 0 1 3.6 6.1 1.6 1.6 0 0 1 5.2 4.3h2.4a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-1 1a12.8 12.8 0 0 0 4.8 4.8l1-1a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6a1.6 1.6 0 0 1 1.5 1.7z"></path></svg>
+          
+              
+              
+              <span style="margin-top: 0.2rem; font-size: var(--teks-chip); font-weight: var(--bobot-bold); white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem">+628112689889</span>
+        </span>
+      </a>
+      </sc-if>
+        <button type="button" aria-label="Opsi lainnya" style="flex-shrink: 0; margin-right: -1.3rem; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><path d="M4.4 7h15.2M4.4 12h15.2M4.4 17h15.2"></path></svg>
+      </button>
+      </div>
+    </header>
+
+  <main style="box-sizing: border-box; padding: 0 var(--talang)">
+    <div style="">
+    
+    
+    <div data-hero-art="1" style="position: sticky; top: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box; min-height: 26vh; margin: 0 calc(-1 * var(--talang)); overflow: hidden; background: var(--ink)">
+      
+      <img src="/_blob/ee8e94f940f1b15273699c643f08be61" alt="{{ heroAlt }}" loading="lazy" style="width: 100%; aspect-ratio: 1713 / 1105; object-fit: cover; display: block">
+      
+      <span style="position: relative; width: 100%; min-width: 0; box-sizing: border-box; display: block; padding: var(--dalam) var(--talang); background: var(--ink)">
+        <h1 style="margin: 0; font-size: var(--teks-page); line-height: 1.15; font-weight: var(--bobot-bold); letter-spacing: -0.01em; color: #ffffff">Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien</h1>
+      </span>
+    </div>
+    
+    <div data-jarak="1" style="position: relative; z-index: 1; background: var(--surface); box-sizing: border-box; padding-top: var(--dalam); display: flex; flex-direction: column; gap: 0">
+    
+    
+    <p style="margin-top: 0; margin: 0; font-size: var(--teks-body); line-height: 1.5; font-weight: var(--bobot-bold); color: var(--ink)">Struktur baja berstandar adalah cara terbaik membangun sekolah aman yang hemat biaya.</p>
+
+    
+    <div data-jarak="1" style="margin-top: var(--jarak-y-antar); display: flex; flex-direction: column; gap: 0">
+      
+      <sc-for list="{{ bagian }}" as="bg" hint-placeholder-count="3">
+        <section id="{{ bg.id }}" style="margin-top: 0; {{ bg.gaya }}">
+          <sc-if value="{{ bg.adaJudul }}" hint-placeholder-val="{{ true }}">
+            <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.25; font-weight: var(--bobot-bold); color: var(--ink)">{{ bg.judul }}</h2>
+          </sc-if>
+          <sc-for list="{{ bg.blok }}" as="b" hint-placeholder-count="6">
+            <sc-if value="{{ b.isH3 }}" hint-placeholder-val="{{ false }}">
+              <h3 style="margin: 0; font-size: var(--teks-body); line-height: 1.3; font-weight: var(--bobot-bold); color: var(--ink)">{{ b.teks }}</h3>
+            </sc-if>
+            <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
+              <p style="margin: 0; font-size: var(--teks-body); line-height: 1.6; font-weight: var(--bobot-regular); color: var(--ink); text-align: justify; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word">{{ b.teks }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isQ }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-bold); color: var(--ink)">{{ b.teks }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isA }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; font-size: var(--teks-body); line-height: 1.6; font-weight: var(--bobot-light); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ b.teks }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; box-sizing: border-box; padding: var(--rapat) 0 var(--rapat) var(--rapat); box-shadow: inset 0.3rem 0 0 var(--line-kuat); font-size: var(--teks-body); line-height: 1.5; font-weight: var(--bobot-light); color: var(--ink-2)">{{ b.teks }}</p>
+            </sc-if>
+            <sc-if value="{{ b.isImg }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ b.foto }}" alt="{{ b.alt }}" loading="lazy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--tile); background: var(--line)">
+            </sc-if>
+            <sc-if value="{{ b.isList }}" hint-placeholder-val="{{ false }}">
+              <ul data-tepi-y="1" style="margin: 0; padding-left: 2rem; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+                <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+                  <li style="font-size: var(--teks-body); line-height: 1.45; font-weight: var(--bobot-regular); color: var(--ink); margin-top: 0.3rem; margin-bottom: 0.3rem">{{ it.x }}</li>
+                </sc-for>
+              </ul>
+            </sc-if>
+            <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+              <div style="overflow-x: auto">
+                <table style="border-collapse: collapse; width: 100%; min-width: 52rem; font-size: var(--teks-meta)">
+                  <sc-for list="{{ b.baris }}" as="r" hint-placeholder-count="4">
+                    <tr>
+                      <sc-for list="{{ r.sel }}" as="c" hint-placeholder-count="3">
+                        <td style="box-sizing: border-box; padding: 1rem 1.2rem; box-shadow: inset 0 -0.1rem 0 var(--line); text-align: left; vertical-align: top; line-height: 1.4; color: var(--ink)">{{ c.x }}</td>
+                      </sc-for>
+                    </tr>
+                  </sc-for>
+                </table>
+              </div>
+            </sc-if>
+          </sc-for>
+        </section>
+      </sc-for>
+      <a href="https://www.smsperkasa.com/blog/standarisasi-struktur-baja-bangunan-sekolah" target="_blank" rel="noopener" aria-label="Lihat detail artikel ini di smsperkasa.com, membuka tab baru" style="margin-top: var(--jarak-y-antar); flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; align-self: flex-start">
+        Lihat Detail smsperkasa.com
+      </a>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div style="position: fixed; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; box-sizing: border-box; padding: 0 1.2rem; bottom: 3.4rem; z-index: 9999; display: flex; flex-direction: column; align-items: stretch">
+      <sc-if value="{{ isiBuka }}" hint-placeholder-val="{{ true }}">
+        
+        <nav aria-label="Daftar isi" style="margin-bottom: 1rem; box-sizing: border-box; max-height: 46vh; overflow-y: auto; padding: var(--rapat) var(--dalam); border-radius: var(--sheet); background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+          <span style="display: block; font-size: var(--teks-micro); line-height: 1.3; font-weight: var(--bobot-bold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2)">Daftar Isi</span>
+          <ol data-tepi-y="1" style="margin: 0; padding-left: 2rem; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+            <sc-for list="{{ daftarIsi }}" as="d" hint-placeholder-count="4">
+              <li style="font-size: var(--teks-body); line-height: 1.4; color: var(--ink); margin-top: calc(var(--jarak-y-dalam) / 2); margin-bottom: calc(var(--jarak-y-dalam) / 2)"><a href="{{ d.id }}" style="color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem">{{ d.teks }}</a></li>
+            </sc-for>
+          </ol>
+        </nav>
+      </sc-if>
+      <div data-bar="1" style="display: flex; align-items: stretch; gap: 1rem">
+        <button type="button" data-grid="1" onClick="{{ isiToggle }}" aria-expanded="{{ isiAria }}" aria-label="Daftar isi artikel" style="box-sizing: border-box; background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--ink); width: 5.2rem; height: 5.2rem; align-self: center; margin-right: auto; position: relative; border-radius: var(--pill); display: grid; place-items: center; flex-shrink: 0; border: 0; padding: 0; cursor: pointer">
+          <span aria-hidden="true" style="position: absolute; left: 1rem; top: 0.7rem; width: 2.4rem; height: 1.4rem; border-radius: 50%; background: radial-gradient(62% 100% at 50% 42%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 55%, rgba(255,255,255,0) 100%); pointer-events: none"></span>
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.9 4.2h1.8M2.9 9.9h5.1M2.9 15.1h5.1M2.9 20.4h18.2"></path><path d="M12.2 4.2h1.5a3.4 3.4 0 0 1 3.4 3.4v8.2"></path><path d="M12.1 10.8l5.0 5.0 5.0-5.0"></path></svg>
+        </button>
+      </div>
+    </div>
+  </main>
+    
+<div style="margin-top: var(--seksi); background: var(--ink); color: #ffffff; padding: var(--dalam) var(--sisi) 25rem var(--sisi)">
+      <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: 0.12rem; color: rgba(255,255,255,0.68)">DISTRIBUTOR BESI TERPERCAYA</p>
+      <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-bold); text-align: justify; -webkit-hyphens: auto; hyphens: auto">Besi dan material konstruksi untuk proyek Anda</p>
+
+      
+      <div data-tepi-y="1" style="margin-top: var(--dalam); display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ footCats }}" as="fc" hint-placeholder-count="11">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <button type="button" onClick="{{ fc.toggle }}" aria-expanded="{{ fc.exp }}" style="width: 100%; min-height: 4rem; display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: calc(var(--rapat) / 2); color: #ffffff; font-size: var(--teks-body); font-weight: var(--bobot-bold)">
+              {{ fc.h }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="{{ fc.chev }}; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+            <sc-if value="{{ fc.open }}" hint-placeholder-val="{{ false }}">
+              <div data-tepi-y="1" style="display: flex; flex-direction: column; padding: 0.6rem 0 0 0.4rem; row-gap: 0; column-gap: 0">
+                <sc-for list="{{ fc.items }}" as="fi" hint-placeholder-count="3">
+                  <a href="#produk" style="font-size: var(--teks-body); color: rgba(255,255,255,0.68); margin-top: 0.4rem; margin-bottom: 0.4rem">{{ fi.l }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi-y="1" style="display: flex; flex-direction: column; margin-top: var(--dalam); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ footInfo }}" as="fo" hint-placeholder-count="7">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <p style="margin: 0 0 0.4rem 0; font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ fo.h }}</p>
+            <p style="margin: 0; font-size: var(--teks-body); line-height: 1.35; color: rgba(255,255,255,0.68); white-space: pre-line">{{ fo.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi="1" style="display: flex; flex-wrap: wrap; row-gap: var(--rapat); column-gap: 0; margin-top: var(--dalam)">
+        <sc-for list="{{ socials }}" as="so" hint-placeholder-count="6">
+          <a href="#sosial" style="font-size: var(--teks-body); font-weight: var(--bobot-bold); color: #ffffff; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">{{ so.l }}</a>
+        </sc-for>
+      </div>
+
+      <p style="margin: var(--dalam) 0 0 0; font-size: var(--teks-meta); line-height: 1.35; color: rgba(255,255,255,0.68)">2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.</p>
+    </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { awas: true, foot: -1 };
+  }
+
+
+  // ===== JARAK ANTAR SEKSI: DIHITUNG, BUKAN SATU ANGKA =====
+  // Tiap batas memakai rasio tinggi seksi di ATAS dibagi tinggi seksi di BAWAH,
+  // tapi rasionya DIREDAM dulu, bukan dipakai mentah: rasio mentah bikin jarak
+  // melonjak (seksi 300px di atas seksi 100px = rasio 3 = 180px). Dengan PEREDAM 0,35
+  // rasio 3 cuma jadi 1,47 dan rasio 0,33 jadi 0,68, lalu dikurung BATAS_BAWAH dan
+  // BATAS_ATAS. Hasilnya tiap batas tetap beda angka, tapi semuanya duduk di sekitar
+  // basisnya. Keterangan lengkapnya ada di berkas Calculation Gap Rumus.md di repo.
+  // Margin ada DI LUAR kotak, jadi menyetelnya tidak mengubah offsetHeight: tidak ada
+  // umpan balik, sekali hitung sudah stabil. Nilai di markup tetap dipakai sebagai
+  // nilai awal sebelum skrip jalan, dan sebagai basis perkaliannya.
+  _jarakHitung(atas, bawah, basis) {
+    var PEREDAM = 0.35;      // 0 = semua batas sama, 1 = rasio tinggi mentah
+    var BATAS_BAWAH = 0.75;  // jarak terendah, dikali basis
+    var BATAS_ATAS = 1.40;   // jarak tertinggi, dikali basis
+    var f = Math.pow(atas / bawah, PEREDAM);
+    if (!isFinite(f) || f <= 0) f = 1;
+    if (f < BATAS_BAWAH) f = BATAS_BAWAH;
+    if (f > BATAS_ATAS) f = BATAS_ATAS;
+    return Math.round(f * basis);
+  }
+  // Basis diukur lewat ELEMEN PENDUGA, bukan dibaca sebagai angka dari tokennya.
+  // parseFloat(getComputedStyle(el).getPropertyValue('--jarak-y-antar')) TIDAK BOLEH dipakai:
+  // nilai terhitung sebuah custom property itu TEKS tokennya, bukan panjang yang sudah
+  // diselesaikan. Untuk '6rem' parseFloat kebetulan memberi 6 dan semuanya tampak bekerja;
+  // untuk 'clamp(4rem, 7.5svh, 8rem)' ia memberi NaN, lalu angka cadangan yang menang tanpa
+  // suara dan tokennya seperti tidak berpengaruh sama sekali. Itulah jebakannya.
+  // PENDUGANYA DITITIPKAN DI DALAM el, bukan di body, supaya ia mewarisi --jarak-y-antar
+  // milik el sendiri — papan Detail Artikel menimpanya dengan nilai rapat di wadahnya.
+  // Ia dilepas lagi sebelum daftar anak dibangun, jadi ia tidak pernah ikut terhitung.
+  _jarakBasis(el) {
+    try {
+      var d = this._jarakPenduga;
+      if (!d) {
+        d = document.createElement('div');
+        d.setAttribute('aria-hidden', 'true');
+        d.style.cssText = 'position:absolute;top:0;left:0;width:0;visibility:hidden;pointer-events:none';
+        this._jarakPenduga = d;
+      }
+      el.appendChild(d);
+      d.style.height = 'var(--jarak-y-antar)';
+      var h = d.offsetHeight || d.getBoundingClientRect().height;
+      el.removeChild(d);
+      if (h > 0) return h;
+    } catch (e) {}
+    var akar = 10;
+    try { akar = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10; } catch (e) {}
+    return 6 * akar;
+  }
+  // ===== SATU BATAS DIBAGI DUA =====
+  // 2026-10-28, atas permintaan: jarak antar seksi TIDAK lagi ditanggung seksi bawah
+  // sendiri. Seksi di ATAS dapat margin-bottom separuh, seksi di BAWAH dapat margin-top
+  // separuh — batas 64px jadi 32px + 32px. Yang terlihat sama; yang berubah SIAPA YANG
+  // MEMILIKINYA, dan itu yang penting waktu satu seksi dipindah, disembunyikan atau
+  // dipakai di papan lain: tiap seksi membawa separuh jaraknya sendiri di kedua sisi.
+  // ADA SATU SYARAT, DAN INI BUKAN KEHATI-HATIAN BERLEBIHAN: MARGIN BERSEBELAHAN
+  // RUNTUH (collapse) di aliran blok biasa — di sana 32 + 32 bukan 64 melainkan 32,
+  // jadi jaraknya MENGECIL SEPARUH. Runtuh TIDAK terjadi di antara anak flex atau grid.
+  // Semua wadah [data-jarak="1"] di papan-papan ini flex kolom, jadi pembagiannya aman
+  // di sana. BATAS FOOTER [data-kaki="1"] TIDAK aman: induknya blok biasa (div 36rem
+  // pembungkus papan), jadi khusus di situ seluruh nilainya tetap ditaruh di margin-top
+  // footer. Diperiksa per papan, bukan dikira.
+  _jarakRuntuh(atas, bawah) {
+    if (!atas || !bawah || atas.parentNode !== bawah.parentNode) return true;
+    try {
+      var d = getComputedStyle(atas.parentNode).display;
+      return !(d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid');
+    } catch (e) { return true; }
+  }
+  // DITULIS DALAM rem, BUKAN px, 2026-10-28 atas permintaan ("better use rem than px
+  // because of user device maybe different"). Alasannya bukan kerapian:
+  // · 1rem ikut ukuran font akar, jadi kalau pengguna memperbesar teksnya, jaraknya ikut
+  //   membesar. px diam di tempat sementara tulisannya tumbuh, dan tata letaknya jadi sempit.
+  // · ZOOM TEKS SAJA (Firefox) mengubah ukuran font akar TANPA memicu resize, jadi mesin ini
+  //   tidak menghitung ulang. Dengan rem nilainya tetap benar sendiri; dengan px tidak.
+  // · Aturan sistem: tidak ada px mentah (Tier 1 di repo). Mesin ini satu-satunya yang
+  //   melanggarnya, dan sekarang tidak lagi.
+  // Separuhnya DIBULATKAN DI px DULU lalu baru diubah ke rem, supaya dua separuh itu tetap
+  // berjumlah tepat satu batas — pembulatan di rem bisa menyisakan beda setengah piksel.
+  _jarakRem(px) {
+    var akar = 10;
+    try { akar = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10; } catch (e) {}
+    if (!akar) akar = 10;
+    return (Math.round((px / akar) * 10000) / 10000) + 'rem';
+  }
+  _jarakBatas(atas, bawah, nilai) {
+    if (this._jarakRuntuh(atas, bawah)) {
+      atas.style.marginBottom = '0rem';
+      bawah.style.marginTop = this._jarakRem(nilai);
+      return;
+    }
+    var separuh = Math.round(nilai / 2);
+    atas.style.marginBottom = this._jarakRem(separuh);
+    bawah.style.marginTop = this._jarakRem(nilai - separuh);
+  }
+  _jarakSeksi() {
+    if (typeof document === 'undefined') return;
+    var wadah = document.querySelectorAll('[data-jarak="1"]');
+    for (var w = 0; w < wadah.length; w++) {
+      var utama = wadah[w];
+      var basis = this._jarakBasis(utama);
+      var anak = [];
+      for (var i = 0; i < utama.children.length; i++) {
+        if (utama.children[i].offsetHeight) anak.push(utama.children[i]);
+      }
+      if (!anak.length) continue;
+      // Tepi LUAR wadah tidak pernah dapat separuh: yang pertama tanpa margin atas,
+      // yang terakhir tanpa margin bawah. Keduanya ditulis nilainya, bukan dibiarkan,
+      // supaya sisa hitungan lama tidak menempel waktu seksi muncul atau hilang.
+      anak[0].style.marginTop = '0rem';
+      anak[anak.length - 1].style.marginBottom = '0rem';
+      for (var j = 1; j < anak.length; j++) {
+        var atas = anak[j - 1].offsetHeight;
+        var bawah = anak[j].offsetHeight;
+        if (!atas || !bawah) continue;
+        this._jarakBatas(anak[j - 1], anak[j], this._jarakHitung(atas, bawah, basis));
+      }
+    }
+    // Batas yang berdiri sendiri (footer, blok yang bukan anak wadah di atas):
+    // seksi di atasnya = saudara sebelumnya yang punya tinggi.
+    var sendiri = document.querySelectorAll('[data-kaki="1"]');
+    for (var k = 0; k < sendiri.length; k++) {
+      var el = sendiri[k];
+      if (!el.offsetHeight) continue;
+      var sb = el.previousElementSibling;
+      while (sb && !sb.offsetHeight) sb = sb.previousElementSibling;
+      if (!sb) continue;
+      this._jarakBatas(sb, el, this._jarakHitung(sb.offsetHeight, el.offsetHeight, this._jarakBasis(el)));
+    }
+  }
+  _jarakPantau() {
+    var self = this;
+    this._jarakSeksi();
+    // Tinggi seksi berubah setelah foto selesai dimuat atau jendela diubah ukurannya.
+    try {
+      if (window.ResizeObserver && !this._jarakRO) {
+        this._jarakRO = new ResizeObserver(function () { self._jarakSeksi(); });
+        var wadah = document.querySelectorAll('[data-jarak="1"]');
+        for (var w = 0; w < wadah.length; w++) {
+          for (var i = 0; i < wadah[w].children.length; i++) this._jarakRO.observe(wadah[w].children[i]);
+        }
+        var sendiri = document.querySelectorAll('[data-kaki="1"]');
+        for (var k = 0; k < sendiri.length; k++) {
+          this._jarakRO.observe(sendiri[k]);
+          if (sendiri[k].previousElementSibling) this._jarakRO.observe(sendiri[k].previousElementSibling);
+        }
+      }
+    } catch (e) {}
+    if (!this._jarakOn) {
+      this._jarakOn = function () { self._jarakSeksi(); };
+      window.addEventListener('resize', this._jarakOn);
+      window.addEventListener('load', this._jarakOn);
+    }
+  }
+  _jarakLepas() {
+    if (this._jarakRO) { try { this._jarakRO.disconnect(); } catch (e) {} this._jarakRO = null; }
+    if (this._jarakOn) {
+      window.removeEventListener('resize', this._jarakOn);
+      window.removeEventListener('load', this._jarakOn);
+      this._jarakOn = null;
+    }
+  }
+
+  componentDidMount() {
+    this._jarakPantau();
+  }
+  componentDidUpdate() {
+    this._jarakSeksi();
+  }
+  componentWillUnmount() {
+    this._jarakLepas();
+  }
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    // BLOK ARTIKEL — urutan dokumen asli. t = jenis blok.
+    var BLOK = [
+      { t: 'p', x: "Keamanan fasilitas pendidikan dasar menuntut jaminan struktural mutlak dari para perancang konstruksi demi keselamatan jangka panjang. Bangunan fasilitas publik seperti sekolah rakyat memikul beban hidup dinamis dalam intensitas tinggi setiap hari dari aktivitas massal para siswa. Oleh karena itu, spesifikasi material struktur baja bangunan harus mampu mendistribusikan seluruh beban tersebut ke pondasi secara konsisten tanpa mengalami defleksi berlebih atau penurunan performa batas layan." },
+      { t: 'p', x: "Banyak pelaksana proyek terjebak memotong anggaran material tanpa memikirkan konsekuensi batas layan jangka panjang. Penggunaan komponen non-standar memicu penurunan performa bangunan yang membahayakan ribuan nyawa. Standarisasi material merupakan instrumen wajib untuk mengeliminasi drama kegagalan struktur di lapangan." },
+      { t: 'p', x: "Meskipun referensi harga H-Beam mengalami fluktuasi akibat pergerakan pasar, aspek pemenuhan standar tidak boleh dikompromikan. Keamanan jangka panjang anak-anak di sekolah rakyat jauh lebih berharga dibandingkan penghematan budget sesaat. Kolaborasi dengan pihak logistik terpercaya membantu pemenuhan volume material tanpa merusak stabilitas finansial proyek." },
+      { t: 'h2', x: "Parameter Standar Regulasi Struktur Baja Bangunan Menurut SNI 1729:2020" },
+      { t: 'p', x: "Perancangan komponen fabrikasi logam di Indonesia wajib mengacu pada regulasi SNI 1729:2020 . Regulasi ini menetapkan spesifikasi ketat mengenai batas kekuatan dan ketahanan leleh profil baja struktural untuk bangunan gedung. Salah satu aspek utama yang diatur adalah klasifikasi kelangsingan penampang elemen penahan beban." },
+      { t: 'p', x: "Baja struktural grade SS400 yang umum digunakan memiliki batas kuat luluh nominal sebesar 235 MPa dan kuat tarik minimum 400 MPa . Perancang harus memastikan penampang komponen masuk dalam kategori penampang kompak . Penampang kompak mampu mengembangkan momen plastis penuh sebelum terjadi tekuk lokal ( local buckling ) pada elemen sayap maupun badan." },
+      { t: 'h3', x: "Detail Teknis Batas Kompak Penampang" },
+      { t: 'p', x: "Berdasarkan tabel batas kelangsingan SNI 1729:2020, rasio lebar-tebal (⋋) untuk elemen tekan tidak tersentuh (sayap profil I/H) harus memenuhi syarat rasio batas plastis (⋋p):" },
+      { t: 'p', x: "Di mana E adalah modulus elastisitas baja ( 200.000 MPa ) dan Fy adalah tegangan leleh material. Jika nilai melebihi batas tersebut, penampang dikategorikan sebagai non-kompak dan akan mengalami reduksi kapasitas beban nominal." },
+      { t: 'p', x: "Setiap komponen yang dipasang harus lolos uji laboratorium independen demi memvalidasi komposisi kimia logamnya. Penilaian ini meliputi persentase kandungan karbon , mangan , dan silikon yang memengaruhi daktilitas struktur. Kejelasan properti mekanik ini menjadi fondasi utama dalam merancang sistem rangka pemikul momen." },
+      { t: 'table', rows: [["Parameter Mekanis", "Standar SS400 (SNI/JIS)", "Konsekuensi Jika Non-Standar"], ["Kuat Luluh ( Fy )", "Minimal 235 MPa", "Profil melentur permanen di bawah beban desain."], ["Kuat Tarik ( Fu )", "400 – 510 MPa", "Risiko keruntuhan getas tanpa peringatan defleksi."], ["Regangan Minimum", "17 – 21%", "Material retak saat proses fabrikasi atau pengelasan."]] },
+      { t: 'h2', x: "Kapan Memilih H-Beam atau WF?" },
+      { t: 'p', x: "Akurasi pemilihan jenis baja profil berdampak langsung pada efisiensi biaya material dan kekuatan lateral bangunan. Penanggung jawab pengadaan sering kali bingung menentukan prioritas antara profil H-Beam atau Wide Flange ( WF ). Kedua profil ini memiliki karakteristik distribusi tegangan yang berbeda nyata di lapangan." },
+      { t: 'p', x: "Secara geometris, H-Beam memiliki rasio tinggi banding lebar sebesar 1:1 , sedangkan WF memiliki rasio tinggi banding lebar berkisar antara 2:1 hingga 1.5:1 . Perbedaan ini menciptakan perbedaan karakteristik momen inersia penampang pada sumbu kuat ( strong axis ) dan sumbu lemah ( weak axis ). Pemahaman perbedaan besi WF dan H-Beam sangat krusial agar penempatan komponen tepat guna." },
+      { t: 'p', x: "Untuk menyederhanakan proses spesifikasi pengadaan material, gunakan logika kerangka keputusan if/then berikut:" },
+      { t: 'blockquote', x: "KOLOM UTAMA (Komponen Tekan Vertikal) IF elemen struktur berfungsi sebagai komponen tekan vertikal (kolom utama), THEN gunakan profil H-Beam (contoh: ukuran 150×150 mm). Bentuk penampangnya yang simetris menghasilkan jari-jari girasi yang seragam untuk menahan bahaya tekuk ( buckling ) dari segala arah." },
+      { t: 'blockquote', x: "BALOK BENTANG PANJANG (Komponen Lentur Horizontal) IF elemen struktur berfungsi sebagai komponen lentur horizontal (balok bentang panjang), THEN gunakan profil WF (contoh: ukuran 250×125 mm). Momen inersia sumbu X ( Ix ) yang tinggi sangat optimal dalam menahan tegangan lentur dan beban mati plat lantai." },
+      { t: 'blockquote', x: "BATAS LENDUTAN (Bentang > 6 Meter) IF bentang antar kolom ruang kelas melebihi 6 meter tanpa tiang penyangga tengah, THEN naikkan tinggi profil balok WF menjadi minimal 300 mm . Langkah ini wajib dilakukan guna menjaga lendutan batas layan tetap di bawah ambang batas L/360 ." },
+      { t: 'h2', x: "Simulasi Perhitungan Struktur Rangka Ruang Kelas Standar (Worked Example)" },
+      { t: 'img', foto: "/_blob/b70ed034247241693170dce5c1cb0c47", alt: "Diagram teknik denah layout grid struktur baja bangunan ruang kelas sekolah rakyat ukuran 7x9 meter, menampilkan konfigurasi kolom utama H-Beam C1, balok pemikul utama WF B1, balok anak B2, serta denah pembesian deck lantai cor beton." },
+      { t: 'p', x: "Implementasi standarisasi struktur baja bangunan sekolah rakyat dapat dipelajari melalui studi kasus ruang kelas tunggal. Skenario ini menggunakan ukuran ruang kelas standar Kementerian Pendidikan yaitu panjang 9 meter , lebar 7 meter , dan tinggi kolom 3,5 meter . Struktur dirancang menggunakan sistem rangka baja bresing konsentris." },
+      { t: 'p', x: "Pada arah memanjang ( 9 meter ), struktur dibagi menjadi dua bentang balok masing-masing 4,5 meter dengan interkoneksi balok anak. Balok utama horizontal menggunakan profil baja WF 250×125 yang memiliki berat nominal 29,6 kg/m . Kolom vertikal utama di setiap sudut menggunakan profil H-Beam 150×150 dengan berat nominal 31,5 kg/m ." },
+      { t: 'p', x: "Mari kita hitung estimasi kebutuhan total berat baja struktural utama untuk satu modul ruang kelas tersebut:" },
+      { t: 'h3', x: "1. Kebutuhan Kolom Vertikal" },
+      { t: 'list', items: ["Jumlah kolom: 6 titik penyangga", "Total panjang kolom: 6 titik × 3,5 meter = 21 meter", "Total berat kolom H-Beam: 21 meter × 31,5 kg/m = 661,5 kg"] },
+      { t: 'h3', x: "2. Kebutuhan Balok Utama (Arah Lebar 7 Meter)" },
+      { t: 'list', items: ["Jumlah balok: 3 baris grid", "Total panjang balok: 3 × 7 meter = 21 meter", "Total berat balok WF: 21 meter × 29,6 kg/m = 621,6 kg"] },
+      { t: 'h3', x: "3. Kebutuhan Balok Utama (Arah Panjang 9 Meter)" },
+      { t: 'list', items: ["Jumlah balok: 2 baris grid (sisi kiri dan kanan)", "Total panjang balok: 2 × 9 meter = 18 meter", "Total berat balok WF: 18 meter × 29,6 kg/m = 532,8 kg"] },
+      { t: 'h3', x: "📊 Total Tonase Per Ruang Kelas" },
+      { t: 'blockquote', x: "Total Berat Baja Struktural Murni: > 661,5 kg + 621,6 kg + 532,8 kg = 1.815,9 kg (Catatan: Estimasi di atas belum termasuk komponen bresing, plat buhul, dan sambungan baut)." },
+      { t: 'p', x: "Estimasi tonase ini menjadi acuan tim procurement untuk memesan material secara kolektif ke distributor besi baja Jabodetabek. Langkah pengadaan massal ini memangkas ongkos logistik secara signifikan. Dengan volume yang terukur, kapasitas truk logistik dapat dioptimalkan hingga batas atas 20 ton per trip ." },
+      { t: 'h2', x: "Kegagalan Fatal Lapangan Akibat Penggunaan Komponen Material Non-SNI" },
+      { t: 'img', foto: "/_blob/199c443a6147b9bfe9b2fa7954e8f596", alt: "Kegagalan struktural komponen balok baja profil akibat fenomena tekuk lokal badan (web local buckling) dan tekuk lokal sayap (flange local buckling) saat menahan beban batas leleh." },
+      { t: 'p', x: "Menggunakan material di bawah spesifikasi desain (under-spec) demi mengejar harga murah adalah keputusan paling berbahaya dalam pembangunan fasilitas publik. Di pasar sekunder Indonesia, marak beredar profil baja non-SNI yang kerap disebut besi banci. Elemen ini memiliki toleransi ukuran negatif yang melewati batas aman toleransi kelonggaran geometri luar." },
+      { t: 'p', x: "Ketika balok memikul beban plat cor lantai, komponen yang mengalami reduksi ketebalan flange akan memicu fenomena tekuk lateral torsional ( lateral torsional buckling ). Balok baja tiba-tiba terpuntir dan kehilangan stabilitas horizontalnya sebelum mencapai batas kuat nominal. Kegagalan struktural ini bersifat katastropik dan meruntuhkan seluruh lantai bangunan dalam hitungan detik." },
+      { t: 'p', x: "Para penanggung jawab teknik lapangan wajib memverifikasi keaslian material melalui pemeriksaan sertifikat resmi produk sebelum proses pembongkaran muatan di tapak proyek. Penggunaan sistem perpipaan penunjang saluran air dan proteksi kebakaran juga harus dikoordinasikan bersama supplier pipa baja proyek yang mampu menjamin ketebalan dinding pipa standar schedule. Jangan biarkan masa depan bangunan publik dipertaruhkan oleh pengadaan komponen imitasi tanpa regulasi legal." },
+      { t: 'blockquote', x: "Catatan Penting: Informasi teknis dalam artikel ini bersifat panduan umum dan referensi edukasi. Untuk perhitungan struktural dan pemilihan material proyek aktual, konsultasikan dengan insinyur struktur berlisensi. Butuh bantuan memilih material yang tepat? Konsultasi via WhatsApp" },
+      { t: 'h3', x: "FAQ" },
+      { t: 'p', x: "Q: Berapa ukuran baja H-Beam minimum yang aman untuk kolom bangunan sekolah dua lantai?" },
+      { t: 'p', x: "A: Dimensi minimum kolom utama penunjang untuk gedung fasilitas publik dua lantai disarankan menggunakan ukuran H-Beam 150×150 mm dengan berat nominal 31,5 kg/m. Spesifikasi dimensi ini menjamin rasio batas kelangsingan penampang tetap berada dalam kurva kompak sesuai SNI 1729:2020. Penetapan dimensi akhir harus disesuaikan kembali dengan hitungan distribusi beban mati plat cor lantai dan beban hidup dinamis dari aktivitas ruang kelas di atasnya." },
+      { t: 'p', x: "Q: Mengapa struktur baja bangunan dianggap lebih ramah anggaran jangka panjang dibandingkan struktur beton?" },
+      { t: 'p', x: "A: Rangka baja struktural memotong durasi lini masa konstruksi hingga 30-40% karena proses pengerjaan menggunakan sistem fabrikasi dan koneksi baut yang cepat di tapak proyek. Kecepatan instalasi ini mereduksi biaya upah tenaga kerja lapangan serta meminimalkan risiko pembengkakan biaya akibat keterlambatan pengerjaan. Selain itu, nilai sisa material baja yang tinggi memberikan perlindungan aset finansial jangka panjang bagi pihak pengelola bangunan." },
+      { t: 'p', x: "Q: Bagaimana cara memastikan pasokan material baja tidak menghambat timeline pengerjaan di lapangan?" },
+      { t: 'p', x: "A: Kelancaran timeline proyek dijamin melalui konsolidasi wave delivery plan bersama distributor yang memiliki armada logistik mandiri berkepasitas besar. Pengiriman material dalam volume massal (hingga 20 ton per trip) memastikan seluruh kebutuhan profil struktural mendarat di lokasi tapak proyek secara terjadwal sebelum fase ereksi rangka dimulai. Langkah ini meminimalisasi downtime kru lapangan dan sewa alat berat crane akibat keterlambatan pasokan ritel." },
+      { t: 'h3', x: "Kesimpulan" },
+      { t: 'p', x: "Standarisasi struktur baja bangunan pada proyek pembangunan sekolah rakyat merupakan jangkar utama yang menyeimbangkan antara keamanan struktural jangka panjang dan efisiensi anggaran. Melalui pemahaman karakteristik geometris antara H-Beam dan Wide Flange ( WF ), deviasi linear serta risiko kegagalan struktur seperti tekuk lokal dapat dieliminasi sejak fase perencanaan cetak biru. Menggunakan material berstandar SNI yang didukung oleh dokumentasi yang valid bukan lagi sebuah opsi, melainkan tanggung jawab mutlak dalam mendirikan fasilitas publik yang aman, bebas dari risiko site chaos , dan ramah anggaran." },
+      { t: 'p', x: "Jangan biarkan pengerjaan fasilitas publik terhambat oleh pasokan material yang tidak konsisten atau spek yang rancu. Percayakan kebutuhan struktural Anda kepada SMS Perkasa yang berpengalaman di industri konstruksi baja." }
+    ];
+    // WAKTU RELATIF (lalu) DAN PETA BULAN DIBUANG, 2026-10-27 (v1497), sebab yang sama:
+    // satu-satunya yang menampilkannya adalah baris penulis. Resepnya ada utuh di papan Blog
+    // (BlogM3 / SalinanBlogM3), fungsi lalu() yang sama persis — jadi ia tidak hilang dari
+    // kanvas, hanya dari papan ini. Menyalinnya kembali berarti membawa BULAN bersamanya.
+    // AKIBATNYA PAPAN INI TIDAK MENYEBUT TANGGAL SAMA SEKALI lagi, di layar maupun di title.
+    // Satu blok = satu baris di markup, dan jenisnya dipilih lewat bendera PER-ITEM
+    // (bukan nama lingkup luar) — pelajaran dari foto yang hilang di v1365.
+    // FAQ: paragraf yang dimulai "Q: " / "A: " dipisah supaya pertanyaannya bisa tebal dan
+    // jawabannya tidak. Awalannya DIBUANG dari teks yang tampil, bukan dari datanya.
+    // LAMA BACA DIBUANG, 2026-10-27 (v1497): baris penulis yang menampilkannya diganti
+    // kalimat pembuka, jadi nilainya tidak punya pemakai lagi dan kode tanpa pemakai tidak
+    // ditinggalkan di papan ini. Resepnya, utuh, supaya bisa dipasang kembali:
+    //   function kata(t) { var a = String(t == null ? '' : t).trim();
+    //                      return a ? a.split(/\s+/).length : 0; }
+    //   var totalKata = 0;
+    //   BLOK.forEach(function (b) {
+    //     totalKata += kata(b.x);
+    //     (b.items || []).forEach(function (i) { totalKata += kata(i); });
+    //     (b.rows  || []).forEach(function (r) { r.forEach(function (c) { totalKata += kata(c); }); });
+    //   });
+    //   var KATA_PER_MENIT = 200;
+    //   var lamaBaca = Math.max(1, Math.round(totalKata / KATA_PER_MENIT)) + ' menit baca';
+    // YANG PENTING DIINGAT KALAU IA KEMBALI: 200 kata/menit adalah ASUMSI yang dinyatakan,
+    // bukan fakta, dan angkanya DITURUNKAN dari isi artikel — itu yang membedakannya dari
+    // "5 Min Read" di mock Blog, yang ditolak karena di sana tidak ada badan artikel.
+    // DAFTAR ISI, 2026-10-27 — elemen paling khas halaman artikel Ahrefs. Isinya DIBANGKITKAN
+    // dari blok h2 yang sudah ada, jadi ia tidak bisa menyimpang dari isinya: menambah atau
+    // mengganti h2 memperbarui daftar ini sendiri. Tidak ada judul bab yang diketik dua kali.
+    // h3 SENGAJA TIDAK IKUT: Ahrefs pun hanya memuat tingkat teratas, dan di 360 px daftar
+    // dua tingkat akan lebih tinggi daripada layar.
+    var babNo = 0;
+    var daftarIsi = [];
+    BLOK.forEach(function (b) {
+      // d.no DIBUANG v1505: daftarnya kembali memakai ol, dan ol menomori sendiri.
+      // (nama tag ditulis tanpa kurung sudut DENGAN SENGAJA: pemeriksa keseimbangan tag yang
+      //  membuang komentar HTML tidak membuang komentar JS, jadi "ol" berkurung di sini akan
+      //  terbaca sebagai tag pembuka yang tidak pernah ditutup — persis jebakan yang sudah ada
+      //  pada kata "button" di dalam komentar CSS papan-papan ini.)
+      if (b.t === 'h2') { babNo += 1; daftarIsi.push({ id: '#bab-' + babNo, teks: b.x }); }
+    });
+    var isiBuka = !!s.isi;   // TERTUTUP secara bawaan sejak ia jadi lembar mengambang (v1501)
+
+    var noBab = 0;
+    var blok = BLOK.map(function (b) {
+      var x = b.x || '';
+      var isQ = b.t === 'p' && x.indexOf('Q: ') === 0;
+      var isA = b.t === 'p' && x.indexOf('A: ') === 0;
+      if (b.t === 'h2') { noBab += 1; }
+      return {
+        isH2: b.t === 'h2', isH3: b.t === 'h3',
+        // id jangkar untuk daftar isi; hanya h2 yang memakainya.
+        babId: b.t === 'h2' ? ('bab-' + noBab) : '',
+        isP: b.t === 'p' && !isQ && !isA, isQ: isQ, isA: isA,
+        isQuote: b.t === 'blockquote', isImg: b.t === 'img',
+        isList: b.t === 'list', isTable: b.t === 'table',
+        teks: (isQ || isA) ? x.slice(3) : x,
+        foto: b.foto, alt: b.alt,
+        items: (b.items || []).map(function (i) { return { x: i }; }),
+        baris: (b.rows || []).map(function (r, ri) {
+          return { kepala: ri === 0, isi: ri !== 0, sel: r.map(function (c) { return { x: c }; }) };
+        })
+      };
+    });
+    // BAGIAN = blok dikelompokkan per h2, 2026-10-27. sc-for tidak bisa bersarang sendiri,
+    // jadi sarangnya dibentuk di sini: satu entri per bab, plus satu entri "pembuka" untuk
+    // paragraf sebelum h2 pertama.
+    // id-nya memakai bab-N YANG SAMA dengan daftarIsi — keduanya dihitung dari urutan h2 yang
+    // sama, jadi tautan daftar isi mendarat di section-nya.
+    // gaya: bab pertama tanpa margin-top (jaraknya sudah dibawa kalimat pembuka di atasnya);
+    // sisanya membawa var(--seksi) sebagai jarak ANTAR-bab.
+    var bagian = [];
+    var babKe = 0;
+    blok.forEach(function (b) {
+      if (b.isH2) {
+        babKe += 1;
+        bagian.push({ id: 'bab-' + babKe, adaJudul: true, judul: b.teks, blok: [],
+                      gaya: 'scroll-margin-top: 5.6rem; display: flex; flex-direction: column; gap: var(--jarak-y-dalam)' });
+      } else {
+        if (!bagian.length) {
+          bagian.push({ id: 'pembuka', adaJudul: false, judul: '', blok: [],
+                        gaya: 'scroll-margin-top: 5.6rem; display: flex; flex-direction: column; gap: var(--jarak-y-dalam)' });
+        }
+        bagian[bagian.length - 1].blok.push(b);
+      }
+    });
+    // Bab pertama tidak lagi perlu pengecualian: jarak antar-bab kini dibawa gap induknya.
+
+    return {
+      bagian: bagian,
+      // Bar ringkas: SELALU di DOM, yang berganti transform + opacity. Dibuat sebagai satu
+      // string gaya supaya kedua keadaannya terbaca bersebelahan di satu tempat.
+      daftarIsi: daftarIsi,
+      isiBuka: isiBuka,
+      isiAria: isiBuka ? 'true' : 'false',
+      // isiIkonGaya DIBUANG v1499: ikon tombol kaca yang baru sudah memuat panah ke bawah,
+      // jadi tidak ada lagi yang diputar, dan nilainya kehilangan pemakainya. Bunyinya kalau
+      // panah berputar itu kelak dibutuhkan lagi:
+      //   isiIkonGaya: 'flex-shrink: 0; display: block; transform: rotate('
+      //                + (isiBuka ? '90' : '0') + 'deg)',
+      isiToggle: function () { self.setState({ isi: !isiBuka }); },
+      heroAlt: "Struktur rangka baja bangunan sekolah menggunakan profil H-Beam dan WF primer anti karat.",
+      // Label "Hubungi Sekarang!" di blok telepon header; padam, sama seperti papan Produk.
+      labelTeleponTampil: false,
+      teleponHeaderTampil: false,
+      awasBuka: s.awas,
+      awasTutup: function () { self.setState({ awas: false }); },
+      footInfo: [
+        ['Gudang Surabaya', 'Jl. Mutiara Tambak Langon Blok I / 23H\nTambak Langon, Asem Rowo\nKota Surabaya, Jawa Timur, 60184'],
+        ['Gudang Jakarta', 'Jl. Palem Manis Raya, RT.001/RW.004\nGandasari, Kec. Jatiuwung,\nKota Tangerang, Banten, 15137'],
+        ['Kantor', 'Jl. BKR Pelajar 51, Ketabang,\nKec. Genteng, Kota Surabaya,\nJawa Timur, 60272'],
+        ['Kontak', 'WhatsApp: klik untuk chat\nMobile: +628112689889\nEmail: sales@smsperkasa.com'],
+        ['Perusahaan', 'Tentang Kami\nKarir\nBlog'],
+        ['Bantuan', 'Kontak Kami\nFAQ\nKebijakan Privasi\nSyarat dan Ketentuan\nCara Pemesanan'],
+        ['Tools', 'Kalkulator Material']
+      ].map(function (f) { return { h: f[0], t: f[1] }; }),
+      socials: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { l: l }; }),
+      footCats: [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']],
+      ['Plat Stainless Steel', ['Plat Stainless SS304', 'Plat Stainless SS316L']],
+      ['Hollow Stainless Steel', ['Hollow Stainless 201', 'Hollow Stainless 304']],
+      ['Pipa Stainless Steel', ['Pipa Stainless 201', 'Pipa Stainless 304']]
+      ].map(function (c, i) {
+        return {
+          h: c[0],
+          open: s.foot === i,
+          exp: s.foot === i ? 'true' : 'false',
+          chev: s.foot === i ? 'transform:rotate(180deg)' : '',
+          items: c[1].map(function (l) { return { l: l }; }),
+          toggle: function () { self.setState({ foot: s.foot === i ? -1 : i }); }
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

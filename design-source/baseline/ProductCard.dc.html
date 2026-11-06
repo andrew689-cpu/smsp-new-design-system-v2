@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductCard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isSketsaKertas }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" data-rel-kartu="1" style="position: relative; aspect-ratio: 277 / 442; box-sizing: border-box; display: block; overflow: hidden; text-decoration: none; isolation: isolate; border-radius: var(--tile); background: {{ warnaKartu }}; color: var(--ink); box-shadow: var(--sketsa-bayang-kertas)">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; object-fit: cover; filter: brightness(1.07); mix-blend-mode: multiply">
+    <span style="position: absolute; top: 3rem; left: 0.8rem; right: 0.8rem; display: block; text-align: center">
+      <span style="display: block; font-family: var(--font-sketsa); font-size: var(--teks-sketsa); line-height: var(--tinggi-satu); font-weight: var(--bobot-regular); letter-spacing: var(--renggang-sketsa); text-transform: uppercase; color: var(--sketsa-isi-besar); -webkit-text-stroke: 0.08rem var(--sketsa-tinta)">{{ kata1 }}</span>
+      <sc-if value="{{ adaKata2 }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 0.1rem; font-family: var(--font-sketsa); font-size: var(--teks-section); line-height: var(--tinggi-sempit); font-weight: var(--bobot-regular); letter-spacing: var(--renggang-upvc); text-transform: uppercase; color: var(--sketsa-isi-kecil); -webkit-text-stroke: 0.05rem var(--sketsa-tinta)">{{ kata2 }}</span>
+      </sc-if>
+      <span style="display: block; margin-top: 0.3rem; font-family: var(--font-sketsa); font-size: var(--teks-chip); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--sketsa-sub)">{{ varian }}</span>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isSketsaBingkai }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" data-rel-kartu="1" style="position: relative; aspect-ratio: 277 / 442; box-sizing: border-box; display: block; overflow: hidden; text-decoration: none; background: var(--surface); color: var(--ink)">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; object-fit: cover">
+    <span style="position: absolute; top: 3rem; left: 0.8rem; right: 0.8rem; display: block; text-align: center">
+      <span style="display: block; font-family: var(--font-sketsa); font-size: var(--teks-sketsa); line-height: var(--tinggi-satu); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-sketsa); text-transform: uppercase; color: var(--ink)">{{ kata1 }}</span>
+      <sc-if value="{{ adaKata2 }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 0.1rem; font-family: var(--font-sketsa); font-size: var(--teks-section); line-height: var(--tinggi-sempit); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-upvc); text-transform: uppercase; color: var(--ink)">{{ kata2 }}</span>
+      </sc-if>
+      <span style="display: block; margin-top: 0.3rem; font-family: var(--font-sketsa); font-size: var(--teks-chip); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--sketsa-sub)">{{ varian }}</span>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isSketsaPutih }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" data-rel-kartu="1" style="position: relative; aspect-ratio: 277 / 442; box-sizing: border-box; display: block; overflow: hidden; isolation: isolate; text-decoration: none; border-radius: var(--card); background: var(--surface); color: var(--ink); box-shadow: var(--sketsa-bayang-putih)">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="{{ gayaFotoSketsa }}">
+    <span style="position: absolute; top: 1.2rem; left: 1.1rem; right: 1.1rem; display: block; text-align: left">
+      <span style="display: block; font-size: var(--teks-page); line-height: var(--tinggi-sketsa); font-weight: var(--bobot-black); letter-spacing: var(--renggang-judul); color: var(--ink)">{{ nama }}</span>
+      <span style="display: block; margin-top: 0.4rem; font-size: var(--teks-price); line-height: var(--tinggi-artikel); font-weight: var(--bobot-regular); color: var(--ink)">{{ varian }}</span>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isKolom }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="{{ gayaKartu }}">
+    <sc-if value="{{ isGambar }}" hint-placeholder-val="{{ true }}">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="{{ muat }}" style="{{ gayaFoto }}">
+    </sc-if>
+    <sc-if value="{{ isUbin }}" hint-placeholder-val="{{ false }}">
+      <span style="{{ gayaUbin }}">
+        <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+        </sc-if>
+        <sc-if value="{{ takFoto }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Icon" ikon="hollow-kosong" hint-size="3rem,3rem"></dc-import>
+        </sc-if>
+      </span>
+    </sc-if>
+    <span style="{{ gayaNama }}">{{ nama }}</span>
+    <sc-if value="{{ adaMulai }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin-top: 0.2rem"><dc-import name="Price" ukuran="mulai-m" font="{{ font }}" angka="{{ angka }}" hint-size="100%,1.7rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaVarian }}" hint-placeholder-val="{{ true }}">
+      <span style="{{ gayaVarian }}">{{ varian }}</span>
+    </sc-if>
+    <sc-if value="{{ adaHargaPonsel }}" hint-placeholder-val="{{ false }}">
+      <span style="{{ gayaHarga }}"><dc-import name="Price" ukuran="baris-m" rata="kiri" font="{{ font }}" angka="{{ angka }}" unit="{{ unit }}" hint-size="9rem,4rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaHargaDesktop }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="Price" ukuran="baris-d" rata="kiri" ukuranRp="var(--teks-meta)" nowrap="ya" tinggi="{{ tinggiHargaD }}" margin="{{ margenHarga }}" font="{{ font }}" angka="{{ angka }}" unit="{{ unit }}" hint-size="11rem,4.4rem"></dc-import>
+    </sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isBaris }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="display: flex; align-items: center; column-gap: 0; color: var(--ink)">
+    <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.4rem; margin-right: calc(var(--rapat) / 2)">
+      <span style="font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold)">{{ nama }}</span>
+      <dc-import name="Price" ukuran="mulai-d" font="{{ font }}" angka="{{ angka }}" hint-size="100%,2.6rem"></dc-import>
+      <span style="font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-light); color: var(--ink-2)">{{ varian }}</span>
+    </span>
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="flex-shrink: 0; width: 9.6rem; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--tile); background: var(--surface); display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+  </a>
+</sc-if>
+<sc-if value="{{ isUjung }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="{{ gayaKartu }}">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="{{ gayaFoto }}">
+  </a>
+</sc-if>
+<sc-if value="{{ isPromo }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" style="{{ gayaKartu }}">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="{{ gayaFoto }}">
+    <span style="{{ gayaTeksPromo }}">
+      <span style="{{ gayaNama }}">{{ nama }}</span>
+      <sc-if value="{{ adaUkuran }}" hint-placeholder-val="{{ true }}">
+        <span style="{{ gayaUkuran }}">{{ ukuranTeks }}</span>
+      </sc-if>
+      <sc-if value="{{ adaVarian }}" hint-placeholder-val="{{ true }}">
+        <span style="{{ gayaVarian }}">{{ varian }}</span>
+      </sc-if>
+      <dc-import name="Price" dc-props="{{ hargaPromo }}" hint-size="12rem,2.4rem"></dc-import>
+    </span>
+  </a>
+</sc-if>
+<sc-if value="{{ isUpvc }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" style="{{ gayaKartu }}">
+    <sc-if value="{{ upvcUbin }}" hint-placeholder-val="{{ false }}">
+      <span style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block"><img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>
+      <span style="text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; display: block; font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--ink); font-variant-numeric: tabular-nums">{{ nama }}</span>
+      <span style="align-self: flex-start; display: flex; flex-direction: column; gap: 0.2rem; align-items: flex-start">
+        <dc-import name="Price" dc-props="{{ hargaPolos }}" hint-size="12rem,2rem"></dc-import>
+      </span>
+    </sc-if>
+    <sc-if value="{{ upvcKartu }}" hint-placeholder-val="{{ true }}">
+      <span style="position: relative; width: 100%; height: auto; display: block">
+        <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="{{ gayaFoto }}">
+      </span>
+      <span style="box-sizing: border-box; height: 100%; display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem 1.3rem 2rem">
+        <span style="{{ gayaNama }}">{{ nama }}</span>
+        <span style="padding-top: 0.8rem; display: flex; align-items: center">
+          <span style="width: 100%; height: 100%; display: flex; flex-direction: column; gap: 0.6rem">
+            <sc-if value="{{ adaAngka }}" hint-placeholder-val="{{ true }}">
+              <span style="display: flex; align-items: center; gap: 1rem">
+                <dc-import name="Price" ukuran="bebas" rpAtas="{{ false }}" unit="" ukuranAngka="var(--teks-unit-lg)" tinggi="var(--tinggi-penuh)" bobot="var(--bobot-bold)" warna="var(--situs-tinta)" font="{{ fontUpvc }}" angka="{{ angka }}" hint-size="12rem,2.4rem"></dc-import>
+              </span>
+            </sc-if>
+            <sc-if value="{{ adaHubungi }}" hint-placeholder-val="{{ false }}">
+              <span style="{{ gayaHubungi }}">{{ hubungi }}</span>
+            </sc-if>
+          </span>
+        </span>
+      </span>
+    </sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isSkuLama }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 0.6rem; padding: 1rem 0.8rem; border-radius: var(--card); background: var(--surface)">
+    <span style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--sudut-lama); background: var(--line); overflow: hidden; display: block"><img src="{{ foto }}" alt="{{ altLama }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>
+    <span style="{{ gayaNamaLama }}">{{ nama }}</span>
+    <dc-import name="Price" ukuran="lama-kartu" rataDiri="{{ rataHarga }}" font="{{ font }}" angka="{{ angka }}" unit="{{ unitLama }}" hint-size="100%,2rem"></dc-import>
+    <span style="font-size: var(--teks-meta); color: var(--ink-2); white-space: nowrap; display: inline-flex; align-items: center; row-gap: 0.5rem; column-gap: 0"><span style="display: flex; flex-shrink: 0; margin-right: 0.25rem"><dc-import name="Icon" ikon="tas" hint-size="1.5rem,1.5rem"></dc-import></span><span style="font-variant-numeric: tabular-nums; margin-left: 0.25rem; margin-right: 0.25rem">{{ berat }}</span></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isUjungLama }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1rem; padding: 1.6rem 1.4rem; border-radius: var(--card); background: var(--line); text-decoration: none; color: var(--ink)">
+    <span style="font-size: var(--teks-unit-lg); font-weight: var(--bobot-bold); line-height: var(--tinggi-artikel)">{{ nama }}</span>
+    <dc-import name="Icon" ikon="chevron" ukuran="{{ 22 }}" warna="currentColor" hint-size="2.2rem,2.2rem"></dc-import>
+  </a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["dasar","mulai","terkait","indeks","sku","sku-rel","sku-lama","ujung-lama","ujung","promo","upvc","sketsa"],"default":"dasar","section":"Resep"},"rupa":{"editor":"enum","options":["situs","merah","polos","kertas","putih","bingkai","foto"],"default":"situs","section":"Resep"},"warnaNama":{"editor":"text","default":"","section":"Warna"},"warnaKartu":{"editor":"text","default":"","section":"Warna"},"varianTebal":{"editor":"boolean","default":false,"section":"Huruf"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"nama":{"editor":"text","default":"Besi Hollow Hitam","section":"Isi"},"varian":{"editor":null},"angka":{"editor":null},"unit":{"editor":null,"section":"Isi"},"foto":{"editor":null},"alt":{"editor":null},"aria":{"editor":"text","default":"","section":"Isi"},"href":{"editor":"text","default":"#","section":"Isi"},"ukuranTeks":{"editor":"text","default":"","section":"Isi"},"hubungi":{"editor":"text","default":"","section":"Isi"},"hargaRapat":{"editor":"boolean","default":false,"section":"Tata letak"},"teksKecil":{"editor":"boolean","default":false,"section":"Huruf"},"berat":{"editor":"text","default":"","section":"Isi"},"font":{"editor":"enum","options":["bawaan","source-code","isi"],"default":"bawaan","section":"Huruf"},"rataHarga":{"editor":"text","default":"","section":"Tata letak"},"namaRapi":{"editor":"boolean","default":false,"section":"Huruf"},"$preview":{"width":164,"height":190}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'dasar';
+    const d = this.props.tata === 'desktop';
+    const nama = this.props.nama ?? 'Besi Hollow Hitam';
+    const varian = this.props.varian ?? (jenis === 'dasar' || jenis === 'mulai' || jenis === 'terkait' || jenis === 'indeks' ? 'Tersedia 297 varian' : '');
+    const fotoBawaan = { dasar: '/_blob/3e253621e68085ed4f1ceb648cc0b533', mulai: '/_blob/8ff32089116bb62a12ccd87255b2ea37', terkait: '/_blob/2f0e519d8e8ec397d9c2c6d971788eef', indeks: '/_blob/3e253621e68085ed4f1ceb648cc0b533', sku: '/_blob/5db4b8e10723e4ae0eff8ff2dd6664ef', 'sku-rel': '/_blob/5db4b8e10723e4ae0eff8ff2dd6664ef', ujung: d ? '/_blob/a82f9a73e8f1a687ae571cfd75cca3b9' : '/_blob/f3df462445d9bdde4d5d6754dc291ed1', promo: '/_blob/54f43a08a1384c69e762171c48898e59' };
+    const foto = this.props.foto === undefined ? fotoBawaan[jenis] : this.props.foto;
+    const angka = this.props.angka ?? (jenis === 'mulai' ? '83.000' : jenis === 'promo' ? '711.000' : '170.600');
+    const altSku = 'Besi hollow hitam berpenampang persegi, ujungnya terpotong rapi memperlihatkan rongga dan tebal dindingnya';
+    const altBawaan = { dasar: nama, mulai: '', terkait: d ? '' : nama, indeks: nama, sku: altSku, 'sku-rel': altSku, ujung: '', promo: '' };
+    const tinta = 'color: var(--ink)';
+    const kolom = 'display: flex; flex-direction: column; gap: 0.8rem; ' + tinta;
+    const ubin = 'width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: ';
+    const kartuSku = 'box-sizing: border-box; display: flex; flex-direction: column; gap: 0.6rem; border-radius: var(--card); background: var(--surface)';
+    const namaSku = 'text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; display: block; font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); font-variant-numeric: tabular-nums; ';
+    const fotoLengkap = (latar, r) => 'width: 100%; aspect-ratio: ' + (r || '4 / 3') + '; border-radius: var(--tile); object-fit: cover; background: ' + latar + '; display: block';
+    let v = {};
+    if (jenis === 'dasar') v = d
+      ? { kartu: kolom, foto: fotoLengkap('var(--line)'), nama: 'font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold)', varian: 'font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-light); color: var(--ink-2)' }
+      : { kartu: 'display: block; ' + tinta, foto: fotoLengkap('var(--line)'), nama: 'display: block; margin-top: 0.8rem; font-size: var(--teks-body); line-height: var(--tinggi-artikel); font-weight: var(--bobot-semibold)', varian: 'display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: var(--tinggi-tengah); color: var(--ink-2)' };
+    if (jenis === 'mulai') v = { kartu: 'display: block; ' + tinta, foto: fotoLengkap('var(--surface)'), nama: 'display: block; margin-top: 0.8rem; font-size: var(--teks-body); line-height: var(--tinggi-artikel); font-weight: var(--bobot-semibold)', varian: 'display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: var(--tinggi-tengah); color: var(--ink-2)' };
+    if (jenis === 'terkait') v = d
+      ? { kartu: 'display: flex; flex-direction: column; gap: 0.8rem', foto: fotoLengkap('var(--line)'), nama: 'display: block; font-size: var(--teks-lead); font-weight: var(--bobot-semibold); line-height: var(--tinggi-artikel)', varian: 'display: block; font-size: var(--teks-lead); color: var(--ink-2)' }
+      : { kartu: 'display: block', foto: 'width: 100%; height: 10.2rem; border-radius: var(--tile); object-fit: cover; background: var(--line); display: block', nama: 'display: block; margin-top: 0.8rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); line-height: var(--tinggi-artikel)', varian: 'display: block; margin-top: 0.2rem; font-size: var(--teks-meta); color: var(--ink-2)' };
+    if (jenis === 'terkait' && d && this.props.teksKecil) v = { kartu: v.kartu, foto: v.foto, nama: 'display: block; font-size: var(--teks-body); font-weight: var(--bobot-semibold); line-height: var(--tinggi-artikel)', varian: 'display: block; font-size: var(--teks-meta); color: var(--ink-2)' };
+    if (jenis === 'indeks') v = { kartu: kolom, ubin: ubin + 'grid; place-items: center', nama: d ? 'font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold)' : 'font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); color: var(--produk-nama)', varian: (d ? 'font-size: var(--teks-body)' : 'font-size: var(--teks-meta)') + '; line-height: var(--tinggi-tengah); font-weight: var(--bobot-light); color: var(--ink-2)' };
+    if (jenis === 'sku') v = { kartu: kartuSku, ubin: ubin + 'block', nama: namaSku + (d ? 'font-size: var(--teks-lead); color: var(--ink)' : 'font-size: var(--teks-body); color: var(--produk-nama)'), harga: 'align-self: flex-start; display: flex' };
+    if (jenis === 'sku-rel') v = d
+      ? { kartu: kartuSku, ubin: ubin + 'block', nama: namaSku + 'font-size: var(--teks-lead); color: var(--ink)' }
+      : { kartu: kartuSku, ubin: 'width: 100%; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block', nama: 'width: 80%; font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--produk-nama); font-variant-numeric: tabular-nums; text-align: justify; text-align-last: left', harga: 'width: 80%; display: flex' };
+    if (jenis === 'ujung') v = d
+      ? { kartu: 'box-sizing: border-box; display: block; padding: 0; overflow: hidden; background: transparent; text-decoration: none; ' + tinta, foto: 'width: 100%; height: 100%; object-fit: cover; object-position: center; display: block' }
+      : { kartu: 'box-sizing: border-box; display: block; padding: 0; background: transparent; border-radius: var(--card); overflow: hidden; text-decoration: none; ' + tinta, foto: 'width: 100%; height: 100%; object-fit: contain; object-position: center; display: block' };
+    if (jenis === 'promo') v = d
+      ? { kartu: 'box-sizing: border-box; display: flex; align-items: center; column-gap: 0; ' + tinta, foto: 'flex-shrink: 0; align-self: flex-start; width: 9.6rem; height: 9.6rem; object-fit: cover; border-radius: var(--tile); background: var(--surface); display: block; margin-right: calc(var(--rapat) / 2)', teks: 'flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.2rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)', nama: 'display: block; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink)', ukuran: 'display: block; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); color: var(--ink)', varian: 'display: block; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); color: var(--ink-2)' }
+      : { kartu: 'box-sizing: border-box; display: block; padding: 0.8rem; border: 0.1rem solid var(--garis-panel); border-radius: var(--tile); background: var(--surface); box-shadow: var(--bayang-kartu); ' + tinta, foto: fotoLengkap('var(--biru-dasar)'), teks: 'display: flex; flex-direction: column; gap: 0.2rem; margin-top: 0.8rem', nama: 'display: block; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink)', ukuran: 'display: block; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink)', varian: 'display: block; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2)' };
+    const rupa = this.props.rupa ?? 'situs';
+    if (jenis === 'upvc') v = rupa === 'polos'
+      ? { kartu: 'box-sizing: border-box; min-width: 0; background: transparent; box-shadow: none; border-radius: 0; color: var(--ink); display: flex; flex-direction: column; gap: 0.6rem' }
+      : {
+        kartu: 'box-sizing: border-box; min-width: 0; display: flex; flex-direction: column; border-radius: 0.8rem; background: var(--surface); box-shadow: var(--situs-bayang); color: var(--situs-tinta); text-decoration: none',
+        foto: 'width: 100%; height: auto; aspect-ratio: ' + (rupa === 'merah' ? '4 / 3; background: var(--line)' : '1 / 1') + '; object-fit: cover; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; display: block',
+        nama: 'height: 100%; font-size: var(--teks-body); line-height: var(--tinggi-kartu-situs); font-weight: var(--bobot-regular); color: ' + (rupa === 'merah' ? 'var(--merah-nama)' : 'var(--situs-tinta)'),
+        hubungi: rupa === 'merah'
+          ? 'box-sizing: border-box; width: 100%; min-height: 2.6rem; padding: 0.4rem 1.5rem; border-radius: 0.2rem; background: var(--brand); color: var(--surface); font-size: var(--teks-nano); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); text-align: center; display: flex; align-items: center; justify-content: center'
+          : 'box-sizing: border-box; width: 100%; padding: 0.4rem 1.2rem; border-radius: 0.4rem; background: var(--situs-merah); color: var(--surface); font-size: var(--teks-micro); line-height: var(--tinggi-hubungi-situs); font-weight: var(--bobot-medium); text-align: center'
+      };
+    const warnaNama = this.props.warnaNama;
+    const varianTebal = !!this.props.varianTebal;
+    const isBaris = jenis === 'mulai' && d;
+    const isUjung = jenis === 'ujung';
+    const isPromo = jenis === 'promo';
+    const isUpvc = jenis === 'upvc';
+    const isSkuLama = jenis === 'sku-lama';
+    const isUjungLama = jenis === 'ujung-lama';
+    const isSketsa = jenis === 'sketsa';
+    const kataSketsa = String(nama).split(' ');
+    const isKolom = !isBaris && !isUjung && !isPromo && !isUpvc && !isSkuLama && !isUjungLama && !isSketsa;
+    const adaUbin = jenis === 'indeks' || jenis === 'sku' || jenis === 'sku-rel';
+    const adaSku = jenis === 'sku' || jenis === 'sku-rel';
+    const hubungi = this.props.hubungi ?? '';
+    const font = this.props.font ?? 'bawaan';
+    const hargaPromo = hubungi
+      ? { ukuran: 'bebas', adaRp: false, unit: '', ukuranAngka: d ? 'var(--teks-body)' : 'var(--teks-chip)', tinggi: 'var(--tinggi-rapat)', bobot: 'var(--bobot-bold)', renggang: 'var(--renggang-kecil)', kapital: true, nowrap: 'ya', warna: 'var(--ink-2)', margin: '0.6rem 0 0 0', font, angka: hubungi }
+      : d
+        ? { ukuran: 'lama-kartu', ukuranAngka: 'var(--teks-price-lg)', ukuranRp: 'var(--teks-tiny)', unit: '', margin: '0.6rem 0 0 0', font, angka }
+        : { ukuran: 'lama-kartu', warna: 'var(--brand)', unit: '', margin: '0.6rem 0 0 0', font, angka };
+    const hargaPolos = hubungi
+      ? { ukuran: 'bebas', adaRp: false, unit: '', ukuranAngka: 'var(--teks-price)', tinggi: 'var(--tinggi-rapat)', bobot: 'var(--bobot-bold)', renggang: '0', nowrap: 'ya', warna: 'var(--ink-2)', font, angka: hubungi }
+      : { ukuran: 'lama-kartu', unit: '', font, angka };
+    return {
+      font,
+      fontUpvc: this.props.font ?? (rupa === 'merah' ? 'bawaan' : 'isi'),
+      hargaPromo,
+      hargaPolos,
+      tinggiHargaD: jenis === 'sku-rel' ? 'var(--tinggi-artikel)' : 'var(--tinggi-rapat)',
+      margenHarga: this.props.hargaRapat ? '-0.6rem 0 0 0' : '0',
+      rataHarga: this.props.rataHarga ?? '',
+      gayaNamaLama: 'font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--brand); font-variant-numeric: tabular-nums; text-align: justify; ' + (this.props.namaRapi ? 'text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; display: block' : 'text-align-last: left'),
+      isSkuLama,
+      isUjungLama,
+      altLama: this.props.alt ?? 'Besi hollow hitam berpenampang persegi, ujungnya terpotong rapi memperlihatkan rongga dan tebal dindingnya',
+      unitLama: this.props.unit ?? '/btg',
+      berat: this.props.berat ?? '',
+      isKolom,
+      isSketsaKertas: isSketsa && this.props.rupa === 'kertas',
+      isSketsaBingkai: isSketsa && this.props.rupa === 'bingkai',
+      isSketsaPutih: isSketsa && (this.props.rupa === 'putih' || this.props.rupa === 'foto'),
+      gayaFotoSketsa: this.props.rupa === 'foto' ? 'position: absolute; top: 10rem; left: 0; width: 100%; height: calc(100% - 10rem); display: block; object-fit: cover; object-position: center; mix-blend-mode: multiply; -webkit-mask-image: var(--pudar-foto); mask-image: var(--pudar-foto)' : 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; object-fit: cover; mix-blend-mode: multiply',
+      warnaKartu: this.props.warnaKartu || 'var(--surface)',
+      kata1: kataSketsa[0],
+      kata2: kataSketsa.slice(1).join(' '),
+      adaKata2: kataSketsa.length > 1,
+      isBaris,
+      isUjung,
+      isPromo,
+      isUpvc,
+      upvcUbin: rupa === 'polos',
+      upvcKartu: rupa !== 'polos',
+      isGambar: isKolom && !adaUbin,
+      isUbin: isKolom && adaUbin,
+      adaFoto: !!foto,
+      takFoto: !foto,
+      foto,
+      alt: this.props.alt ?? altBawaan[jenis],
+      muat: jenis === 'terkait' ? undefined : 'lazy',
+      nama,
+      varian,
+      angka,
+      unit: this.props.unit,
+      aria: this.props.aria || undefined,
+      href: this.props.href ?? '#',
+      adaMulai: jenis === 'mulai',
+      adaVarian: !!varian && !adaSku,
+      adaHargaPonsel: adaSku && !d,
+      adaHargaDesktop: adaSku && d,
+      ukuranTeks: this.props.ukuranTeks ?? '',
+      adaUkuran: !!this.props.ukuranTeks,
+      hubungi,
+      adaHubungi: !!hubungi,
+      adaAngka: !hubungi,
+      gayaKartu: v.kartu,
+      gayaFoto: v.foto,
+      gayaUbin: v.ubin,
+      gayaNama: warnaNama ? v.nama + '; color: ' + warnaNama : v.nama,
+      gayaVarian: varianTebal ? v.varian + '; font-weight: var(--bobot-semibold); color: var(--ink)' : v.varian,
+      gayaHarga: v.harga,
+      gayaTeksPromo: v.teks,
+      gayaUkuran: v.ukuran,
+      gayaHubungi: v.hubungi
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PriceTable</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ siap }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 1rem; padding: var(--jarak-y-dalam) 1.6rem">
+      <div style="display: flex; align-items: center; column-gap: 0; flex-grow: 1; justify-content: space-between">
+        <div style="display: flex; align-items: center; column-gap: 0; flex-shrink: 0; margin-right: 0.4rem">
+          <span style="display: flex; flex-shrink: 0; margin-right: 0.4rem"><dc-import name="IconButton" ikon="filter" ukuran="{{ 40 }}" nada="permukaan" aktif="{{ filterAktif }}" ikonUkuran="{{ filterIkon }}" lencana="{{ lencana }}" ariaExpanded="{{ filterExp }}" ariaLabel="{{ filterAria }}" onPress="{{ bukaFilter }}" hint-size="4rem,4rem"></dc-import></span>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="SortMenu" tata="ponsel" buka="{{ urutBuka }}" urut="{{ urut }}" onPilih="{{ pilihUrut }}" onUbahBuka="{{ ubahUrutBuka }}" hint-size="4rem,4rem"></dc-import></span>
+        </div>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Segmented" jenis="ikon" tata="ponsel" opsi="{{ opsiTampilan }}" nilai="{{ tampilan }}" onPilih="{{ pilihTampilan }}" hint-size="8rem,4rem"></dc-import></span>
+      </div>
+    </div>
+    <sc-if value="{{ isTabel }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <sc-for list="{{ baris }}" as="r" hint-placeholder-count="10">
+          <dc-import name="SkuRow" tata="ponsel" font="{{ font }}" dc-props="{{ r }}" hint-size="100%,7.6rem"></dc-import>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isKartu }}" hint-placeholder-val="{{ false }}">
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0; padding: 0 var(--talang)">
+        <sc-for list="{{ kartu }}" as="k" hint-placeholder-count="6">
+          <div style="{{ k.gaya }}"><dc-import name="ProductCard" dc-props="{{ k.props }}" hint-size="100%,22rem"></dc-import></div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <div style="padding: 0 var(--sisi)">
+      <sc-if value="{{ adaLagi }}" hint-placeholder-val="{{ true }}">
+        <dc-import name="LazyList" tampil="{{ tampilN }}" total="{{ totalN }}" onMuat="{{ muatLagi }}" hint-size="100%,6.2rem"></dc-import>
+      </sc-if>
+      <sc-if value="{{ kosong }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="EmptyState" tata="ponsel" onHapus="{{ hapusSemua }}" hint-size="100%,30rem"></dc-import>
+      </sc-if>
+    </div>
+    <dc-import name="FilterPanel" tata="ponsel" judul="{{ judulFilter }}" katalog="{{ katalog }}" terbuka="{{ filterBuka }}" ukuran="{{ ukuran }}" tebal="{{ tebal }}" adaUrut="{{ adaUrut }}" onTutup="{{ tutupFilter }}" onTerap="{{ terapFilter }}" onReset="{{ resetUrut }}" hint-size="0,0"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: 25% minmax(0, 1fr); column-gap: 0; align-items: start">
+    <dc-import name="FilterPanel" tata="desktop" lagiKecil="{{ lagiKecil }}" katalog="{{ katalog }}" ukuran="{{ ukuran }}" tebal="{{ tebal }}" urut="{{ urut }}" onUbah="{{ ubahFilter }}" onUrut="{{ pilihUrut }}" hint-size="100%,60rem"></dc-import>
+    <div style="margin-left: 2rem; margin-right: 2rem">
+      <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0; padding-bottom: 1.2rem">
+        <p style="margin: 0 0.8rem 0 0; font-size: var(--teks-subhead); color: var(--ink-2)">{{ catatan }}</p>
+        <div style="display: flex; align-items: center; column-gap: 0; flex-shrink: 0; margin-left: 0.8rem; margin-right: 0.8rem">
+          <span style="display: flex; flex-shrink: 0; margin-right: 0.4rem"><dc-import name="SortMenu" tata="desktop" buka="{{ urutBuka }}" urut="{{ urut }}" onPilih="{{ pilihUrut }}" onUbahBuka="{{ ubahUrutBuka }}" hint-size="4rem,4rem"></dc-import></span>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Segmented" jenis="ikon" tata="desktop" opsi="{{ opsiTampilan }}" nilai="{{ tampilan }}" onPilih="{{ pilihTampilan }}" hint-size="8rem,4rem"></dc-import></span>
+        </div>
+      </div>
+      <sc-if value="{{ isTabel }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <sc-if value="{{ kepala }}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; grid-template-columns: minmax(0, 1fr) 20%; column-gap: 0; padding: 1rem 1.6rem">
+              <span style="font-size: var(--teks-lead); font-weight: var(--bobot-bold); color: var(--ink-2); text-transform: uppercase; letter-spacing: var(--renggang-kecil); margin-right: 1rem">{{ labelNama }}</span>
+              <span style="font-size: var(--teks-lead); font-weight: var(--bobot-bold); color: var(--ink-2); text-transform: uppercase; letter-spacing: var(--renggang-kecil); text-align: right; white-space: nowrap; margin-left: 1rem; margin-right: 1rem">{{ labelHarga }}</span>
+            </div>
+          </sc-if>
+          <sc-for list="{{ baris }}" as="r" hint-placeholder-count="10">
+            <dc-import name="SkuRow" tata="desktop" font="{{ font }}" dc-props="{{ r }}" hint-size="100%,7.2rem"></dc-import>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isKartu }}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; column-gap: 0; padding-top: 0.8rem">
+          <sc-for list="{{ kartu }}" as="k" hint-placeholder-count="8">
+            <div style="{{ k.gaya }}"><dc-import name="ProductCard" dc-props="{{ k.props }}" hint-size="100%,24rem"></dc-import></div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ kosong }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="EmptyState" tata="desktop" onHapus="{{ hapusSemua }}" hint-size="100%,24rem"></dc-import>
+      </sc-if>
+      <sc-if value="{{ adaHalaman }}" hint-placeholder-val="{{ true }}">
+        <dc-import name="Pagination" jenis="kaca" hal="{{ hal }}" total="{{ totalN }}" per="{{ per }}" pelapor="{{ pelapor }}" onHal="{{ pilihHal }}" hint-size="100%,8.4rem"></dc-import>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isLama }}" hint-placeholder-val="{{ false }}">
+<div>
+      <div data-ltepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: 1rem; column-gap: 0; padding: 1.2rem 1.6rem 0 1.6rem">
+        <div data-ltepi="1" style="display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" id="btn-filter" ikon="filter" ukuran="{{ 40 }}" nada="balik" aktif="{{ filterAktif }}" ikonUkuran="{{ 18 }}" lencana="{{ lencana }}" rupaTanda="garis" ariaExpanded="{{ ocExpFilter }}" ariaLabel="{{ ocFilterAria }}" onPress="{{ ocFilter }}" hint-size="4rem,4rem"></dc-import></span>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="urut-lama" ukuran="{{ 40 }}" nada="balik" aktif="{{ urutAktif }}" titik="{{ urutAda }}" rupaTanda="garis" ariaExpanded="{{ ocExpUrut }}" ariaLabel="{{ ocUrutAria }}" onPress="{{ urutBuka }}" hint-size="4rem,4rem"></dc-import></span>
+        </div>
+        <div data-ltepi="1" role="group" aria-label="Tampilan daftar harga" style="display: flex; row-gap: 0.8rem; column-gap: 0; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="tabel" ukuran="{{ 40 }}" nada="balik" aktif="{{ isTable }}" warna="var(--ink-2)" sudut="var(--sudut-lama)" ikonUkuran="{{ 18 }}" ariaPressed="{{ vmTableOn }}" ariaLabel="Tampilan daftar" onPress="{{ vmTable }}" hint-size="4rem,4rem"></dc-import></span>
+          <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="kartu" ukuran="{{ 40 }}" nada="balik" aktif="{{ isCard2 }}" warna="var(--ink-2)" sudut="var(--sudut-lama)" ikonUkuran="{{ 18 }}" ariaPressed="{{ vmCard2On }}" ariaLabel="Tampilan kartu kecil, 2 kolom" onPress="{{ vmCard2 }}" hint-size="4rem,4rem"></dc-import></span>
+        </div>
+      </div>
+      <sc-if value="{{ adaFilter }}" hint-placeholder-val="{{ true }}">
+        <div data-ltepi="1" style="display: flex; flex-wrap: wrap; align-items: center; row-gap: 0.8rem; column-gap: 0; margin-top: 1.2rem; padding: 0 1.6rem">
+          <sc-for list="{{ chipAktif }}" as="c" hint-placeholder-count="2">
+            <span style="display: flex; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Chip" jenis="hapus-lama" label="{{ c.label }}" ariaLabel="{{ c.aria }}" onPress="{{ c.buang }}" hint-size="12rem,3.2rem"></dc-import></span>
+          </sc-for>
+          <span style="display: flex; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Button" variant="hapus-garis" label="Hapus" onPress="{{ hapusSemua }}" hint-size="6rem,3.2rem"></dc-import></span>
+        </div>
+      </sc-if>
+      <div style="position: sticky; top: 0; z-index: 3; background: var(--surface); display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; padding: 1rem 1.6rem">
+        <p aria-live="polite" style="margin: 0; flex-grow: 1; min-width: 0; font-size: var(--teks-meta); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Menampilkan <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ tampil }}</span> dari <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ total }}</span> SKU</p>
+      </div>
+      <sc-if value="{{ isTable }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <sc-for list="{{ barisLama }}" as="r" hint-placeholder-count="10">
+            <dc-import name="SkuRow" dc-props="{{ r }}" hint-size="100%,6.4rem"></dc-import>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isCard2 }}" hint-placeholder-val="{{ false }}">
+        <div data-ltepi="1" data-ltepi-kisi-y="2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0; padding: 0.8rem 1.6rem 0 1.6rem">
+          <sc-for list="{{ kartuLama }}" as="k" hint-placeholder-count="6">
+            <span style="display: grid; min-width: 0; margin: 0.6rem"><dc-import name="ProductCard" dc-props="{{ k }}" hint-size="100%,22rem"></dc-import></span>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="padding: 0 1.6rem">
+        <sc-if value="{{ adaLagi }}" hint-placeholder-val="{{ true }}">
+          <div data-lazy-sentinel="1"><dc-import name="Spinner" label="{{ lazyLabel }}" margin="1.4rem 0 0 0" tinggiMin="4.8rem" peran="status" ariaLive="polite" hint-size="100%,4.8rem"></dc-import></div>
+        </sc-if>
+        <sc-if value="{{ kosong }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="EmptyState" tata="ponsel" judulBobot="var(--bobot-semibold)" onHapus="{{ hapusSemua }}" hint-size="100%,30rem"></dc-import>
+        </sc-if>
+      </div>
+</div>
+</sc-if>
+</sc-if>
+<sc-if value="{{ perluHarga }}" hint-placeholder-val="{{ false }}"><dc-import name="DataHarga" onData="{{ terimaHarga }}" hint-size="0,0"></dc-import></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"barisHarga":{"editor":null},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"tampilan":{"editor":"enum","options":["tabel","kartu"],"default":"tabel","section":"Keadaan awal"},"filterAwal":{"editor":"enum","options":["kosong","terpilih"],"default":"kosong","section":"Keadaan awal"},"panelFilter":{"editor":"enum","options":["tertutup","terbuka"],"default":"tertutup","section":"Keadaan awal"},"kepala":{"editor":"boolean","default":false,"section":"Isi"},"pelapor":{"editor":"boolean","default":false,"section":"Isi"},"baris":{"editor":null,"tsType":"Array<{nama:string,angka:string,unit?:string,href?:string,uk:string,tb:string,a:number,b:number,t:number,harga:number}>"},"lama":{"editor":null,"tsType":"{baris:Array<{head:string,pNum:string,vmBerat:string}>,tampil:number,total:number,isTable:boolean,isCard2:boolean,vmTableOn:string,vmCard2On:string,vmTable:Function,vmCard2:Function,ocN:number,ocTerbuka:boolean,urutTerbuka:boolean,urutAda:boolean,ocExpFilter:string,ocExpUrut:string,ocFilterAria:string,ocUrutAria:string,ocFilter:Function,urutBuka:Function,adaFilter:boolean,chipAktif:Array<{label:string,aria:string,buang:Function}>,hapusSemua:Function,kosong:boolean,adaLagi:boolean,lazyLabel:string}"},"lamaRata":{"editor":"boolean","default":false,"section":"Papan lama"},"lagiKecil":{"editor":"boolean","default":false,"section":"Tata letak"},"judulFilter":{"editor":"text","default":"Filter Besi Hollow Hitam","section":"Isi"},"catatan":{"editor":"text","default":"Harga diupdate 22 Sep 2026","section":"Isi"},"labelNama":{"editor":"text","default":"Nama SKU","section":"Isi"},"labelHarga":{"editor":"text","default":"Harga / batang","section":"Isi"},"hrefBaris":{"editor":"text","default":"","section":"Isi"},"foto":{"editor":"text","default":"/_blob/5db4b8e10723e4ae0eff8ff2dd6664ef","section":"Isi"},"alt":{"editor":"text","default":"Besi hollow hitam berpenampang persegi, ujungnya terpotong rapi memperlihatkan rongga dan tebal dindingnya","section":"Isi"},"font":{"editor":"enum","options":["bawaan","source-code","isi"],"default":"bawaan","section":"Huruf"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const p = props || {};
+    const d = p.tata === 'desktop';
+    const awal = d && p.filterAwal === 'terpilih';
+    const buka = !d && p.panelFilter === 'terbuka';
+    this.state = {
+      mode: p.tampilan === 'kartu' ? 'kartu' : 'tabel',
+      ukuran: awal ? ['40 × 40'] : (buka ? ['15 × 15'] : []),
+      tebal: awal ? ['1,5'] : [],
+      urut: 'populer',
+      urutBuka: false,
+      filterBuka: buka,
+      hal: 0,
+      limit: 50
+    };
+  }
+  data() {
+    if (this.props.baris) return this.props.baris;
+    if (this._d) return this._d;
+    const d = this.props.tata === 'desktop';
+    const RAW = this.state.barisHarga;
+    if (!RAW) return [];
+    const rb = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    this._d = RAW.map((r) => {
+      const tb = String(r[2]).replace('.', ',');
+      const uk = r[0] + ' × ' + r[1];
+      return {
+        uk, tb, a: r[0], b: r[1], t: r[2], harga: r[4],
+        nama: d ? 'Besi Hollow Hitam ' + uk + ' × ' + tb + ' mm × 6 m [STD, NB]' : 'Besi Hollow ' + uk + ' × ' + tb + ' mm × 6 M [STD, NB]',
+        angka: rb(r[4])
+      };
+    });
+    return this._d;
+  }
+  /* Papan lama memegang keadaannya sendiri; `lama` berisi nilai polos saja: tidak ada string gaya yang dibaca. */
+  nilaiLama() {
+    const l = this.props.lama;
+    const font = this.props.font ?? 'bawaan';
+    const jenis = this.props.lamaRata ? 'lama-rata' : 'lama';
+    const href = this.props.hrefBaris || 'SkuDetailM4.dc.html';
+    const baris = l.baris || [];
+    const ocN = l.ocN || 0;
+    return Object.assign({}, l, {
+      isLama: true,
+      isMobile: false,
+      isDesktop: false,
+      isTabel: false,
+      isKartu: false,
+      filterAktif: !!l.ocTerbuka || ocN > 0,
+      lencana: ocN > 0 ? String(ocN) : '',
+      urutAktif: !!l.urutTerbuka || !!l.urutAda,
+      barisLama: baris.map((r, i) => ({ jenis, font, zebra: i % 2 === 1, nama: r.head, angka: r.pNum, unit: '/btg', href })),
+      kartuLama: baris.map((r) => ({ jenis: 'sku-lama', font, namaRapi: true, rataHarga: 'flex-end', nama: r.head, angka: r.pNum, berat: r.vmBerat, unit: '/btg', href, foto: this.props.foto, alt: this.props.alt ?? '' }))
+    });
+  }
+  renderVals() {
+    const perluHarga = !this.props.baris && !this.props.lama;
+    const terimaHarga = (baris) => { this._d = null; this.setState({ barisHarga: baris }); };
+    if (perluHarga && !this.state.barisHarga) return { siap: false, perluHarga, terimaHarga };
+    return Object.assign(this.nilaiDasar(), { siap: true, perluHarga, terimaHarga });
+  }
+  nilaiDasar() {
+    if (this.props.lama) return this.nilaiLama();
+    const d = this.props.tata === 'desktop';
+    const s = this.state;
+    const semua = this.data();
+    const hasilSaring = semua.filter((r) => (!s.ukuran.length || s.ukuran.indexOf(r.uk) !== -1) && (!s.tebal.length || s.tebal.indexOf(r.tb) !== -1));
+    const urutan = {
+      hargaMin: (x, y) => x.harga - y.harga,
+      hargaMax: (x, y) => y.harga - x.harga,
+      ukuranMin: (x, y) => (x.a * x.b) - (y.a * y.b) || x.t - y.t,
+      ukuranMax: (x, y) => (y.a * y.b) - (x.a * x.b) || y.t - x.t
+    };
+    const hasil = urutan[s.urut] ? hasilSaring.slice().sort(urutan[s.urut]) : hasilSaring;
+    const per = 20;
+    const maxHal = Math.max(1, Math.ceil(hasil.length / per));
+    const hal = Math.min(Math.max(0, s.hal), maxHal - 1);
+    const tampil = d ? hasil.slice(hal * per, hal * per + per) : hasil.slice(0, s.limit);
+    const href = this.props.hrefBaris || (d ? 'DesktopSkuM4.dc.html' : 'SkuDetailM4.dc.html');
+    const foto = this.props.foto ?? '/_blob/5db4b8e10723e4ae0eff8ff2dd6664ef';
+    const alt = this.props.alt ?? 'Besi hollow hitam berpenampang persegi, ujungnya terpotong rapi memperlihatkan rongga dan tebal dindingnya';
+    const baris = tampil.map((r, i) => ({ nama: r.nama, angka: r.angka, unit: r.unit, href: r.href ?? href, zebra: i % 2 === 1 }));
+    const kolom = d ? 4 : 2;
+    const x = d ? '0.8rem' : 'calc(var(--jarak-x-dua) / 2)';
+    const y = d ? '0.8rem' : 'calc(var(--selokan-ubin) / 2)';
+    const n = tampil.length;
+    const kartu = tampil.map((r, i) => {
+      const kiri = d ? i === 0 : i % 2 === 0;
+      const kanan = !d && i % 2 === 1;
+      return {
+        gaya: 'min-width: 0; margin: ' + (i < kolom ? '0' : y) + ' ' + (kanan ? '0' : x) + ' ' + (i >= n - kolom ? '0' : y) + ' ' + (kiri ? '0' : x),
+        props: { jenis: 'sku', tata: d ? 'desktop' : 'ponsel', hargaRapat: d, font: this.props.font ?? 'bawaan', nama: r.nama, angka: r.angka, unit: r.unit, href: r.href ?? href, foto: r.foto ?? foto, alt: r.alt ?? alt }
+      };
+    });
+    const ocN = s.ukuran.length + s.tebal.length;
+    return {
+      font: this.props.font ?? 'bawaan',
+      lagiKecil: !!this.props.lagiKecil,
+      isMobile: !d,
+      isDesktop: d,
+      isTabel: s.mode === 'tabel',
+      isKartu: s.mode === 'kartu',
+      tampilan: s.mode,
+      opsiTampilan: [
+        { id: 'tabel', ikon: 'tabel', label: 'Tampilan daftar' },
+        { id: 'kartu', ikon: 'kartu', label: d ? 'Tampilan kartu' : 'Tampilan kartu kecil, 2 kolom' }
+      ],
+      pilihTampilan: (id) => this.setState({ mode: id }),
+      baris,
+      kartu,
+      kepala: !!this.props.kepala,
+      labelNama: this.props.labelNama ?? 'Nama SKU',
+      labelHarga: this.props.labelHarga ?? 'Harga / batang',
+      catatan: this.props.catatan ?? 'Harga diupdate 22 Sep 2026',
+      kosong: hasil.length === 0,
+      tampilN: tampil.length,
+      totalN: hasil.length,
+      adaLagi: !d && tampil.length < hasil.length,
+      muatLagi: () => this.setState({ limit: (this.state.limit || 50) + 50 }),
+      adaHalaman: d && hasil.length > 0,
+      hal,
+      per,
+      pelapor: !!this.props.pelapor,
+      pilihHal: (h) => this.setState({ hal: h }),
+      hapusSemua: () => this.setState({ ukuran: [], tebal: [], hal: 0, limit: 50 }),
+      katalog: this.props.baris ? semua.map((r) => ({ uk: r.uk, tb: r.tb })) : (this._kat || (this._kat = semua.map((r) => ({ uk: r.uk, tb: r.tb })))),
+      ukuran: s.ukuran,
+      tebal: s.tebal,
+      urut: s.urut,
+      adaUrut: s.urut !== 'populer',
+      pilihUrut: (v) => this.setState({ urut: v, hal: 0, limit: 50, urutBuka: false }),
+      urutBuka: s.urutBuka,
+      ubahUrutBuka: (v) => this.setState(v ? { urutBuka: true, filterBuka: false } : { urutBuka: false }),
+      filterBuka: s.filterBuka,
+      filterAktif: s.filterBuka || ocN > 0,
+      filterIkon: (s.filterBuka || ocN > 0) ? 24 : 16,
+      lencana: ocN > 0 ? String(ocN) : '',
+      filterExp: s.filterBuka ? 'true' : 'false',
+      filterAria: s.filterBuka ? 'Tutup Filter' : 'Filter' + (ocN ? ', ' + ocN + ' aktif' : ''),
+      bukaFilter: () => this.setState({ filterBuka: !s.filterBuka, urutBuka: false }),
+      tutupFilter: () => this.setState({ filterBuka: false }),
+      terapFilter: (f) => this.setState({ filterBuka: false, limit: 50, ukuran: f.ukuran, tebal: f.tebal }),
+      ubahFilter: (f) => this.setState({ ukuran: f.ukuran, tebal: f.tebal, hal: 0 }),
+      resetUrut: () => this.setState({ urut: 'populer' }),
+      judulFilter: this.props.judulFilter ?? 'Filter Besi Hollow Hitam'
+    };
+  }
+}
+</script>
+</body>
+</html>

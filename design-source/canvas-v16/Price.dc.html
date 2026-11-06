@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Price</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBlok }}" hint-placeholder-val="{{ true }}">
+  <span style="{{ gayaBlok }}">
+    <span data-harga="{{ dataHarga }}" style="{{ gayaAngka }}"><sc-if value="{{ rpSup }}" hint-placeholder-val="{{ true }}"><span style="{{ gayaRp }}">Rp</span></sc-if><sc-if value="{{ rpPolos }}" hint-placeholder-val="{{ false }}">Rp </sc-if>{{ angka }}</span>
+    <sc-if value="{{ adaUnit }}" hint-placeholder-val="{{ true }}">
+      <span data-harga="{{ dataHarga }}" style="{{ gayaUnit }}">{{ unit }}</span>
+    </sc-if>
+  </span>
+</sc-if>
+<sc-if value="{{ isMulai }}" hint-placeholder-val="{{ false }}">
+  <span style="{{ gayaMulai }}">{{ awalan }} <span data-harga="{{ dataHarga }}" style="{{ gayaAngka }}">Rp {{ angka }}</span></span>
+</sc-if>
+<sc-if value="{{ isPromo }}" hint-placeholder-val="{{ false }}">
+  <span style="{{ gayaPromo }}"><span data-harga="{{ dataHarga }}" style="{{ gayaAngka }}"><sc-if value="{{ rpSup }}" hint-placeholder-val="{{ true }}"><span style="{{ gayaRp }}">Rp</span></sc-if><sc-if value="{{ rpPolos }}" hint-placeholder-val="{{ false }}">Rp </sc-if>{{ angka }}</span><span style="{{ gayaUnit }}">{{ unit }}</span></span>
+</sc-if>
+<sc-if value="{{ isSebaris }}" hint-placeholder-val="{{ false }}">
+  <span data-harga="{{ dataHarga }}" style="{{ gayaAngka }}"><sc-if value="{{ rpSup }}" hint-placeholder-val="{{ true }}"><span style="{{ gayaRp }}">Rp</span></sc-if><sc-if value="{{ rpPolos }}" hint-placeholder-val="{{ false }}">Rp </sc-if>{{ angka }}<sc-if value="{{ adaUnit }}" hint-placeholder-val="{{ true }}"><span style="{{ gayaUnit }}">{{ unit }}</span></sc-if></span>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ukuran":{"editor":"enum","options":["baris-m","baris-d","halaman","sku-m","sku-d","mulai-m","mulai-d","promo-m","promo-d","lama-sku","lama-kartu","lama-ringkas","bebas"],"default":"baris-m","section":"Resep"},"tone":{"editor":"enum","options":["ink","brand"],"default":"ink","section":"Warna"},"rata":{"editor":"enum","options":["kanan","kiri"],"default":"kanan","section":"Tata letak"},"angka":{"editor":null,"default":"66.000"},"unit":{"editor":null,"default":"per batang"},"awalan":{"editor":null,"default":"Mulai"},"ukuranAngka":{"editor":"text","default":"","section":"Ukuran"},"ukuranRp":{"editor":"text","default":"","section":"Ukuran"},"ukuranUnit":{"editor":"text","default":"","section":"Ukuran"},"bobot":{"editor":"text","default":"","section":"Ukuran"},"bobotUnit":{"editor":"text","default":"","section":"Ukuran"},"tinggi":{"editor":"text","default":"","section":"Ukuran"},"tinggiRp":{"editor":"text","default":"","section":"Ukuran"},"tinggiUnit":{"editor":"text","default":"","section":"Ukuran"},"renggang":{"editor":"text","default":"","section":"Ukuran"},"kapital":{"editor":"boolean","default":false,"section":"Ukuran"},"warna":{"editor":"text","default":"","section":"Warna"},"warnaUnit":{"editor":"text","default":"","section":"Warna"},"font":{"editor":"enum","options":["bawaan","source-code","isi"],"default":"bawaan","section":"Huruf"},"adaRp":{"editor":"boolean","default":true,"section":"Rp"},"rpAtas":{"editor":"boolean","default":true,"section":"Rp"},"nowrap":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Tata letak"},"tabular":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Tata letak"},"celah":{"editor":"text","default":"","section":"Tata letak"},"rataDiri":{"editor":"text","default":"","section":"Tata letak"},"margin":{"editor":"text","default":"","section":"Tata letak"},"$preview":{"width":140,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const pil = (v, f) => (v === undefined || v === null || v === '' ? f : v);
+    const B = 'var(--bobot-bold)';
+    const peta = {
+      'baris-m': { u: 'var(--teks-price)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)', b: B, tab: 1 },
+      'baris-d': { u: 'var(--teks-price-lg)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)', b: B, tab: 1 },
+      halaman: { u: 'var(--teks-page)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)', b: B, tab: 1 },
+      'sku-m': { u: 'var(--teks-page)', rp: 'var(--teks-body)', t: 'inherit', un: 'var(--teks-tiny)', b: B, tab: 1 },
+      'sku-d': { u: 'var(--teks-display)', rp: 'var(--teks-price-lg)', t: 'var(--tinggi-sempit)', un: 'var(--teks-unit-lg)', b: B, tab: 1 },
+      'mulai-m': { u: 'var(--teks-meta)', jenis: 'mulai', b: B },
+      'mulai-d': { u: 'var(--teks-lead)', jenis: 'mulai', b: B },
+      'promo-m': { u: 'var(--teks-section)', rp: 'var(--teks-tiny)', un: 'var(--teks-chip)', jenis: 'promo', b: B, tab: 1 },
+      'promo-d': { u: 'var(--teks-section-md)', rp: 'var(--teks-meta)', un: 'var(--teks-body)', jenis: 'promo', b: B, tab: 1 },
+      'lama-sku': { jenis: 'sebaris', u: 'var(--teks-section)', rp: 'var(--teks-tiny)', un: 'var(--teks-tiny)', b: B, tab: 1, wu: 'var(--ink-2)' },
+      'lama-kartu': { jenis: 'sebaris', u: 'var(--teks-price)', rp: 'var(--teks-sup)', un: 'var(--teks-tiny)', b: B, t: 'var(--tinggi-rapat)', nw: 1, tab: 1, wu: 'var(--ink-2)' },
+      'lama-ringkas': { jenis: 'sebaris', u: 'var(--teks-body)', rp: 'var(--teks-nano)', un: 'var(--teks-tiny)', t: 'var(--tinggi-tengah)', w: 'var(--ringkas-redup)', clip: 1, nw: 1, wu: 'var(--ringkas-redup-2)' },
+      bebas: { jenis: 'sebaris', rp: 'var(--teks-sup)', un: 'var(--teks-tiny)', wu: 'var(--ink-2)' }
+    };
+    const m = peta[p.ukuran ?? 'baris-m'] || peta['baris-m'];
+    const unit = p.unit ?? (m.jenis === 'promo' ? '/meter' : m.jenis === 'sebaris' ? '/btg' : 'per batang');
+    const u = pil(p.ukuranAngka, m.u);
+    const rp = pil(p.ukuranRp, m.rp);
+    const un = pil(p.ukuranUnit, m.un);
+    const b = pil(p.bobot, m.b);
+    const t = pil(p.tinggi, m.t);
+    const nada = (p.tone ?? 'ink') === 'brand' ? 'var(--brand)' : 'inherit';
+    const warna = m.jenis === 'sebaris' ? pil(p.warna, m.w) : pil(p.warna, m.jenis === 'mulai' ? 'var(--ink)' : nada);
+    const nw = (p.nowrap ?? 'otomatis') === 'otomatis' ? !!m.nw : p.nowrap === 'ya';
+    const tab = (p.tabular ?? 'otomatis') === 'otomatis' ? !!m.tab : p.tabular === 'ya';
+    const font = p.font ?? 'bawaan';
+    const huruf = font === 'source-code' ? 'font-family: var(--font-harga-lama)' : '';
+    const luar = [p.margin ? 'margin: ' + p.margin : '', p.rataDiri ? 'align-self: ' + p.rataDiri : ''];
+    const akar = m.jenis === 'sebaris' ? luar : [];
+    const adaRp = p.adaRp ?? true;
+    const rpAtas = p.rpAtas ?? true;
+    const gabung = (a) => a.filter(Boolean).join('; ');
+    const gayaAngka = gabung([
+      u ? 'font-size: ' + u : '',
+      t ? 'line-height: ' + t : '',
+      b ? 'font-weight: ' + b : '',
+      tab ? 'font-variant-numeric: tabular-nums' : '',
+      nw ? 'white-space: nowrap' : '',
+      warna ? 'color: ' + warna : '',
+      m.clip ? 'overflow: hidden; text-overflow: ellipsis' : '',
+      p.renggang ? 'letter-spacing: ' + p.renggang : '',
+      p.kapital ? 'text-transform: uppercase' : '',
+      huruf
+    ].concat(akar));
+    const gayaRp = gabung(['font-size: ' + rp, p.tinggiRp ? 'line-height: ' + p.tinggiRp : '', 'font-weight: var(--bobot-bold)', 'vertical-align: super', 'letter-spacing: var(--renggang-sup)']);
+    const wu = pil(p.warnaUnit, m.wu);
+    const unitBlok = gabung(['font-size: ' + un, 'line-height: ' + pil(p.tinggiUnit, 'var(--tinggi-rapat)'), 'font-weight: ' + pil(p.bobotUnit, B), 'letter-spacing: var(--renggang-tipis)', 'white-space: nowrap', 'color: ' + pil(p.warnaUnit, 'var(--ink-2)'), huruf]);
+    const unitPromo = gabung(['font-size: ' + un, 'font-weight: ' + pil(p.bobotUnit, 'var(--bobot-regular)'), 'color: ' + pil(p.warnaUnit, 'var(--ink)')]);
+    const unitSebaris = gabung(['margin-left: 0.2rem', p.tinggiUnit ? 'line-height: ' + p.tinggiUnit : '', 'vertical-align: -0.2rem', 'color: ' + wu, 'font-size: ' + un, 'font-weight: ' + pil(p.bobotUnit, B), 'letter-spacing: var(--renggang-tipis)', 'white-space: nowrap']);
+    return {
+      isBlok: !m.jenis,
+      isMulai: m.jenis === 'mulai',
+      isPromo: m.jenis === 'promo',
+      isSebaris: m.jenis === 'sebaris',
+      dataHarga: font === 'isi' ? undefined : '1',
+      awalan: p.awalan ?? 'Mulai',
+      angka: p.angka ?? '66.000',
+      unit,
+      adaUnit: !!unit,
+      rpSup: adaRp && rpAtas,
+      rpPolos: adaRp && !rpAtas,
+      gayaAngka,
+      gayaRp,
+      gayaUnit: m.jenis === 'promo' ? unitPromo : m.jenis === 'sebaris' ? unitSebaris : unitBlok,
+      gayaBlok: gabung(['display: flex', 'flex-direction: column', 'gap: ' + pil(p.celah, '0.2rem'), 'align-items: ' + ((p.rata ?? 'kanan') === 'kiri' ? 'flex-start' : 'flex-end'), 'flex-shrink: 0'].concat(luar)),
+      gayaMulai: gabung(['display: block', 'font-size: ' + u, 'line-height: ' + pil(p.tinggi, 'var(--tinggi-tengah)'), 'color: ' + pil(p.warnaUnit, 'var(--ink-2)')].concat(luar)),
+      gayaPromo: gabung(['display: block', 'white-space: nowrap', 'color: var(--ink)'].concat(luar))
+    };
+  }
+}
+</script>
+</body>
+</html>

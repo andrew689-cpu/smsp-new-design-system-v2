@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductArticles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--rapat)">
+      <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    </div>
+    <div style="display: flex; flex-direction: column; margin-top: var(--jarak-y-dalam); row-gap: 0; column-gap: 0">
+      <sc-for list="{{ daftar }}" as="ar" hint-placeholder-count="3">
+        <span style="{{ ar.gayaM }}"><dc-import name="BlogRow" jenis="terkait" judul="{{ ar.judul }}" ringkas="{{ ar.ringkas }}" href="{{ ar.url }}" target="_blank" ariaLabel="{{ ar.aria }}" hint-size="100%,7rem"></dc-import></span>
+      </sc-for>
+    </div>
+    <span style="display: flex; margin-top: var(--jarak-y-dalam)"><dc-import name="Button" variant="tautan" label="{{ labelSemua }}" href="{{ hrefSemua }}" target="_blank" rel="noopener" ariaLabel="{{ ariaSemua }}" hint-size="9rem,4rem"></dc-import></span>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; row-gap: 1.6rem; column-gap: 0; margin-bottom: 2rem">
+      <span style="display: block; margin-right: 0.8rem"><dc-import name="Heading" level="{{ 2 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.9rem"></dc-import></span>
+      <a href="{{ hrefSemua }}" target="_blank" rel="noopener" aria-label="{{ ariaSemua }}" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.8rem; column-gap: 0.4rem; min-height: 4rem; box-sizing: border-box; padding: 0; font-size: var(--teks-body); font-weight: var(--bobot-bold); color: var(--brand); margin-left: 0.8rem; margin-right: 0.8rem">{{ labelSemua }}<span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Icon" ikon="chevron-kanan" ukuran="{{ 15 }}" garis="{{ 2.4 }}" warna="currentColor" hint-size="1.5rem,1.5rem"></dc-import></span></a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <sc-for list="{{ daftar }}" as="ar" hint-placeholder-count="3">
+        <a href="{{ ar.url }}" target="_blank" rel="noopener" aria-label="{{ ar.aria }}" style="{{ ar.gayaD }}">
+          <img src="{{ ar.foto }}" alt="{{ ar.alt }}" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--line); border-radius: var(--tile)">
+          <span aria-hidden="true" style="display: flex; align-items: center; gap: 0.8rem"><dc-import name="Tag" jenis="label" teks="{{ ar.kategori }}" hint-size="8rem,2.2rem"></dc-import></span>
+          <span style="{{ gayaJudulD }}">{{ ar.judul }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Artikel Terkait"},"butir":{"editor":null},"judulKecil":{"editor":"boolean","default":false},"labelSemua":{"editor":null,"default":"Lihat Semua"},"hrefSemua":{"editor":null,"default":"https://www.smsperkasa.com/blog"},"ariaSemua":{"editor":null},"$preview":{"width":330,"height":340}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const butir = this.props.butir ?? [
+      { judul: 'Besi Hollow | Mengenal Jenis, Ukuran dan Fungsinya', url: 'https://www.smsperkasa.com/blog/apa-itu-besi-hollow', ringkas: 'Besi hollow adalah material konstruksi berbentuk kotak atau persegi panjang dengan rongga di bagian tengah sehingga bentuknya menyerupai pipa. Besi Hollow…', kategori: 'Berita Besi Baja', foto: '/_blob/94e15a52d7fe89221072deab657adf22', alt: '', aria: 'Artikel: Besi Hollow | Mengenal Jenis, Ukuran dan Fungsinya, Berita Besi Baja, 19 Sep 2026, buka di smsperkasa.com' }
+    ];
+    const n = butir.length;
+    return {
+      isPonsel: !d,
+      isDesktop: d,
+      judul: this.props.judul ?? 'Artikel Terkait',
+      labelSemua: this.props.labelSemua ?? 'Lihat Semua',
+      hrefSemua: this.props.hrefSemua ?? 'https://www.smsperkasa.com/blog',
+      ariaSemua: this.props.ariaSemua ?? 'Lihat semua artikel, buka indeks blog di smsperkasa.com',
+      gayaJudulD: 'display: block; font-size: ' + (this.props.judulKecil ? 'var(--teks-advantage)' : 'var(--teks-lead)') + '; line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--brand)',
+      daftar: butir.map((a, i) => ({
+        judul: a.judul,
+        url: a.url,
+        ringkas: a.ringkas,
+        aria: a.aria,
+        foto: a.foto,
+        alt: a.alt ?? '',
+        kategori: a.kategori,
+        gayaM: 'display: block; margin-top: ' + (i === 0 ? '0' : 'calc(var(--jarak-y-dalam) / 2)') + '; margin-bottom: ' + (i === n - 1 ? '0' : 'calc(var(--jarak-y-dalam) / 2)'),
+        gayaD: 'display: flex; flex-direction: column; gap: var(--rapat); color: var(--ink); margin: 0 1rem 0 ' + (i === 0 ? '0' : '1rem')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

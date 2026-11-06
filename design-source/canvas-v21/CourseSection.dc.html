@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CourseSection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section id="{{ id }}" aria-label="{{ ariaLabel }}" style="scroll-margin-top: 1.6rem; box-sizing: border-box; padding: {{ pad }}; background: var(--surface); display: flex; flex-direction: column; row-gap: 1.2rem">
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" font="var(--font-rv-judul)" kapital="ya" ukuran="var(--teks-page)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-bold)" renggang="0" rata="center" warna="var(--ink)" baris="{{ judul }}" hint-size="100%,7rem"></dc-import>
+  <p style="margin: 0; font-size: var(--teks-seksi); line-height: var(--tinggi-baca); text-align: center; color: var(--ink-2)">{{ teks }}</p>
+  <div style="margin-top: 1.2rem"><dc-import name="CourseRail" jenis="rv" susun="{{ susun }}" pad="{{ padRail }}" ujung="{{ ujung }}" labelUjung="{{ labelUjung }}" onUjung="{{ onUjung }}" butir="{{ butir }}" hint-size="100%,44rem"></dc-import></div>
+  <sc-if value="{{ adaTutup }}" hint-placeholder-val="{{ false }}"><dc-import name="Button" variant="lebar-garis" sudut="var(--pill)" href="" label="{{ labelTutup }}" onPress="{{ onTutup }}" hint-size="100%,4.8rem"></dc-import></sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"id":{"editor":"text","default":"","section":"Tautan"},"ariaLabel":{"editor":"text","default":"Materi","section":"Aksesibilitas"},"pad":{"editor":"text","default":"4rem var(--talang) 3.2rem var(--talang)","section":"Tata letak"},"judulAwal":{"editor":"text","default":"Kuasai dasarnya, ","section":"Isi"},"judulMerah":{"editor":"text","default":"pilih material yang tepat","section":"Isi"},"teks":{"editor":"text","default":"Pahami baja dari awal, lalu kenali kelebihan setiap material.","section":"Isi"},"terbuka":{"editor":"boolean","default":false,"section":"Resep"},"labelUjung":{"editor":"text","default":"Lihat Semua Course","section":"Isi"},"labelTutup":{"editor":"text","default":"Tampilkan lebih sedikit","section":"Isi"},"onUjung":{"editor":null,"section":"Aksi"},"onTutup":{"editor":null,"section":"Aksi"},"butir":{"editor":null,"section":"Data","tsType":"Array<CourseCard props>"},"$preview":{"width":360,"height":620}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const buka = !!p.terbuka;
+    return {
+      id: p.id || undefined,
+      ariaLabel: p.ariaLabel ?? 'Materi',
+      pad: p.pad ?? '4rem var(--talang) 3.2rem var(--talang)',
+      judul: [{ teks: p.judulAwal ?? 'Kuasai dasarnya, ', sebaris: true }, { teks: p.judulMerah ?? 'pilih material yang tepat', sebaris: true, warna: 'var(--brand)' }],
+      teks: p.teks ?? 'Pahami baja dari awal, lalu kenali kelebihan setiap material.',
+      susun: buka ? 'kolom' : 'geser',
+      padRail: buka ? '0.4rem 0 1.6rem 0' : '0.4rem var(--talang) 1.6rem var(--talang)',
+      ujung: !buka,
+      labelUjung: p.labelUjung ?? 'Lihat Semua Course',
+      onUjung: p.onUjung,
+      adaTutup: buka,
+      labelTutup: p.labelTutup ?? 'Tampilkan lebih sedikit',
+      onTutup: p.onTutup,
+      butir: p.butir
+    };
+  }
+}
+</script>
+</body>
+</html>

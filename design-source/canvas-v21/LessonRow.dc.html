@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LessonRow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="Pressable" onPress="{{ onPilih }}" ariaLabel="{{ ariaLabel }}" gaya="box-sizing: border-box; width: 100%; min-height: 6.4rem; padding: 1.2rem 0; border: 0; background: transparent; box-shadow: inset 0 -0.1rem 0 var(--line-kuat); display: flex; align-items: flex-start; column-gap: 1.4rem; text-align: left; color: var(--ink)" hint-size="100%,6.4rem">
+  <sc-if value="{{ selesai }}" hint-placeholder-val="{{ false }}"><span style="display: block; flex-shrink: 0; margin-top: 0.1rem"><dc-import name="Icon" ikon="centang-materi" warna="var(--ink)" hint-size="1.8rem,1.8rem"></dc-import></span></sc-if>
+  <sc-if value="{{ belum }}" hint-placeholder-val="{{ true }}"><span style="flex-shrink: 0; width: 1.8rem; font-size: var(--teks-seksi); line-height: var(--tinggi-sedang); color: var(--ink)">{{ nomor }}</span></sc-if>
+  <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; row-gap: 0.3rem">
+    <span style="font-size: var(--teks-seksi); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+    <span style="font-size: var(--teks-chip); line-height: var(--tinggi-sedang); color: {{ warnaMeta }}">{{ menit }} baca</span>
+  </span>
+</dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"nomor":{"editor":"number","default":1,"section":"Isi"},"judul":{"editor":"text","default":"Besi atau baja, apa bedanya?","section":"Isi"},"menit":{"editor":"text","default":"1 menit","section":"Isi"},"selesai":{"editor":"boolean","default":false,"section":"Resep"},"rupa":{"editor":"enum","options":["baku","rv","ikon"],"default":"baku","section":"Resep"},"ariaLabel":{"editor":"text","default":"","section":"Aksesibilitas"},"onPilih":{"editor":null,"section":"Aksi"},"$preview":{"width":330,"height":64}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    return {
+      nomor: p.nomor ?? 1,
+      judul: p.judul ?? 'Besi atau baja, apa bedanya?',
+      menit: p.menit ?? '1 menit',
+      selesai: !!p.selesai,
+      belum: !p.selesai,
+      warnaMeta: p.rupa === 'ikon' ? 'var(--ink)' : 'var(--ink-2)',
+      ariaLabel: p.ariaLabel || undefined,
+      onPilih: p.onPilih
+    };
+  }
+}
+</script>
+</body>
+</html>

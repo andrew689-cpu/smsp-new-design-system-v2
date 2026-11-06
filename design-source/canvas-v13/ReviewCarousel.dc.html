@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewCarousel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div data-rev-wrap="1" onPointerEnter="{{ revEnter }}" onPointerLeave="{{ revLeave }}" onFocus="{{ revFocus }}" onBlur="{{ revBlur }}" style="position: relative; display: flex; flex-direction: column; gap: var(--rapat)">
+    <div data-rev-viewport="1" role="region" aria-roledescription="carousel" aria-label="Ulasan pelanggan, geser atau pakai tombol panah" tabindex="0" onKeyDown="{{ revKey }}" onPointerDown="{{ revDown }}" onPointerMove="{{ revMove }}" onPointerUp="{{ revUp }}" onPointerCancel="{{ revCancel }}" style="{{ revViewportStyle }}">
+      <ul data-rev-track="1" ref="{{ pasangTrek }}" style="margin: 0; padding: 0; list-style: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0">
+        <sc-for list="{{ ulasan }}" as="rv" hint-placeholder-count="3">
+          <li data-rev-card="1" aria-roledescription="slide" aria-label="{{ rv.slide }}" aria-hidden="{{ rv.hidden }}" style="{{ rv.cardStyle }}">
+            <dc-import name="ReviewCard" dc-props="{{ rv.kartu }}" hint-size="100%,24rem"></dc-import>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+    <dc-import name="CarouselDots" jenis="progres" lebarTombol="{{ lebarTitik }}" titik="{{ revDots }}" berjalan="{{ autoRunning }}" halaman="{{ page }}" hint-size="100%,4.4rem"></dc-import>
+    <sc-if value="{{ adaUmum }}" hint-placeholder-val="{{ true }}">
+      <p aria-live="{{ revLive }}" style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{ revRange }}</p>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isPasang }}" hint-placeholder-val="{{ false }}">
+  <div data-rev-wrap="1" onPointerEnter="{{ revEnter }}" onPointerLeave="{{ revLeave }}" onFocus="{{ revFocus }}" onBlur="{{ revBlur }}" style="position: relative; display: flex; flex-direction: column; gap: var(--rapat)">
+    <div data-rev-viewport="1" role="region" aria-roledescription="carousel" aria-label="Ulasan pelanggan, geser atau pakai tombol panah" tabindex="0" onKeyDown="{{ revKey }}" onPointerDown="{{ revDown }}" onPointerMove="{{ revMove }}" onPointerUp="{{ revUp }}" onPointerCancel="{{ revCancel }}" style="{{ revViewportStyle }}">
+      <ul data-rev-track="1" ref="{{ pasangTrek }}" style="margin: 0; padding: 0; list-style: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0">
+        <sc-for list="{{ ulasan }}" as="rv" hint-placeholder-count="4">
+          <li data-rev-card="1" aria-roledescription="slide" aria-label="{{ rv.slide }}" aria-hidden="{{ rv.hidden }}" style="{{ rv.cardStyle }}">
+            <dc-import name="ReviewCard" dc-props="{{ rv.kartu }}" hint-size="100%,24rem"></dc-import>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+    <dc-import name="CarouselDots" jenis="progres" durasiLebar="150ms" titik="{{ revDots }}" berjalan="{{ autoRunning }}" halaman="{{ page }}" hint-size="100%,4.4rem"></dc-import>
+    <p aria-live="{{ revLive }}" style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{ revRange }}</p>
+  </div>
+</sc-if>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div data-rel="2" ref="{{ pasangRel }}" onScroll="{{ ulSpy }}" style="overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory">
+      <div style="display: flex; column-gap: 0">
+        <sc-for list="{{ kartuD }}" as="u" hint-placeholder-count="8">
+          <div style="{{ u.wadah }}"><dc-import name="ReviewCard" dc-props="{{ u.kartu }}" hint-size="100%,24rem"></dc-import></div>
+        </sc-for>
+      </div>
+    </div>
+    <dc-import name="CarouselDots" tata="desktop" padding="var(--rapat) 0 0 0" ariaLabel="Pilih ulasan" titik="{{ ulTitik }}" hint-size="100%,4.4rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisi }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+    <sc-for list="{{ kartuD }}" as="u" hint-placeholder-count="3">
+      <div style="{{ u.wadah }}"><dc-import name="ReviewCard" dc-props="{{ u.kartu }}" hint-size="100%,24rem"></dc-import></div>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"kisi":{"editor":"boolean","default":false},"sepasang":{"editor":"boolean","default":false},"lebarTitik":{"editor":null},"umumkan":{"editor":"boolean","default":true},"ulasan":{"editor":null,"tsType":"Array<{nama:string,kota?:string,tanggal?:string,rating?:number,segmen?:Array<{teks:string,tebal?:boolean}>,teks?:string}>"},"$preview":{"width":360,"height":380}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { revPage: 0, revDrag: null, revHover: false, revFocus: false, revRM: false, revH: 0, ul: 0 };
+    this._pasangTrek = (el) => { this._trek = el; };
+    this._pasangRel = (el) => { this._rel = el; };
+  }
+  _reduced() {
+    try { return !!matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; }
+  }
+  _revGo(to) {
+    const n = this._revCount || 0;
+    const from = this.state.revPage || 0;
+    if (n < 2 || to === from) { this.setState({ revDrag: null }); return; }
+    this.setState({ revPage: to, revDrag: null });
+  }
+  _revAutoOn() {
+    const st = this.state;
+    return !st.revRM && !st.revHover && !st.revFocus && typeof st.revDrag !== 'number' && (this._revCount || 0) > 1;
+  }
+  _revMeasure() {
+    if (!this._trek) return;
+    let tall = 0;
+    const els = this._trek.children;
+    for (let i = 0; i < els.length; i++) { if (els[i].offsetHeight > tall) tall = els[i].offsetHeight; }
+    if (!tall) return;
+    const want = tall + 24;
+    if (Math.abs((this.state.revH || 0) - want) > 1) this.setState({ revH: want });
+  }
+  _revSchedule() {
+    clearTimeout(this._revT);
+    if ((this.props.tata === 'desktop' && !this.props.sepasang) || !this._revAutoOn()) return;
+    this._revT = setTimeout(() => {
+      const n = this._revCount || 0;
+      if (n > 1) this._revGo(((this.state.revPage || 0) + 1) % n);
+    }, 3000);
+  }
+  _langkah(el) {
+    const track = el && el.firstElementChild;
+    const kids = track ? track.children : null;
+    if (kids && kids.length > 1) {
+      const d = kids[1].offsetLeft - kids[0].offsetLeft;
+      if (d > 0) return d;
+    }
+    return (el && el.clientWidth) || 1;
+  }
+  _ulHal(el) {
+    const track = el && el.firstElementChild;
+    const n = (track && track.children) ? track.children.length : 0;
+    return Math.max(1, Math.ceil(n / 3));
+  }
+  _ulSpy() {
+    const el = this._rel;
+    if (!el) return;
+    const last = this._ulHal(el) - 1;
+    const step = this._langkah(el) * 3;
+    const max = el.scrollWidth - el.clientWidth;
+    let i = (max > 0 && el.scrollLeft >= max - 1) ? last : Math.round(el.scrollLeft / step);
+    if (i < 0) i = 0;
+    if (i > last) i = last;
+    if (i !== (this.state.ul || 0)) this.setState({ ul: i });
+  }
+  _ulGo(i) {
+    const el = this._rel;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    let left = i * this._langkah(el) * 3;
+    if (max > 0 && left > max) left = max;
+    try { el.scrollTo({ left, behavior: this._reduced() ? 'auto' : 'smooth' }); }
+    catch (e) { el.scrollLeft = left; }
+  }
+  componentDidMount() {
+    this.setState({ revRM: this._reduced() }, () => this._revSchedule());
+    this._revMeasure();
+    // Kartu diimpor belakangan, jadi tingginya diukur ulang beberapa kali sesudah pasang.
+    let ulang = 0;
+    this._ukurT = setInterval(() => {
+      this._revMeasure();
+      ulang += 1;
+      if (ulang > 5) clearInterval(this._ukurT);
+    }, 400);
+  }
+  componentDidUpdate() {
+    this._revMeasure();
+    const st = this.state;
+    const ps = this._revPrev || st;
+    this._revPrev = st;
+    if (ps.revPage !== st.revPage || ps.revHover !== st.revHover || ps.revFocus !== st.revFocus ||
+      (typeof ps.revDrag === 'number') !== (typeof st.revDrag === 'number') || ps.revRM !== st.revRM) this._revSchedule();
+  }
+  componentWillUnmount() {
+    clearTimeout(this._revT);
+    clearInterval(this._ukurT);
+  }
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const kisi = !!this.props.kisi;
+    const sepasang = desktop && !!this.props.sepasang;
+    const s = this.state;
+    const BAWAAN = desktop && !kisi ? [
+      { nama: 'Barak Andriatma', teks: 'order di SMS Perkasa dilayani dengan ramah,dijamin kemanan transaksi dan kualitas barangnya,semoga sekses selalu SMS Perkasa dan semua tim', rating: 5 },
+      { nama: 'Yuliantoro Yuliantoro', teks: 'Harga relatif standard. Sy puas dengan pelayanannya. Kedepan akan lebih baik.....semoga', rating: 5 },
+      { nama: 'Bambang Hermanto', teks: 'Distributor Besi baja terlengkap & terpercaya di Surabaya& sekitarnya', rating: 5 },
+      { nama: 'nurina wulan', teks: 'Tempatnya homey, respon pegawainya ramah. Pilihan produknya banyak', rating: 5 },
+      { nama: 'Kukuh Edy', teks: 'pelayananya oke...trimakasih krj timnya...', rating: 5 },
+      { nama: 'miftahul amal', teks: 'Office yang berada di lingkungan perumahan', rating: 5 },
+      { nama: 'Anita Lugito', teks: 'pelayanannya okelah memuaskan', rating: 5 },
+      { nama: 'Evi Nurosida', teks: 'the best steel distributor !', rating: 5 }
+    ] : [
+      { nama: 'Bu Fitri', kota: 'Surabaya', tanggal: '18 Nov 2021', rating: 5, segmen: [{ teks: 'Selain harga, saya beli besi hollow di SMS Perkasa karena ' }, { teks: 'pelayanannya bagus', tebal: true }, { teks: ' dan ' }, { teks: 'bisa diandalkan', tebal: true }] },
+      { nama: 'Pak Ignasius', kota: 'Surabaya', tanggal: '23 Nov 2021', rating: 5, segmen: [{ teks: 'Pelayanannya bagus', tebal: true }, { teks: ', ' }, { teks: 'salesnya ramah', tebal: true }, { teks: ' dan dapat menjelaskan informasi produk dengan jelas' }] },
+      { nama: 'Bambang Hermanto', kota: 'Surabaya', tanggal: desktop ? '25 Nov 2021' : '', rating: 5, segmen: [{ teks: 'Distributor besi baja ' }, { teks: 'terlengkap & terpercaya', tebal: true }, { teks: ' di Surabaya & sekitarnya' }] }
+    ];
+    const ULASAN = this.props.ulasan ?? BAWAAN;
+    const kartu = (r, tata) => {
+      const k = { jenis: 'kutipan', tata, nama: r.nama, kota: r.kota || '', tanggal: r.tanggal || '', rating: r.rating || 5 };
+      if (r.segmen) k.segmen = r.segmen; else k.teks = r.teks || '';
+      return k;
+    };
+    const n = ULASAN.length;
+    const page = Math.min(Math.max(0, s.revPage || 0), Math.max(0, n - 1));
+    const rawDrag = typeof s.revDrag === 'number' ? s.revDrag : null;
+    const dragging = rawDrag !== null;
+    const drag = dragging ? (n < 2 ? rawDrag * 0.3 : rawDrag) : 0;
+    const wrap = (p) => (n ? ((p % n) + n) % n : 0);
+    const go = (p) => this._revGo(wrap(p));
+    this._revCount = sepasang ? Math.ceil(n / 2) : n;
+    const autoRunning = !s.revRM && !s.revHover && !s.revFocus && !dragging && n > 1;
+    const rel = (i) => { let r = wrap(i - page); if (r > n / 2) r -= n; return r; };
+    const STEP = 222, CW = 232;
+    const ease = 'cubic-bezier(0.2, 0.8, 0.2, 1)';
+    const base = 'position: absolute; top: 1.2rem; left: 50%; width: ' + CW + 'px; margin-left: -' + (CW / 2) + 'px; box-sizing: border-box; border-radius: var(--action); transform-origin: 50% 50%; will-change: transform; ';
+    const pasang = sepasang ? (() => {
+      const halaman = Math.ceil(n / 2);
+      const pg = Math.min(Math.max(0, s.revPage || 0), Math.max(0, halaman - 1));
+      const geser = dragging ? (halaman < 2 ? rawDrag * 0.3 : rawDrag) : 0;
+      const relatif = (i) => { let r = wrap(i - pg * 2); if (r > n / 2) r -= n; return r; };
+      const LANGKAH = 316;
+      const dasar = 'position: absolute; top: 1.2rem; left: 50%; width: fit-content; max-width: 300px; height: fit-content; box-sizing: border-box; border-radius: var(--action); transform-origin: 50% 50%; will-change: transform; ';
+      const lompat = (p) => this._revGo(((p % halaman) + halaman) % halaman);
+      return {
+        pg,
+        lompat,
+        ulasan: ULASAN.map((r, i) => {
+          const pBase = relatif(i) - 0.5;
+          const pos = pBase + geser / LANGKAH;
+          const a = Math.max(0, Math.abs(pos) - 0.5);
+          const sc = 1 - 0.28 * Math.min(a, 1);
+          const op = a <= 1 ? 1 : Math.max(0, 1 - (a - 1) * 2);
+          const aktif = Math.max(0, Math.abs(pBase) - 0.5) === 0;
+          const tr = dragging ? 'transition: none; ' : 'transition: transform 420ms ' + ease + ', opacity ' + (a > 1 ? '120ms' : '300ms') + ' ease, box-shadow 300ms ease; ';
+          return {
+            kartu: Object.assign(kartu(r, 'desktop'), { jenis: 'slide' }),
+            slide: 'Ulasan ' + (i + 1) + ' dari ' + n,
+            hidden: aktif ? 'false' : 'true',
+            cardStyle: dasar + tr + 'z-index: ' + (10 - Math.round(Math.min(a, 3) * 2)) + '; opacity: ' + op.toFixed(2) + '; box-shadow: ' + (aktif ? 'var(--el-3)' : 'var(--el-2)') + '; transform: translateX(calc(-50% + ' + (pos * LANGKAH).toFixed(1) + 'px)) scale(' + sc.toFixed(3) + ');'
+          };
+        }),
+        titik: Array.from({ length: halaman }, (_, i) => {
+          const a = i * 2 + 1, b = Math.min(i * 2 + 2, n);
+          return { pergi: () => this._revGo(i), aria: 'Tampilkan ulasan ' + a + (b > a ? ' dan ' + b : '') + ' dari ' + n, aktif: i === pg };
+        }),
+        rentang: n ? 'Ulasan ' + (pg * 2 + 1) + (Math.min(pg * 2 + 2, n) > pg * 2 + 1 ? ' dan ' + (pg * 2 + 2) : '') + ' dari ' + n : ''
+      };
+    })() : null;
+    const hal = Math.max(1, Math.ceil(n / 3));
+    const kini = Math.min(Math.max(s.ul || 0, 0), hal - 1);
+    const ulTitik = [];
+    for (let i = 0; i < hal; i++) {
+      const a = i * 3 + 1, b = Math.min((i + 1) * 3, n);
+      ulTitik.push({
+        aktif: i === kini,
+        aria: 'Ulasan ' + (a === b ? a : a + '-' + b) + ' dari ' + n + (i === kini ? ', sedang tampil' : ''),
+        pergi: () => this._ulGo(i)
+      });
+    }
+    return {
+      isPonsel: !desktop,
+      adaUmum: this.props.umumkan ?? true,
+      isRel: desktop && !kisi && !sepasang,
+      isPasang: sepasang,
+      lebarTitik: this.props.lebarTitik,
+      isKisi: desktop && kisi,
+      pasangTrek: this._pasangTrek,
+      pasangRel: this._pasangRel,
+      page: pasang ? pasang.pg : page,
+      autoRunning,
+      revRange: pasang ? pasang.rentang : (n ? 'Ulasan ' + (page + 1) + ' dari ' + n : ''),
+      revLive: pasang ? (autoRunning ? 'off' : 'polite') : (s.revRM ? 'polite' : 'off'),
+      revViewportStyle: 'position: relative; height: ' + (s.revH || 320) + 'px; ' + (pasang ? '' : 'margin: 0 -1.6rem; ') + 'overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none' + (pasang ? '' : '; cursor: ' + (dragging ? 'grabbing' : 'grab') + ';'),
+      revEnter: (e) => { if (e.pointerType === 'mouse') this.setState({ revHover: true }); },
+      revLeave: (e) => { if (e.pointerType === 'mouse') this.setState({ revHover: false }); },
+      revFocus: (e) => {
+        let kb = false;
+        try { kb = e.target.matches(':focus-visible'); } catch (err) {}
+        if (kb) this.setState({ revFocus: true });
+      },
+      revBlur: (e) => { if (!e.currentTarget.contains(e.relatedTarget)) this.setState({ revFocus: false }); },
+      revKey: (e) => {
+        const lain = pasang ? pasang.lompat : go, kini = pasang ? pasang.pg : page;
+        if (e.key === 'ArrowRight') { e.preventDefault(); lain(kini + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); lain(kini - 1); }
+      },
+      revDown: (e) => {
+        if (e.button != null && e.button !== 0) return;
+        this._revX = e.clientX;
+        try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+        this.setState({ revDrag: 0 });
+      },
+      revMove: (e) => {
+        if (this._revX == null) return;
+        this.setState({ revDrag: e.clientX - this._revX });
+      },
+      revUp: (e) => {
+        if (this._revX == null) return;
+        const dx = e.clientX - this._revX;
+        this._revX = null;
+        const lain = pasang ? pasang.lompat : go, kini = pasang ? pasang.pg : page;
+        if (dx < -60) lain(kini + 1); else if (dx > 60) lain(kini - 1); else this.setState({ revDrag: null });
+      },
+      revCancel: () => { this._revX = null; this.setState({ revDrag: null }); },
+      ulasan: pasang ? pasang.ulasan : ULASAN.map((r, i) => {
+        const d = rel(i);
+        const pos = d + drag / STEP;
+        const a = Math.abs(pos), sg = pos < 0 ? -1 : 1;
+        const x = a <= 1 ? pos * STEP : sg * (STEP + (a - 1) * STEP);
+        const sc = 1 - 0.28 * Math.min(a, 1);
+        const op = a <= 1 ? 1 : Math.max(0, 1 - (a - 1) * 2);
+        const far = Math.abs(d) > 1;
+        const tr = dragging ? 'transition: none; ' : 'transition: transform 420ms ' + ease + ', opacity ' + (far ? '120ms' : '300ms') + ' ease, box-shadow 300ms ease; ';
+        return {
+          kartu: kartu(r, 'ponsel'),
+          slide: 'Ulasan ' + (i + 1) + ' dari ' + n,
+          hidden: d === 0 ? 'false' : 'true',
+          cardStyle: base + tr + 'z-index: ' + (10 - Math.abs(d)) + '; opacity: ' + op.toFixed(2) + '; box-shadow: ' + (d === 0 ? 'var(--el-3)' : 'var(--el-2)') + '; transform: translateX(' + x.toFixed(1) + 'px) scale(' + sc.toFixed(3) + ');'
+        };
+      }),
+      revDots: pasang ? pasang.titik : ULASAN.map((r, i) => ({
+        pergi: () => go(i),
+        aria: 'Tampilkan ulasan ' + (i + 1) + ' dari ' + n + ' (' + r.nama + ')',
+        aktif: i === page
+      })),
+      kartuD: ULASAN.map((r, i) => ({
+        kartu: kartu(r, 'desktop'),
+        wadah: kisi
+          ? 'display: flex; margin: ' + (i < 3 ? '0' : '1rem') + ' ' + ((i + 1) % 3 === 0 ? '0' : '1rem') + ' ' + (i >= n - 3 ? '0' : '1rem') + ' ' + (i % 3 === 0 ? '0' : '1rem')
+          : 'flex-shrink: 0; width: calc((100% - 2 * var(--rapat)) / 3); box-sizing: border-box; scroll-snap-align: start; display: flex; margin-left: ' + (i === 0 ? '0' : 'calc(var(--rapat) / 2)') + '; margin-right: calc(var(--rapat) / 2)'
+      })),
+      ulSpy: () => this._ulSpy(),
+      ulTitik
+    };
+  }
+}
+</script>
+</body>
+</html>

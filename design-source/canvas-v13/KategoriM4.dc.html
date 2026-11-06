@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Kategori — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="ponsel" href="https://www.smsperkasa.com/hati-hati-penipuan" hint-size="100%,6.1rem"></dc-import>
+  <dc-import name="SiteHeader" tata="ponsel" hrefLogo="BerandaM4.dc.html" hint-size="100%,5.6rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--talang); display: flex; flex-direction: column">
+    <dc-import name="PageTitle" tata="ponsel" judul="Kategori" remahTampil="{{ remahTampil }}" remah="{{ remah }}" hint-size="100%,3.4rem"></dc-import>
+    <div style="margin-top: 4.5rem; display: flex; flex-direction: column; gap: var(--dalam)">
+      <sc-for list="{{ kategori }}" as="k" hint-placeholder-count="3">
+        <dc-import name="CategoryTile" dc-props="{{ k }}" hint-size="100%,21rem"></dc-import>
+      </sc-for>
+    </div>
+  </main>
+  <div style="margin-top: 4.5rem">
+    <dc-import name="Footer" tata="ponsel" kategori="{{ footKategori }}" sosial="{{ footSosial }}" hint-size="100%,181rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var KATEGORI = [
+      ['Besi', 'besi', '/_blob/5643ddd9c2c99d47e1899581a0d4aaa0'],
+      ['Plastik', 'plastik', '/_blob/78165b927b1cd3bd0b5efc7648e1faf3'],
+      ['Stainless Steel', 'stainless-steel', '/_blob/558ec9759aed356ff57a69ffb3751431']
+    ];
+    return {
+      kategori: KATEGORI.map(function (k) {
+        return { jenis: 'foto', tata: 'ponsel', nama: k[0], foto: k[2], aria: 'Kategori ' + k[0], href: 'ProdukIndexM4.dc.html' };
+      }),
+      remahTampil: false,
+      remah: [{ label: 'Home', href: 'BerandaM4.dc.html' }, { label: 'Kategori' }],
+      footKategori: [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']],
+      ['Plat Stainless Steel', ['Plat Stainless SS304', 'Plat Stainless SS316L']],
+      ['Hollow Stainless Steel', ['Hollow Stainless 201', 'Hollow Stainless 304']],
+      ['Pipa Stainless Steel', ['Pipa Stainless 201', 'Pipa Stainless 304']]
+      ].map(function (c) {
+        return { h: c[0], items: c[1].map(function (l) { return { label: l, href: '#produk' }; }) };
+      }),
+      footSosial: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { label: l, href: '#sosial' }; }),
+    };
+  }
+}
+</script>
+</body>
+</html>

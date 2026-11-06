@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ChatComposer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div style="box-sizing: border-box; padding: {{ pad }}; display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+    <span style="display: flex; flex-shrink: 0; margin-left: calc(-0.4rem + 0.5rem); margin-right: 0.5rem"><dc-import name="IconButton" ikon="tambah" ukuran="{{ 44 }}" nada="cakram" cakramUkuran="{{ 35 }}" cakramRupa="abu" ikonWarna="var(--ink-2)" ariaLabel="{{ labelLampir }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    <div style="flex-grow: 1; min-width: 0; box-sizing: border-box; padding: 0.5rem 0.5rem 0.5rem 1.4rem; border-radius: var(--pill); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+      <label for="{{ idBidang }}" style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; margin-left: calc(-0.1rem + 0.4rem); margin-right: calc(-0.1rem + 0.4rem)">{{ labelPesan }}</label>
+      <dc-import name="TextField" jenis="polos" id="{{ idBidang }}" nilai="{{ nilai }}" placeholder="{{ placeholder }}" onUbah="{{ ubah }}" tinggiMin="3.5rem" margin="0 0.4rem" hint-size="100%,3.5rem"></dc-import>
+      <sc-if value="{{ emoji }}" hint-placeholder-val="{{ false }}">
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="senyum" ukuran="{{ 35 }}" ikonWarna="var(--ink-2)" ariaLabel="{{ labelEmoji }}" hint-size="3.5rem,3.5rem"></dc-import></span>
+      </sc-if>
+      <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="kirim" ukuran="{{ 35 }}" nada="isi" warna="var(--surface)" disabled="{{ kosong }}" ariaLabel="Kirim pesan" onPress="{{ kirim }}" hint-size="3.5rem,3.5rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="box-sizing: border-box; padding: {{ padDesktop }}">
+    <div style="box-sizing: border-box; padding: 1rem 1.2rem; border-radius: var(--card); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line)">
+      <label for="{{ idBidang }}" style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{ labelPesan }}</label>
+      <dc-import name="TextField" jenis="polos" id="{{ idBidang }}" lebar="penuh" tinggiMin="2.4rem" nilai="{{ nilai }}" placeholder="{{ placeholder }}" onUbah="{{ ubah }}" hint-size="100%,2.4rem"></dc-import>
+      <div style="margin-top: 0.6rem; display: flex; align-items: center; row-gap: 0.4rem; column-gap: 0">
+        <span style="display: flex; margin-left: calc(-1rem + 0.2rem); margin-right: 0.2rem"><dc-import name="IconButton" ikon="lampiran" ikonWarna="var(--ink-2)" ariaLabel="{{ labelLampir }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+        <span style="display: flex; margin-left: 0.2rem; margin-right: 0.2rem"><dc-import name="IconButton" ikon="senyum" ikonWarna="var(--ink-2)" ariaLabel="{{ labelEmoji }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+        <span style="flex-grow: 1; margin-left: 0.2rem; margin-right: 0.2rem"></span>
+        <span style="{{ kirimWadah }}"><dc-import name="IconButton" dc-props="{{ kirimProps }}" hint-size="3.5rem,3.5rem"></dc-import></span>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","blog","sku"],"default":"baku","section":"Resep"},"emoji":{"editor":"boolean","default":false,"section":"Resep"},"nilai":{"editor":null},"placeholder":{"editor":"text","default":"Tulis pesan Anda...","section":"Teks"},"labelPesan":{"editor":"text","default":"Tulis pesan Anda","section":"Aksesibilitas"},"labelLampir":{"editor":"text","default":"Lampirkan berkas","section":"Aksesibilitas"},"labelEmoji":{"editor":"text","default":"Sisipkan emotikon","section":"Aksesibilitas"},"onUbah":{"editor":null},"onKirim":{"editor":null},"$preview":{"width":360,"height":90}}'>
+class Component extends DCLogic {
+  state = { isi: '' };
+  uid = 'pesan-' + Math.random().toString(36).slice(2, 8);
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const dikendalikan = this.props.nilai !== undefined;
+    const nilai = dikendalikan ? this.props.nilai : this.state.isi;
+    const sku = this.props.gaya === 'sku';
+    const kosong = !(nilai || '').trim();
+    const r = {
+      pad: this.props.gaya === 'blog' ? '1rem 1.4rem 0 1.4rem' : 'var(--talang)',
+      isPonsel: tata === 'ponsel',
+      isDesktop: tata !== 'ponsel',
+      idBidang: this.uid,
+      nilai,
+      placeholder: this.props.placeholder ?? 'Tulis pesan Anda...',
+      labelPesan: this.props.labelPesan ?? 'Tulis pesan Anda',
+      labelLampir: this.props.labelLampir ?? 'Lampirkan berkas',
+      labelEmoji: this.props.labelEmoji ?? 'Sisipkan emotikon',
+      emoji: !!this.props.emoji,
+      kosong,
+      padDesktop: sku ? '0' : '1.2rem 1.4rem 0 1.4rem',
+      kirimWadah: 'display: flex; margin-left: 0.2rem; margin-right: ' + (sku ? '-0.6rem' : '0.2rem'),
+      ubah: (v, e) => {
+        if (!dikendalikan) this.setState({ isi: v });
+        if (this.props.onUbah) this.props.onUbah(v, e);
+      },
+      kirim: () => {
+        const t = (nilai || '').trim();
+        if (!t) return;
+        if (!dikendalikan) this.setState({ isi: '' });
+        if (this.props.onKirim) this.props.onKirim(t);
+      }
+    };
+    r.kirimProps = sku
+      ? { ikon: 'kirim-garis', ukuran: 44, nada: 'isi', warna: 'var(--surface)', dasar: 'var(--chat-kirim)', ikonUkuran: 19, ikonGaris: 1.9, disabled: kosong, ariaLabel: 'Kirim pesan', onPress: r.kirim }
+      : { ikon: 'kirim', ukuran: 35, nada: 'isi', warna: 'var(--surface)', disabled: kosong, ariaLabel: 'Kirim pesan', onPress: r.kirim };
+    return r;
+  }
+}
+</script>
+</body>
+</html>

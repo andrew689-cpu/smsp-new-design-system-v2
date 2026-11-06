@@ -1,0 +1,106 @@
+## spacing/type token values per canonical board
+board|--sisi|--talang|--seksi|--jarak-y-antar|--jarak-y-dalam|--dalam|--rapat|--jarak-x-dua|--jarak-x-tiga|--selokan-ubin|--teks-section|--teks-page|--teks-lead|--teks-chip|--teks-price|--teks-price-lg
+*DesktopArtikelM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopBerandaM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopBlogM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopKategoriM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopProdukIndexM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopProdukM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopSkuM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*DesktopUlasanM4|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+*BerandaM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+*KategoriM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+*ProdukIndexM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+*RecCreateM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+*SalinanArtikel2M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+*SalinanBlogM4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+*SkuDetailM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|-|1.7rem|-
+*UlasanM4Salinan|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-
+ DesktopProdukM4Salinan|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+ DesktopSkuM4Salinan|12rem|-|6rem|-|-|2rem|1.2rem|-|-|-|-|-|2rem|-|-|2.2rem
+ DetailArtikel2M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ DetailArtikel3M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ DetailArtikel4M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ RecCreateM4Salinan1|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-
+ SalinanArtikel2M4Salinan|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanArtikelM4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBeranda2M4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBeranda3M4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBerandaM4|1.5rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|3rem|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBlog2M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|-|-|2rem|1.2rem|-|-|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBlog3M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBlog4M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBlog5M4|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanBlogM4Salinan|1.6rem|1.5rem|clamp(6rem, 7.5svh, 8r|clamp(6rem, 7.5svh, 8r|1.5rem|2rem|1.2rem|3rem|1.5rem|-|2rem|2.8rem|-|1.2rem|1.7rem|-
+ SalinanProdukPageM4|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-
+ SalinanSkuPageM4|-|-|-|-|-|-|-|3rem|1.5rem|-|-|-|-|-|-|-
+## page root sizing (first style with width: 36rem/144rem or data root)
+[(('m', '36rem', None, None), 32), (('m', '36rem', '0 auto', '100vh'), 24), (('d', '144rem', '0 auto', '100vh'), 10), (('m', '36rem', None, '8.4rem'), 5), (('d', '144rem', None, None), 4), (('d', '36rem', None, '58.727rem'), 4)]
+vw/vh/svh/% usage across boards {'vw': 0, 'vh': 91, 'svh': 64, 'dvh': 0, 'cqw': 0}
+## @media rules bodies
+RecCreateM4.dc.html ['@media (min-width: 40rem) and (max-width: 76.7rem)'] [data-nama] max-width:16.416rem
+RecCreateM4.dc.html ['@media (min-width: 76.8rem)'] [data-nama] max-width:none
+RecCreateM4Salinan1.dc.html ['@media (min-width: 400px) and (max-width: 767px)'] [data-nama] max-width:16.416rem
+RecCreateM4Salinan1.dc.html ['@media (min-width: 768px)'] [data-nama] max-width:none
+SalinanProdukPageM4.dc.html ['@media (min-width: 400px) and (max-width: 767px)'] [data-nama] max-width:16.416rem
+SalinanProdukPageM4.dc.html ['@media (min-width: 768px)'] [data-nama] max-width:none
+## keyframes (canon, one each)
+@keyframes revFillA from{width:0}to{width:100%}
+@keyframes revFillB from{width:0}to{width:100%}
+@keyframes baris-in 0%{opacity:0;transform:translateY(1rem)}100%{opacity:1;transform:none}
+@keyframes bantu-pop 0%{opacity:0;transform:translateY(1rem) scale(.98)}100%{opacity:1;transform:none}
+@keyframes pulau-naik 0%{opacity:0;transform:translateY(1.2rem) scale(.98)}100%{opacity:1;transform:none}
+@keyframes chip-a 0%{opacity:0;transform:translateY(1.6rem) scale(.90)}100%{opacity:1;transform:none}
+@keyframes pita from{transform:translateX(0)}to{transform:translateX(-50%)}
+@keyframes lazy-spin to{transform:rotate(360deg)}
+@keyframes hdr-thumb from{transform:scale(2.2);opacity:0}to{transform:none;opacity:1}
+@keyframes sheet-up 0%{transform:translate(-50%,103%);opacity:.5}100%{transform:translate(-50%,0);opacity:1}
+@keyframes scrim-in from{opacity:0}to{opacity:1}
+@keyframes chip-b 0%{opacity:0;transform:translateY(1.6rem) scale(.90)}100%{opacity:1;transform:none}
+@keyframes bantu-in 0%{opacity:0;transform:translate(-50%,1.6rem)}100%{opacity:1;transform:translate(-50%,0)}
+@keyframes geser from{transform:translateX(0)}to{transform:translateX(-50%)}
+@keyframes masuk 0%{opacity:0;transform:translateY(1.4rem)}100%{opacity:1;transform:none}
+## reduced motion rules example
+RecCreateM4.dc.html 5 [('[data-lazy-spin]', 'animation:none'), ('[data-seg-thumb]', 'transition:none'), ('[data-hdr-thumb]', 'animation:none'), ('[data-sheet],[data-scrim],[data-cari],[data-bantu],[data-bantu-row],[data-set] a,[data-set] button', 'animation:none'), ('[data-bar],[data-grid],[data-grid] rect', 'transition:none')]
+## low-contrast text decl counts (color property, canon)
+[('#5f5f5f', 480), ('#0a0a0a', 320), ('#ffffff', 98), ('#d70100', 90), ('rgba(255,255,255,0.68)', 56), ('inherit', 46), ('#c9c9cb', 16), ('#a84c46', 13), ('rgba(255, 0, 0, 0.8)', 12), ('#16357a', 2), ('rgba(255,255,255,0.82)', 2), ('#6d28d9', 2), ('#dcdcde', 2), ('rgba(255,255,255,0.90)', 2), ('rgba(255,255,255,0.86)', 1), ('rgba(255,255,255,0.92)', 1), ('#25d366', 1)]
+## context of selected text colours (canon) - 3 samples each, with enclosing text
+rgba(255,255,255,0.68) BerandaM4.dc.html -dalam) var(--sisi) 25rem var(--sisi)"> <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: 0.12rem; color: rgba(255,255,255,0.68)">DISTRIBUTOR BESI TERPERCAYA</p> <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-bold); text-
+rgba(255,255,255,0.68) DesktopArtikelM4.dc.html alc(var(--seksi) / 2); margin-bottom: calc(var(--seksi) / 2)"> <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: rgba(255,255,255,0.68); letter-spacing: 0.12rem">DISTRIBUTOR BESI TERPERCAYA</p> <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold); 
+var(--whatsapp) SalinanBlogM4.dc.html ; border-radius: var(--pill); background: var(--cair-tombol); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: var(--whatsapp); display: grid; place-items: center; margin-left: 0.25rem; margin-right: 0.25rem"> <span aria-hidden="true" style="position: absolute; le
+color: var(--ink-4) RecCreateM4.dc.html  var(--ink)"> <sc-for list="{{ sg.items }}" as="si" hint-placeholder-count="4"> <span aria-hidden="true" style="{{ si.pemisah }}; color: var(--ink-4)"> | </span><a href="#cari" style="color: var(--ink); text-decoration: none">{{ si.l }}</a> </sc-for> </p> </div> </
+## footer sample
+) / 2); padding: var(--footer-pad) var(--sisi) 4rem var(--sisi); background: var(--ink); color: #ffffff"> <div data-tepi="1" data-tepi-kisi-y="3" style="display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0"> <div style="margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2); margin-top: calc(var(--seksi) / 2); margin-bottom: calc(var(--seksi) / 2)"> <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: rgba(255,255,255,0.68); letter-spacing: 0.12rem">DISTRIBUTOR BESI TERPERCAYA</p> <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold); line-height: 1.25">Besi dan material konstruksi untuk proyek Anda</p> <div data-tepi="1" style="display: flex; row-gap: 1.6rem; column-gap: 0; margin-top: 2rem"> <sc-for list="{{ sosial }}" as="so" hint-placeholder-count="4"> <a href="#sosial" style="font-size: var(--teks-lead); font-weight: var(--bobot-bold); color: #ffffff; margin-left: 0.8rem; margin-right: 0.8rem">{{ so }}</a> </sc-for> </div> </div> <sc-for list="{{ kolomFooter }}" as="kf" hint-placeholder-count="3"> <div style="margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2); margin-top: calc(var(--seksi) / 2); margin-bottom: calc(var(--seksi) / 2)"> <p style="margin: 0 0 1.2rem 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold)">{{ kf.h }}</p> <div data-tepi-y="1" style="display: flex; flex-direction: column; row-gap: 0; column-gap: 0"> <sc-for list="{{ kf.items }}" as="fi" hint-placeholder-count="5"> <a href="#produk" style="font-size: var(--teks-lead); color: rgba(255,255,255,0.68); line-height: 1.5; margin-top: 0.45rem; margin-bottom: 0.45rem">{{ fi }}</a> 
+## CTA samples
+DesktopProdukM4.dc.html <a href="#whatsapp" style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.4rem 1.2rem; background: var(--brand); color: #ffffff; border-radius: var(--action); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.2">Konsultasi Sekarang</a> </div> </sc-if> </div> </div> <sc-if value="{{ relTampil }}" hint-placeholder-val="{{ false }}"> <div data-tepi="1" style="position: sticky; top: 12.4rem; z-index: 30; padding: 1rem 12rem; background: var(--cair); backdrop-filter: var(--ca
+RecCreateM4.dc.html <a href="#whatsapp" style="align-self: flex-start; box-sizing: border-box; min-height: 3rem; padding: 0.4rem 1.2rem; border-radius: var(--action); background: var(--brand); color: #ffffff; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; text-align: center; display: flex; align-items: center; justify-content: center; text-decoration: none">Konsultasi Sekarang</a> </div> </div> </div> <div style="margin-top: var(--jarak-y-antar); display: flex; flex-direction: column; gap: var(--jarak-y-dalam)"> <div id="m-video" style="margin-top: 0; padding: 0 var(--sisi)"> <h2 sty
+RecCreateM4.dc.html <a href="https://wa.me/628112689889" rel="noopener" onClick="{{ bKirimForm }}" aria-label="Lanjut ke WhatsApp" style="{{ bKirimFormGaya }}; cursor: pointer; box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: #157f3c; box-shadow: var(--el-2); color: #ffffff; display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; font-size: var(--teks-body); font-weight: var(--bobot-semibold); line-height: 1.2; text-decoration: none"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0; display: block; fill: currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08
+## CTA text inventory (anchors/buttons w/ brand bg, all canon)
+[('Konsultasi Sekarang', 10), ('Hitung Sekarang', 2), ('Whatsapp', 2), ('Lihat Selengkapnya', 2), ('Chat di WhatsApp', 1), ('Mulai Live Chat', 1), ('Kirim Ulasan', 1), ('Live Chat', 1)]
+## 1 literal colours only in non-canon boards
+#f8aa08 27 ['SalinanBeranda2M4', 'SalinanBeranda3M4', 'SalinanBerandaM4']
+#253a4a 3 ['SalinanBeranda2M4', 'SalinanBeranda3M4', 'SalinanBerandaM4']
+#517fa4 3 ['SalinanBeranda2M4', 'SalinanBeranda3M4', 'SalinanBerandaM4']
+#fe0100 2 ['SalinanBerandaM4']
+#3f536b 1 ['SalinanBlogM4Salinan']
+## sc-for/sc-if/{{ }} canon [('<sc-for', 201), ('<sc-if', 421), ('{{', 2275)] dc-import 0 support.js 34
+## scripts setState / refs / listeners canon
+setState( 252 all 691
+addEventListener( 23 all 63
+IntersectionObserver 2 all 6
+ResizeObserver 18 all 44
+scrollTo( 4 all 13
+localStorage 0 all 0
+fetch( 0 all 0
+setInterval( 3 all 5
+setTimeout( 3 all 9
+matchMedia( 4 all 11
+## renderVals key rough count: lines "key: " at depth
+## rel attr sanity; target=_blank
+[('noopener', 94), ('1', 8), ('2', 1)]
+## external link samples
+[('https://www.smsperkasa.com/blog', 26), ('https://www.smsperkasa.com/hati-hati-penipuan', 12), ('https://www.smsperkasa.com/kebijakan-privasi', 4), ('https://www.smsperkasa.com/blog/rangka-atap-besi-hollow-vs-baja-ringan', 4), ('https://www.smsperkasa.com/blog/cara-menghitung-kebutuhan-besi-hollow-untuk-partisi', 4), ('https://www.smsperkasa.com/tools/kalkulator-berat-besi-beton', 3), ('https://www.smsperkasa.com/tools/kalkulator-atap', 3), ('https://www.smsperkasa.com/', 2), ('https://www.smsperkasa.com/blog/standarisasi-struktur-baja-bangunan-sekolah', 2), ('https://www.smsperkasa.com/blog/rangka-kanopi-besi-hollow-vs-baja-ringan-mana-yang-terbaik', 2), ('https://www.smsperkasa.com/blog/pagar-rumah-pilih-hollow-hitam-atau-galvanis-ini-jawabannya', 2), ('https://www.smsperkasa.com/blog/cara-mencegah-korosi-mulai-dari-diy-hingga-solusi-industri', 2)]
+## img aspect rules: images wrappers
+## product list from JS
+ class Component extends DCLogic { constructor(props) { super(props); this.state = { awas: true, q: '' }; } renderVals() { var self = this; var s = this.state || {}; var PRODUK = [ ['Atap Galvalum',48,'/_blob/ed99dea1caf360e3512f68d7bd32e6db'],['Atap UPVC',9,'/_blob/0b4a1d80e022a847cb5f7ce4b8a14edf'],['Besi As S45C',35,'/_blob/be9b9e8c56738378c571ca7341e834ca'],['Besi As ST41',34,'/_blob/0fe30b261bb41681c4da9c802ffb6753'], ['Besi Begel',16,'/_blob/615c98cde22e27ed5aafba43883c89e1'],['Besi Beton',10,'/_blob/ed5fc35ec2cdb31f0e5dc27eb9d3a8e9'], ['Besi CNP',52,'/_blob/caa963bf33a2f2c43dcfa3db7993b00a'],['Besi H Beam',13,'/_blob/580e459dc7e76eb6f6aafc06a60fccf9'], ['Besi Hollow Galvalum',4,'/_blob/6f3869bdeb0546b7625457ce28283e83'],['Besi Hollow Galvanis',30,'/_blob/2dbd672bec158d1f04ea41588be9ef89'], ['Besi Hollow Hitam',297,'/_blob/d068d60db4cda4b98068c3d40efc5a77'], ['Besi INP',1,'/_blob/b
+data() { if (this._d) return this._d; this._d = [ [15,15,0.8,2.26,29500],[15,15,1,2.83,37700],[15,15,1.2,3.39,44400],[15,15,1.5,4.24,50300],[15,30,0.8,3.39,45300],[15,30,1,4.24,58100], [15,30,1.2,5.09,68300],[15,30,1.5,6.36,77100],[15,30,1.8,7.63,94000],[15,35,0.8,3.77,53900],[15,35,1,4.71,64700],[15,35,1.2,5.65,76200], [15,35,1.5,7.07,86000],[15,35,1.8,8.48,104800],[16,16,1.5,4.52,57400],[20,20,0.8,3.01,42700],[20,20,1,3.77,51300],[20,20,1.2,4.52,60400], [20,20,1.5,5.65,68000],[20,20,1.8,6.78,83100],[20,40,0.8,4.52,60800],[20,40,1,5.65,78200],[20,40,1.2,6.78,92100],[20,40,1.5,8.48,103800], [20,40,1.8,10.17,126800],[20,40,2,11.3,142000],[20,40,2.3,13,164900],[25,25,0.8,3.77,50500],[25,25,1,4.71,64700],[25,25,1.2,5.65,76200], [25,25,1.5,7.07,87000],[25,25,1.8,8.48,106100],[25,25,2,9.42,117400],[25,25,2.3,10.83,136500],[25,50,0.8,5.65,82100],[25,50,1,7.07,98400], [25,50,1.2,8.48,115800],[25,50,1.5,10.6,132200],[25,50,1.8,12.72,161400],[25,50,2,14.13,178500],[25,50,2.3,16.25,207500],[30,30,0.8,4.52,60800], [30,30,1,5.65,78200],[30,

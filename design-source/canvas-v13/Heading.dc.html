@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Heading</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isH1 }}" hint-placeholder-val="{{ false }}"><h1 style="{{ gaya }}"><sc-if value="{{ adaBaris }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ baris }}" as="b" hint-placeholder-count="2"><span style="{{ b.gaya }}">{{ b.teks }}</span></sc-for></sc-if><sc-if value="{{ tanpaBaris }}" hint-placeholder-val="{{ true }}">{{ teks }}</sc-if></h1></sc-if>
+<sc-if value="{{ isH2 }}" hint-placeholder-val="{{ true }}"><h2 style="{{ gaya }}">{{ teks }}</h2></sc-if>
+<sc-if value="{{ isH2Tautan }}" hint-placeholder-val="{{ false }}"><a href="{{ href }}" aria-label="{{ ariaLabel }}" style="display: flex; align-items: center; gap: var(--rapat); min-height: 4.4rem; text-decoration: none; color: var(--ink)"><h2 style="{{ gaya }}">{{ teks }}</h2></a></sc-if>
+<sc-if value="{{ isH3 }}" hint-placeholder-val="{{ false }}"><h3 style="{{ gaya }}">{{ teks }}</h3></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"level":{"editor":"enum","options":[1,2,3],"default":2},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"varian":{"editor":"enum","options":["bawaan","label","besar","kecil","produk","sku","artikel","hero","ulasan","ulasan-besar","judul","kosong","filter"],"default":"bawaan"},"warna":{"editor":null},"renggang":{"editor":null},"rata":{"editor":null},"href":{"editor":null},"ariaLabel":{"editor":null},"teks":{"editor":null,"default":"Kategori produk"},"baris":{"editor":null,"tsType":"Array<{teks:string,warna?:string}>"},"$preview":{"width":360,"height":50}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const level = Number(this.props.level ?? 2);
+    const tata = this.props.tata === 'desktop' ? 'd' : 'm';
+    const v = this.props.varian ?? 'bawaan';
+    const r = (u, b, t, s, w, up) => ({ u, b, t, s, w, up });
+    const M = 'var(--bobot-medium)'; const B = 'var(--bobot-bold)'; const H = 'var(--bobot-black)';
+    const label2 = { m: r('var(--teks-section)', 'var(--label-bobot, var(--bobot-medium))', 'var(--tinggi-sedang)', 'var(--renggang-label-m)', 'var(--label-warna, var(--ink-2))', 1), d: r('var(--teks-section-md)', M, 'var(--tinggi-rapat)', 'var(--renggang-label-d)', 'var(--ink-2)', 1) };
+    const label3 = { m: r('var(--teks-body)', M, 'var(--tinggi-sedang)', 'var(--renggang-label-m)', 'var(--ink-2)', 1), d: r('var(--teks-subsection)', M, 'var(--tinggi-rapat)', 'var(--renggang-label-d)', 'var(--ink-2)', 1) };
+    const h1 = { m: r('var(--teks-page)', B, 'var(--tinggi-rapat)', 'var(--renggang-judul)'), d: r('var(--teks-display)', B, 'var(--tinggi-rapat)', 'var(--renggang-judul)') };
+    const peta = {
+      1: {
+        bawaan: h1,
+        produk: { m: r('var(--teks-page)', B, 'var(--tinggi-rapat)', 'var(--renggang-produk-m)'), d: r('var(--teks-display)', B, 'var(--tinggi-sempit)', 'var(--renggang-produk-d)') },
+        sku: { m: h1.m, d: r('var(--teks-judul-sku)', B, 'var(--tinggi-sempit)', 'var(--renggang-produk-d)') },
+        artikel: { m: h1.m, d: r('var(--teks-display)', B, 'var(--tinggi-artikel-h1)', 'var(--renggang-judul)') },
+        hero: { m: r('var(--teks-page)', B, 'var(--tinggi-artikel-h1)', 'var(--renggang-judul)'), d: r('var(--teks-display)', B, 'var(--tinggi-artikel-h1)', 'var(--renggang-judul)') },
+        ulasan: { m: r('var(--teks-section-lg)', H, 'var(--tinggi-ulasan-m)', 'var(--renggang-ulasan-m)', 'var(--ink)'), d: r('var(--teks-judul-ulasan)', H, 'var(--tinggi-ulasan-d)', 'var(--renggang-ulasan-d)', 'var(--ink)') }
+      },
+      2: {
+        lama: { m: r('var(--teks-section)', B, 'var(--tinggi-sedang)', 'var(--renggang-label-m)', 'var(--ink)', 1), d: r('var(--teks-section)', B, 'var(--tinggi-sedang)', 'var(--renggang-label-m)', 'var(--ink)', 1) },
+        bawaan: label2,
+        label: label2,
+        besar: { m: label2.m, d: r('var(--teks-section-lg)', M, 'var(--tinggi-rapat)', 'var(--renggang-label-d)', 'var(--ink-2)', 1) },
+        kecil: { m: label2.m, d: r('var(--teks-subsection)', M, 'var(--tinggi-rapat)', 'var(--renggang-label-d)', 'var(--ink-2)', 1) },
+        artikel: { m: r('var(--teks-section)', B, 'var(--tinggi-artikel)', undefined, 'var(--ink)'), d: r('var(--teks-section-md)', B, 'var(--tinggi-artikel)', undefined, 'var(--ink)') },
+        ulasan: { m: r('var(--teks-body)', B, 'var(--tinggi-rapat)', 'var(--renggang-ulasan)', 'var(--ink-2)', 1), d: r('var(--teks-unit-lg)', B, 'var(--tinggi-rapat)', 'var(--renggang-ulasan)', 'var(--ink-2)', 1) },
+        'ulasan-besar': { m: label2.m, d: r('var(--teks-section-md)', B, 'var(--tinggi-rapat)', 'var(--renggang-label-d)', 'var(--ink)', 1) },
+        filter: { m: r('var(--teks-price)', M, 'var(--tinggi-rapat)', undefined, 'var(--ink-2)'), d: r('var(--teks-price)', M, 'var(--tinggi-rapat)', undefined, 'var(--ink-2)') },
+        seksi: { m: r('var(--teks-seksi)', M, 'var(--tinggi-sedang)', 'var(--renggang-label-m)', 'var(--ink-2)', 1), d: label2.d }
+      },
+      3: {
+        bawaan: label3,
+        label: label3,
+        judul: { m: r('var(--teks-body)', M, 'var(--tinggi-sedang)', undefined, 'var(--ink)'), d: r('var(--teks-subhead)', M, 'var(--tinggi-tengah)', undefined, 'var(--ink)') },
+        artikel: { m: r('var(--teks-body)', B, 'var(--tinggi-tengah)', undefined, 'var(--ink)'), d: r('var(--teks-lead)', B, 'var(--tinggi-tengah)', undefined, 'var(--ink)') },
+        kosong: { m: r('var(--teks-section)', M, undefined, undefined, 'var(--ink-2)'), d: r('var(--teks-lead)', M, undefined, undefined, 'var(--ink-2)') },
+        filter: { m: r('var(--teks-lead)', M), d: r('var(--teks-lead)', M) }
+      }
+    };
+    const per = peta[level] || peta[2];
+    const x = (per[v] || per.bawaan)[tata];
+    const warna = this.props.warna ?? x.w;
+    const gaya = ['margin: 0', 'font-size: ' + x.u, 'font-weight: ' + x.b];
+    if (x.t) gaya.push('line-height: ' + x.t);
+    const renggang = this.props.renggang ?? x.s;
+    if (renggang) gaya.push('letter-spacing: ' + renggang);
+    if (x.up) gaya.push('text-transform: uppercase');
+    if (warna) gaya.push('color: ' + warna);
+    if (this.props.rata) gaya.push('text-align: ' + this.props.rata);
+    return {
+      isH1: level === 1,
+      isH2: level !== 1 && level !== 3 && !this.props.href,
+      isH2Tautan: level !== 1 && level !== 3 && !!this.props.href,
+      href: this.props.href,
+      ariaLabel: this.props.ariaLabel,
+      isH3: level === 3,
+      teks: this.props.teks ?? 'Kategori produk',
+      adaBaris: !!this.props.baris,
+      tanpaBaris: !this.props.baris,
+      baris: (this.props.baris || []).map((b) => ({ teks: b.teks, gaya: 'display: block' + (b.warna ? '; color: ' + b.warna : '') })),
+      gaya: gaya.join('; ')
+    };
+  }
+}
+</script>
+</body>
+</html>

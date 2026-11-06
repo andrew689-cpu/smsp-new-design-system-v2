@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>RelatedTags</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div>
+  <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" teks="{{ judul }}" hint-size="100%,2.8rem"></dc-import>
+  <sc-for list="{{ grup }}" as="g" hint-placeholder-count="3">
+    <div style="margin-top: var(--jarak-y-dalam)">
+      <p style="margin: 0; font-size: var(--teks-body); color: var(--ink-2)">{{ g.h }}</p>
+      <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink)">
+        <sc-for list="{{ g.items }}" as="si" hint-placeholder-count="4">
+          <span aria-hidden="true" style="{{ si.pemisah }}"> | </span><a href="{{ si.href }}" style="color: var(--ink); text-decoration: none">{{ si.l }}</a>
+        </sc-for>
+      </p>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":null,"default":"Pencarian terkait"},"grup":{"editor":null},"$preview":{"width":330,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const daftar = this.props.grup ?? [
+      { h: 'Harga per ukuran', items: ['Harga hollow hitam 2x4', 'Harga hollow hitam 4x4', 'Harga hollow hitam 4x6', 'Harga hollow hitam per batang'] },
+      { h: 'Panduan', items: ['Ukuran besi hollow hitam', 'Berat besi hollow hitam', 'Tabel tebal besi hollow'] },
+      { h: 'Produk sejenis', items: ['Besi hollow galvanis', 'Pipa hitam', 'Pipa galvanis'] }
+    ];
+    return {
+      judul: this.props.judul ?? 'Pencarian terkait',
+      grup: daftar.map((g) => ({
+        h: g.h,
+        items: g.items.map((it, i) => {
+          const l = typeof it === 'string' ? it : it.l;
+          return { l, href: (typeof it === 'string' ? '#' : it.href) || '#', pemisah: (i === 0 ? 'display: none; ' : '') + 'color: var(--ink-4)' };
+        })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

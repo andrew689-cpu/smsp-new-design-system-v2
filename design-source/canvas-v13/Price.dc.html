@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Price</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBlok }}" hint-placeholder-val="{{ true }}">
+  <span style="display: flex; flex-direction: column; gap: 0.2rem; align-items: {{ rata }}; flex-shrink: 0">
+    <span data-harga="1" style="font-size: {{ ukuran }}; line-height: {{ tinggi }}; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; color: {{ warna }}"><span style="font-size: {{ ukuranRp }}; font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: var(--renggang-sup)">Rp</span>{{ angka }}</span>
+    <sc-if value="{{ adaUnit }}" hint-placeholder-val="{{ true }}">
+      <span data-harga="1" style="font-size: {{ ukuranUnit }}; line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-tipis); white-space: nowrap; color: var(--ink-2)">{{ unit }}</span>
+    </sc-if>
+  </span>
+</sc-if>
+<sc-if value="{{ isMulai }}" hint-placeholder-val="{{ false }}">
+  <span style="display: block; font-size: {{ ukuran }}; line-height: var(--tinggi-tengah); color: var(--ink-2)">{{ awalan }} <span data-harga="1" style="font-weight: var(--bobot-bold); color: var(--ink)">Rp {{ angka }}</span></span>
+</sc-if>
+<sc-if value="{{ isPromo }}" hint-placeholder-val="{{ false }}">
+  <span style="display: block; white-space: nowrap; color: var(--ink)"><span data-harga="1" style="font-size: {{ ukuran }}; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; color: {{ warna }}"><span style="font-size: {{ ukuranRp }}; font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: var(--renggang-sup)">Rp</span>{{ angka }}</span><span style="font-size: {{ ukuranUnit }}; font-weight: var(--bobot-regular); color: var(--ink)">{{ unit }}</span></span>
+</sc-if>
+<sc-if value="{{ isSebaris }}" hint-placeholder-val="{{ false }}">
+  <span data-harga="1" style="{{ gayaSebaris }}"><span style="font-size: {{ ukuranRp }}; font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: var(--renggang-sup)">Rp</span>{{ angka }}<span style="margin-left: 0.2rem; vertical-align: -0.2rem; color: {{ warnaUnit }}; font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-tipis); white-space: nowrap">{{ unit }}</span></span>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ukuran":{"editor":"enum","options":["baris-m","baris-d","halaman","sku-m","sku-d","mulai-m","mulai-d","promo-m","promo-d","lama-sku","lama-kartu","lama-ringkas"],"default":"baris-m"},"tone":{"editor":"enum","options":["ink","brand"],"default":"ink"},"rata":{"editor":"enum","options":["kanan","kiri"],"default":"kanan"},"angka":{"editor":null,"default":"66.000"},"unit":{"editor":null,"default":"per batang"},"awalan":{"editor":null,"default":"Mulai"},"$preview":{"width":140,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const peta = {
+      'baris-m': { u: 'var(--teks-price)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)' },
+      'baris-d': { u: 'var(--teks-price-lg)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)' },
+      halaman: { u: 'var(--teks-page)', rp: 'var(--teks-sup)', t: 'var(--tinggi-rapat)', un: 'var(--teks-tiny)' },
+      'sku-m': { u: 'var(--teks-page)', rp: 'var(--teks-body)', t: 'inherit', un: 'var(--teks-tiny)' },
+      'sku-d': { u: 'var(--teks-display)', rp: 'var(--teks-price-lg)', t: 'var(--tinggi-sempit)', un: 'var(--teks-unit-lg)' },
+      'mulai-m': { u: 'var(--teks-meta)', jenis: 'mulai' },
+      'mulai-d': { u: 'var(--teks-lead)', jenis: 'mulai' },
+      'promo-m': { u: 'var(--teks-section)', rp: 'var(--teks-tiny)', un: 'var(--teks-chip)', jenis: 'promo' },
+      'promo-d': { u: 'var(--teks-section-md)', rp: 'var(--teks-meta)', un: 'var(--teks-body)', jenis: 'promo' },
+      'lama-sku': { jenis: 'sebaris', rp: 'var(--teks-tiny)', gaya: 'font-size: var(--teks-section); font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums', wu: 'var(--ink-2)' },
+      'lama-kartu': { jenis: 'sebaris', rp: 'var(--teks-sup)', gaya: 'font-size: var(--teks-price); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat); white-space: nowrap; font-variant-numeric: tabular-nums', wu: 'var(--ink-2)' },
+      'lama-ringkas': { jenis: 'sebaris', rp: 'var(--teks-nano)', gaya: 'font-size: var(--teks-body); line-height: var(--tinggi-tengah); color: var(--ringkas-redup); overflow: hidden; text-overflow: ellipsis; white-space: nowrap', wu: 'var(--ringkas-redup-2)' }
+    };
+    const m = peta[this.props.ukuran ?? 'baris-m'] || peta['baris-m'];
+    const unit = this.props.unit ?? (m.jenis === 'promo' ? '/meter' : m.jenis === 'sebaris' ? '/btg' : 'per batang');
+    return {
+      isBlok: !m.jenis,
+      isMulai: m.jenis === 'mulai',
+      isPromo: m.jenis === 'promo',
+      isSebaris: m.jenis === 'sebaris',
+      gayaSebaris: m.gaya,
+      warnaUnit: m.wu,
+      awalan: this.props.awalan ?? 'Mulai',
+      angka: this.props.angka ?? '66.000',
+      unit,
+      adaUnit: !!unit,
+      ukuran: m.u,
+      ukuranRp: m.rp,
+      ukuranUnit: m.un,
+      tinggi: m.t,
+      warna: (this.props.tone ?? 'ink') === 'brand' ? 'var(--brand)' : 'inherit',
+      rata: (this.props.rata ?? 'kanan') === 'kiri' ? 'flex-start' : 'flex-end'
+    };
+  }
+}
+</script>
+</body>
+</html>

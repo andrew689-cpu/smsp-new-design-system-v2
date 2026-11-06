@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa · Desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="ArticlePage" tata="desktop" faqTingkat="h3" hrefLogo="Artboard-pp1u.dc.html" hrefDetail="https://www.smsperkasa.com/blog/standarisasi-struktur-baja-bangunan-sekolah" navAria="Kategori artikel" navProduk="{{ navProduk }}" navTautan="{{ navTautan }}" remah="{{ remah }}" lainnya="{{ lainnya }}" tanggalPanjang="{{ tanggalPanjang }}" lalu="{{ lalu }}" hint-size="100%,100vh"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var BULAN = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5, Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11 };
+    var HARI = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    function hari(tgl) {
+      var q = String(tgl).split(' ');
+      var b = BULAN[q[1]];
+      if (q.length !== 3 || b === undefined) { return tgl; }
+      return HARI[new Date(parseInt(q[2], 10), b, parseInt(q[0], 10)).getDay()] + ', ' + tgl;
+    }
+    function lalu(tgl) {
+      var p = String(tgl).split(' ');
+      var bln = BULAN[p[1]];
+      if (p.length !== 3 || bln === undefined) { return tgl; }
+      var hari = Math.floor((Date.now() - new Date(parseInt(p[2], 10), bln, parseInt(p[0], 10)).getTime()) / 86400000);
+      if (hari < 1) { return 'hari ini'; }
+      if (hari === 1) { return 'kemarin'; }
+      if (hari < 30) { return hari + ' hari yang lalu'; }
+      if (hari < 365) { return Math.floor(hari / 30) + ' bulan yang lalu'; }
+      return Math.floor(hari / 365) + ' tahun yang lalu';
+    }
+    var lainnya = [
+      { judul: "Cara Quality Control Menghindari Penolakan Material Kementerian PUPR", foto: "/_blob/4a254e10b1f06660a1911ba3c813977f", kategori: "Berita Baja", tanggal: "5 Okt 2026" },
+      { judul: "Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF", foto: "/_blob/e59baf3f84be4e49c58d026350c8d3ea", kategori: "Berita Baja", tanggal: "29 Jul 2026" },
+      { judul: "Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh", foto: "/_blob/e5907f6a2d0576cfb96384f890f9e859", kategori: "Berita Baja", tanggal: "14 Jul 2026" },
+      { judul: "Harga Besi Baja: Tren dan Cara Menyiasati Proyek", foto: "/_blob/a99bab86ecca79d21fcfe2eedcfe9f9d", kategori: "Berita Baja", tanggal: "11 Jul 2026" },
+      { judul: "Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!", foto: "/_blob/cc872e39be6f6e13f79dc4c7b6618ee8", kategori: "Berita Baja", tanggal: "2 Jul 2026" },
+      { judul: "Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja", foto: "/_blob/ebacf14138b3291bfebf9cf6bd58abe7", kategori: "Industri Baja", tanggal: "9 Okt 2026" }
+    ].map(function (x) { return Object.assign({ href: 'DesktopArtikelM4.dc.html' }, x); });
+    return {
+      tanggalPanjang: hari('25 Jul 2026'),
+      lalu: lalu('25 Jul 2026'),
+      lainnya: lainnya,
+      remah: [{ label: 'Blog', href: 'DesktopBlogM4.dc.html' }, { label: 'Berita Baja' }],
+      navProduk: { label: 'Semua Produk Produk Kategori', href: 'DesktopProdukIndexM4.dc.html' },
+      navTautan: [
+        { label: 'Berita Baja', href: '#kat-berita' },
+        { label: 'Industri Baja', href: '#kat-industri' },
+        { label: 'Produk Besi', href: '#kat-produk' },
+        { label: 'Team', href: '#kat-team' },
+        { label: 'Trivia', href: '#kat-trivia' },
+        { label: 'Semua Kategori', href: 'https://www.smsperkasa.com/blog' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click": "[aria-label^=\"Urutkan daftar harga\"]"}, {"wait": 500}, {"click": "text=Harga Tertinggi"}, {"wait": 600}]

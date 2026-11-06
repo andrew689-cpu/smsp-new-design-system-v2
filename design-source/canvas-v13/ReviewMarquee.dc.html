@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewMarquee</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div role="region" aria-label="{{ label }}" style="margin: 0 -1.6rem; position: relative; overflow: hidden; -webkit-mask-image: var(--pita-topeng); mask-image: var(--pita-topeng)">
+    <div data-pita="ponsel" style="display: flex; align-items: stretch; width: max-content; padding: 0.6rem 0 1.2rem 0">
+      <sc-for list="{{ pita }}" as="k" hint-placeholder-count="8">
+        <span style="{{ k.wadah }}"><dc-import name="ReviewCard" dc-props="{{ k.kartu }}" hint-size="27.2rem,17rem"></dc-import></span>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div data-pita-wrap="1" role="region" aria-label="{{ label }}" style="position: relative; overflow: hidden; padding-bottom: 3.6rem">
+    <div data-pita="desktop" data-jeda="{{ jedaAttr }}" style="display: flex; align-items: stretch; width: max-content; column-gap: 0; padding: 0.6rem 12rem">
+      <sc-for list="{{ pita }}" as="k" hint-placeholder-count="8">
+        <span style="{{ k.wadah }}"><dc-import name="ReviewCard" dc-props="{{ k.kartu }}" hint-size="34rem,22rem"></dc-import></span>
+      </sc-for>
+    </div>
+    <div style="position: absolute; right: 12rem; bottom: 4.4rem">
+      <dc-import name="GlassButton" jenis="jeda" ikon="{{ jedaIkon }}" label="{{ jedaLabel }}" ariaPressed="{{ jedaAria }}" onPress="{{ jedaToggle }}" hint-size="10rem,4rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"jeda":{"editor":"boolean","default":false},"ulasan":{"editor":null,"tsType":"Array<{teks:string,nama:string,kota?:string,tanggal:string,rating:number}>"},"label":{"editor":null},"$preview":{"width":360,"height":240}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { jeda: !!(props && props.jeda) };
+  }
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const BAWAAN = desktop ? [
+      { teks: 'Barangnya sesuai ukuran, pengiriman ke Sidoarjo cuma sehari. Sales-nya responsif.', nama: 'Pak Hendra', tanggal: 'Maret 2026', rating: 5 },
+      { teks: 'Las-lasan rapat tanpa penyesuaian di lapangan. Untuk rangka kanopi ini penting sekali.', nama: 'Bu Ratna', tanggal: 'Februari 2026', rating: 5 },
+      { teks: 'Tonase dan ongkos kirim dihitung sekalian, jadi tidak perlu bolak-balik tanya.', nama: 'Pak Yusuf', tanggal: 'Januari 2026', rating: 4 },
+      { teks: 'Ditanya ketersediaan langsung dicek gudang, tidak digantung berhari-hari.', nama: 'Pak Dimas', tanggal: 'Januari 2026', rating: 5 },
+      { teks: 'Batang diikat per kelompok ukuran, bongkar di proyek jadi gampang dihitung.', nama: 'Bu Sari', tanggal: 'Desember 2025', rating: 5 },
+      { teks: 'Harga per kg dan per batang dua-duanya disebut, tidak ada biaya yang muncul belakangan.', nama: 'Pak Anwar', tanggal: 'Desember 2025', rating: 4 },
+      { teks: 'Dijanjikan Rabu, datang Rabu pagi. Untuk jadwal cor ini menentukan.', nama: 'Pak Bagus', tanggal: 'November 2025', rating: 5 },
+      { teks: 'Saya salah hitung tebal, tim sales mengoreksi sebelum pesanan diproses.', nama: 'Bu Wulan', tanggal: 'November 2025', rating: 5 }
+    ] : [
+      { nama: 'Pak Andi', kota: 'Surabaya', tanggal: '1 Jan 2026', rating: 4, teks: 'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.' },
+      { nama: 'Bu Fitri', kota: 'Malang', tanggal: '8 Jun 2026', rating: 5, teks: 'Harga bersaing dan beratnya sesuai dengan yang tertulis di penawaran.' },
+      { nama: 'Pak Ignasius', kota: 'Sidoarjo', tanggal: '15 Jan 2026', rating: 5, teks: 'Admin responsif, sertifikat pabrik dikirim tanpa diminta dua kali.' },
+      { nama: 'Bu Ratna', kota: 'Mojokerto', tanggal: '22 Jun 2026', rating: 5, teks: 'Salesnya ramah, penawaran dikirim cepat lengkap dengan berat per batang.' },
+      { nama: 'Pak Hendra', kota: 'Gresik', tanggal: '1 Jan 2026', rating: 5, teks: 'Potongan rapi, tidak perlu banyak gerinda waktu pemasangan.' },
+      { nama: 'Bu Lilis', kota: 'Surabaya', tanggal: '8 Jun 2026', rating: 5, teks: 'Stok selalu ada, pesan pagi sore sudah jalan ke lokasi.' },
+      { nama: 'Pak Joko', kota: 'Malang', tanggal: '15 Jan 2026', rating: 5, teks: 'Kirim tepat waktu ke lokasi proyek, sopirnya kooperatif waktu bongkar.' },
+      { nama: 'Bu Maria', kota: 'Sidoarjo', tanggal: '22 Jun 2026', rating: 5, teks: 'Sudah langganan dua tahun, kualitasnya stabil dari kiriman ke kiriman.' }
+    ];
+    const inti = this.props.ulasan ?? BAWAAN;
+    const jeda = !!this.state.jeda;
+    // Dua salinan digeser -50%; salinan kedua aria-hidden supaya tidak dibacakan dua kali.
+    const pita = inti.concat(inti).map((u, i) => ({
+      wadah: desktop
+        ? 'display: flex; margin-left: ' + (i === 0 ? '0' : '0.9rem') + '; margin-right: 0.9rem'
+        : 'display: flex; flex-shrink: 0; margin-right: 1.2rem',
+      kartu: {
+        jenis: 'pita',
+        tata: desktop ? 'desktop' : 'ponsel',
+        teks: u.teks,
+        nama: u.nama,
+        kota: u.kota || '',
+        tanggal: u.tanggal,
+        rating: u.rating,
+        ariaHidden: i >= inti.length ? 'true' : 'false'
+      }
+    }));
+    return {
+      isPonsel: !desktop,
+      isDesktop: desktop,
+      label: this.props.label ?? (desktop ? 'Kutipan ulasan pelanggan yang berjalan' : 'Ulasan terbaru, berjalan otomatis'),
+      pita,
+      jedaAttr: jeda ? '1' : '0',
+      jedaAria: jeda ? 'true' : 'false',
+      jedaIkon: jeda ? 'putar' : 'jeda',
+      jedaLabel: jeda ? 'Lanjutkan' : 'Jeda',
+      jedaToggle: () => this.setState({ jeda: !jeda })
+    };
+  }
+}
+</script>
+</body>
+</html>

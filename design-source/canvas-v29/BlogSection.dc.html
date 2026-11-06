@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogSection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section id="{{ id }}" style="{{ gayaAkar }}">
+  <sc-if value="{{ kepalaPolos }}" hint-placeholder-val="{{ true }}">
+    <dc-import name="Heading" level="{{ 2 }}" varian="{{ judulVarian }}" tata="{{ tata }}" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+  </sc-if>
+  <sc-if value="{{ kepalaAda }}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+      <sc-if value="{{ kepalaBatang }}" hint-placeholder-val="{{ true }}">
+        <span aria-hidden="true" style="flex-shrink: 0; width: 0.4rem; align-self: stretch; min-height: 2rem; border-radius: var(--pill); background: var(--brand); margin-right: 0.5rem"></span>
+      </sc-if>
+      <sc-if value="{{ kepalaNyala }}" hint-placeholder-val="{{ false }}">
+        <span style="display: flex; flex-shrink: 0; margin-right: 0.5rem"><dc-import name="Icon" ikon="nyala" ukuran="{{ 16 }}" isi="var(--brand)" warna="none" hint-size="1.6rem,1.6rem"></dc-import></span>
+      </sc-if>
+      <span style="display: block; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="Heading" level="{{ 2 }}" varian="label" tata="{{ tata }}" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import></span>
+    </div>
+  </sc-if>
+  <sc-if value="{{ kepalaPopuler }}" hint-placeholder-val="{{ false }}">
+    <dc-import name="BlogPopularHead" tepi="{{ populerTepi }}" hint-size="100%,17rem"></dc-import>
+  </sc-if>
+  <sc-if value="{{ adaDeskripsi }}" hint-placeholder-val="{{ true }}">
+    <p style="{{ gayaDeskripsi }}; font-weight: var(--bobot-light); color: var(--ink-2)">{{ deskripsi }}</p>
+  </sc-if>
+  <div style="{{ gayaDaftar }}">
+    <sc-for list="{{ baris }}" as="b" hint-placeholder-count="6">
+      <div style="{{ b.gaya }}"><dc-import name="BlogRow" dc-props="{{ b.props }}" hint-size="100%,8rem"></dc-import></div>
+    </sc-for>
+  </div>
+  <sc-if value="{{ adaLihat }}" hint-placeholder-val="{{ true }}">
+    <span style="{{ gayaLihat }}"><dc-import name="Button" variant="{{ lihatVarian }}" tinggi="0" label="{{ lihatLabel }}" href="{{ lihatHref }}" target="_blank" rel="noopener" ariaLabel="{{ lihatAria }}" hint-size="8rem,2rem"></dc-import></span>
+  </sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","lama","kartu"],"default":"baku","section":"Resep"},"jenisBaris":{"editor":"enum","options":["baru","indeks"],"default":"indeks","section":"Resep"},"kepala":{"editor":"enum","options":["otomatis","polos","batang","nyala","populer","kosong"],"default":"otomatis","section":"Resep"},"populerTepi":{"editor":"enum","options":["penuh","kanan"],"default":"penuh","section":"Resep"},"judulVarian":{"editor":"enum","options":["label","seksi"],"default":"label","section":"Resep"},"kategoriTampil":{"editor":"boolean","default":true,"section":"Resep"},"garis":{"editor":"boolean","default":false,"section":"Resep"},"latarBaris":{"editor":"boolean","default":false,"section":"Resep"},"id":{"editor":"text","default":"","section":"Tautan"},"judul":{"editor":"text","default":"Berita Baja","section":"Isi"},"deskripsi":{"editor":"text","default":"Perkembangan industri, kebijakan dan pergerakan harga besi baja.","section":"Isi"},"lihatLabel":{"editor":"text","default":"Lihat Semua","section":"Tautan"},"lihatHref":{"editor":"text","default":"https://www.smsperkasa.com/blog","section":"Tautan"},"lihatAria":{"editor":"text","default":"Lihat semua artikel, buka indeks blog di smsperkasa.com","section":"Aksesibilitas"},"baris":{"editor":null,"section":"Data","tsType":"Array<BlogRow props>"},"$preview":{"width":330,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const desktop = p.tata === 'desktop';
+    const tata = desktop ? 'desktop' : 'ponsel';
+    const gaya = p.gaya ?? 'baku';
+    const lama = !desktop && gaya === 'lama';
+    const blok = desktop || lama;
+    const jenis = p.jenisBaris ?? 'indeks';
+    const baris = p.baris ?? [{}, {}];
+    const n = baris.length;
+    const jarak = jenis === 'baru' ? 'calc(var(--rapat) / 2)' : 'calc(var(--jarak-y-dalam) / 2)';
+    const deskripsi = p.deskripsi === undefined ? 'Perkembangan industri, kebijakan dan pergerakan harga besi baja.' : p.deskripsi;
+    const lihatHref = p.lihatHref === undefined ? 'https://www.smsperkasa.com/blog' : p.lihatHref;
+    const kepala = (p.kepala && p.kepala !== 'otomatis') ? p.kepala : (desktop ? 'batang' : 'polos');
+    const garis = !!p.garis;
+    const gayaBaris = (i) => {
+      if (desktop) return i % 2 === 0 ? 'margin-right: calc(var(--seksi) / 2)' : 'margin-left: calc(var(--seksi) / 2)';
+      if (lama && jenis !== 'baru') return 'margin: 0';
+      return 'margin-top: ' + (i === 0 ? '0' : jarak) + '; margin-bottom: ' + (i === n - 1 ? '0' : jarak) + (garis && i > 0 ? '; border-top: 0.1rem solid var(--line)' : '');
+    };
+    const atasBaris = {};
+    if (!desktop && gaya !== 'baku' && jenis === 'indeks') atasBaris.gaya = gaya;
+    if (p.kategoriTampil === false) atasBaris.kategoriTampil = false;
+    return {
+      id: p.id || undefined,
+      tata,
+      judul: p.judul ?? 'Berita Baja',
+      judulVarian: p.judulVarian ?? 'label',
+      kepalaPolos: kepala === 'polos',
+      kepalaAda: kepala === 'batang' || kepala === 'nyala',
+      kepalaBatang: kepala === 'batang',
+      kepalaNyala: kepala === 'nyala',
+      kepalaPopuler: kepala === 'populer',
+      populerTepi: p.populerTepi ?? 'penuh',
+      gayaAkar: desktop ? 'scroll-margin-top: 7.2rem' : lama ? 'scroll-margin-top: 5.6rem' : 'scroll-margin-top: 5.6rem; display: flex; flex-direction: column; gap: var(--jarak-y-dalam)',
+      deskripsi,
+      adaDeskripsi: !!deskripsi,
+      gayaDeskripsi: desktop ? 'margin: 0.8rem 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-lega)' : lama ? 'margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-lega)' : 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega)',
+      gayaDaftar: desktop
+        ? 'margin-top: var(--rapat); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0'
+        : lama
+          ? (p.latarBaris
+            ? 'margin-top: var(--rapat); box-sizing: border-box; padding: var(--rapat); border-radius: var(--action); background: var(--surface-2); display: flex; flex-direction: column; row-gap: 0; column-gap: 0'
+            : 'margin-top: var(--rapat); display: block')
+          : 'display: flex; flex-direction: column; row-gap: 0; column-gap: 0',
+      baris: baris.map((b, i) => ({ gaya: gayaBaris(i), props: { jenis, tata, ...atasBaris, ...b } })),
+      adaLihat: !!lihatHref,
+      lihatHref,
+      lihatVarian: desktop ? 'tautan-besar' : 'tautan',
+      gayaLihat: blok ? 'display: flex; margin-top: var(--dalam)' : 'display: flex',
+      lihatLabel: p.lihatLabel ?? 'Lihat Semua',
+      lihatAria: p.lihatAria ?? 'Lihat semua artikel, buka indeks blog di smsperkasa.com'
+    };
+  }
+}
+</script>
+</body>
+</html>

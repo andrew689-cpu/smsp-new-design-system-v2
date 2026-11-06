@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Beranda · Desktop — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="desktop" href="https://www.smsperkasa.com/hati-hati-penipuan" hint-size="100%,5.4rem"></dc-import>
+  <dc-import name="SiteHeader" tata="desktop" hrefLogo="DesktopBerandaM4.dc.html" navProduk="{{ navProduk }}" navTautan="{{ navTautan }}" hint-size="100%,12.4rem"></dc-import>
+  <main style="padding-bottom: calc(var(--footer-jarak) / 2)">
+    <div style="margin-top: var(--dalam)">
+      <dc-import name="HeroCarousel" tata="desktop" banner="{{ banner }}" hint-size="100%,52.4rem"></dc-import>
+    </div>
+    <div style="padding: var(--seksi) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Kategori produk" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="Rail" komponen="CategoryTile" items="{{ kategori }}" kolom="{{ 6 }}" tepi="kisi" gutter="calc(var(--rapat) / 2)" hint-size="100%,50rem"></dc-import></div>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Produk unggulan kami" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="Rail" items="{{ unggulan }}" kolom="{{ 5 }}" tepi="kisi" gutter="calc(var(--rapat) / 2)" celahY="calc(var(--dalam) / 2)" hint-size="100%,24rem"></dc-import></div>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Paling banyak dicari" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="Rail" items="{{ dicari }}" kolom="{{ 2 }}" tepi="kisi" gutter="calc(var(--selokan-dalam) / 2)" celahY="calc(var(--rapat) / 2)" hint-size="100%,31rem"></dc-import></div>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="PromoCta" jenis="kalkulator" tata="desktop" href="https://www.smsperkasa.com/" hint-size="100%,22.5rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Produk terbaru kami" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="PromoCta" jenis="promo" tata="desktop" hrefKartu="SkuDetailM4.dc.html" produk="{{ upvc }}" hint-size="100%,98rem"></dc-import></div>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Cari berdasarkan Sektor" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="Rail" komponen="CategoryTile" items="{{ sektor }}" kolom="{{ 2 }}" tepi="kisi" gutter="calc(var(--rapat) / 2)" hint-size="100%,33rem"></dc-import></div>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="BeforeAfter" tata="desktop" awal="{{ 96 }}" hint-size="100%,72rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="PartnerLogos" tata="desktop" halaman="beranda" mitra="{{ mitra }}" hint-size="100%,24rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Ulasan Pelanggan" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="ReviewCarousel" tata="desktop" ulasan="{{ ulasan }}" hint-size="100%,26rem"></dc-import></div>
+    </div>
+    <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) 0 var(--sisi)">
+      <dc-import name="ConsultationBanner" tata="desktop" muat="eager" baris="{{ konsultasi }}" hint-size="100%,30rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" sosial="{{ sosial }}" kolom="{{ kolomFooter }}" hint-size="100%,44rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const BANNER = [
+      ['/_blob/0069d80316aee01e6b4c7c511c5cee83', 'Cara Pemesanan'], ['/_blob/f23d77f53099afc4e6c3f709cc479a49', 'Konstruksi Rumah'], ['/_blob/b3c7702bb4c9a6cb98314feaf6e53885', 'Gudang SMS Perkasa'],
+      ['/_blob/8547add4b8f06a738393b48d030b9b71', 'SMS Perkasa hadir di Jakarta'], ['/_blob/73e4e29862d7c025a9b738d05b296188', 'SMS Perkasa Jual Besi di Surabaya'],
+      ['/_blob/2243eb766881059abebb14ba1a9cbf34', 'Hati Hati Penipuan yang mengatasnamakan SMS Perkasa'],
+      ['/_blob/b248ebbc378bff4857260cc6dfa754a3', 'Jangkauan Tanpa Batas dari Sabang sampai Jayapura'], ['/_blob/252eb713226c0b4215bc8a3ef6edb6e2', 'Kalkulator Atap'],
+      ['/_blob/40bd422f676a8ef001cf8cf42e28f1c9', 'Produk Besi Siku SMS Perkasa'], ['/_blob/5cf5b7df10aa0e809ba8dc5e50980efd', 'Produk Besi Hollow 4x4 SMS Perkasa'],
+      ['/_blob/13471456b5f81316e28a55527af0bd21', 'Tempo Banner'], ['/_blob/21771d29ca49343974639293324f75d7', 'Atap UPVC']
+    ];
+    const KATEGORI = [
+      ['Besi Hollow dan Pipa Bulat','/_blob/23aef125bea38dac9b2f52a145e31d5b'], ['Besi Kawat','/_blob/1863af4f60b1c6f3cf6eb417eb07400d'], ['Plat Besi','/_blob/592df35adc0215b033587b4a92c01a81'],
+      ['Besi Batangan','/_blob/a9b3fb8e546c43b5974d5f36aebdd314'], ['Baja Ringan','/_blob/e70dcda72140589417bbbbf4b6d6e61f'], ['Plat Gelombang','/_blob/003fd2f193fd218ea35a62f955ccc310'],
+      ['Besi Profil Struktural','/_blob/4aeffa0071c4dd8a2c63365c353fdfb4'], ['Atap','/_blob/a817d07e6ad934bc3b9aeb2117042218'], ['Plat Stainless Steel','/_blob/e2eb01d471fd672cec77b5fb75af98b1'],
+      ['Hollow Stainless Steel','/_blob/302c285b8750eec10e8cbd31c28a709b'], ['Pipa Stainless Steel','/_blob/f1a87454111eb1a77616b7009b3fa17a']
+    ];
+    const SEKTOR = [['Konstruksi','/_blob/06dd89df3db505a6f139f4fabc380bfd'], ['Infrastruktur & Transportasi','/_blob/055cb11c44519b7e926d2ad2020751d9']];
+    const UNGGULAN = [
+      ['Besi Hollow Hitam', 297, '/_blob/4bcf87068f67276957dfc7b5d37158f1'], ['Besi Beton', 10, '/_blob/fc2eb617aa30449207d2b620798b9d15'], ['Besi Siku', 32, '/_blob/e672303b59d20807a09f49fbe89a6d21'],
+      ['Reng Baja Ringan', 4, '/_blob/1777699a74102b9ad040f0818b4198d3'], ['Plat Besi Hitam', 36, '/_blob/b46dd9bae0e0c1c13fbb115d6d68c643']
+    ];
+    const DICARI = [
+      ['Harga Besi 8', '42.000', 1, '/_blob/be424b2d44724044816ae127301ca356'],
+      ['Harga Reng Baja Ringan', '32.400', 4, '/_blob/36364298e62a1e0b0a31416966c3fa7e'],
+      ['harga besi hollow 4x4', '83.000', 11, '/_blob/8ff32089116bb62a12ccd87255b2ea37'],
+      ['harga besi 10 panjang 12 meter', '64.400', 1, '/_blob/be424b2d44724044816ae127301ca356'],
+      ['harga besi hollow 4x6', '106.700', 11, '/_blob/8ff32089116bb62a12ccd87255b2ea37']
+    ];
+    const UPVC = [
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Biru]', 'Rp 711.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Biru]', 'Rp 888.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Biru]', 'Rp 1.066.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Clear]', 'Hubungi kami', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Clear]', 'Hubungi kami', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Clear]', 'Hubungi kami', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Putih]', 'Rp 711.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Putih]', 'Rp 888.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Putih]', 'Rp 1.066.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb']
+    ];
+    const MITRA = [['Samator','/_blob/c1f28f8ad3d3956c22a741bfc646ee53'],['Orela','/_blob/187b1ded198264074c4346d3897c7f81'],['Atmi','/_blob/702e888393ae168ced6699698ba1948d'],['Sritex','/_blob/13dc4b7c5733917dc1d7a10db65d72cb'],['Wika','/_blob/8ea640a78361a4ab193c6d39cd55a3fb'],['WT','/_blob/d2c5ce2584a14dbbc5bc12c5438dedc0'],['Adi Putro','/_blob/7b30e6607c10589838c9f80e197561a2'],['Sanggar Sarana','/_blob/c3ec16a4237e8a3ebbf37e4f17672ef7'],['Laksana','/_blob/0954b224485632b479d9ed46b763f062'],['Antika Raya','/_blob/8a79c269114d448d5a828f9d46bfd7e4'],['Gudang Garam','/_blob/ccb6c4c51f27c808f17b1d2f4d9c2b11'],['DRU','/_blob/749aa7cd7872d501c0e1b07ce49aca57']];
+    const ULASAN = [
+      ['Barak Andriatma', 'order di SMS Perkasa dilayani dengan ramah,dijamin kemanan transaksi dan kualitas barangnya,semoga sekses selalu SMS Perkasa dan semua tim', '/_blob/ee6ab5a9b53a05a381cf21d1eabfb4e0'],
+      ['Yuliantoro Yuliantoro', 'Harga relatif standard. Sy puas dengan pelayanannya. Kedepan akan lebih baik.....semoga', '/_blob/7c571628700576dbcec6dc39419527ed'],
+      ['Bambang Hermanto', 'Distributor Besi baja terlengkap & terpercaya di Surabaya& sekitarnya', '/_blob/eadc892de7c51d330ce460953e3eee67'],
+      ['nurina wulan', 'Tempatnya homey, respon pegawainya ramah. Pilihan produknya banyak', '/_blob/f1fea9773df21fa97c30aff0f5b96d06'],
+      ['Kukuh Edy', 'pelayananya oke...trimakasih krj timnya...', '/_blob/083c3ab3fb4488d40e3d1727c1e47949'],
+      ['miftahul amal', 'Office yang berada di lingkungan perumahan', '/_blob/7760a4f58634396684d0231a1618d9de'],
+      ['Anita Lugito', 'pelayanannya okelah memuaskan', '/_blob/0ddcc9ac24bf0c963e44710b92b49e86'],
+      ['Evi Nurosida', 'the best steel distributor !', '/_blob/53b60dcb1f54ea2d324092e29d69ac8a']
+    ];
+    const SOSIAL = ['Instagram', 'Facebook', 'YouTube', 'TikTok'];
+    const KOLOM = [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF', 'Wiremesh'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ];
+    return {
+      navProduk: { label: 'Semua Produk', href: '#produk', ikon: 'kotak' },
+      navTautan: [{'label': 'Besi Hollow Hitam', 'href': 'DesktopProdukM4.dc.html'}, {'label': 'Besi H Beam', 'href': '#besi-h-beam'}, {'label': 'Besi WF', 'href': '#besi-wf'}, {'label': 'Besi Beton', 'href': '#besi-beton'}, {'label': 'Pipa Galvanis', 'href': '#pipa-galvanis'}, {'label': 'Besi Siku', 'href': '#besi-siku'}, {'label': 'Plat Besi Hitam', 'href': '#plat-besi-hitam'}],
+      banner: BANNER.map((x) => ({ img: x[0], alt: x[1] })),
+      kategori: KATEGORI.map((k) => ({ tata: 'desktop', nama: k[0], foto: k[1], href: 'DesktopProdukIndexM4.dc.html' })),
+      unggulan: UNGGULAN.map((u) => ({ jenis: 'dasar', tata: 'desktop', nama: u[0], varian: 'Tersedia ' + u[1] + ' varian', foto: u[2], aria: u[0] + ', tersedia ' + u[1] + ' varian', href: 'RecCreateM4.dc.html' })),
+      dicari: DICARI.map((c) => ({ jenis: 'mulai', tata: 'desktop', nama: c[0], angka: c[1], varian: 'Tersedia ' + c[2] + ' varian', foto: c[3], aria: c[0] + ', mulai Rp ' + c[1] + ', tersedia ' + c[2] + ' varian', href: 'RecCreateM4.dc.html' })),
+      upvc: UPVC.map((v) => {
+        const angka = v[1].indexOf('Rp') === 0;
+        const i = v[0].indexOf(' [');
+        const nama = v[0].slice(0, i);
+        return [nama.slice(nama.search(/\d+\s*mm/)), v[0].slice(i + 2, v[0].length - 1), angka ? v[1].slice(3) : '', v[2]];
+      }),
+      sektor: SEKTOR.map((k) => ({ jenis: 'sektor', tata: 'desktop', nama: k[0], foto: k[1], href: 'DesktopProdukIndexM4.dc.html' })),
+      mitra: MITRA.map((m) => ({ n: m[0], img: m[1] })),
+      ulasan: ULASAN.map((u) => ({ nama: u[0], teks: u[1], rating: 5 })),
+      konsultasi: ['Tanya Kebutuhan Besi Proyekmu, Dibalas Kurang dari 10 Menit'],
+      sosial: SOSIAL.map((l) => ({ label: l, href: '#sosial' })),
+      kolomFooter: KOLOM.map((k) => ({ h: k.h, items: k.items.map((l) => ({ label: l, href: '#produk' })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

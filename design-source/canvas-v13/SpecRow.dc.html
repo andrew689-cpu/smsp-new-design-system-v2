@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SpecRow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ gayaBaris }}">
+  <span style="{{ gayaLabel }}">{{ label }}</span>
+  <span style="{{ gayaNilai }}">{{ nilai }}</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"jenis":{"editor":"enum","options":["ringkas","info","lama"],"default":"ringkas"},"label":{"editor":null,"default":"Material"},"nilai":{"editor":null,"default":"Baja karbon"},"$preview":{"width":330,"height":34}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const info = this.props.jenis === 'info';
+    const ukuran = d ? 'var(--teks-lead)' : 'var(--teks-body)';
+    const longgar = d && info;
+    return {
+      label: this.props.label ?? 'Material',
+      nilai: this.props.nilai ?? 'Baja karbon',
+      gayaBaris: 'display: flex; align-items: baseline; justify-content: space-between; column-gap: 0; padding: ' + (longgar ? '0.9rem' : '0.7rem') + ' 0',
+      gayaLabel: 'font-size: ' + ukuran + '; ' + (this.props.jenis === 'lama' ? '' : 'font-weight: var(--bobot-light); ') + 'color: var(--ink-2); ' + (longgar ? '' : 'min-width: 0; ') + 'margin-right: 0.8rem',
+      gayaNilai: 'font-size: ' + ukuran + '; font-weight: var(--bobot-bold); color: var(--ink); ' + (longgar ? '' : 'text-align: right; font-variant-numeric: tabular-nums; ') + 'margin-left: 0.8rem; margin-right: 0.8rem'
+    };
+  }
+}
+</script>
+</body>
+</html>

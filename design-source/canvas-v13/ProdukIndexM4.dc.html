@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Semua Produk — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="ponsel" href="https://www.smsperkasa.com/hati-hati-penipuan" hint-size="100%,6.1rem"></dc-import>
+  <dc-import name="SiteHeader" tata="ponsel" hrefLogo="Artboard-pp1u.dc.html" hint-size="100%,5.6rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--talang); display: flex; flex-direction: column">
+    <dc-import name="PageTitle" tata="ponsel" judul="Semua Produk" remahTampil="{{ remahTampil }}" remah="{{ remah }}" jumlahTampil="{{ jumlahTampil }}" jumlah="{{ jumlah }}" hint-size="100%,3.4rem"></dc-import>
+    <div style="margin-top: 4.5rem">
+      <dc-import name="Rail" komponen="ProductCard" kolom="{{ 2 }}" tepi="kisi" gutter="calc(var(--jarak-x-dua) / 2)" celahY="calc(var(--selokan-ubin) / 2)" items="{{ produk }}" hint-size="100%,403rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: 8rem">
+    <dc-import name="Footer" tata="ponsel" kategori="{{ footKategori }}" sosial="{{ footSosial }}" hint-size="100%,181rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var PRODUK = [
+      ['Atap Galvalum',48,'/_blob/6c0bc8a35b8ee06893797a7a59319d69'],['Atap UPVC',9,'/_blob/fe3192e56a64979040a659d41227f532'],['Besi As S45C',35,'/_blob/701fa266eb25c4f60193b65622d721ed'],['Besi As ST41',34,'/_blob/2145ec443a30ffa4e189d22725ad2b96'],
+      ['Besi Begel',16,'/_blob/2c4e30ae366be332aab73f3a0f8e24aa'],['Besi Beton',10,'/_blob/31aea6bfad3d6009de172f36cf47db15'],
+      ['Besi CNP',52,'/_blob/e75e2d2fb08d3a642356f1cb1aef2fe4'],['Besi H Beam',13,'/_blob/f5be4f0265110d444048a8f7fb76d342'],
+      ['Besi Hollow Galvalum',4,'/_blob/914c4dee7d64f3ba55558dce430e25f8'],['Besi Hollow Galvanis',30,'/_blob/9b73a3dbb17f2db16e00ceec68e965d4'],
+      ['Besi Hollow Hitam',297,'/_blob/3e253621e68085ed4f1ceb648cc0b533'],
+      ['Besi INP',1,'/_blob/41190816b6df2994769c75161945f0e2'],['Besi Nako',17,'/_blob/a44f9c68501f36f9f8b6819ca2477c24'],['Besi Nako Ulir',3,'/_blob/2f283fb3d8fd5efdb7b65674b173b3b6'],
+      ['Besi Siku',32,'/_blob/afbf9d3db78dee3edbdfd256a4405af2'],['Besi UNP',18,'/_blob/7c01234c6e2be6155f4fed6361c66c58'],
+      ['Besi WF',21,'/_blob/59cfcd53ccef894b51c950d62f6fb9bc'],['Bondek',12,'/_blob/7f39b35d3ab9f472800ee56c3d9f10b8'],
+      ['Expanded Metal',34,'/_blob/79dc08de1917a081137e9690e68ce83d'],['Hollow Stainless 201',112,'/_blob/baaa505c8694bdf9ab15c8870b27e078'],['Hollow Stainless 304',114,'/_blob/baaa505c8694bdf9ab15c8870b27e078'],
+      ['Kanal C Galvalum',10,'/_blob/92cecc0aea17f5ac59de80429b161ea3'],['Kawat Bendrat',1,'/_blob/9cf258c5ae1970bbba3eb2fe7ace9f39'],['Pipa Galvanis',48,'/_blob/9e7c0a4d3c5a29432ba57b124e64d961'],
+      ['Pipa Hitam',124,'/_blob/2f0b09d29615e4e4c8cf08b13f273784'],['Pipa Seamless',38,'/_blob/918498f0a0b5ccd3ddf2043d29b748b8'],['Pipa Stainless 201',72,'/_blob/3e3576292a6f6c7323fe7a9b78c4adc0'],
+      ['Pipa Stainless 304',72,'/_blob/3e3576292a6f6c7323fe7a9b78c4adc0'],['Plat Besi Galvalum',3,'/_blob/dcc56128d9dfcad8805614e105f428b1'],['Plat Besi Galvanil',12,'/_blob/0a647c74e2ba2371c2b1fe2c93ab2d64'],
+      ['Plat Besi Galvanis',9,'/_blob/e9bbf1297011b74b044d30b09a1ce3c4'],['Plat Besi Hitam',36,'/_blob/e1474c92af7d2b81503b90b37b2e4758'],
+      ['Plat Besi Putih',11,'/_blob/2f3a1883eceb54f3b050d8bf28333c40'],['Plat Bordes',22,'/_blob/8286c74dd576f8a488241db3dbfc76b8'],['Plat Kapal',44,'/_blob/713d9710fc7c11b65a171d0eaea8ba6e'],['Plat Lubang',129,'/_blob/28868c679ec829281f61e01fb95a9b52'],
+      ['Plat Stainless SS304',12,'/_blob/69a3a03727742bc6c5fbceeed41f06b5'],['Plat Stainless SS316L',12,'/_blob/69a3a03727742bc6c5fbceeed41f06b5'],['Plat Strip',49,'/_blob/6df7fc078ff352955509d2499704412b'],
+      ['Reng Baja Ringan',4,'/_blob/eaba17e08cf2095e44e636547c3fa614'],['Wiremesh',14,'/_blob/88d50d5f1bac06aacb8aa1f89e2168d4']
+    ];
+    return {
+      produk: PRODUK.map(function (p) {
+        return { jenis: 'indeks', tata: 'ponsel', nama: p[0], varian: 'Tersedia ' + p[1] + ' varian', aria: p[0] + ', tersedia ' + p[1] + ' varian', foto: p[2], href: 'RecCreateM4.dc.html' };
+      }),
+      remahTampil: false,
+      remah: [{ label: 'Home', href: 'RecCreateM4.dc.html' }, { label: 'Semua Produk' }],
+      jumlahTampil: false,
+      jumlah: PRODUK.length + ' produk',
+      footKategori: [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']],
+      ['Plat Stainless Steel', ['Plat Stainless SS304', 'Plat Stainless SS316L']],
+      ['Hollow Stainless Steel', ['Hollow Stainless 201', 'Hollow Stainless 304']],
+      ['Pipa Stainless Steel', ['Pipa Stainless 201', 'Pipa Stainless 304']]
+      ].map(function (c) {
+        return { h: c[0], items: c[1].map(function (l) { return { label: l, href: '#produk' }; }) };
+      }),
+      footSosial: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { label: l, href: '#sosial' }; }),
+    };
+  }
+}
+</script>
+</body>
+</html>

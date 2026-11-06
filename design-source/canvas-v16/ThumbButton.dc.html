@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ThumbButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<button type="button" onClick="{{ onPress }}" aria-label="{{ ariaLabel }}" aria-pressed="{{ kini }}" style="{{ gaya }}"><img src="{{ src }}" alt="" style="{{ gayaImg }}"></button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"aktif":{"editor":"boolean","default":false},"latar":{"editor":"text","default":"var(--surface)"},"fit":{"editor":"enum","options":["cover","contain"],"default":"cover"},"lebar":{"editor":"text","default":"8.4rem"},"tinggi":{"editor":"text","default":"6.4rem"},"src":{"editor":null,"default":"/_blob/3e253621e68085ed4f1ceb648cc0b533"},"onPress":{"editor":null},"ariaLabel":{"editor":null,"default":"Lihat foto"},"$preview":{"width":90,"height":70}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const on = !!this.props.aktif;
+    return {
+      src: this.props.src ?? '/_blob/3e253621e68085ed4f1ceb648cc0b533',
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel ?? 'Lihat foto',
+      kini: on ? 'true' : 'false',
+      gaya: 'border: 0.1rem solid ' + (on ? 'var(--ink)' : 'var(--line)') + '; width: ' + (this.props.lebar || '8.4rem') + '; height: ' + (this.props.tinggi || '6.4rem') + '; border-radius: var(--tile); overflow: hidden; background: ' + (this.props.latar || 'var(--surface)') + '; padding: 0',
+      gayaImg: 'display: block; width: 100%; height: 100%; object-fit: ' + (this.props.fit || 'cover')
+    };
+  }
+}
+</script>
+</body>
+</html>

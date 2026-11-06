@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>WhatsAppPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBaris }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="HelpRowsPanel" tata="{{ tata }}" baris="{{ baris }}" jadwal="{{ jadwal }}" onKembali="{{ onKembali }}" hint-size="100%,26rem"></dc-import>
+</sc-if>
+<sc-if value="{{ isKartu }}" hint-placeholder-val="{{ false }}">
+  <div style="display: flex; flex-direction: column; min-height: 0">
+    <span style="display: block; flex-shrink: 0; margin-top: 1.6rem"><dc-import name="HelpBanner" jenis="gambar" foto="salam" tata="desktop" tutup="tidak" hint-size="100%,15rem"></dc-import></span>
+    <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.4rem; display: flex; flex-direction: column; gap: var(--rapat)">
+      <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+        <dc-import name="HelpMenuRow" dc-props="{{ b }}" hint-size="100%,12rem"></dc-import>
+      </sc-for>
+      <sc-if value="{{ jadwal }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="OfficeHours" jenis="jadwal" hint-size="100%,7rem"></dc-import>
+      </sc-if>
+    </div>
+    <dc-import name="HelpBackBar" jenis="garis" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["baris","kartu"],"default":"baris","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"baris":{"editor":null},"waHref":{"editor":null,"section":"Tautan"},"jadwal":{"editor":"boolean","default":false,"section":"Keadaan"},"onChat":{"editor":null},"onKembali":{"editor":null},"$preview":{"width":360,"height":260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const kartu = this.props.jenis === 'kartu';
+    const waHref = this.props.waHref;
+    const onChat = this.props.onChat;
+    const bawaan = kartu ? [
+      { jenis: 'kartu', tata, judul: 'Chat langsung dengan tim sales', aksi: 'Chat di WhatsApp', aksiTone: 'whatsapp', ikon: 'whatsapp', ikonUkuran: 19, ikonWarna: 'var(--brand)', href: waHref, rel: 'noopener' },
+      { jenis: 'kartu', tata, judul: 'Atau ngobrol di halaman ini', aksi: 'Mulai Live Chat', ikon: 'chat', ikonUkuran: 19, ikonGaris: 2, onPress: onChat }
+    ] : [
+      { judul: 'Chat di WhatsApp', ket: 'Chat langsung dengan tim sales', ikon: 'whatsapp', ikonUkuran: 22, ikonWarna: 'var(--brand)', href: waHref, rel: 'noopener' },
+      { judul: 'Mulai Live Chat', ket: 'Atau ngobrol di halaman ini', ikon: 'chat', onPress: onChat }
+    ];
+    return {
+      tata,
+      isBaris: !kartu,
+      isKartu: kartu,
+      baris: this.props.baris ?? bawaan,
+      jadwal: !!this.props.jadwal,
+      onKembali: this.props.onKembali
+    };
+  }
+}
+</script>
+</body>
+</html>

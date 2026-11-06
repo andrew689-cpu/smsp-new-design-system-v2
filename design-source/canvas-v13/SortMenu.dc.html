@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SortMenu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPopover }}" hint-placeholder-val="{{ true }}">
+  <div style="position: relative; display: flex; align-items: center; flex-shrink: 0">
+    <dc-import name="IconButton" ikon="urut" ukuran="{{ 40 }}" nada="permukaan" aktif="{{ tombolAktif }}" warna="{{ tombolWarna }}" ikonUkuran="{{ ikonUkuran }}" titik="{{ ada }}" ariaExpanded="{{ exp }}" ariaLabel="{{ aria }}" onPress="{{ togel }}" hint-size="4rem,4rem"></dc-import>
+    <sc-if value="{{ terbuka }}" hint-placeholder-val="{{ false }}">
+      <button type="button" data-scrim="{{ scrim }}" onClick="{{ tutup }}" aria-label="Tutup urutkan" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 10002; background: transparent; border: 0; padding: 0"></button>
+      <div role="dialog" aria-label="{{ judulGrup }}" style="{{ gayaPopover }}">
+        <span aria-hidden="true" style="{{ gayaPucuk }}"></span>
+        <div role="radiogroup" aria-label="{{ judulGrup }}" style="display: flex; flex-direction: column; gap: 0">
+          <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="4">
+            <dc-import name="Radio" tata="ponsel" kelompok="{{ kelompok }}" nilai="{{ o.value }}" label="{{ o.label }}" terpilih="{{ o.kini }}" onPilih="{{ o.pilih }}" hint-size="100%,3.6rem"></dc-import>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isInline }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <p style="margin: 0 0 0.8rem 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Urutkan</p>
+    <div role="radiogroup" aria-label="{{ judulGrup }}" style="display: flex; flex-direction: column; column-gap: 0">
+      <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="4">
+        <span style="{{ o.gayaBaris }}"><dc-import name="Radio" tata="desktop" kelompok="urut" nilai="{{ o.value }}" label="{{ o.label }}" terpilih="{{ o.kini }}" onPilih="{{ o.pilih }}" hint-size="100%,4rem"></dc-import></span>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["popover","inline"],"default":"popover"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"buka":{"editor":"boolean"},"urut":{"editor":null},"opsi":{"editor":null},"judulGrup":{"editor":null,"default":"Urutkan daftar harga"},"onPilih":{"editor":null},"onUbahBuka":{"editor":null},"$preview":{"width":260,"height":260}}'>
+class Component extends DCLogic {
+  state = { buka: true, urut: 'populer' };
+  renderVals() {
+    const jenis = this.props.jenis ?? 'popover';
+    const desktop = this.props.tata === 'desktop';
+    const daftar = this.props.opsi ?? [
+      { value: 'hargaMin', label: 'Harga Terendah' },
+      { value: 'hargaMax', label: 'Harga Tertinggi' },
+      { value: 'ukuranMin', label: 'Ukuran Terkecil' },
+      { value: 'ukuranMax', label: 'Ukuran Terbesar' }
+    ];
+    const urut = this.props.urut ?? this.state.urut;
+    const terbuka = this.props.buka ?? this.state.buka;
+    const setBuka = (v) => {
+      if (this.props.buka === undefined) this.setState({ buka: v });
+      if (this.props.onUbahBuka) this.props.onUbahBuka(v);
+    };
+    const ada = urut !== 'populer';
+    const label = (daftar.filter((o) => o.value === urut)[0] || {}).label;
+    const judulGrup = this.props.judulGrup ?? 'Urutkan daftar harga';
+    const opsi = daftar.map((o, i) => ({
+      value: o.value,
+      label: o.label,
+      kini: urut === o.value,
+      gayaBaris: 'display: block; ' + (i === 0 ? '' : 'margin-top: 0.1rem; ') + (i === daftar.length - 1 ? '' : 'margin-bottom: 0.1rem'),
+      pilih: () => {
+        if (this.props.urut === undefined) this.setState({ urut: o.value });
+        if (jenis === 'popover') setBuka(false);
+        if (this.props.onPilih) this.props.onPilih(o.value);
+      }
+    }));
+    const sisi = desktop ? 'right' : 'left';
+    return {
+      isPopover: jenis === 'popover',
+      isInline: jenis === 'inline',
+      terbuka,
+      ada,
+      exp: terbuka ? 'true' : 'false',
+      aria: desktop
+        ? judulGrup + (ada ? ', sedang aktif' : '')
+        : (terbuka ? 'Tutup Urutkan' : 'Urutkan' + (ada ? ', ' + label : '')),
+      tombolAktif: !desktop && (terbuka || ada),
+      tombolWarna: desktop && (terbuka || ada) ? 'var(--nav-aktif)' : 'var(--ink)',
+      ikonUkuran: desktop ? 18 : ((terbuka || ada) ? 24 : 16),
+      togel: () => setBuka(!terbuka),
+      tutup: () => setBuka(false),
+      scrim: desktop ? undefined : '1',
+      kelompok: desktop ? 'urut-pop' : 'oc-urut',
+      judulGrup,
+      opsi,
+      gayaPopover: 'position: absolute; top: calc(100% + 1rem); ' + sisi + ': 0; z-index: 10003; width: 23.2rem; box-sizing: border-box; padding: 0.6rem; border-radius: var(--sheet); background: var(--surface); box-shadow: var(--bayang-urut); display: flex; flex-direction: column; gap: 0.2rem',
+      gayaPucuk: 'position: absolute; top: -0.6rem; ' + sisi + ': 1.4rem; width: 1.2rem; height: 1.2rem; transform: rotate(45deg); border-radius: 0.2rem; background: var(--surface); box-shadow: var(--bayang-urut-pucuk)'
+    };
+  }
+}
+</script>
+</body>
+</html>

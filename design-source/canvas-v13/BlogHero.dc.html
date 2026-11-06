@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogHero</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isGambar }}" hint-placeholder-val="{{ true }}">
+  <header style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+    <h1 style="margin: 0"><img src="{{ gambar }}" alt="{{ alt }}" style="width: 100%; height: auto; display: block; border-radius: var(--card)"></h1>
+  </header>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <header>
+    <h1 style="margin: 0; display: flex; flex-direction: column; gap: 1rem">
+      <span style="font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-label-m); text-transform: uppercase; color: var(--ink-2)">{{ eyebrow }}</span>
+      <span style="font-size: var(--teks-display); line-height: var(--tinggi-sempit); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-judul); color: var(--ink)">{{ judul }}</span>
+    </h1>
+    <p style="margin: var(--dalam) 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-isi-d); font-weight: var(--bobot-light); color: var(--ink-2)">{{ isi }}</p>
+  </header>
+  <div aria-hidden="true" style="margin-top: var(--dalam); height: 0.1rem; background: var(--line)"></div>
+</sc-if>
+<sc-if value="{{ isMerah }}" hint-placeholder-val="{{ false }}">
+  <header style="box-sizing: border-box; padding: var(--dalam) var(--talang) 0 var(--talang); {{ dasar }}; color: var(--surface); display: flex; flex-direction: column; gap: 0">
+    <h1 style="margin: 0; font-size: {{ ukuran }}; line-height: var(--tinggi-sempit); font-weight: var(--bobot-bold); text-align: {{ rata }}; color: var(--surface)">{{ judul }}</h1>
+    <p style="margin-top: var(--rapat); margin-right: 0; margin-bottom: {{ isiBawah }}; margin-left: 0; font-size: var(--teks-body); line-height: var(--tinggi-isi-d); text-align: {{ rata }}; color: var(--artikel-meta)"><sc-for list="{{ isiBaris }}" as="b" hint-placeholder-count="2">{{ b.teks }}<sc-if value="{{ b.putus }}" hint-placeholder-val="{{ true }}"><br></sc-if></sc-for></p>
+    <sc-if value="{{ cari }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin-top: var(--dalam); margin-bottom: calc(-1 * var(--dalam))"><dc-import name="SearchField" tata="hero" ariaLabel="{{ cariAria }}" placeholder="{{ cariPlaceholder }}" hint-size="100%,4.1rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaTab }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin: var(--dalam) calc(-1 * var(--talang)) 0 calc(-1 * var(--talang)); flex-shrink: 0"><dc-import name="BlogTabs" jenis="lembar" judul="{{ tabJudul }}" sub="{{ tabSub }}" butir="{{ tab }}" hint-size="100%,13rem"></dc-import></span>
+    </sc-if>
+  </header>
+</sc-if>
+<sc-if value="{{ isTerang }}" hint-placeholder-val="{{ false }}">
+  <header style="position: relative; box-sizing: border-box; padding: var(--dalam) var(--talang) 2.8rem var(--talang); background: var(--surface); overflow: hidden; display: flex; flex-direction: column; gap: 0">
+    <img src="{{ gambar }}" alt="" style="position: absolute; top: 0; right: 0; width: 72%; height: 100%; object-fit: cover; object-position: right center; display: block; pointer-events: none">
+    <span aria-hidden="true" style="position: absolute; inset: 0; display: block; pointer-events: none; background: var(--blog-hero-tirai)"></span>
+    <span style="position: relative; align-self: flex-start; display: inline-flex; align-items: center; column-gap: 0.6rem; row-gap: 0; box-sizing: border-box; min-height: 3.2rem; padding: 0.4rem 1.4rem; border-radius: var(--pill); background: var(--brand-subtle); font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--brand)"><dc-import name="Icon" ikon="koran" hint-size="1.5rem,1.5rem"></dc-import>{{ eyebrow }}</span>
+    <h1 style="position: relative; margin: var(--dalam) 0 0 0; font-size: var(--teks-hero-terang); line-height: var(--tinggi-hero-terang); font-weight: var(--bobot-bold); text-align: left; color: var(--ink)">{{ judul }}<br><span style="color: var(--brand)">{{ judulMerah }}</span></h1>
+    <p style="position: relative; margin: var(--rapat) 0 0 0; max-width: 23rem; font-size: var(--teks-body); line-height: var(--tinggi-baca); text-align: left; color: var(--ink-2)">{{ isi }}</p>
+    <a href="{{ ctaHref }}" style="position: relative; align-self: flex-start; margin-top: var(--dalam); box-sizing: border-box; display: inline-flex; align-items: center; column-gap: 1rem; row-gap: 0; min-height: 4.4rem; padding: 0.4rem 0.6rem 0.4rem 2rem; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); text-decoration: none">{{ ctaLabel }}<span aria-hidden="true" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; border-radius: var(--pill); background: var(--blog-hero-panah); display: inline-flex; align-items: center; justify-content: center"><dc-import name="Icon" ikon="chevron-kanan" ukuran="{{ 16 }}" garis="{{ 2.4 }}" warna="var(--surface)" hint-size="1.6rem,1.6rem"></dc-import></span></a>
+  </header>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["gambar","desktop","merah","terang"],"default":"gambar"},"gambar":{"editor":null},"alt":{"editor":null},"eyebrow":{"editor":null},"judul":{"editor":null},"judulMerah":{"editor":null},"isi":{"editor":null},"isiBaris":{"editor":null},"isiBawah":{"editor":null},"ukuran":{"editor":null},"rata":{"editor":null},"foto":{"editor":"boolean","default":false},"cari":{"editor":"boolean","default":false},"cariAria":{"editor":null},"cariPlaceholder":{"editor":null},"tab":{"editor":null},"tabJudul":{"editor":null},"tabSub":{"editor":null},"ctaLabel":{"editor":null},"ctaHref":{"editor":null},"$preview":{"width":360,"height":248}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const jenis = p.jenis ?? 'gambar';
+    const terang = jenis === 'terang';
+    const merah = jenis === 'merah';
+    const isiBaris = p.isiBaris ?? ['Bedah standar SNI, bandingkan material, atau pelajari teknik konstruksi?', 'Semuanya dirangkum secara praktis dan teruji.'];
+    return {
+      isGambar: jenis === 'gambar',
+      isDesktop: jenis === 'desktop',
+      isMerah: merah,
+      isTerang: terang,
+      gambar: p.gambar ?? (terang ? '/_blob/967dac9be07f34499152cc411471bbbc' : '/_blob/553b443a196371db58ef1430c0c6b1a1'),
+      alt: p.alt ?? 'Blog SMS Perkasa — Mau bedah standar SNI, bandingkan material atau pelajari teknik konstruksi? Semuanya dirangkum secara praktis dan teruji.',
+      eyebrow: p.eyebrow ?? (terang ? 'News Besi Baja' : 'PUSAT INFORMASI BAJA SMS PERKASA'),
+      judul: p.judul ?? (terang ? 'Informasi &' : merah ? 'Pusat Informasi & Panduan Besi Baja' : 'Tanya Apa Saja Soal Besi & Baja'),
+      judulMerah: p.judulMerah ?? 'Berita Terbaru',
+      isi: p.isi ?? (terang ? 'Dapatkan update seputar industri besi baja, tips, dan informasi penting untuk kebutuhan Anda.' : 'Mau cek tabel berat, bedah standar SNI, atau membandingkan material proyek? Semuanya dirangkum secara praktis dan teruji.'),
+      isiBaris: isiBaris.map((teks, i) => ({ teks, putus: i < isiBaris.length - 1 })),
+      isiBawah: p.isiBawah ?? '0',
+      ukuran: p.ukuran ?? 'var(--teks-hero-blog-besar)',
+      rata: p.rata ?? 'center',
+      dasar: p.foto ? 'background: var(--blog-hero-foto); background-blend-mode: multiply, normal' : 'background: var(--merah-artikel)',
+      cari: !!p.cari,
+      cariAria: p.cariAria ?? 'Cari panduan, rumus, atau cara ukur',
+      cariPlaceholder: p.cariPlaceholder ?? 'Cari panduan, rumus, atau cara ukur...',
+      adaTab: !!p.tab,
+      tab: p.tab,
+      tabJudul: p.tabJudul ?? 'Topik Artikel',
+      tabSub: p.tabSub ?? 'Temukan informasi berdasarkan kategori',
+      ctaLabel: p.ctaLabel ?? 'Jelajahi Berita',
+      ctaHref: p.ctaHref ?? '#kat-baru'
+    };
+  }
+}
+</script>
+</body>
+</html>

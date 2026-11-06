@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ChatHeader</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: relative; display: flex; align-items: center; row-gap: 1rem; column-gap: 0; padding: 0.6rem 0 0.2rem 0">
+  <sc-if value="{{ kembali }}" hint-placeholder-val="{{ false }}">
+    <span style="display: flex; flex-shrink: 0; margin-left: calc(-0.6rem + 0.5rem); margin-right: 0.5rem"><dc-import name="IconButton" ikon="kembali" warna="var(--brand)" ikonUkuran="{{ 26 }}" ariaLabel="Kembali" onPress="{{ onKembali }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+  </sc-if>
+  <sc-if value="{{ baku }}" hint-placeholder-val="{{ true }}"><span style="display: flex; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="IconButton" ikon="tutup" ikonUkuran="{{ 26 }}" ikonGaris="{{ 2 }}" ariaLabel="Tutup pusat bantuan" onPress="{{ onTutup }}" hint-size="4.4rem,4.4rem"></dc-import></span></sc-if>
+  <img src="{{ foto }}" alt="" aria-hidden="true" style="width: 4.8rem; height: 4.8rem; flex-shrink: 0; border-radius: var(--pill); object-fit: cover; display: block; margin-left: 0.5rem; margin-right: 0.5rem">
+  <span style="min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-left: 0.5rem; margin-right: 0.5rem">
+    <span style="display: block; font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-semibold)">{{ nama }}</span>
+    <dc-import name="OfficeHours" jenis="status" latar="terang" online="{{ online }}" hint-size="8rem,1.4rem"></dc-import>
+  </span>
+  <div style="flex-shrink: 0; margin-left: auto; margin-right: -0.1rem; display: flex; align-items: center">
+    <sc-if value="{{ blog }}" hint-placeholder-val="{{ false }}">
+      <span style="display: flex; align-items: center">
+        <span style="display: flex; flex-shrink: 0; margin-right: 0.25rem"><dc-import name="GlassButton" ukuran="{{ 44 }}" ikon="whatsapp" ikonUkuran="{{ 17.34 }}" warna="var(--whatsapp)" href="{{ waHref }}" target="_blank" rel="noopener" ariaLabel="WhatsApp Sales" hint-size="4.4rem,4.4rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.25rem; margin-right: 0.25rem"><dc-import name="GlassButton" ukuran="{{ 44 }}" ikon="telepon" ikonUkuran="{{ 26 }}" warna="var(--brand)" href="{{ telHref }}" ariaLabel="Call Sales" hint-size="4.4rem,4.4rem"></dc-import></span>
+      </span>
+      <span style="display: flex; flex-shrink: 0"><dc-import name="IconButton" ikon="tutup" warna="var(--brand)" ikonWarna="var(--brand)" ikonUkuran="{{ 26 }}" ikonGaris="{{ 2 }}" ariaLabel="Tutup pusat bantuan" onPress="{{ onTutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ baku }}" hint-placeholder-val="{{ true }}"><div style="display: inline-flex; align-items: center; row-gap: 0.8rem; column-gap: 0; flex-shrink: 0; box-sizing: border-box; padding: 0 0.4rem; border-radius: var(--pill); background: var(--surface); box-shadow: var(--el-2); margin-left: 0.4rem; margin-right: 0.4rem">
+      <span style="display: flex; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="whatsapp" ukuran="{{ 40 }}" ikonUkuran="{{ 20 }}" ikonWarna="var(--wa-tombol)" href="{{ waHref }}" target="_blank" rel="noopener" ariaLabel="WhatsApp Sales" hint-size="4rem,4rem"></dc-import></span>
+      <span style="display: flex; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="telepon" ukuran="{{ 40 }}" ikonUkuran="{{ 20 }}" ikonWarna="var(--brand)" href="{{ telHref }}" ariaLabel="Call Sales" hint-size="4rem,4rem"></dc-import></span>
+    </div></sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"gaya":{"editor":"enum","options":["baku","blog"],"default":"baku","section":"Resep"},"kembali":{"editor":"boolean","default":false,"section":"Resep"},"online":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Keadaan"},"nama":{"editor":"text","default":"SMS Perkasa","section":"Teks"},"foto":{"editor":"text","default":"/_blob/8c61b4d1badeb2af14052f05d1421da3","section":"Gambar"},"waHref":{"editor":null,"section":"Tautan"},"telHref":{"editor":null,"section":"Tautan"},"onKembali":{"editor":null},"onTutup":{"editor":null},"$preview":{"width":330,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      blog: this.props.gaya === 'blog',
+      baku: this.props.gaya !== 'blog',
+      nama: this.props.nama ?? 'SMS Perkasa',
+      foto: this.props.foto ?? '/_blob/8c61b4d1badeb2af14052f05d1421da3',
+      online: this.props.online,
+      kembali: !!this.props.kembali,
+      waHref: this.props.waHref,
+      telHref: this.props.telHref,
+      onKembali: this.props.onKembali,
+      onTutup: this.props.onTutup
+    };
+  }
+}
+</script>
+</body>
+</html>

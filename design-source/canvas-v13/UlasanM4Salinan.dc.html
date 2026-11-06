@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Salinan Semua Ulasan — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <dc-import name="ReviewHero" tata="ponsel" foto="/_blob/210aaa875210ebff1daa24732dc74f8f" ulasan="{{ pita }}" pilTampil="{{ pilTampil }}" pilHref="SkuDetailM4.dc.html" hint-size="100%,44rem"></dc-import>
+  <div style="margin: 2.4rem 1.6rem 0 1.6rem">
+    <dc-import name="ReviewMentions" tata="ponsel" butir="{{ sebutan }}" hint-size="100%,31rem"></dc-import>
+  </div>
+  <div style="margin-top: 4rem; padding: 0 1.6rem 4rem 1.6rem">
+    <dc-import name="ReviewList" tata="ponsel" ulasan="{{ daftar }}" hint-size="100%,120rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  _data() {
+    var nama = ['Pak Andi', 'Bu Fitri', 'Pak Ignasius', 'Bu Ratna', 'Pak Hendra', 'Bu Lilis', 'Pak Joko',
+                'Bu Maria', 'Pak Rudi', 'Bu Sari'];
+    var kota = ['Surabaya', 'Sidoarjo', 'Gresik', 'Malang', 'Mojokerto'];
+    var judul = [
+      'Ukuran dan tebal pas', 'Penawaran cepat', 'Kirim tepat waktu', 'Harga bersaing',
+      'Potongan rapi', 'Kualitas stabil', 'Admin responsif', 'Stok selalu ada'
+    ];
+    var kalimat = [
+      'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.',
+      'Salesnya ramah, penawaran dikirim cepat lengkap dengan berat per batang.',
+      'Kirim tepat waktu ke lokasi proyek, sopirnya kooperatif waktu bongkar.',
+      'Harga bersaing dan beratnya sesuai dengan yang tertulis di penawaran.',
+      'Potongan rapi, tidak perlu banyak gerinda waktu pemasangan.',
+      'Sudah langganan dua tahun, kualitasnya stabil dari kiriman ke kiriman.',
+      'Admin responsif, sertifikat pabrik dikirim tanpa diminta dua kali.',
+      'Stok selalu ada, pesan pagi sore sudah jalan ke lokasi.'
+    ];
+    var bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt'];
+    var out = [];
+    for (var i = 0; i < 50; i++) {
+      var r = i % 11 === 0 ? 4 : 5;                       // sesekali 4, selebihnya 5
+      out.push({
+        who: nama[i % nama.length] + ' — ' + kota[(i * 3) % kota.length],
+        date: (((i * 7) % 28) + 1) + ' ' + bulan[(i * 5) % bulan.length] + ' 2026',
+        rating: r,
+        judul: judul[(i * 3) % judul.length],
+        text: kalimat[(i * 3) % kalimat.length],
+        // Tujuh penanda, modulusnya sengaja berbeda-beda supaya persentasenya
+        // MELEBAR (98 … 50 %), bukan menumpuk di angka sembilan puluhan. Tiga
+        // penanda lama semuanya 90/90/84, dan pada rentang sesempit itu ukuran
+        // huruf yang jujur hampir tak terlihat bedanya. Ini data contoh, jadi
+        // sebarannya boleh dipilih; begitu ulasan sungguhan masuk, angkanyalah
+        // yang menentukan ukuran.
+        sesuai: i % 50 !== 0,
+        respons: i % 12 !== 0,
+        tepat: i % 7 !== 0,
+        harga: i % 5 !== 0,
+        potong: i % 4 !== 0,
+        kualitas: i % 3 !== 0,
+        stok: i % 2 !== 0
+      });
+    }
+    return out;
+  }
+  renderVals() {
+    var SEMUA = this._data();
+    var n = SEMUA.length;
+    var bagian = function (kunci) {
+      return SEMUA.filter(function (r) { return r[kunci]; }).length / n;
+    };
+    var sebutan = [
+      { label: 'Barang sesuai', ikon: 'perisai', p: bagian('sesuai') },
+      { label: 'Admin responsif', ikon: 'obrol', p: bagian('respons') },
+      { label: 'Tepat Waktu', ikon: 'truk', p: bagian('tepat') },
+      { label: 'Harga bersaing', ikon: 'label', p: bagian('harga') },
+      { label: 'Potongan rapi', ikon: 'perisai', p: bagian('potong') },
+      { label: 'Kualitas stabil', ikon: 'perisai', p: bagian('kualitas') },
+      { label: 'Stok tersedia', ikon: 'truk', p: bagian('stok') }
+    ].sort(function (x, y) { return y.p - x.p; });
+    var ulasan = SEMUA.map(function (r) {
+      return { judul: r.judul, teks: r.text, nama: r.who, tanggal: r.date, rating: r.rating };
+    });
+    return {
+      pilTampil: false,
+      sebutan: sebutan.slice(0, 4).map(function (b) {
+        return { label: b.label, ikon: b.ikon, persen: Math.round(b.p * 100) };
+      }),
+      pita: ulasan.slice(0, 8),
+      daftar: ulasan
+    };
+  }
+}
+</script>
+</body>
+</html>

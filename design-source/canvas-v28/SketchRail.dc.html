@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SketchRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: relative">
+  <sc-if value="{{ adaLatar }}" hint-placeholder-val="{{ true }}">
+    <div data-rel-latar="1" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: -5.6rem; height: 37rem; z-index: 0; pointer-events: none; background-color: {{ latar }}; transition: background-color 300ms ease; -webkit-mask-image: var(--sketsa-latar-pudar); mask-image: var(--sketsa-latar-pudar)"></div>
+  </sc-if>
+  <div style="{{ gayaRel }}"><dc-import name="Rail" koleksi="sketsa" rupaSketsa="{{ rupa }}" namaTampil="{{ pilihan }}" warnaKartu="{{ warnaKartu }}" lebar="calc((100% + 0.7rem) * 0.803)" gutter="calc(var(--talang) / 2)" margKanan="0" pad="{{ pad }}" sembunyi="{{ true }}" snapTengah="{{ true }}" ariaLabel="{{ ariaLabel }}" onAktif="{{ saatAktif }}" hint-size="100%,44.2rem"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"rupa":{"editor":"enum","options":["kertas","putih"],"default":"kertas","section":"Resep"},"warnaKartu":{"editor":"text","default":"","section":"Warna"},"pilihan":{"editor":null,"section":"Isi","tsType":"string[]"},"ariaLabel":{"editor":"text","default":"Produk, geser untuk melihat berikutnya","section":"Aksesibilitas"},"$preview":{"width":360,"height":460}}'>
+class Component extends DCLogic {
+  state = { kini: 0 };
+  /* Rel gambar teknik per produk. Rupa kertas: warna latar atas mengikuti kartu aktif. Daftar produknya milik Rail. */
+  renderVals() {
+    const putih = this.props.rupa === 'putih';
+    const LATAR = ['var(--sketsa-latar-1)','var(--sketsa-latar-2)','var(--sketsa-latar-3)','var(--sketsa-latar-4)','var(--sketsa-latar-5)','var(--sketsa-latar-6)','var(--sketsa-latar-7)','var(--sketsa-latar-8)','var(--sketsa-latar-9)','var(--sketsa-latar-10)','var(--sketsa-latar-11)','var(--sketsa-latar-12)','var(--sketsa-latar-13)','var(--sketsa-latar-14)','var(--sketsa-latar-15)','var(--sketsa-latar-16)','var(--sketsa-latar-17)','var(--sketsa-latar-18)','var(--sketsa-latar-19)','var(--sketsa-latar-20)','var(--sketsa-latar-21)','var(--sketsa-latar-22)','var(--sketsa-latar-23)','var(--sketsa-latar-24)','var(--sketsa-latar-25)','var(--sketsa-latar-26)','var(--sketsa-latar-27)','var(--sketsa-latar-28)','var(--sketsa-latar-29)','var(--sketsa-latar-30)','var(--sketsa-latar-31)','var(--sketsa-latar-32)','var(--sketsa-latar-33)','var(--sketsa-latar-34)','var(--sketsa-latar-35)','var(--sketsa-latar-36)','var(--sketsa-latar-37)','var(--sketsa-latar-38)','var(--sketsa-latar-39)','var(--sketsa-latar-40)','var(--sketsa-latar-41)'];
+    return {
+      rupa: putih ? 'putih' : 'kertas',
+      pilihan: this.props.pilihan ?? (putih ? ['Besi Hollow Hitam', 'Besi Beton', 'Plat Besi Hitam', 'Besi WF', 'Besi CNP'] : undefined),
+      warnaKartu: this.props.warnaKartu || undefined,
+      adaLatar: !putih,
+      latar: LATAR[this.state.kini] || LATAR[0],
+      gayaRel: 'position: relative; z-index: 1; ' + (putih ? 'margin: -1.4rem 0 0 0' : 'margin: 0 0 -0.6rem 0'),
+      pad: putih ? '1.4rem 0.7rem 2rem var(--talang)' : '0 0.7rem 0.6rem var(--talang)',
+      ariaLabel: this.props.ariaLabel ?? 'Produk, geser untuk melihat berikutnya',
+      saatAktif: (i) => this.setState({ kini: i })
+    };
+  }
+}
+</script>
+</body>
+</html>

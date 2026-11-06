@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpTitleBar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="flex-shrink: 0; position: relative; z-index: 2; box-sizing: border-box; padding: 1.6rem; background: var(--brand); color: var(--surface); display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; box-shadow: var(--bayang-bantu-bilah)">
+  <sc-if value="{{ logo }}" hint-placeholder-val="{{ true }}">
+    <span aria-hidden="true" style="flex-shrink: 0; width: 4rem; height: 4rem; border-radius: var(--pill); background: var(--cair-tombol), var(--surface); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-right: calc(var(--rapat) / 2)">
+      <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: var(--cair-kilau); pointer-events: none"></span>
+      <dc-import name="Icon" ikon="headset" hint-size="2.4rem,2.4rem"></dc-import>
+    </span>
+  </sc-if>
+  <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+    <span style="display: block; font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)">{{ judul }}</span>
+    <span style="display: block; margin-top: 0.4rem"><dc-import name="OfficeHours" jenis="status" latar="gelap" online="{{ online }}" hint-size="8rem,1.4rem"></dc-import></span>
+  </span>
+  <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+    <dc-import name="IconButton" ikon="tutup" ukuran="{{ 36 }}" warna="var(--surface)" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.4 }}" ariaLabel="{{ labelTutup }}" onPress="{{ onTutup }}" hint-size="3.6rem,3.6rem"></dc-import>
+  </span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":null,"default":"SMS Perkasa"},"online":{"editor":null},"logo":{"editor":"boolean","default":true},"labelTutup":{"editor":null,"default":"Tutup pusat bantuan"},"onTutup":{"editor":null},"$preview":{"width":360,"height":72}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      judul: this.props.judul ?? 'SMS Perkasa',
+      online: this.props.online,
+      logo: this.props.logo ?? true,
+      labelTutup: this.props.labelTutup ?? 'Tutup pusat bantuan',
+      onTutup: this.props.onTutup
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Filter\"]"}, {"wait": 500}, {"click": "button:has-text(\"40 \u00d7 80\")"}, {"wait": 300}, {"click": "button:has-text(\"Terapkan\")"}, {"wait": 700}]

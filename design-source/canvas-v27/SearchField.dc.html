@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SearchField</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isHeader }}" hint-placeholder-val="{{ true }}">
+  <div style="flex-grow: 1; min-width: 0; box-sizing: border-box; display: flex; align-items: center; column-gap: 0; height: 4.6rem; padding: 0 1.8rem 0 0.4rem; border-radius: var(--action); box-shadow: inset 0 0 0 0.1rem var(--line)">
+    <span style="display: flex; flex-shrink: 0; margin-right: 0.3rem"><dc-import name="IconButton" ikon="cari" ukuran="{{ 38 }}" bentuk="aksi" warna="var(--ink)" ikonUkuran="{{ 27 }}" ikonGaris="{{ 1.4 }}" ariaLabel="Cari" onPress="{{ onCari }}" hint-size="3.8rem,3.8rem"></dc-import></span>
+    <label style="flex-grow: 1; min-width: 0; display: flex; align-items: center; margin-left: 0.3rem; margin-right: 0.3rem">
+      <span style="position: absolute; width: 0.1rem; height: 0.1rem; overflow: hidden; clip-path: inset(50%); color: var(--ink)">{{ placeholder }}</span>
+      <input type="text" value="{{ nilai }}" onChange="{{ ubah }}" placeholder="{{ placeholder }}" style="flex-grow: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: var(--teks-body); color: var(--ink)">
+    </label>
+    <sc-if value="{{ tampilHapus }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 {{ jarak }}"><dc-import name="IconButton" ikon="{{ ikonHapus }}" ukuran="{{ 22 }}" nada="isi" dasar="var(--ink-4)" warna="var(--surface)" ikonUkuran="{{ 11 }}" ikonGaris="{{ 3 }}" ariaLabel="Hapus kata pencarian" onPress="{{ hapus }}" hint-size="2.2rem,2.2rem"></dc-import></span></sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isPintu }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Pressable" onPress="{{ onPress }}" ariaLabel="{{ ariaLabel }}" gaya="{{ gayaPintu }}" hint-size="100%,4.8rem">
+    <span style="display: flex; flex-shrink: 0; margin-right: 0.5rem"><dc-import name="Icon" ikon="cari" ukuran="{{ 18 }}" warna="var(--ink-2)" garis="{{ 2.1 }}" hint-size="1.8rem,1.8rem"></dc-import></span>
+    <span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--teks-body); color: var(--ink-2); margin-left: 0.5rem; margin-right: 0.5rem">{{ placeholder }}</span>
+  </dc-import>
+</sc-if>
+<sc-if value="{{ isBingkai }}" hint-placeholder-val="{{ false }}">
+  <div style="box-sizing: border-box; height: 3.6rem; display: flex; align-items: center; column-gap: 0.8rem; padding: 0 1.2rem; border: 0.1rem solid var(--line); border-radius: 1rem; background: var(--surface)">
+    <input type="text" value="{{ nilai }}" onChange="{{ ubah }}" aria-label="{{ ariaLabel }}" placeholder="{{ placeholder }}" style="flex: 1 1 auto; min-width: 0; height: 100%; padding: 0; border: 0; outline-offset: 0.2rem; background: transparent; font-size: var(--teks-seksi); line-height: var(--tinggi-rapat); color: var(--ink)">
+    <dc-import name="Icon" ikon="cari-kolom" warna="var(--ink-2)" hint-size="1.6rem,1.6rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isBidang }}" hint-placeholder-val="{{ false }}">
+  <span style="{{ wadah }}">
+    <span style="display: flex; flex-shrink: 0; margin-right: {{ jarak }}"><dc-import name="Icon" ikon="cari" ukuran="{{ ikonUkuran }}" warna="{{ ikonWarna }}" garis="{{ ikonGaris }}" hint-size="1.8rem,1.8rem"></dc-import></span>
+    <sc-if value="{{ labelSr }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; width: 0.1rem; height: 0.1rem; overflow: hidden; clip-path: inset(50%)">{{ labelSr }}</span></sc-if>
+    <input id="{{ id }}" type="{{ tipeInput }}" value="{{ nilai }}" onChange="{{ ubah }}" onFocus="{{ onFokus }}" aria-label="{{ ariaLabel }}" placeholder="{{ placeholder }}" style="flex-grow: 1; min-width: 0; border: 0; background: transparent; {{ gayaInput }}; font-size: var(--teks-body); margin-left: {{ jarak }}; margin-right: {{ jarak }}">
+    <sc-if value="{{ tampilHapus }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 {{ jarak }}"><dc-import name="IconButton" ikon="{{ ikonHapus }}" ukuran="{{ 22 }}" nada="isi" dasar="var(--ink-4)" warna="var(--surface)" ikonUkuran="{{ 11 }}" ikonGaris="{{ 3 }}" ariaLabel="Hapus kata pencarian" onPress="{{ hapus }}" hint-size="2.2rem,2.2rem"></dc-import></span></sc-if>
+  </span>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["header","pintu","dialog","halaman","kaca","hero","abu","bingkai"],"default":"header","section":"Resep"},"nilai":{"editor":null},"placeholder":{"editor":null,"default":"Cari produk, ukuran, atau info"},"ariaLabel":{"editor":null},"labelSr":{"editor":null},"bisaHapus":{"editor":null},"onUbah":{"editor":null},"onHapus":{"editor":null},"onCari":{"editor":null},"onPress":{"editor":null},"sudut":{"editor":"text","default":"","section":"Bentuk"},"ikonHapus":{"editor":"enum","options":["tutup","tutup-lama"],"default":"tutup","section":"Bentuk"},"id":{"editor":null},"onFokus":{"editor":null},"$preview":{"width":520,"height":56}}'>
+class Component extends DCLogic {
+  state = { isi: '' };
+  renderVals() {
+    const tata = this.props.tata ?? 'header';
+    const dikendalikan = this.props.nilai !== undefined;
+    const nilai = dikendalikan ? this.props.nilai : this.state.isi;
+    const placeholder = this.props.placeholder ?? 'Cari produk, ukuran, atau info';
+    const bisaHapus = this.props.bisaHapus ?? (tata === 'dialog');
+    const wadah = {
+      dialog: 'flex-grow: 1; min-width: 0; min-height: 4.8rem; box-sizing: border-box; border-radius: var(--pill); background: var(--cincin-dasar); box-shadow: inset 0 0 0 0.1rem var(--cincin-garis); display: flex; align-items: center; column-gap: 0; padding: 0 var(--sisi)',
+      halaman: 'width: 100%; height: 4.4rem; border-radius: var(--pill); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); display: flex; align-items: center; column-gap: 0; padding: 0 1.4rem; box-sizing: border-box',
+      hero: 'width: 100%; box-sizing: border-box; display: flex; align-items: center; column-gap: 0; min-height: 4.1rem; padding: 0 1.8rem; border-radius: var(--pill); background: var(--surface); box-shadow: var(--cari-hero-bayang)',
+      abu: 'width: 100%; box-sizing: border-box; height: 4.4rem; border-radius: ' + (this.props.sudut || 'var(--pill)') + '; background: var(--line); display: flex; align-items: center; column-gap: 0; padding: 0 1.4rem',
+      kaca: 'width: 100%; box-sizing: border-box; display: flex; align-items: center; column-gap: 0; min-height: 4.8rem; padding: 0 1.4rem; border-radius: var(--pill); background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang)'
+    };
+    return {
+      isHeader: tata === 'header',
+      isPintu: tata === 'pintu',
+      isBingkai: tata === 'bingkai',
+      isBidang: !!wadah[tata],
+      wadah: wadah[tata],
+      jarak: tata === 'dialog' || tata === 'hero' ? '0.5rem' : tata === 'header' ? '0.3rem' : '0.4rem',
+      ikonUkuran: tata === 'halaman' || tata === 'abu' ? 17 : tata === 'hero' ? 19 : 18,
+      ikonGaris: tata === 'halaman' || tata === 'hero' || tata === 'abu' ? 2.2 : 2.1,
+      ikonWarna: tata === 'hero' ? 'var(--cari-hero-ikon)' : 'var(--ink-2)',
+      tipeInput: tata === 'hero' ? 'search' : 'text',
+      gayaInput: tata === 'hero' ? 'line-height: var(--tinggi-sel); color: var(--cari-hero-teks)' : tata === 'abu' ? 'outline: none' : 'outline: none; color: var(--ink)',
+      gayaPintu: 'background: var(--cincin-dasar); box-shadow: inset 0 0 0 0.1rem var(--cincin-garis); flex-grow: 1; width: 100%; min-width: 0; min-height: 4.8rem; box-sizing: border-box; padding: 0 var(--sisi); border-radius: var(--pill); display: flex; align-items: center; column-gap: 0',
+      id: this.props.id,
+      onFokus: this.props.onFokus,
+      ikonHapus: this.props.ikonHapus || 'tutup',
+      nilai,
+      placeholder,
+      labelSr: this.props.labelSr,
+      ariaLabel: this.props.ariaLabel ?? placeholder,
+      tampilHapus: bisaHapus && !!nilai,
+      onPress: this.props.onPress,
+      onCari: this.props.onCari,
+      ubah: (e) => {
+        if (!dikendalikan) this.setState({ isi: e.target.value });
+        if (this.props.onUbah) this.props.onUbah(e.target.value, e);
+      },
+      hapus: () => {
+        if (!dikendalikan) this.setState({ isi: '' });
+        if (this.props.onHapus) this.props.onHapus();
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

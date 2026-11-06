@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogPage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="DataDaftarArtikel" onData="{{ terimaDaftar }}" hint-size="0,0"></dc-import>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+    <dc-import name="FraudRibbon" tata="ponsel" buka="{{ awasBuka }}" onTutup="{{ awasTutup }}" hint-size="100%,6rem"></dc-import>
+    <div style="{{ gayaMast }}"><dc-import name="SiteHeader" dc-props="{{ header }}" hint-size="100%,5.6rem"></dc-import></div>
+    <sc-if value="{{ adaPita }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="BlogTabs" jenis="pita" butir="{{ tab }}" hint-size="100%,4.5rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isBerita }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="DataArtikel" onData="{{ terimaData }}" hint-size="0,0"></dc-import>
+      <main data-berita-utama="1" style="box-sizing: border-box; padding: 0 var(--talang); display: flex; flex-direction: column; gap: 0">
+        <div data-berita-atas="1" style="margin-top: 0; margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); box-sizing: border-box; padding: 0 var(--talang) var(--dalam) var(--talang); background: var(--surface); display: flex; flex-direction: column; gap: 0">
+          <dc-import name="BlogHero" jenis="lembar" judulBaris="{{ beritaJudul }}" isiBaris="{{ beritaSub }}" hint-size="100%,27rem"></dc-import>
+          <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+            <dc-import name="BlogNewsList" ariaLabel="Artikel terbaru" butir="{{ terbaru }}" hint-size="100%,80rem"></dc-import>
+          </sc-if>
+        </div>
+        <sc-if value="{{ cariAktif }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top: calc(var(--jarak-y-antar) + 0.2rem)"><dc-import name="BlogSearchResults" dc-props="{{ hasil }}" hint-size="100%,30rem"></dc-import></div>
+        </sc-if>
+        <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+          <div data-berita-daftar="1" style="margin-top: {{ jarakSemua }}">
+            <dc-import name="BlogListHead" opsi="{{ segOpsi }}" nilai="{{ segNilai }}" onPilih="{{ segPilih }}" hitung="{{ hitungDaftar }}" cari="{{ cariDaftar }}" onCari="{{ cariDaftarKetik }}" hint-size="100%,15rem"></dc-import>
+            <div style="margin-top: 3rem"><dc-import name="BlogNewsList" ariaLabel="{{ daftarAria }}" fotoPertama="{{ false }}" ringkasTampil="{{ false }}" butir="{{ daftarSemua }}" hint-size="100%,400rem"></dc-import></div>
+          </div>
+        </sc-if>
+      </main>
+    </sc-if>
+    <sc-if value="{{ tampilLama }}" hint-placeholder-val="{{ true }}">
+    <main style="{{ gayaMain }}">
+      <div style="{{ gayaAtas }}">
+        <div style="{{ gayaHero }}"><dc-import name="BlogHero" dc-props="{{ hero }}" hint-size="100%,24.8rem"></dc-import></div>
+        <sc-if value="{{ tampilBaru }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ gayaBaru }}"><dc-import name="BlogSection" dc-props="{{ baru }}" hint-size="100%,24.2rem"></dc-import></div>
+        </sc-if>
+      </div>
+      <sc-if value="{{ cariAktif }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ gayaHasil }}"><dc-import name="BlogSearchResults" dc-props="{{ hasil }}" hint-size="100%,30rem"></dc-import></div>
+      </sc-if>
+      <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ gayaIndeks }}">
+          <sc-for list="{{ daftarSeksi }}" as="x" hint-placeholder-count="5">
+            <div style="{{ x.gaya }}"><dc-import name="BlogSection" dc-props="{{ x.props }}" hint-size="100%,85rem"></dc-import></div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </main>
+    </sc-if>
+    <div data-berita-kaki="1" style="margin-top: {{ kakiAtas }}"><dc-import name="Footer" dc-props="{{ kaki }}" hint-size="100%,181rem"></dc-import></div>
+    <dc-import name="BottomGlassBar" dc-props="{{ bar }}" hint-size="100%,5.2rem"></dc-import>
+    <sc-if value="{{ adaLembar }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="SectionSheet" varian="kategori" terbuka="{{ navOpen }}" seksi="{{ lembarSeksi }}" onTutup="{{ navTutup }}" hint-size="33.6rem,6.8rem"></dc-import>
+    </sc-if>
+    <dc-import name="HelpCentre" gaya="blog" bannerJenis="{{ bannerBantu }}" buka="{{ bantuanOpen }}" onTutup="{{ bantuanTutup }}" hint-size="36rem,80rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+    <dc-import name="FraudRibbon" tata="desktop" buka="{{ awasBuka }}" onTutup="{{ awasTutup }}" hint-size="100%,5.4rem"></dc-import>
+    <dc-import name="SiteHeader" tata="desktop" hrefLogo="{{ hrefLogo }}" nilai="{{ cariQ }}" onUbah="{{ cariKetik }}" navIsi="{{ navIsi }}" hint-size="100%,12.4rem"></dc-import>
+    <main style="box-sizing: border-box; padding: 0 var(--sisi)">
+      <div style="margin-top: var(--seksi)"><dc-import name="BlogHero" jenis="desktop" hint-size="100%,20rem"></dc-import></div>
+      <sc-if value="{{ cariAktif }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: var(--seksi)"><dc-import name="BlogSearchResults" tata="desktop" hitung="{{ cariHitung }}" hasil="{{ hasilKartu }}" hint-size="100%,30rem"></dc-import></div>
+      </sc-if>
+      <sc-if value="{{ indeksTampil }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top: var(--dalam)"><dc-import name="BlogCardGrid" butir="{{ pilihan }}" hint-size="100%,33.7rem"></dc-import></div>
+        <sc-for list="{{ daftarSeksi }}" as="x" hint-placeholder-count="5">
+          <div style="{{ x.gaya }}"><dc-import name="BlogSection" dc-props="{{ x.props }}" hint-size="100%,60rem"></dc-import></div>
+        </sc-for>
+      </sc-if>
+    </main>
+    <div style="margin-top: calc(var(--footer-jarak) / 2)"><dc-import name="Footer" tata="desktop" hint-size="100%,38rem"></dc-import></div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"versi":{"editor":"enum","options":["baru","lama","panduan","foto","tab","pita","berita"],"default":"baru","section":"Resep"},"hrefLogo":{"editor":"text","default":"Artboard-pp1u.dc.html","section":"Tautan"},"hrefArtikel":{"editor":"text","default":"","section":"Tautan"},"artikel":{"editor":null,"section":"Data","tsType":"Array<{judul:string,slug:string,kategori:string,tanggal:string,foto:string,ringkas:string}>"},"seksi":{"editor":null,"section":"Data","tsType":"Array<{id:string,judul:string,deskripsi:string,kunci:string}>"},"navIsi":{"editor":"enum","options":["produk","artikel"],"default":"artikel","section":"Navigasi"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  state = { awas: false, nav: false, kat: -1, cari: false, q: '', bantuan: false, gulir: false, data: null, seg: 'semua', cariDaftar: '', jarakSemua: '', kakiBerita: '' };
+  // Tiap versi adalah satu susunan halaman blog; yang berbeda antarversi hanya nilai di sini.
+  _resep() {
+    const desktop = this.props.tata === 'desktop';
+    const kat = this.state.kat;
+    const merah = { jenis: 'merah', foto: true, ukuran: 'var(--teks-hero-blog)', rata: 'left' };
+    const TINGGI_A = [850, 831, 850, 813, 850];
+    const TINGGI_C = [887, 871, 887, 854, 887];
+    const kosong = { deskripsi: null, lihatHref: null };
+    const atasPita = (latar) => 'margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); box-sizing: border-box; padding: 0 var(--talang) var(--dalam) var(--talang); background: var(' + latar + '); display: flex; flex-direction: column; gap: 0';
+    const pantas = 'margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang))';
+    const RESEP = {
+      baru: {
+        href: 'SalinanArtikel2M3.dc.html', banner: 'gambar',
+        lembar: true, hero: {}, gayaHero: 'margin-bottom: 2.4rem',
+        baru: { id: 'kat-baru', judul: 'ARTIKEL BARU', jenisBaris: 'baru', ...kosong }, gayaBaru: (b) => 'margin-top: 2.4rem; margin-bottom: ' + b,
+        tinggi: TINGGI_A, atas: 242, tambah: 178, hasilDasar: 74, seksi: {}
+      },
+      panduan: {
+        href: 'SalinanArtikel2M4.dc.html', banner: 'sapaan', lembar: true, nada: 'merah', hero: { jenis: 'merah', cari: true }, gayaHero: pantas + '; margin-bottom: 2.5rem',
+        gayaAtas: (b) => atasPita('--blog-latar-panduan') + '; margin-bottom: ' + b,
+        baru: { id: 'kat-baru', judul: 'PALING BANYAK DIBACA', ...kosong }, gayaBaru: () => 'margin-top: 2.5rem',
+        tinggi: TINGGI_A, atas: 679, tambah: 0, hasilDasar: 74, seksi: {}
+      },
+      foto: {
+        href: 'DetailArtikel2M4.dc.html', banner: 'sapaan', keAtas: true, nada: 'merah', hero: { ...merah, isiBawah: 'var(--dalam)' }, gayaHero: pantas,
+        gayaAtas: (b) => atasPita('--surface') + '; margin-bottom: ' + b,
+        baru: { id: 'kat-baru', gaya: 'kartu', kepala: 'populer', ...kosong }, gayaBaru: () => '',
+        tinggi: TINGGI_C, atas: 769, tambah: 0, hasilDasar: 68.6, judulHasil: 'seksi', seksi: { gaya: 'kartu', kepala: 'kosong', deskripsi: null }
+      },
+      tab: {
+        href: 'DetailArtikel3M4.dc.html', banner: 'sapaan', keAtas: true, nada: 'merah', hero: merah, gayaHero: pantas + '; margin-bottom: ' + (kat === -1 ? '1.3rem' : '0'),
+        tabHero: [['Semua', -1], ['Berita Baja', 0], ['Industri', 1], ['Edukasi', 6]],
+        gayaAtas: (b) => atasPita('--surface') + '; margin-bottom: ' + b,
+        baru: { id: 'kat-baru', gaya: 'kartu', judul: 'PALING BANYAK DIBACA', judulVarian: 'seksi', kategoriTampil: false, garis: true, ...kosong },
+        gayaBaru: () => 'margin-top: 1.3rem; margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); box-sizing: border-box; padding: var(--dalam) var(--talang); background: var(--blog-latar-panduan)',
+        tinggi: [860, 844, 860, 828, 860], atas: kat === -1 ? 797 : 342, tambah: 0, hasilDasar: 68.6, judulHasil: 'seksi', seksi: { gaya: 'kartu', judulVarian: 'seksi', kategoriTampil: false, garis: true }
+      },
+      berita: {
+        href: 'DetailArtikel3M4.dc.html', banner: 'sapaan', keAtas: true, berita: true, hero: {}, gayaHero: '', gayaBaru: () => '', baru: {}, tinggi: [860, 844, 860, 828, 860], atas: 0, tambah: 0, hasilDasar: 68.6, seksi: {}
+      },
+      pita: {
+        href: 'DetailArtikel4M4.dc.html', banner: 'sapaan', keAtas: true, nada: 'merah', hero: { jenis: 'terang' }, gayaHero: pantas,
+        tabPita: [['Berita Baja', 0], ['Industri Baja', 1], ['Produk Besi', 2], ['Team', 3], ['Trivia', 4]],
+        gayaAtas: (b) => atasPita('--surface') + '; margin-bottom: ' + b,
+        baru: { id: 'kat-baru', gaya: 'kartu', kepala: 'populer', populerTepi: 'kanan', ...kosong }, gayaBaru: () => '',
+        tinggi: TINGGI_C, atas: kat === -1 ? 892.6 : 335, tambah: 0, hasilDasar: 68.6, judulHasil: 'seksi', seksi: { gaya: 'kartu', kepala: 'kosong', deskripsi: null }
+      },
+      lama: {
+        href: 'SalinanArtikel2M3.dc.html', banner: 'gambar',
+        lembar: true, tetap: true, sisi: 'var(--sisi-artikel)', hero: {}, gayaHero: 'margin-top: var(--dalam)',
+        baru: { gaya: 'lama', kepala: 'nyala', judul: 'ARTIKEL BARU', jenisBaris: 'baru', latarBaris: true, ...kosong }, gayaBaru: () => 'margin-top: var(--dalam)',
+        seksi: { gaya: 'lama' },
+        lembarSeksi: [
+          { id: 'kat-berita', label: 'Berita Baja', ikon: 'berita' },
+          { id: 'kat-industri', label: 'Industri Baja', ikon: 'pabrik' },
+          { id: 'kat-produk', label: 'Produk Besi', ikon: 'balok' },
+          { id: 'kat-team', label: 'Team', ikon: 'tim' },
+          { id: 'kat-trivia', label: 'Trivia', ikon: 'lampu' }
+        ]
+      }
+    };
+    return desktop ? { href: 'DesktopArtikelM3.dc.html', seksi: {} } : (RESEP[this.props.versi] || RESEP.baru);
+  }
+  _artikel() {
+    return this.props.artikel ?? this.state.daftarArtikel ?? [];
+  }
+  // Versi berita: Artikel Terbaru dan Semua Artikel. Klik artikel menyimpan kuncinya; ArticlePage membaca kunci yang sama.
+  _berita(ARTIKEL, waktu, lalu, s) {
+    const d = s.data || { kabar: [], sorotan: {}, isi: {} };
+    const PETA = { 'Berita Besi Baja': 'Market News', 'Industri Besi Baja': 'Market News', 'Produk Besi': 'Education', Trivia: 'Education', Team: 'Company' };
+    const pilih = (kunci) => () => {
+      try { window.localStorage.setItem('smsp-artikel-pilih', kunci); } catch (e) {}
+      try { window.sessionStorage.setItem('smsp-artikel-pilih', kunci); } catch (e) {}
+    };
+    const hrefArtikel = this.props.hrefArtikel || 'DetailArtikel3M4.dc.html';
+    const kartu = (a) => {
+      const so = d.sorotan[a.judul] || {};
+      const kat = PETA[a.kategori] || a.kategori;
+      return { judul: a.judul, href: hrefArtikel, target: '_self', kategori: kat, tanggal: a.tanggal, lalu: lalu(a.tanggal), foto: so.foto || a.foto, ringkas: so.ringkas || a.ringkas, onPilih: pilih(a.slug), ariaLabel: 'Artikel: ' + a.judul + ', ' + kat + ', ' + a.tanggal + ', oleh Sofia, buka halaman artikel' };
+    };
+    const kartuKabar = (a, i) => ({ judul: a[0], href: hrefArtikel, target: '_self', kategori: a[2], tanggal: a[3] + ' · ' + a[4], lalu: lalu(a[3]), foto: '', ringkas: a[5], onPilih: pilih('kabar-' + i), ariaLabel: 'Berita: ' + a[0] + ', ' + a[2] + ', ' + a[3] + ', sumber ' + a[4] + ', buka halaman artikel' });
+    const urut = ARTIKEL.slice().sort((a, c) => waktu(c.tanggal) - waktu(a.tanggal));
+    const halaman = urut.filter((a) => PETA[a.kategori] !== 'Education');
+    const tgl = (k) => waktu(k.tanggal.split(' · ')[0]);
+    const market = () => d.kabar.map(kartuKabar).concat(urut.filter((a) => PETA[a.kategori] === 'Market News').map(kartu));
+    const company = () => urut.filter((a) => PETA[a.kategori] === 'Company').map(kartu);
+    const seg = s.seg;
+    const cq = (s.cariDaftar || '').trim().toLowerCase();
+    const sumber = seg === 'company' ? company() : seg === 'market' ? market() : market().concat(company());
+    const daftar = sumber.filter((k) => !cq || k.judul.toLowerCase().indexOf(cq) !== -1).sort((x, y) => tgl(y) - tgl(x));
+    return {
+      terbaru: halaman.slice(0, 3).map(kartu),
+      hasilCari: (daftarCari) => daftarCari.filter((a) => PETA[a.kategori] !== 'Education').map(kartu),
+      segOpsi: [{ id: 'semua', label: 'Semua' }, { id: 'market', label: 'Market News' }, { id: 'company', label: 'Company' }],
+      segNilai: seg,
+      segPilih: (id) => this.setState({ seg: id }),
+      hitungDaftar: daftar.length,
+      cariDaftar: s.cariDaftar,
+      cariDaftarKetik: (v) => this.setState({ cariDaftar: v }),
+      daftarSemua: daftar,
+      daftarAria: seg === 'company' ? 'Company' : seg === 'market' ? 'Market News' : 'Semua artikel',
+      jarakSemua: s.jarakSemua || '4.5rem'
+    };
+  }
+  // Jarak antarseksi versi berita mengikuti rasio tinggi tetangganya, rumus jarak kanvas ini.
+  _ukurBerita() {
+    if (this.props.tata === 'desktop' || !this._resep().berita) return;
+    const ambil = (n) => document.querySelector('[data-berita-' + n + '="1"]');
+    const atas = ambil('atas');
+    const daftar = ambil('daftar');
+    const utama = ambil('utama');
+    const kaki = ambil('kaki');
+    if (!utama || !kaki || !kaki.offsetHeight) return;
+    const nilai = (a, b) => Math.round(Math.min(1.4, Math.max(0.75, Math.pow(a / b, 0.35))) * 60) / 10 + 'rem';
+    const baru = {};
+    if (atas && daftar && daftar.offsetHeight) {
+      const j = nilai(atas.offsetHeight, daftar.offsetHeight);
+      if (j !== this.state.jarakSemua) baru.jarakSemua = j;
+    }
+    const k = nilai(utama.offsetHeight, kaki.offsetHeight);
+    if (k !== this.state.kakiBerita) baru.kakiBerita = k;
+    if (Object.keys(baru).length) this.setState(baru);
+  }
+  componentDidUpdate() { this._ukurBerita(); }
+  componentDidMount() {
+    this._ukurBerita();
+    if (this._resep().berita && this.props.tata !== 'desktop' && window.ResizeObserver) {
+      this._ro = new ResizeObserver(() => this._ukurBerita());
+      document.querySelectorAll('[data-berita-utama="1"], [data-berita-atas="1"], [data-berita-daftar="1"], [data-berita-kaki="1"]').forEach((el) => this._ro.observe(el));
+    }
+    if (this.props.tata === 'desktop' || !this._resep().keAtas) return;
+    this._gulirOn = () => {
+      let y = 0;
+      try { y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0; } catch (e) {}
+      const turun = y > 160;
+      if (turun !== this.state.gulir) this.setState({ gulir: turun });
+    };
+    window.addEventListener('scroll', this._gulirOn, { passive: true });
+    this._gulirOn();
+  }
+  componentWillUnmount() {
+    if (this._ro) this._ro.disconnect();
+    if (this._gulirOn) window.removeEventListener('scroll', this._gulirOn);
+  }
+  renderVals() {
+    const s = this.state;
+    const desktop = this.props.tata === 'desktop';
+    const r = this._resep();
+    const ARTIKEL = this._artikel();
+    const SEKSI = this.props.seksi ?? [
+      { id: 'kat-berita', judul: 'Berita Baja', deskripsi: 'Perkembangan industri, kebijakan dan pergerakan harga besi baja.', kunci: 'Berita Besi Baja' },
+      { id: 'kat-industri', judul: 'Industri Baja', deskripsi: 'Teknologi produksi, metode konstruksi dan praktik di lapangan.', kunci: 'Industri Besi Baja' },
+      { id: 'kat-produk', judul: 'Produk Besi', deskripsi: 'Jenis, ukuran dan penggunaan tiap produk besi dan baja.', kunci: 'Produk Besi' },
+      { id: 'kat-team', judul: 'Team', deskripsi: 'Budaya kerja, kegiatan dan pengembangan tim SMS Perkasa.', kunci: 'Team' },
+      { id: 'kat-trivia', judul: 'Trivia', deskripsi: 'Serba-serbi desain, hunian dan fakta menarik seputar konstruksi.', kunci: 'Trivia' }
+    ];
+    const hrefArtikel = this.props.hrefArtikel || r.href;
+    const hrefLogo = this.props.hrefLogo || 'Artboard-pp1u.dc.html';
+    const BULAN = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5, Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11 };
+    const waktu = (tgl) => {
+      const p = String(tgl).split(' ');
+      const b = BULAN[p[1]];
+      if (p.length !== 3 || b === undefined) return 0;
+      return new Date(parseInt(p[2], 10), b, parseInt(p[0], 10)).getTime();
+    };
+    const lalu = (tgl) => {
+      const t = waktu(tgl);
+      if (!t) return tgl;
+      const hari = Math.floor((Date.now() - t) / 86400000);
+      if (hari < 1) return 'hari ini';
+      if (hari === 1) return 'kemarin';
+      if (hari < 30) return hari + ' hari yang lalu';
+      if (hari < 365) return Math.floor(hari / 30) + ' bulan yang lalu';
+      return Math.floor(hari / 365) + ' tahun yang lalu';
+    };
+    const PENDEK = { 'Berita Besi Baja': 'Berita Baja', 'Industri Besi Baja': 'Industri Baja' };
+    const pendek = (k) => PENDEK[k] || k;
+    const kartu = (a) => ({
+      judul: a.judul,
+      href: hrefArtikel,
+      target: '_self',
+      kategori: pendek(a.kategori),
+      tanggal: a.tanggal,
+      lalu: lalu(a.tanggal),
+      foto: a.foto || null,
+      ringkas: a.ringkas,
+      ariaLabel: 'Artikel: ' + a.judul + ', ' + pendek(a.kategori) + ', ' + a.tanggal + ', oleh Sofia, buka halaman artikel'
+    });
+    const kat = (k) => ARTIKEL.filter((a) => a.kategori === k).map(kartu);
+    const qMentah = (s.q || '').trim();
+    const qq = qMentah.toLowerCase();
+    const HASIL = qq ? ARTIKEL.filter((a) => a.judul.toLowerCase().indexOf(qq) !== -1) : [];
+    const cariHitung = HASIL.length + ' artikel cocok dengan "' + (desktop ? qMentah : qq) + '"';
+    const umum = {
+      isPonsel: !desktop,
+      isDesktop: desktop,
+      hrefLogo,
+      navIsi: this.props.navIsi ?? 'artikel',
+      awasBuka: s.awas,
+      awasTutup: () => this.setState({ awas: false }),
+      cariQ: s.q,
+      cariKetik: (v) => this.setState({ q: v }),
+      cariAktif: !!qq,
+      indeksTampil: !qq,
+      cariHitung,
+      terimaDaftar: (d) => this.setState({ daftarArtikel: d.artikel })
+    };
+    const antarSeksi = (x, n) => 'margin-top: ' + (n === 0 ? 'var(--seksi)' : 'calc(var(--seksi) / 2)') + (n === SEKSI.length - 1 ? '' : '; padding-bottom: calc(var(--seksi) / 2)');
+    if (desktop) {
+      return {
+        ...umum,
+        hasilKartu: HASIL.map(kartu),
+        pilihan: ARTIKEL.filter((a) => a.tanggal === '9 Okt 2026').slice(0, 2).map(kartu),
+        daftarSeksi: SEKSI.map((x, n) => ({
+          gaya: antarSeksi(x, n),
+          props: { tata: 'desktop', id: x.id, judul: x.judul, deskripsi: x.deskripsi, baris: kat(x.kunci) }
+        }))
+      };
+    }
+    const URUT = ARTIKEL.slice().sort((a, c) => waktu(c.tanggal) - waktu(a.tanggal));
+    const TAMPIL = (i) => s.kat === -1 || s.kat === i || (s.kat === 6 && (i === 2 || i === 4));
+    const hadir = SEKSI.map((x, i) => ({ ...x, i })).filter((x) => TAMPIL(x.i));
+    const BASIS = s.kat === -1 ? 60 : 35;
+    const jarak = (a, b, basis) => Math.round(Math.min(1.4, Math.max(0.75, Math.pow(a / b, 0.35))) * basis);
+    const rem = (px) => px / 10 + 'rem';
+    let daftarSeksi;
+    let atasBawah = '0';
+    let bawahAtas = '0';
+    let kakiAtas = 'calc(var(--seksi) / 2)';
+    if (r.tetap) {
+      daftarSeksi = SEKSI.map((x, n) => ({
+        gaya: antarSeksi(x, n),
+        props: { ...r.seksi, id: x.id, judul: x.judul, deskripsi: x.deskripsi, baris: kat(x.kunci) }
+      }));
+    } else {
+      let tinggiDaftar = 0;
+      daftarSeksi = hadir.map((x, n) => {
+        const h = r.tinggi[x.i];
+        const g = n === 0 ? 0 : jarak(r.tinggi[hadir[n - 1].i], h, BASIS);
+        const g2 = n === hadir.length - 1 ? 0 : jarak(h, r.tinggi[hadir[n + 1].i], BASIS);
+        tinggiDaftar += h + g;
+        return {
+          gaya: 'margin-top: ' + rem(g - Math.round(g / 2)) + '; margin-bottom: ' + rem(Math.round(g2 / 2)),
+          props: { id: x.id, judul: x.judul, deskripsi: x.deskripsi, baris: kat(x.kunci), ...r.seksi }
+        };
+      });
+      const tinggiBawah = qq ? Math.round(r.hasilDasar + 185.625 * HASIL.length) : tinggiDaftar;
+      const jarakBawah = jarak(r.atas, tinggiBawah, BASIS);
+      const tinggiUtama = Math.floor(r.atas + r.tambah + jarakBawah + tinggiBawah);
+      atasBawah = rem(Math.round(jarakBawah / 2));
+      bawahAtas = rem(jarakBawah - Math.round(jarakBawah / 2));
+      kakiAtas = rem(jarak(tinggiUtama, 1811, 60));
+    }
+    const daftarTab = r.tabHero || r.tabPita;
+    const tab = daftarTab ? daftarTab.map((t) => ({ label: t[0], kini: s.kat === t[1], pilih: () => this.setState({ kat: t[1] }) })) : undefined;
+    const hero = r.tabHero ? { ...r.hero, tab } : r.hero;
+    const hasil = { hitung: cariHitung, hasil: HASIL.map(kartu) };
+    if (r.tetap) hasil.gaya = 'lama';
+    if (r.judulHasil) hasil.judulVarian = r.judulHasil;
+    const kaki = { tata: 'ponsel' };
+    if (r.sisi) kaki.sisiPonsel = r.sisi;
+    const header = { tata: 'ponsel', hrefLogo };
+    if (r.nada) header.nada = r.nada;
+    if (r.sisi) header.sisiPonsel = r.sisi;
+    const bar = {
+      jenis: 'blog',
+      terbuka: s.nav,
+      cariTerbuka: s.cari,
+      bantuanTerbuka: s.bantuan,
+      kueri: s.q,
+      onKetik: (v) => this.setState({ q: v }),
+      onNav: () => this.setState({ nav: !s.nav }),
+      onCari: () => this.setState({ cari: !s.cari, q: s.cari ? '' : s.q, bantuan: false, nav: false }),
+      onBantuan: () => this.setState({ bantuan: !s.bantuan, nav: false })
+    };
+    if (r.keAtas) {
+      bar.keAtasAda = true;
+      bar.keAtasTampil = s.gulir;
+      bar.onKeAtas = () => {
+        let halus = true;
+        try { halus = !window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        try { window.scrollTo({ top: 0, behavior: halus ? 'smooth' : 'auto' }); }
+        catch (e) { try { window.scrollTo(0, 0); } catch (e2) {} }
+      };
+    }
+    const beritaVals = r.berita ? this._berita(ARTIKEL, waktu, lalu, s) : {};
+    if (r.berita) {
+      header.nada = 'apung';
+      kakiAtas = s.kakiBerita || '8.4rem';
+      hasil.hasil = beritaVals.hasilCari(HASIL);
+      hasil.judulVarian = 'seksi';
+      hasil.pAtas = '0.1rem';
+      hasil.hitung = hasil.hasil.length + ' artikel cocok dengan "' + qq + '"';
+    }
+    return {
+      ...umum,
+      ...beritaVals,
+      hasilCari: undefined,
+      isBerita: !!r.berita,
+      tampilLama: !r.berita,
+      gayaMast: r.berita ? 'position: relative; z-index: 2; height: 0' : 'display: contents',
+      terimaData: (data) => this.setState({ data }),
+      beritaJudul: ['Blog SMS Perkasa'],
+      beritaSub: ['Dinamika industri, kabar terkini,', 'dan ragam inspirasi'],
+      header,
+      adaPita: !!r.tabPita,
+      tab,
+      gayaMain: 'box-sizing: border-box; padding: 0 var(--talang)' + (r.tetap ? '' : '; display: flex; flex-direction: column; gap: 0'),
+      gayaAtas: r.gayaAtas ? r.gayaAtas(atasBawah) : 'display: contents',
+      gayaHero: r.gayaHero,
+      hero,
+      tampilBaru: s.kat === -1,
+      gayaBaru: r.gayaBaru(atasBawah),
+      baru: { ...r.baru, baris: URUT.slice(0, 3).map(kartu) },
+      gayaHasil: 'margin-top: ' + (r.tetap ? 'var(--seksi)' : bawahAtas),
+      hasil,
+      gayaIndeks: r.tetap ? 'display: contents' : 'margin-top: ' + bawahAtas + '; display: flex; flex-direction: column; gap: 0',
+      daftarSeksi,
+      kakiAtas,
+      kaki,
+      bar,
+      adaLembar: !!r.lembar,
+      navOpen: s.nav,
+      navTutup: () => this.setState({ nav: false }),
+      lembarSeksi: r.lembarSeksi,
+      bantuanOpen: s.bantuan,
+      bantuanTutup: () => this.setState({ bantuan: false }),
+      bannerBantu: r.banner
+    };
+  }
+}
+</script>
+</body>
+</html>

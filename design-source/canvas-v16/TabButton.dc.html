@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TabButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<button type="button" onClick="{{ onPress }}" aria-current="{{ kini }}" style="{{ gaya }}">{{ label }}</button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["garis","pita"],"default":"garis"},"aktif":{"editor":"boolean","default":false},"label":{"editor":null,"default":"Semua"},"onPress":{"editor":null},"$preview":{"width":120,"height":50}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const on = !!this.props.aktif;
+    const garis = 'box-sizing: border-box; flex: 0 1 auto; min-width: 0; min-height: 4.4rem; display: inline-flex; align-items: center; justify-content: center; padding: 0 0 1rem 0; margin-bottom: -0.1rem; border: 0; border-bottom: 0.3rem solid transparent; background: transparent; font-size: var(--teks-body); line-height: var(--tinggi-tengah); text-align: center; white-space: nowrap; ' + (on ? 'color: var(--brand); font-weight: var(--bobot-bold); border-bottom-color: var(--brand)' : 'color: var(--ink); font-weight: var(--bobot-regular); border-bottom-color: transparent');
+    const pita = 'min-height: 4.4rem; padding: 0; border: 0; background: transparent; display: inline-flex; align-items: center; font-size: var(--teks-meta); line-height: var(--tinggi-tengah); color: var(--surface); white-space: nowrap; font-weight: var(--bobot-semibold)' + (on ? '; text-decoration: underline; text-decoration-thickness: 0.2rem; text-underline-offset: 0.6rem' : '');
+    return {
+      label: this.props.label ?? 'Semua',
+      onPress: this.props.onPress,
+      kini: on ? 'true' : 'false',
+      gaya: this.props.jenis === 'pita' ? pita : garis
+    };
+  }
+}
+</script>
+</body>
+</html>

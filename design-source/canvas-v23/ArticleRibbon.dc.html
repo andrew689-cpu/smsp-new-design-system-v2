@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ArticleRibbon</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); box-sizing: border-box; padding: var(--dalam) var(--talang); background: var(--merah-artikel); display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--jarak-y-dalam)">
+  <dc-import name="Heading" level="{{ 1 }}" varian="artikel" tata="ponsel" warna="var(--surface)" rata="center" teks="{{ judul }}" hint-size="100%,10rem"></dc-import>
+  <span style="align-self: flex-end; text-align: right; font-size: var(--teks-meta); line-height: var(--tinggi-tengah); font-weight: var(--bobot-medium); color: var(--artikel-meta)">{{ meta }}</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":"text","default":"Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien","section":"Isi"},"meta":{"editor":"text","default":"Sofia | 25 Jul 2026","section":"Isi"},"$preview":{"width":360,"height":190}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      judul: this.props.judul ?? 'Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien',
+      meta: this.props.meta ?? 'Sofia | 25 Jul 2026'
+    };
+  }
+}
+</script>
+</body>
+</html>

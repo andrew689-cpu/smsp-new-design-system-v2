@@ -1,0 +1,78 @@
+{
+ "board": "SalinanArtikel2M4Salinan",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": true,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": true,
+  "pixels": true
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 9842,
+   "new": 9842,
+   "delta": 0
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 0.008,
+   "orig_size": [
+    360,
+    9842
+   ],
+   "new_size": [
+    360,
+    9842
+   ],
+   "first_y_over_0.5pct": null,
+   "worst_bands_y_pct": [
+    [
+     8400,
+     0.14
+    ],
+    [
+     8200,
+     0.11
+    ],
+    [
+     8600,
+     0.11
+    ],
+    [
+     8000,
+     0.04
+    ],
+    [
+     0,
+     0.01
+    ]
+   ]
+  }
+ }
+}

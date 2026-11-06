@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Daftar kategori artikel\"]"}, {"wait": 800}, {"click": "[data-sheet] >> text=Artikel Baru"}, {"wait": 800}]

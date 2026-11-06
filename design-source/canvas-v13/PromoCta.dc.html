@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PromoCta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isKalkM }}" hint-placeholder-val="{{ true }}">
+  <div style="display: flex; align-items: center; column-gap: 0; min-height: 14.8rem; box-sizing: border-box; padding: var(--rapat); border-radius: var(--action); overflow: hidden; background-image: url(/_blob/b8ab0306aed67bc2caa3c0f11794ea41); background-repeat: no-repeat; background-position: center; background-size: cover">
+    <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.8rem; margin-right: calc(var(--rapat) / 2)">
+      <p style="margin: 0; font-size: var(--teks-page); line-height: var(--tinggi-sempit); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</p>
+      <sc-if value="{{ adaTeks }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ teks }}</p>
+      </sc-if>
+      <dc-import name="Button" variant="kecil" label="{{ label }}" href="{{ href }}" target="_blank" rel="noopener" hint-size="14rem,3rem"></dc-import>
+    </div>
+    <span style="flex: 0 0 48%; align-self: center; border-radius: var(--card); overflow: hidden; background: transparent; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; height: auto; display: block">
+    </span>
+  </div>
+</sc-if>
+<sc-if value="{{ isKalkSitus }}" hint-placeholder-val="{{ false }}">
+  <div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; align-items: center; row-gap: 2.2rem; padding: 1.8rem; border-radius: 1.2rem; background: var(--situs-tinta)">
+    <span style="position: relative; display: block; width: 100%; max-width: 14.6rem; aspect-ratio: 146 / 130">
+      <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+    </span>
+    <div style="box-sizing: border-box; width: 100%; max-width: 50rem; display: flex; flex-direction: column; align-items: center; justify-content: space-between; row-gap: 2.6rem">
+      <div style="box-sizing: border-box; width: 100%; max-width: 41rem; display: flex; flex-direction: column; row-gap: 1.2rem">
+        <p style="margin: 0; font-size: var(--teks-page); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); color: var(--situs-putih); text-align: center">{{ judul }}</p>
+        <sc-if value="{{ adaTeks }}" hint-placeholder-val="{{ true }}">
+          <span style="display: block; font-size: var(--teks-body); line-height: var(--tinggi-spanduk); font-weight: var(--bobot-regular); color: var(--situs-putih); text-align: center">{{ teks }}</span>
+        </sc-if>
+      </div>
+      <dc-import name="Button" variant="situs" label="{{ label }}" href="{{ href }}" target="_blank" rel="noopener" hint-size="20rem,4.2rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isKalkD }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: 25% minmax(0, 1fr); align-items: center; column-gap: 0">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; max-width: 30rem; height: auto; aspect-ratio: auto 4 / 3; display: block; margin-right: calc(var(--selokan-dalam) / 2)">
+    <div style="margin-left: calc(var(--selokan-dalam) / 2); margin-right: calc(var(--selokan-dalam) / 2)">
+      <p style="margin: 0; font-size: var(--teks-cta); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-sup); text-transform: uppercase; color: var(--ink)">{{ judul }}</p>
+      <sc-if value="{{ adaTeks }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: var(--teks-lead); line-height: var(--tinggi-butir); color: var(--ink-2)">{{ teks }}</p>
+      </sc-if>
+      <span style="display: block; margin-top: var(--dalam)"><dc-import name="Button" variant="spanduk" label="{{ label }}" href="{{ href }}" target="_blank" rel="noopener" hint-size="30rem,6rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isPromoM }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="margin-right: var(--talang); box-sizing: border-box; padding: var(--dalam); border-radius: var(--action); background: var(--biru-dasar)">
+      <div style="margin-top: var(--dalam); display: flex; align-items: center; column-gap: 0">
+        <div style="min-width: 0; margin-right: calc(var(--selokan-sempit) / 2)">
+          <h3 style="margin: 0; font-size: var(--teks-section); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-upvc); text-transform: uppercase; color: var(--biru-tinta)">{{ judul }}</h3>
+        </div>
+        <div style="position: relative; flex-shrink: 0; display: inline-block; padding: var(--dalam) var(--rapat) var(--rapat); border-radius: var(--sheet); background: var(--surface); box-shadow: var(--bayang-kartu); margin-left: calc(var(--selokan-sempit) / 2); margin-right: calc(var(--selokan-sempit) / 2)">
+          <span style="position: absolute; top: -1.1rem; left: var(--rapat); display: block"><dc-import name="Tag" jenis="mulai" teks="{{ labelMulai }}" hint-size="7rem,2.2rem"></dc-import></span>
+          <dc-import name="Price" ukuran="promo-m" tone="brand" angka="{{ angka }}" unit="{{ unit }}" hint-size="12rem,2.4rem"></dc-import>
+        </div>
+      </div>
+      <div style="margin-top: var(--dalam); box-sizing: border-box; padding: var(--dalam) 0; border-top: 0.1rem solid var(--garis-panel); border-bottom: 0.1rem solid var(--garis-panel); display: flex">
+        <sc-for list="{{ warna }}" as="w" hint-placeholder-count="3">
+          <div style="{{ w.gaya }}">
+            <dc-import name="Tag" jenis="keping" nada="{{ w.nada }}" teks="{{ w.nama }}" hint-size="8rem,2.1rem"></dc-import>
+            <span style="margin-top: 0.6rem; display: flex; align-items: flex-start; column-gap: 0">
+              <span style="display: flex; flex-shrink: 0; margin-right: 0.3rem"><dc-import name="Icon" ikon="matahari" ukuran="{{ 14 }}" hint-size="14px,14px"></dc-import></span>
+              <span style="font-size: var(--teks-tiny); line-height: var(--tinggi-sedang); color: var(--ink-2); margin-left: 0.3rem; margin-right: 0.3rem">{{ w.catatan }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: var(--dalam)"><dc-import name="Rail" items="{{ kartu }}" lebar="48%" gutter="calc(var(--selokan-sempit) / 2)" pad="0 0 0.6rem 0" margKanan="0" hint-size="100%,28rem"></dc-import></div>
+      <span style="display: block; margin-top: var(--dalam)"><dc-import name="Button" variant="kecil" label="{{ label }}" href="{{ href }}" hint-size="16rem,3rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isPromoD }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: 0">
+      <div style="margin-right: calc(var(--selokan-dalam) / 2)">
+        <dc-import name="Heading" level="{{ 3 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+        <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-subhead); line-height: var(--tinggi-rapat); font-weight: var(--bobot-regular); letter-spacing: var(--renggang-label-d); text-transform: uppercase; color: var(--ink-2)">{{ merek }}</p>
+        <span style="margin-top: var(--rapat); display: inline-flex; align-items: center; column-gap: 0.4rem; font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-medium); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-right: 0.4rem"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 8.5-4.1-.9-7-4.3-7-8.5V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>{{ klaim }}</span>
+        <div style="position: relative; display: block; width: fit-content; margin-top: calc(var(--dalam) + 1.3rem); padding: var(--dalam) var(--dalam) var(--rapat); border: 0.1rem solid var(--line-kuat); border-radius: var(--card); background: transparent">
+          <span style="position: absolute; top: -1.3rem; left: var(--dalam); display: inline-block; padding: 0.4rem var(--rapat); border-radius: var(--pill); background: var(--ink); color: var(--surface); font-size: var(--teks-meta); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); white-space: nowrap">{{ labelMulai }}</span>
+          <dc-import name="Price" ukuran="promo-d" angka="{{ angka }}" unit="{{ unit }}" hint-size="16rem,3.2rem"></dc-import>
+        </div>
+        <div style="margin-top: var(--dalam); box-sizing: border-box; padding: var(--rapat); border-radius: var(--tile); display: flex; column-gap: 0">
+          <sc-for list="{{ warna }}" as="w" hint-placeholder-count="3">
+            <div style="{{ w.gaya }}">
+              <span style="display: block; font-size: var(--teks-lead); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--ink)">{{ w.nama }}</span>
+              <span style="margin-top: 0.6rem; display: flex; align-items: flex-start; column-gap: 0">
+                <span style="display: flex; flex-shrink: 0; margin-top: 0.5rem; margin-right: 0.3rem"><dc-import name="Icon" ikon="matahari" ukuran="{{ 16 }}" hint-size="16px,16px"></dc-import></span>
+                <span style="font-size: var(--teks-lead); line-height: var(--tinggi-sedang); color: var(--ink-2); margin-left: 0.3rem; margin-right: 0.3rem">{{ w.catatan }}</span>
+              </span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; height: auto; aspect-ratio: auto 4 / 3; display: block; margin-left: calc(var(--selokan-dalam) / 2); margin-right: calc(var(--selokan-dalam) / 2)">
+    </div>
+    <div style="margin-top: var(--seksi)"><dc-import name="Rail" items="{{ kartu }}" kolom="{{ 3 }}" tepi="kisi" gutter="calc(var(--dalam) / 2)" hint-size="100%,44rem"></dc-import></div>
+    <span style="display: block; margin-top: var(--dalam)"><dc-import name="Button" variant="spanduk" label="{{ label }}" href="{{ href }}" hint-size="36rem,6rem"></dc-import></span>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kalkulator","promo"],"default":"kalkulator"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"rupa":{"editor":"enum","options":["bawaan","situs"],"default":"bawaan"},"judul":{"editor":null},"teks":{"editor":null},"teksTampil":{"editor":"boolean","default":false},"merek":{"editor":null,"default":"Mattaka"},"klaim":{"editor":null,"default":"Kuat, Sejuk, &amp; Tahan Lama"},"labelMulai":{"editor":null,"default":"Mulai Dari"},"angka":{"editor":null,"default":"140.000"},"unit":{"editor":null,"default":"/meter"},"warna":{"editor":null},"produk":{"editor":null},"foto":{"editor":null},"alt":{"editor":null},"label":{"editor":null},"href":{"editor":null},"hrefKartu":{"editor":null,"default":"#"},"$preview":{"width":330,"height":150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'kalkulator';
+    const d = this.props.tata === 'desktop';
+    const kalk = jenis === 'kalkulator';
+    const daftarWarna = this.props.warna ?? [
+      { nama: 'Warna Biru', nada: 'biru', catatan: '100% Tidak Tembus Cahaya' },
+      { nama: 'Clear Matt', nada: 'abu', catatan: '20% Tembus Cahaya' },
+      { nama: 'Warna Putih', nada: 'hangat', catatan: '100% Tidak Tembus Cahaya' }
+    ];
+    const nWarna = daftarWarna.length;
+    const warna = daftarWarna.map((w, i) => {
+      const gaya = d
+        ? 'flex: 1 1 0; min-width: 0; margin-right: calc(var(--rapat) / 2)' + (i === 0 ? '' : '; margin-left: calc(var(--rapat) / 2)')
+        : 'flex: 1 1 0; min-width: 0; padding: ' + (i === 0 ? '0 1rem 0 0' : i === nWarna - 1 ? '0 0 0 1rem' : '0 1rem');
+      return Object.assign({}, w, { gaya });
+    });
+    const upvc = this.props.produk ?? [
+      ['12mm x 760mm x 4M', 'Mattaka, Biru', '711.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['12mm x 760mm x 5M', 'Mattaka, Biru', '888.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['12mm x 760mm x 6M', 'Mattaka, Biru', '1.066.000', '/_blob/54f43a08a1384c69e762171c48898e59'],
+      ['12mm x 760mm x 4M', 'Mattaka, Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['12mm x 760mm x 5M', 'Mattaka, Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['12mm x 760mm x 6M', 'Mattaka, Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'],
+      ['12mm x 760mm x 4M', 'Mattaka, Putih', '711.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'],
+      ['12mm x 760mm x 5M', 'Mattaka, Putih', '888.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'],
+      ['12mm x 760mm x 6M', 'Mattaka, Putih', '1.066.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb']
+    ];
+    const kartu = upvc.map((u) => ({
+      jenis: 'promo',
+      tata: d ? 'desktop' : 'ponsel',
+      nama: 'Atap UPVC Double Layer',
+      ukuranTeks: u[0],
+      varian: '[' + u[1] + ']',
+      angka: u[2] || undefined,
+      hubungi: u[2] ? '' : 'Hubungi kami',
+      foto: u[3],
+      href: this.props.hrefKartu ?? '#'
+    }));
+    const judulBawaan = kalk ? 'Kalkulator Material' : (d ? 'Atap UPVC Double Layer' : 'Atap UPVC');
+    return {
+      isKalkSitus: kalk && !d && this.props.rupa === 'situs',
+      isKalkM: kalk && !d && this.props.rupa !== 'situs',
+      isKalkD: kalk && d,
+      isPromoM: !kalk && !d,
+      isPromoD: !kalk && d,
+      judul: this.props.judul ?? judulBawaan,
+      teks: this.props.teks ?? 'Hitung kebutuhan atap, berat besi beton, dan material proyek Anda dalam hitungan detik.',
+      adaTeks: !!this.props.teksTampil,
+      merek: this.props.merek ?? 'Mattaka',
+      klaim: this.props.klaim ?? 'Kuat, Sejuk, & Tahan Lama',
+      labelMulai: this.props.labelMulai ?? 'Mulai Dari',
+      angka: this.props.angka ?? '140.000',
+      unit: this.props.unit ?? '/meter',
+      warna,
+      kartu,
+      foto: this.props.foto ?? (kalk ? '/_blob/500a91f99c98f43a0496f65d94a21b26' : '/_blob/529008f53af8d85bad1ad0f175c207b2'),
+      alt: this.props.alt ?? (kalk ? 'Ilustrasi Kontraktor' : ''),
+      label: this.props.label ?? (kalk ? 'Hitung Sekarang' : 'Konsultasi Sekarang'),
+      href: this.props.href ?? (kalk ? '#' : '#whatsapp')
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SocialLoginButtons</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="display: flex; flex-direction: column; gap: var(--rapat)">
+  <p style="margin: 0; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); text-align: center; color: var(--ink-2)">{{ label }}</p>
+  <div style="display: flex; row-gap: 0.8rem; column-gap: 0">
+    <span style="flex: 1 1 0; min-width: 0; display: flex; margin-right: 0.4rem"><dc-import name="Button" variant="garis" label="Google" ikon="google" onPress="{{ pilihGoogle }}" hint-size="100%,4rem"></dc-import></span>
+    <span style="flex: 1 1 0; min-width: 0; display: flex; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="Button" variant="garis" label="Facebook" ikon="facebook" onPress="{{ pilihFacebook }}" hint-size="100%,4rem"></dc-import></span>
+  </div>
+  <sc-if value="{{ adaPesan }}" hint-placeholder-val="{{ false }}">
+    <p aria-live="polite" style="margin: -0.4rem 0 0 0; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ pesan }}</p>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":"text","default":"isi dengan","section":"Teks"},"pesan":{"editor":null},"onPesan":{"editor":null},"$preview":{"width":330,"height":100}}'>
+class Component extends DCLogic {
+  state = { pesan: '' };
+  pilih(jenis) {
+    const pesan = 'Masuk dengan ' + jenis + ' belum tersambung di prototipe ini — isi datanya di bawah.';
+    this.setState({ pesan });
+    if (this.props.onPesan) this.props.onPesan(pesan);
+  }
+  renderVals() {
+    const pesan = this.props.pesan ?? this.state.pesan;
+    return {
+      label: this.props.label ?? 'isi dengan',
+      pesan,
+      adaPesan: !!pesan,
+      pilihGoogle: () => this.pilih('Google'),
+      pilihFacebook: () => this.pilih('Facebook')
+    };
+  }
+}
+</script>
+</body>
+</html>

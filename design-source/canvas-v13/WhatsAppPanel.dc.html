@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>WhatsAppPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="HelpRowsPanel" tata="{{ tata }}" baris="{{ baris }}" jadwal="{{ jadwal }}" onKembali="{{ onKembali }}" hint-size="100%,26rem"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"waHref":{"editor":null,"default":"https://wa.me/628112689889"},"jadwal":{"editor":"boolean","default":false},"onChat":{"editor":null},"onKembali":{"editor":null},"$preview":{"width":360,"height":260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tata: this.props.tata ?? 'ponsel',
+      baris: [
+        { judul: 'Chat di WhatsApp', ket: 'Chat langsung dengan tim sales', ikon: 'whatsapp', ikonUkuran: 22, ikonWarna: 'var(--brand)', href: this.props.waHref ?? 'https://wa.me/628112689889', rel: 'noopener' },
+        { judul: 'Mulai Live Chat', ket: 'Atau ngobrol di halaman ini', ikon: 'chat', onPress: this.props.onChat }
+      ],
+      jadwal: !!this.props.jadwal,
+      onKembali: this.props.onKembali
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpBanner</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="flex-shrink: 0; position: relative; aspect-ratio: 360 / 150; {{ margin }}; overflow: hidden; background: var(--surface)">
+  <sc-if value="{{ isGambar }}" hint-placeholder-val="{{ true }}">
+    <img src="{{ gambar }}" alt="{{ alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    <sc-if value="{{ tutup }}" hint-placeholder-val="{{ false }}">
+      <span style="position: absolute; {{ letakTutup }}; z-index: 2; display: flex"><dc-import name="IconButton" ikon="tutup" ariaLabel="{{ labelTutup }}" onPress="{{ onTutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+  </sc-if>
+  <sc-if value="{{ isSapaan }}" hint-placeholder-val="{{ false }}">
+    <img src="{{ gambar }}" alt="{{ alt }}" loading="lazy" style="position: absolute; right: 0; bottom: 0; height: 100%; width: auto; display: block">
+    <div style="position: relative; z-index: 1; box-sizing: border-box; height: 100%; padding-left: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start">
+      <div style="align-self: stretch; position: relative; display: flex; align-items: center">
+        <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-medium); color: var(--brand)">{{ halo }}</p>
+        <sc-if value="{{ tutup }}" hint-placeholder-val="{{ false }}">
+          <span style="position: absolute; top: 50%; right: -1rem; transform: translateY(-50%); z-index: 2; display: flex"><dc-import name="IconButton" ikon="tutup" ariaLabel="{{ labelTutup }}" onPress="{{ onTutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+        </sc-if>
+      </div>
+      <p style="margin: 0; max-width: calc(100% - 13.6rem); font-size: var(--teks-bantu-sapaan); line-height: var(--tinggi-bantu-sapaan); font-weight: var(--bobot-bold); color: var(--brand); word-break: normal; hyphens: none">
+        <sc-for list="{{ judul }}" as="b" hint-placeholder-count="2"><span style="display: block">{{ b }}</span></sc-for>
+      </p>
+      <p style="margin: 0.7rem 0 0 0; max-width: calc(100% - 13.6rem); font-size: var(--teks-tiny); line-height: var(--tinggi-bantu-sapaan-isi); font-weight: var(--bobot-regular); color: var(--ink); word-break: normal; hyphens: none">
+        <sc-for list="{{ isi }}" as="b" hint-placeholder-count="3"><span style="display: block">{{ b }}</span></sc-for>
+      </p>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["gambar","sapaan"],"default":"gambar"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"gambar":{"editor":null},"alt":{"editor":null},"tutup":{"editor":"boolean"},"labelTutup":{"editor":null,"default":"Tutup pusat bantuan"},"onTutup":{"editor":null},"halo":{"editor":null,"default":"Halo!"},"judul":{"editor":null},"isi":{"editor":null},"$preview":{"width":360,"height":168}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'gambar';
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const isGambar = jenis === 'gambar';
+    return {
+      isGambar,
+      isSapaan: !isGambar,
+      margin: ponsel ? 'margin: 1.5rem' : 'margin: 0',
+      letakTutup: ponsel ? 'top: -1rem; right: -1rem' : 'top: 0.6rem; right: 0.6rem',
+      gambar: this.props.gambar ?? (isGambar ? '/_blob/276fff4610caca2a98f3cd9dc26002ac' : '/_blob/4930090a5c6f6e1c83bcb9b460286b0c'),
+      alt: this.props.alt ?? (isGambar
+        ? 'Halo! Ada yang bisa kami bantu? Solusi cepat kebutuhan besi, info gudang, dan konsultasi langsung dengan tim sales kami.'
+        : 'Dua staf sales SMS Perkasa berkaus merah bertuliskan SMS Perkasa Team, yang kanan memberi salam dengan kedua telapak tangan dirapatkan'),
+      tutup: this.props.tutup ?? ponsel,
+      labelTutup: this.props.labelTutup ?? 'Tutup pusat bantuan',
+      onTutup: this.props.onTutup,
+      halo: this.props.halo ?? 'Halo!',
+      judul: this.props.judul ?? ['Ada yang bisa', 'kami bantu?'],
+      isi: this.props.isi ?? ['Pilih salah satu layanan di', 'bawah ini untuk terhubung', 'dengan tim sales kami.']
+    };
+  }
+}
+</script>
+</body>
+</html>

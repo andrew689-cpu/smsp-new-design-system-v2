@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PageTitle</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ gayaAkar }}">
+  <sc-if value="{{ remahTampil }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top: var(--dalam)"><dc-import name="Breadcrumb" varian="indeks" butir="{{ remah }}" hint-size="100%,1.8rem"></dc-import></div>
+  </sc-if>
+  <div style="{{ gayaJudul }}"><dc-import name="Heading" level="{{ 1 }}" tata="{{ tata }}" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,3.4rem"></dc-import></div>
+  <sc-if value="{{ jumlahTampil }}" hint-placeholder-val="{{ false }}">
+    <p style="{{ gayaJumlah }}">{{ jumlah }}</p>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Semua Produk"},"remahTampil":{"editor":"boolean","default":false},"remah":{"editor":null,"tsType":"Array<{label:string,href?:string}>"},"jumlahTampil":{"editor":"boolean","default":false},"jumlah":{"editor":null},"$preview":{"width":360,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    return {
+      tata: desktop ? 'desktop' : 'ponsel',
+      judul: this.props.judul ?? 'Semua Produk',
+      remahTampil: !!this.props.remahTampil,
+      remah: this.props.remah,
+      jumlahTampil: !!this.props.jumlahTampil,
+      jumlah: this.props.jumlah ?? '41 produk',
+      gayaAkar: desktop ? '' : 'display: flex; flex-direction: column; gap: var(--jarak-y-dalam)',
+      gayaJudul: desktop ? 'margin-top: var(--dalam)' : '',
+      gayaJumlah: 'font-size: var(--teks-meta); font-weight: var(--bobot-light); color: var(--ink-2); margin: ' + (desktop ? '0.8rem 0 0 0' : '0')
+    };
+  }
+}
+</script>
+</body>
+</html>

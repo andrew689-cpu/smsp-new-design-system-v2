@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TableOfContents</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div data-daftar-isi="1" style="display: flex; flex-direction: column; align-items: stretch">
+  <sc-if value="{{ buka }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Daftar isi" style="margin-bottom: 1rem; box-sizing: border-box; max-height: 46vh; overflow-y: auto; padding: var(--rapat) var(--dalam); border-radius: var(--sheet); background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+      <span style="display: block; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-ulasan); text-transform: uppercase; color: var(--ink-2)">{{ judul }}</span>
+      <ol style="margin: 0; padding-left: 2rem; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ daftarIsi }}" as="d" hint-placeholder-count="4">
+          <li style="{{ d.gaya }}"><a href="{{ d.href }}" style="color: var(--ink); text-decoration: underline; text-underline-offset: 0.3rem">{{ d.teks }}</a></li>
+        </sc-for>
+      </ol>
+    </nav>
+  </sc-if>
+  <div data-bar="1" style="display: flex; align-items: stretch; gap: 1rem">
+    <span style="display: flex; align-self: center; margin-right: auto">
+      <dc-import name="GlassButton" jenis="bulat" ukuran="{{ 52 }}" ikon="navigasi" ariaLabel="{{ tombolAria }}" ariaExpanded="{{ bukaAria }}" onPress="{{ alih }}" hint-size="5.2rem,5.2rem"></dc-import>
+    </span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"buka":{"editor":"boolean"},"butir":{"editor":null,"tsType":"Array<{href:string,teks:string}>"},"blok":{"editor":null},"judul":{"editor":null},"tombolAria":{"editor":null},"onUbah":{"editor":null},"$preview":{"width":336,"height":400}}'>
+class Component extends DCLogic {
+  state = { isi: false };
+  renderVals() {
+    const dikendali = this.props.buka !== undefined;
+    const buka = dikendali ? !!this.props.buka : !!this.state.isi;
+    let butir = this.props.butir;
+    if (!butir && this.props.blok) {
+      // Dibangkitkan dari blok h2 yang sama dengan ArticleBody, jadi tidak bisa menyimpang dari isinya.
+      let no = 0;
+      butir = [];
+      this.props.blok.forEach((b) => {
+        if (b.t === 'h2') { no += 1; butir.push({ href: '#bab-' + no, teks: b.x }); }
+      });
+    }
+    butir = butir ?? [
+      { href: '#bab-1', teks: 'Parameter Standar Regulasi Struktur Baja Bangunan Menurut SNI 1729:2020' },
+      { href: '#bab-2', teks: 'Kapan Memilih H-Beam atau WF?' },
+      { href: '#bab-3', teks: 'Simulasi Perhitungan Struktur Rangka Ruang Kelas Standar (Worked Example)' },
+      { href: '#bab-4', teks: 'Kegagalan Fatal Lapangan Akibat Penggunaan Komponen Material Non-SNI' },
+      { href: '#bab-5', teks: 'FAQ' }
+    ];
+    const akhir = butir.length - 1;
+    return {
+      buka,
+      bukaAria: buka ? 'true' : 'false',
+      judul: this.props.judul ?? 'Daftar Isi',
+      tombolAria: this.props.tombolAria ?? 'Daftar isi artikel',
+      alih: () => {
+        this.setState({ isi: !buka });
+        if (this.props.onUbah) this.props.onUbah(!buka);
+      },
+      daftarIsi: butir.map((d, i) => ({
+        href: d.href,
+        teks: d.teks,
+        gaya: 'font-size: var(--teks-body); line-height: var(--tinggi-sel); color: var(--ink); margin-top: ' + (i === 0 ? '0' : 'calc(var(--jarak-y-dalam) / 2)') + '; margin-bottom: ' + (i === akhir ? '0' : 'calc(var(--jarak-y-dalam) / 2)')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

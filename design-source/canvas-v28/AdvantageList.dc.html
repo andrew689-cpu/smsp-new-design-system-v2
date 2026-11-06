@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>AdvantageList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <sc-if value="{{ adaJudul }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; align-items: center; gap: var(--rapat)">
+      <dc-import name="Heading" level="{{ 3 }}" tata="ponsel" rata="left" teks="{{ judul }}" hint-size="100%,1.9rem"></dc-import>
+    </div>
+    </sc-if>
+    <ul style="margin: 2rem 0 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+      <sc-for list="{{ daftar }}" as="ku" hint-placeholder-count="4">
+        <li style="{{ ku.gaya }}">
+          <span style="display: flex; flex-shrink: 0; margin-right: 0.7rem"><dc-import name="Icon" ikon="{{ ku.ikon }}" hint-size="2.6rem,2.6rem"></dc-import></span>
+          <span style="min-width: 0; display: flex; flex-direction: column; gap: 0.3rem; margin-left: 0.7rem; margin-right: 0.7rem">
+            <span style="font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-semibold); color: var(--ink)">{{ ku.l }}</span>
+            <span style="font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ ku.d }}</span>
+          </span>
+        </li>
+      </sc-for>
+    </ul>
+    <sc-if value="{{ lipat }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="Button" variant="teks" label="{{ labelLipat }}" onPress="{{ togel }}" ariaExpanded="{{ expLipat }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ buka }}" hint-size="16rem,4.4rem"></dc-import>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 3 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <sc-for list="{{ daftar }}" as="ku" hint-placeholder-count="4">
+        <div style="{{ ku.gaya }}">
+          <span style="display: flex; flex-shrink: 0; margin-right: 0.8rem"><dc-import name="Icon" ikon="{{ ku.ikon }}" warna="var(--ink)" hint-size="2.6rem,2.6rem"></dc-import></span>
+          <span style="display: flex; flex-direction: column; gap: 0.4rem; margin-left: 0.8rem; margin-right: 0.8rem">
+            <span style="font-size: var(--teks-lead); font-weight: var(--bobot-semibold); color: var(--ink); line-height: var(--tinggi-sedang)">{{ ku.l }}</span>
+            <span style="font-size: var(--teks-lead); color: var(--ink-2); line-height: var(--tinggi-butir)">{{ ku.d }}</span>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"judul":{"editor":"text","default":"","section":"Isi"},"butir":{"editor":null,"tsType":"Array<{ikon:string,l:string,d:string}>"},"lipat":{"editor":"boolean","default":false,"section":"Resep"},"tanpaJudul":{"editor":"boolean","default":false,"section":"Resep"},"lama":{"editor":"boolean","default":false,"section":"Resep"},"$preview":{"width":330,"height":320}}'>
+class Component extends DCLogic {
+  state = { buka: false };
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const lamaPapan = !!this.props.lama;
+    const lipat = this.props.lipat ?? lamaPapan;
+    const buka = this.state.buka;
+    const BAWAAN = [{"ikon": "hollow", "l": "Tebal dan kuat", "d": "Penampang berongga memberi kekakuan tinggi untuk menahan beban, dengan bobot lebih ringan daripada besi pejal seukurannya."}, {"ikon": "api", "l": "Tahan api", "d": "Bahannya tidak ikut terbakar dan tidak menjalarkan api, berbeda dari rangka kayu."}, {"ikon": "kunci-pas", "l": "Mudah diaplikasikan", "d": "Bisa dipotong, dilas, dan dibaut di lokasi dengan perkakas yang biasa dipakai tukang."}, {"ikon": "kuas", "l": "Perawatan Mudah", "d": "Cukup dibersihkan dan dicat ulang berkala selama lapisan catnya masih utuh."}];
+    const BAWAAN_LAMA = [{"ikon": "hollow", "l": "Tebal dan kuat", "d": "Penampang berongga memberi kekakuan tinggi untuk menahan beban, dengan bobot lebih ringan daripada besi pejal seukurannya."}, {"ikon": "kilau", "l": "Estetik", "d": "Permukaan rata dan sudutnya siku, jadi rapi dipasang terekspos tanpa perlu ditutup rangka lain."}, {"ikon": "api", "l": "Tahan api", "d": "Bahannya tidak ikut terbakar dan tidak menjalarkan api, berbeda dari rangka kayu."}, {"ikon": "kunci-pas", "l": "Mudah diaplikasikan", "d": "Bisa dipotong, dilas, dan dibaut di lokasi dengan perkakas yang biasa dipakai tukang."}, {"ikon": "kuas", "l": "Perawatan Mudah", "d": "Cukup dibersihkan dan dicat ulang berkala selama lapisan catnya masih utuh."}];
+    const semua = this.props.butir ?? (lamaPapan ? BAWAAN_LAMA : BAWAAN);
+    const butir = lipat && !buka ? semua.slice(0, 2) : semua;
+    const n = butir.length;
+    const kolom = d ? 2 : 1;
+    return {
+      adaJudul: !(this.props.tanpaJudul ?? lamaPapan),
+      lipat,
+      buka,
+      labelLipat: buka ? 'Lebih Sedikit' : 'Lihat Selengkapnya',
+      expLipat: buka ? 'true' : 'false',
+      togel: () => this.setState({ buka: !buka }),
+      isPonsel: !d,
+      isDesktop: d,
+      judul: this.props.judul || (d ? 'Keunggulan Besi Hollow Hitam' : 'Keunggulan'),
+      daftar: butir.map((b, i) => ({
+        ikon: b.ikon,
+        l: b.l,
+        d: b.d,
+        gaya: d
+          ? 'display: flex; row-gap: 1.6rem; column-gap: 0; align-items: flex-start; margin: ' + (i < kolom ? '0' : '1.4rem') + ' 2.4rem ' + (i >= n - kolom ? '0' : '1.4rem') + ' ' + (i === 0 ? '0' : '2.4rem')
+          : 'display: flex; align-items: flex-start; row-gap: 1.4rem; column-gap: 0; margin-top: ' + (i === 0 ? '0' : '1.3rem') + '; margin-bottom: ' + (i === n - 1 ? '0' : '1.3rem')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

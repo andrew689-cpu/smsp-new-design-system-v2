@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpMenu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ akar }}">
+  <dc-import name="HelpBanner" jenis="gambar" tata="{{ tata }}" tutup="{{ tutup }}" onTutup="{{ onTutup }}" hint-size="100%,15rem"></dc-import>
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: {{ talang }}; display: flex; flex-direction: column; gap: 1rem">
+    <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+      <dc-import name="HelpMenuRow" dc-props="{{ b }}" hint-size="100%,7.6rem"></dc-import>
+    </sc-for>
+    <sc-if value="{{ jadwal }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="OfficeHours" jenis="jadwal" hint-size="100%,7rem"></dc-import>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"baris":{"editor":null},"jadwal":{"editor":"boolean","default":false},"tutup":{"editor":null},"waHref":{"editor":null,"default":"https://wa.me/628112689889"},"telHref":{"editor":null,"default":"tel:+628112689889"},"telTeks":{"editor":null,"default":"+62 811-2689-889"},"onWa":{"editor":null},"onChat":{"editor":null},"onKalkulator":{"editor":null},"onGudang":{"editor":null},"onTutup":{"editor":null},"$preview":{"width":360,"height":400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const p = this.props;
+    const bawaan = ponsel ? [
+      { judul: 'Chat di WhatsApp', ket: 'Tanya stok, harga & penawaran terbaik.', ikon: 'chat-isi', href: p.waHref ?? 'https://wa.me/628112689889', rel: 'noopener' },
+      { judul: 'Mulai Live Chat', ket: 'Atau ngobrol di halaman ini', ikon: 'chat', ikonUkuran: 21, ikonGaris: 1.9, onPress: p.onChat }
+    ] : [
+      { judul: 'Chat Sales', ket: 'Tanya stok, harga & penawaran terbaik.', ikon: 'chat-isi', onPress: p.onWa },
+      { judul: 'Call Sales', ket: [{ t: 'Telepon langsung ' }, { t: p.telTeks ?? '+62 811-2689-889', tegas: true }, { t: ' untuk respon cepat.' }], ikon: 'telepon', ikonUkuran: 20, ikonDepan: false, href: p.telHref ?? 'tel:+628112689889' },
+      { judul: 'Kalkulator', ket: 'Hitung Kebutuhan Besi Anda', ikon: 'kalkulator', ikonDepan: false, onPress: p.onKalkulator },
+      { judul: 'Lokasi Gudang', ket: 'Alamat dan petunjuk arah gudang kami.', ikon: 'pin', ikonDepan: false, onPress: p.onGudang }
+    ];
+    return {
+      tata,
+      akar: (ponsel ? 'flex-grow: 1; ' : '') + 'display: flex; flex-direction: column; min-height: 0',
+      talang: ponsel ? 'var(--talang)' : '1.4rem',
+      baris: (p.baris ?? bawaan).map((b) => ({ tata, ...b })),
+      jadwal: !!p.jadwal,
+      tutup: p.tutup ?? ponsel,
+      onTutup: p.onTutup
+    };
+  }
+}
+</script>
+</body>
+</html>

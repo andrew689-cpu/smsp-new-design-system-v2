@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>StarFilter</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div role="group" aria-label="{{ ariaLabel }}" style="display: flex; column-gap: 0">
+  <sc-for list="{{ saring }}" as="sr" hint-placeholder-count="4">
+    <span style="{{ sr.wadah }}"><dc-import name="Chip" dc-props="{{ sr.chip }}" hint-size="9rem,3.6rem"></dc-import></span>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ariaLabel":{"editor":"text","default":"Saring menurut bintang","section":"Aksesibilitas"},"opsi":{"editor":null,"section":"Data","tsType":"string[]"},"nilai":{"editor":null,"section":"Aksi"},"onPilih":{"editor":null,"section":"Aksi"},"$preview":{"width":400,"height":44}}'>
+class Component extends DCLogic {
+  state = { saring: 0 };
+  renderVals() {
+    const opsi = this.props.opsi ?? ['Semua', '5 bintang', '4 bintang', '3 bintang'];
+    const kini = this.props.nilai ?? this.state.saring;
+    return {
+      ariaLabel: this.props.ariaLabel ?? 'Saring menurut bintang',
+      saring: opsi.map((l, i) => ({
+        wadah: 'display: flex; margin-left: ' + (i === 0 ? '0' : '0.4rem') + '; margin-right: 0.4rem',
+        chip: {
+          jenis: 'pilihan-36',
+          label: l,
+          terpilih: kini === i,
+          onPress: () => {
+            this.setState({ saring: i });
+            if (this.props.onPilih) this.props.onPilih(i);
+          }
+        }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

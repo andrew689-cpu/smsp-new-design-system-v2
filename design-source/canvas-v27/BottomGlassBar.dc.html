@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BottomGlassBar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ terlihat }}" hint-placeholder-val="{{ true }}">
+  <div style="position: fixed; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; box-sizing: border-box; padding: 0 1.2rem; bottom: 3.4rem; {{ wadah }} z-index: 9999; display: flex; flex-direction: column; align-items: stretch; gap: {{ celah }}">
+    <sc-if value="{{ kolomTampil }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin-bottom: 1rem"><dc-import name="SearchField" tata="kaca" nilai="{{ kueri }}" placeholder="{{ cariPlaceholder }}" labelSr="{{ cariPlaceholder }}" onUbah="{{ onKetik }}" hint-size="100%,4.8rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ isArtikel }}" hint-placeholder-val="{{ false }}">
+      <div style="{{ barGaya }}"><dc-import name="TableOfContents" buka="{{ buka }}" butir="{{ isi }}" tombolAria="{{ navAria }}" onUbah="{{ onNav }}" hint-size="100%,5.2rem"></dc-import></div>
+    </sc-if>
+    <sc-if value="{{ daftarCepatTampil }}" hint-placeholder-val="{{ false }}">
+      <div data-bar="1" style="{{ barGaya }}; align-self: flex-end; display: flex; flex-direction: column; align-items: flex-end; gap: var(--rapat)"><dc-import name="HelpQuickList" hint-size="16rem,4.8rem"></dc-import></div>
+    </sc-if>
+    <sc-if value="{{ bukanArtikel }}" hint-placeholder-val="{{ true }}">
+    <div data-bar="{{ dataBar }}" style="{{ barGaya }}; display: flex; align-items: stretch; {{ barCelah }};">
+      <sc-if value="{{ navTampil }}" hint-placeholder-val="{{ true }}"><span data-polos="{{ polosNav }}" style="display: flex; align-self: center; margin-right: auto"><dc-import name="GlassButton" ukuran="{{ 52 }}" ikon="{{ ikonNav }}" ikonWarna="{{ tinta }}" ariaExpanded="{{ navExp }}" ariaLabel="{{ navAria }}" onPress="{{ onNav }}" hint-size="5.2rem,5.2rem"></dc-import></span></sc-if>
+      <sc-if value="{{ keAtasAda }}" hint-placeholder-val="{{ false }}"><span data-polos="{{ polosNav }}" style="{{ keAtasGaya }}; display: flex; align-self: center; margin-right: auto"><dc-import name="GlassButton" ukuran="{{ 52 }}" ikon="panah-atas" ikonGaris="{{ 2.2 }}" ikonWarna="{{ tinta }}" ariaLabel="Kembali ke atas halaman" onPress="{{ onKeAtas }}" hint-size="5.2rem,5.2rem"></dc-import></span></sc-if>
+      <sc-if value="{{ tigaTombol }}" hint-placeholder-val="{{ true }}">
+        <span data-polos="1" style="display: flex; align-self: center; margin: 0 {{ jarak }}"><dc-import name="GlassButton" ukuran="{{ 52 }}" ikon="cari" ikonUkuran="{{ 21 }}" ikonGaris="{{ 2 }}" ikonWarna="var(--ink)" ariaExpanded="{{ cariExp }}" ariaLabel="{{ cariAria }}" onPress="{{ onCari }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+        <span data-polos="1" style="display: flex; align-self: center; margin: 0 {{ jarak }}"><dc-import name="GlassButton" ukuran="{{ 52 }}" ikon="lambang" ikonUkuran="{{ 34 }}" ikonWarna="var(--brand-hero)" ariaExpanded="{{ bantuanExp }}" ariaLabel="{{ bantuanAria }}" onPress="{{ onBantuan }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+      </sc-if>
+    </div>
+    </sc-if>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["produk","sku","blog","artikel"],"default":"produk","section":"Resep"},"terlihat":{"editor":"boolean","default":true,"section":"Keadaan"},"sembunyi":{"editor":"boolean","default":false,"section":"Keadaan"},"terbuka":{"editor":"boolean","default":false,"section":"Keadaan"},"bantuanTerbuka":{"editor":"boolean","default":false,"section":"Keadaan"},"cariTerbuka":{"editor":"boolean","default":false,"section":"Keadaan"},"keAtasAda":{"editor":"boolean","default":false,"section":"Keadaan"},"keAtasTampil":{"editor":"boolean","default":false,"section":"Keadaan"},"daftarCepat":{"editor":"boolean","default":false,"section":"Keadaan"},"ikonNav":{"editor":"text","default":"","section":"Isi"},"kueri":{"editor":"text","default":"","section":"Isi"},"daftarIsi":{"editor":null,"section":"Isi","tsType":"Array<{href:string,teks:string}>"},"navAria":{"editor":"text","default":"","section":"Label"},"cariAria":{"editor":"text","default":"","section":"Label"},"bantuanAria":{"editor":"text","default":"","section":"Label"},"onKeAtas":{"editor":null},"onNav":{"editor":null},"onCari":{"editor":null},"onBantuan":{"editor":null},"onKetik":{"editor":null},"cariPlaceholder":{"editor":"text","default":"Cari judul artikel","section":"Isi"},"$preview":{"width":360,"height":120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'produk';
+    const buka = !!this.props.terbuka;
+    const bantuan = !!this.props.bantuanTerbuka;
+    const cari = !!this.props.cariTerbuka;
+    const isBlog = jenis === 'blog';
+    const isArtikel = jenis === 'artikel';
+    const lama = isBlog || isArtikel;
+    const hilang = !!this.props.sembunyi || (isArtikel ? false : isBlog ? (buka || bantuan) : buka);
+    const salah = isBlog ? ['Tutup daftar kategori', 'Daftar kategori artikel'] : ['Tutup daftar bagian', 'Daftar bagian halaman'];
+    const isi = this.props.daftarIsi ?? [
+      { href: '#bab-1', teks: 'Parameter Standar Regulasi Struktur Baja Bangunan Menurut SNI 1729:2020' },
+      { href: '#bab-2', teks: 'Kapan Memilih H-Beam atau WF?' },
+      { href: '#bab-3', teks: 'Simulasi Perhitungan Struktur Rangka Ruang Kelas Standar (Worked Example)' },
+      { href: '#bab-4', teks: 'Kegagalan Fatal Lapangan Akibat Penggunaan Komponen Material Non-SNI' },
+      { href: '#bab-5', teks: 'FAQ' }
+    ];
+    return {
+      terlihat: this.props.terlihat ?? true,
+      navTampil: !this.props.keAtasAda,
+      keAtasAda: !!this.props.keAtasAda,
+      keAtasGaya: this.props.keAtasTampil ? 'visibility: visible; opacity: 1' : 'visibility: hidden; opacity: 0',
+      onKeAtas: this.props.onKeAtas,
+      wadah: hilang && !isArtikel ? 'pointer-events: none;' : '',
+      celah: lama ? '0' : 'var(--rapat)',
+      daftarCepatTampil: !!this.props.daftarCepat && bantuan,
+      ikonNav: this.props.ikonNav || undefined,
+      kolomTampil: isBlog && cari,
+      cariPlaceholder: this.props.cariPlaceholder ?? 'Cari judul artikel',
+      kueri: this.props.kueri ?? '',
+      onKetik: this.props.onKetik,
+      isArtikel,
+      bukanArtikel: !isArtikel,
+      buka,
+      isi,
+      dataBar: lama ? undefined : '1',
+      polosNav: lama ? '1' : undefined,
+      barGaya: hilang ? 'opacity: 0; transform: translateY(1.6rem) scale(0.95); pointer-events: none' : 'opacity: 1; transform: none',
+      barCelah: isArtikel ? 'gap: 1rem' : 'column-gap: 0',
+      tigaTombol: !isArtikel,
+      jarak: jenis === 'sku' ? '0.4rem' : '0.5rem',
+      tinta: (buka && !isArtikel) ? 'var(--nav-aktif)' : 'var(--ink)',
+      navExp: buka ? 'true' : 'false',
+      navAria: this.props.navAria || (isArtikel ? 'Daftar isi artikel' : (buka ? salah[0] : salah[1])),
+      cariExp: isBlog ? (cari ? 'true' : 'false') : undefined,
+      cariAria: this.props.cariAria || (isBlog ? (cari ? 'Tutup pencarian' : 'Cari artikel') : 'Cari di seluruh SMS Perkasa'),
+      bantuanExp: bantuan ? 'true' : 'false',
+      bantuanAria: this.props.bantuanAria || ((isBlog && bantuan) ? 'Tutup pusat bantuan' : 'Pusat bantuan'),
+      onNav: this.props.onNav,
+      onCari: this.props.onCari,
+      onBantuan: this.props.onBantuan
+    };
+  }
+}
+</script>
+</body>
+</html>

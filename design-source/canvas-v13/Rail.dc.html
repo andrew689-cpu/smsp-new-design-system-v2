@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Rail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ true }}">
+  <div data-rail-wadah="1" style="position: relative">
+    <div data-rail="1" data-lain-rel="{{ dataSembunyi }}" onScroll="{{ saatGulir }}" style="{{ gayaTrek }}">
+      <sc-if value="{{ adaAnak }}" hint-placeholder-val="{{ false }}">{{ anak }}</sc-if>
+      <sc-for list="{{ butir }}" as="b" hint-placeholder-count="5">
+        <div style="{{ b.gaya }}">
+          <sc-if value="{{ b.isProduk }}" hint-placeholder-val="{{ true }}"><dc-import name="ProductCard" dc-props="{{ b.props }}" hint-size="100%,18rem"></dc-import></sc-if>
+          <sc-if value="{{ b.isKategori }}" hint-placeholder-val="{{ false }}"><dc-import name="CategoryTile" dc-props="{{ b.props }}" hint-size="100%,12rem"></dc-import></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ adaPanahPonsel }}" hint-placeholder-val="{{ false }}">
+      <span style="{{ gayaPrev }}"><dc-import name="IconButton" ikon="chevron-kiri" ukuran="{{ 44 }}" nada="cakram" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaPrev }}" onPress="{{ prev }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+      <span style="{{ gayaNext }}"><dc-import name="IconButton" ikon="chevron" ukuran="{{ 44 }}" nada="cakram" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaNext }}" onPress="{{ next }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaPanahDesktop }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ prev }}" aria-label="{{ ariaPrev }}" style="{{ gayaPrev }}"><span style="width: 4rem; height: 4rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); box-shadow: var(--el-2); display: grid; place-items: center"><dc-import name="Icon" ikon="chevron-kiri" ukuran="{{ 17 }}" warna="var(--ink)" hint-size="17px,17px"></dc-import></span></button>
+      <button type="button" onClick="{{ next }}" aria-label="{{ ariaNext }}" style="{{ gayaNext }}"><span style="width: 4rem; height: 4rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); box-shadow: var(--el-2); display: grid; place-items: center"><dc-import name="Icon" ikon="chevron" ukuran="{{ 17 }}" warna="var(--ink)" hint-size="17px,17px"></dc-import></span></button>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisi }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ gayaKisi }}">
+    <sc-for list="{{ butir }}" as="b" hint-placeholder-count="6">
+      <div style="{{ b.gaya }}">
+        <sc-if value="{{ b.isProduk }}" hint-placeholder-val="{{ true }}"><dc-import name="ProductCard" dc-props="{{ b.props }}" hint-size="100%,18rem"></dc-import></sc-if>
+        <sc-if value="{{ b.isKategori }}" hint-placeholder-val="{{ false }}"><dc-import name="CategoryTile" dc-props="{{ b.props }}" hint-size="100%,12rem"></dc-import></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"items":{"editor":null},"komponen":{"editor":"enum","options":["ProductCard","CategoryTile"],"default":"ProductCard"},"kolom":{"editor":null},"tepi":{"editor":"enum","options":["pertama","kisi"],"default":"pertama"},"lebar":{"editor":null,"default":"48%"},"gutter":{"editor":null,"default":"calc(var(--selokan-ubin) / 2)"},"celahY":{"editor":null},"penuh":{"editor":"boolean","default":false},"snap":{"editor":"boolean","default":true},"sembunyi":{"editor":"boolean","default":false},"pad":{"editor":null,"default":"var(--talang) 0 0 0"},"margKanan":{"editor":null,"default":"var(--talang)"},"panah":{"editor":"enum","options":["tanpa","ponsel","desktop"],"default":"tanpa"},"ariaPrev":{"editor":null,"default":"Ukuran sebelumnya"},"ariaNext":{"editor":null,"default":"Ukuran berikutnya"},"tambahLangkah":{"editor":null},"$preview":{"width":345,"height":240}}'>
+class Component extends DCLogic {
+  state = { awal: true, akhir: false };
+  renderVals() {
+    const komponen = this.props.komponen ?? 'ProductCard';
+    const kolom = Number(this.props.kolom ?? 0);
+    const tepi = this.props.tepi ?? 'pertama';
+    const lebar = this.props.lebar ?? '48%';
+    const gutter = this.props.gutter ?? 'calc(var(--selokan-ubin) / 2)';
+    const celahY = this.props.celahY ?? gutter;
+    const snap = this.props.snap ?? true;
+    const sembunyi = !!this.props.sembunyi;
+    const panah = this.props.panah ?? 'tanpa';
+    const daftar = this.props.items ?? [
+      { jenis: 'dasar', nama: 'Besi Hollow Hitam', varian: 'Tersedia 297 varian', foto: '/_blob/3e253621e68085ed4f1ceb648cc0b533' },
+      { jenis: 'dasar', nama: 'Besi Beton', varian: 'Tersedia 10 varian', foto: '/_blob/31aea6bfad3d6009de172f36cf47db15' },
+      { jenis: 'dasar', nama: 'Besi Siku', varian: 'Tersedia 32 varian', foto: '/_blob/afbf9d3db78dee3edbdfd256a4405af2' },
+      { jenis: 'dasar', nama: 'Reng Baja Ringan', varian: 'Tersedia 4 varian', foto: '/_blob/eaba17e08cf2095e44e636547c3fa614' },
+      { jenis: 'dasar', nama: 'Plat Besi Hitam', varian: 'Tersedia 36 varian', foto: '/_blob/e1474c92af7d2b81503b90b37b2e4758' }
+    ];
+    const n = daftar.length;
+    const butir = daftar.map((p, i) => {
+      let gaya;
+      if (kolom > 0) {
+        const kiri = tepi === 'kisi' ? i % kolom === 0 : i === 0;
+        const kanan = tepi === 'kisi' && i % kolom === kolom - 1;
+        gaya = 'display: grid; min-width: 0; margin: ' + (i < kolom ? '0' : celahY) + ' ' + (kanan ? '0' : gutter) + ' ' + (i >= n - kolom ? '0' : celahY) + ' ' + (kiri ? '0' : gutter) + (this.props.penuh ? '; width: 100%' : '');
+      } else {
+        gaya = 'display: grid; flex: 0 0 ' + lebar + '; max-width: 100%; min-width: 0; ' + (snap ? 'scroll-snap-align: start; ' : '') + 'margin-right: ' + gutter + (i === 0 ? '' : '; margin-left: ' + gutter);
+      }
+      return { gaya, props: p, isProduk: komponen === 'ProductCard', isKategori: komponen === 'CategoryTile' };
+    });
+    const anak = this.props.children;
+    const geser = (arah) => (e) => {
+      const wadah = e.currentTarget.closest('[data-rail-wadah]');
+      const el = wadah.querySelector('[data-rail]');
+      if (el) el.scrollBy({ left: arah * (panah === 'desktop' ? el.clientWidth * 0.23 + 16 : el.clientWidth * 0.52 + (this.props.tambahLangkah ?? 2)), behavior: 'smooth' });
+    };
+    const lokasi = panah === 'desktop'
+      ? ['left: -2.2rem; top: 9.5rem', 'right: -2.2rem; top: 9.5rem']
+      : ['left: 0; top: 9.6rem', 'right: 1.6rem; top: 9.6rem'];
+    const tombol = (mati, sisi) => (mati ? 'display: none' : 'display: grid') + '; position: absolute; ' + sisi + '; width: 4.4rem; height: 4.4rem; place-items: center; z-index: 2';
+    return {
+      isRel: !kolom,
+      isKisi: kolom > 0,
+      butir,
+      adaAnak: !!anak,
+      anak,
+      dataSembunyi: sembunyi ? '1' : undefined,
+      saatGulir: panah === 'tanpa' ? undefined : (e) => {
+        const el = e.currentTarget;
+        const awal = el.scrollLeft <= 2;
+        const akhir = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+        if (awal !== this.state.awal || akhir !== this.state.akhir) this.setState({ awal, akhir });
+      },
+      gayaTrek: 'display: flex; column-gap: ' + (anak ? 'calc(' + gutter + ' * 2)' : '0') + '; overflow-x: auto; ' + (snap ? 'scroll-snap-type: x mandatory; ' : '') + (sembunyi ? 'overscroll-behavior-x: contain; scrollbar-width: none; ' : '') + 'margin-right: ' + (this.props.margKanan ?? 'var(--talang)') + '; padding: ' + (this.props.pad ?? 'var(--talang) 0 0 0'),
+      gayaKisi: 'display: grid; grid-template-columns: repeat(' + kolom + ', minmax(0, 1fr)); column-gap: 0; row-gap: 0',
+      adaPanahPonsel: panah === 'ponsel',
+      adaPanahDesktop: panah === 'desktop',
+      gayaPrev: tombol(this.state.awal, lokasi[0]),
+      gayaNext: tombol(this.state.akhir, lokasi[1]),
+      ariaPrev: this.props.ariaPrev ?? 'Ukuran sebelumnya',
+      ariaNext: this.props.ariaNext ?? 'Ukuran berikutnya',
+      prev: geser(-1),
+      next: geser(1)
+    };
+  }
+}
+</script>
+</body>
+</html>

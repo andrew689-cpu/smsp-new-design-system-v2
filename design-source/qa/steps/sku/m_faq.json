@@ -1,0 +1,1 @@
+[{"click": "button[aria-expanded=\"false\"]:has-text(\"Lihat Selengkapnya\") >> nth=1", "wait": 700}]

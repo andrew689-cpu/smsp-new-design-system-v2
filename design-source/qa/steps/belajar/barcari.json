@@ -1,0 +1,1 @@
+[{"click":"button[aria-label=\"Cari artikel\"]"},{"wait":500},{"fill":["input[placeholder]:visible >> nth=-1","hollow"]},{"wait":800}]

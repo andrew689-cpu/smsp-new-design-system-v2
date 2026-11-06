@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Segmented</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isIkon }}" hint-placeholder-val="{{ true }}">
+  <div role="group" aria-label="{{ ariaLabel }}" style="{{ wadahIkon }}">
+    <span data-seg-thumb="1" aria-hidden="true" style="{{ jempol }}"></span>
+    <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="2">
+      <button type="button" onClick="{{ o.pilih }}" aria-pressed="{{ o.tekan }}" aria-label="{{ o.label }}" style="{{ o.gaya }}"><dc-import name="Icon" dc-props="{{ o.ikonProps }}" hint-size="2.4rem,2.4rem"></dc-import></button>
+    </sc-for>
+  </div>
+</sc-if>
+<sc-if value="{{ isTeks }}" hint-placeholder-val="{{ false }}">
+  <div role="tablist" aria-label="{{ ariaLabel }}" style="position: relative; overflow: hidden; flex-grow: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; padding: 0; box-sizing: border-box; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border-radius: var(--control)">
+    <span data-seg-thumb="1" aria-hidden="true" style="{{ jempol }}"></span>
+    <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="2">
+      <button type="button" role="tab" aria-selected="{{ o.tekan }}" onClick="{{ o.pilih }}" style="{{ o.gaya }}">
+        {{ o.label }}
+        <sc-if value="{{ o.adaN }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 0.25rem"><dc-import name="Tag" jenis="lencana" teks="{{ o.n }}" hint-size="1.8rem,1.8rem"></dc-import></span></sc-if>
+      </button>
+    </sc-for>
+  </div>
+</sc-if>
+<sc-if value="{{ isPita }}" hint-placeholder-val="{{ false }}">
+  <div data-seg-artikel="1" role="group" aria-label="{{ ariaLabel }}" style="display: flex; align-items: stretch; column-gap: 0; border-radius: 1rem; background: var(--line)">
+    <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="3">
+      <button type="button" onClick="{{ o.pilih }}" aria-pressed="{{ o.tekan }}" style="{{ o.gaya }}">{{ o.label }}</button>
+    </sc-for>
+  </div>
+</sc-if>
+<sc-if value="{{ isLama }}" hint-placeholder-val="{{ false }}">
+  <div role="tablist" aria-label="{{ ariaLabel }}" style="flex-grow: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0; padding: 0.3rem; box-sizing: border-box; background: var(--line); border-radius: var(--sudut-lama-salin)">
+    <sc-for list="{{ opsi }}" as="o" hint-placeholder-count="2">
+      <button type="button" role="tab" aria-selected="{{ o.tekan }}" onClick="{{ o.pilih }}" style="{{ o.gaya }}">
+        {{ o.label }}
+        <sc-if value="{{ o.adaN }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 0.25rem"><dc-import name="Tag" jenis="lencana" rupa="gelap" teks="{{ o.n }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+      </button>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["ikon","teks","lama","pita"],"default":"ikon","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"opsi":{"editor":null},"nilai":{"editor":null},"onPilih":{"editor":null},"ariaLabel":{"editor":null,"default":"Tampilan daftar harga"},"$preview":{"width":200,"height":44}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const jenis = this.props.jenis ?? 'ikon';
+    const desktop = this.props.tata === 'desktop';
+    const bawaan = jenis === 'ikon'
+      ? [{ id: 'tabel', ikon: 'tabel', label: 'Tampilan daftar' }, { id: 'kartu', ikon: 'kartu', label: 'Tampilan kartu' }]
+      : [{ id: 'ukuran', label: 'Ukuran', n: 0 }, { id: 'tebal', label: 'Tebal', n: 0 }];
+    const daftar = this.props.opsi ?? bawaan;
+    const kini = this.props.nilai ?? this.state.pilih ?? daftar[0].id;
+    const ke = daftar.findIndex((o) => o.id === kini) === 1;
+    const opsi = daftar.map((o, i) => {
+      const on = o.id === kini;
+      const warnaOn = desktop ? 'var(--nav-aktif)' : 'var(--ink)';
+      const gayaLama = (on ? 'background: var(--surface); color: var(--ink); box-shadow: var(--dok-bayang-seg)' : 'background: transparent; color: var(--ink-2)') + '; height: 3.2rem; border-radius: var(--action); font-size: var(--teks-meta); font-weight: var(--bobot-semibold); display: flex; align-items: center; justify-content: center; column-gap: 0.25rem; margin: 0 0.1rem 0 ' + (i === 0 ? '0' : '0.1rem');
+      const akhirPita = i === daftar.length - 1;
+      const gayaPita = 'box-sizing: border-box; position: relative; flex: 1 1 auto; min-width: 0; height: 3.6rem; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.9rem; border-width: 0; border-style: none; border-radius: ' + (i === 0 ? '1rem 0 0 1rem' : akhirPita ? '0 1rem 1rem 0' : '0') + '; font-size: var(--teks-meta); line-height: var(--tinggi-satu); white-space: nowrap; font-weight: var(--bobot-regular); ' + (on ? 'background: var(--brand); color: var(--surface)' : 'background: transparent; color: var(--ink)');
+      const gaya = jenis === 'pita' ? gayaPita : jenis === 'lama' ? gayaLama : jenis === 'ikon'
+        ? 'background: transparent; color: ' + (on ? warnaOn : 'var(--ink-2)') + '; position: relative; z-index: 1; ' + (desktop ? 'width: 3.4rem; height: 3.4rem; border: 0; border-radius: var(--action); display: grid; place-items: center; margin-left: 0.1rem; margin-right: 0.1rem' : 'width: 4.4rem; height: 4.4rem; border: 0; border-radius: var(--control); display: grid; place-items: center; margin-left: 0; margin-right: 0')
+        : 'background: transparent; color: ' + (on ? 'var(--ink)' : 'var(--ink-2)') + '; font-weight: ' + (on ? 'var(--bobot-bold)' : 'var(--bobot-semibold)') + '; font-size: ' + (on ? 'var(--teks-body)' : 'var(--teks-meta)') + '; position: relative; z-index: 1; height: 4.4rem; border-radius: var(--control); display: flex; align-items: center; justify-content: center; column-gap: 0.25rem; margin: 0';
+      return {
+        label: o.label,
+        n: String(o.n ?? ''),
+        adaN: !!o.n,
+        tekan: on ? 'true' : 'false',
+        gaya,
+        ikonProps: { ikon: o.ikon, ukuran: on ? 24 : (desktop ? 16 : 18), warna: 'currentColor', garis: desktop ? 1.75 : 1.8 },
+        pilih: () => {
+          this.setState({ pilih: o.id });
+          if (this.props.onPilih) this.props.onPilih(o.id);
+        }
+      };
+    });
+    const jempolIkon = desktop
+      ? 'position: absolute; top: 0.3rem; bottom: 0.3rem; left: 0.3rem; width: 3.4rem; border-radius: calc(var(--action) - 0.1rem); background: var(--surface); transition: transform 220ms var(--ease-keluar); pointer-events: none; transform: translateX(' + (ke ? 36 : 0) + 'px); margin-right: 0.1rem'
+      : 'position: absolute; top: 0.4rem; bottom: 0.4rem; left: 0.4rem; width: 3.6rem; border-radius: var(--control); background: var(--line); transition: transform 220ms var(--ease-keluar); pointer-events: none; transform: translateX(' + (ke ? '4.4rem' : '0') + ')';
+    const jempolTeks = 'position: absolute; z-index: 0; left: 0.4rem; top: 0.4rem; bottom: 0.4rem; width: calc(50% - 0.8rem); border-radius: var(--control); background: var(--line); pointer-events: none; transform: translateX(' + (ke ? 'calc(100% + 0.8rem)' : '0') + ')';
+    return {
+      isIkon: jenis === 'ikon',
+      isTeks: jenis === 'teks',
+      isLama: jenis === 'lama',
+      isPita: jenis === 'pita',
+      ariaLabel: this.props.ariaLabel ?? 'Tampilan daftar harga',
+      opsi,
+      jempol: jenis === 'ikon' ? jempolIkon : jempolTeks,
+      wadahIkon: 'position: relative; overflow: hidden; display: inline-flex; column-gap: 0; flex-shrink: 0; box-sizing: border-box; padding: ' + (desktop ? '0.3rem' : '0') + '; border-radius: ' + (desktop ? 'var(--action)' : 'var(--control)') + '; ' + (desktop ? 'background: var(--line); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim)' : 'background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang)')
+    };
+  }
+}
+</script>
+</body>
+</html>

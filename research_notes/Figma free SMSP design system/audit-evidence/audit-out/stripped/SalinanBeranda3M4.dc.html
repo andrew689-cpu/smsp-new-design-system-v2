@@ -1,0 +1,1424 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Beranda — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<style>
+
+[data-tepi="1"] > *:first-child{margin-left:0 !important}
+
+[data-tepi-kisi="2"] > *:nth-child(2n+1){margin-left:0 !important}
+[data-tepi-kisi="2"] > *:nth-child(2n){margin-right:0 !important}
+
+[data-tepi-y="1"] > *:first-child{margin-top:0 !important}
+[data-tepi-y="1"] > *:last-child{margin-bottom:0 !important}
+
+
+[data-tepi-kisi-y="2"] > *:nth-child(-n+2){margin-top:0 !important}
+[data-tepi-kisi-y="2"] > *:nth-last-child(-n+2){margin-bottom:0 !important}
+[data-tepi-kisi-y="3"] > *:nth-child(-n+3){margin-top:0 !important}
+[data-tepi-kisi-y="3"] > *:nth-last-child(-n+3){margin-bottom:0 !important}
+:root{
+  --surface:#ffffff;
+  --line:#ececec;
+  --chat-ikon:#2563eb;
+  --chat-mati:#9ca3af;
+  --line-kuat:#d4d4d4;
+  --online-ikon:#16a34a;
+  --whatsapp:#25d366;
+  --ink:#0a0a0a;
+  --ink-2:#5f5f5f;
+  --ink-4:#c9c9cb;
+  --brand:#D70100;
+  --brand-hero:#FF0000;
+  --brand-subtle:#fdecec;
+  --price:#15763b;
+  
+  --bintang:#ffb800;
+  
+  --bintang-garis:#9a6700;
+  --price-bg:#eaf7ee;
+  --pill:99.9rem;
+  --action:0.9rem;
+  --control:0.5rem;
+  --card:1.4rem;
+  --sheet:1.6rem;
+  --quote:1.8rem;
+  --panel:2.2rem;
+  --island:2.6rem;
+  --tile:0.5rem;
+  --teks-sup:0.95rem;
+  
+  --teks-micro:1rem;
+  --teks-tiny:1.1rem;
+  
+  --teks-chip:1.2rem;
+  --teks-meta:1.3rem;
+  --teks-body:1.4rem;
+  --teks-price:1.7rem;
+  --teks-section:2rem;
+  --teks-page:2.8rem;
+  --bobot-light:300;
+  --bobot-regular:400;
+  --bobot-medium:500;
+  --bobot-semibold:600;
+  --bobot-bold:700;
+  --bobot-heavy:800;
+  --bobot-black:900;
+  
+  
+  --seksi:clamp(6rem, 7.5svh, 8rem);
+  
+  --jarak-y-dalam:1.5rem;
+  
+  
+  --jarak-y-antar:clamp(6rem, 7.5svh, 8rem);
+  --jarak-x-tiga:1.5rem;
+  --jarak-x-dua:3rem;
+  --dalam:2rem;
+  
+  --sisi:1.5rem;
+  --rapat:1.2rem;
+  
+  --talang:1.5rem;
+  
+  --selokan-ubin:3rem;
+  
+  --selokan-sempit:1.5rem;
+  
+  --biru-dasar:#eef1f9;
+  --biru-tinta:#16357a;
+  --keping-biru:#e3e9f7;
+  --keping-abu:#ededf0;
+  --keping-hangat:#f1efec;
+  --garis-panel:#dfe4f0;
+  
+  --bayang-kartu:0 0.1rem 0.2rem rgba(17,25,33,0.05), 0 0.6rem 1.6rem -0.6rem rgba(17,25,33,0.14);
+  --font-harga:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --cair:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.56) 26%, rgba(255,255,255,0.42) 52%, rgba(255,255,255,0.54) 100%);
+  --cair-blur:blur(1.4rem) saturate(165%) brightness(1.03) contrast(1.02);
+  --cair-tombol:radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.74) 26%, rgba(255,255,255,0.64) 52%, rgba(255,255,255,0.74) 100%);
+  --cair-tombol-blur:blur(1.8rem) saturate(160%) brightness(1.02);
+  --cair-rim:inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem rgba(255,255,255,0.40), inset 0.2rem 0 0.3rem rgba(255,255,255,0.28), inset -0.2rem 0 0.3rem rgba(255,255,255,0.28), inset 0 0 0 0.1rem rgba(255,255,255,0.62), inset 0 0 1.2rem rgba(17,25,33,0.12);
+  --cair-bayang:0 0.6rem 1.4rem rgba(17,25,33,0.16), 0 0.1rem 0.2rem rgba(17,25,33,0.10);
+  --kaca:linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0.45) 100%), rgba(250,252,253,0.93);
+  --kaca-blur:blur(1.8rem) saturate(140%);
+  --kaca-rim:inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(255,255,255,0.90);
+  --kaca-bayang:0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.07), 0 1.6rem 3.4rem -1.4rem rgba(17,25,33,0.12);
+  --el-2:0 0.2rem 1rem rgba(0,0,0,0.08), 0 0.1rem 0.2rem rgba(0,0,0,0.06);
+  
+  --el-3:0 0.8rem 2rem rgba(0,0,0,0.14), 0 0.2rem 0.6rem rgba(0,0,0,0.08);
+}
+html{font-size:62.5%}
+  body{font-size:1.6rem;margin:0;font-family:-apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+  
+  button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+  input{font:inherit;color:inherit}
+  
+  
+  [data-banding]{appearance:none;-webkit-appearance:none;background:transparent;margin:0;pointer-events:none}
+  [data-banding]::-webkit-slider-thumb{-webkit-appearance:none;width:5rem;height:5rem;opacity:0;pointer-events:auto;cursor:grab}
+  [data-banding]::-webkit-slider-thumb:active{cursor:grabbing}
+  [data-banding]::-moz-range-thumb{width:5rem;height:5rem;border:0;opacity:0;pointer-events:auto;cursor:grab}
+  [data-banding]:focus-visible{outline:0.3rem solid var(--ink);outline-offset:-0.3rem}
+  [data-harga]{font-family:var(--font-harga);font-variant-numeric:tabular-nums}
+
+  
+  [data-upvc-salju="1"]{background-image:url(/_blob/13a15840bc04a4bf200253c0f3549431),url(/_blob/13a15840bc04a4bf200253c0f3549431),url(/_blob/13a15840bc04a4bf200253c0f3549431),linear-gradient(90deg,#253A4A,#517FA4);background-size:2rem,2rem,4rem,auto;background-position:60rem 10rem,20rem 15rem,33rem 10rem,50%;background-repeat:no-repeat}
+  [data-kalk-latar="1"]{background-image:url(/_blob/22deff4392e67cf1c20c62ef6fce1999);background-repeat:no-repeat;background-position:center;background-size:cover}
+@keyframes revFillA{from{width:0}to{width:100%}}
+@keyframes revFillB{from{width:0}to{width:100%}}
+@media (prefers-reduced-motion: reduce){[data-rev-card="1"],[data-rev-nav="1"] span{transition:none !important}}
+
+
+
+
+@supports not (height: 1svh) {
+  :root {
+    --jarak-y-antar: clamp(6rem, 7.5vh, 8rem);
+    --seksi: clamp(6rem, 7.5vh, 8rem);
+  }
+}
+</style>
+</helmet>
+
+
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+    <sc-if value="{{ awasBuka }}" hint-placeholder-val="{{ true }}">
+    <div data-tepi="1" style="box-sizing: border-box; padding: 1rem 1rem 1rem 1.4rem; background: #fdecec; display: flex; align-items: flex-start; row-gap: 0.9rem; column-gap: 0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.1rem; margin-left: 0.45rem; margin-right: 0.45rem"><path d="M12 3.6L2.6 20h18.8z"></path><path d="M12 10v4.4M12 17.3h.01"></path></svg>
+      <p style="margin: 0; font-size: var(--teks-micro); line-height: 1.35; color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word; margin-left: 0.45rem; margin-right: 0.45rem"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: 0.01em">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="https://www.smsperkasa.com/hati-hati-penipuan" target="_blank" rel="noopener" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem; text-decoration-thickness: 0.1rem; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none">Cek selengkapnya</a></p>
+      <button type="button" onClick="{{ awasTutup }}" aria-label="Tutup peringatan penipuan" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; margin: -0.4rem -0.4rem -0.4rem 0; padding: 0; border: 0; background: none; display: grid; place-items: center; align-self: center; margin-left: 0.45rem; margin-right: calc(-0.4rem + 0.45rem)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-2)" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6.4 6.4l11.2 11.2M17.6 6.4L6.4 17.6"></path></svg>
+      </button>
+    </div>
+    </sc-if>
+    <header data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0; height: 5.6rem; box-sizing: border-box; padding: 0 var(--sisi); background: var(--surface)">
+      
+    
+      <a href="BerandaM4.dc.html" aria-label="SMS Perkasa — beranda" style="display: flex; align-items: flex-start; min-height: 4.4rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+        <svg width="102" height="30" viewBox="0 0 364 107" fill="none" aria-hidden="true" style="flex-shrink: 0; display: block">
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.27 78.64c-.18.11-.37.26-.55.02-.1-.13-.1-.28.01-.4.18-.2.36-.09.54.05.13-.32.29-.61.62-.75.21-.09.42-.1.63-.04.43.11.76.59.73 1.02-.03.48-.39.87-.87.95-.47.08-.85-.21-1.12-.85h.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M44.36 77.47c0-.21-.1-.38-.02-.58.14-.34.44-.53.78-.45.31.08.54.41.51.72a.68.68 0 01-.67.61c-.04 0-.09 0-.13-.02-.15-.07-.23-.03-.26.14-.01.06-.07.13-.12.17-.13.09-.27.08-.38-.04-.11-.12-.12-.26-.03-.4.08-.12.21-.14.34-.15h-.02z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M45.92 80.52c0 .92-.72 1.7-1.61 1.72-.89.02-1.67-.77-1.67-1.71 0-.92.74-1.69 1.64-1.7.88-.01 1.64.77 1.65 1.68l-.01.01zM43.57 77.12c-.07 1.58-1.15 2.72-2.64 2.73-1.5 0-2.63-1.15-2.63-2.72 0-1.77 1.38-2.73 2.63-2.73 1.24 0 2.57.95 2.65 2.73l-.01-.01zM46.3 76.07c-2.42-.07-4.3-1.92-4.31-4.43 0-2.47 1.84-4.42 4.29-4.43 2.42 0 4.3 1.9 4.31 4.41 0 2.48-1.84 4.37-4.29 4.45z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M48.04 80.54c0-3.9 3.11-7.1 6.9-7.11 3.66-.02 6.97 2.92 6.98 7.12.01 4.02-3.05 7.16-6.94 7.15-4.12 0-6.96-3.44-6.94-7.16zM39.47 106.44c-3.78-.62-6.61-2.64-8.45-6.08-.77-1.45-1.16-3.02-1.27-4.67-.36-5.6 3.28-10.46 8.18-11.86 6.33-1.82 12.83 2.3 14.09 8.93 1.18 6.24-2.74 12.3-8.86 13.57-.22.05-.45.08-.68.12-.13.07-.28.02-.42.04-.2.02-.42-.05-.62.05h-.86c-.23-.1-.46-.02-.7-.05-.14-.02-.29.04-.42-.04l.01-.01zM.16 69.65c.35-3.01 1.27-5.81 2.93-8.32 2.89-4.39 6.86-7.13 11.93-8.09 9.55-1.81 18.8 4.42 20.99 14.17 2.33 10.4-4.09 20.21-13.63 22.47C12.67 92.17 3.1 86.1.63 76.28c-.23-.9-.37-1.81-.47-2.73-.05-.28-.1-.56-.12-.85-.02-.16.05-.33-.04-.48V70.9c.09-.14.02-.3.04-.44 0-.07 0-.13.02-.2.06-.19.05-.4.1-.6v-.01z" clip-rule="evenodd"></path>
+          <path fill="var(--brand-hero)" fill-rule="evenodd" d="M84.56 35.91c-.41 5.32-2.09 10.18-5.05 14.55-4.27 6.33-10.07 10.43-17.34 12.31-1.61.42-3.25.65-4.9.77-1.19.08-2.37.1-3.56.04-2.84-.16-5.6-.71-8.29-1.69-9.44-3.44-16.56-11.61-18.86-21.66-.43-1.89-.68-3.81-.74-5.75-.24-7.69 1.99-14.54 6.75-20.47 4.33-5.4 9.88-8.82 16.54-10.32 1.38-.31 2.79-.48 4.19-.61.11-.07.22-.02.34-.04h.34c.17-.02.36.05.53-.05h1.2c.14.09.3.02.44.05h1.01c2.16.03 4.26.46 6.32 1.07 4.2 1.24 7.94 3.38 11.23 6.32 2.61 2.34 4.73 5.09 6.41 8.2 1.68 3.1 2.75 6.42 3.31 9.91.12.77.16 1.55.15 2.32v.46c0 .08-.02.17.04.25v3.44c-.08.09-.03.2-.04.3v.39c0 .07 0 .13-.03.19l.01.02z" clip-rule="evenodd"></path>
+          <path fill="var(--ink)" d="M92.04 94.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM108.184 52h9.42l4.2 30.06h.12l4.2-30.06h9.42v42h-6.24V62.2h-.12l-4.8 31.8h-5.52l-4.8-31.8h-.12V94h-5.76V52zm43.265 42.6c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM179.603 52h9.72c3.28 0 5.74.88 7.38 2.64 1.64 1.76 2.46 4.34 2.46 7.74v4.14c0 3.4-.82 5.98-2.46 7.74-1.64 1.76-4.1 2.64-7.38 2.64h-3.12V94h-6.6V52zm9.72 18.9c1.08 0 1.88-.3 2.4-.9.56-.6.84-1.62.84-3.06v-4.98c0-1.44-.28-2.46-.84-3.06-.52-.6-1.32-.9-2.4-.9h-3.12v12.9h3.12zM205.148 52h18v6h-11.4v11.1h9.06v6h-9.06V88h11.4v6h-18V52zm24.196 0h9.78c3.4 0 5.88.8 7.44 2.4 1.56 1.56 2.34 3.98 2.34 7.26v2.58c0 4.36-1.44 7.12-4.32 8.28v.12c1.6.48 2.72 1.46 3.36 2.94.68 1.48 1.02 3.46 1.02 5.94v7.38c0 1.2.04 2.18.12 2.94.08.72.28 1.44.6 2.16h-6.72a9.62 9.62 0 01-.48-1.92c-.08-.6-.12-1.68-.12-3.24v-7.68c0-1.92-.32-3.26-.96-4.02-.6-.76-1.66-1.14-3.18-1.14h-2.28v18h-6.6V52zm9 18c1.32 0 2.3-.34 2.94-1.02.68-.68 1.02-1.82 1.02-3.42v-3.24c0-1.52-.28-2.62-.84-3.3-.52-.68-1.36-1.02-2.52-1.02h-3v12h2.4zm17.6-18h6.6v17.7l8.4-17.7h6.6l-7.86 15.42 7.98 26.58h-6.9l-5.58-18.72-2.64 5.34V94h-6.6V52zm32.343 0h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94zm22.587 14.52c-3.2 0-5.62-.9-7.26-2.7-1.64-1.84-2.46-4.46-2.46-7.86v-2.4h6.24v2.88c0 2.72 1.14 4.08 3.42 4.08 1.12 0 1.96-.32 2.52-.96.6-.68.9-1.76.9-3.24 0-1.76-.4-3.3-1.2-4.62-.8-1.36-2.28-2.98-4.44-4.86-2.72-2.4-4.62-4.56-5.7-6.48-1.08-1.96-1.62-4.16-1.62-6.6 0-3.32.84-5.88 2.52-7.68 1.68-1.84 4.12-2.76 7.32-2.76 3.16 0 5.54.92 7.14 2.76 1.64 1.8 2.46 4.4 2.46 7.8v1.74h-6.24v-2.16c0-1.44-.28-2.48-.84-3.12-.56-.68-1.38-1.02-2.46-1.02-2.2 0-3.3 1.34-3.3 4.02 0 1.52.4 2.94 1.2 4.26.84 1.32 2.34 2.92 4.5 4.8 2.76 2.4 4.66 4.58 5.7 6.54s1.56 4.26 1.56 6.9c0 3.44-.86 6.08-2.58 7.92-1.68 1.84-4.14 2.76-7.38 2.76zM339.142 52h8.94l6.84 42h-6.6l-1.2-8.34v.12h-7.5l-1.2 8.22h-6.12l6.84-42zm7.2 28.08l-2.94-20.76h-.12l-2.88 20.76h5.94z"></path>
+        </svg>
+      </a>
+      
+      
+      <div style="flex-shrink: 0; display: flex; align-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+        
+      
+      <sc-if value="{{ teleponHeaderTampil }}" hint-placeholder-val="{{ false }}">
+      <a href="tel:+628112689889" aria-label="Telepon +62 811-2689-889" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; color: var(--ink)">
+        
+        <sc-if value="{{ labelTeleponTampil }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size: var(--teks-micro); line-height: 1.2; font-weight: var(--bobot-bold); color: var(--ink-2); white-space: nowrap">Hubungi Sekarang!</span>
+        </sc-if>
+        <span data-tepi="1" style="display: flex; align-items: center; row-gap: 0.5rem; column-gap: 0">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block; flex-shrink: 0; fill: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem"><path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A15.9 15.9 0 0 1 3.6 6.1 1.6 1.6 0 0 1 5.2 4.3h2.4a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-1 1a12.8 12.8 0 0 0 4.8 4.8l1-1a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6a1.6 1.6 0 0 1 1.5 1.7z"></path></svg>
+          
+              
+              
+              <span style="margin-top: 0.2rem; font-size: var(--teks-chip); font-weight: var(--bobot-bold); white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem">+628112689889</span>
+        </span>
+      </a>
+      </sc-if>
+        <button type="button" aria-label="Opsi lainnya" style="flex-shrink: 0; margin-right: -1.3rem; width: 4.4rem; height: 4.4rem; padding: 0; border: 0; background: transparent; display: grid; place-items: center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"><path d="M4.4 7h15.2M4.4 12h15.2M4.4 17h15.2"></path></svg>
+      </button>
+      </div>
+    </header>
+
+  
+
+<main data-jarak="1" style="display: flex; flex-direction: column; gap: 0">
+  
+  
+    
+    
+    <sc-if value="{{ judulBerandaTampil }}" hint-placeholder-val="{{ false }}">
+    <div style="padding: 0 var(--talang)">
+      <h1 style="margin: var(--dalam) 0 0 0; font-size: var(--teks-page); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: -0.01em">Distributor Besi Terpercaya — Beli Besi dan Material Konstruksi Terbaik</h1>
+    </div>
+    </sc-if>
+
+    
+    
+    <div style="margin-top: 0">
+    <div style="margin-top: 0; margin-left: var(--talang); margin-right: var(--talang); overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory" data-rel="1">
+        <div style="display: flex">
+          
+<sc-for list="{{ banner }}" as="b" hint-placeholder-count="12">
+            
+            <img src="{{ b.img }}" alt="{{ b.alt }}" loading="lazy" style="flex-shrink: 0; width: 100%; aspect-ratio: auto; height: 15.8rem; object-fit: cover; border-radius: var(--tile); background: var(--line); scroll-snap-align: start; display: block">
+          </sc-for>
+        </div>
+      </div>
+      
+      <span role="group" aria-label="Pilih spanduk" style="display: flex; align-items: center; justify-content: center; padding: 0.8rem 0 0 0">
+        <sc-for list="{{ bnrTitik }}" as="bt" hint-placeholder-count="12">
+          <button type="button" onClick="{{ bt.pergi }}" aria-label="{{ bt.aria }}" aria-current="{{ bt.kini }}" style="height: 2.8rem; padding: 0 0.55rem; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer">
+            <span aria-hidden="true" style="{{ bt.gaya }}"></span>
+          </button>
+        </sc-for>
+      </span>
+    </div>
+
+    <div style="margin-top: var(--jarak-y-antar); padding-left: var(--talang)">
+      <div data-tepi="1" style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0; padding: 0 var(--talang) 0 0">
+        
+          <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Kategori produk</h2>
+        
+              <sc-if value="{{ semuaKategoriTampil }}" hint-placeholder-val="{{ false }}">
+              <a href="DesktopProdukIndexM4.dc.html" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4.4rem; font-size: var(--teks-chip); font-weight: var(--bobot-medium); color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">semua kategori <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M9 5l7 7-7 7"></path></svg></a>
+              </sc-if>
+      </div>
+      
+      
+      <div data-tepi="1" style="display: flex; row-gap: var(--jarak-y-dalam); column-gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: var(--talang); padding: var(--talang) 0 0 0">
+        <sc-for list="{{ kategori }}" as="k" hint-placeholder-count="11">
+          
+<a href="DesktopProdukIndexM4.dc.html" style="flex: 0 0 30%; scroll-snap-align: start; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; color: var(--ink); margin-left: calc(var(--jarak-x-tiga) / 2); margin-right: calc(var(--jarak-x-tiga) / 2)">
+            
+              <span style="width: 8rem; height: 8rem; flex-shrink: 0; border-radius: var(--tile); background: var(--surface); display: grid; place-items: center; overflow: hidden">
+              
+              <img src="{{ k.ikon }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block">
+            </span>
+            
+            <span style="font-size: var(--teks-body); line-height: 1.25; font-weight: var(--bobot-semibold); color: var(--ink); text-align: center">{{ k.n }}</span>
+          </a>
+        </sc-for>
+      </div>
+      
+      
+      <sc-if value="{{ lihatSemuaKategoriTampil }}" hint-placeholder-val="{{ false }}">
+      <a href="ProdukIndexM4.dc.html" aria-label="Lihat semua kategori produk" style="display: inline-flex; align-items: center; gap: 0.6rem; min-height: 4rem; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink); text-decoration: underline; margin-top: var(--dalam)">Lihat Semua</a>
+      </sc-if>
+    </div>
+
+    
+    
+    <div style="margin-top: var(--jarak-y-antar); padding-left: var(--talang)">
+      <div data-tepi="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; padding: 0 var(--talang) 0 0">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Produk unggulan kami</h2>
+        <sc-if value="{{ semuaProdukTampil }}" hint-placeholder-val="{{ false }}">
+        <a href="DesktopProdukIndexM4.dc.html" style="flex-shrink: 0; display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; min-height: 4.4rem; font-size: var(--teks-chip); font-weight: var(--bobot-medium); color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">semua produk <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M9 5l7 7-7 7"></path></svg></a>
+        </sc-if>
+      </div>
+      
+      <div data-tepi="1" style="display: flex; row-gap: var(--selokan-ubin); column-gap: 0; overflow-x: auto; margin-right: var(--talang); padding: var(--talang) 0 0 0">
+        <sc-for list="{{ unggulan }}" as="u" hint-placeholder-count="5">
+          
+<a href="RecCreateM4.dc.html" aria-label="{{ u.aria }}" style="flex-shrink: 0; width: 48%; color: var(--ink); margin-left: calc(var(--selokan-ubin) / 2); margin-right: calc(var(--selokan-ubin) / 2)">
+            <img src="{{ u.foto }}" alt="{{ u.n }}" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); object-fit: cover; background: var(--line); display: block">
+            <span style="display: block; margin-top: 0.8rem; font-size: var(--teks-body); line-height: 1.25; font-weight: var(--bobot-semibold)">{{ u.n }}</span>
+            <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; color: var(--ink-2)">{{ u.v }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    
+    <div style="margin-top: var(--jarak-y-antar); padding-left: var(--talang)">
+      <h2 style="margin: 0; padding-right: var(--talang); font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Paling banyak dicari</h2>
+      
+      <div data-tepi="1" style="display: flex; row-gap: var(--selokan-ubin); column-gap: 0; overflow-x: auto; margin-right: var(--talang); padding: var(--talang) 0 0 0">
+        <sc-for list="{{ dicari }}" as="c" hint-placeholder-count="5">
+          <a href="RecCreateM4.dc.html" aria-label="{{ c.aria }}" style="flex-shrink: 0; width: 48%; color: var(--ink); margin-left: calc(var(--selokan-ubin) / 2); margin-right: calc(var(--selokan-ubin) / 2)">
+            <img src="{{ c.foto }}" alt="" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); object-fit: cover; background: var(--surface); display: block">
+            <span style="display: block; margin-top: 0.8rem; font-size: var(--teks-body); line-height: 1.25; font-weight: var(--bobot-semibold)">{{ c.n }}</span>
+            <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; color: var(--ink-2)">Mulai <span data-harga="1" style="font-weight: var(--bobot-bold); color: var(--ink)">Rp {{ c.rp }}</span></span>
+            <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; color: var(--ink-2)">{{ c.v }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--jarak-y-antar); padding: 0 var(--talang)">
+      
+      
+      
+      
+            
+      <div data-tepi="1" data-kalk-latar="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; min-height: 14.8rem; box-sizing: border-box; padding: var(--rapat); border-radius: var(--action); overflow: hidden">
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.8rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+          <p style="margin: 0; font-size: var(--teks-page); line-height: 1.1; font-weight: var(--bobot-bold); color: var(--ink)">Kalkulator Material</p>
+          <sc-if value="{{ kalkTeksTampil }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 0; font-size: var(--teks-body); line-height: 1.35; color: var(--ink-2)">Hitung kebutuhan atap, berat besi beton, dan material proyek Anda dalam hitungan detik.</p>
+          </sc-if>
+          <a href="https://www.smsperkasa.com/" target="_blank" rel="noopener" style="align-self: flex-start; box-sizing: border-box; min-height: 3rem; padding: 0.4rem 1.2rem; border-radius: var(--action); background: var(--brand); color: #ffffff; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; text-align: center; display: flex; align-items: center; justify-content: center; text-decoration: none">Hitung Sekarang</a>
+        </div>
+        <span style="flex: 0 0 48%; align-self: center; border-radius: var(--card); overflow: hidden; background: transparent; display: block; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+          <img src="/_blob/7e4f960ba97a8b964dd406f24b2b066c" alt="Ilustrasi Kontraktor" loading="lazy" style="width: 100%; height: auto; display: block">
+        </span>
+      </div>
+    </div>
+
+        
+<div style="margin-top: var(--jarak-y-antar); padding-left: var(--talang); padding-right: var(--talang)">
+      
+      
+      <div>
+        
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Produk terbaru kami</h2>
+        
+              </div>
+      
+      
+      
+      <div data-upvc-salju="1" style="position: relative; box-sizing: border-box; width: 100%; max-width: 123rem; margin: 1.4rem auto 0; display: flex; flex-direction: column; border-radius: 1.2rem">
+        <a href="https://www.smsperkasa.com/produk/atap-upvc" target="_blank" rel="noopener" aria-label="Atap UPVC, mulai dari Rp 140.000 per meter" style="display: flex; justify-content: space-between; color: #ffffff; text-decoration: none">
+          <div style="z-index: 2; box-sizing: border-box; width: 100%; min-width: 32rem; display: flex; align-items: center; justify-content: space-between; column-gap: 1.5rem; padding: 3rem 1.6rem 0">
+            <div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; gap: 1.6rem">
+              
+              <div data-tepi="1" style="width: 100%; display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+                <div style="font-size: 2.8rem; line-height: 3.3rem; font-weight: 800; color: #ffffff; margin-left: 0.75rem; margin-right: 0.75rem">ATAP UPVC</div>
+                <div style="flex-shrink: 0; max-width: 20rem; display: flex; justify-content: center; margin-left: 0.75rem; margin-right: 0.75rem">
+                  <div style="position: relative; display: flex; flex-direction: column; align-items: flex-end; padding: 0.2rem 1rem; border: 0.1rem solid #ffffff; border-radius: 1.2rem">
+                    <span style="position: absolute; top: -1rem; left: -0.1rem; padding: 0.2rem 1rem; border-radius: 0.4rem; background: #ffffff; color: #37566e; font-size: 1rem; line-height: 1.3rem; font-weight: 800">Mulai Dari</span>
+                    <div style="font-size: 1.5rem; line-height: 1.8rem; font-weight: 800; color: #ffffff; white-space: nowrap">Rp <strong style="font-size: 3rem; line-height: 3.6rem; font-weight: 800">140.</strong>000<span style="font-size: 1.2rem; line-height: 1.8rem; font-weight: 800">/meter</span></div>
+                  </div>
+                </div>
+              </div>
+              <div data-tepi="1" style="box-sizing: border-box; width: 100%; max-width: 25rem; align-items: flex-start; display: flex; justify-content: space-between; column-gap: 0">
+          <div style="display: flex; flex-direction: column-reverse; margin-left: 1.3rem; margin-right: 1.3rem">
+            <div data-tepi="1" style="display: flex; align-items: flex-start; row-gap: 0.4rem; column-gap: 0">
+              <svg width="39" height="39" viewBox="0 0 39 39" fill="none" aria-hidden="true" style="flex-shrink: 0; width: 2.5rem; height: 2.5rem; display: block; margin-left: 0.2rem; margin-right: 0.2rem"><g filter="url(#upvcblur0a)"><path fill="#F8AA08" d="M19.62 33.952c7.915 0 14.332-6.417 14.332-14.331 0-7.915-6.417-14.331-14.331-14.331-7.915 0-14.331 6.416-14.331 14.33 0 7.915 6.416 14.332 14.33 14.332z"></path></g><g filter="url(#upvcblur1a)"><path stroke="#F8AA08" stroke-dasharray="0.19 12.87" stroke-linecap="round" stroke-width="1.95" d="M19.62 37.266c9.746 0 17.646-7.9 17.646-17.645 0-9.746-7.9-17.646-17.645-17.646-9.746 0-17.646 7.9-17.646 17.645 0 9.746 7.9 17.646 17.645 17.646z"></path></g><g filter="url(#upvcblur2a)"><path fill="#F8AA08" d="M18.008 16.759c5.02-2.666 7.858-7.142 6.341-9.998-1.516-2.856-6.815-3.01-11.834-.344-5.02 2.666-7.859 7.143-6.342 9.998 1.517 2.856 6.816 3.01 11.835.344z"></path></g><defs><filter id="upvcblur0a" width="30.222" height="30.222" x="4.51" y="4.51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.39" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur1a" width="38.021" height="38.021" x="0.61" y="0.61" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.195" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur2a" width="26.792" height="21.947" x="1.865" y="0.615" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="1.95" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs></svg>
+              <span style="font-size: 1.2rem; line-height: 1.6rem; font-weight: 700; color: #ffffff; margin-left: 0.2rem; margin-right: 0.2rem">100% Tidak<br>Tembus Cahaya</span>
+            </div>
+            <div style="font-size: 1.2rem; line-height: 1.5rem; font-weight: 700; color: #ffffff">Warna&nbsp;Biru</div>
+          </div>
+          <div style="display: flex; flex-direction: column-reverse; margin-left: 1.3rem; margin-right: 1.3rem">
+            <div data-tepi="1" style="display: flex; align-items: flex-start; row-gap: 0.4rem; column-gap: 0">
+              <svg width="39" height="39" viewBox="0 0 39 39" fill="none" aria-hidden="true" style="flex-shrink: 0; width: 2.5rem; height: 2.5rem; display: block; margin-left: 0.2rem; margin-right: 0.2rem"><g filter="url(#upvcblur0b)"><path fill="#F8AA08" d="M19.62 33.952c7.915 0 14.332-6.417 14.332-14.331 0-7.915-6.417-14.331-14.331-14.331-7.915 0-14.331 6.416-14.331 14.33 0 7.915 6.416 14.332 14.33 14.332z"></path></g><g filter="url(#upvcblur1b)"><path stroke="#F8AA08" stroke-dasharray="0.19 12.87" stroke-linecap="round" stroke-width="1.95" d="M19.62 37.266c9.746 0 17.646-7.9 17.646-17.645 0-9.746-7.9-17.646-17.645-17.646-9.746 0-17.646 7.9-17.646 17.645 0 9.746 7.9 17.646 17.645 17.646z"></path></g><g filter="url(#upvcblur2b)"><path fill="#F8AA08" d="M18.008 16.759c5.02-2.666 7.858-7.142 6.341-9.998-1.516-2.856-6.815-3.01-11.834-.344-5.02 2.666-7.859 7.143-6.342 9.998 1.517 2.856 6.816 3.01 11.835.344z"></path></g><defs><filter id="upvcblur0b" width="30.222" height="30.222" x="4.51" y="4.51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.39" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur1b" width="38.021" height="38.021" x="0.61" y="0.61" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.195" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur2b" width="26.792" height="21.947" x="1.865" y="0.615" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="1.95" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs></svg>
+              <span style="font-size: 1.2rem; line-height: 1.6rem; font-weight: 700; color: #ffffff; margin-left: 0.2rem; margin-right: 0.2rem">20%<br>Tembus Cahaya</span>
+            </div>
+            <div style="font-size: 1.2rem; line-height: 1.5rem; font-weight: 700; color: #ffffff">Clear&nbsp;Matt</div>
+          </div>
+          <div style="display: flex; flex-direction: column-reverse; margin-left: 1.3rem; margin-right: 1.3rem">
+            <div data-tepi="1" style="display: flex; align-items: flex-start; row-gap: 0.4rem; column-gap: 0">
+              <svg width="39" height="39" viewBox="0 0 39 39" fill="none" aria-hidden="true" style="flex-shrink: 0; width: 2.5rem; height: 2.5rem; display: block; margin-left: 0.2rem; margin-right: 0.2rem"><g filter="url(#upvcblur0c)"><path fill="#F8AA08" d="M19.62 33.952c7.915 0 14.332-6.417 14.332-14.331 0-7.915-6.417-14.331-14.331-14.331-7.915 0-14.331 6.416-14.331 14.33 0 7.915 6.416 14.332 14.33 14.332z"></path></g><g filter="url(#upvcblur1c)"><path stroke="#F8AA08" stroke-dasharray="0.19 12.87" stroke-linecap="round" stroke-width="1.95" d="M19.62 37.266c9.746 0 17.646-7.9 17.646-17.645 0-9.746-7.9-17.646-17.645-17.646-9.746 0-17.646 7.9-17.646 17.645 0 9.746 7.9 17.646 17.645 17.646z"></path></g><g filter="url(#upvcblur2c)"><path fill="#F8AA08" d="M18.008 16.759c5.02-2.666 7.858-7.142 6.341-9.998-1.516-2.856-6.815-3.01-11.834-.344-5.02 2.666-7.859 7.143-6.342 9.998 1.517 2.856 6.816 3.01 11.835.344z"></path></g><defs><filter id="upvcblur0c" width="30.222" height="30.222" x="4.51" y="4.51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.39" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur1c" width="38.021" height="38.021" x="0.61" y="0.61" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="0.195" result="effect1_foregroundBlur"></feGaussianBlur></filter><filter id="upvcblur2c" width="26.792" height="21.947" x="1.865" y="0.615" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="1.95" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs></svg>
+              <span style="font-size: 1.2rem; line-height: 1.6rem; font-weight: 700; color: #ffffff; margin-left: 0.2rem; margin-right: 0.2rem">100% Tidak<br>Tembus Cahaya</span>
+            </div>
+            <div style="font-size: 1.2rem; line-height: 1.5rem; font-weight: 700; color: #ffffff">Warna&nbsp;Putih</div>
+          </div>
+              </div>
+            </div>
+            
+          </div>
+        </a>
+        
+        <div style="box-sizing: border-box; width: 100%; padding: 0 1.5rem; margin: 0.8rem 0 0.8rem auto">
+          <div style="width: 100%; display: flex; align-items: center; gap: 1rem">
+            
+            <div style="width: 100%; display: flex; gap: 1rem; overflow-x: auto; background: var(--surface); border-radius: var(--tile)">
+              
+              
+              <div data-tepi="1" style="box-sizing: border-box; width: 100%; display: flex; column-gap: 0; padding: 2.1rem 0 2.1rem var(--talang)">
+                <sc-for list="{{ upvc }}" as="v" hint-placeholder-count="9">
+                  
+                  
+          
+          <a href="SkuDetailM4.dc.html" style="box-sizing: border-box; flex-shrink: 0; width: 15rem; min-width: 0; background: transparent; box-shadow: none; border-radius: 0; color: var(--ink); display: flex; flex-direction: column; gap: 0.6rem; margin-left: 0.7rem; margin-right: 0.7rem">
+            <sc-if value="{{ upvcFotoTampil }}" hint-placeholder-val="{{ true }}">
+              <span style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); background: var(--line); overflow: hidden; display: block"><img src="{{ v.foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>
+            </sc-if>
+            <span style="text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; display: block; font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: 1.35; color: var(--ink); font-variant-numeric: tabular-nums">{{ v.nama }} {{ v.ukuran }} {{ v.varian }}</span>
+            <span style="align-self: flex-start; display: flex; flex-direction: column; gap: 0.2rem; align-items: flex-start">
+              <sc-if value="{{ v.adaRp }}" hint-placeholder-val="{{ true }}">
+                <span data-harga="1" style="font-size: var(--teks-price); font-weight: var(--bobot-bold); line-height: 1.2; white-space: nowrap; font-variant-numeric: tabular-nums"><span style="font-size: var(--teks-sup); font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: 0.02em">Rp</span>{{ v.nominal }}</span>
+              </sc-if>
+              <sc-if value="{{ v.takRp }}" hint-placeholder-val="{{ false }}">
+                <span data-harga="1" style="font-size: var(--teks-price); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0; white-space: nowrap; color: var(--ink-2)">Hubungi kami</span>
+              </sc-if>
+            </span>
+          </a>
+                </sc-for>
+                <span aria-hidden="true" style="flex: 0 0 calc(var(--talang) - 1.4rem); margin-left: 0.7rem; margin-right: 0.7rem"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div style="margin-top: var(--jarak-y-antar)">
+      <a href="#whatsapp" style="position: relative; box-sizing: border-box; display: flex; align-items: stretch; gap: 0; min-height: 20.1rem; overflow: hidden; background: radial-gradient(15.07rem 14.31rem at 4.79rem 50.2%, var(--brand) 0%, var(--ink) 100%); color: #ffffff; text-decoration: none">
+            
+        <span style="flex: 0 0 13.4rem; box-sizing: border-box; padding-left: 1.4rem; align-self: flex-end; display: block">
+                      
+          <img src="/_blob/11466c799f6d77700c418b0a7ab6102c" alt="Staf sales SMS Perkasa berkaus hitam bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan" loading="lazy" style="width: 100%; height: auto; display: block">
+        </span>
+            
+        <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem 1.2rem">
+          <div style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+            
+            <p style="margin: 0; font-size: 1.9rem; line-height: 1.5; font-weight: var(--bobot-bold); color: #ffffff; text-align: left; word-break: normal; -webkit-hyphens: none; hyphens: none">Butuh Rekomendasi Material yang Tepat untuk Proyek Anda?</p>
+            
+            <span style="align-self: flex-start; box-sizing: border-box; min-height: 2.6rem; padding: 0.4rem 1.5rem; border-radius: 0.2rem; background: var(--brand); color: #ffffff; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; text-align: center; display: flex; align-items: center; justify-content: center">Konsultasi Sekarang</span>
+          </div>
+        </div>
+        <span aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 2rem; background: linear-gradient(to bottom, transparent, var(--ink)); pointer-events: none"></span>
+      </a>
+    </div>
+
+    <div style="margin-top: var(--jarak-y-antar); padding: 0 var(--talang)">
+      <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Cari berdasarkan Sektor</h2>
+      <div data-tepi-kisi="2" data-tepi="1" data-tepi-kisi-y="2" style="margin-top: var(--dalam); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ sektor }}" as="k" hint-placeholder-count="2">
+          <a href="DesktopProdukIndexM4.dc.html" style="position: relative; display: block; border-radius: var(--tile); overflow: hidden; color: #ffffff; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2); margin-top: calc(var(--rapat) / 2); margin-bottom: calc(var(--rapat) / 2)">
+            <img src="{{ k.img }}" alt="{{ k.n }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--line); display: block">
+            <span style="position: absolute; inset: auto 0 0 0; box-sizing: border-box; padding: var(--rapat); display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: calc(var(--rapat) / 2); background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.72) 100%); font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ k.n }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M9 5l7 7-7 7"></path></svg></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    
+    <div style="margin-top: var(--jarak-y-antar); margin-left: var(--talang); margin-right: var(--talang)">
+      
+      <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Kenapa harus SMS Perkasa?</h2>
+      <div style="margin-top: var(--dalam); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch">
+      <div role="group" aria-label="Pembanding foto: dengan dan tanpa SMS Perkasa" style="position: relative; width: 100%; aspect-ratio: 2000 / 971; border-radius: var(--tile); overflow: hidden; background: #ffffff">
+        <sc-if value="{{ bandingAdaDengan }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ bandingDengan }}" alt="Dengan SMS Perkasa: informasi produk lengkap dan akurat; respon cepat, pasti dibalas kurang dari 10 menit; pengiriman tepat waktu sesuai schedule; harga kompetitif tanpa mengorbankan kualitas" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+        </sc-if>
+        <span style="position: absolute; inset: 0; display: block; clip-path: inset(0 0 0 {{ bandingPersen }})">
+          <sc-if value="{{ bandingAdaTanpa }}" hint-placeholder-val="{{ true }}">
+            <img src="{{ bandingTanpa }}" alt="Tanpa SMS Perkasa: spesifikasi produk tidak jelas dan kurang akurat; respon lama, tidak ada jaminan dibalas; pengiriman terlambat tidak tepat waktu; harga produk tidak sesuai dengan kualitas" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          </sc-if>
+        </span>
+        <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{ bandingPersen }}; width: 0.2rem; background: var(--ink); transform: translateX(-50%)"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 31 32" aria-hidden="true" style="position: absolute; bottom: var(--rapat); left: {{ bandingPersen }}; transform: translateX(-50%); display: block"><rect width="29.76" height="29.76" x="0.62" y="0.654" fill="#F4F4F4" rx="14.88"></rect><rect width="29.76" height="29.76" x="0.62" y="0.654" stroke="#000" stroke-width="1.24" rx="14.88"></rect><path fill="#1E1E1E" d="M5.986 14.25a1.483 1.483 0 000 2.569l4.82 2.782a1.483 1.483 0 002.225-1.284v-5.565a1.483 1.483 0 00-2.225-1.285l-4.82 2.783zM25.014 14.25c.989.57.989 1.998 0 2.569l-4.82 2.782a1.483 1.483 0 01-2.224-1.284v-5.565a1.483 1.483 0 012.224-1.285l4.82 2.783z"></path></svg>
+        <input data-banding="1" type="range" min="0" max="100" step="1" value="{{ bandingNilai }}" onChange="{{ bandingGeser }}" aria-label="Geser untuk membandingkan foto dengan dan tanpa SMS Perkasa" style="position: absolute; left: -2.5rem; width: calc(100% + 5rem); bottom: var(--rapat); height: 5rem">
+      </div>
+      </div>
+      <div style="margin-top: var(--rapat); min-height: 5.8rem; display: flex; align-items: flex-start">
+        <sc-if value="{{ bandingPitaKiri }}" hint-placeholder-val="{{ false }}">
+          <img src="{{ bandingTeksDengan }}" alt="Keuntungan Dengan Sms Perkasa — geser ke kanan" loading="lazy" style="width: 75rem; max-width: 100%; height: auto; display: block; margin-right: auto">
+        </sc-if>
+        <sc-if value="{{ bandingPitaKanan }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ bandingTeksTanpa }}" alt="Bayangkan Tanpa Sms Perkasa — geser ke kiri" loading="lazy" style="width: 73.2rem; max-width: 100%; height: auto; display: block; margin-left: auto">
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--jarak-y-antar); padding: 0 var(--talang)">
+      <p style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Dipercaya Oleh Mitra Terpercaya</p>
+      <div data-tepi="1" data-tepi-kisi-y="3" style="margin-top: var(--dalam); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ mitra }}" as="m" hint-placeholder-count="12">
+          <span style="height: 5.4rem; box-sizing: border-box; padding: 0.4rem 0.8rem; border: 0.1rem solid var(--line); border-radius: var(--tile); background: var(--surface); display: flex; align-items: center; justify-content: center; padding-left: 0.8rem; margin-left: 0.4rem; padding-right: 0.8rem; margin-right: 0.4rem; margin-top: 0.4rem; margin-bottom: 0.4rem">
+            <img src="{{ m.img }}" alt="{{ m.n }}" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block">
+          </span>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--jarak-y-antar); padding: 0 var(--talang)">
+      
+          <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Ulasan Pelanggan</h2>
+      
+      
+        <div data-rev-wrap="1" onPointerEnter="{{ revEnter }}" onPointerLeave="{{ revLeave }}" onFocus="{{ revFocus }}" onBlur="{{ revBlur }}" style="display: flex; flex-direction: column; gap: var(--rapat); margin-top: var(--dalam)">
+        <div data-rev-viewport="1" role="region" aria-roledescription="carousel" aria-label="Ulasan pelanggan, geser atau pakai tombol panah" tabindex="0" onKeyDown="{{ revKey }}" onPointerDown="{{ revDown }}" onPointerMove="{{ revMove }}" onPointerUp="{{ revUp }}" onPointerCancel="{{ revCancel }}" style="{{ revViewportStyle }}">
+          <ul data-rev-track="1" style="margin: 0; padding: 0; list-style: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0">
+            <sc-for list="{{ ulasan }}" as="rv" hint-placeholder-count="3">
+              <li data-rev-card="1" aria-roledescription="slide" aria-label="{{ rv.slide }}" aria-hidden="{{ rv.hidden }}" style="{{ rv.cardStyle }}">
+                <blockquote style="margin: 0; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-medium); color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word">“<sc-for list="{{ rv.parts }}" as="pt" hint-placeholder-count="3"><sc-if value="{{ pt.b }}" hint-placeholder-val="{{ true }}"><strong style="font-weight: var(--bobot-bold)">{{ pt.t }}</strong></sc-if><sc-if value="{{ pt.n }}" hint-placeholder-val="{{ false }}">{{ pt.t }}</sc-if></sc-for>”</blockquote>
+                <span data-tepi="1" role="img" aria-label="{{ rv.ratingLabel }}" style="display: flex; row-gap: 0.2rem; column-gap: 0">
+                  <sc-for list="{{ rv.stars }}" as="st" hint-placeholder-count="5">
+                    <svg style="margin-left: 0.1rem; margin-right: 0.1rem" width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.3 4 13.5l1-4.4-3.4-3 4.5-.5z" stroke-width="1.2" stroke-linejoin="round" style="fill: {{ st.fill }}; stroke: var(--bintang-garis)"></path></svg>
+                  </sc-for>
+                </span>
+                <div style="min-width: 0; display: flex; flex-direction: column; gap: 0.2rem">
+                  <p style="margin: 0; text-align: left; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-semibold); color: var(--ink)">{{ rv.who }}</p>
+                  
+                </div>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+        
+        <div data-rev-nav="1" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 4.4rem">
+          <sc-for list="{{ revDots }}" as="d" hint-placeholder-count="3">
+            <button type="button" onClick="{{ d.go }}" aria-label="{{ d.label }}" aria-current="{{ d.current }}" style="width: 2.8rem; height: 4.4rem; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 0; border: 0; border-radius: 0.4rem; background: transparent; cursor: pointer">
+              <span aria-hidden="true" style="{{ d.dotStyle }}"><span style="{{ d.fillStyle }}"></span></span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    
+    <div style="margin-top: var(--jarak-y-antar); padding-left: var(--talang)">
+      <div data-tepi="1" style="display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0; padding: 0 var(--talang) 0 0">
+        <h2 style="margin: 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: var(--ink-2); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">Produk yang baru anda lihat</h2>
+      </div>
+      <div data-tepi="1" style="display: flex; row-gap: var(--selokan-ubin); column-gap: 0; overflow-x: auto; margin-right: var(--talang); padding: var(--talang) 0 0 0">
+        <sc-for list="{{ baruDilihat }}" as="b" hint-placeholder-count="5">
+          <a href="{{ b.ke }}" aria-label="{{ b.aria }}" style="flex-shrink: 0; width: 48%; color: var(--ink); margin-left: calc(var(--selokan-ubin) / 2); margin-right: calc(var(--selokan-ubin) / 2)">
+            <img src="{{ b.foto }}" alt="{{ b.n }}" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; border-radius: var(--tile); object-fit: cover; background: var(--line); display: block">
+            <span style="display: block; margin-top: 0.8rem; font-size: var(--teks-body); line-height: 1.25; font-weight: var(--bobot-semibold)">{{ b.n }}</span>
+            <sc-if value="{{ b.adaVarian }}" hint-placeholder-val="{{ true }}">
+              <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; color: var(--ink-2)">{{ b.v }}</span>
+            </sc-if>
+            <sc-if value="{{ b.adaHarga }}" hint-placeholder-val="{{ false }}">
+              <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; font-weight: var(--bobot-semibold); color: var(--ink)">{{ b.v }}</span>
+            </sc-if>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    
+      
+
+    
+      <div id="m-konsultasi" style="margin-top: var(--jarak-y-antar)">
+            
+            
+            
+            
+      <a href="#whatsapp" style="position: relative; box-sizing: border-box; display: flex; align-items: stretch; gap: 0; min-height: 20.1rem; overflow: hidden; background: radial-gradient(15.07rem 14.31rem at 4.79rem 50.2%, var(--brand) 0%, var(--ink) 100%); color: #ffffff; text-decoration: none">
+            
+        <span style="flex: 0 0 13.4rem; box-sizing: border-box; padding-left: 1.4rem; align-self: flex-end; display: block">
+                      
+                      
+                      
+          <img src="/_blob/11466c799f6d77700c418b0a7ab6102c" alt="Staf sales SMS Perkasa berkaus hitam bertuliskan SMS Perkasa Team, memberi salam dengan kedua telapak tangan dirapatkan" loading="lazy" style="width: 100%; height: auto; display: block">
+        </span>
+            
+        <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem 1.2rem">
+          <div style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+            <p style="margin: 0; font-size: 1.9rem; line-height: 1.5; font-weight: var(--bobot-bold); color: #ffffff; text-align: left; word-break: normal; -webkit-hyphens: none; hyphens: none">Temukan Solusi Tepat untuk Kebutuhan Baja Proyek Anda</p>
+            
+            
+            <span style="align-self: flex-start; box-sizing: border-box; min-height: 2.6rem; padding: 0.4rem 1.5rem; border-radius: 0.2rem; background: var(--brand); color: #ffffff; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: 1.35; text-align: center; display: flex; align-items: center; justify-content: center">Konsultasi Sekarang</span>
+          </div>
+        </div>
+        <span aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 2rem; background: linear-gradient(to bottom, transparent, var(--ink)); pointer-events: none"></span>
+      </a>
+      
+      <div style="background: var(--ink); padding: var(--dalam) var(--talang)">
+        <a href="https://www.youtube.com/watch?v=KX-nxvzJq_I" aria-label="Putar video Besi Hollow di YouTube" style="position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--tile); overflow: hidden; background: var(--ink)">
+          <img src="/_blob/be996aa1fd6ede2004f5968e5b3392a6" alt="Cuplikan video Besi Hollow Hitam: tumpukan batang besi hollow hitam bertuliskan KUAT EFISIEN AESTHETIC" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
+            <span style="width: 5.6rem; height: 5.6rem; border-radius: var(--pill); background: var(--brand); display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="display: block; margin-left: 0.3rem"><path d="M7 4.5l12 7.5-12 7.5z" fill="#ffffff"></path></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </main>
+    
+    
+<div data-jarak="1" style="margin-top: 0; background: var(--ink); color: #ffffff; padding: var(--dalam) var(--sisi) 25rem var(--sisi); display: flex; flex-direction: column; gap: 0; --jarak-y-antar: var(--dalam)">
+      <div>
+      <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: 0.12rem; color: rgba(255,255,255,0.68)">DISTRIBUTOR BESI TERPERCAYA</p>
+      <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-section); line-height: 1.35; font-weight: var(--bobot-bold); text-align: justify; -webkit-hyphens: auto; hyphens: auto">Besi dan material konstruksi untuk proyek Anda</p>
+      </div>
+
+      <div data-tepi-y="1" style="margin-top: var(--jarak-y-antar); display: flex; flex-direction: column; gap: 0">
+        <sc-for list="{{ footCats }}" as="fc" hint-placeholder-count="11">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <button type="button" onClick="{{ fc.toggle }}" aria-expanded="{{ fc.exp }}" style="width: 100%; min-height: 4rem; display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: calc(var(--rapat) / 2); color: #ffffff; font-size: var(--teks-body); font-weight: var(--bobot-semibold)">
+              {{ fc.h }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ fc.chev }}; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+            <sc-if value="{{ fc.open }}" hint-placeholder-val="{{ false }}">
+              <div data-tepi-y="1" style="display: flex; flex-direction: column; padding: 0.6rem 0 0 0.4rem; row-gap: 0; column-gap: 0">
+                <sc-for list="{{ fc.items }}" as="fi" hint-placeholder-count="3">
+                  <a href="#produk" style="font-size: var(--teks-body); color: rgba(255,255,255,0.68); margin-top: 0.4rem; margin-bottom: 0.4rem">{{ fi.l }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi-y="1" style="display: flex; flex-direction: column; row-gap: 0; column-gap: 0; margin-top: var(--jarak-y-antar)">
+        <sc-for list="{{ footInfo }}" as="fo" hint-placeholder-count="7">
+          <div style="margin-top: calc(var(--dalam) / 2); margin-bottom: calc(var(--dalam) / 2)">
+            <p style="margin: 0 0 0.4rem 0; font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ fo.h }}</p>
+            <p style="margin: 0; font-size: var(--teks-body); line-height: 1.35; color: rgba(255,255,255,0.68); white-space: pre-line">{{ fo.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-tepi="1" style="display: flex; flex-wrap: wrap; row-gap: var(--rapat); column-gap: 0; margin-top: var(--jarak-y-antar)">
+        <sc-for list="{{ socials }}" as="so" hint-placeholder-count="6">
+          <a href="#sosial" style="font-size: var(--teks-body); font-weight: var(--bobot-bold); color: #ffffff; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">{{ so.l }}</a>
+        </sc-for>
+      </div>
+
+      <p style="margin: var(--jarak-y-antar) 0 0 0; font-size: var(--teks-meta); line-height: 1.35; color: rgba(255,255,255,0.68)">2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.</p>
+    </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      awas: true, foot: -1,
+      // Spanduk yang sedang terlihat di rel hero. Dihitung dari posisi gulir rel itu
+      // sendiri (_bnrSpy), bukan disimpan sebagai sumber kebenaran: relnya digulir CSS,
+      // jadi jari pengguna yang memimpin dan keadaan ini yang mengikuti.
+      bnr: 0,
+      // Keadaan korsel ulasan, dibawa dari papan SKU 2026-10-23: halaman aktif, geseran jari,
+      // hover/fokus (keduanya menjeda putar otomatis), preferensi reduced-motion, dan tinggi
+      // viewport yang diukur dari kartu tertinggi sesudah render.
+      revPage: 0, revDrag: null, revHover: false, revFocus: false, revRM: false, revH: 0,
+      // Posisi pemisah pembanding foto, dalam persen. Papan ponsel mulai dari 4, BUKAN 96
+      // seperti desktop: gambarnya digulir mendatar di sini, dan pada 4 bulatannya ada di
+      // bagian yang sudah terlihat tanpa menggeser apa pun, berikut kepingan "geser ke kanan".
+      banding: 4
+    };
+  }
+
+
+  penggal(t) {
+    var VOK = 'aiueo';
+    var isV = function (c) { return VOK.indexOf(String(c).toLowerCase()) !== -1; };
+    var digraf = function (a, b) {
+      var q = (String(a) + String(b)).toLowerCase();
+      return q === 'ng' || q === 'ny' || q === 'sy' || q === 'kh';
+    };
+    var diftong = function (a, b) {
+      var q = (String(a) + String(b)).toLowerCase();
+      return q === 'ai' || q === 'au' || q === 'oi' || q === 'ei';
+    };
+    return String(t).replace(/[A-Za-z]{6,}/g, function (w) {
+      var cut = [], i = 0;
+      while (i < w.length) {
+        if (!isV(w[i])) { i++; continue; }
+        var k = i + 1, u = k;
+        while (u < w.length && !isV(w[u])) u++;
+        if (u >= w.length) break;
+        var c = u - k, at;
+        if (c === 0) { if (diftong(w[i], w[u])) { i = u; continue; } at = u; }
+        else if (c === 1) at = k;
+        else if (c === 2) at = digraf(w[k], w[k + 1]) ? k : k + 1;
+        else at = digraf(w[k], w[k + 1]) ? k + 2 : k + 1;
+        if (at >= 2 && w.length - at >= 2) cut.push(at);
+        i = u;
+      }
+      if (!cut.length) return w;
+      var out = '', q = 0;
+      for (var n = 0; n < cut.length; n++) { out += w.slice(q, cut[n]) + '\u00AD'; q = cut[n]; }
+      return out + w.slice(q);
+    });
+  }
+
+
+  ulasanVals(ULASAN) {
+    var self = this;
+    var s = this.state || {};
+    var n = ULASAN.length;
+    var maxPage = Math.max(0, n - 1);
+    var page = Math.min(Math.max(0, s.revPage || 0), maxPage);
+    var rawDrag = typeof s.revDrag === 'number' ? s.revDrag : null;
+    var dragging = rawDrag !== null;
+    var atEdge = n < 2;
+    var drag = dragging ? (atEdge ? rawDrag * 0.3 : rawDrag) : 0;
+    var wrap = function (p) { return n ? ((p % n) + n) % n : 0; };
+    var go = function (p) { self._revGo(wrap(p)); };
+    this._revCount = n;
+
+    var pausedPref = typeof s.revPaused === 'boolean' ? s.revPaused : !!s.revRM;
+    var autoRunning = !pausedPref && !s.revHover && !s.revFocus && !dragging && n > 1;
+
+    var avg = ULASAN.reduce(function (t, r) { return t + (r.rating || 5); }, 0) / (n || 1);
+    var ratingAvg = avg.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+    // posisi melingkar bertanda: 0 = tengah, -1 kiri, +1 kanan
+    var rel = function (i) { var r = wrap(i - page); if (r > n / 2) r -= n; return r; };
+    var STEP = 222, CW = 232;
+    var ease = 'cubic-bezier(0.2, 0.8, 0.2, 1)';
+    var base = 'position: absolute; top: 1.2rem; left: 50%; width: ' + CW + 'px; margin-left: -' + (CW / 2) + 'px; box-sizing: border-box; padding: 2rem; display: flex; flex-direction: column; justify-content: center; gap: 1.4rem; overflow: hidden; background: var(--surface); border: 0.1rem solid var(--line); border-radius: var(--action); color: var(--ink); transform-origin: 50% 50%; will-change: transform; ';
+
+    return {
+      ratingAvg: ratingAvg,
+      reviewCount: n + ' ulasan',
+      ratingSummaryLabel: 'Rata-rata rating ' + ratingAvg + ' dari 5, dari ' + n + ' ulasan',
+      revRange: n ? 'Ulasan ' + (page + 1) + ' dari ' + n : '',
+      revLive: pausedPref ? 'polite' : 'off',
+      revViewportStyle: 'position: relative; height: ' + (s.revH || 320) + 'px; margin: 0 -1.6rem; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ' + (dragging ? 'grabbing' : 'grab') + ';',
+
+      revEnter: function (e) { if (e.pointerType === 'mouse') self.setState({ revHover: true }); },
+      revLeave: function (e) { if (e.pointerType === 'mouse') self.setState({ revHover: false }); },
+      revFocus: function (e) {
+        var kb = false;
+        try { kb = e.target.matches(':focus-visible'); } catch (err) {}
+        if (kb) self.setState({ revFocus: true });
+      },
+      revBlur: function (e) { if (!e.currentTarget.contains(e.relatedTarget)) self.setState({ revFocus: false }); },
+      revKey: function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(page + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); go(page - 1); }
+      },
+      revDown: function (e) {
+        if (e.button != null && e.button !== 0) return;
+        self._revX = e.clientX;
+        try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+        self.setState({ revDrag: 0 });
+      },
+      revMove: function (e) {
+        if (self._revX == null) return;
+        self.setState({ revDrag: e.clientX - self._revX });
+      },
+      revUp: function (e) {
+        if (self._revX == null) return;
+        var dx = e.clientX - self._revX;
+        self._revX = null;
+        if (dx < -60) go(page + 1); else if (dx > 60) go(page - 1); else self.setState({ revDrag: null });
+      },
+      revCancel: function () { self._revX = null; self.setState({ revDrag: null }); },
+
+      ulasan: ULASAN.map(function (r, i) {
+        var rating = r.rating || 5;
+        var d = rel(i);
+        var pos = d + drag / STEP; // ikut jari saat digeser
+        var a = Math.abs(pos), sg = pos < 0 ? -1 : 1;
+        var x = a <= 1 ? pos * STEP : sg * (STEP + (a - 1) * STEP);
+        var sc = 1 - 0.28 * Math.min(a, 1);
+        var op = a <= 1 ? 1 : Math.max(0, 1 - (a - 1) * 2);
+        var far = Math.abs(d) > 1;
+        var tr = dragging ? 'transition: none; '
+          : 'transition: transform 420ms ' + ease + ', opacity ' + (far ? '120ms' : '300ms') + ' ease, box-shadow 300ms ease; ';
+        // potong kutipan jadi bagian tebal / biasa
+        var parts = [], rest = r.text || '';
+        (function () {
+          var marks = (r.hi || []).slice();
+          while (rest.length) {
+            var best = -1, bestLen = 0;
+            marks.forEach(function (w) {
+              var k = rest.indexOf(w);
+              if (k !== -1 && (best === -1 || k < best)) { best = k; bestLen = w.length; }
+            });
+            if (best === -1) { parts.push({ t: self.penggal(rest), b: false, n: true }); break; }
+            if (best > 0) parts.push({ t: self.penggal(rest.slice(0, best)), b: false, n: true });
+            parts.push({ t: self.penggal(rest.slice(best, best + bestLen)), b: true, n: false });
+            rest = rest.slice(best + bestLen);
+          }
+        })();
+        return Object.assign({}, r, {
+          parts: parts,
+          slide: 'Ulasan ' + (i + 1) + ' dari ' + n,
+          hidden: d === 0 ? 'false' : 'true',
+          ratingLabel: 'Rating ' + rating + ' dari 5',
+          kota: r.kota || '[KOTA]',
+          tanggal: r.date || '',
+          adaTanggal: !!r.date,
+          stars: [1, 2, 3, 4, 5].map(function (k) {
+            return { fill: k <= Math.round(rating) ? 'var(--bintang)' : 'transparent' };
+            // ISIAN BINTANG DIPERBAIKI, 2026-10-23: metode ini dibawa dari papan SKU yang
+            // menamai warnanya --star; di papan ini namanya --bintang. Waktu korselnya
+            // dipindah (v1294) hanya GARIS bintang yang ikut diganti nama — isiannya masih
+            // menunjuk token yang tidak ada di sini, jadi bintangnya tampil kosong, hanya
+            // berkontur. Pelajaran: saat memindah komponen antar papan, cari token yang
+            // disebut di LOGIKA juga, bukan hanya yang di markup.
+          }),
+          cardStyle: base + tr + 'z-index: ' + (10 - Math.abs(d)) + '; opacity: ' + op.toFixed(2) +
+            '; box-shadow: ' + (d === 0 ? 'var(--el-3)' : 'var(--el-2)') +
+            '; transform: translateX(' + x.toFixed(1) + 'px) scale(' + sc.toFixed(3) + ');'
+        });
+      }),
+
+      revDots: ULASAN.map(function (r, i) {
+        return {
+          go: function () { go(i); },
+          label: 'Tampilkan ulasan ' + (i + 1) + ' dari ' + n + ' (' + r.who + ')',
+          current: i === page ? 'true' : 'false',
+          dotStyle: 'display: block; overflow: hidden; border-radius: var(--pill); transition: transform 150ms ease, background 150ms ease, width 200ms ease; ' +
+            (i === page
+              ? 'width: 2.4rem; height: 0.8rem; background: ' + (autoRunning ? 'var(--ink-4)' : 'var(--ink)') + ';'
+              : 'width: 0.8rem; height: 0.8rem; background: var(--ink-4);'),
+          fillStyle: i === page && autoRunning
+            ? 'display: block; height: 100%; width: 0; border-radius: var(--pill); background: var(--ink); animation: ' + (page % 2 ? 'revFillB' : 'revFillA') + ' 3000ms linear forwards;'
+            : 'display: none;'
+        };
+      })
+    };
+  }
+
+
+  _revGo(to) {
+    var n = this._revCount || 0;
+    var from = (this.state && this.state.revPage) || 0;
+    if (n < 2 || to === from) { this.setState({ revDrag: null }); return; }
+    this.setState({ revPage: to, revDrag: null });
+  }
+
+
+  _revAutoOn() {
+    var st = this.state || {};
+    var paused = typeof st.revPaused === 'boolean' ? st.revPaused : !!st.revRM;
+    return !paused && !st.revHover && !st.revFocus && typeof st.revDrag !== 'number' && (this._revCount || 0) > 1;
+  }
+
+  _revMeasure() {
+    if (typeof document === 'undefined') return;
+    var els = document.querySelectorAll('[data-rev-card="1"]');
+    var tall = 0;
+    for (var i = 0; i < els.length; i++) { if (els[i].offsetHeight > tall) tall = els[i].offsetHeight; }
+    if (!tall) return;
+    var want = tall + 24;
+    if (Math.abs((this.state.revH || 0) - want) > 1) this.setState({ revH: want });
+  }
+
+
+  // ===== TITIK SPANDUK =====
+  // Relnya scroll-snap murni (CSS), tanpa keadaan. Jadi titik-titiknya dua arah:
+  // _bnrSpy membaca posisi gulir -> indeks, dan _bnrGo menggulir rel ke indeks saat
+  // titiknya ditekan. Keduanya memakai clientWidth rel sebagai satu langkah, karena
+  // tiap spanduk selebar 100% rel.
+  _bnrEl() { return (typeof document === 'undefined') ? null : document.querySelector('[data-rel="1"]'); }
+  _bnrSpy() {
+    var el = this._bnrEl(); if (!el) return;
+    var w = el.clientWidth || 1;
+    var i = Math.round(el.scrollLeft / w);
+    if (i < 0) i = 0;
+    if (i !== ((this.state && this.state.bnr) || 0)) this.setState({ bnr: i });
+  }
+  _bnrGo(i) {
+    var el = this._bnrEl(); if (!el) return;
+    var left = i * (el.clientWidth || 0);
+    // Hormati prefers-reduced-motion lewat keadaan yang sudah dibaca korsel ulasan.
+    try { el.scrollTo({ left: left, behavior: (this.state && this.state.revRM) ? 'auto' : 'smooth' }); }
+    catch (e) { el.scrollLeft = left; }
+  }
+  _revSchedule() {
+    clearTimeout(this._revT);
+    if (!this._revAutoOn()) return;
+    var self = this;
+    this._revT = setTimeout(function () {
+      var n = self._revCount || 0;
+      if (n > 1) self._revGo((((self.state && self.state.revPage) || 0) + 1) % n);
+    }, 3000);
+  }
+
+
+
+  componentDidMount() {
+    this._jarakPantau();
+    // Korsel ulasan: putar otomatis tiap 3 detik, mati bawaan kalau pengguna memilih
+    // reduced motion. Dibawa dari papan SKU bersama korselnya.
+    var rm = false;
+    try { rm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) {}
+    var self = this;
+    this.setState({ revRM: rm }, function () { self._revSchedule(); });
+    this._revMeasure();
+    // Titik spanduk mengikuti gulir relnya. passive: true — kita cuma membaca posisinya.
+    var el = this._bnrEl();
+    if (el) {
+      this._bnrOn = function () { self._bnrSpy(); };
+      el.addEventListener('scroll', this._bnrOn, { passive: true });
+      this._bnrSpy();
+    }
+  }
+
+  componentDidUpdate(pp, ps) {
+    this._jarakSeksi();
+    this._revMeasure();
+    var st = this.state;
+    if (ps.revPage !== st.revPage || ps.revHover !== st.revHover || ps.revFocus !== st.revFocus
+      || (typeof ps.revDrag === 'number') !== (typeof st.revDrag === 'number') || ps.revRM !== st.revRM) this._revSchedule();
+  }
+
+  componentWillUnmount() {
+    this._jarakLepas();
+    clearTimeout(this._revT);
+    var el = this._bnrEl();
+    if (el && this._bnrOn) el.removeEventListener('scroll', this._bnrOn);
+  }
+
+
+  // ===== JARAK ANTAR SEKSI: DIHITUNG, BUKAN SATU ANGKA =====
+  // Tiap batas memakai rasio tinggi seksi di ATAS dibagi tinggi seksi di BAWAH,
+  // tapi rasionya DIREDAM dulu, bukan dipakai mentah: rasio mentah bikin jarak
+  // melonjak (seksi 300px di atas seksi 100px = rasio 3 = 180px). Dengan PEREDAM 0,35
+  // rasio 3 cuma jadi 1,47 dan rasio 0,33 jadi 0,68, lalu dikurung BATAS_BAWAH dan
+  // BATAS_ATAS. Hasilnya tiap batas tetap beda angka, tapi semuanya duduk di sekitar
+  // basisnya. Keterangan lengkapnya ada di berkas Calculation Gap Rumus.md di repo.
+  // Margin ada DI LUAR kotak, jadi menyetelnya tidak mengubah offsetHeight: tidak ada
+  // umpan balik, sekali hitung sudah stabil. Nilai di markup tetap dipakai sebagai
+  // nilai awal sebelum skrip jalan, dan sebagai basis perkaliannya.
+  _jarakHitung(atas, bawah, basis) {
+    var PEREDAM = 0.35;      // 0 = semua batas sama, 1 = rasio tinggi mentah
+    var BATAS_BAWAH = 0.75;  // jarak terendah, dikali basis
+    var BATAS_ATAS = 1.40;   // jarak tertinggi, dikali basis
+    var f = Math.pow(atas / bawah, PEREDAM);
+    if (!isFinite(f) || f <= 0) f = 1;
+    if (f < BATAS_BAWAH) f = BATAS_BAWAH;
+    if (f > BATAS_ATAS) f = BATAS_ATAS;
+    return Math.round(f * basis);
+  }
+  // Basis diukur lewat ELEMEN PENDUGA, bukan dibaca sebagai angka dari tokennya.
+  // parseFloat(getComputedStyle(el).getPropertyValue('--jarak-y-antar')) TIDAK BOLEH dipakai:
+  // nilai terhitung sebuah custom property itu TEKS tokennya, bukan panjang yang sudah
+  // diselesaikan. Untuk '6rem' parseFloat kebetulan memberi 6 dan semuanya tampak bekerja;
+  // untuk 'clamp(4rem, 7.5svh, 8rem)' ia memberi NaN, lalu angka cadangan yang menang tanpa
+  // suara dan tokennya seperti tidak berpengaruh sama sekali. Itulah jebakannya.
+  // PENDUGANYA DITITIPKAN DI DALAM el, bukan di body, supaya ia mewarisi --jarak-y-antar
+  // milik el sendiri — papan Detail Artikel menimpanya dengan nilai rapat di wadahnya.
+  // Ia dilepas lagi sebelum daftar anak dibangun, jadi ia tidak pernah ikut terhitung.
+  _jarakBasis(el) {
+    try {
+      var d = this._jarakPenduga;
+      if (!d) {
+        d = document.createElement('div');
+        d.setAttribute('aria-hidden', 'true');
+        d.style.cssText = 'position:absolute;top:0;left:0;width:0;visibility:hidden;pointer-events:none';
+        this._jarakPenduga = d;
+      }
+      el.appendChild(d);
+      d.style.height = 'var(--jarak-y-antar)';
+      var h = d.offsetHeight || d.getBoundingClientRect().height;
+      el.removeChild(d);
+      if (h > 0) return h;
+    } catch (e) {}
+    var akar = 10;
+    try { akar = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10; } catch (e) {}
+    return 6 * akar;
+  }
+  // ===== SATU BATAS DIBAGI DUA =====
+  // 2026-10-28, atas permintaan: jarak antar seksi TIDAK lagi ditanggung seksi bawah
+  // sendiri. Seksi di ATAS dapat margin-bottom separuh, seksi di BAWAH dapat margin-top
+  // separuh — batas 64px jadi 32px + 32px. Yang terlihat sama; yang berubah SIAPA YANG
+  // MEMILIKINYA, dan itu yang penting waktu satu seksi dipindah, disembunyikan atau
+  // dipakai di papan lain: tiap seksi membawa separuh jaraknya sendiri di kedua sisi.
+  // ADA SATU SYARAT, DAN INI BUKAN KEHATI-HATIAN BERLEBIHAN: MARGIN BERSEBELAHAN
+  // RUNTUH (collapse) di aliran blok biasa — di sana 32 + 32 bukan 64 melainkan 32,
+  // jadi jaraknya MENGECIL SEPARUH. Runtuh TIDAK terjadi di antara anak flex atau grid.
+  // Semua wadah [data-jarak="1"] di papan-papan ini flex kolom, jadi pembagiannya aman
+  // di sana. BATAS FOOTER [data-kaki="1"] TIDAK aman: induknya blok biasa (div 36rem
+  // pembungkus papan), jadi khusus di situ seluruh nilainya tetap ditaruh di margin-top
+  // footer. Diperiksa per papan, bukan dikira.
+  _jarakRuntuh(atas, bawah) {
+    if (!atas || !bawah || atas.parentNode !== bawah.parentNode) return true;
+    try {
+      var d = getComputedStyle(atas.parentNode).display;
+      return !(d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid');
+    } catch (e) { return true; }
+  }
+  // DITULIS DALAM rem, BUKAN px, 2026-10-28 atas permintaan ("better use rem than px
+  // because of user device maybe different"). Alasannya bukan kerapian:
+  // · 1rem ikut ukuran font akar, jadi kalau pengguna memperbesar teksnya, jaraknya ikut
+  //   membesar. px diam di tempat sementara tulisannya tumbuh, dan tata letaknya jadi sempit.
+  // · ZOOM TEKS SAJA (Firefox) mengubah ukuran font akar TANPA memicu resize, jadi mesin ini
+  //   tidak menghitung ulang. Dengan rem nilainya tetap benar sendiri; dengan px tidak.
+  // · Aturan sistem: tidak ada px mentah (Tier 1 di repo). Mesin ini satu-satunya yang
+  //   melanggarnya, dan sekarang tidak lagi.
+  // Separuhnya DIBULATKAN DI px DULU lalu baru diubah ke rem, supaya dua separuh itu tetap
+  // berjumlah tepat satu batas — pembulatan di rem bisa menyisakan beda setengah piksel.
+  _jarakRem(px) {
+    var akar = 10;
+    try { akar = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10; } catch (e) {}
+    if (!akar) akar = 10;
+    return (Math.round((px / akar) * 10000) / 10000) + 'rem';
+  }
+  _jarakBatas(atas, bawah, nilai) {
+    if (this._jarakRuntuh(atas, bawah)) {
+      atas.style.marginBottom = '0rem';
+      bawah.style.marginTop = this._jarakRem(nilai);
+      return;
+    }
+    var separuh = Math.round(nilai / 2);
+    atas.style.marginBottom = this._jarakRem(separuh);
+    bawah.style.marginTop = this._jarakRem(nilai - separuh);
+  }
+  _jarakSeksi() {
+    if (typeof document === 'undefined') return;
+    var wadah = document.querySelectorAll('[data-jarak="1"]');
+    for (var w = 0; w < wadah.length; w++) {
+      var utama = wadah[w];
+      var basis = this._jarakBasis(utama);
+      var anak = [];
+      for (var i = 0; i < utama.children.length; i++) {
+        if (utama.children[i].offsetHeight) anak.push(utama.children[i]);
+      }
+      if (!anak.length) continue;
+      // Tepi LUAR wadah tidak pernah dapat separuh: yang pertama tanpa margin atas,
+      // yang terakhir tanpa margin bawah. Keduanya ditulis nilainya, bukan dibiarkan,
+      // supaya sisa hitungan lama tidak menempel waktu seksi muncul atau hilang.
+      anak[0].style.marginTop = '0rem';
+      anak[anak.length - 1].style.marginBottom = '0rem';
+      for (var j = 1; j < anak.length; j++) {
+        var atas = anak[j - 1].offsetHeight;
+        var bawah = anak[j].offsetHeight;
+        if (!atas || !bawah) continue;
+        this._jarakBatas(anak[j - 1], anak[j], this._jarakHitung(atas, bawah, basis));
+      }
+    }
+    // Batas yang berdiri sendiri (footer, blok yang bukan anak wadah di atas):
+    // seksi di atasnya = saudara sebelumnya yang punya tinggi.
+    var sendiri = document.querySelectorAll('[data-kaki="1"]');
+    for (var k = 0; k < sendiri.length; k++) {
+      var el = sendiri[k];
+      if (!el.offsetHeight) continue;
+      var sb = el.previousElementSibling;
+      while (sb && !sb.offsetHeight) sb = sb.previousElementSibling;
+      if (!sb) continue;
+      this._jarakBatas(sb, el, this._jarakHitung(sb.offsetHeight, el.offsetHeight, this._jarakBasis(el)));
+    }
+  }
+  _jarakPantau() {
+    var self = this;
+    this._jarakSeksi();
+    // Tinggi seksi berubah setelah foto selesai dimuat atau jendela diubah ukurannya.
+    try {
+      if (window.ResizeObserver && !this._jarakRO) {
+        this._jarakRO = new ResizeObserver(function () { self._jarakSeksi(); });
+        var wadah = document.querySelectorAll('[data-jarak="1"]');
+        for (var w = 0; w < wadah.length; w++) {
+          for (var i = 0; i < wadah[w].children.length; i++) this._jarakRO.observe(wadah[w].children[i]);
+        }
+        var sendiri = document.querySelectorAll('[data-kaki="1"]');
+        for (var k = 0; k < sendiri.length; k++) {
+          this._jarakRO.observe(sendiri[k]);
+          if (sendiri[k].previousElementSibling) this._jarakRO.observe(sendiri[k].previousElementSibling);
+        }
+      }
+    } catch (e) {}
+    if (!this._jarakOn) {
+      this._jarakOn = function () { self._jarakSeksi(); };
+      window.addEventListener('resize', this._jarakOn);
+      window.addEventListener('load', this._jarakOn);
+    }
+  }
+  _jarakLepas() {
+    if (this._jarakRO) { try { this._jarakRO.disconnect(); } catch (e) {} this._jarakRO = null; }
+    if (this._jarakOn) {
+      window.removeEventListener('resize', this._jarakOn);
+      window.removeEventListener('load', this._jarakOn);
+      this._jarakOn = null;
+    }
+  }
+
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    // PEMBANDING FOTO — keempat berkasnya sama dengan papan desktop. Dua yang pertama masih
+    // berkas DESKTOP; lihat catatan di markup soal keterbacaannya di lebar ini.
+    var FOTO_DENGAN = '/_blob/dbfb4d7278592c55201493da5a0919ad';
+    var FOTO_TANPA = '/_blob/17e7249765048ccfced0c59c55b79ae6';
+    var FOTO_TEKS_DENGAN = '/_blob/df6d4285f9e0a005ff62e9ec8d09cbb1';
+    var FOTO_TEKS_TANPA = '/_blob/77616bfbc1b9f08829d291a50a062fa0';
+    // Kepingan teks hanya muncul saat pemisahnya mentok ke ujungnya sendiri; 96 angka situs.
+    var AMBANG_KIRI = 4;
+    var AMBANG_KANAN = 96;
+    var bandingPos = Math.min(Math.max(Number(s.banding == null ? 4 : s.banding) || 0, 0), 100);
+    // KATALOG — 41 produk, disalin apa adanya dari smsperkasa.com/produk (dibaca 2026-10-22):
+    // nama dan jumlah varian persis seperti di sana. Tidak ada yang dikarang.
+    // Kolom ketiga = foto unggahan kanvas kalau produknya sudah punya; tujuh produk punya,
+    // sisanya memakai bidang kosong bertanda. Artboard hanya boleh menampilkan /_blob/.
+    // ================= DATA BERANDA — smsperkasa.com, DIBACA DARI HTML-NYA 2026-10-22 =======
+    // DIPERBAIKI 2026-10-22: versi pertama papan ini dibangun dari RINGKASAN halaman, dan
+    // ringkasan itu merapikan judul-judulnya. Yang berlaku sekarang diambil dari markup situs
+    // apa adanya, jadi kapitalisasinya ikut aslinya: "Produk unggulan kami", "Paling banyak
+    // dicari", "Produk terbaru kami", "Cari berdasarkan Sektor" (S besar). "Dipercaya Oleh
+    // Mitra Terpercaya" BUKAN h2 di situsnya, melainkan label biasa, jadi di sini juga bukan.
+    // GAMBARNYA ASLI: ikon kategori, foto produk, thumbnail pencarian, ilustrasi kalkulator,
+    // spanduk Atap UPVC, foto sektor, foto profil pengulas dan dua belas spanduk hero semuanya
+    // diunduh dari situsnya lalu diunggah ke kanvas ini. Artboard hanya boleh menampilkan
+    // /_blob/, jadi menautkan langsung ke smsperkasa.com bukan pilihan.
+    // SPANDUK "CARA PEMESANAN" DIGANTI 2026-10-28 atas permintaan: be53bb53 menggantikan
+    // 4f362e8d. Gambarnya SAMA RANCANGANNYA ("Beli Besi Berkualitas dalam 3 Langkah Mudah"),
+    // yang berbeda PERBANDINGANNYA: yang lama 1800 x 600 (3:1), yang baru 1024 x 484 (2,12:1).
+    // ITU SEBABNYA DIGANTI, dan bukan soal selera: kotak spanduk di papan ini dikunci
+    // width 100% x height 15.8rem pada rel selebar 330px, jadi 330 x 158 = 2,09:1. Yang lama
+    // 3:1 dipotong keras kiri-kanan oleh object-fit: cover — tulisan dan telepon di dalamnya
+    // ikut terpotong. Yang baru hampir pas, jadi nyaris tidak ada yang hilang.
+    // ALT-NYA TIDAK DIUBAH: isinya sama, jadi kalimatnya masih menggambarkan apa yang terlihat.
+    // SPANDUK KEDUA, "KONSTRUKSI RUMAH", DIGANTI DENGAN ALASAN YANG SAMA 2026-10-28:
+    // 02073528 menggantikan 0e89b3d0. Lama 1200 x 400 (3:1), baru 1024 x 484 (2,12:1).
+    // Rancangannya sama ("Solusi Konstruksi Rumah Anda"), jadi altnya juga tidak diubah.
+    // SPANDUK KETIGA, "SMS PERKASA HADIR DI JAKARTA", 2026-10-28: 40e5890a menggantikan
+    // 2e2e0a39. Lama 1200 x 400 (3:1), baru 1024 x 484 (2,12:1). Alt tidak diubah.
+    // POLANYA SUDAH DIUKUR, BUKAN DIDUGA: KEDUA BELAS spanduk hero aslinya PERSIS 3:1 —
+    // 1000x333, 1200x400, 1800x600, 2400x800 dan 3600x1200 semuanya menjadi 3,00:1.
+    // Kotaknya di papan ponsel 330 x 158 = 2,09:1, jadi setiap satunya kehilangan 30% lebar
+    // kena object-fit: cover. Jadi ini bukan satu gambar yang salah potong, melainkan seluruh
+    // set hero. SEMBILAN YANG BELUM DIGANTI, urut daftar: Gudang SMS Perkasa, SMS Perkasa Jual
+    // Besi di Surabaya, Hati Hati Penipuan, Jangkauan Tanpa Batas, Kalkulator Atap, Produk Besi
+    // Siku, Produk Besi Hollow 4x4, Tempo Banner, Atap UPVC. Masing-masing menunggu berkas
+    // ~2,1:1 dari Andrew; begitu blobnya ada, yang berubah cuma satu baris di daftar ini.
+    // BERKAS LAMA TETAP DI GUDANG ASET, tidak dihapus — ia masih dipakai TUJUH papan lain
+    // (BerandaM3/M4, SalinanBerandaM3/M4, SalinanBeranda2M3, DesktopBerandaM3/M4) yang
+    // SENGAJA belum diganti: yang diminta baru papan ini. Kalau papan-papan itu menyusul,
+    // blob barunya sudah ada dan tinggal dipakai.
+    var BANNER = [
+      ['/_blob/be53bb53a0591c207e6a5e0b0fa69410', 'Cara Pemesanan'], ['/_blob/02073528e1d6d39c1d480ada57b747cb', 'Konstruksi Rumah'], ['/_blob/aad8805463affabbcaf42d5239c5d6f8', 'Gudang SMS Perkasa'],
+      ['/_blob/40e5890a5bb42adb70fb21b5df90d9ca', 'SMS Perkasa hadir di Jakarta'], ['/_blob/411eda24c05e44461130cc07c9dce47c', 'SMS Perkasa Jual Besi di Surabaya'],
+      ['/_blob/55458a86568a3a4a1c08aee8d9679dcc', 'Hati Hati Penipuan yang mengatasnamakan SMS Perkasa'],
+      ['/_blob/a0cf6e1393632c90f4819680aa9190bf', 'Jangkauan Tanpa Batas dari Sabang sampai Jayapura'], ['/_blob/14aa7b992aaa54dfb1c689365215ed27', 'Kalkulator Atap'],
+      ['/_blob/346111c7a4163e285e0b8e80b7c8dcf3', 'Produk Besi Siku SMS Perkasa'], ['/_blob/c6d8c180b2df7873e7c4870e184f15dd', 'Produk Besi Hollow 4x4 SMS Perkasa'],
+      ['/_blob/7054361579de7c36daa8186b64dabb2b', 'Tempo Banner'], ['/_blob/88961408001ad311468fbab23cacedca', 'Atap UPVC']
+    ];
+    // [nama kategori, ikon] — kesebelasnya persis seperti di situs, berikut ikonnya.
+    var KATEGORI = [
+      ['Besi Hollow dan Pipa Bulat','/_blob/42e57ea4aced74a61fd95856bd3f8a52'], ['Besi Kawat','/_blob/2f05aa546144795e745ba720e4191d3d'], ['Plat Besi','/_blob/a142509acd5c2caa3095cd96628373f0'],
+      ['Besi Batangan','/_blob/744c49f2a92b44ad01e19ecf2719180c'], ['Baja Ringan','/_blob/8d2869680c08bb51c809ad94c1ef8ab5'], ['Plat Gelombang','/_blob/ea43ec65b73337e0dbca7e4012e8d74d'],
+      ['Besi Profil Struktural','/_blob/4119ffaedb33512ebb6fca0464d033e8'], ['Atap','/_blob/1d56dcdb3ac953f2540c04f7e3ec2b65'], ['Plat Stainless Steel','/_blob/87657dfe7b080de0d785d48e9d7644b7'],
+      ['Hollow Stainless Steel','/_blob/42bc09aa06ed956ed3fb1c2c0dca4839'], ['Pipa Stainless Steel','/_blob/4a41bdd63b8e1444e1b00856da802062']
+    ];
+    // "&" DI SINI DITULIS POLOS, BUKAN &amp;, dan itu bukan kelalaian: data ini hidup di dalam
+    // <script>, yang RAW TEXT — peramban tidak menerjemahkan entitas di dalamnya, jadi &amp;
+    // akan tampil apa adanya sebagai lima huruf. Di MARKUP aturannya kebalikannya: keping
+    // "Kuat, Sejuk, &amp; Tahan Lama" memang harus ditulis &amp;. Satu kanvas, dua aturan,
+    // tergantung teksnya ada di markup atau di skrip.
+    var SEKTOR = [['Konstruksi','/_blob/f1896f65a2160e58ce052f0b13dbcd1a'], ['Infrastruktur & Transportasi','/_blob/5510c7360bec522cc91fd9833097afd3']];
+      // EMPAT FOTO PRODUK UNGGULAN DIGANTI, 2026-10-23 atas permintaan: Besi Hollow Hitam,
+      // Besi Beton, Besi Siku dan Plat Besi Hitam pindah dari foto gudang ke foto studio
+      // berlatar putih. Reng Baja Ringan TIDAK ikut — tidak dikirim gantinya.
+      // PASANGANNYA DICOCOKKAN, BUKAN DITEBAK: tiap foto "sebelum" yang dikirim dicocokkan ke
+      // aset kanvas lewat average-hash 12x12; keempatnya cocok persis (jarak 0), dan tetangga
+      // terdekat berikutnya berjarak 41 bit. Jadi tidak ada risiko salah pasang.
+      // BERKASNYA DIPOTONG 4:3 DAN DIPERKECIL KE 408 x 306 px sebelum diunggah — 3x ubin
+      // 136 x 102 di rel ini. Aslinya sampai 1448 px / 787 KB untuk bidang 136 px.
+      // Khusus Besi Siku berkasnya sudah 360 x 270, jadi dibiarkan apa adanya; membesarkannya
+      // ke 408 cuma menambah berkas tanpa menambah detail.
+      // FOTO LAMA TIDAK DIHAPUS dari gudang aset: tidak diminta, dan keempatnya resep
+      // pemulihan kalau foto gudang ternyata lebih disukai.
+    // KELIMA FOTO DISAMAKAN DENGAN PAPAN SEMUA PRODUK, 2026-10-27 atas permintaan ("image
+    // produk make same like in the Semua Produk"). Tiap id diambil dari daftar PRODUK di
+    // ProdukIndexM3 menurut NAMA produknya, bukan menurut urutan — jadi pasangannya tidak bisa
+    // tergeser kalau salah satu daftar kelak disusun ulang:
+    //   Besi Hollow Hitam  f30e7c49 -> d068d60d
+    //   Besi Beton         890aa97a -> ed5fc35e
+    //   Besi Siku          77aecec4 -> 0e44b44c
+    //   Reng Baja Ringan   0547a676 -> f3942cea
+    //   Plat Besi Hitam    cf5ecd2f -> 9f26409c
+    // SEJAK INI KEDUA PAPAN BERBAGI BERKAS YANG SAMA: mengganti foto salah satu produk di
+    // Semua Produk TIDAK otomatis mengubah Beranda — idnya tetap disalin per papan, jadi
+    // keduanya harus disetel bersama. Itu yang baru saja terjadi pada Besi Hollow Galvalum dan
+    // Bondek (keduanya tidak ada di rel ini, jadi tidak ada yang tertinggal).
+    // LIMA BERKAS LAMA TIDAK DIHAPUS dari gudang aset — catatan tepat di atas ini menyebut
+    // keempat foto sebelumnya sebagai resep pemulihan; sekarang kelimanya begitu.
+    var UNGGULAN = [
+      ['Besi Hollow Hitam', 297, '/_blob/d068d60db4cda4b98068c3d40efc5a77'], ['Besi Beton', 10, '/_blob/ed5fc35ec2cdb31f0e5dc27eb9d3a8e9'], ['Besi Siku', 32, '/_blob/0e44b44c3f15969262e5e20e20406713'],
+      ['Reng Baja Ringan', 4, '/_blob/f3942ceab1a88e11328070921cf8b515'], ['Plat Besi Hitam', 36, '/_blob/9f26409c478ef15a2f757d003a25a2e6']
+    ];
+    // [kata pencarian, harga mulai, jumlah varian, thumbnail]
+        // LIMA FOTO DI BARIS INI DIGANTI, 2026-10-29 atas permintaan (empat pasang gambar
+    // dikirim; dua di antaranya gambar yang SAMA, karena foto hollow lama muncul di dua
+    // baris). TIDAK ADA UNGGAHAN BARU: ketiga foto pengganti SUDAH ADA di penyimpanan aset
+    // kanvas ini dan dipakai papan lain -- dicocokkan lewat sha256, bukan lewat tebakan nama:
+    //   64599a8f (240 x 208 webp, besi beton polos potong)  -> ed5fc35e  "Besi Beton"
+    //   aad69c20 (236 x 208 webp, tiga hollow hitam pendek) -> d068d60d  "Besi Hollow Hitam"
+    //   bf6e65dc (236 x 212 webp, satu reng galvanis)       -> f3942cea  "Reng Baja Ringan"
+    // AKIBATNYA SEKSI INI JADI SATU SUARA DENGAN SEKSI LAIN: ketiga foto itu memang yang
+    // dipakai "Produk terbaru kami" (TERBARU) dan "Produk yang baru anda lihat"
+    // (BARU_DILIHAT) untuk produk yang sama di papan ini juga. Jadi satu produk kini satu
+    // foto di seluruh papan, bukan dua foto berbeda untuk barang yang sama.
+    // DUA BARIS IKUT TANPA DIMINTA TERPISAH, dan itu bukan kelebihan: "Harga Besi 8" dan
+    // "harga besi 10 panjang 12 meter" memakai SATU blob yang sama, begitu juga "hollow 4x4"
+    // dan "hollow 4x6". Tidak ada cara mengganti satu baris saja tanpa memecah asetnya jadi
+    // dua berkas, dan keduanya memang barang yang sama ukurannya beda.
+    // RASIONYA JADI PAS: kotak thumbnail-nya aspect-ratio 4 / 3 dengan object-fit cover, dan
+    // ketiga foto baru 360 x 270 = tepat 4:3, jadi tidak ada yang terpotong. Yang lama
+    // sekitar 1,14:1, jadi selama ini atas-bawahnya terpotong. Ketajamannya juga naik: 360 px
+    // untuk kotak selebar ~158 px itu 2,3x, dulu 236 px = 1,5x.
+    // TIGA BERKAS LAMA TIDAK DIHAPUS, dan masih dipakai TIGA papan lain yang TIDAK diminta
+    // ikut: BerandaM4, SalinanBerandaM4 dan DesktopBerandaM4. Jadi papan Beranda yang lain
+    // sengaja masih memakai foto lama.
+    // FOTO BESI BETON DI DICARI DIGANTI, 2026-10-30 atas permintaan: ed5fc35e -> 22d5dfbe.
+    // Andrew mengirim pasangan sebelum/sesudah yang SAMA DUA KALI, dan itu alamatnya: DICARI
+    // memakai foto Besi Beton pada DUA baris, "Harga Besi 8" dan "harga besi 10 panjang 12
+    // meter" — satu barang, dua ukuran, satu berkas. Catatan 2026-10-26 di atas sudah
+    // meramalkannya ("tidak ada cara mengganti satu baris saja tanpa memecah asetnya jadi dua
+    // berkas"). Kedua baris diganti, jadi keduanya masih berbagi satu berkas, cuma berkas baru.
+    // FOTONYA BEDA BARANG, bukan cuma beda angle: yang lama GULUNGAN besi beton ulir (satu
+    // ikat melingkar), yang baru SATU BATANG ditekuk U, berkarat, latar putih. Kalau nanti
+    // terlihat salah untuk "Harga Besi 8", itu sebabnya — bukan ukurannya.
+    // UKURAN AMAN: 360 x 270 PNG, persis sama dengan berkas lama dan tepat 4:3, jadi kotak
+    // aspect-ratio 4 / 3 dengan object-fit cover tidak memotong apa pun.
+    // TIGA TEMPAT LAIN DI PAPAN INI MASIH MEMAKAI ed5fc35e DAN SENGAJA DIBIARKAN,
+    // karena yang diminta cuma dua kartu: daftar kategori (baris 'Besi Beton', 10 varian),
+    // kartu "Besi Beton" di BARU_DILIHAT, dan — di luar papan ini — katalog ProdukIndexM4,
+    // DesktopProdukIndexM4, BerandaM4 dan SalinanBerandaM4. Berkas lama TIDAK dihapus.
+var DICARI = [
+      ['Harga Besi 8', '42.000', 1, '/_blob/22d5dfbe64906f07dc473f2b4a28d841'],
+      ['Harga Reng Baja Ringan', '32.400', 4, '/_blob/f3942ceab1a88e11328070921cf8b515'],
+      ['harga besi hollow 4x4', '83.000', 11, '/_blob/d068d60db4cda4b98068c3d40efc5a77'],
+      ['harga besi 10 panjang 12 meter', '64.400', 1, '/_blob/22d5dfbe64906f07dc473f2b4a28d841'],
+      ['harga besi hollow 4x6', '106.700', 11, '/_blob/d068d60db4cda4b98068c3d40efc5a77']
+    ];
+    // [nama, baris kedua, foto, papan tujuan, true kalau baris kedua itu HARGA, bukan jumlah
+    // varian]. Lima butir ini disalin dari seksi "Produk yang baru anda lihat" di smsperkasa.com
+    // apa adanya, termasuk urutannya dan angka variannya.
+    var BARU_DILIHAT = [
+      ['Besi Hollow Hitam', 'Tersedia 297 varian', '/_blob/d068d60db4cda4b98068c3d40efc5a77', 'RecCreateM4.dc.html', false],
+      ['Besi Beton', 'Tersedia 10 varian', '/_blob/ed5fc35ec2cdb31f0e5dc27eb9d3a8e9', 'RecCreateM4.dc.html', false],
+      ['Pipa Seamless', 'Tersedia 38 varian', '/_blob/a608c208e8f3949f88677e508668bb8e', 'RecCreateM4.dc.html', false],
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Biru]', 'Rp 711.000', '/_blob/d8765e58e95d855549373017f4d740c0', 'SkuDetailM4.dc.html', true],
+      ['Wiremesh', 'Tersedia 14 varian', '/_blob/c245015327b83f5f55bd2681350a8d97', 'RecCreateM4.dc.html', false]
+    ];
+    // [nama SKU, harga, foto warna] — tiga baris Clear memang berbunyi "Hubungi kami" di situs.
+    // 2026-10-28: ketiga foto Atap UPVC Mattaka dinaikkan resolusinya, satu per varian warna. Biru dan
+    // Clear 1254 x 1254, Putih 1536 x 1024 (mendatar, bukan persegi seperti dua lainnya). Semuanya
+    // dulu webp 500 x 500 sekitar 5 KB. Berkas lama tidak dihapus. Catatan penting: Clear itu yang
+    // warnanya krem dan Putih yang putih dingin, jadi cocokkan foto lewat hash berkasnya, jangan lewat
+    // tebakan nama warna.
+    // 1254 (dulu 500 x 500 webp 6 KB, sempat 1024), Clear kini 1254 x 1254 (dulu 500 x 500 webp 4,5
+    // KB). Putih MASIH berkas webp kecil yang lama. Berkas lama tidak dihapus, masih di penyimpanan
+    // aset. Catatan penting: Clear itu yang warnanya krem, Putih yang putih dingin, jadi cocokkan foto
+    // lewat hash berkasnya, jangan lewat tebakan warna.
+    // lalu 1024 x 1024, kini 1254 x 1254 PNG 1 MB yang warnanya lebih cerah dan tepinya lebih tajam.
+    // Berkas lama tidak dihapus, masih ada di penyimpanan aset.
+    // Rancangan fotonya sama, yang baru lebih lega ruang putihnya dan resolusinya cukup untuk layar
+    // 2x.
+    var UPVC = [
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Biru]', 'Rp 711.000', '/_blob/d8765e58e95d855549373017f4d740c0'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Biru]', 'Rp 888.000', '/_blob/d8765e58e95d855549373017f4d740c0'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Biru]', 'Rp 1.066.000', '/_blob/d8765e58e95d855549373017f4d740c0'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Clear]', 'Hubungi kami', '/_blob/485466c5ca2e717cd7d9878395ad1ea6'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Clear]', 'Hubungi kami', '/_blob/485466c5ca2e717cd7d9878395ad1ea6'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Clear]', 'Hubungi kami', '/_blob/485466c5ca2e717cd7d9878395ad1ea6'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Putih]', 'Rp 711.000', '/_blob/7eb1dd1f68425a5fcc9a71c11ec755e8'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 5M [Mattaka, Putih]', 'Rp 888.000', '/_blob/7eb1dd1f68425a5fcc9a71c11ec755e8'],
+      ['Atap UPVC Double Layer 12mm x 760mm x 6M [Mattaka, Putih]', 'Rp 1.066.000', '/_blob/7eb1dd1f68425a5fcc9a71c11ec755e8']
+    ];
+    var MITRA = [['Samator','/_blob/3a58d4a4667fe87c3281ffa58c0294c5'],['Orela','/_blob/d03b6c72d6216ff9f1ec675707f2ea22'],['Atmi','/_blob/ae5f69a7cdc03978672e52e77fdc3727'],['Sritex','/_blob/a6d02e30c6890d0839f7d9826c736255'],['Wika','/_blob/2f5905ba24cc0db04bdbeb2c5f3b6dc6'],['WT','/_blob/db3459abfa29e06692f0f7213dd68b0d'],['Adi Putro','/_blob/c925703959a3f65c2ef5548a890b4946'],['Sanggar Sarana','/_blob/f6c12b4ad288de6898e547dc08ca57df'],['Laksana','/_blob/bc8e7cbc628eb78fc38ee1f53fabe285'],['Antika Raya','/_blob/0009c9259322f0842292c0ee096f31c2'],['Gudang Garam','/_blob/baaed95373198d4825e2ffb109f9474e'],['DRU','/_blob/01fc512003a44bdde9af68ceb30c0f3e']];
+    // ULASAN NYATA. Ejaan, tanda baca dan spasi penulisnya TIDAK dirapikan. Semuanya 5.0/5.0
+    // di situs — ditulis dengan TITIK seperti di sana, bukan koma desimal.
+    var ULASAN = [
+      ['Barak Andriatma', 'order di SMS Perkasa dilayani dengan ramah,dijamin kemanan transaksi dan kualitas barangnya,semoga sekses selalu SMS Perkasa dan semua tim', '/_blob/b7f9e107380e6e60634dbd0aeb9aa193'],
+      ['Yuliantoro Yuliantoro', 'Harga relatif standard. Sy puas dengan pelayanannya. Kedepan akan lebih baik.....semoga', '/_blob/827bd6eba1039de55b3df12cd169720b'],
+      ['Bambang Hermanto', 'Distributor Besi baja terlengkap & terpercaya di Surabaya& sekitarnya', '/_blob/4f00add23841109d5e4a826f97169c85'],
+      ['nurina wulan', 'Tempatnya homey, respon pegawainya ramah. Pilihan produknya banyak', '/_blob/efad272ea9f460f0ae6cbe74683304ba'],
+      ['Kukuh Edy', 'pelayananya oke...trimakasih krj timnya...', '/_blob/808090b8dca53d9d3c36536a9c6e7c8f'],
+      ['miftahul amal', 'Office yang berada di lingkungan perumahan', '/_blob/8df88fe5df40876d2a76cb6b9baf8486'],
+      ['Anita Lugito', 'pelayanannya okelah memuaskan', '/_blob/16a0d0e6fe4bb5161fb2bb929a9c315e'],
+      ['Evi Nurosida', 'the best steel distributor !', '/_blob/f136b15d771a7db77d9605b5c5645cb6']
+    ];
+
+    return {
+      banner: BANNER.map(function (x) { return { img: x[0], alt: x[1] }; }),
+      // Resep bulatannya SAMA PERSIS dengan artTitik/heroTitik papan Produk: bentuk yang
+      // menandai aktif (7 -> 14 px), bukan warna sendirian. Dijepit ke rentang yang ada
+      // supaya keadaan tidak pernah menunjuk spanduk yang tidak ada.
+      bnrTitik: BANNER.map(function (x, i) {
+        var on = i === Math.min(Math.max(s.bnr || 0, 0), BANNER.length - 1);
+        return {
+          kini: on ? 'true' : 'false',
+          aria: 'Spanduk ' + (i + 1) + ' dari ' + BANNER.length + (on ? ', sedang tampil' : ''),
+          gaya: 'height: 0.7rem; border-radius: var(--pill); ' + (on ? 'width: 1.4rem; background: var(--ink)' : 'width: 0.7rem; background: var(--ink-4)'),
+          pergi: function () { self._bnrGo(i); }
+        };
+      }),
+      // TIGA KATEGORI SAJA DI LAYAR, 2026-10-23 atas permintaan: satu baris 1 x 3, lalu
+      // tautan "Lihat Semua" di bawahnya. KATEGORI tetap berisi SEBELAS — yang dipotong
+      // hanya tampilannya, jadi mengembalikan kisi penuh cukup menunjuk sc-for kembali ke
+      // {{ kategori }} dan menaikkan hint-placeholder-count-nya. Angka 3 dipilih karena
+      // kisinya memang tiga kolom: satu baris penuh, bukan baris yang terpotong tanggung.
+      // Tautan "semua kategori" di samping judul; padam 2026-10-23, catatannya di markup.
+      // Judul h1 halaman; padam 2026-10-23, akibatnya ditulis di markup.
+      // Label "Hubungi Sekarang!" di blok telepon header; padam, sama seperti papan Produk.
+      // Dua baris di seksi Atap UPVC; padam 2026-10-26 atas permintaan. Akibat keduanya
+      // ditulis di markup: merek masih terbaca lewat nama SKU, dan soal kontras keping klaim
+      // ikut tidak berlaku selama ia padam.
+      merekTampil: false,
+      klaimTampil: false,
+      labelTeleponTampil: false,
+      teleponHeaderTampil: false,
+      judulBerandaTampil: false,
+      // Tautan "semua produk" di kepala seksi Produk unggulan; padam 2026-10-23.
+      semuaProdukTampil: false,
+      // Tautan "Lihat Semua" di bawah rel kategori; padam 2026-10-23, akibatnya di markup.
+      // Ubin foto di kartu SKU UPVC. DIHIDUPKAN 2026-10-23 (acuan kedua memakai thumbnail).
+      // Catatan untuk yang berikutnya: flag ini sempat MATI SEBAGAI FLAG — markup yang
+      // digantungnya hilang waktu barisnya ditulis ulang di v1297, jadi selama beberapa versi
+      // ia tidak menyembunyikan apa pun dan v.foto tidak dipakai siapa-siapa. Sekarang ia
+      // menggantung ubin foto di kartu lagi.
+      // Paragraf penjelas di seksi Kalkulator; padam 2026-10-23, akibatnya di markup.
+      kalkTeksTampil: true,
+      upvcFotoTampil: true,
+      lihatSemuaKategoriTampil: false,
+      semuaKategoriTampil: false,
+      kategoriTampil: KATEGORI.slice(0, 3).map(function (k) { return { n: k[0], ikon: k[1] }; }),
+      kategori: KATEGORI.map(function (k) { return { n: k[0], ikon: k[1] }; }),
+      sektor: SEKTOR.map(function (k) { return { n: k[0], img: k[1] }; }),
+      bandingDengan: FOTO_DENGAN, bandingAdaDengan: !!FOTO_DENGAN,
+      bandingTanpa: FOTO_TANPA, bandingAdaTanpa: !!FOTO_TANPA,
+      bandingTeksDengan: FOTO_TEKS_DENGAN, bandingTeksTanpa: FOTO_TEKS_TANPA,
+      bandingPitaKiri: bandingPos <= AMBANG_KIRI,
+      bandingPitaKanan: bandingPos >= AMBANG_KANAN,
+      bandingNilai: String(bandingPos),
+      bandingPersen: bandingPos + '%',
+      bandingGeser: function (e) {
+        var v = Number(e.target.value);
+        if (!isFinite(v)) return;
+        self.setState({ banding: Math.min(Math.max(v, 0), 100) });
+      },
+      unggulan: UNGGULAN.map(function (u) {
+        return { n: u[0], v: 'Tersedia ' + u[1] + ' varian', foto: u[2],
+                 aria: u[0] + ', tersedia ' + u[1] + ' varian' };
+      }),
+      baruDilihat: BARU_DILIHAT.map(function (b) {
+        return { n: b[0], v: b[1], foto: b[2], ke: b[3],
+                 adaHarga: !!b[4], adaVarian: !b[4], aria: b[0] + ', ' + b[1] };
+      }),
+      dicari: DICARI.map(function (c) {
+        return { n: c[0], rp: c[1], v: 'Tersedia ' + c[2] + ' varian', foto: c[3],
+                 aria: c[0] + ', mulai Rp ' + c[1] + ', tersedia ' + c[2] + ' varian' };
+      }),
+      upvc: UPVC.map(function (v, i) {
+        // mono dulu hanya untuk baris yang harganya ANGKA; sejak 2026-10-23 baris
+        // "Hubungi kami" ikut memakainya juga (lihat catatan di markupnya), jadi nilai ini
+        // kini hanya dipakai oleh lockup nominal.
+        var angka = v[1].indexOf('Rp') === 0;
+        // NAMA DIPECAH TIGA, 2026-10-23 (acuan KEDUA, kartu "Varian & Ukuran"): judul produk,
+        // lalu ukurannya, lalu isi kurungnya. TIDAK ADA DATA BARU — ketiganya potongan dari
+        // nama SKU yang sudah ada ("Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Biru]"),
+        // jadi kalau namanya berubah ketiga barisnya ikut sendiri.
+        // Pecahan kepala/ekor dari v1297 DIHAPUS: ia menebalkan panjang batang di dalam satu
+        // baris, dan sekarang ukurannya punya barisnya sendiri — penebalan di dalam baris yang
+        // isinya cuma ukuran tidak menandai apa pun lagi. Mengembalikan bentuk satu baris:
+        // kepala = nama sampai " x " terakhir, ekor = sisanya, lalu tebalkan ekor di markup.
+        var nama = v[0], varian = '', k = nama.indexOf(' [');
+        if (k !== -1 && nama.charAt(nama.length - 1) === ']') {
+          varian = nama.slice(k + 2, nama.length - 1);
+          nama = nama.slice(0, k);
+        }
+        // Ukuran = mulai dari angka milimeter PERTAMA sampai habis. Dicari lewat angka, bukan
+        // lewat kata "Atap UPVC Double Layer", supaya nama produk lain ikut terpecah benar.
+        var ukuran = '', u = nama.search(/\d+\s*mm/);
+        if (u > 0) { ukuran = nama.slice(u); nama = nama.slice(0, u).replace(/\s+$/, ''); }
+        return {
+          n: v[0], h: v[1], foto: v[2], mono: angka ? '1' : '',
+          nama: nama, ukuran: ukuran, adaUkuran: !!ukuran,
+          // KURUNGNYA DIPASANG KEMBALI di sini, seperti di acuan dan seperti di data aslinya.
+          varian: varian ? '[' + varian + ']' : '', adaVarian: !!varian,
+          // "Rp" dipisah dari angkanya supaya bisa dijadikan superskrip seperti di papan Produk.
+          // Baris "Hubungi kami" TIDAK punya angka: adaRp false, dan seluruh teksnya dicetak apa
+          // adanya lewat v.h — jangan dipaksa masuk lockup harga, ia bukan angka.
+          adaRp: angka, takRp: !angka, nominal: angka ? v[1].slice(3) : ''
+        };
+      }),
+      mitra: MITRA.map(function (m) { return { n: m[0], img: m[1] }; }),
+      // KORSEL ULASAN, 2026-10-23: nilai-nilainya dihasilkan ulasanVals() yang dibawa dari papan
+      // SKU. Data papan ini DIPERTAHANKAN — delapan ulasan Google yang disalin dari situs — dan
+      // hanya dipetakan ke bentuk yang diminta metode itu: who / text / rating.
+      // RATING 5 DITULIS EKSPLISIT karena kedelapan ulasan itu memang 5,0 di situs; ia bukan
+      // nilai bawaan yang dikarang.
+      // FOTO PROFIL (u[2]) IKUT DIBAWA tapi TIDAK DIPAKAI kartunya — desain kartu dari papan SKU
+      // tidak punya tempat untuk avatar. Dibiarkan di data supaya tidak hilang kalau kartunya
+      // kelak diberi avatar.
+      ...self.ulasanVals(ULASAN.map(function (u) { return { who: u[0], text: u[1], av: u[2], rating: 5 }; })),
+      awasBuka: s.awas,
+      awasTutup: function () { self.setState({ awas: false }); },
+      footInfo: [
+        ['Gudang Surabaya', 'Jl. Mutiara Tambak Langon Blok I / 23H\nTambak Langon, Asem Rowo\nKota Surabaya, Jawa Timur, 60184'],
+        ['Gudang Jakarta', 'Jl. Palem Manis Raya, RT.001/RW.004\nGandasari, Kec. Jatiuwung,\nKota Tangerang, Banten, 15137'],
+        ['Kantor', 'Jl. BKR Pelajar 51, Ketabang,\nKec. Genteng, Kota Surabaya,\nJawa Timur, 60272'],
+        ['Kontak', 'WhatsApp: klik untuk chat\nMobile: +628112689889\nEmail: sales@smsperkasa.com'],
+        ['Perusahaan', 'Tentang Kami\nKarir\nBlog'],
+        ['Bantuan', 'Kontak Kami\nFAQ\nKebijakan Privasi\nSyarat dan Ketentuan\nCara Pemesanan'],
+        ['Tools', 'Kalkulator Material']
+      ].map(function (f) { return { h: f[0], t: f[1] }; }),
+      socials: ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram'].map(function (l) { return { l: l }; }),
+      footCats: [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']],
+      ['Plat Stainless Steel', ['Plat Stainless SS304', 'Plat Stainless SS316L']],
+      ['Hollow Stainless Steel', ['Hollow Stainless 201', 'Hollow Stainless 304']],
+      ['Pipa Stainless Steel', ['Pipa Stainless 201', 'Pipa Stainless 304']]
+      ].map(function (c, i) {
+        return {
+          h: c[0],
+          open: s.foot === i,
+          exp: s.foot === i ? 'true' : 'false',
+          chev: s.foot === i ? 'transform:rotate(180deg)' : '',
+          items: c[1].map(function (l) { return { l: l }; }),
+          toggle: function () { self.setState({ foot: s.foot === i ? -1 : i }); }
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

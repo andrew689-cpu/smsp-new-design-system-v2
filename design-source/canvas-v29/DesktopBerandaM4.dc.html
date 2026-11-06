@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Beranda · Desktop — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="desktop" hint-size="100%,5.4rem"></dc-import>
+  <dc-import name="SiteHeader" tata="desktop" logoKe="beranda" hint-size="100%,12.4rem"></dc-import>
+  <main style="padding-bottom: calc(var(--footer-jarak) / 2)">
+    <div style="margin-top: var(--dalam)">
+      <dc-import name="HeroCarousel" tata="desktop" hint-size="100%,52.4rem"></dc-import>
+    </div>
+    <dc-import name="HomeRail" tata="desktop" bagian="kategori" hint-size="100%,30rem"></dc-import>
+    <dc-import name="HomeRail" tata="desktop" bagian="unggulan" hint-size="100%,30rem"></dc-import>
+    <dc-import name="HomeRail" tata="desktop" bagian="dicari" hint-size="100%,30rem"></dc-import>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="PromoCta" jenis="kalkulator" tata="desktop" hint-size="100%,22.5rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Produk terbaru kami" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="PromoCta" jenis="promo" tata="desktop" hint-size="100%,98rem"></dc-import></div>
+    </div>
+    <dc-import name="HomeRail" tata="desktop" bagian="sektor" hint-size="100%,30rem"></dc-import>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="BeforeAfter" tata="desktop" hint-size="100%,72rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="PartnerLogos" tata="desktop" halaman="beranda" hint-size="100%,24rem"></dc-import>
+    </div>
+    <div style="padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+      <dc-import name="Heading" tata="desktop" teks="Ulasan Pelanggan" hint-size="100%,2.9rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="ReviewCarousel" tata="desktop" hint-size="100%,26rem"></dc-import></div>
+    </div>
+    <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) 0 var(--sisi)">
+      <dc-import name="ConsultationBanner" tata="desktop" isi="beranda" hint-size="100%,30rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" hint-size="100%,44rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

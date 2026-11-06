@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PartnerLogos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div>
+  <sc-if value="{{ judulH2 }}" hint-placeholder-val="{{ true }}">
+    <dc-import name="Heading" level="{{ 2 }}" tata="{{ tata }}" varian="{{ varianJudul }}" teks="{{ judul }}" hint-size="100%,2.8rem"></dc-import>
+  </sc-if>
+  <sc-if value="{{ judulP }}" hint-placeholder-val="{{ false }}">
+    <p style="{{ gayaJudulP }}">{{ judul }}</p>
+  </sc-if>
+  <div style="{{ gayaKisi }}">
+    <sc-for list="{{ mitra }}" as="m" hint-placeholder-count="12">
+      <span style="{{ m.gaya }}"><img src="{{ m.img }}" alt="{{ m.n }}" loading="{{ muat }}" style="{{ gayaImg }}"></span>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"halaman":{"editor":"enum","options":["produk","beranda"],"default":"produk","section":"Resep"},"judul":{"editor":"text","default":"","section":"Isi"},"mitra":{"editor":null,"tsType":"Array<{n:string,img:string}>"},"muat":{"editor":"text","default":"","section":"Isi"},"lama":{"editor":"boolean","default":false,"section":"Resep"},"$preview":{"width":330,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const d = tata === 'desktop';
+    const beranda = this.props.halaman === 'beranda';
+    const daftar = this.props.mitra ?? [
+      ['Samator', '/_blob/c1f28f8ad3d3956c22a741bfc646ee53'], ['Orela', '/_blob/187b1ded198264074c4346d3897c7f81'], [beranda ? 'Atmi' : 'ATMI', '/_blob/702e888393ae168ced6699698ba1948d'],
+      ['Sritex', '/_blob/13dc4b7c5733917dc1d7a10db65d72cb'], [beranda ? 'Wika' : 'WIKA', '/_blob/8ea640a78361a4ab193c6d39cd55a3fb'], ['WT', '/_blob/d2c5ce2584a14dbbc5bc12c5438dedc0'],
+      ['Adi Putro', '/_blob/7b30e6607c10589838c9f80e197561a2'], ['Sanggar Sarana', '/_blob/c3ec16a4237e8a3ebbf37e4f17672ef7'], ['Laksana', '/_blob/0954b224485632b479d9ed46b763f062'],
+      ['Antika Raya', '/_blob/8a79c269114d448d5a828f9d46bfd7e4'], ['Gudang Garam', '/_blob/ccb6c4c51f27c808f17b1d2f4d9c2b11'], ['DRU', '/_blob/749aa7cd7872d501c0e1b07ce49aca57']
+    ].map((m) => ({ n: m[0], img: m[1] }));
+    const kolom = d ? 6 : 3;
+    const n = daftar.length;
+    const x = d ? 'calc(var(--rapat) / 2)' : '0.4rem';
+    const y = x;
+    /* Kisi desktop dan kisi Produk ponsel memakai data-tepi-kisi; kisi Beranda ponsel hanya data-tepi. */
+    const kisi = !this.props.lama && (d || !beranda);
+    const mitra = daftar.map((m, i) => {
+      const kiri = kisi ? i % kolom === 0 : i === 0;
+      const kanan = kisi && i % kolom === kolom - 1;
+      const margin = 'margin: ' + (i < kolom ? '0' : y) + ' ' + (kanan ? '0' : x) + ' ' + (i >= n - kolom ? '0' : y) + ' ' + (kiri ? '0' : x);
+      return {
+        n: m.n,
+        img: m.img,
+        gaya: (d ? '' : 'box-sizing: border-box; ') + 'display: flex; align-items: center; justify-content: center; border: 0.1rem solid var(--line); border-radius: ' + (this.props.lama ? '1rem' : 'var(--tile)') + '; background: var(--surface); ' + (d ? 'height: 7.2rem; padding: 0.8rem 1.6rem; ' : 'height: 5.4rem; padding: 0.4rem 0.8rem; ') + margin
+      };
+    });
+    const atas = this.props.lama ? '1.4rem' : d || beranda ? 'var(--dalam)' : 'var(--jarak-y-dalam)';
+    return {
+      tata,
+      varianJudul: this.props.lama ? 'lama' : undefined,
+      judul: this.props.judul || (beranda ? 'Dipercaya Oleh Mitra Terpercaya' : 'Dipercaya Mitra'),
+      muat: this.props.muat || (d && !beranda ? 'eager' : 'lazy'),
+      judulH2: !beranda,
+      judulP: beranda,
+      gayaJudulP: 'margin: 0; font-weight: var(--bobot-medium); text-transform: uppercase; color: var(--ink-2); ' + (d ? 'font-size: var(--teks-section-md); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-label-d)' : 'font-size: var(--teks-section); line-height: var(--tinggi-sedang); letter-spacing: var(--renggang-label-m)'),
+      gayaKisi: 'display: grid; grid-template-columns: repeat(' + kolom + ', minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: ' + atas,
+      gayaImg: 'max-width: 100%; max-height: 100%; object-fit: contain; display: block',
+      mitra
+    };
+  }
+}
+</script>
+</body>
+</html>

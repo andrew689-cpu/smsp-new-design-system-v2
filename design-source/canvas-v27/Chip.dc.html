@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Chip</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-current="{{ ariaCurrent }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ adaIkon }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import><sc-if value="{{ ikonTitik }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.2rem; right: -0.2rem; width: 0.8rem; height: 0.8rem; border-radius: var(--pill); background: var(--ink); box-shadow: 0 0 0 0.2rem var(--surface)"></span></sc-if></span></sc-if>
+    <span style="{{ labelGaya }}">{{ label }}</span>
+    <sc-if value="{{ adaHapus }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 0.3rem"><dc-import name="Icon" dc-props="{{ hapusProps }}" hint-size="1.3rem,1.3rem"></dc-import></span></sc-if>
+    <sc-if value="{{ adaJumlah }}" hint-placeholder-val="{{ false }}"><span style="{{ gayaJumlah }}">{{ jumlah }}</span></sc-if>
+    <sc-if value="{{ adaCentang }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.6rem; right: -0.6rem; width: 2rem; height: 2rem; box-sizing: border-box; border-radius: var(--pill); background: var(--ink); box-shadow: 0 0 0 0.2rem var(--surface); display: flex; align-items: center; justify-content: center"><dc-import name="Icon" ikon="centang" hint-size="1.2rem,1.2rem"></dc-import></span></sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}">
+  <button type="button" data-grid-tile="{{ dataUbin }}" disabled="{{ disabled }}" aria-pressed="{{ ariaPressed }}" aria-expanded="{{ ariaExpanded }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ adaIkon }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import><sc-if value="{{ ikonTitik }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.2rem; right: -0.2rem; width: 0.8rem; height: 0.8rem; border-radius: var(--pill); background: var(--ink); box-shadow: 0 0 0 0.2rem var(--surface)"></span></sc-if></span></sc-if>
+    <span style="{{ labelGaya }}">{{ label }}</span>
+    <sc-if value="{{ adaHapus }}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-shrink: 0; margin: 0 0.3rem"><dc-import name="Icon" dc-props="{{ hapusProps }}" hint-size="1.3rem,1.3rem"></dc-import></span></sc-if>
+    <sc-if value="{{ adaJumlah }}" hint-placeholder-val="{{ false }}"><span style="{{ gayaJumlah }}">{{ jumlah }}</span></sc-if>
+    <sc-if value="{{ adaCentang }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.6rem; right: -0.6rem; width: 2rem; height: 2rem; box-sizing: border-box; border-radius: var(--pill); background: var(--ink); box-shadow: 0 0 0 0.2rem var(--surface); display: flex; align-items: center; justify-content: center"><dc-import name="Icon" ikon="centang" hint-size="1.2rem,1.2rem"></dc-import></span></sc-if>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["garis","isi","hapus","pilihan","pilihan-36","ubin","kategori","bagian","hapus-lama"],"default":"garis","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"terpilih":{"editor":"boolean","default":false,"section":"Keadaan"},"disabled":{"editor":"boolean","default":false,"section":"Keadaan"},"rapat":{"editor":"boolean","default":false,"section":"Ubin"},"label":{"editor":null,"default":"Hollow 40x40"},"ikon":{"editor":"text","default":"","section":"Ikon"},"href":{"editor":null},"onPress":{"editor":null},"ariaLabel":{"editor":null},"ikonUkuran":{"editor":"text","default":"","section":"Ikon"},"ikonTitik":{"editor":"boolean","default":false,"section":"Ikon"},"arah":{"editor":"enum","options":["kolom","baris"],"default":"kolom","section":"Ubin"},"tinggiMin":{"editor":"text","default":"","section":"Ubin"},"sudut":{"editor":"text","default":"","section":"Ubin"},"warnaTerpilih":{"editor":"text","default":"","section":"Ubin"},"warnaJumlah":{"editor":"text","default":"","section":"Ubin"},"centang":{"editor":"boolean","default":false,"section":"Ubin"},"jumlah":{"editor":null},"ariaExpanded":{"editor":null},"$preview":{"width":160,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'garis';
+    const on = !!this.props.terpilih;
+    const disabled = !!this.props.disabled;
+    const desktop = this.props.tata === 'desktop';
+    const pil = (v, f) => (v === undefined || v === null || v === '' ? f : v);
+    const baris = this.props.arah === 'baris';
+    const pilih = on ? 'background: var(--ink); color: var(--surface)' : 'background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); color: var(--ink)';
+    const ubin = on ? 'border: 0.2rem solid ' + pil(this.props.warnaTerpilih, 'var(--brand)') + '; color: var(--ink)' : disabled ? 'border: 0.1rem solid var(--line); color: var(--ink-4); cursor: ' + (desktop ? 'not-allowed' : 'default') : 'border: 0.1rem solid var(--line); color: var(--ink)';
+    const kolom = 'box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: var(--tinggi-sedang); overflow-wrap: anywhere; border: 0; ';
+    const resep = {
+      garis: 'min-height: 3.6rem; padding: 0 1.4rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); font-size: var(--teks-body)',
+      isi: 'min-height: 3.6rem; padding: 0 1.4rem; border-radius: var(--pill); background: var(--line); font-size: var(--teks-body); font-weight: var(--bobot-medium)',
+      hapus: 'display: flex; align-items: center; flex-shrink: 0; height: 3.2rem; padding: 0 1rem 0 1.2rem; column-gap: 0.3rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); color: var(--ink); font-size: var(--teks-meta); font-weight: var(--bobot-semibold); white-space: nowrap',
+      pilihan: 'flex-shrink: 0; min-height: 3.4rem; padding: 0 1.3rem; border-radius: var(--pill); font-size: var(--teks-meta); white-space: nowrap; font-weight: ' + (on ? 'var(--bobot-bold)' : 'var(--bobot-semibold)') + '; ' + pilih,
+      'pilihan-36': 'height: 3.6rem; padding: 0 1.4rem; border-radius: var(--pill); font-size: var(--teks-meta); font-weight: var(--bobot-semibold); ' + pilih,
+      ubin: 'position: relative; box-sizing: border-box; display: flex; flex-direction: ' + (baris ? 'row' : 'column') + '; align-items: ' + (baris ? 'baseline' : 'center') + '; justify-content: center; gap: ' + (baris ? '0.4rem' : '0.1rem') + '; min-height: ' + pil(this.props.tinggiMin, '4.8rem') + '; padding: ' + (this.props.rapat ? '0.6rem 0.2rem' : '0.6rem 0.4rem') + '; border-radius: ' + pil(this.props.sudut, 'var(--tile)') + '; background: var(--surface); ' + ubin,
+      'hapus-lama': 'display: flex; align-items: center; height: 3.2rem; padding: 0 1rem 0 1.2rem; column-gap: 0.3rem; border: 0; border-radius: var(--pill); background: var(--line); font-size: var(--teks-meta); font-weight: var(--bobot-semibold)',
+      kategori: kolom + 'position: relative; flex-shrink: 0; width: 9.6rem; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; color: ' + (on ? 'var(--nav-aktif)' : 'var(--ink)') + '; font-weight: ' + (on ? 'var(--bobot-bold)' : 'var(--bobot-medium)') + '; font-size: ' + (on ? 'var(--teks-body)' : 'var(--teks-meta)'),
+      bagian: kolom + 'width: 100%; min-width: 0; min-height: 6.2rem; padding: 1rem 0.6rem; gap: 0.6rem; border-radius: var(--pill); background: transparent; font-size: var(--teks-body); color: ' + (on ? 'var(--nav-aktif)' : 'var(--ink)') + '; font-weight: ' + (on ? 'var(--bobot-bold)' : 'var(--bobot-semibold)')
+    };
+    const ikon = this.props.ikon || undefined;
+    const ikonUkuran = pil(this.props.ikonUkuran, jenis === 'kategori' ? (on ? 24 : 18) : 24);
+    const lama = jenis === 'hapus-lama';
+    const jumlah = this.props.jumlah;
+    const href = this.props.href;
+    return {
+      label: this.props.label ?? 'Hollow 40x40',
+      href,
+      disabled,
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel,
+      ariaPressed: (jenis === 'pilihan' || jenis === 'pilihan-36' || jenis === 'ubin') ? (on ? 'true' : 'false') : undefined,
+      ariaCurrent: (jenis === 'kategori' || jenis === 'bagian') ? (on ? 'true' : 'false') : undefined,
+      isLink: !!href && !disabled,
+      isButton: !href || disabled,
+      adaIkon: !!ikon,
+      ikonProps: { ikon, ukuran: ikonUkuran, warna: 'currentColor', garis: 1.8 },
+      adaHapus: jenis === 'hapus' || lama,
+      hapusProps: lama ? { ikon: 'tutup-lama' } : { ikon: 'tutup', ukuran: 13, warna: 'var(--brand)', garis: 2.4 },
+      ikonTitik: !!this.props.ikonTitik,
+      ikonGaya: 'display: flex; flex-shrink: 0' + (this.props.ikonTitik ? '; position: relative' : ''),
+      ariaExpanded: this.props.ariaExpanded,
+      jumlah,
+      adaJumlah: jumlah !== undefined && jumlah !== null && jumlah !== '',
+      gayaJumlah: 'color: ' + pil(this.props.warnaJumlah, disabled ? 'var(--star-kosong)' : 'var(--ink-2)') + '; font-size: var(--teks-tiny)',
+      adaCentang: !!this.props.centang && on,
+      dataUbin: jenis === 'ubin' && desktop ? '1' : undefined,
+      labelGaya: jenis === 'ubin' ? 'font-size: var(--teks-meta); font-weight: var(--bobot-bold)' : '',
+      gaya: resep[jenis] || resep.garis
+    };
+  }
+}
+</script>
+</body>
+</html>

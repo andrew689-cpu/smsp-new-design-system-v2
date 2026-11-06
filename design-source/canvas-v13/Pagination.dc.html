@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pagination</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<nav aria-label="{{ ariaLabel }}" style="{{ gayaNav }}">
+  <sc-if value="{{ pelapor }}" hint-placeholder-val="{{ false }}">
+    <p style="margin: 0 0.8rem 0 0; font-size: var(--teks-meta); color: var(--ink-2)">Menampilkan <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ rentang }}</span> dari <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ total }}</span> SKU</p>
+  </sc-if>
+  <div style="{{ gayaKelompok }}">
+    <button type="button" onClick="{{ sebelum }}" disabled="{{ takAdaSebelum }}" aria-label="Halaman sebelumnya" style="{{ gayaSebelum }}"><dc-import name="Icon" ikon="chevron-kiri" ukuran="{{ 17 }}" hint-size="17px,17px"></dc-import></button>
+    <sc-for list="{{ halaman }}" as="h" hint-placeholder-count="4">
+      <sc-if value="{{ h.isJeda }}" hint-placeholder-val="{{ false }}">
+        <span aria-hidden="true" style="width: 2.4rem; display: grid; place-items: center; font-size: var(--teks-body); color: var(--ink-2); margin-left: 0.3rem; margin-right: 0.3rem">…</span>
+      </sc-if>
+      <sc-if value="{{ h.isNomor }}" hint-placeholder-val="{{ true }}">
+        <button type="button" onClick="{{ h.pilih }}" aria-current="{{ h.kini }}" aria-label="{{ h.aria }}" style="{{ h.gaya }}">{{ h.label }}</button>
+      </sc-if>
+    </sc-for>
+    <button type="button" onClick="{{ berikut }}" disabled="{{ takAdaBerikut }}" aria-label="Halaman berikutnya" style="{{ gayaBerikut }}"><dc-import name="Icon" ikon="chevron" ukuran="{{ 17 }}" warna="currentColor" hint-size="17px,17px"></dc-import></button>
+  </div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kaca","garis"],"default":"kaca"},"hal":{"editor":null},"total":{"editor":null,"default":297},"per":{"editor":null,"default":20},"pelapor":{"editor":"boolean","default":false},"ariaLabel":{"editor":null,"default":"Halaman daftar harga"},"onHal":{"editor":null},"$preview":{"width":640,"height":90}}'>
+class Component extends DCLogic {
+  state = { hal: 0 };
+  renderVals() {
+    const jenis = this.props.jenis ?? 'kaca';
+    const kaca = jenis === 'kaca';
+    const total = this.props.total ?? 297;
+    const per = this.props.per ?? 20;
+    const maxHal = Math.max(1, Math.ceil(total / per));
+    const hal = Math.min(Math.max(0, this.props.hal ?? this.state.hal), maxHal - 1);
+    const pergi = (h) => {
+      if (this.props.hal === undefined) this.setState({ hal: h });
+      if (this.props.onHal) this.props.onHal(h);
+    };
+    const nomor = [];
+    for (let i = 0; i < maxHal; i++) {
+      if (i === 0 || i === maxHal - 1 || Math.abs(i - hal) <= 1) nomor.push(i);
+      else if (nomor[nomor.length - 1] !== -1) nomor.push(-1);
+    }
+    const dasarKaca = 'background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border: 0.1rem solid transparent; ';
+    const kotak = 'width: 4rem; height: 4rem; display: grid; place-items: center; border-radius: var(--tile); margin-right: 0.3rem; ';
+    const panah = (mati, pertama) => {
+      const warna = mati ? 'color: var(--ink-4); cursor: not-allowed' : 'color: var(--ink)';
+      return (kaca ? dasarKaca : 'background: var(--surface); border: 0.1rem solid var(--line); ') + warna + '; ' + kotak + (pertama ? '' : 'margin-left: 0.3rem');
+    };
+    return {
+      pelapor: !!this.props.pelapor,
+      total,
+      rentang: total === 0 ? '0' : (hal * per + 1) + '–' + Math.min(hal * per + per, total),
+      ariaLabel: this.props.ariaLabel ?? (kaca ? 'Halaman daftar harga' : 'Halaman ulasan'),
+      gayaNav: 'display: flex; align-items: center; justify-content: flex-end; column-gap: 0; ' + (kaca ? 'padding-top: 2.4rem; margin-top: 2rem' : 'padding-top: 2.8rem'),
+      gayaKelompok: 'display: flex; align-items: center; column-gap: 0' + (kaca ? '; margin-right: 0.8rem' : '') + (this.props.pelapor ? '; margin-left: 0.8rem' : ''),
+      takAdaSebelum: hal === 0,
+      takAdaBerikut: hal >= maxHal - 1,
+      gayaSebelum: panah(hal === 0, true),
+      gayaBerikut: panah(hal >= maxHal - 1, false),
+      sebelum: () => { if (hal > 0) pergi(hal - 1); },
+      berikut: () => { if (hal < maxHal - 1) pergi(hal + 1); },
+      halaman: nomor.map((i) => {
+        if (i === -1) return { isJeda: true, isNomor: false };
+        const aktif = i === hal;
+        const warna = kaca
+          ? dasarKaca + 'color: ' + (aktif ? 'var(--nav-aktif)' : 'var(--ink)')
+          : (aktif ? 'background: var(--ink); border: 0.1rem solid var(--ink); color: var(--surface)' : 'background: var(--surface); border: 0.1rem solid var(--line); color: var(--ink)');
+        return {
+          isJeda: false,
+          isNomor: true,
+          label: i + 1,
+          aria: 'Halaman ' + (i + 1) + (aktif ? ', halaman ini' : ''),
+          kini: aktif ? 'page' : 'false',
+          gaya: warna + '; min-width: 4rem; height: 4rem; padding: 0 1rem; display: grid; place-items: center; border-radius: var(--tile); font-size: var(--teks-body); font-weight: var(--bobot-semibold); margin-left: 0.3rem; margin-right: 0.3rem',
+          pilih: () => pergi(i)
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

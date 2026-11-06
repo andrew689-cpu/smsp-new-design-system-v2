@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpMenuRow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+  <a data-bantu-row="{{ tata }}" href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-right: calc(var(--rapat) / 2)">
+      <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: var(--cair-kilau); pointer-events: none"></span>
+      <span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="2.2rem,2.2rem"></dc-import></span>
+    </span>
+    <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <span style="display: block; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-heavy)">{{ judul }}</span>
+      <sc-if value="{{ adaKet }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 0.4rem; font-size: var(--teks-chip); line-height: var(--tinggi-sedang); color: var(--ink-2)"><sc-for list="{{ ket }}" as="k" hint-placeholder-count="1"><span style="{{ k.gaya }}">{{ k.t }}</span></sc-for></span>
+      </sc-if>
+      <sc-for list="{{ alamat }}" as="a" hint-placeholder-count="0">
+        <span style="display: block; margin-top: 0.3rem; font-size: var(--teks-chip); line-height: var(--tinggi-lega); color: var(--ink-2)">{{ a }}</span>
+      </sc-for>
+    </span>
+    <sc-if value="{{ adaLabelSr }}" hint-placeholder-val="{{ false }}">
+      <span style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{ labelSr }}</span>
+    </sc-if>
+    <span style="{{ panahGaya }}; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="chevron-kanan" hint-size="1.8rem,1.8rem"></dc-import></span>
+</a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}">
+  <button data-bantu-row="{{ tata }}" type="button" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <span aria-hidden="true" style="position: relative; width: 4rem; height: 4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; margin-right: calc(var(--rapat) / 2)">
+      <span aria-hidden="true" style="position: absolute; left: 0.8rem; top: 0.5rem; width: 1.8rem; height: 1.1rem; border-radius: 50%; background: var(--cair-kilau); pointer-events: none"></span>
+      <span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="2.2rem,2.2rem"></dc-import></span>
+    </span>
+    <span style="min-width: 0; flex-grow: 1; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <span style="display: block; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-heavy)">{{ judul }}</span>
+      <sc-if value="{{ adaKet }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 0.4rem; font-size: var(--teks-chip); line-height: var(--tinggi-sedang); color: var(--ink-2)"><sc-for list="{{ ket }}" as="k" hint-placeholder-count="1"><span style="{{ k.gaya }}">{{ k.t }}</span></sc-for></span>
+      </sc-if>
+      <sc-for list="{{ alamat }}" as="a" hint-placeholder-count="0">
+        <span style="display: block; margin-top: 0.3rem; font-size: var(--teks-chip); line-height: var(--tinggi-lega); color: var(--ink-2)">{{ a }}</span>
+      </sc-for>
+    </span>
+    <sc-if value="{{ adaLabelSr }}" hint-placeholder-val="{{ false }}">
+      <span style="position: absolute; width: 0.1rem; height: 0.1rem; margin: -0.1rem; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0">{{ labelSr }}</span>
+    </sc-if>
+    <span style="{{ panahGaya }}; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="chevron-kanan" hint-size="1.8rem,1.8rem"></dc-import></span>
+</button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Chat di WhatsApp"},"ket":{"editor":null,"default":"Tanya stok, harga &amp; penawaran terbaik."},"alamat":{"editor":null},"labelSr":{"editor":null},"ikon":{"editor":"text","default":"chat-isi"},"ikonUkuran":{"editor":null},"ikonGaris":{"editor":null},"ikonWarna":{"editor":null},"ikonDepan":{"editor":"boolean","default":true},"href":{"editor":null},"target":{"editor":null},"rel":{"editor":null},"ariaLabel":{"editor":null},"onPress":{"editor":null},"$preview":{"width":330,"height":76}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const href = this.props.href;
+    const alamat = this.props.alamat ?? [];
+    const adaAlamat = alamat.length > 0;
+    const ketMentah = this.props.ket ?? (adaAlamat ? '' : 'Tanya stok, harga & penawaran terbaik.');
+    const bagian = typeof ketMentah === 'string' ? (ketMentah ? [{ t: ketMentah }] : []) : ketMentah;
+    const ikonProps = { ikon: this.props.ikon ?? 'chat-isi' };
+    if (this.props.ikonUkuran !== undefined) ikonProps.ukuran = this.props.ikonUkuran;
+    if (this.props.ikonGaris !== undefined) ikonProps.garis = this.props.ikonGaris;
+    if (this.props.ikonWarna !== undefined) ikonProps.warna = this.props.ikonWarna;
+    return {
+      tata: this.props.tata ?? 'ponsel',
+      isLink: !!href,
+      isButton: !href,
+      href,
+      target: this.props.target,
+      rel: this.props.rel,
+      ariaLabel: this.props.ariaLabel,
+      onPress: this.props.onPress,
+      judul: this.props.judul ?? 'Chat di WhatsApp',
+      adaKet: bagian.length > 0,
+      ket: bagian.map((k) => ({ t: k.t, gaya: k.tegas ? 'color: var(--ink)' : '' })),
+      alamat,
+      labelSr: this.props.labelSr,
+      adaLabelSr: !!this.props.labelSr,
+      ikonProps,
+      ikonGaya: (this.props.ikonDepan ?? true) ? 'position: relative; display: block' : 'display: block',
+      panahGaya: 'display: flex; flex-shrink: 0' + (adaAlamat ? '; align-self: center' : ''),
+      gaya: 'display: flex; align-items: ' + (adaAlamat ? 'flex-start' : 'center') + '; row-gap: var(--rapat); column-gap: 0; width: 100%; box-sizing: border-box; min-height: 7.6rem; padding: ' + (adaAlamat ? '1.4rem' : '1.2rem 1.2rem 1.2rem 1.4rem') + '; border-radius: var(--sheet); background: var(--surface); box-shadow: var(--bayang-baris)'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewInvite</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+  <div style="margin-right: 1.6rem">
+    <p style="margin: 0; font-size: var(--teks-subsection); font-weight: var(--bobot-bold); line-height: var(--tinggi-tengah); color: var(--ink)">{{ judul }}</p>
+    <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); color: var(--ink-2); line-height: var(--tinggi-baca)">{{ teks }}</p>
+  </div>
+  <span style="display: flex; flex-shrink: 0; margin-left: 1.6rem; margin-right: 1.6rem"><dc-import name="Button" variant="pil" label="{{ tombol }}" href="{{ href }}" hint-size="15rem,5rem"></dc-import></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":null},"teks":{"editor":null},"tombol":{"editor":null},"href":{"editor":null},"$preview":{"width":1200,"height":80}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      judul: this.props.judul ?? 'Punya pengalaman dengan SMS Perkasa?',
+      teks: this.props.teks ?? 'Ceritakan ke tim kami — ulasan dipakai untuk memperbaiki cara kami melayani pesanan.',
+      tombol: this.props.tombol ?? 'Kirim Ulasan',
+      href: this.props.href ?? '#whatsapp'
+    };
+  }
+}
+</script>
+</body>
+</html>

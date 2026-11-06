@@ -1,0 +1,163 @@
+## canonical boards 16 ['BerandaM4.dc.html', 'DesktopArtikelM4.dc.html', 'DesktopBerandaM4.dc.html', 'DesktopBlogM4.dc.html', 'DesktopKategoriM4.dc.html', 'DesktopProdukIndexM4.dc.html', 'DesktopProdukM4.dc.html', 'DesktopSkuM4.dc.html', 'DesktopUlasanM4.dc.html', 'KategoriM4.dc.html', 'ProdukIndexM4.dc.html', 'RecCreateM4.dc.html', 'SalinanArtikel2M4.dc.html', 'SalinanBlogM4.dc.html', 'SkuDetailM4.dc.html', 'UlasanM4Salinan.dc.html']
+## distinct literal colours (all boards): 100
+## distinct literal colours (canonical): 72
+## opaque hex distinct canonical: 25
+value|all|canon|mob|desk|boards_all|boards_canon|roles|src
+var(--ink-2)|1367|570|284|286|34|16|{'text': 1100, 'icon': 262, 'surface': 5}|{'inline': 1083, 'svg': 262, 'script': 22}
+var(--ink)|1060|455|205|250|34|16|{'text': 732, 'icon': 233, 'surface': 76, 'border': 19}|{'helmet': 7, 'inline': 758, 'script': 64, 'svg': 231}
+var(--brand)|587|228|120|108|34|16|{'text': 271, 'icon': 206, 'surface': 101, 'border': 9}|{'inline': 387, 'svg': 163, 'script': 36, 'helmet': 1}
+var(--line)|454|191|90|101|33|15|{'surface': 245, 'shadow/ring': 130, 'border': 79}|{'inline': 405, 'script': 45, 'helmet': 4}
+var(--surface)|472|190|104|86|34|16|{'surface': 463, 'shadow/ring': 4, 'icon': 4, 'text': 1}|{'inline': 435, 'script': 33, 'svg': 4}
+#ffffff|529|163|100|63|34|16|{'text': 294, 'icon': 152, 'surface': 72, 'border': 7}|{'inline': 290, 'svg': 143, 'helmet': 6, 'script': 90}
+currentcolor|364|126|67|59|21|8|{'icon': 364}|{'svg': 334, 'inline': 30}
+transparent|300|99|57|42|33|15|{'surface': 280, 'border': 20}|{'helmet': 5, 'inline': 217, 'script': 78}
+rgba(255,255,255,0)|192|64|41|23|22|7|{'surface': 192}|{'inline': 192}
+rgba(255,255,255,0.95)|189|62|39|23|21|6|{'surface': 189}|{'inline': 189}
+rgba(255,255,255,0.35)|188|61|38|23|21|6|{'surface': 188}|{'inline': 188}
+var(--brand-hero)|123|57|37|20|29|14|{'icon': 123}|{'svg': 95, 'inline': 28}
+rgba(255,255,255,0.68)|130|56|32|24|33|15|{'text': 130}|{'inline': 130}
+rgba(17,25,33,0.06)|127|47|26|21|13|6|{'shadow/ring': 127}|{'inline': 127}
+rgba(17,25,33,0.20)|118|41|24|17|11|4|{'shadow/ring': 118}|{'inline': 118}
+#0a0a0a|142|36|23|13|21|6|{'text': 97, 'surface': 22, 'border': 13, 'icon': 10}|{'helmet': 5, 'script': 127, 'svg': 10}
+var(--ink-4)|61|32|16|16|24|11|{'surface': 35, 'text': 17, 'icon': 9}|{'script': 30, 'inline': 22, 'svg': 9}
+#fdecec|32|16|10|6|29|13|{'surface': 32}|{'inline': 32}
+#a84c46|54|13|7|6|14|4|{'text': 54}|{'script': 54}
+rgba(255,0,0,0.8)|20|12|12|0|7|3|{'text': 20}|{'inline': 20}
+var(--bintang)|11|11|3|8|2|2|{'icon': 11}|{'svg': 6, 'inline': 5}
+#c9c9cb|27|9|4|5|14|5|{'text': 26, 'surface': 1}|{'inline': 1, 'script': 26}
+#ececec|32|8|4|4|13|4|{'surface': 28, 'border': 4}|{'script': 32}
+#000000|11|8|7|1|6|3|{'icon': 5, 'other:-webkit-mask-image': 3, 'other:mask-image': 3}|{'svg': 5, 'inline': 6}
+#157f3c|15|7|4|3|11|4|{'surface': 14, 'icon': 1}|{'script': 10, 'inline': 5}
+rgba(17,25,33,0.12)|11|7|3|4|5|3|{'shadow/ring': 11}|{'inline': 11}
+rgba(255,255,255,0.88)|7|7|6|1|3|3|{'surface': 7}|{'inline': 6, 'script': 1}
+rgba(17,25,33,0.11)|7|7|7|0|3|3|{'shadow/ring': 7}|{'inline': 6, 'script': 1}
+var(--line-kuat)|19|6|3|3|19|6|{'border': 12, 'shadow/ring': 7}|{'inline': 14, 'helmet': 5}
+rgba(10,10,10,0)|14|6|3|3|14|6|{'surface': 14}|{'inline': 14}
+var(--bintang-garis)|9|6|1|5|5|2|{'icon': 9}|{'inline': 9}
+rgba(17,25,33,0.10)|6|6|6|0|1|1|{'shadow/ring': 6}|{'inline': 6}
+rgba(17,25,33,0.28)|12|5|2|3|12|5|{'shadow/ring': 12}|{'inline': 12}
+#dcdcde|10|5|3|2|6|3|{'text': 6, 'surface': 3, 'icon': 1}|{'script': 9, 'svg': 1}
+var(--chat-mati)|11|4|2|2|11|4|{'surface': 11}|{'script': 11}
+#4285f4|11|4|2|2|11|4|{'icon': 11}|{'svg': 11}
+#34a853|11|4|2|2|11|4|{'icon': 11}|{'svg': 11}
+#fbbc05|11|4|2|2|11|4|{'icon': 11}|{'svg': 11}
+#ea4335|11|4|2|2|11|4|{'icon': 11}|{'svg': 11}
+#1877f2|11|4|2|2|11|4|{'icon': 11}|{'svg': 11}
+var(--brand-subtle)|34|3|2|1|9|3|{'surface': 34}|{'inline': 12, 'script': 21, 'helmet': 1}
+rgba(255,30,0)|22|3|3|0|8|1|{'surface': 18, 'shadow/ring': 4}|{'inline': 22}
+rgba(17,25,33,0.26)|4|3|2|1|4|3|{'shadow/ring': 4}|{'inline': 4}
+var(--biru-tinta)|3|3|3|0|1|1|{'text': 2, 'surface': 1}|{'inline': 3}
+var(--garis-panel)|3|3|3|0|1|1|{'border': 3}|{'inline': 3}
+var(--awas-bg)|3|3|0|3|1|1|{'surface': 3}|{'inline': 3}
+rgba(255,255,255,0.82)|8|2|1|1|7|2|{'text': 7, 'surface': 1}|{'inline': 8}
+rgba(10,10,10,0.52)|7|2|1|1|7|2|{'surface': 7}|{'inline': 7}
+rgba(10,10,10,0.88)|7|2|1|1|7|2|{'surface': 7}|{'inline': 7}
+#faf5ff|7|2|2|0|7|2|{'surface': 7}|{'inline': 7}
+#ecdcfe|7|2|2|0|7|2|{'shadow/ring': 7}|{'inline': 7}
+#7c3aed|7|2|2|0|7|2|{'surface': 7}|{'inline': 7}
+#6d28d9|7|2|2|0|7|2|{'text': 7}|{'inline': 7}
+rgba(10,10,10,0.72)|5|2|1|1|5|2|{'surface': 5}|{'inline': 5}
+#f4f4f4|5|2|1|1|5|2|{'icon': 5}|{'svg': 5}
+#1e1e1e|5|2|1|1|5|2|{'icon': 5}|{'svg': 5}
+rgba(9,12,17,0.56)|5|2|2|0|5|2|{'surface': 5}|{'inline': 5}
+rgba(9,12,17,0.44)|5|2|2|0|5|2|{'surface': 5}|{'inline': 5}
+rgba(9,12,17,0.70)|5|2|2|0|5|2|{'surface': 5}|{'inline': 5}
+rgba(9,12,17,0.86)|5|2|2|0|5|2|{'surface': 5}|{'inline': 5}
+#d6d6db|5|2|2|0|5|2|{'surface': 5}|{'script': 5}
+rgba(17,25,33,0.34)|4|2|0|2|4|2|{'shadow/ring': 4}|{'inline': 4}
+#1d4ed8|4|2|0|2|2|1|{'surface': 4}|{'inline': 2, 'script': 2}
+var(--star-stroke)|4|2|2|0|2|1|{'icon': 4}|{'inline': 4}
+rgba(17,25,33,0.08)|3|2|1|1|3|2|{'shadow/ring': 3}|{'inline': 3}
+rgba(255,255,255,0.86)|3|2|1|1|3|2|{'text': 2, 'surface': 1}|{'inline': 3}
+rgba(255,255,255,0.90)|3|2|2|0|2|1|{'text': 3}|{'inline': 3}
+var(--biru-dasar)|2|2|2|0|1|1|{'surface': 2}|{'inline': 2}
+rgba(10,10,10,0.62)|2|2|1|1|2|2|{'surface': 2}|{'inline': 2}
+rgba(10,10,10,0.28)|2|2|1|1|2|2|{'surface': 2}|{'inline': 2}
+#ffb800|2|2|0|2|1|1|{'surface': 1, 'icon': 1}|{'inline': 1, 'svg': 1}
+rgba(17,25,33,0.30)|2|2|2|0|1|1|{'shadow/ring': 2}|{'inline': 2}
+rgba(0,0,0,0.55)|2|2|2|0|1|1|{'other:-webkit-mask-image': 1, 'other:mask-image': 1}|{'inline': 2}
+rgba(255,255,255,0.92)|7|1|1|0|7|1|{'text': 7}|{'inline': 7}
+var(--whatsapp)|6|1|1|0|6|1|{'text': 6}|{'inline': 6}
+rgba(0,0,0,0.14)|4|1|1|0|4|1|{'shadow/ring': 4}|{'inline': 4}
+var(--star)|2|1|1|0|2|1|{'icon': 2}|{'inline': 2}
+var(--keping-biru)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+var(--keping-abu)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+var(--keping-hangat)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+#e4e4e6|1|1|0|1|1|1|{'surface': 1}|{'inline': 1}
+rgba(253,236,236,0.86)|1|1|0|1|1|1|{'surface': 1}|{'inline': 1}
+rgba(253,236,236,0.30)|1|1|0|1|1|1|{'surface': 1}|{'inline': 1}
+rgba(17,25,33,0.14)|1|1|0|1|1|1|{'shadow/ring': 1}|{'inline': 1}
+#9a6700|1|1|0|1|1|1|{'icon': 1}|{'svg': 1}
+rgba(255,255,255,0.36)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(255,255,255,0.15)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(255,255,255,0.05)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(255,255,255,0.12)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(17,25,33,0.07)|1|1|1|0|1|1|{'shadow/ring': 1}|{'inline': 1}
+rgba(255,255,255,0.38)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(255,255,255,0.72)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(255,255,255,0.20)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+rgba(253,236,236,0.72)|1|1|1|0|1|1|{'surface': 1}|{'inline': 1}
+#f8aa08|27|0|0|0|3|0|{'icon': 27}|{'svg': 27}
+rgba(0,0,0,0.06)|10|0|0|0|3|0|{'shadow/ring': 10}|{'inline': 10}
+rgba(0,0,0,0.10)|10|0|0|0|3|0|{'shadow/ring': 10}|{'inline': 10}
+rgba(0,0,0,0.16)|10|0|0|0|3|0|{'shadow/ring': 10}|{'inline': 10}
+#1b191a|6|0|0|0|2|0|{'text': 5, 'surface': 1}|{'inline': 6}
+rgb(255,30,0)|6|0|0|0|3|0|{'surface': 6}|{'helmet': 6}
+#253a4a|3|0|0|0|3|0|{'surface': 3}|{'helmet': 3}
+#517fa4|3|0|0|0|3|0|{'surface': 3}|{'helmet': 3}
+#37566e|3|0|0|0|3|0|{'text': 3}|{'inline': 3}
+rgba(9,12,17,0.34)|2|0|0|0|2|0|{'surface': 2}|{'inline': 2}
+rgba(9,12,17,0.10)|2|0|0|0|2|0|{'surface': 2}|{'inline': 2}
+rgba(9,12,17,0.52)|2|0|0|0|2|0|{'surface': 2}|{'inline': 2}
+rgba(255,255,255,0.84)|2|0|0|0|2|0|{'text': 2}|{'inline': 2}
+rgba(0,0,0,0.12)|2|0|0|0|2|0|{'shadow/ring': 2}|{'script': 2}
+#5f5f5f|2|0|0|0|2|0|{'text': 2}|{'script': 2}
+rgba(88,88,88,0.1)|2|0|0|0|2|0|{'shadow/ring': 2}|{'inline': 2}
+#fefefe|2|0|0|0|1|0|{'text': 2}|{'inline': 2}
+#fe0100|2|0|0|0|1|0|{'surface': 2}|{'inline': 2}
+rgba(255,255,255,0.22)|2|0|0|0|1|0|{'border': 1, 'surface': 1}|{'inline': 2}
+#fbfbfb|1|0|0|0|1|0|{'text': 1}|{'inline': 1}
+var(--surface-2)|1|0|0|0|1|0|{'surface': 1}|{'inline': 1}
+rgba(255,30,0,0)|1|0|0|0|1|0|{'surface': 1}|{'inline': 1}
+rgba(253,236,236,0.42)|1|0|0|0|1|0|{'surface': 1}|{'inline': 1}
+#f6f8fa|1|0|0|0|1|0|{'surface': 1}|{'inline': 1}
+rgba(11,39,75,0.12)|1|0|0|0|1|0|{'shadow/ring': 1}|{'inline': 1}
+rgba(11,39,75,0.08)|1|0|0|0|1|0|{'shadow/ring': 1}|{'inline': 1}
+#01132c|1|0|0|0|1|0|{'text': 1}|{'inline': 1}
+#3f536b|1|0|0|0|1|0|{'icon': 1}|{'svg': 1}
+rgba(255,255,255,0.80)|1|0|0|0|1|0|{'text': 1}|{'inline': 1}
+## token→hex {'--surface': ['#ffffff'], '--line': ['#ececec'], '--chat-ikon': ['#2563eb'], '--chat-mati': ['#9ca3af'], '--line-kuat': ['#d4d4d4'], '--online-ikon': ['#16a34a'], '--whatsapp': ['#25d366'], '--ink': ['#0a0a0a'], '--ink-2': ['#5f5f5f'], '--ink-4': ['#c9c9cb'], '--brand': ['#d70100'], '--brand-hero': ['#ff0000'], '--brand-subtle': ['#fdecec'], '--price': ['#15763b'], '--bintang': ['#ffb800'], '--bintang-garis': ['#9a6700'], '--price-bg': ['#eaf7ee'], '--biru-dasar': ['#eef1f9'], '--biru-tinta': ['#16357a'], '--keping-biru': ['#e3e9f7'], '--keping-abu': ['#ededf0'], '--keping-hangat': ['#f1efec'], '--garis-panel': ['#dfe4f0'], '--nav-aktif': ['#a84c46'], '--awas-bg': ['#fdecec'], '--surface-2': ['#f6f6f6'], '--star': ['#ffb800'], '--star-stroke': ['#9a6700'], '--star-kosong': ['#dcdcde']}
+## clusters of opaque colours, deltaE76<=6 (all boards)
+[('#ffffff', 163, 529), ('#ececec', 8, 32), ('#c9c9cb', 9, 27), ('#dcdcde', 5, 10), ('#faf5ff', 2, 7), ('#f4f4f4', 2, 5), ('#d6d6db', 2, 5), ('#fefefe', 0, 2), ('#e4e4e6', 1, 1), ('#fbfbfb', 0, 1), ('#f6f8fa', 0, 1)]
+[('#0a0a0a', 36, 142), ('#000000', 8, 11)]
+[('rgba(255,30,0)', 3, 22), ('rgb(255,30,0)', 0, 6), ('#fe0100', 0, 2)]
+[('#fbbc05', 4, 11), ('#ffb800', 2, 2)]
+[('#1b191a', 0, 6), ('#1e1e1e', 2, 5)]
+[('#37566e', 0, 3), ('#3f536b', 0, 1)]
+## contrast
+ink/surface #0a0a0a #ffffff 19.8
+ink-2/surface #5f5f5f #ffffff 6.39
+ink-4/surface #c9c9cb #ffffff 1.65
+brand/surface (text or button) #d70100 #ffffff 5.39
+brand-hero/surface #ff0000 #ffffff 4.0
+white on brand #ffffff #d70100 5.39
+white on brand-hero #ffffff #ff0000 4.0
+price/surface #15763b #ffffff 5.7
+price/price-bg #15763b #eaf7ee 5.16
+brand/brand-subtle #d70100 #fdecec 4.72
+nav-aktif/brand-subtle #a84c46 #fdecec 4.85
+nav-aktif/surface #a84c46 #ffffff 5.55
+ink-2/line(sunken) #5f5f5f #ececec 5.41
+ink/line(sunken) #0a0a0a #ececec 16.76
+chat-mati on white #9ca3af #ffffff 2.54
+white on chat-mati #ffffff #9ca3af 2.54
+chat-ikon/white #2563eb #ffffff 5.17
+online-ikon/white #16a34a #ffffff 3.3
+whatsapp/white #25d366 #ffffff 1.98
+white on whatsapp #ffffff #25d366 1.98
+star/white #ffb800 #ffffff 1.73
+star-stroke/white #9a6700 #ffffff 4.87
+line/white #ececec #ffffff 1.18
+line-kuat/white #d4d4d4 #ffffff 1.48
+biru-tinta/biru-dasar #16357a #eef1f9 10.19
+brand-hero/ink #ff0000 #0a0a0a 4.95

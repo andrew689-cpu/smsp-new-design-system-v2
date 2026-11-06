@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>FunctionShowcase</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <dc-import name="Heading" level="{{ 3 }}" tata="ponsel" rata="left" teks="{{ judul }}" hint-size="100%,1.9rem"></dc-import>
+    <div role="group" aria-roledescription="carousel" aria-label="{{ ariaLabel }}" style="margin-top: var(--jarak-y-dalam); position: relative">
+      <div style="position: relative; aspect-ratio: 1170 / 675; overflow: hidden; background: var(--surface)">
+        <img src="{{ kini.foto }}" alt="{{ kini.alt }}" style="{{ kini.gayaImg }}">
+      </div>
+      <h3 style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-semibold); text-align: center; color: var(--ink)">{{ kini.judul }}</h3>
+      <dc-import name="CarouselDots" jenis="fungsi" padding="0" ariaLabel="Pilih fungsi" titik="{{ titik }}" hint-size="100%,3.2rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 3 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    </div>
+    <div role="group" aria-label="{{ ariaLabel }}" style="position: relative">
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; column-gap: 0; align-items: start">
+        <sc-for list="{{ daftar }}" as="fl" hint-placeholder-count="4">
+          <div style="{{ fl.gaya }}">
+            <div style="position: relative; width: 100%; aspect-ratio: 1170 / 675; background: var(--surface); overflow: hidden">
+              <img src="{{ fl.foto }}" alt="{{ fl.alt }}" loading="lazy" style="{{ fl.gayaImg }}">
+            </div>
+            <h3 style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); text-align: center; color: var(--ink)">{{ fl.judul }}</h3>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isLama }}" hint-placeholder-val="{{ false }}">
+      <div role="group" aria-roledescription="carousel" aria-label="Fungsi besi hollow hitam" style="margin-top: 1.8rem; position: relative; aspect-ratio: 1170 / 675; overflow: hidden; background: var(--line)">
+        <a href="{{ kini.url }}" target="_blank" rel="noopener" aria-label="{{ kini.aria }}" style="position: absolute; inset: 0; display: block">
+          <img src="{{ kini.foto }}" alt="{{ kini.alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          <div style="position: relative; height: 100%; box-sizing: border-box; display: flex; align-items: flex-end; justify-content: center; padding: 0 1.4rem 1.6rem 1.4rem">
+            <div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; padding: 0 1.6rem 0.4rem 1.6rem">
+              <h3 style="margin: 0; font-size: var(--teks-subhead-lama); line-height: 1.15; font-weight: var(--bobot-bold); color: var(--ink); text-align: center">{{ kini.judul }}</h3>
+              <span style="display: inline-flex; align-items: center; row-gap: 0.6rem; column-gap: 0.3rem; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: var(--ink)">Baca artikel<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><path d="M5 12h13"></path><path d="M12.5 6l6 6-6 6"></path></svg></span>
+            </div>
+          </div>
+        </a>
+        <button type="button" onClick="{{ mundur }}" aria-label="Fungsi sebelumnya" style="position: absolute; top: 38%; transform: translateY(-50%); z-index: 2; box-sizing: border-box; width: 4.4rem; height: 4.4rem; border: 0; padding: 0; border-radius: var(--pill); display: grid; place-items: center; background: var(--kaca); -webkit-backdrop-filter: var(--kaca-blur); backdrop-filter: var(--kaca-blur); box-shadow: var(--kaca-rim), var(--kaca-bayang); left: 1rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+        </button>
+        <button type="button" onClick="{{ maju }}" aria-label="Fungsi berikutnya" style="position: absolute; top: 38%; transform: translateY(-50%); z-index: 2; box-sizing: border-box; width: 4.4rem; height: 4.4rem; border: 0; padding: 0; border-radius: var(--pill); display: grid; place-items: center; background: var(--kaca); -webkit-backdrop-filter: var(--kaca-blur); backdrop-filter: var(--kaca-blur); box-shadow: var(--kaca-rim), var(--kaca-bayang); right: 1rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Fungsi"},"ariaLabel":{"editor":null,"default":"Fungsi besi hollow hitam"},"butir":{"editor":null},"lama":{"editor":"boolean","default":false},"$preview":{"width":330,"height":260}}'>
+class Component extends DCLogic {
+  state = { i: 0 };
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const butir = this.props.butir ?? [
+      { judul: 'Rangka Kanopi', foto: '/_blob/85aed82a54b3ae94fb87d99f6fd84f69', alt: 'Rangka kanopi besi hollow hitam', fit: 'contain' },
+      { judul: 'Pagar Rumah', foto: '/_blob/519c0dd2e3900cdaf1b29ca1bb0fe096', alt: 'Pagar besi hollow hitam', fit: 'contain' }
+    ];
+    const n = butir.length;
+    const i = Math.min(Math.max(0, this.state.i), n - 1);
+    const gayaImg = (b) => 'position: absolute; inset: 0; ' + 'display: block; width: 100%; height: 100%; object-fit: ' + (b.fit || 'cover');
+    const kini = butir[i];
+    return {
+      isLama: !!this.props.lama,
+      mundur: () => this.setState({ i: (i + n - 1) % n }),
+      maju: () => this.setState({ i: (i + 1) % n }),
+      isPonsel: !d && !this.props.lama,
+      isDesktop: d,
+      judul: this.props.judul ?? 'Fungsi',
+      ariaLabel: this.props.ariaLabel ?? 'Fungsi besi hollow hitam',
+      kini: { judul: kini.judul, foto: kini.foto, alt: kini.alt, url: kini.url, aria: kini.judul + ' — baca artikel di smsperkasa.com', gayaImg: gayaImg(kini) },
+      titik: butir.map((b, j) => ({
+        aria: 'Fungsi ' + (j + 1) + ' dari ' + n + ': ' + b.judul + (j === i ? ', sedang tampil' : ''),
+        aktif: j === i,
+        pergi: () => this.setState({ i: j })
+      })),
+      daftar: butir.map((b, j) => ({
+        judul: b.judul,
+        foto: b.foto,
+        alt: b.alt,
+        gayaImg: gayaImg(b),
+        gaya: 'margin: 0 1.2rem 0 ' + (j === 0 ? '0' : '1.2rem')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

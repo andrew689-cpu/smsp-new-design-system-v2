@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewCard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isKutipanM }}" hint-placeholder-val="{{ true }}">
+  <div style="box-sizing: border-box; padding: 2rem; display: flex; flex-direction: column; justify-content: center; gap: 1.4rem; overflow: hidden; background: var(--surface); border: 0.1rem solid var(--line); border-radius: var(--action); color: var(--ink)">
+    <blockquote style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word">“<sc-for list="{{ segmen }}" as="pt" hint-placeholder-count="3"><sc-if value="{{ pt.b }}" hint-placeholder-val="{{ true }}"><strong style="font-weight: var(--bobot-bold)">{{ pt.t }}</strong></sc-if><sc-if value="{{ pt.n }}" hint-placeholder-val="{{ false }}">{{ pt.t }}</sc-if></sc-for>”</blockquote>
+    <dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="10rem,1.8rem"></dc-import>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 0.2rem">
+      <p style="margin: 0; text-align: left; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-semibold); color: var(--ink)">{{ siapa }}</p>
+      <sc-if value="{{ adaTanggal }}" hint-placeholder-val="{{ true }}">
+        <p style="margin: 0; text-align: left; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); font-weight: var(--bobot-regular); color: var(--ink-2)">{{ tanggal }}</p>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isSlideD }}" hint-placeholder-val="{{ false }}">
+  <div style="box-sizing: border-box; padding: 2rem; display: flex; flex-direction: column; gap: 1.4rem; overflow: hidden; background: var(--surface); border: 0.1rem solid var(--line); border-radius: var(--action); color: var(--ink)">
+    <blockquote style="margin: 0; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word">“<sc-for list="{{ segmen }}" as="pt" hint-placeholder-count="3"><sc-if value="{{ pt.b }}" hint-placeholder-val="{{ true }}"><strong style="font-weight: var(--bobot-bold)">{{ pt.t }}</strong></sc-if><sc-if value="{{ pt.n }}" hint-placeholder-val="{{ false }}">{{ pt.t }}</sc-if></sc-for>”</blockquote>
+    <dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="10rem,1.8rem"></dc-import>
+    <div style="display: flex; flex-direction: column; gap: 0.2rem">
+      <p style="margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-semibold); color: var(--ink); line-height: var(--tinggi-tengah)">{{ siapa }}</p>
+      <sc-if value="{{ adaTanggal }}" hint-placeholder-val="{{ true }}">
+        <p style="margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-regular); color: var(--ink-2); line-height: var(--tinggi-tengah)">{{ tanggal }}</p>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isKutipanD }}" hint-placeholder-val="{{ false }}">
+  <article style="flex-grow: 1; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--rapat); padding: 2.2rem; border: 0.1rem solid var(--line); border-radius: var(--action)">
+    <blockquote style="margin: 0; min-height: 8.1rem; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word">“<sc-for list="{{ segmen }}" as="pt" hint-placeholder-count="3"><sc-if value="{{ pt.b }}" hint-placeholder-val="{{ true }}"><strong style="font-weight: var(--bobot-bold)">{{ pt.t }}</strong></sc-if><sc-if value="{{ pt.n }}" hint-placeholder-val="{{ false }}">{{ pt.t }}</sc-if></sc-for>”</blockquote>
+    <dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="9rem,1.6rem"></dc-import>
+    <div style="display: flex; flex-direction: column; gap: 0.2rem; margin-top: auto">
+      <p style="margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-semibold); color: var(--ink); line-height: var(--tinggi-tengah)">{{ siapa }}</p>
+      <sc-if value="{{ adaTanggal }}" hint-placeholder-val="{{ true }}">
+        <p style="margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-regular); color: var(--ink-2); line-height: var(--tinggi-tengah)">{{ tanggal }}</p>
+      </sc-if>
+    </div>
+  </article>
+</sc-if>
+<sc-if value="{{ isPita }}" hint-placeholder-val="{{ false }}">
+  <article aria-hidden="{{ ariaHidden }}" style="{{ g.kartu }}">
+    <div style="display: flex; align-items: flex-start; column-gap: 0">
+      <sc-if value="{{ adaTanda }}" hint-placeholder-val="{{ true }}">
+        <span aria-hidden="true" style="flex-shrink: 0; font-size: var(--teks-section-lg); line-height: var(--tinggi-kutip); font-weight: var(--bobot-black); color: var(--brand); margin-right: 0.5rem">“</span>
+      </sc-if>
+      <p style="{{ g.teks }}">{{ teksPolos }}</p>
+    </div>
+    <span style="{{ g.bintang }}"><dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="8.5rem,1.5rem"></dc-import></span>
+    <div style="{{ g.orang }}">
+      <span aria-hidden="true" style="width: 2.8rem; height: 2.8rem; flex-shrink: 0; border-radius: var(--pill); background: var(--awas-bg); display: grid; place-items: center; margin-right: 0.45rem">
+        <dc-import name="Icon" ikon="orang" hint-size="1.5rem,1.5rem"></dc-import>
+      </span>
+      <span style="{{ g.nama }}">
+        <span style="display: block; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-artikel)">{{ siapa }}</span>
+        <span style="{{ g.tanggal }}">{{ tanggal }}</span>
+      </span>
+    </div>
+  </article>
+</sc-if>
+<sc-if value="{{ isDaftarM }}" hint-placeholder-val="{{ false }}">
+  <li data-baris="1" style="padding: 1.8rem 0 2rem 0; color: var(--ink)">
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink); text-align: justify; -webkit-hyphens: auto; hyphens: auto"><span style="font-weight: var(--bobot-bold)">{{ judul }}.</span> {{ teksPolos }}</p>
+    <span style="margin-top: 1.1rem; display: inline-flex"><dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="8.5rem,1.5rem"></dc-import></span>
+    <span style="margin-top: 1rem; display: block; font-size: var(--teks-body); font-weight: var(--bobot-bold); line-height: var(--tinggi-artikel)">{{ siapa }}</span>
+    <span style="margin-top: 0.2rem; display: block; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ tanggal }}</span>
+  </li>
+</sc-if>
+<sc-if value="{{ isDaftarD }}" hint-placeholder-val="{{ false }}">
+  <div style="padding: 2.2rem 0 2.4rem 0; color: var(--ink)">
+    <p style="margin: 0; height: 6.75rem; font-size: var(--teks-body); color: var(--ink); line-height: var(--tinggi-ulasan-isi)"><span style="font-weight: var(--bobot-bold)">{{ judul }}.</span> {{ teksPolos }}</p>
+    <span style="display: inline-flex; margin-top: 1rem"><dc-import name="Rating" dc-props="{{ ratingProps }}" hint-size="8.5rem,1.5rem"></dc-import></span>
+    <span style="display: block; margin-top: 1.2rem; font-size: var(--teks-body); font-weight: var(--bobot-bold); line-height: var(--tinggi-artikel)">{{ nama }}</span>
+    <span style="display: block; font-size: var(--teks-meta); color: var(--ink-2); line-height: var(--tinggi-tengah)">{{ metaD }}</span>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kutipan","slide","pita","daftar"],"default":"kutipan","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"rating":{"editor":"int","min":1,"max":5,"default":5,"section":"Isi"},"judul":{"editor":"text","default":"Ukuran dan tebal pas","section":"Isi"},"teks":{"editor":"text","default":"","section":"Isi"},"nama":{"editor":"text","default":"Bu Fitri","section":"Isi"},"kota":{"editor":"text","default":"Surabaya","section":"Isi"},"tanggal":{"editor":"text","default":"18 Nov 2021","section":"Isi"},"segmen":{"editor":null,"section":"Data","tsType":"Array<{teks:string,tebal?:boolean}>"},"ariaHidden":{"editor":null,"section":"Aksesibilitas"},"$preview":{"width":232,"height":280}}'>
+class Component extends DCLogic {
+  // Pemenggal suku kata dari papan ponsel: browser tidak punya kamus pemenggalan Indonesia,
+  // jadi tanda hubung lunak dipasang sendiri supaya teks rata kanan-kiri tetap rapat.
+  penggal(t) {
+    const VOK = 'aiueo';
+    const isV = (c) => VOK.indexOf(String(c).toLowerCase()) !== -1;
+    const digraf = (a, b) => { const q = (String(a) + String(b)).toLowerCase(); return q === 'ng' || q === 'ny' || q === 'sy' || q === 'kh'; };
+    const diftong = (a, b) => { const q = (String(a) + String(b)).toLowerCase(); return q === 'ai' || q === 'au' || q === 'oi' || q === 'ei'; };
+    return String(t).replace(/[A-Za-z]{6,}/g, (w) => {
+      const cut = [];
+      let i = 0;
+      while (i < w.length) {
+        if (!isV(w[i])) { i++; continue; }
+        const k = i + 1;
+        let u = k;
+        while (u < w.length && !isV(w[u])) u++;
+        if (u >= w.length) break;
+        const c = u - k;
+        let at;
+        if (c === 0) { if (diftong(w[i], w[u])) { i = u; continue; } at = u; }
+        else if (c === 1) at = k;
+        else if (c === 2) at = digraf(w[k], w[k + 1]) ? k : k + 1;
+        else at = digraf(w[k], w[k + 1]) ? k + 2 : k + 1;
+        if (at >= 2 && w.length - at >= 2) cut.push(at);
+        i = u;
+      }
+      if (!cut.length) return w;
+      let out = '', q = 0;
+      for (let n = 0; n < cut.length; n++) { out += w.slice(q, cut[n]) + String.fromCharCode(0xAD); q = cut[n]; }
+      return out + w.slice(q);
+    });
+  }
+  renderVals() {
+    const jenis = this.props.jenis ?? 'kutipan';
+    const desktop = this.props.tata === 'desktop';
+    const rating = Number(this.props.rating ?? 5);
+    const BAWAAN = [
+      { teks: 'Selain harga, saya beli besi hollow di SMS Perkasa karena ' },
+      { teks: 'pelayanannya bagus', tebal: true },
+      { teks: ' dan ' },
+      { teks: 'bisa diandalkan', tebal: true }
+    ];
+    const asal = this.props.segmen ?? (this.props.teks ? [{ teks: this.props.teks }] : BAWAAN);
+    const nama = this.props.nama ?? 'Bu Fitri';
+    const kota = this.props.kota ?? (this.props.nama == null ? 'Surabaya' : '');
+    const tanggal = this.props.tanggal ?? (this.props.nama == null ? '18 Nov 2021' : '');
+    const judul = this.props.judul ?? 'Ukuran dan tebal pas';
+    const ukuranBintang = jenis === 'slide' ? 18 : jenis === 'kutipan' ? (desktop ? 16 : 18) : 15;
+    return {
+      isKutipanM: jenis === 'kutipan' && !desktop,
+      isKutipanD: jenis === 'kutipan' && desktop,
+      isSlideD: jenis === 'slide',
+      isPita: jenis === 'pita',
+      isDaftarM: jenis === 'daftar' && !desktop,
+      isDaftarD: jenis === 'daftar' && desktop,
+      adaTanda: !desktop,
+      segmen: asal.map((s) => ({ t: desktop ? s.teks : this.penggal(s.teks), b: !!s.tebal, n: !s.tebal })),
+      teksPolos: asal.map((s) => s.teks).join(''),
+      judul,
+      nama,
+      siapa: kota ? nama + ' — ' + kota : nama,
+      tanggal,
+      adaTanggal: !!tanggal,
+      metaD: kota ? kota + ' · ' + tanggal : tanggal,
+      ariaHidden: this.props.ariaHidden,
+      ratingProps: {
+        nilai: rating,
+        ukuran: ukuranBintang,
+        polos: !desktop && jenis !== 'kutipan',
+        label: desktop ? rating + ' dari 5 bintang' : 'Rating ' + rating + ' dari 5'
+      },
+      g: desktop ? {
+        kartu: 'display: flex; flex-direction: column; gap: 1.2rem; width: 30rem; padding: 2rem; background: var(--cincin-dasar); border-radius: var(--action); box-shadow: var(--pita-bayang-d); -webkit-backdrop-filter: var(--pita-blur); backdrop-filter: var(--pita-blur); color: var(--ink)',
+        teks: 'margin: 0 0.5rem 0 0; height: 6.75rem; font-size: var(--teks-body); color: var(--ink); line-height: var(--tinggi-baca)',
+        bintang: 'display: flex',
+        orang: 'display: flex; align-items: center; column-gap: 0; margin-top: auto',
+        nama: 'margin-left: 0.45rem; margin-right: 0.45rem',
+        tanggal: 'display: block; font-size: var(--teks-chip); color: var(--ink-2); line-height: var(--tinggi-artikel)'
+      } : {
+        kartu: 'flex-shrink: 0; width: 27.2rem; box-sizing: border-box; padding: 1.6rem; border-radius: var(--action); background: var(--pita-kartu-m); -webkit-backdrop-filter: var(--pita-blur); backdrop-filter: var(--pita-blur); box-shadow: var(--pita-bayang-m); display: flex; flex-direction: column; color: var(--ink)',
+        teks: 'margin: 0 0.5rem; min-width: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink)',
+        bintang: 'margin-top: 1rem; display: flex',
+        orang: 'margin-top: 1rem; display: flex; align-items: center; column-gap: 0',
+        nama: 'min-width: 0; margin-left: 0.45rem; margin-right: 0.45rem',
+        tanggal: 'display: block; margin-top: 0.1rem; font-size: var(--teks-chip); line-height: var(--tinggi-artikel); color: var(--ink-2)'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

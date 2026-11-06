@@ -1,0 +1,112 @@
+
+===== BerandaM4.dc.html Beranda
+main[] > h1:Distributor Besi Terpercaya — Beli Besi dan Material Konstru > role=group[Pilih spanduk] > h2:Kategori produk > h2:Produk unggulan kami > h2:Paling banyak dicari > h2:Produk terbaru kami > h3:Atap UPVC > h2:Cari berdasarkan Sektor > role=group[Pembanding foto: dengan dan tanpa SMS Pe] > h2:Ulasan Pelanggan > role=region[Ulasan pelanggan, geser atau pakai tombo]
+data-*: {'data-tepi': 19, 'data-harga': 4, 'data-tepi-y': 3, 'data-tepi-kisi-y': 2, 'data-jarak': 1, 'data-rel': 1, 'data-kalk-latar': 1, 'data-hero-upvc': 1, 'data-tepi-kisi': 1, 'data-banding': 1, 'data-rev-wrap': 1, 'data-rev-viewport': 1, 'data-rev-track': 1, 'data-rev-card': 1, 'data-rev-nav': 1, 'data-kaki': 1}
+state keys(10): ['awas', 'foot', 'bnr', 'revPage', 'revDrag', 'revHover', 'revFocus', 'revRM', 'revH', 'banding']
+methods(22): ['constructor', 'penggal', 'ulasanVals', '_revGo', '_revAutoOn', '_revMeasure', '_bnrEl', '_bnrSpy', '_bnrGo', '_revSchedule', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== RecCreateM4.dc.html Mobbin 3 · Produk Page
+role=group[Foto Besi Hollow Hitam] > role=group[Pilih foto] > h1:Besi Hollow Hitam > h2:Daftar Harga > role=dialog[Urutkan daftar harga] > role=radiogroup[Urutkan daftar harga] > role=group[Tampilan daftar harga] > h3:Tidak ada SKU untuk kombinasi ini > h2:Info Produk > h3:Fungsi > role=group[Fungsi besi hollow hitam] > h3:{{ fgJudulAwal }}   {{ fgJudulAkhir }} > role=group[Pilih fungsi] > h3:Keunggulan > h2:Artikel Terkait > role=group[Pilih artikel] > h2:Produk Terkait > h2:FAQ > h2:Dipercaya Mitra > h2:Pencarian terkait > role=dialog[Filter Besi Hollow Hitam] > h2:Filter Besi Hollow Hitam > role=tablist[Filter dan urutkan] > role=dialog[Cari di seluruh SMS Perkasa] > role=dialog[Pusat bantuan SMS Perkasa] > role=log[Percakapan dengan customer service] > role=group[Beri nilai pengalaman Anda] > role=group[Kategori artikel] > role=group[Keyboard]
+data-*: {'data-tepi': 72, 'data-bantu-row': 17, 'data-tepi-y': 9, 'data-tepi-kisi-y': 6, 'data-harga': 4, 'data-tepi-kisi': 3, 'data-kaki': 2, 'data-scrim': 2, 'data-panel': 2, 'data-keping-rel': 2, 'data-jarak': 1, 'data-bul': 1, 'data-nama': 1, 'data-lazy-sentinel': 1, 'data-lazy-spin': 1, 'data-hdr-thumb': 1, 'data-sheet': 1, 'data-cari': 1, 'data-set': 1, 'data-seg-thumb': 1, 'data-bar': 1, 'data-grid': 1, 'data-bantu': 1}
+state keys(43): ['awas', 'unggul', 'fungsi', 'hero', 'art', 'bantuan', 'nav', 'mnu', 'desk', 'info', 'ukuran', 'tebal', 'urut', 'ocOpen', 'ukuranOn', 'tebalOn', 'qOn', 'urutOpen', 'ocSeg', 'q', 'gulir', 'faqBuka', 'foot', 'limit', 'sek', 'vm', 'cariOpen', 'cariQ', 'kbNum', 'kbShift', 'kbHide', 'recent', 'bTab', 'bKat', 'bPesan', 'bLog', 'bCsat', 'bNama', 'bWaNo', 'bEmail', 'bTerisi', 'bSosial', 'bTujuan']
+methods(28): ['constructor', 'data', 'ukuranUnik', 'tebalUnik', '_jamKerja', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', '_lazyWatch', '_seksi', '_spy', 'korpus', 'cocokTeks', 'rupiah', 'angka', 'koma', 'cocok', 'togel', '_bantuanBlog', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'renderVals']
+props: {"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}
+
+===== SkuDetailM4.dc.html Mobbin 3 · Detail SKU
+role=group[Pilih foto] > h3:Standar dan material > h2:Info Produk > h3:{{ g.title }} > h2:Ukuran lainnya > h2:FAQ > h2:Ulasan pelanggan > role=region[Ulasan pelanggan, geser atau pakai tombo] > ul[Pusat bantuan] > role=dialog[Cari di seluruh SMS Perkasa] > role=group[Keyboard]
+data-*: {'data-tepi': 24, 'data-harga': 4, 'data-tepi-y': 3, 'data-bar': 2, 'data-jarak': 1, 'data-panel': 1, 'data-rev-wrap': 1, 'data-rev-viewport': 1, 'data-rev-track': 1, 'data-rev-card': 1, 'data-rev-nav': 1, 'data-kaki': 1, 'data-hdr-thumb': 1, 'data-scrim': 1, 'data-sheet': 1, 'data-cari': 1, 'data-set': 1, 'data-tepi-kisi-y': 1, 'data-grid': 1}
+state keys(22): ['foto', 'bantuan', 'nav', 'mnu', 'desk', 'faqBuka', 'sek', 'gulir', 'lainAwal', 'lainAkhir', 'revPage', 'revDrag', 'revHover', 'revFocus', 'revRM', 'revH', 'cariOpen', 'cariQ', 'kbNum', 'kbShift', 'kbHide', 'recent']
+methods(29): ['constructor', 'componentDidMount', '_galeri', '_lainUkur', 'componentDidUpdate', 'componentWillUnmount', '_seksi', '_spy', '_revMeasure', '_revAutoOn', '_revSchedule', '_revGo', 'data', 'korpus', 'cocokTeks', 'rupiah', 'angka', 'koma', 'penggal', 'ulasanVals', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== UlasanM4Salinan.dc.html Salinan Mobbin 3 · Semua Ulasan
+h1:Ulasan Pelanggan  SMS Perkasa > role=region[{{ pitaLabel }}] > section[Yang sering disebut pelanggan] > h2:Semua ulasan > section[Semua ulasan]
+data-*: {'data-tepi': 9, 'data-pita': 1, 'data-tepi-y': 1, 'data-baris': 1}
+state keys(1): ['tampil']
+methods(4): ['constructor', '_data', '_hias', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== ProdukIndexM4.dc.html Semua Produk
+main[] > nav[Remah roti] > h1:Semua Produk
+data-*: {'data-tepi': 6, 'data-tepi-y': 3, 'data-jarak': 1, 'data-tepi-kisi': 1, 'data-tepi-kisi-y': 1, 'data-kaki': 1}
+state keys(2): ['awas', 'foot']
+methods(13): ['constructor', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== KategoriM4.dc.html Kategori
+main[] > nav[Remah roti] > h1:Kategori
+data-*: {'data-tepi': 5, 'data-tepi-y': 4, 'data-jarak': 1, 'data-kaki': 1}
+state keys(2): ['awas', 'foot']
+methods(13): ['constructor', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== SalinanBlogM4.dc.html Blog
+main[] > h1: > section[] > h2:ARTIKEL BARU > section[] > section[] > h2:Hasil pencarian > section[] > section[] > h2:Berita Baja > section[] > h2:Industri Baja > section[] > h2:Produk Besi > section[] > h2:Team > section[] > h2:Trivia > role=group[Kategori artikel] > role=dialog[Pusat bantuan SMS Perkasa] > role=log[Percakapan dengan customer service] > role=group[Beri nilai pengalaman Anda] > role=group[Kategori artikel]
+data-*: {'data-tepi': 46, 'data-bantu-row': 17, 'data-tepi-y': 11, 'data-tepi-x': 11, 'data-jarak': 2, 'data-kaki': 1, 'data-cari': 1, 'data-bar': 1, 'data-grid': 1, 'data-scrim': 1, 'data-sheet': 1, 'data-kat-rel': 1, 'data-set': 1, 'data-bantu': 1, 'data-keping-rel': 1}
+state keys(18): ['awas', 'foot', 'nav', 'kat', 'cari', 'q', 'bantuan', 'bTab', 'bKat', 'bPesan', 'bLog', 'bCsat', 'bNama', 'bWaNo', 'bEmail', 'bTerisi', 'bSosial', 'bTujuan']
+methods(15): ['constructor', '_jamKerja', '_bantuanBlog', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== SalinanArtikel2M4.dc.html Detail Artikel
+main[] > h1:Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisie > h3:Struktur baja berstandar adalah cara terbaik membangun sekol > section[] > h2:{{ bg.judul }} > h3:{{ b.teks }} > nav[Daftar isi]
+data-*: {'data-tepi-y': 5, 'data-tepi': 4, 'data-jarak': 2, 'data-bar': 1, 'data-grid': 1}
+state keys(2): ['awas', 'foot']
+methods(13): ['constructor', '_jarakHitung', '_jarakBasis', '_jarakRuntuh', '_jarakRem', '_jarakBatas', '_jarakSeksi', '_jarakPantau', '_jarakLepas', 'componentDidMount', 'componentDidUpdate', 'componentWillUnmount', 'renderVals']
+props: {"$preview":{"width":360,"height":800}}
+
+===== DesktopBerandaM4.dc.html Beranda · Desktop
+nav[Kategori produk] > main[] > h1:Distributor Besi Terpercaya — Beli Besi dan Material Konstru > role=group[Pilih spanduk] > h2:Kategori produk > h2:Produk unggulan kami > h2:Paling banyak dicari > h2:Produk terbaru kami > h3:Atap UPVC Double Layer > h2:Cari berdasarkan Sektor > role=group[Pembanding foto: dengan dan tanpa SMS Pe] > h2:Ulasan Pelanggan > role=group[Pilih ulasan]
+data-*: {'data-tepi': 32, 'data-tepi-kisi-y': 7, 'data-tepi-kisi': 6, 'data-harga': 4, 'data-rel': 2, 'data-banding': 1, 'data-tepi-y': 1}
+state keys(5): ['awas', 'q', 'bnr', 'ul', 'banding']
+methods(12): ['constructor', '_bnrEl', '_bnrStep', '_ulEl', '_ulHal', '_ulSpy', '_ulGo', '_bnrSpy', '_bnrGo', 'componentDidMount', 'componentWillUnmount', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopProdukM4.dc.html Desktop Product Page
+nav[Kategori produk] > h1:Besi Hollow Hitam > h2:Daftar Harga > aside[] > h3:Filter > role=radiogroup[Urutkan daftar harga] > role=dialog[Urutkan daftar harga] > role=radiogroup[Urutkan daftar harga] > role=group[Tampilan daftar harga] > h3:Tidak ada SKU untuk kombinasi ini > nav[Halaman daftar harga] > h2:Info Produk > h3:Kelebihan > h3:Kekurangan > h3:Fungsi Kegunaan > role=group[Fungsi besi hollow hitam] > h3:{{ fl.judul }} > h3:Keunggulan Besi Hollow Hitam > h2:Artikel Terkait > h2:Produk Terkait > h2:FAQ > h2:Dipercaya Mitra > role=dialog[Pusat bantuan SMS Perkasa] > role=log[Percakapan dengan customer service] > role=group[Beri nilai pengalaman Anda] > role=group[Daftar bagian halaman]
+data-*: {'data-tepi': 78, 'data-bantu-row': 14, 'data-tepi-kisi-y': 9, 'data-sek': 6, 'data-tepi-y': 6, 'data-harga': 4, 'data-panel': 3, 'data-tepi-kisi': 2, 'data-grid-tile': 2, 'data-bul': 2, 'data-ubin-rel': 1, 'data-bantu': 1, 'data-pulau': 1, 'data-set': 1, 'data-grid': 1}
+state keys(28): ['awas', 'sekPulau', 'bantuan', 'bTab', 'bPesan', 'bLog', 'bCsat', 'bNama', 'bWaNo', 'bEmail', 'bTerisi', 'bSosial', 'bTujuan', 'hero', 'mode', 'ukuran', 'tebal', 'urut', 'urutOpen', 'hal', 'sek', 'ukuranBuka', 'tebalBuka', 'infoBuka', 'unggulBuka', 'fg', 'faqBuka', 'q']
+methods(16): ['constructor', '_hero', '_fungsi', '_faq', '_img', '_katalog', '_ukuranList', '_tebalList', '_rb', '_kg', '_urutDaftar', '_saring', '_jamKerja', 'componentDidMount', 'componentWillUnmount', 'renderVals']
+props: {"tampilan":{"editor":"enum","default":"tabel","options":["tabel","kartu"],"section":"Keadaan awal"},"filterAwal":{"editor":"enum","default":"kosong","options":["kosong","terpilih"],"section":"Keadaan awal"}}
+
+===== DesktopSkuM4.dc.html Desktop SKU Page
+nav[Kategori produk] > nav[Remah roti] > h1:40 × 40 × 2 mm × 6 M > nav[Bagian halaman] > h2:Info Produk > h3:{{ g.title }} > h2:Ukuran Lainnya > h2:FAQ > h2:Ulasan Pelanggan > role=dialog[Pusat bantuan SMS Perkasa] > role=log[Percakapan dengan customer service] > role=group[Beri nilai pengalaman Anda] > role=group[Daftar bagian halaman]
+data-*: {'data-tepi': 56, 'data-bantu-row': 9, 'data-sek': 4, 'data-tepi-y': 4, 'data-harga': 4, 'data-tepi-kisi-y': 3, 'data-lain-rel': 1, 'data-panel': 1, 'data-tepi-kisi': 1, 'data-bantu': 1, 'data-pulau': 1, 'data-set': 1, 'data-grid': 1}
+state keys(19): ['foto', 'sek', 'sekPulau', 'faqBuka', 'q', 'disalin', 'lainAwal', 'lainAkhir', 'bantuan', 'bTab', 'bPesan', 'bLog', 'bCsat', 'bNama', 'bWaNo', 'bEmail', 'bTerisi', 'bSosial', 'bTujuan']
+methods(10): ['constructor', '_galeri', '_kartu', '_rb', 'componentDidMount', '_lainUkur', 'componentDidUpdate', 'componentWillUnmount', '_jamKerja', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopUlasanM4.dc.html Desktop Ulasan Page
+nav[Kategori produk] > h1:Ulasan Pelanggan  SMS Perkasa > role=region[Kutipan ulasan pelanggan yang berjalan] > h2:Yang sering disebut pelanggan > h2:Semua Ulasan > role=group[Saring menurut bintang] > nav[Halaman ulasan]
+data-*: {'data-tepi': 28, 'data-tepi-y': 3, 'data-pita-wrap': 1, 'data-pita': 1, 'data-jeda': 1, 'data-harga': 1, 'data-tepi-kisi-y': 1}
+state keys(3): ['jeda', 'hal', 'saring']
+methods(4): ['constructor', '_foto', '_data', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopProdukIndexM4.dc.html Semua Produk · Desktop
+nav[Kategori produk] > main[] > nav[Remah roti] > h1:Semua Produk
+data-*: {'data-tepi': 13, 'data-tepi-kisi-y': 2, 'data-tepi-kisi': 1, 'data-tepi-y': 1}
+state keys(2): ['awas', 'q']
+methods(2): ['constructor', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopKategoriM4.dc.html Kategori · Desktop
+nav[Kategori produk] > main[] > nav[Remah roti] > h1:Kategori
+data-*: {'data-tepi': 13, 'data-tepi-kisi-y': 2, 'data-tepi-kisi': 1, 'data-tepi-y': 1}
+state keys(2): ['awas', 'q']
+methods(2): ['constructor', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopBlogM4.dc.html Blog · Desktop
+nav[Kategori artikel] > main[] > h1:PUSAT INFORMASI BAJA SMS PERKASA   Tanya Apa Saja Soal Besi  > section[] > h2:Hasil pencarian > section[] > section[] > h2:Berita Baja > section[] > h2:Industri Baja > section[] > h2:Produk Besi > section[] > h2:Team > section[] > h2:Trivia
+data-*: {'data-tepi': 40, 'data-tepi-kisi': 7, 'data-tepi-kisi-y': 2, 'data-tepi-y': 1}
+state keys(2): ['awas', 'q']
+methods(2): ['constructor', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}
+
+===== DesktopArtikelM4.dc.html Detail Artikel · Desktop
+nav[Kategori artikel] > main[] > nav[Remah roti] > h1:Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisie > h2:{{ b.teks }} > h3:{{ b.teks }} > aside[] > h2:Artikel Lainnya
+data-*: {'data-tepi': 15, 'data-tepi-y': 2, 'data-tepi-kisi-y': 1}
+state keys(2): ['awas', 'q']
+methods(2): ['constructor', 'renderVals']
+props: {"$preview":{"width":1440,"height":900}}

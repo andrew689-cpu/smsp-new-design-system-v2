@@ -1,0 +1,1 @@
+[{"eval": "(function(){var e=document.querySelector('[data-rel-kartu=\"1\"]');while(e&&getComputedStyle(e).overflowX!=='auto')e=e.parentElement;e.style.scrollBehavior='auto';e.scrollLeft=292*5-26;})()"}, {"wait": 1200}]

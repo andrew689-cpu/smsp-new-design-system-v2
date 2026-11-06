@@ -1,0 +1,1 @@
+[{"click": "button[aria-label=\"Pusat bantuan\"]"}, {"wait": 700}, {"click": "button:has-text(\"Isi dengan Google\")"}, {"wait": 500}]

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>DataDaftarArtikel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ tampil }}" hint-placeholder-val="{{ true }}">
+  <div style="box-sizing: border-box; width: 72rem; padding: 3.2rem; background: var(--surface); color: var(--ink); display: flex; flex-direction: column; gap: 1.2rem">
+    <dc-import name="Heading" level="{{ 1 }}" tata="ponsel" teks="{{ judul }}" hint-size="100%,3.4rem"></dc-import>
+    <sc-for list="{{ baris }}" as="b" hint-placeholder-count="8">
+      <span style="font-size: var(--teks-body); line-height: var(--tinggi-sedang); box-shadow: inset 0 -0.1rem 0 var(--line); padding: 0.6rem 0">{{ b.teks }}</span>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onData":{"editor":null,"section":"Aksi"},"judul":{"editor":"text","default":"Sumber daftar artikel: satu tempat","section":"Isi"},"$preview":{"width":720,"height":900}}'>
+class Component extends DCLogic {
+// Satu sumber daftar artikel SMS Perkasa: judul, tautan, kategori, tanggal, foto, ringkasan. Dipakai BlogPage dan LearningPage.
+  _data() {
+    return {
+      artikel: [
+      {"judul": "Cara Quality Control Menghindari Penolakan Material Kementerian PUPR", "slug": "menghindari-penolakan-material-kementerian-pupr", "kategori": "Berita Besi Baja", "tanggal": "5 Okt 2026", "foto": "/_blob/4a254e10b1f06660a1911ba3c813977f", "ringkas": "Panduan taktis bagi tim Quality Control kontraktor untuk mengukur deviasi diameter besi beton polos dan ulir agar lolos audit teknis PUPR."},
+      {"judul": "Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF", "slug": "perbedaan-h-beam-dan-wf", "kategori": "Berita Besi Baja", "tanggal": "29 Jul 2026", "foto": "/_blob/e59baf3f84be4e49c58d026350c8d3ea", "ringkas": "Mengevaluasi perbedaan H Beam dan WF secara presisi adalah kewajiban mutlak bagi tim pengadaan material konstruksi. Kesalahan membedakan kedua baja profil ini m"},
+      {"judul": "Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien", "slug": "standarisasi-struktur-baja-bangunan-sekolah", "kategori": "Berita Besi Baja", "tanggal": "25 Jul 2026", "foto": "/_blob/d9d55768978d94b71a7b932d82625603", "ringkas": "Keamanan fasilitas pendidikan dasar menuntut jaminan struktural mutlak dari para perancang konstruksi demi keselamatan jangka panjang. Bangunan fasilitas publik"},
+      {"judul": "Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh", "slug": "konstruksi-pelat-lantai-jalan-layang", "kategori": "Berita Besi Baja", "tanggal": "14 Jul 2026", "foto": "/_blob/e5907f6a2d0576cfb96384f890f9e859", "ringkas": "Metode modern bekisting permanen bondek monolit dan kawat baja pracetak wiremesh terbukti mampu mempercepat durasi konstruksi pelat lantai jembatan layang hingg"},
+      {"judul": "Harga Besi Baja: Tren dan Cara Menyiasati Proyek", "slug": "memahami-pergerakan-harga-besi-baja", "kategori": "Berita Besi Baja", "tanggal": "11 Jul 2026", "foto": "/_blob/a99bab86ecca79d21fcfe2eedcfe9f9d", "ringkas": "Memenangkan tender proyek pemerintah adalah target utama kontraktor. Namun, pergerakan harga besi baja nasional kerap mengancam margin keuntungan. Proyek jangka"},
+      {"judul": "Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!", "slug": "prediksi-harga-besi-2024-industri-konstruksi-dan-investasi-wajib-tau", "kategori": "Berita Besi Baja", "tanggal": "2 Jul 2026", "foto": "/_blob/cc872e39be6f6e13f79dc4c7b6618ee8", "ringkas": "Besi merupakan salah satu komoditas terpenting di dunia, terutama dalam industri konstruksi. Kestabilan dan perkembangan sektor ini sangat bergantung pada harga"},
+      {"judul": "Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja", "slug": "tantangan-dan-peluang-penggunaan-artificial-intelligence-ai-dalam-fabrikasi-baja", "kategori": "Industri Besi Baja", "tanggal": "9 Okt 2026", "foto": "/_blob/ebacf14138b3291bfebf9cf6bd58abe7", "ringkas": "Penggunaan Artificial Intelligence (AI) dalam fabrikasi baja berfokus pada pemanfaatan machine learning dan analisis prediktif untuk memodernisasi seluruh ranta"},
+      {"judul": "Pondasi Cakar Ayam | Solusi Stabilitas Konstruksi Bangunan", "slug": "pondasi-cakar-ayam-solusi-stabilitas-konstruksi-bangunan", "kategori": "Industri Besi Baja", "tanggal": "7 Okt 2026", "foto": "/_blob/ad7dc9b9d4424d5a5bd2a607d35bc176", "ringkas": "Pondasi cakar ayam merupakan salah satu jenis pondasi yang inovatif dan sangat efektif digunakan pada berbagai jenis bangunan. Diciptakan oleh Prof. Dr. Ir. Sed"},
+      {"judul": "Pondasi Bangunan | Pengertian, Fungsi dan Jenisnya", "slug": "pondasi-bangunan-pengertian-fungsi-dan-jenisnya", "kategori": "Industri Besi Baja", "tanggal": "7 Okt 2026", "foto": "/_blob/22f3a8bb1eb5fb29199f6081e1a46eff", "ringkas": "Pondasi merupakan elemen krusial dalam setiap konstruksi bangunan yang berfungsi menyalurkan beban dari struktur atas ke tanah di bawahnya. Pemilihan jenis pond"},
+      {"judul": "Cara Menghitung Kebutuhan Besi Hollow untuk Partisi", "slug": "cara-menghitung-kebutuhan-besi-hollow-untuk-partisi", "kategori": "Industri Besi Baja", "tanggal": "6 Okt 2026", "foto": "/_blob/86929f2b06edc4d1ff8cd7af4d31b399", "ringkas": "Kunci utama dari cara menghitung kebutuhan besi hollow untuk partisi secara presisi adalah menjumlahkan total meter lari dari tiga komponen karkas: bingkai keli"},
+      {"judul": "Baja Karbon Rendah | Solusi Konstruksi Dan Komitmen ESG", "slug": "baja-karbon-rendah-solusi-konstruksi-dan-komitmen-esg", "kategori": "Industri Besi Baja", "tanggal": "6 Okt 2026", "foto": "/_blob/4f1fe96368319017176ee4f14f4c4b69", "ringkas": "Setiap hari, kita dikelilingi oleh baja. Material ini menjadi kerangka kokoh bagi gedung-gedung pencakar langit, jembatan yang menghubungkan kota, hingga kendar"},
+      {"judul": "Cara Kontraktor Surabaya Mengatasi Selisih BOQ Besi Beton Proyek Sekolah", "slug": "cara-mengatasi-selisih-boq-besi-beton-proyek-sekolah", "kategori": "Industri Besi Baja", "tanggal": "5 Okt 2026", "foto": "/_blob/543433e6f73f4e809da2a670fbd0133b", "ringkas": "Pasokan besi beton proyek sekolah merupakan elemen struktural paling kritis, namun pengadaannya sering kali memicu konflik akibat selisih volume antara perencan"},
+      {"judul": "Penerapan Besi Beton dalam Konstruksi Gedung Tinggi", "slug": "penerapan-besi-beton-dalam-konstruksi-gedung-tinggi", "kategori": "Produk Besi", "tanggal": "9 Okt 2026", "foto": "/_blob/5bdea1f4eac5fa5d4975d50d933cabb1", "ringkas": "Penerapan besi beton dalam konstruksi gedung tinggi berfungsi secara krusial sebagai struktur tulangan penahan gaya tarik (tensile strength) yang melengkapi sif"},
+      {"judul": "Standar Presisi Potongan Besi Beton 12 Meter: Pengaruhnya pada Kekuatan Struktur", "slug": "presisi-potongan-besi-beton-12-meter", "kategori": "Produk Besi", "tanggal": "8 Okt 2026", "foto": "/_blob/b125431aa461cf049d0be68b8e52f7d5", "ringkas": "Standar panjang besi beton di Indonesia ditetapkan sejauh 12 meter berdasarkan SNI 2052:2017, dengan toleransi ukuran minus 0 milimeter dan maksimal plus 70 mil"},
+      {"judul": "Besi Siku Adalah Solusi Rangka Atap Kuat dan Hemat Biaya", "slug": "besi-siku-adalah-solusi-rangka-atap-kuat", "kategori": "Produk Besi", "tanggal": "7 Okt 2026", "foto": "/_blob/3433a598238478037523d700f1abd4fd", "ringkas": "Bayangkan Anda sedang membangun atau merenovasi properti impian. Perencanaan denah sudah sempurna, namun saat musim hujan tiba, Anda mulai cemas membayangkan ap"},
+      {"judul": "15 Bahan Bangunan Yang Populer dalam Konstruksi", "slug": "15-bahan-bangunan-yang-populer-dalam-konstruksi", "kategori": "Produk Besi", "tanggal": "7 Okt 2026", "foto": "/_blob/3abcb3f6c419482423a5d7df6494d571", "ringkas": "Bagi para Mid-Tier Private General Contractors (GCs) dan firma design-build yang mengelola beberapa concurrent sites di koridor industri, tantangan terbesar di"},
+      {"judul": "Rangka Atap Besi Hollow vs Baja Ringan untuk Fasilitas Umum", "slug": "rangka-atap-besi-hollow-vs-baja-ringan", "kategori": "Produk Besi", "tanggal": "7 Okt 2026", "foto": "/_blob/cfce69dd335e197b413949401ddd1e6b", "ringkas": "Memilih material atap untuk fasilitas umum seperti balai desa atau aula sekolah membutuhkan pertimbangan struktural yang matang. Keputusan yang salah tidak hany"},
+      {"judul": "Cara Memilih Besi Bangunan Terbaik, Sudah Tau?", "slug": "memilih-besi-bangunan", "kategori": "Produk Besi", "tanggal": "5 Okt 2026", "foto": "/_blob/60b2c468d3553d8977e687cf91f4dac3", "ringkas": "Cara terbaik memilih besi bangunan agar struktur kokoh dan tahan lama adalah dengan memastikan material tersebut berstandar SNI (Standar Nasional Indonesia). Un"},
+      {"judul": "Mau Bisnis Sukses? Pahami Etika Bisnis dan Stakeholder Terlebih Dulu!", "slug": "mau-bisnis-sukses-pahami-etika-bisnis-dan-stakeholder-terlebih-dulu", "kategori": "Team", "tanggal": "3 Jul 2026", "foto": "/_blob/7d9319fb9f5df07e952380182faa7ed4", "ringkas": "Di era bisnis modern, etika bisnis bukan lagi sekadar kepatuhan terhadap peraturan, melainkan telah menjadi aspek fundamental bagi operasional bisnis yang berke"},
+      {"judul": "Inspirasi Buku The Magic of Thinking Big | David J. Schwartz", "slug": "inspirasi-dari-buku-the-magic-of-thinking-big-david-j-schwartz", "kategori": "Team", "tanggal": "22 Apr 2026", "foto": "/_blob/9970c1558c871042772107d2dc626f01", "ringkas": "Inspirasi buku kali ini, tidak peduli apakah tujuan hidup Anda sangat besar dan menakutkan atau cukup kecil dan dapat dicapai, kemungkinan Anda telah berpikir &"},
+      {"judul": "Kegiatan CSR SMS Perkasa di Panti Asuhan Bhakti Luhur Malang", "slug": "kegiatan-csr-pt-sms-perkasa-di-panti-asuhan-bhakti-luhur-malang", "kategori": "Team", "tanggal": "6 Apr 2026", "foto": "/_blob/a016150dad6b16d26bfa00a087e0e559", "ringkas": "Sebagai bagian dari agenda tahunan, PT SMS Perkasa kembali melaksanakan kegiatan Corporate Social Responsibility (CSR) dengan mengunjungi Panti Asuhan Yayasan B"},
+      {"judul": "Yuk Intip!! 5 Hal Menarik Lingkungan Kerja di SMS Perkasa", "slug": "yuk-intip-5-hal-menarik-di-sms-perkasa", "kategori": "Team", "tanggal": "31 Mar 2026", "foto": "/_blob/80c11fe02943972958454adb0f427512", "ringkas": "Hai Perkasa Partners! Salah satu faktor yang membuat seseorang merasa nyaman dengan tempat kerjanya adalah lingkungan kerja. Selain membuat nyaman, lingkungan k"},
+      {"judul": "Yuk Sadari Pentingnya Menghargai Keragaman di Dunia Kerja!", "slug": "yuk-sadari-pentingnya-menghargai-keragaman-di-dunia-kerja", "kategori": "Team", "tanggal": "31 Mar 2026", "foto": "/_blob/31cc20bb39e8a704df5c146eb683f08f", "ringkas": "Sebagai makhluk sosial, tentu saja kita selalu dihadapkan dengan beragam jenis karakter kepribadian, latar belakang budaya, cara bergaul sampai pada pola pikir"},
+      {"judul": "Mengenali Kepemimpinan Efektif", "slug": "mengenali-kepemimpinan-efektif", "kategori": "Team", "tanggal": "11 Feb 2026", "foto": "/_blob/28c17c04c9687d30b3ac4f7f81c6b815", "ringkas": "Perkasa Partner, kali ini kami akan mengulas tentang kepempimpinan. Salah satu kutipan menarik dari Rosalynn Carter, “seorang pemimpin biasa membawa orang"},
+      {"judul": "Jenis Alat Berat dalam Konstruksi dengan Teknologi Terbaru", "slug": "jenis-alat-berat-dalam-konstruksi-dengan-teknologi-terbaru", "kategori": "Trivia", "tanggal": "9 Okt 2026", "foto": "/_blob/57976b71faf9dbc2a797dcfe29e8b46d", "ringkas": "Ragam jenis alat berat dalam konstruksi seperti excavator, loader, bulldozer, dan crane kini mengalami modernisasi signifikan melalui integrasi sistem kontrol o"},
+      {"judul": "Penerapan Besi Beton dalam Teknologi Green Building: Menuju Konstruksi yang Lebih Ramah Lingkungan", "slug": "penerapan-besi-beton-dalam-teknologi-green-building-menuju-konstruksi-yang-lebih-ramah-lingkungan", "kategori": "Trivia", "tanggal": "9 Okt 2026", "foto": "/_blob/ef058aaffae1a9d13426f6417e078015", "ringkas": "Penerapan besi beton dalam teknologi green building berperan penting untuk menekan dampak lingkungan konstruksi melalui efisiensi energi massa termal, umur paka"},
+      {"judul": "Konstruksi Lantai Gudang Industri | Kuat, Halus, dan Berstandar SNI", "slug": "konstruksi-lantai-gudang-industri-kuat-halus-dan-berstandar-sni", "kategori": "Trivia", "tanggal": "8 Okt 2026", "foto": "/_blob/025fbd964fbbad5e4588b358ee0c06f5", "ringkas": "Pernahkah Anda membayangkan apa yang terjadi jika pusat distribusi raksasa memiliki alas yang retak atau tidak rata? Dalam lanskap industri, lantai gudang bukan"},
+      {"judul": "Rumah Mewah Modern | Inspirasi Desain Hingga Material Terbaik", "slug": "rumah-mewah-modern-inspirasi-desain-hingga-material-terbaik", "kategori": "Trivia", "tanggal": "8 Okt 2026", "foto": "/_blob/97ddd3aca0c654bec6553d78618928cf", "ringkas": "Pernahkah Anda terpukau melihat gambar rumah mewah di majalah atau media sosial dan bertanya-tanya, “Apa rahasia di baliknya?” Kemewahan sejati dala"},
+      {"judul": "5 Inspirasi Desain Rumah Tradisional Modern Estetik", "slug": "5-inspirasi-desain-rumah-tradisional-modern-estetik", "kategori": "Trivia", "tanggal": "8 Okt 2026", "foto": "/_blob/10d51ac98a84499aec7d35dc816ed62e", "ringkas": "Pernahkah Anda merasa bosan dengan desain perumahan masa kini yang seragam kotak, minimalis, dan terkesan “dingin”? Di tengah gempuran tren arsitekt"},
+      {"judul": "Genteng Beton Terbaik untuk Atap Rumah Tahan Lama, Apa Iya?", "slug": "genteng-beton-terbaik-untuk-atap-rumah-tahan-lama-apa-iya", "kategori": "Trivia", "tanggal": "7 Okt 2026", "foto": "/_blob/4cd8657dc9404e7f734b61a1c898ce16", "ringkas": "Genteng merupakan elemen penting dalam membangun hunian yang aman, nyaman, dan estetis. Salah satu jenis genteng yang semakin populer di kalangan arsitek dan pe"}
+      ]
+    };
+  }
+  componentDidMount() {
+    if (this.props.onData) this.props.onData(this._data());
+  }
+  renderVals() {
+    if (this.props.onData) return { tampil: false };
+    return {
+      tampil: true,
+      judul: this.props.judul ?? 'Sumber daftar artikel: satu tempat',
+      baris: this._data().artikel.map((a) => ({ teks: a.kategori + ' · ' + a.tanggal + ' · ' + a.judul }))
+    };
+  }
+}
+</script>
+</body>
+</html>

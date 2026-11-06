@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Detail SKU — Besi Hollow Hitam 40 × 40 × 2 mm</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <div>
+    <dc-import name="SiteHeader" tata="ponsel" hint-size="100%,5.6rem"></dc-import>
+    <div id="s-ringkas">
+      <dc-import name="ProductSummary" tata="ponsel" halaman="sku" hint-size="100%,70rem"></dc-import>
+      <dc-import name="ProductInfo" tata="ponsel" hint-size="100%,72rem"></dc-import>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0">
+      <div id="s-lain" style="scroll-margin-top: 10.2rem; margin-top: 8.4rem; padding: 0 0 0 var(--talang)">
+        <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" teks="Ukuran lainnya" hint-size="100%,2.7rem"></dc-import>
+        <dc-import name="Rail" koleksi="lain" panah="ponsel" lebar="45%" gutter="calc(var(--jarak-x-dua) / 2)" pad="2rem 1.6rem 0.2rem 0" hint-size="100%,24rem"></dc-import>
+      </div>
+      <div id="s-faq" style="scroll-margin-top: 10.2rem; margin-top: 4.5rem; padding: 0 var(--sisi)">
+        <dc-import name="FaqList" tata="ponsel" halaman="sku" ekorBuka="0.6rem 0.5rem 0.5rem 0.4rem" hint-size="100%,74rem"></dc-import>
+      </div>
+      <div id="s-ulasan" style="scroll-margin-top: 10.2rem; position: relative; margin-top: 7.8rem; padding: 0 var(--sisi) 0 1.6rem">
+        <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" teks="Ulasan pelanggan" href="UlasanM3.dc.html" ariaLabel="Ulasan pelanggan, buka semua ulasan" hint-size="100%,4.4rem"></dc-import>
+        <div style="margin-top: var(--dalam)">
+          <dc-import name="ReviewCarousel" koleksi="produk" tata="ponsel" hint-size="100%,28rem"></dc-import>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 8.4rem">
+      <dc-import name="Footer" tata="ponsel" jenis="ringkas" hint-size="100%,36rem"></dc-import>
+    </div>
+  </div>
+  <dc-import name="ProductChrome" jenis="sku" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

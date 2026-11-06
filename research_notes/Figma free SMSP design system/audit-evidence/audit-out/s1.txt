@@ -1,0 +1,74 @@
+file|title|w|x|y|bytes|helmet|markup|script|cssCommentBytes|htmlCommentBytes|sc-for|sc-if|dc-import|style=|class=|<title>
+BerandaM4.dc.html|Beranda|360|1440|-1200|245094|24977|177350|42465|19850|131042|16|22|0|174|0|Beranda — SMS Perkasa
+SalinanBerandaM4.dc.html|Salinan Beranda|360|1840|-1200|209433|25317|141349|42465|19850|92855|16|18|0|172|0|Beranda — SMS Perkasa
+RecCreateM4Salinan1.dc.html|Mobbin 3 · Produk Page Salinan 1|360|2240|-1200|160963|13365|93289|53843|8213|10572|26|53|0|295|0|Besi Hollow Hitam — harga, ukuran dan filter (panel tertutup atau terbuka)
+SalinanProdukPageM4.dc.html|Salinan Produk Page|360|2640|-1200|160144|13096|93074|53508|7886|10445|26|53|0|295|0|Besi Hollow Hitam — harga, ukuran dan filter (panel tertutup atau terbuka)
+SalinanSkuPageM4.dc.html|Salinan SKU Page|360|3040|-1200|110311|13888|55575|40522|8862|5491|16|27|0|185|0|Detail SKU — Besi Hollow Hitam 40 × 40 × 2 mm
+UlasanM4Salinan.dc.html|Salinan Mobbin 3 · Semua Ulasan|360|3440|-1200|29346|6870|16500|5660|5215|4983|5|6|0|49|0|Salinan Semua Ulasan — SMS Perkasa
+SalinanArtikelM4.dc.html|Salinan Detail Artikel|360|4240|-1200|104571|13792|60363|30078|10469|37648|10|14|0|67|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+SalinanBlog2M4.dc.html|Salinan Blog 2|360|4640|-1200|374872|13584|311895|49094|9488|172499|17|55|0|466|0|Blog — SMS Perkasa
+RecCreateM4.dc.html|Mobbin 3 · Produk Page|360|0|0|647787|37746|454288|155287|30510|266269|35|96|0|655|0|Besi Hollow Hitam — harga, ukuran dan filter (panel tertutup atau terbuka)
+SkuDetailM4.dc.html|Mobbin 3 · Detail SKU|360|440|0|207834|23793|122543|61172|18226|63219|18|33|0|212|0|Detail SKU — Besi Hollow Hitam 40 × 40 × 2 mm
+ProdukIndexM4.dc.html|Semua Produk|360|880|0|84626|17485|37679|29155|14005|20545|5|8|0|49|0|Semua Produk — SMS Perkasa
+SalinanBeranda2M4.dc.html|Salinan Beranda 2|360|1320|0|317594|26261|241995|49036|20793|187658|17|20|0|195|0|Beranda — SMS Perkasa
+SalinanBeranda3M4.dc.html|Salinan Beranda 3|360|1760|0|272460|26261|196861|49036|20793|141534|17|20|0|201|0|Beranda — SMS Perkasa
+SalinanBlogM4.dc.html|Blog|360|2200|0|396205|18759|318897|58250|14362|178778|17|49|0|462|0|Blog — SMS Perkasa
+SalinanBlogM4Salinan.dc.html|Salinan Blog 2|360|2640|0|406683|19389|328063|58932|14991|179729|17|48|0|506|0|Blog — SMS Perkasa
+SalinanArtikel2M4.dc.html|Detail Artikel|360|3080|0|115678|17386|66361|31593|13948|43471|10|14|0|67|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+SalinanArtikel2M4Salinan.dc.html|Salinan Detail Artikel 2|360|3520|0|106660|17386|57343|31593|13948|34317|10|14|0|69|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+KategoriM4.dc.html|Kategori|360|3960|0|60511|12922|34837|12449|9747|17889|5|5|0|49|0|Kategori — SMS Perkasa
+SalinanBlog3M4.dc.html|Salinan Blog 3|360|4400|0|472732|31600|372942|67891|26709|227232|17|49|0|491|0|Blog — SMS Perkasa
+DetailArtikel2M4.dc.html|Detail Artikel 2|360|4840|0|116714|17386|67397|31593|13948|44506|10|14|0|67|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+SalinanBlog4M4.dc.html|Salinan Blog 4|360|5280|0|483597|32703|381494|69101|27740|226514|17|54|0|521|0|Blog — SMS Perkasa
+DetailArtikel3M4.dc.html|Detail Artikel 3|360|5720|0|118487|17386|69170|31593|13948|46278|10|14|0|67|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+SalinanBlog5M4.dc.html|Salinan Blog 5|360|6160|0|479266|32096|379143|67728|26868|228711|17|49|0|511|0|Blog — SMS Perkasa
+DetailArtikel4M4.dc.html|Detail Artikel 4|360|6600|0|118487|17386|69170|31593|13948|46278|10|14|0|67|0|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa
+DesktopProdukM4.dc.html|Desktop Product Page|1440|0|1200|408136|24574|296736|86206|18429|148289|25|77|0|518|1|Besi Hollow Hitam — daftar harga, ukuran dan filter (desktop)
+DesktopSkuM4.dc.html|Desktop SKU Page|1440|1520|1200|256536|21822|198844|35533|16893|101570|16|40|0|335|1|Besi Hollow Hitam 40 × 40 × 2 mm — detail SKU (desktop)
+DesktopProdukIndexM4.dc.html|Semua Produk · Desktop|1440|3040|1200|61141|11200|31896|17727|7361|10296|4|7|0|64|1|Semua Produk — SMS Perkasa · Desktop
+DesktopUlasanM4.dc.html|Desktop Ulasan Page|1440|4560|1200|64152|9917|44808|9107|7015|10675|11|11|0|124|0|Ulasan Pelanggan SMS Perkasa (desktop)
+DesktopBerandaM4.dc.html|Beranda · Desktop|1440|6080|1200|151278|14335|113397|23233|9004|62255|13|18|0|193|1|Beranda · Desktop — SMS Perkasa
+DesktopBlogM4.dc.html|Blog · Desktop|1440|7600|1200|112601|11392|82518|18381|7500|33791|10|23|0|181|1|Blog — SMS Perkasa · Desktop
+DesktopArtikelM4.dc.html|Detail Artikel · Desktop|1440|9120|1200|74096|9882|46151|17714|6268|20729|8|12|0|91|1|Standarisasi Struktur Baja Bangunan Sekolah — SMS Perkasa · Desktop
+DesktopKategoriM4.dc.html|Kategori · Desktop|1440|10640|1200|47485|11200|33666|2305|7361|12028|4|4|0|64|0|Kategori — SMS Perkasa · Desktop
+DesktopProdukM4Salinan.dc.html|Salinan Desktop Product Page|1440|0|2500|402378|23626|290359|86665|17505|144016|25|75|0|518|1|Besi Hollow Hitam — daftar harga, ukuran dan filter (desktop)
+DesktopSkuM4Salinan.dc.html|Salinan Desktop SKU Page|1440|1520|2500|272505|21447|199885|49734|16207|102427|17|40|0|342|1|Besi Hollow Hitam 40 × 40 × 2 mm — detail SKU (desktop)
+
+data-props sample:
+BerandaM4.dc.html {"$preview":{"width":360,"height":800}}
+DesktopArtikelM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopBerandaM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopBlogM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopKategoriM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopProdukIndexM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopProdukM4.dc.html {"tampilan":{"editor":"enum","default":"tabel","options":["tabel","kartu"],"section":"Keadaan awal"},"filterAwal":{"editor":"enum","default":"kosong","options":["kosong","terpilih"],"section":"Keadaan
+DesktopProdukM4Salinan.dc.html {"tampilan":{"editor":"enum","default":"tabel","options":["tabel","kartu"],"section":"Keadaan awal"},"filterAwal":{"editor":"enum","default":"kosong","options":["kosong","terpilih"],"section":"Keadaan
+DesktopSkuM4.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopSkuM4Salinan.dc.html {"$preview":{"width":1440,"height":900}}
+DesktopUlasanM4.dc.html {"$preview":{"width":1440,"height":900}}
+DetailArtikel2M4.dc.html {"$preview":{"width":360,"height":800}}
+DetailArtikel3M4.dc.html {"$preview":{"width":360,"height":800}}
+DetailArtikel4M4.dc.html {"$preview":{"width":360,"height":800}}
+KategoriM4.dc.html {"$preview":{"width":360,"height":800}}
+ProdukIndexM4.dc.html {"$preview":{"width":360,"height":800}}
+RecCreateM4.dc.html {"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}
+RecCreateM4Salinan1.dc.html {"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}
+SalinanArtikel2M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanArtikel2M4Salinan.dc.html {"$preview":{"width":360,"height":800}}
+SalinanArtikelM4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBeranda2M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBeranda3M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBerandaM4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlog2M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlog3M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlog4M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlog5M4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlogM4.dc.html {"$preview":{"width":360,"height":800}}
+SalinanBlogM4Salinan.dc.html {"$preview":{"width":360,"height":800}}
+SalinanProdukPageM4.dc.html {"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}
+SalinanSkuPageM4.dc.html {"$preview":{"width":360,"height":800}}
+SkuDetailM4.dc.html {"$preview":{"width":360,"height":800}}
+UlasanM4Salinan.dc.html {"$preview":{"width":360,"height":800}}
+
+[('span', 2481), ('div', 1892), ('path', 1752), ('svg', 1241), ('sc-if', 1052), ('a', 714), ('button', 639), ('p', 625), ('sc-for', 495), ('circle', 444), ('img', 248), ('rect', 170), ('h2', 135), ('strong', 110), ('input', 81), ('section', 69), ('label', 68), ('header', 40), ('h3', 39), ('g', 39), ('li', 38), ('h1', 32), ('nav', 29), ('ul', 27), ('filter', 27), ('feFlood', 27), ('feBlend', 27), ('feGaussianBlur', 27), ('main', 23), ('br', 16), ('ellipse', 10), ('defs', 10), ('blockquote', 9), ('figure', 7), ('table', 7), ('tr', 7), ('td', 7), ('ol', 7), ('article', 5), ('aside', 3), ('s', 2), ('stop', 2), ('figcaption', 1), ('linearGradient', 1), ('h4', 1)]
+[('style', 8286), ('d', 1752), ('aria-hidden', 1677), ('width', 1438), ('height', 1438), ('fill', 1378), ('viewBox', 1241), ('value', 1131), ('stroke-width', 1070), ('hint-placeholder-val', 1044), ('stroke', 1040), ('data-tepi', 1001), ('stroke-linecap', 980), ('stroke-linejoin', 850), ('aria-label', 836), ('type', 720), ('href', 714), ('onClick', 603), ('list', 495), ('as', 495), ('hint-placeholder-count', 495), ('cx', 454), ('cy', 454), ('r', 444), ('rel', 287), ('src', 248), ('alt', 248), ('target', 237), ('id', 203), ('x', 197), ('y', 197), ('rx', 180), ('data-tepi-y', 170), ('data-bantu-row', 165), ('fill-rule', 159), ('clip-rule', 153), ('loading', 153), ('role', 139), ('aria-expanded', 98), ('aria-current', 81), ('result', 81), ('onChange', 79), ('placeholder', 69), ('data-tepi-kisi-y', 67), ('disabled', 60), ('title', 55), ('aria-pressed', 52), ('data-tepi-x', 49), ('data-harga', 46), ('for', 44), ('aria-live', 41), ('data-jarak', 36), ('data-tepi-kisi', 28), ('filter', 27), ('filterUnits', 27), ('color-interpolation-filters', 27), ('flood-opacity', 27), ('in', 27), ('in2', 27), ('stdDeviation', 27), ('data-grid', 21), ('data-bar', 21), ('aria-roledescription', 20), ('data-sek', 20), ('data-set', 15), ('onFocus', 12), ('tabindex', 12), ('data-kaki', 12), ('transform', 12), ('data-panel', 11)]

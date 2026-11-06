@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LearningPage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&amp;family=Oswald:wght@700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ gayaAkar }}; width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; color: var(--ink)">
+  <dc-import name="DataMateri" koleksi="{{ koleksi }}" onData="{{ terimaData }}" hint-size="0,0"></dc-import>
+  <sc-if value="{{ bacaanData }}" hint-placeholder-val="{{ true }}"><dc-import name="DataDaftarArtikel" onData="{{ terimaDaftar }}" hint-size="0,0"></dc-import></sc-if>
+  <dc-import name="FraudRibbon" tata="ponsel" buka="{{ awasBuka }}" onTutup="{{ awasTutup }}" hint-size="100%,6rem"></dc-import>
+  <div style="{{ gayaMast }}"><dc-import name="SiteHeader" tata="ponsel" nada="apung" hrefLogo="{{ hrefLogo }}" sisiPonsel="{{ mastKiri }}" logoAtas="{{ mastLogoAtas }}" ukuranLogo="{{ logoUkuran }}" hint-size="100%,5.5rem"></dc-import></div>
+  <main data-belajar-utama="1" style="box-sizing: border-box; padding: 0; display: flex; flex-direction: column; gap: 0">
+    <div style="{{ gayaIsi }}; margin-left: var(--talang); margin-right: var(--talang); box-sizing: border-box; padding: 0 0 var(--dalam) 0; display: flex; flex-direction: column; gap: 0">
+      <sc-if value="{{ katalogBaku }}" hint-placeholder-val="{{ true }}">
+        <dc-import name="BlogHero" jenis="lembar" gambar="{{ gambar }}" tinggiLatar="29.4rem" judulBaris="{{ judulBaris }}" isiBaris="{{ subBaris }}" isiBawah="1.6rem" lembarAtas="3.37rem" lembarSub="{{ judulPilihan }}" lembarIsi="{{ isiPilihan }}" hint-size="100%,30rem"></dc-import>
+        <div style="--talang: 2.3rem; margin-left: 0.8rem; margin-right: 0.8rem">
+          <section id="kat-learning" aria-label="{{ semuaAria }}" style="scroll-margin-top: 1.6rem; margin-top: 0; display: flex; flex-direction: column; row-gap: 1.6rem">
+            <dc-import name="CourseTabs" butir="{{ tab }}" hint-size="100%,4.4rem"></dc-import>
+            <dc-import name="CoursePanel" judul="{{ panelJudul }}" teks="{{ panelTeks }}" terbuka="{{ kisi }}" onPress="{{ kisiAlih }}" hint-size="100%,15rem"></dc-import>
+            <div style="position: relative"><dc-import name="CourseRail" susun="{{ susunUtama }}" butir="{{ kartuUtama }}" hint-size="100%,24rem"></dc-import></div>
+          </section>
+          <section aria-label="{{ jelajahJudul }}" style="margin-top: 4.8rem; display: flex; flex-direction: column; row-gap: 3.2rem">
+            <dc-import name="Heading" level="{{ 2 }}" varian="polos" ukuran="var(--teks-section)" tinggi="var(--tinggi-rapat)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ jelajahJudul }}" hint-size="100%,2.4rem"></dc-import>
+            <sc-for list="{{ grup }}" as="g" hint-placeholder-count="3">
+              <dc-import name="CourseGroup" dc-props="{{ g }}" hint-size="100%,30rem"></dc-import>
+            </sc-for>
+          </section>
+          <sc-if value="{{ bacaanTampil }}" hint-placeholder-val="{{ true }}">
+            <section aria-label="{{ bacaanJudul }}" style="margin-top: 4.8rem; display: flex; flex-direction: column; row-gap: 1.4rem">
+              <dc-import name="Heading" level="{{ 2 }}" varian="polos" ukuran="var(--teks-section)" tinggi="var(--tinggi-rapat)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ bacaanJudul }}" hint-size="100%,2.4rem"></dc-import>
+              <dc-import name="BlogNewsList" ariaLabel="{{ bacaanJudul }}" fotoPertama="{{ false }}" ringkasTampil="{{ false }}" rataTepi="{{ true }}" butir="{{ bacaanButir }}" hint-size="100%,140rem"></dc-import>
+            </section>
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ katalogRv }}" hint-placeholder-val="{{ false }}">
+        <div data-rv="1" style="margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang))">
+          <sc-if value="{{ rvUtamaTampil }}" hint-placeholder-val="{{ true }}">
+            <dc-import name="LearningHero" jenis="rv" gambar="{{ gambar }}" onTombol="{{ keMateri }}" hint-size="100%,39rem"></dc-import>
+            <dc-import name="CourseSection" id="kat-learning" ariaLabel="Bedah detail spesifikasi material" judulBaris="{{ true }}" teks="Kupas tuntas proses produksi, teknik mengukur, hingga contoh aplikasinya." onUjung="{{ rvBuka }}" butir="{{ rvUtama }}" hint-size="100%,58rem"></dc-import>
+            <dc-import name="CourseSection" id="kat-material" ariaLabel="Pilih material" produk="{{ true }}" judulBaris="{{ true }}" pad="4rem var(--talang)" judulAwal="Kuasai dasarnya" judulMerah="pilih material yang tepat" onUjung="{{ rvBuka }}" butir="{{ rvMaterialKisi }}" hint-size="100%,70rem"></dc-import>
+          </sc-if>
+          <sc-if value="{{ rvSalesTampil }}" hint-placeholder-val="{{ false }}">
+            <dc-import name="SalesBand" onTombol="{{ bantuanAlih }}" hint-size="100%,69rem"></dc-import>
+          </sc-if>
+          <sc-if value="{{ rvKatalogTampil }}" hint-placeholder-val="{{ false }}">
+            <div style="box-sizing: border-box; padding: 0 var(--talang) 1.6rem var(--talang); background: var(--surface)">
+              <span style="display: inline-flex; margin: 0 0 0.8rem -0.4rem"><dc-import name="Button" variant="kembali-materi" href="" label="Semua materi" ikon="chevron-kiri-lebar" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.4 }}" onPress="{{ rvTutup }}" hint-size="12rem,4.4rem"></dc-import></span>
+              <dc-import name="CourseSection" id="kat-semua-materi" ariaLabel="Materi per topik" katalog="{{ true }}" pad="0" judulAwal="Belajar per " judulMerah="topik" teks="Mulai dari pengenalan besi, cara mengukur, sampai perbedaan tiap jenisnya." butir="{{ rvKatalog }}" hint-size="100%,60rem"></dc-import>
+              <div style="margin-top: 4rem"><dc-import name="CourseSection" id="kat-semua-produk" ariaLabel="Materi per produk" produk="{{ true }}" pad="0" judulAwal="Belajar per " judulMerah="produk" teks="Pilih produk yang ingin Anda pahami lebih dalam." butir="{{ rvProduk }}" hint-size="100%,400rem"></dc-import></div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ katalogIkon }}" hint-placeholder-val="{{ false }}">
+        <div data-rv="2" style="margin-left: 0.5rem; margin-right: 0.5rem; padding-top: 0.8rem; display: flex; flex-direction: column; align-items: stretch">
+          <dc-import name="LearningHero" jenis="ikon" hint-size="100%,20rem"></dc-import>
+          <section id="kat-learning" aria-label="{{ semuaAria }}" style="scroll-margin-top: 1.6rem; margin-top: 2.9rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.8rem; row-gap: 1.3rem">
+            <sc-for list="{{ kartuIkon }}" as="k" hint-placeholder-count="10">
+              <dc-import name="CourseCard" dc-props="{{ k }}" hint-size="100%,18rem"></dc-import>
+            </sc-for>
+          </section>
+        </div>
+      </sc-if>
+      <sc-if value="{{ cariTampil }}" hint-placeholder-val="{{ false }}">
+        <div><sc-if value="{{ cariMateriTampil }}" hint-placeholder-val="{{ true }}"><section aria-label="Hasil pencarian materi" style="{{ gayaCari }}; display: flex; flex-direction: column; row-gap: 1.6rem">
+          <dc-import name="Heading" level="{{ 1 }}" varian="polos" ukuran="var(--teks-section)" tinggi="var(--tinggi-rapat)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ cariJudul }}" hint-size="100%,2.4rem"></dc-import>
+          <sc-if value="{{ cariKosong }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: {{ warnaKosong }}">{{ cariSaran }}</p></sc-if>
+          <dc-import name="CourseRail" susun="kisi" butir="{{ cariHasil }}" hint-size="100%,24rem"></dc-import>
+        </section></sc-if>
+        <sc-if value="{{ cariBacaanTampil }}" hint-placeholder-val="{{ false }}"><section aria-label="Hasil pencarian artikel" style="{{ gayaCariBacaan }}; display: flex; flex-direction: column; row-gap: 1.4rem">
+          <dc-import name="Heading" level="{{ cariBacaanTingkat }}" varian="polos" ukuran="var(--teks-section)" tinggi="var(--tinggi-rapat)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--ink)" teks="{{ cariBacaanJudul }}" hint-size="100%,2.4rem"></dc-import>
+          <dc-import name="BlogNewsList" ariaLabel="Hasil pencarian artikel" fotoPertama="{{ false }}" ringkasTampil="{{ false }}" rataTepi="{{ true }}" butir="{{ cariBacaan }}" hint-size="100%,40rem"></dc-import>
+        </section></sc-if></div>
+      </sc-if>
+      <sc-if value="{{ kursusTampil }}" hint-placeholder-val="{{ false }}">
+        <div data-rv="{{ dataRv }}" style="{{ gayaLembar }}"><dc-import name="CourseDetail" dc-props="{{ kursus }}" hint-size="100%,90rem"></dc-import></div>
+      </sc-if>
+      <sc-if value="{{ lesTampil }}" hint-placeholder-val="{{ false }}">
+        <div data-rv="{{ dataRv }}" style="{{ gayaLembar }}"><dc-import name="LessonView" dc-props="{{ les }}" hint-size="100%,70rem"></dc-import></div>
+      </sc-if>
+    </div>
+  </main>
+  <div data-belajar-kaki="1" style="margin-top: {{ kakiAtas }}"><dc-import name="Footer" tata="ponsel" hint-size="100%,181rem"></dc-import></div>
+  <dc-import name="BottomGlassBar" jenis="blog" terbuka="{{ false }}" cariTerbuka="{{ cariBuka }}" bantuanTerbuka="{{ bantuanBuka }}" kueri="{{ q }}" cariPlaceholder="{{ cariPetunjuk }}" onKetik="{{ ketik }}" onCari="{{ cariAlih }}" onBantuan="{{ bantuanAlih }}" keAtasAda="{{ true }}" keAtasTampil="{{ gulir }}" onKeAtas="{{ keAtasKlik }}" hint-size="100%,5.2rem"></dc-import>
+  <dc-import name="HelpCentre" gaya="blog" bannerJenis="sapaan" buka="{{ bantuanBuka }}" onTutup="{{ bantuanTutup }}" hint-size="36rem,80rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"versi":{"editor":"enum","options":["baku","rv","ikon"],"default":"baku","section":"Resep"},"salesTampil":{"editor":"boolean","default":false,"section":"Resep"},"hrefLogo":{"editor":"text","default":"Artboard-pp1u.dc.html","section":"Tautan"},"gambar":{"editor":"text","default":"/_blob/0431e3e9af59f92d750099354ff0126e","section":"Gambar"},"judulBaris":{"editor":null,"section":"Isi","tsType":"string[]"},"subBaris":{"editor":null,"section":"Isi","tsType":"string[]"},"judulPilihan":{"editor":"text","default":"Pilihan Materi","section":"Isi"},"jelajahJudul":{"editor":"text","default":"Jelajahi per topik","section":"Isi"},"semuaAria":{"editor":"text","default":"Semua materi","section":"Aksesibilitas"},"cariPetunjuk":{"editor":"text","default":"Cari materi","section":"Isi"},"cariPetunjukArtikel":{"editor":"text","default":"Cari materi atau artikel","section":"Isi"},"cariSaran":{"editor":"text","default":"Coba kata lain, misalnya hollow, beton, atau karat.","section":"Isi"},"bacaanTampil":{"editor":"boolean","default":true,"section":"Resep"},"bacaanJudul":{"editor":"text","default":"Bacaan","section":"Isi"},"bacaanKategori":{"editor":null,"section":"Data","tsType":"string[]"},"hrefArtikel":{"editor":"text","default":"DetailArtikel3M4.dc.html","section":"Tautan"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+state = { data: null, kTab: 'semua', kisi: false, rvSemua: false, kKursus: null, kPelajaran: null, selesai: null, q: '', cari: false, bantuan: false, awas: false, gulir: false, kakiAtas: '' };
+  componentDidMount() {
+    let selesai = {};
+    try { selesai = JSON.parse(window.localStorage.getItem('smsp-kursus-selesai')) || {}; } catch (e) {}
+    this.setState({ selesai });
+    this._ukurKaki();
+    if (window.ResizeObserver) {
+      this._ro = new ResizeObserver(() => this._ukurKaki());
+      document.querySelectorAll('[data-belajar-utama="1"], [data-belajar-kaki="1"]').forEach((el) => this._ro.observe(el));
+    }
+    this._gulirOn = () => {
+      let y = 0;
+      try { y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0; } catch (e) {}
+      const turun = y > 160;
+      if (turun !== this.state.gulir) this.setState({ gulir: turun });
+    };
+    window.addEventListener('scroll', this._gulirOn, { passive: true });
+    if (this.props.versi === 'ikon') {
+      this._latarLama = document.body.style.background;
+      document.body.style.background = 'var(--ikon-merah-pekat)';
+    }
+  }
+  componentWillUnmount() {
+    if (this._ro) this._ro.disconnect();
+    if (this._gulirOn) window.removeEventListener('scroll', this._gulirOn);
+    if (this.props.versi === 'ikon') document.body.style.background = this._latarLama || '';
+  }
+  // Jarak ke kaki halaman mengikuti rasio tinggi isi dan kaki, rumus jarak kanvas ini.
+  _ukurKaki() {
+    const m = document.querySelector('[data-belajar-utama="1"]');
+    const k = document.querySelector('[data-belajar-kaki="1"]');
+    if (!m || !k || !k.offsetHeight) return;
+    const f = Math.min(1.4, Math.max(0.75, Math.pow(m.offsetHeight / k.offsetHeight, 0.35)));
+    const nilai = Math.round(f * 60) / 10 + 'rem';
+    if (nilai !== this.state.kakiAtas) this.setState({ kakiAtas: nilai });
+  }
+  componentDidUpdate() { this._ukurKaki(); }
+  _keAtas() { try { window.scrollTo(0, 0); } catch (e) {} }
+  _keMateri() {
+    const t = document.getElementById('kat-learning');
+    if (!t) return;
+    const kurangi = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    t.scrollIntoView({ behavior: kurangi ? 'auto' : 'smooth', block: 'start' });
+  }
+  renderVals() {
+    const s = this.state;
+    const p = this.props;
+    const versi = p.versi ?? 'baku';
+    const rv = versi === 'rv';
+    const ikon = versi === 'ikon';
+    const d = s.data || { kursus: [], tab: { semua: 'Semua' }, panel: { semua: ['', ''] } };
+    const KURSUS = d.kursus;
+    const selesai = s.selesai || {};
+    const kata = (l) => l.isi.map((b) => b.p || b.contoh || (b.poin || []).join(' ')).join(' ').split(/\s+/).length;
+    const menitLes = (l) => Math.max(1, Math.round(kata(l) / 180));
+    const menitKur = (k) => k.pelajaran.reduce((n, l) => n + menitLes(l), 0);
+    const buka = (i) => () => { this.setState({ kKursus: i, kPelajaran: null, q: '', cari: false }); this._keAtas(); };
+    const kartu = (k) => ({
+      judul: k.judul, foto: k.foto, topik: k.topik, level: k.level, ringkas: k.ringkas,
+      meta: k.pelajaran.length + ' pelajaran \u00b7 ' + menitKur(k) + ' menit baca',
+      ariaLabel: 'Materi ' + k.judul + ', ' + k.level + ', ' + k.pelajaran.length + ' pelajaran',
+      onPilih: buka(KURSUS.indexOf(k)),
+      krem: ikon,
+      levelMerah: rv
+    });
+    const tabKini = s.kTab;
+    const q = (s.q || '').trim();
+    const qq = q.toLowerCase();
+    const aktif = s.kKursus === null ? null : KURSUS[s.kKursus] || null;
+    const les = aktif && s.kPelajaran !== null ? aktif.pelajaran[s.kPelajaran] : null;
+    const hasilCari = !qq ? [] : KURSUS.filter((k) => {
+      const teks = (k.judul + ' ' + k.ringkas + ' ' + k.topik + ' ' + k.pelajaran.map((l) => l.judul).join(' ')).toLowerCase();
+      return qq.split(/\s+/).every((w) => teks.indexOf(w) !== -1);
+    });
+    const baca = !rv && !ikon && (p.bacaanTampil ?? true);
+    const daftarBaca = !baca ? [] : (s.daftarArtikel || []).filter((a) => (p.bacaanKategori ?? ['Produk Besi', 'Trivia']).indexOf(a.kategori) !== -1);
+    const hasilBaca = !qq ? [] : daftarBaca.filter((a) => {
+      const teks = (a.judul + ' ' + a.kategori + ' ' + a.ringkas).toLowerCase();
+      return qq.split(/\s+/).every((w) => teks.indexOf(w) !== -1);
+    });
+    // Klik artikel menyimpan kuncinya; ArticlePage membaca kunci yang sama.
+    const pilihArtikel = (kunci) => () => {
+      try { window.localStorage.setItem('smsp-artikel-pilih', kunci); } catch (e) {}
+      try { window.sessionStorage.setItem('smsp-artikel-pilih', kunci); } catch (e) {}
+    };
+    const barisBaca = (a) => ({
+      judul: a.judul, kategori: a.kategori, tanggal: a.tanggal, lalu: a.tanggal,
+      href: p.hrefArtikel || 'DetailArtikel3M4.dc.html', target: '_self', onPilih: pilihArtikel(a.slug),
+      ariaLabel: 'Artikel: ' + a.judul + ', ' + a.kategori + ', ' + a.tanggal + ', oleh Sofia, buka halaman artikel'
+    });
+    const katalog = !qq && !aktif;
+    const bukaTab = (t) => { this.setState({ kTab: t, kisi: true }); this._keMateri(); };
+    const rupa = rv ? 'rv' : ikon ? 'ikon' : 'baku';
+    const lembarIkon = 'margin-top: 0.8rem; box-sizing: border-box; padding: 0.4rem 1.6rem 2.4rem 1.6rem; border-radius: var(--sheet); background: var(--surface)';
+    const vals = {
+      koleksi: ikon ? 'ikon' : rv ? 'foto-lengkap' : 'foto',
+      logoUkuran: ikon ? 'mini' : 'kecil',
+      terimaData: (data) => this.setState({ data }),
+      gayaAkar: ikon ? 'background: var(--ikon-tirai-gelap), var(--ikon-tirai-merah), url(' + (p.gambar || '/_blob/0431e3e9af59f92d750099354ff0126e') + ') 75% top / auto 72rem no-repeat, var(--ikon-merah-pekat)' : 'background: var(--surface)',
+      gayaMast: ikon ? 'position: relative; z-index: 2; height: auto; background: transparent'
+        : (katalog && !(rv && s.rvSemua)) ? 'position: relative; z-index: 2; height: 0; background: transparent'
+        : rv ? 'position: relative; z-index: 2; height: auto; background: url(' + (p.gambar || '/_blob/0431e3e9af59f92d750099354ff0126e') + ') 75% top / auto 72rem no-repeat, var(--rv-merah)'
+        : 'position: relative; z-index: 2; height: auto; background: var(--mast-merah)',
+      mastKiri: (rv || ikon) ? 'var(--talang)' : (katalog ? '2.3rem' : 'var(--talang)'),
+      mastLogoAtas: (rv || ikon || !katalog) ? '0' : '-0.9rem',
+      gayaIsi: ikon ? 'background: transparent' : 'background: var(--surface)',
+      hrefLogo: p.hrefLogo || 'Artboard-pp1u.dc.html',
+      awasBuka: s.awas,
+      awasTutup: () => this.setState({ awas: false }),
+      gambar: p.gambar || '/_blob/0431e3e9af59f92d750099354ff0126e',
+      katalogBaku: katalog && !rv && !ikon,
+      katalogRv: katalog && rv,
+      katalogIkon: katalog && ikon,
+      judulBaris: p.judulBaris ?? ['Edukasi Besi Baja', 'SMS Perkasa'],
+      subBaris: p.subBaris ?? ['Bedah detail karakteristik material,', 'cara ukur presisi, dan aplikasi proyek'],
+      judulPilihan: p.judulPilihan ?? 'Pilihan Materi',
+      isiPilihan: 'Pilih dari ' + KURSUS.length + ' materi edukasi yang disusun oleh tim SMS Perkasa.',
+      semuaAria: p.semuaAria ?? 'Semua materi',
+      jelajahJudul: p.jelajahJudul ?? 'Jelajahi per topik',
+      bacaanData: baca,
+      bacaanTampil: katalog && baca,
+      bacaanJudul: p.bacaanJudul ?? 'Bacaan',
+      terimaDaftar: (d) => this.setState({ daftarArtikel: d.artikel }),
+      bacaanButir: daftarBaca.map(barisBaca),
+      tab: Object.keys(d.tab).map((t) => ({ nama: d.tab[t], kini: tabKini === t, pilih: () => this.setState({ kTab: t, kisi: false }) })),
+      panelJudul: (d.panel[tabKini] || d.panel.semua)[0],
+      panelTeks: (d.panel[tabKini] || d.panel.semua)[1],
+      kisi: s.kisi,
+      kisiAlih: () => this.setState({ kisi: !s.kisi }),
+      susunUtama: s.kisi ? 'kisi' : 'geser',
+      kartuUtama: KURSUS.filter((k) => tabKini === 'semua' || k.tab === tabKini).map((k) => ({ ...kartu(k), lebar: '0 0 62%' })),
+      grup: ['dasar', 'material', 'proyek'].map((t) => ({ nama: d.tab[t] || '', butir: KURSUS.filter((k) => k.tab === t).map(kartu), onSemua: () => bukaTab(t) })),
+      keMateri: () => this._keMateri(),
+      rvUtamaTampil: !s.rvSemua,
+      rvSalesTampil: !!p.salesTampil,
+      rvKatalogTampil: !!s.rvSemua,
+      rvBuka: () => { this.setState({ rvSemua: true }); setTimeout(() => this._keAtas(), 0); },
+      rvTutup: () => { this.setState({ rvSemua: false }); setTimeout(() => this._keAtas(), 0); },
+      rvUtama: KURSUS.filter((k) => k.tab !== 'material').map(kartu),
+      rvMaterialKisi: (d.kisiMaterial || []).map((m) => { const i = KURSUS.findIndex((k) => k.id === m[1]); return { judul: m[0], foto: m[2], ariaLabel: 'Pelajari ' + m[0], onPilih: buka(i) }; }),
+      rvKatalog: KURSUS.filter((k) => k.tab !== 'material').map((k) => ({ ...kartu(k), foto: k.ikonKisi, baris: k.barisKisi })),
+      rvProduk: (d.produk || []).map((m) => { const i = KURSUS.findIndex((k) => k.id === m[2]); return { judul: m[0], foto: m[1], fotoBawah: true, ariaLabel: 'Pelajari ' + m[0], onPilih: buka(i) }; }),
+      kartuIkon: KURSUS.map((k) => ({ ...kartu(k), judul: k.judul.replace('Bentuk Besi', 'Bentuk\u00a0Besi'), jenis: 'ikon' })),
+      cariTampil: !!qq,
+      cariPetunjuk: baca ? (p.cariPetunjukArtikel ?? 'Cari materi atau artikel') : (p.cariPetunjuk ?? 'Cari materi'),
+      cariJudul: hasilCari.length + ' materi cocok dengan \u201c' + q + '\u201d',
+      cariKosong: !!qq && hasilCari.length === 0 && hasilBaca.length === 0,
+      cariMateriTampil: hasilCari.length > 0 || hasilBaca.length === 0,
+      cariBacaanTampil: hasilBaca.length > 0,
+      cariBacaanJudul: hasilBaca.length + ' artikel cocok dengan \u201c' + q + '\u201d',
+      cariBacaanTingkat: hasilCari.length > 0 ? 2 : 1,
+      cariBacaan: hasilBaca.map(barisBaca),
+      gayaCariBacaan: hasilCari.length > 0 ? 'margin-top: 4.8rem' : 'margin-top: 2.4rem',
+      cariSaran: p.cariSaran ?? 'Coba kata lain, misalnya hollow, beton, atau karat.',
+      warnaKosong: ikon ? 'var(--ink)' : 'var(--ink-2)',
+      cariHasil: hasilCari.map(kartu),
+      gayaCari: ikon ? 'margin-top: 0.8rem; box-sizing: border-box; padding: 2rem 1.6rem; border-radius: var(--sheet); background: var(--surface)' : 'margin-top: 2.4rem',
+      dataRv: rv ? '1' : ikon ? '2' : undefined,
+      gayaLembar: ikon ? lembarIkon : '',
+      kursusTampil: !qq && !!aktif && !les,
+      lesTampil: !qq && !!les,
+      kursus: {},
+      les: {},
+      kakiAtas: rv ? '0' : (s.kakiAtas || 'var(--jarak-y-antar)'),
+      q: s.q,
+      ketik: (v) => this.setState({ q: v }),
+      cariBuka: s.cari,
+      cariAlih: () => this.setState({ cari: !s.cari, q: s.cari ? '' : s.q, bantuan: false }),
+      bantuanBuka: s.bantuan,
+      bantuanAlih: () => this.setState({ bantuan: !s.bantuan }),
+      bantuanTutup: () => this.setState({ bantuan: false }),
+      gulir: s.gulir,
+      keAtasKlik: () => this._keAtas()
+    };
+    if (aktif) {
+      const sudah = aktif.pelajaran.filter((l, i) => selesai[aktif.id + ':' + i]).length;
+      const lanjut = aktif.pelajaran.findIndex((l, i) => !selesai[aktif.id + ':' + i]);
+      vals.kursus = {
+        gambarMerah: rv ? (p.gambar || '/_blob/0431e3e9af59f92d750099354ff0126e') : '', rupa, judul: aktif.judul, ringkas: aktif.ringkas, foto: aktif.foto, level: aktif.level,
+        meta: aktif.pelajaran.length + ' pelajaran', menit: menitKur(aktif) + ' menit baca', hasil: aktif.hasil,
+        labelMulai: sudah === 0 ? 'Mulai Belajar' : (sudah === aktif.pelajaran.length ? 'Baca Lagi' : 'Lanjutkan Belajar'),
+        progres: sudah > 0 ? sudah + ' dari ' + aktif.pelajaran.length + ' pelajaran selesai' : '',
+        onKembali: () => { this.setState({ kKursus: null, kPelajaran: null }); this._keAtas(); },
+        onMulai: () => { this.setState({ kPelajaran: lanjut === -1 ? 0 : lanjut }); this._keAtas(); },
+        daftar: aktif.pelajaran.map((l, i) => {
+          const beres = !!selesai[aktif.id + ':' + i];
+          return { nomor: i + 1, judul: l.judul, menit: menitLes(l) + ' menit', selesai: beres, ariaLabel: 'Pelajaran ' + (i + 1) + ', ' + l.judul + (beres ? ', selesai' : ''), onPilih: () => { this.setState({ kPelajaran: i }); this._keAtas(); } };
+        })
+      };
+    }
+    if (les) {
+      const no = s.kPelajaran;
+      const terakhir = no === aktif.pelajaran.length - 1;
+      vals.les = {
+        rupa, materi: aktif.judul, foto: aktif.foto, nomor: no, jumlah: aktif.pelajaran.length, menit: menitLes(les) + ' menit baca', judul: les.judul, blok: les.isi,
+        onKembali: () => { this.setState({ kPelajaran: null }); this._keAtas(); },
+        onSebelum: () => { this.setState({ kPelajaran: no - 1 }); this._keAtas(); },
+        onBerikut: () => {
+          const baru = { ...selesai, [aktif.id + ':' + no]: true };
+          try { window.localStorage.setItem('smsp-kursus-selesai', JSON.stringify(baru)); } catch (e) {}
+          this.setState({ selesai: baru, kPelajaran: terakhir ? null : no + 1 });
+          this._keAtas();
+        }
+      };
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

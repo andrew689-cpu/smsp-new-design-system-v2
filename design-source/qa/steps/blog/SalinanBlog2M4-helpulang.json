@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Pusat bantuan\"]"}, {"wait": 900}, {"click": "[data-bantu] [aria-label=\"Tutup pusat bantuan\"]"}, {"wait": 700}, {"click": "[aria-label=\"Pusat bantuan\"]"}, {"wait": 900}]

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Tag</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<span style="{{ gaya }}">{{ teks }}</span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["keping","mulai","kategori","lencana","titik","label"],"default":"keping"},"nada":{"editor":"enum","options":["biru","abu","hangat"],"default":"biru"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"cincin":{"editor":"boolean","default":false},"teks":{"editor":null,"default":"Warna Biru"},"$preview":{"width":120,"height":40}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'keping';
+    const nada = this.props.nada ?? 'biru';
+    const dasarKeping = { biru: 'var(--keping-biru)', abu: 'var(--keping-abu)', hangat: 'var(--keping-hangat)' };
+    const cincin = !!this.props.cincin;
+    const resep = {
+      keping: 'display: inline-block; padding: 0.4rem 1rem; border-radius: var(--pill); background: ' + (dasarKeping[nada] || dasarKeping.biru) + '; font-size: var(--teks-micro); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: ' + (nada === 'biru' ? 'var(--biru-tinta)' : 'var(--ink)'),
+      mulai: 'display: inline-block; padding: 0.4rem var(--rapat); border-radius: var(--pill); background: var(--biru-tinta); color: var(--surface); font-size: var(--teks-tiny); line-height: var(--tinggi-tengah); font-weight: var(--bobot-semibold); letter-spacing: var(--renggang-kecil); white-space: nowrap',
+      kategori: 'display: inline-flex; align-items: center; align-self: flex-start; height: 2.2rem; padding: 0 0.8rem; border-radius: var(--tile); background: var(--brand); font-size: ' + ((this.props.tata ?? 'ponsel') === 'desktop' ? 'var(--teks-body)' : 'var(--teks-chip)') + '; line-height: var(--tinggi-satu); font-weight: var(--bobot-bold); color: var(--surface)',
+      lencana: 'display: grid; place-items: center; flex-shrink: 0; min-width: 1.8rem; height: 1.8rem; padding: 0 ' + (cincin ? '0.4rem' : '0.5rem') + '; box-sizing: border-box; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-tiny); line-height: var(--tinggi-satu); font-weight: var(--bobot-bold)' + (cincin ? '; border: 0.15rem solid var(--surface)' : ''),
+      label: 'flex-shrink: 0; display: inline-flex; align-items: center; height: 2.2rem; padding: 0 0.6rem; border-radius: var(--tile); background: var(--line); font-size: var(--teks-meta); line-height: 1; font-weight: var(--bobot-medium); color: var(--ink-2)',
+      titik: 'display: block; box-sizing: border-box; width: 0.9rem; height: 0.9rem; border-radius: var(--pill); background: var(--brand); border: 0.2rem solid var(--surface)'
+    };
+    return {
+      gaya: resep[jenis] || resep.keping,
+      teks: jenis === 'titik' ? '' : (this.props.teks ?? 'Warna Biru')
+    };
+  }
+}
+</script>
+</body>
+</html>

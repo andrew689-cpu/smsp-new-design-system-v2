@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Semua Produk — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="ponsel" hint-size="100%,6.1rem"></dc-import>
+  <dc-import name="SiteHeader" tata="ponsel" hint-size="100%,5.6rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--talang); display: flex; flex-direction: column">
+    <dc-import name="PageTitle" tata="ponsel" hint-size="100%,3.4rem"></dc-import>
+    <div style="margin-top: 4.5rem">
+      <dc-import name="Rail" koleksi="indeks" kolom="{{ 2 }}" tepi="kisi" gutter="calc(var(--jarak-x-dua) / 2)" celahY="calc(var(--selokan-ubin) / 2)" hint-size="100%,403rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: 8rem">
+    <dc-import name="Footer" tata="ponsel" hint-size="100%,181rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

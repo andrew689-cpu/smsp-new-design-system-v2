@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SiteHeader</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <header style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0; height: {{ tinggiPonsel }}; box-sizing: border-box; padding: {{ padPonsel }}; background: {{ dasar }}">
+    <span style="display: flex; margin-right: calc(var(--rapat) / 2)"><dc-import name="Logo" tata="ponsel" tengah="{{ logoTengah }}" warna="{{ warnaLogo }}" href="{{ hrefLogo }}" ukuran="{{ ukuranLogo }}" atas="{{ logoAtas }}" hint-size="10.2rem,4.4rem"></dc-import></span>
+    <div style="flex-shrink: 0; display: flex; align-items: center; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">
+      <sc-if value="{{ teleponTampil }}" hint-placeholder-val="{{ false }}">
+        <a href="{{ teleponHref }}" aria-label="{{ teleponAria }}" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; color: var(--ink)">
+          <sc-if value="{{ labelTeleponTampil }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: var(--teks-micro); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); color: var(--ink-2); white-space: nowrap">{{ teleponLabel }}</span>
+          </sc-if>
+          <span style="display: flex; align-items: center; row-gap: 0.5rem; column-gap: 0">
+            <span style="display: flex; flex-shrink: 0; margin-right: 0.25rem"><dc-import name="Icon" ikon="telepon" hint-size="1.6rem,1.6rem"></dc-import></span>
+            <span style="margin-top: 0.2rem; font-size: var(--teks-chip); font-weight: var(--bobot-bold); white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--brand); margin-left: 0.25rem; margin-right: 0.25rem">{{ telepon }}</span>
+          </span>
+        </a>
+      </sc-if>
+      <span style="display: flex; flex-shrink: 0; margin-right: -1.3rem"><dc-import name="IconButton" ikon="{{ ikonMenu }}" ukuran="{{ 44 }}" ikonWarna="{{ warnaMenu }}" ariaLabel="Opsi lainnya" onPress="{{ onMenu }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </div>
+  </header>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <header style="position: sticky; top: 0; z-index: 40; box-sizing: border-box; height: 7.2rem; padding: 0 12rem; background: var(--surface); display: flex; align-items: center; row-gap: 2.4rem; column-gap: 0">
+    <span style="display: flex; flex-shrink: 0; margin-right: 1.2rem"><dc-import name="Logo" tata="desktop" href="{{ hrefLogo }}" hint-size="15rem,4.4rem"></dc-import></span>
+    <span style="display: flex; flex-shrink: 0; margin-left: 1.2rem; margin-right: 1.2rem"><dc-import name="Button" variant="nav-kategori" href="" ikon="kategori" ikonKotak="3.6rem" label="Kategori" ariaLabel="Buka kategori produk" onPress="{{ onKategori }}" hint-size="11.4rem,4.4rem"></dc-import></span>
+    <span style="flex-grow: 1; min-width: 0; display: flex; margin-left: 1.2rem; margin-right: 1.2rem"><dc-import name="SearchField" dc-props="{{ cariProps }}" hint-size="100%,4.6rem"></dc-import></span>
+    <sc-if value="{{ menuTampil }}" hint-placeholder-val="{{ false }}">
+      <span style="display: flex; flex-shrink: 0; margin-left: 1.2rem; margin-right: 1.2rem"><dc-import name="IconButton" ikon="menu-isi" ukuran="{{ 44 }}" bentuk="tile" ariaLabel="Buka menu" onPress="{{ onMenu }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+  </header>
+  <sc-if value="{{ navTampil }}" hint-placeholder-val="{{ true }}">
+    <dc-import name="CategoryNav" dc-props="{{ navProps }}" hint-size="100%,5.2rem"></dc-import>
+  </sc-if>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"nada":{"editor":"enum","options":["surface","merah","apung"],"default":"surface","section":"Resep"},"menuTampil":{"editor":"boolean","default":false,"section":"Tampilan"},"navTampil":{"editor":"boolean","default":true,"section":"Tampilan"},"logoTengah":{"editor":"boolean","default":false,"section":"Tampilan"},"teleponTampil":{"editor":"boolean","default":false,"section":"Telepon"},"labelTeleponTampil":{"editor":"boolean","default":false,"section":"Telepon"},"telepon":{"editor":"text","default":"+628112689889","section":"Telepon"},"teleponLabel":{"editor":"text","default":"Hubungi Sekarang!","section":"Telepon"},"teleponAria":{"editor":"text","default":"Telepon +62 811-2689-889","section":"Telepon"},"logoKe":{"editor":"enum","options":["utama","beranda"],"default":"utama","section":"Tautan"},"hrefLogo":{"editor":"text","default":"","section":"Tautan"},"sisiPonsel":{"editor":"text","default":"var(--sisi)","section":"Jarak"},"placeholder":{"editor":"text","default":"Cari produk, ukuran, atau info","section":"Cari"},"nilai":{"editor":null,"section":"Cari"},"navIsi":{"editor":"enum","options":["produk","artikel"],"default":"produk","section":"Navigasi"},"navAria":{"editor":"text","default":"","section":"Navigasi"},"navProduk":{"editor":null,"section":"Navigasi","tsType":"{label:string,href?:string,ikon?:string}"},"navTautan":{"editor":null,"section":"Navigasi","tsType":"Array<{label:string,href?:string}>"},"onMenu":{"editor":null},"onKategori":{"editor":null},"onUbah":{"editor":null},"onCari":{"editor":null},"hrefNavProduk":{"editor":"text","default":"","section":"Navigasi"},"hrefNavPertama":{"editor":"text","default":"","section":"Navigasi"},"logoAtas":{"editor":"text","default":"-0.9rem","section":"Tata letak"},"dasarApung":{"editor":"text","default":"transparent","section":"Tata letak"},"ukuranLogo":{"editor":"enum","options":["baku","kecil","mini"],"default":"kecil","section":"Resep"},"$preview":{"width":360,"height":56}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const apung = this.props.nada === 'apung';
+    const merah = this.props.nada === 'merah' || apung;
+    const telepon = this.props.telepon ?? '+628112689889';
+    const teleponTampil = !!this.props.teleponTampil;
+    const cariProps = { tata: 'header', placeholder: this.props.placeholder ?? 'Cari produk, ukuran, atau info', onUbah: this.props.onUbah, onCari: this.props.onCari };
+    if (this.props.nilai !== undefined) cariProps.nilai = this.props.nilai;
+    return {
+      isPonsel: tata !== 'desktop',
+      logoTengah: !!this.props.logoTengah || apung,
+      tinggiPonsel: apung ? '5.5rem' : '5.6rem',
+      padPonsel: apung ? '0 1.5rem 0 ' + (this.props.sisiPonsel ?? '2.3rem') : '0 ' + (this.props.sisiPonsel ?? 'var(--sisi)'),
+      ukuranLogo: this.props.ukuranLogo || (apung ? 'kecil' : 'baku'),
+      logoAtas: apung ? (this.props.logoAtas ?? '-0.9rem') : '0',
+      ikonMenu: apung ? 'menu-tebal' : 'menu',
+      sisiPonsel: this.props.sisiPonsel ?? 'var(--sisi)',
+      isDesktop: tata === 'desktop',
+      dasar: apung ? (this.props.dasarApung || 'transparent') : merah ? 'var(--merah-artikel)' : 'var(--surface)',
+      warnaLogo: merah ? 'var(--surface)' : 'var(--brand-hero)',
+      warnaMenu: merah ? 'var(--surface)' : 'var(--ink)',
+      hrefLogo: this.props.hrefLogo || (this.props.logoKe === 'beranda' ? (tata === 'desktop' ? 'DesktopBerandaM4.dc.html' : 'BerandaM4.dc.html') : 'Artboard-pp1u.dc.html'),
+      menuTampil: !!this.props.menuTampil,
+      navTampil: this.props.navTampil ?? true,
+      teleponTampil,
+      labelTeleponTampil: !!this.props.labelTeleponTampil,
+      telepon,
+      teleponHref: 'tel:' + telepon,
+      teleponAria: this.props.teleponAria ?? 'Telepon +62 811-2689-889',
+      teleponLabel: this.props.teleponLabel ?? 'Hubungi Sekarang!',
+      cariProps,
+      navProps: { isi: this.props.navIsi, ariaLabel: this.props.navAria, produk: this.props.navProduk, tautan: this.props.navTautan, hrefProduk: this.props.hrefNavProduk, hrefPertama: this.props.hrefNavPertama, teleponTampil, telepon, teleponLabel: this.props.teleponLabel ?? 'Hubungi Sekarang!' },
+      onMenu: this.props.onMenu,
+      onKategori: this.props.onKategori
+    };
+  }
+}
+</script>
+</body>
+</html>

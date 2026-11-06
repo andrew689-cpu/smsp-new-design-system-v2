@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogNewsList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section aria-label="{{ ariaLabel }}" style="{{ gayaDaftar }}">
+  <sc-for list="{{ baris }}" as="b" hint-placeholder-count="3">
+    <dc-import name="BlogRow" dc-props="{{ b }}" hint-size="100%,14rem"></dc-import>
+  </sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ariaLabel":{"editor":"text","default":"Artikel","section":"Aksesibilitas"},"butir":{"editor":null,"section":"Data","tsType":"Array<BlogRow props>"},"ringkasTampil":{"editor":"boolean","default":true,"section":"Resep"},"fotoPertama":{"editor":"boolean","default":true,"section":"Resep"},"rataTepi":{"editor":"boolean","default":false,"section":"Tata letak"},"$preview":{"width":330,"height":420}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const butir = p.butir ?? [{}, {}];
+    return {
+      ariaLabel: p.ariaLabel ?? 'Artikel',
+      gayaDaftar: 'margin-top: 0; margin-right: ' + (p.rataTepi ? '0' : '0.2rem') + '; margin-bottom: 0; margin-left: ' + (p.rataTepi ? '0' : '0.8rem') + '; display: flex; flex-direction: column; row-gap: 0; column-gap: 0',
+      baris: butir.map((b, i) => ({ ...b, nomor: i, jenis: 'berita', besar: i === 0 && (p.fotoPertama ?? true), ringkasTampil: p.ringkasTampil ?? true }))
+    };
+  }
+}
+</script>
+</body>
+</html>

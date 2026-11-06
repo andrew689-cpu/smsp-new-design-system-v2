@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Daftar kategori artikel\"]"}, {"wait": 800}, {"click": "[aria-label=\"Tutup daftar kategori\"]", "force": true}, {"wait": 600}]

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CompactHeader</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ terlihat }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ isProduk }}" hint-placeholder-val="{{ true }}">
+    <div style="position: fixed; left: 50%; transform: translateX(-50%); top: 0; width: 36rem; max-width: 100%; z-index: 9999; overflow: hidden; min-height: 8.4rem; display: flex; align-items: center; box-shadow: var(--kaca-bayang)">
+      <img data-hdr-thumb="1" src="{{ gambar }}" alt="{{ alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: var(--ringkas-tirai)"></span>
+      <div style="position: relative; width: 100%; box-sizing: border-box; display: flex; align-items: center; gap: var(--rapat); padding: 0 {{ sisi }}">
+        <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column">
+          <span style="font-size: var(--teks-page); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-ringkas); color: var(--surface); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ judul }}</span>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isSku }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: 50%; transform: translateX(-50%); top: 0; width: 36rem; max-width: 100%; z-index: 9999; overflow: hidden; min-height: 8.4rem; display: flex; align-items: flex-end; box-shadow: var(--kaca-bayang)">
+      <img data-hdr-thumb="1" src="{{ gambar }}" alt="{{ alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: var(--ringkas-tirai)"></span>
+      <div style="position: relative; width: 100%; box-sizing: border-box; display: flex; align-items: flex-end; gap: var(--rapat); padding: 1.6rem 1.6rem 1.6rem 1.6rem">
+        <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.2rem">
+          <span style="font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--ringkas-redup); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ judul }}</span>
+          <span style="font-size: var(--teks-section); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); color: var(--surface); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ ukuran }}</span>
+          <span style="font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--ringkas-redup); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ catatan }}</span>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+</sc-if>
+<sc-if value="{{ isSkuLama }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ terlihat }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: 50%; transform: translateX(-50%); top: 0; width: 36rem; max-width: 100%; z-index: 9999; overflow: hidden; min-height: 8.4rem; display: flex; align-items: flex-end; box-shadow: var(--kaca-bayang)">
+      <img data-hdr-thumb="1" src="{{ gambar }}" alt="{{ alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: var(--ringkas-tirai)"></span>
+      <div style="position: relative; width: 100%; box-sizing: border-box; display: flex; align-items: flex-end; gap: var(--rapat); padding: 0 1.6rem 1.2rem 1.6rem">
+        <span style="min-width: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.4rem">
+          <span style="font-size: var(--teks-section); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); color: var(--surface); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ judul }}</span>
+          <span style="display: flex; min-width: 0"><dc-import name="Price" ukuran="lama-ringkas" angka="{{ angka }}" hint-size="100%,1.8rem"></dc-import></span>
+        </span>
+      </div>
+    </div>
+  </sc-if>
+</sc-if>
+<sc-if value="{{ perluHarga }}" hint-placeholder-val="{{ false }}"><dc-import name="DataHarga" onData="{{ terimaHarga }}" hint-size="0,0"></dc-import></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"barisHarga":{"editor":null},"jenis":{"editor":"enum","options":["produk","sku","sku-lama"],"default":"produk","section":"Resep"},"terlihat":{"editor":"boolean","default":true,"section":"Keadaan"},"judul":{"editor":"text","default":"Besi Hollow Hitam","section":"Isi"},"ukuran":{"editor":"text","default":"40 × 40 × 2 mm × 6 M","section":"Isi"},"catatan":{"editor":"text","default":"[STD, NB]","section":"Isi"},"angka":{"editor":"text","default":"","section":"Isi"},"sku":{"editor":"text","default":"40,40,2","section":"Isi"},"gambar":{"editor":"text","default":"/_blob/7cf9caf5815cec7ca47570545222d743","section":"Gambar"},"alt":{"editor":"text","default":"Besi Hollow Hitam: dua batang hollow hitam berpenampang kotak","section":"Gambar"},"sisi":{"editor":"text","default":"","section":"Tata letak"},"$preview":{"width":360,"height":112}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const rbHarga = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    const kunciSku = String(this.props.sku || '40,40,2').split(',').map(Number);
+    const barisSku = (this.state.barisHarga || []).find((x) => x[0] === kunciSku[0] && x[1] === kunciSku[1] && x[2] === kunciSku[2]);
+    const hargaSku = this.props.angka || (barisSku ? rbHarga(barisSku[4]) : '');
+    const jenis = this.props.jenis ?? 'produk';
+    return {
+      terlihat: this.props.terlihat ?? true,
+      sisi: this.props.sisi || 'var(--sisi)',
+      isProduk: jenis !== 'sku' && jenis !== 'sku-lama',
+      isSku: jenis === 'sku',
+      isSkuLama: jenis === 'sku-lama',
+      perluHarga: !this.props.angka,
+      terimaHarga: (baris) => this.setState({ barisHarga: baris }),
+      angka: hargaSku,
+      judul: this.props.judul ?? 'Besi Hollow Hitam',
+      ukuran: this.props.ukuran ?? '40 × 40 × 2 mm × 6 M',
+      catatan: this.props.catatan ?? '[STD, NB]',
+      gambar: this.props.gambar ?? '/_blob/7cf9caf5815cec7ca47570545222d743',
+      alt: this.props.alt ?? 'Besi Hollow Hitam: dua batang hollow hitam berpenampang kotak'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>RelatedProducts</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 {{ sisi }} 0 0">
+      <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" varian="{{ varianJudul }}" rata="left" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    </div>
+    <dc-import name="Rail" items="{{ kartu }}" lebar="40%" gutter="calc(var(--rapat) / 2)" snap="{{ false }}" pad="{{ pad }}" margKanan="{{ margKanan }}" hint-size="100%,16rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" teks="{{ judul }}" hint-size="100%,2.9rem"></dc-import>
+    </div>
+    <dc-import name="Rail" items="{{ kartu }}" kolom="{{ 6 }}" gutter="1rem" celahY="1rem" hint-size="100%,20rem"></dc-import>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"judul":{"editor":"text","default":"Produk Terkait","section":"Isi"},"href":{"editor":"text","default":"#produk","section":"Isi"},"butir":{"editor":null,"tsType":"Array<{n:string,v:number,foto:string,alt?:string,href?:string}>"},"pad":{"editor":"text","default":"","section":"Tata letak"},"margKanan":{"editor":"text","default":"","section":"Tata letak"},"teksKecil":{"editor":"boolean","default":false,"section":"Huruf"},"lama":{"editor":"boolean","default":false,"section":"Resep"},"sisi":{"editor":"text","default":"","section":"Tata letak"},"$preview":{"width":345,"height":210}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const lama = !!this.props.lama;
+    const BAWAAN = [{"n": "Wiremesh", "v": 16, "foto": "/_blob/2f0e519d8e8ec397d9c2c6d971788eef"}, {"n": "Plat Besi Hitam", "v": 54, "foto": "/_blob/e1474c92af7d2b81503b90b37b2e4758"}, {"n": "Besi CNP", "v": 120, "foto": "/_blob/baf32a1187b00ce8dfb51a4627d7a4b6"}, {"n": "Besi Siku", "v": 35, "foto": "/_blob/05647cd4dfc831d7d827b044a051fd2e"}, {"n": "Besi WF", "v": 15, "foto": "/_blob/2dd626b92633150dfefad568b9c0c59d"}, {"n": "Besi Beton", "v": 10, "foto": "/_blob/50686b8e03284de6842ecb5d2840032d"}];
+    const BAWAAN_LAMA = [{"n": "Wiremesh", "v": 16, "foto": "/_blob/2f0e519d8e8ec397d9c2c6d971788eef"}, {"n": "Plat Besi Hitam", "v": 54, "foto": "/_blob/4d36d41d6c4360add29ebf1a61c9e305"}, {"n": "Besi CNP", "v": 120, "foto": "/_blob/baf32a1187b00ce8dfb51a4627d7a4b6"}, {"n": "Besi Siku", "v": 35, "foto": "/_blob/05647cd4dfc831d7d827b044a051fd2e"}, {"n": "Besi WF", "v": 15, "foto": "/_blob/2dd626b92633150dfefad568b9c0c59d"}, {"n": "Besi Beton", "v": 10, "foto": "/_blob/50686b8e03284de6842ecb5d2840032d"}];
+    const butir = this.props.butir ?? (lama ? BAWAAN_LAMA : BAWAAN);
+    const href = this.props.href ?? '#produk';
+    return {
+      sisi: this.props.sisi || (lama ? '1.6rem' : 'var(--sisi)'),
+      varianJudul: lama ? 'lama' : undefined,
+      pad: this.props.pad || (lama ? '1.4rem 1.6rem 0.2rem 0' : '2rem 0 0.2rem 0'),
+      margKanan: this.props.margKanan || (lama ? '0' : '1.6rem'),
+      isPonsel: !d,
+      isDesktop: d,
+      judul: this.props.judul ?? 'Produk Terkait',
+      kartu: butir.map((p) => ({ jenis: 'terkait', tata: d ? 'desktop' : 'ponsel', nama: p.n, varian: 'Tersedia ' + p.v + ' varian', foto: p.foto, alt: p.alt, href: p.href ?? href, teksKecil: !!this.props.teksKecil }))
+    };
+  }
+}
+</script>
+</body>
+</html>

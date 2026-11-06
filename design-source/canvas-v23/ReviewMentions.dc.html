@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewMentions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section aria-label="{{ ariaLabel }}" style="{{ g.akar }}">
+  <div style="{{ g.kepala }}">
+    <span aria-hidden="true" style="{{ g.lencana }}">
+      <dc-import name="Icon" ikon="bintang-sebut" ukuran="{{ g.ikonUkuran }}" hint-size="2rem,2rem"></dc-import>
+    </span>
+    <span style="{{ g.judul }}"><dc-import name="Heading" level="{{ 2 }}" varian="ulasan" tata="{{ tata }}" teks="{{ judul }}" hint-size="100%,2rem"></dc-import></span>
+  </div>
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0; column-gap: 0">
+    <sc-for list="{{ butirTampil }}" as="sb" hint-placeholder-count="4">
+      <div style="{{ sb.baris }}">
+        <span aria-hidden="true" style="{{ g.bulat }}">
+          <dc-import name="Icon" ikon="{{ sb.ikon }}" hint-size="1.9rem,1.9rem"></dc-import>
+        </span>
+        <span style="{{ g.kolom }}">
+          <span style="display: flex; align-items: baseline; justify-content: space-between; column-gap: 0">
+            <span style="{{ g.label }}">{{ sb.label }}</span>
+            <span style="{{ g.persen }}">{{ sb.pctLabel }}</span>
+          </span>
+          <span aria-hidden="true" style="{{ g.trek }}"><span style="display: block; height: 100%; width: {{ sb.pct }}; border-radius: var(--pill); background: var(--brand)"></span></span>
+        </span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"judul":{"editor":"text","default":"","section":"Isi"},"ariaLabel":{"editor":"text","default":"","section":"Aksesibilitas"},"butir":{"editor":null,"section":"Data","tsType":"Array<{label:string,persen:number,ikon:string}>"},"$preview":{"width":330,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const butir = this.props.butir ?? (desktop ? [
+      { label: 'Ukuran sesuai', persen: 82, ikon: 'perisai' },
+      { label: 'Pengiriman tepat waktu', persen: 74, ikon: 'truk' },
+      { label: 'Sales responsif', persen: 69, ikon: 'obrol' },
+      { label: 'Harga transparan', persen: 58, ikon: 'label' }
+    ] : [
+      { label: 'Barang sesuai', persen: 98, ikon: 'perisai' },
+      { label: 'Admin responsif', persen: 90, ikon: 'obrol' },
+      { label: 'Tepat Waktu', persen: 84, ikon: 'truk' },
+      { label: 'Harga bersaing', persen: 80, ikon: 'label' }
+    ]);
+    const jarak = desktop ? '1.1rem' : '0.9rem';
+    const akhir = butir.length - 1;
+    const g = desktop ? {
+      akar: '',
+      kepala: 'display: flex; align-items: center; column-gap: 0; margin-bottom: 2.2rem',
+      lencana: 'display: grid; place-items: center; width: 4.4rem; height: 4.4rem; background: var(--brand); border-radius: var(--control); flex-shrink: 0; margin-right: 0.7rem',
+      ikonUkuran: 22,
+      judul: 'display: block; margin-left: 0.7rem; margin-right: 0.7rem',
+      bulat: 'display: grid; place-items: center; width: 3.8rem; height: 3.8rem; background: var(--awas-bg); border-radius: var(--pill); flex-shrink: 0; margin-right: 0.7rem',
+      kolom: 'flex-grow: 1; min-width: 0; margin-left: 0.7rem; margin-right: 0.7rem',
+      label: 'font-size: var(--teks-body); font-weight: var(--bobot-bold); color: var(--ink); line-height: var(--tinggi-artikel); margin-right: 0.4rem',
+      persen: 'font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: var(--ink-2); margin-left: 0.4rem; margin-right: 0.4rem',
+      trek: 'display: block; width: 100%; height: 0.7rem; margin-top: 0.7rem; background: var(--line); border-radius: var(--pill); overflow: hidden'
+    } : {
+      akar: 'box-sizing: border-box; padding: 1.8rem 0 2rem 0',
+      kepala: 'display: flex; align-items: center; column-gap: 0; margin-bottom: 1.8rem',
+      lencana: 'width: 4rem; height: 4rem; flex-shrink: 0; border-radius: 1.2rem; background: var(--brand); display: grid; place-items: center; margin-right: 0.6rem',
+      ikonUkuran: 20,
+      judul: 'display: block; min-width: 0; margin-left: 0.6rem; margin-right: 0.6rem',
+      bulat: 'width: 3.4rem; height: 3.4rem; flex-shrink: 0; border-radius: var(--pill); background: var(--awas-bg); display: grid; place-items: center; margin-right: 0.6rem',
+      kolom: 'min-width: 0; flex-grow: 1; margin-left: 0.6rem; margin-right: 0.6rem',
+      label: 'min-width: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); color: var(--ink); overflow-wrap: anywhere; margin-right: 0.3rem',
+      persen: 'flex-shrink: 0; font-size: var(--teks-chip); font-weight: var(--bobot-bold); color: var(--ink-2); font-variant-numeric: tabular-nums; margin-left: 0.3rem; margin-right: 0.3rem',
+      trek: 'margin-top: 0.7rem; display: block; width: 100%; height: 0.6rem; border-radius: var(--pill); background: var(--line); overflow: hidden'
+    };
+    return {
+      tata: desktop ? 'desktop' : 'ponsel',
+      judul: this.props.judul || (desktop ? 'Yang sering disebut pelanggan' : 'Semua ulasan'),
+      ariaLabel: this.props.ariaLabel || (desktop ? undefined : 'Yang sering disebut pelanggan'),
+      g,
+      butirTampil: butir.map((b, i) => ({
+        label: b.label,
+        pct: b.persen + '%',
+        pctLabel: desktop ? b.persen + ' %' : b.persen + '%',
+        ikon: b.ikon,
+        // Margin hasil data-tepi di sumber: hanya baris pertama yang kehilangan margin kiri.
+        baris: 'min-width: 0; display: flex; align-items: center; column-gap: 0; margin-left: ' + (i === 0 ? '0' : jarak) + '; margin-right: ' + jarak + '; margin-top: ' + (i === 0 ? '0' : jarak) + '; margin-bottom: ' + (i === akhir ? '0' : jarak)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SalesBanner</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: relative; box-sizing: border-box; width: 100%; max-width: 123rem; margin: 1.4rem auto 0; display: flex; flex-direction: column; border-radius: 1.2rem; background-image: url(/_blob/4aed5873427ade5f36a12869a9f355ce), url(/_blob/4aed5873427ade5f36a12869a9f355ce), url(/_blob/4aed5873427ade5f36a12869a9f355ce), var(--upvc-gradasi); background-size: 2rem, 2rem, 4rem, auto; background-position: 60rem 10rem, 20rem 15rem, 33rem 10rem, 50%; background-repeat: no-repeat">
+  <a href="{{ href }}" target="_blank" rel="noopener" aria-label="{{ aria }}" style="display: flex; justify-content: space-between; color: var(--surface); text-decoration: none">
+    <div style="z-index: 2; box-sizing: border-box; width: 100%; min-width: 32rem; display: flex; align-items: center; justify-content: space-between; column-gap: 1.5rem; padding: 3rem 1.6rem 0">
+      <div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; gap: 1.6rem">
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+          <div style="font-size: var(--teks-page); line-height: 3.3rem; font-weight: var(--bobot-heavy); color: var(--surface); margin-right: 0.75rem">{{ judul }}</div>
+          <div style="flex-shrink: 0; max-width: 20rem; display: flex; justify-content: center; margin-left: 0.75rem; margin-right: 0.75rem">
+            <div style="position: relative; display: flex; flex-direction: column; align-items: flex-end; padding: 0.2rem 1rem; border: 0.1rem solid var(--surface); border-radius: 1.2rem">
+              <span style="position: absolute; top: -1rem; left: -0.1rem; padding: 0.2rem 1rem; border-radius: 0.4rem; background: var(--surface); color: var(--upvc-tinta); font-size: var(--teks-micro); line-height: 1.3rem; font-weight: var(--bobot-heavy)">{{ labelMulai }}</span>
+              <div style="font-size: var(--teks-pembuka); line-height: 1.8rem; font-weight: var(--bobot-heavy); color: var(--surface); white-space: nowrap">Rp <strong style="font-size: var(--teks-section-lg); line-height: 3.6rem; font-weight: var(--bobot-heavy)">{{ hargaBesar }}</strong>{{ hargaKecil }}<span style="font-size: var(--teks-chip); line-height: 1.8rem; font-weight: var(--bobot-heavy)">{{ unit }}</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="box-sizing: border-box; width: 100%; max-width: 25rem; align-items: flex-start; display: flex; justify-content: space-between; column-gap: 0">
+          <sc-for list="{{ warna }}" as="w" hint-placeholder-count="3">
+            <div style="{{ w.gaya }}">
+              <div style="display: flex; align-items: flex-start; row-gap: 0.4rem; column-gap: 0">
+                <span style="display: flex; flex-shrink: 0; margin-right: 0.2rem"><dc-import name="Icon" ikon="matahari-silau" sufiks="{{ w.sufiks }}" hint-size="2.5rem,2.5rem"></dc-import></span>
+                <span style="font-size: var(--teks-chip); line-height: 1.6rem; font-weight: var(--bobot-bold); color: var(--surface); margin-left: 0.2rem; margin-right: 0.2rem"><sc-for list="{{ w.baris }}" as="b" hint-placeholder-count="2"><span style="display: block">{{ b }}</span></sc-for></span>
+              </div>
+              <div style="font-size: var(--teks-chip); line-height: 1.5rem; font-weight: var(--bobot-bold); color: var(--surface)">{{ w.nama }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </a>
+  <div style="{{ gayaLuar }}">
+    <div style="width: 100%; display: flex; align-items: center; gap: 1rem">
+      <div style="{{ gayaGulir }}">
+        <div style="{{ gayaTrek }}">
+          <sc-for list="{{ kartu }}" as="k" hint-placeholder-count="9">
+            <div style="{{ k.wadah }}"><dc-import name="ProductCard" dc-props="{{ k.props }}" hint-size="100%,26rem"></dc-import></div>
+          </sc-for>
+          <sc-if value="{{ adaEkor }}" hint-placeholder-val="{{ true }}">
+            <span aria-hidden="true" style="flex: 0 0 calc(var(--talang) - 1.4rem); margin-left: 0.7rem; margin-right: 0.7rem"></span>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"rupa":{"editor":"enum","options":["situs","merah","polos"],"default":"situs","section":"Resep"},"judul":{"editor":"text","default":"ATAP UPVC","section":"Isi"},"labelMulai":{"editor":"text","default":"Mulai Dari","section":"Isi"},"hargaBesar":{"editor":"text","default":"140.","section":"Isi"},"hargaKecil":{"editor":"text","default":"000","section":"Isi"},"unit":{"editor":"text","default":"/meter","section":"Isi"},"warna":{"editor":null,"tsType":"Array<{nama:string,baris:string[]}>"},"produk":{"editor":null,"tsType":"Array<{nama:string,angka?:string,hubungi?:string,foto:string}>"},"href":{"editor":"text","default":"https://www.smsperkasa.com/produk/atap-upvc","section":"Isi"},"hrefKartu":{"editor":"text","default":"SkuDetailM4.dc.html","section":"Isi"},"aria":{"editor":"text","default":"Atap UPVC, mulai dari Rp 140.000 per meter","section":"Isi"},"$preview":{"width":330,"height":480}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const rupa = this.props.rupa ?? 'situs';
+    const situs = rupa === 'situs';
+    const polos = rupa === 'polos';
+    const margin = { situs: '0.8rem 0 0.3rem auto', merah: '0 0 0 auto', polos: '0.8rem 0 0.8rem auto' }[rupa];
+    const lebarKartu = situs ? 'width: 16rem; min-width: 16rem' : 'width: 15rem; min-width: 0';
+    const hrefKartu = this.props.hrefKartu || 'SkuDetailM4.dc.html';
+    const UPVC = [['4M', 'Biru', '711.000', '/_blob/54f43a08a1384c69e762171c48898e59'], ['5M', 'Biru', '888.000', '/_blob/54f43a08a1384c69e762171c48898e59'], ['6M', 'Biru', '1.066.000', '/_blob/54f43a08a1384c69e762171c48898e59'], ['4M', 'Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'], ['5M', 'Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'], ['6M', 'Clear', '', '/_blob/4861e23e8b2352c004a9ab1ec6f49b14'], ['4M', 'Putih', '711.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'], ['5M', 'Putih', '888.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb'], ['6M', 'Putih', '1.066.000', '/_blob/3dc9fe0af201ce8c738b8ed1bc9802fb']];
+    const hubungiBawaan = rupa === 'merah' ? 'Konsultasi Sekarang' : 'Hubungi kami';
+    const produk = this.props.produk ?? UPVC.map((u) => ({ nama: 'Atap UPVC Double Layer 12mm x 760mm x ' + u[0] + ' [Mattaka, ' + u[1] + ']', angka: u[2] || undefined, hubungi: u[2] ? undefined : hubungiBawaan, foto: u[3] }));
+    const daftarWarna = this.props.warna ?? [
+      { nama: 'Warna Biru', baris: ['100% Tidak', 'Tembus Cahaya'] },
+      { nama: 'Clear Matt', baris: ['20%', 'Tembus Cahaya'] },
+      { nama: 'Warna Putih', baris: ['100% Tidak', 'Tembus Cahaya'] }
+    ];
+    return {
+      href: this.props.href || 'https://www.smsperkasa.com/produk/atap-upvc',
+      aria: this.props.aria ?? 'Atap UPVC, mulai dari Rp 140.000 per meter',
+      judul: this.props.judul ?? 'ATAP UPVC',
+      labelMulai: this.props.labelMulai ?? 'Mulai Dari',
+      hargaBesar: this.props.hargaBesar ?? '140.',
+      hargaKecil: this.props.hargaKecil ?? '000',
+      unit: this.props.unit ?? '/meter',
+      warna: daftarWarna.map((w, i) => ({
+        nama: w.nama,
+        baris: w.baris,
+        sufiks: 'abcdef'.charAt(i),
+        gaya: 'display: flex; flex-direction: column-reverse; margin-right: 1.3rem' + (i === 0 ? '' : '; margin-left: 1.3rem')
+      })),
+      gayaLuar: 'box-sizing: border-box; width: 100%; padding: 0 1.5rem; margin: ' + margin,
+      gayaGulir: 'width: 100%; display: flex; gap: 1rem; overflow-x: auto' + (situs ? '' : '; border-radius: var(--tile); background: ' + (polos ? 'var(--surface)' : 'transparent')),
+      gayaTrek: situs ? 'display: flex; column-gap: 0; padding: 2.1rem 0' : 'box-sizing: border-box; width: 100%; display: flex; column-gap: 0; padding: ' + (polos ? '2.1rem 0 2.1rem var(--talang)' : '2.1rem 0'),
+      adaEkor: !situs,
+      kartu: produk.map((p, i) => ({
+        wadah: 'flex-shrink: 0; ' + lebarKartu + '; display: grid; grid-template-columns: minmax(0, 1fr); margin-right: 0.7rem' + (i === 0 ? '' : '; margin-left: 0.7rem'),
+        props: { jenis: 'upvc', rupa, nama: p.nama, angka: p.angka, hubungi: p.hubungi, foto: p.foto, alt: '', href: hrefKartu }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

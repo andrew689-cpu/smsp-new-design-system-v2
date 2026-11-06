@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SectionSheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ terbuka }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="Scrim" ariaLabel="{{ scrimAria }}" onPress="{{ tutup }}" hint-size="0,0"></dc-import>
+  <div data-sheet="1" role="{{ peran }}" aria-label="{{ ariaLabel }}" style="position: fixed; left: 50%; transform: translateX(-50%); bottom: 3.4rem; width: 33.6rem; max-width: calc(100% - 2.4rem); z-index: 10002; box-sizing: border-box; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border-radius: {{ sudut }}; padding: {{ pad }}; display: flex; flex-direction: column; gap: {{ celah }}">
+    <sc-if value="{{ isHarga }}" hint-placeholder-val="{{ true }}">
+      <div data-set="bagian" style="padding: 0.4rem 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+        <sc-for list="{{ kecil }}" as="sk" hint-placeholder-count="4">
+          <a href="{{ sk.href }}" onClick="{{ sk.pergi }}" aria-current="{{ sk.kini }}" style="{{ sk.gaya }}; animation-delay: {{ sk.tunda }}; min-height: 4.4rem; padding: 0.1rem 0.4rem; gap: 0.1rem; width: 100%; min-width: 0; box-sizing: border-box; border-radius: var(--pill); display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: var(--tinggi-rapat); overflow-wrap: anywhere; border: 0; margin-left: {{ sk.kiri }}; margin-right: 0.3rem; margin-top: 0; margin-bottom: 0">
+            <span style="height: 2.4rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center"><dc-import name="Icon" ikon="{{ sk.ikon }}" ukuran="{{ sk.ikonUkuran }}" warna="currentColor" hint-size="1.8rem,1.8rem"></dc-import></span>
+            {{ sk.label }}
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSku }}" hint-placeholder-val="{{ false }}">
+      <sc-if value="{{ adaCariBaris }}" hint-placeholder-val="{{ true }}">
+      <div data-cari="1" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+        <span style="flex-grow: 1; min-width: 0; display: flex; margin-right: 0.5rem"><dc-import name="SearchField" tata="pintu" ariaLabel="Cari di seluruh SMS Perkasa" onPress="{{ onCari }}" hint-size="100%,4.8rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="IconButton" ikon="lambang" ukuran="{{ 48 }}" nada="cincin" ikonUkuran="{{ 30 }}" ikonWarna="var(--brand-hero)" ariaPressed="{{ mnuPressed }}" ariaLabel="{{ mnuAria }}" onPress="{{ mnuToggle }}" hint-size="4.8rem,4.8rem"></dc-import></span>
+      </div>
+      </sc-if>
+      <dc-import name="CategoryChipRail" jenis="bagian" set="{{ navSet }}" butir="{{ navButir }}" nilai="{{ navNilai }}" kolom="{{ navKolom }}" onPilih="{{ navPilih }}" hint-size="100%,6.2rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isKategori }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="CategoryChipRail" jenis="kategori" butir="{{ seksi }}" nilai="{{ aktif }}" onPilih="{{ relPilih }}" hint-size="100%,5.2rem"></dc-import>
+    </sc-if>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"varian":{"editor":"enum","options":["harga","sku","sku-lama","kategori"],"default":"harga","section":"Resep"},"terbuka":{"editor":"boolean","default":true,"section":"Keadaan"},"aktif":{"editor":"text","default":"","section":"Keadaan"},"seksi":{"editor":null,"section":"Isi","tsType":"Array<{id:string,label:string,ikon:string,href?:string}>"},"pintu":{"editor":null,"section":"Isi","tsType":"Array<{label:string,href?:string,ikon:string}>"},"scrimAria":{"editor":"text","default":"","section":"Isi"},"onPilih":{"editor":null},"onTutup":{"editor":null},"onCari":{"editor":null},"$preview":{"width":360,"height":260}}'>
+class Component extends DCLogic {
+  state = { aktif: null, mnu: false };
+  renderVals() {
+    const varianAsal = this.props.varian ?? 'harga';
+    const lama = varianAsal === 'sku-lama';
+    const varian = lama ? 'sku' : varianAsal;
+    // Daftar sku dan kategori bawaan tinggal di CategoryChipRail.
+    const bawaanHarga = [
+      { id: 'top', label: 'Top', ikon: 'panah-atas' },
+      { id: 'm-harga', label: 'Harga', ikon: 'daftar' },
+      { id: 'm-video', label: 'Info', ikon: 'info' },
+      { id: 'm-faq', label: 'FAQ', ikon: 'tanya' }
+    ];
+    const seksi = this.props.seksi ?? (varian === 'harga' ? bawaanHarga : undefined);
+    const aktif = this.props.aktif || this.state.aktif || (varian === 'harga' ? seksi[0].id : null);
+    const mnu = this.state.mnu;
+    const tutup = () => {
+      this.setState({ mnu: false });
+      if (this.props.onTutup) this.props.onTutup();
+    };
+    const pergi = (id) => (e) => {
+      if (varian !== 'kategori' && e && e.preventDefault) e.preventDefault();
+      this.setState({ aktif: id });
+      if (this.props.onPilih) this.props.onPilih(id, e);
+      if (varian !== 'kategori' && this.props.onTutup) this.props.onTutup();
+    };
+    const pintu = this.props.pintu ?? [{ label: 'Hubungi', href: '#whatsapp', ikon: 'chat-polos' }];
+    const resep = {
+      harga: { pad: '0 1rem', celah: 'var(--rapat)', scrim: 'Tutup daftar bagian' },
+      sku: { pad: '1.2rem 1.6rem', celah: 'var(--rapat)', scrim: 'Tutup daftar bagian' },
+      kategori: { pad: '0.8rem 1rem', celah: '0.6rem', scrim: 'Tutup daftar kategori', peran: 'group', aria: 'Kategori artikel' }
+    };
+    const r = resep[varian] || resep.harga;
+    return {
+      terbuka: this.props.terbuka ?? true,
+      isHarga: varian === 'harga',
+      isSku: varian === 'sku',
+      adaCariBaris: !lama,
+      sudut: lama ? 'var(--pill)' : 'var(--island)',
+      isKategori: varian === 'kategori',
+      pad: lama ? '1.2rem 2.6rem' : r.pad,
+      celah: r.celah,
+      scrimAria: this.props.scrimAria || r.scrim,
+      peran: r.peran,
+      ariaLabel: r.aria,
+      tutup,
+      onCari: this.props.onCari,
+      mnuPressed: mnu ? 'true' : 'false',
+      mnuAria: mnu ? 'Kembali ke bagian halaman' : 'Buka pintu SMS Perkasa',
+      mnuToggle: () => this.setState({ mnu: !mnu }),
+      navSet: mnu ? 'pintu' : 'bagian',
+      navKolom: mnu ? 'repeat(2, minmax(0, 1fr))' : (lama ? 'repeat(4, minmax(0, 1fr))' : undefined),
+      navButir: mnu ? pintu : seksi,
+      navNilai: mnu ? '' : aktif,
+      navPilih: (id, e) => (mnu ? tutup() : pergi(id)(e)),
+      seksi,
+      aktif,
+      relPilih: (id, e) => pergi(id)(e),
+      kecil: varian !== 'harga' ? [] : seksi.map((s, i) => {
+        const on = s.id === aktif;
+        return {
+          label: s.label,
+          ikon: s.ikon,
+          ikonUkuran: on ? 24 : 18,
+          href: s.href ?? '#' + s.id,
+          kini: on ? 'true' : 'false',
+          gaya: on ? 'background: var(--line); color: var(--ink); font-weight: var(--bobot-bold); font-size: var(--teks-meta)' : 'background: transparent; color: var(--ink-2); font-weight: var(--bobot-medium); font-size: var(--teks-tiny)',
+          tunda: (70 + i * 55) + 'ms',
+          kiri: i === 0 ? '0' : '0.3rem',
+          pergi: pergi(s.id)
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

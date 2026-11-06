@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pecahan · Konten, ulasan, blog, artikel · bagian 4 dari 4</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 48px">
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Konten, ulasan, blog, artikel · bagian 4 dari 4</h1>
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">Dari yang merakit komponen lain ke yang paling kecil. Tiap kartu menulis warna dan ukuran hurufnya sebagai token.</p>
+  </div>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">7 · ArticleRibbon dan ArticleProse</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <sc-for list="{{ pitaMerah }}" as="p" hint-placeholder-count="2">
+        <div style="{{ p.kotak }}">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="{{ p.bingkai }}"><dc-import name="ArticleRibbon" dc-props="{{ p.props }}" hint-size="100%,120px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,40px"></dc-import>
+        </div>
+      </sc-for>
+      <sc-for list="{{ prosa }}" as="p" hint-placeholder-count="2">
+        <div style="{{ p.kotak }}">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <div style="{{ p.bingkai }}"><dc-import name="ArticleProse" dc-props="{{ p.props }}" hint-size="100%,120px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,40px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">State yang tidak ada di Mobbin 4</h2>
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">Hover, focus, dan pressed pada kartu, baris blog, dan titik tidak ada di papan kanon, jadi tidak digambar. Yang ada di sumber: fokus keyboard pada pembanding, berhenti saat hover dan fokus pada korsel dan pita. Daftar isi hanya ada di ponsel, pita merah hanya di ponsel, bilah Jeda hanya di desktop. Korsel desktop kanon bukan ul berhalaman: DesktopBerandaM4 memakai rel kartu dengan titik per tiga kartu, DesktopSkuM4 kisi statis.</p>
+  </section>
+
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":8000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const c = (judul, lebar, props, spec, bingkai, alas) => ({
+      judul,
+      props,
+      spec,
+      kotak: 'display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; padding: 16px; width: ' + (lebar + 34) + 'px; max-width: 100%; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); background: ' + (alas || 'var(--surface)'),
+      bingkai: 'width: ' + lebar + 'px; max-width: 100%; box-sizing: border-box; position: relative; ' + (bingkai || '')
+    });
+    const lipat = 'overflow: hidden; ';
+    const talang = 'padding: 0 var(--talang); overflow: hidden; ';
+    const D = 1070;
+    const segmen = [{ teks: 'Pelayanannya bagus', tebal: true }, { teks: ', ' }, { teks: 'salesnya ramah', tebal: true }, { teks: ' dan dapat menjelaskan informasi produk dengan jelas' }];
+    const ulasanDaftar = { judul: 'Ukuran dan tebal pas', teks: 'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.', rating: 4 };
+    const beranda = [
+      { nama: 'Barak Andriatma', teks: 'order di SMS Perkasa dilayani dengan ramah,dijamin kemanan transaksi dan kualitas barangnya,semoga sekses selalu SMS Perkasa dan semua tim', rating: 5 },
+      { nama: 'Yuliantoro Yuliantoro', teks: 'Harga relatif standard. Sy puas dengan pelayanannya. Kedepan akan lebih baik.....semoga', rating: 5 },
+      { nama: 'Bambang Hermanto', teks: 'Distributor Besi baja terlengkap & terpercaya di Surabaya& sekitarnya', rating: 5 }
+    ];
+    const kutipanM = { warna: '--ink', dasar: '--surface', ukuran: '--teks-body', catatan: 'sudut --action, bayangan --el-3 pada kartu tengah, garis --line' };
+    const kutipanD = { warna: '--ink', ukuran: '--teks-lead', catatan: 'sudut --action, garis --line, tanggal --ink-2' };
+    const prosaPonsel = 330;
+    const prosaDesktop = 650;
+    const prosa = (judul, jenis, extra, specM, specD) => [
+      c(judul + ', ponsel', prosaPonsel, Object.assign({ jenis, tata: 'ponsel' }, extra), specM),
+      c(judul + ', desktop', prosaDesktop, Object.assign({ jenis, tata: 'desktop' }, extra), specD)
+    ];
+    return {
+      korsel: [
+        c('ReviewCarousel ponsel: BerandaM4, tanpa kota dan tanggal, otomatis 3 detik, seret, panah', 360, { tata: 'ponsel', ulasan: beranda }, kutipanM, talang),
+        c('ReviewCarousel ponsel: SkuDetailM4, dengan kota, tanggal, frasa tebal', 360, { tata: 'ponsel', koleksi: 'produk' }, Object.assign({}, kutipanM, { catatan: 'titik aktif berisi --ink di atas --ink-4; --ink penuh saat otomatis berhenti' }), talang),
+        c('ReviewCarousel desktop: DesktopBerandaM4, rel, satu titik per tiga kartu', D, { tata: 'desktop' }, kutipanD),
+        c('ReviewCarousel desktop kisi: DesktopSkuM4, tiga kartu, tanpa titik', D, { tata: 'desktop', kisi: true }, kutipanD)
+      ],
+      pita: [
+        c('ReviewMarquee ponsel: 46 s, berhenti saat hover dan fokus', 360, { tata: 'ponsel' }, { warna: '--ink', dasar: '--pita-kartu-m', ukuran: '--teks-body', catatan: 'tanda kutip --teks-section-lg --brand' }, 'padding: 0 1.6rem; overflow: hidden; ', 'var(--awas-bg)'),
+        c('ReviewMarquee desktop: 48 s, berjalan', D, { tata: 'desktop' }, { warna: '--ink', dasar: '--cincin-dasar', ukuran: '--teks-body', catatan: 'tombol GlassButton jeda' }, lipat, 'var(--awas-bg)'),
+        c('ReviewMarquee desktop: dijeda', D, { tata: 'desktop', jeda: true }, { catatan: 'label Lanjutkan, ikon putar, aria-pressed true' }, lipat, 'var(--awas-bg)')
+      ],
+      ringkasan: [
+        c('ReviewSummary panel: DesktopUlasanM4', 340, { jenis: 'panel' }, { warna: '--ink', ukuran: '--teks-skor', catatan: 'sudut --quote 18, bayangan --el-2, bilah --bintang di atas --line' }),
+        c('ReviewSummary baris ponsel (padam di sumber)', 330, { jenis: 'baris', tata: 'ponsel' }, { warna: '--ink-2', ukuran: '--teks-body' }),
+        c('ReviewSummary baris desktop (padam di sumber)', 330, { jenis: 'baris', tata: 'desktop' }, { warna: '--ink-2', ukuran: '--teks-body', catatan: 'empat bintang penuh, angka 4,8: sama dengan sumber' })
+      ],
+      sebutan: [
+        c('ReviewMentions ponsel', 330, { tata: 'ponsel' }, { warna: '--ink', dasar: '--awas-bg', ukuran: '--teks-meta', catatan: 'bilah --brand di atas --line' }),
+        c('ReviewMentions desktop', 640, { tata: 'desktop' }, { warna: '--ink', dasar: '--awas-bg', ukuran: '--teks-body', catatan: 'persen ditulis dengan spasi, sama dengan sumber' })
+      ],
+      saring: [
+        c('StarFilter: Semua terpilih', 420, {}, { warna: '--surface', dasar: '--ink', ukuran: '--teks-meta', catatan: 'memakai Chip pilihan-36' }),
+        c('StarFilter: 5 bintang terpilih', 420, { nilai: 1 }, { warna: '--ink', dasar: '--surface', ukuran: '--teks-meta', catatan: 'tidak terpilih: cincin --line' })
+      ],
+      kartuUlasan: [
+        c('kutipan ponsel', 232, { jenis: 'kutipan', tata: 'ponsel' }, kutipanM),
+        c('kutipan ponsel tanpa tanggal, frasa tebal dari data', 232, { jenis: 'kutipan', tata: 'ponsel', segmen, nama: 'Pak Ignasius', kota: 'Surabaya' }, { catatan: 'segmen: [{ teks, tebal }]' }),
+        c('kutipan desktop', 350, { jenis: 'kutipan', tata: 'desktop', segmen, nama: 'Pak Ignasius', kota: 'Surabaya', tanggal: '23 Nov 2021' }, kutipanD),
+        c('kutipan desktop polos', 350, { jenis: 'kutipan', tata: 'desktop', teks: 'the best steel distributor !', nama: 'Evi Nurosida' }, { catatan: 'DesktopBerandaM4: tanpa frasa tebal' }),
+        c('pita ponsel', 272, { jenis: 'pita', tata: 'ponsel', teks: ulasanDaftar.teks, nama: 'Pak Andi', kota: 'Surabaya', tanggal: '1 Jan 2026', rating: 4 }, { warna: '--ink', dasar: '--pita-kartu-m', ukuran: '--teks-body', catatan: 'bintang tanpa garis' }, '', 'var(--awas-bg)'),
+        c('pita desktop', 340, { jenis: 'pita', tata: 'desktop', teks: 'Tonase dan ongkos kirim dihitung sekalian, jadi tidak perlu bolak-balik tanya.', nama: 'Pak Yusuf', tanggal: 'Januari 2026', rating: 4 }, { warna: '--ink', dasar: '--cincin-dasar', ukuran: '--teks-body', catatan: 'bintang bergaris; tanda kutip padam di sumber' }, '', 'var(--awas-bg)'),
+        c('daftar ponsel', 330, Object.assign({ jenis: 'daftar', tata: 'ponsel', nama: 'Pak Andi', kota: 'Surabaya', tanggal: '1 Jan 2026' }, ulasanDaftar), { warna: '--ink', ukuran: '--teks-body', catatan: 'tanggal --teks-meta --ink-2' }),
+        c('daftar desktop', 350, { jenis: 'daftar', tata: 'desktop', judul: 'Presisi dan cepat', teks: 'Barangnya sesuai ukuran, pengiriman ke Sidoarjo cuma sehari. Sales-nya responsif.', nama: 'Pak Hendra', kota: 'Sidoarjo', tanggal: 'Maret 2026', rating: 5 }, { warna: '--ink', ukuran: '--teks-body', catatan: 'kota dan tanggal --teks-meta --ink-2' })
+      ],
+      titik: [
+        c('bulat ponsel', 200, { jenis: 'bulat', tata: 'ponsel' }, { warna: '--ink', catatan: 'aktif 14 x 7, lain 7 x 7 --ink-4' }),
+        c('bulat desktop', 200, { jenis: 'bulat', tata: 'desktop', padding: 'var(--rapat) 0 0 0' }, { warna: '--ink', catatan: 'aktif 16 x 8, lain 8 x 8 --ink-4' }),
+        c('progres berjalan', 200, { jenis: 'progres', berjalan: true, titik: [{ aria: 'Tampilkan ulasan 1', aktif: true }, { aria: 'Tampilkan ulasan 2', aktif: false }, { aria: 'Tampilkan ulasan 3', aktif: false }] }, { warna: '--ink', dasar: '--ink-4', catatan: 'isi bergerak 3000 ms' }),
+        c('progres berhenti', 200, { jenis: 'progres', titik: [{ aria: 'Tampilkan ulasan 1', aktif: true }, { aria: 'Tampilkan ulasan 2', aktif: false }, { aria: 'Tampilkan ulasan 3', aktif: false }] }, { warna: '--ink', catatan: 'saat hover, fokus, seret, atau reduced-motion' })
+      ],
+      hero: [
+        c('HeroCarousel ponsel: BerandaM4', 360, { tata: 'ponsel' }, { dasar: '--line', catatan: 'rasio 1200/400, sudut --tile, tepi --talang, titik mengikuti gulir' }),
+        c('HeroCarousel desktop: DesktopBerandaM4', D, { tata: 'desktop' }, { dasar: '--line', catatan: 'rasio 1200/400, sudut --tile, titik mengikuti gulir' })
+      ],
+      banding: [
+        c('BeforeAfter ponsel: mulai 4, pita kiri', 330, { tata: 'ponsel' }, { warna: '--ink', dasar: '--surface', catatan: 'sudut --tile, garis pemisah --ink, gagang Icon banding' }),
+        c('BeforeAfter ponsel: tengah, tanpa pita', 330, { tata: 'ponsel', awal: 50 }, { catatan: 'pita hanya muncul di ambang 4 dan 96' }),
+        c('BeforeAfter desktop: mulai 96, pita kanan', D, { tata: 'desktop' }, { warna: '--ink', dasar: '--surface', catatan: 'sudut --card; fokus keyboard: garis --ink 3 px di dalam' }),
+        c('BeforeAfter desktop: berkas belum ada', 640, { tata: 'desktop', fotoDengan: '', fotoTanpa: '', awal: 50 }, { warna: '--ink-2', dasar: '--banding-kosong', ukuran: '--teks-lead', catatan: 'sisi tanpa: --ink di atas --ink-4' })
+      ],
+      kartuBlog: [
+        c('BlogCard ponsel', 330, { tata: 'ponsel' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-section', catatan: 'waktu --teks-chip --blog-lalu, tirai --blog-tirai' }),
+        c('BlogCard desktop', 540, { tata: 'desktop' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-section-md', catatan: 'waktu --teks-body --blog-lalu' }),
+        c('BlogCard tanpa foto', 330, { tata: 'ponsel', foto: '' }, { dasar: '--line', catatan: 'bidang --line di bawah tirai' })
+      ],
+      barisBlog: [
+        c('baru ponsel: 64, rasio 4:3', 330, { jenis: 'baru' }, { warna: '--ink', ukuran: '--teks-body', catatan: 'tanggal --teks-micro --ink-2' }),
+        c('baru ponsel: tanpa foto', 330, { jenis: 'baru', foto: '' }, { dasar: '--line' }),
+        c('indeks ponsel', 330, { jenis: 'indeks', tata: 'ponsel' }, { warna: '--ink', ukuran: '--teks-body', catatan: 'ringkasan --teks-meta --ink-2, panah chevron-kanan' }),
+        c('indeks desktop', 520, { jenis: 'indeks', tata: 'desktop' }, { warna: '--ink', ukuran: '--teks-lead', catatan: 'foto 120, ringkasan --teks-lead --ink-2' }),
+        c('indeks desktop dengan meta (padam di sumber)', 520, { jenis: 'indeks', tata: 'desktop', metaTampil: true }, { warna: '--ink-2', ukuran: '--teks-body' }),
+        c('samping desktop: Artikel Lainnya', 340, { jenis: 'samping' }, { warna: '--ink', ukuran: '--teks-body', catatan: 'foto 96, meta --teks-meta --ink-2' })
+      ],
+      rel: [
+        c('CategoryChipRail kategori: tidak ada yang aktif', 316, {}, { warna: '--ink', ukuran: '--teks-meta', catatan: 'bawaan SalinanBlogM4: kat -1' }),
+        c('CategoryChipRail kategori: Berita Baja aktif', 316, { nilai: 'kat-berita' }, { warna: '--nav-aktif', ukuran: '--teks-body', catatan: 'aria-current true, ikon 24, tanpa dasar' }),
+        c('CategoryChipRail bagian: kisi SkuDetailM4', 330, { jenis: 'bagian', nilai: 's-faq' }, { warna: '--nav-aktif', ukuran: '--teks-body', catatan: 'Chip bagian, tinggi 62' })
+      ],
+      kepala: [
+        c('ArticleHeader ponsel', 360, { tata: 'ponsel' }, { warna: '--surface', dasar: '--merah-artikel', ukuran: '--teks-page' }, talang),
+        c('ArticleHeader desktop', prosaDesktop, { tata: 'desktop' }, { warna: '--ink', ukuran: '--teks-display', catatan: 'meta --teks-body --ink-2' })
+      ],
+      badan: [
+        c('ArticleBody ponsel', prosaPonsel, { tata: 'ponsel' }, { warna: '--ink', ukuran: '--teks-body', catatan: 'bab per h2, jarak --jarak-y-antar-rapat' }),
+        c('ArticleBody desktop', prosaDesktop, { tata: 'desktop', tautan: null }, { warna: '--ink', ukuran: '--teks-lead', catatan: 'bab di margin blok, tautan Lihat Detail hanya di ponsel' })
+      ],
+      isi: [
+        c('TableOfContents tertutup: bawaan', 336, {}, { warna: '--ink', catatan: 'GlassButton 52, navigasi' }),
+        c('TableOfContents terbuka', 336, { buka: true }, { warna: '--ink', dasar: '--cair', ukuran: '--teks-body', catatan: 'sudut --sheet, label --teks-micro --ink-2' }, '', 'var(--line)')
+      ],
+      pitaMerah: [
+        c('ArticleRibbon: hanya ponsel', 360, {}, { warna: '--surface', dasar: '--merah-artikel', ukuran: '--teks-page', catatan: 'meta --teks-meta --artikel-meta; keluar dari talang' }, talang)
+      ],
+      prosa: [].concat(
+        prosa('h2', 'h2', { teks: 'Kapan Memilih H-Beam atau WF?' }, { warna: '--ink', ukuran: '--teks-section' }, { warna: '--ink', ukuran: '--teks-section-md' }),
+        prosa('h3', 'h3', { teks: 'Detail Teknis Batas Kompak Penampang' }, { warna: '--ink', ukuran: '--teks-body' }, { warna: '--ink', ukuran: '--teks-lead' }),
+        prosa('paragraf', 'p', {}, { warna: '--ink', ukuran: '--teks-body', catatan: 'tinggi --tinggi-artikel-m, renggang --renggang-artikel, rata kanan-kiri' }, { warna: '--ink', ukuran: '--teks-lead', catatan: 'tinggi --tinggi-artikel-isi, rata kanan-kiri' }),
+        prosa('tanya FAQ', 'tanya', { teks: 'Berapa ukuran baja H-Beam minimum yang aman untuk kolom bangunan sekolah dua lantai?' }, { warna: '--ink', ukuran: '--teks-body' }, { warna: '--ink', ukuran: '--teks-lead' }),
+        prosa('jawab FAQ', 'jawab', { teks: 'Dimensi minimum kolom utama penunjang untuk gedung fasilitas publik dua lantai disarankan menggunakan ukuran H-Beam 150×150 mm.' }, { warna: '--ink-2', ukuran: '--teks-body' }, { warna: '--ink-2', ukuran: '--teks-lead' }),
+        prosa('kutipan', 'kutipan', { teks: 'Total Berat Baja Struktural Murni: > 661,5 kg + 621,6 kg + 532,8 kg = 1.815,9 kg.' }, { warna: '--ink-2', ukuran: '--teks-body', catatan: 'garis kiri --line-kuat' }, { warna: '--ink-2', ukuran: '--teks-lead', catatan: 'garis kiri --line-kuat' }),
+        prosa('daftar', 'daftar', {}, { warna: '--ink', ukuran: '--teks-body' }, { warna: '--ink', ukuran: '--teks-lead' }),
+        prosa('tabel', 'tabel', {}, { warna: '--ink', ukuran: '--teks-meta', catatan: 'gulir mendatar, lebar minimum 520, garis --line' }, { warna: '--ink', ukuran: '--teks-body', catatan: 'lebar minimum 520, garis --line' }),
+        prosa('gambar', 'gambar', {}, { dasar: '--line', catatan: 'rasio 1:1, sudut --tile' }, { dasar: '--line', catatan: 'rasio 1:1, sudut --tile' }),
+        [
+          c('pembuka: hanya ponsel', prosaPonsel, { jenis: 'pembuka', teks: 'Struktur baja berstandar adalah cara terbaik membangun sekolah aman yang hemat biaya.' }, { warna: '--ink', ukuran: '--teks-pembuka', catatan: 'garis kiri --merah-artikel' }),
+          c('figur: hanya desktop', prosaDesktop, { jenis: 'figur', tata: 'desktop' }, { warna: '--ink-2', ukuran: '--teks-body', catatan: 'rasio 1713/1105, sudut --card' })
+        ]
+      )
+    };
+  }
+}
+</script>
+</body>
+</html>

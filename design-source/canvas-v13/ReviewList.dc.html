@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <section aria-label="{{ judul }}">
+    <ol style="margin: 0; padding: 0; list-style: none">
+      <sc-for list="{{ daftar }}" as="u" hint-placeholder-count="8">
+        <dc-import name="ReviewCard" dc-props="{{ u }}" hint-size="100%,14rem"></dc-import>
+      </sc-for>
+    </ol>
+    <sc-if value="{{ adaLagi }}" hint-placeholder-val="{{ true }}">
+      <span style="display: flex; margin-top: 1.4rem"><dc-import name="Button" variant="muat-lebar" label="{{ muatLabel }}" onPress="{{ muatLagi }}" hint-size="100%,4.8rem"></dc-import></span>
+    </sc-if>
+  </section>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0; margin-bottom: 0.8rem">
+      <span style="display: block; margin-right: 0.8rem"><dc-import name="Heading" level="{{ 2 }}" varian="ulasan-besar" tata="desktop" teks="{{ judulBesar }}" hint-size="24rem,3.2rem"></dc-import></span>
+      <span style="display: flex; margin-left: 0.8rem; margin-right: 0.8rem"><dc-import name="StarFilter" nilai="{{ saring }}" onPilih="{{ pilihSaring }}" hint-size="36rem,3.6rem"></dc-import></span>
+    </div>
+    <p style="margin: 0 0 2.4rem 0; font-size: var(--teks-meta); color: var(--ink-2)">Menampilkan {{ tampilan }} dari {{ cocok }} ulasan.</p>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0">
+      <sc-for list="{{ daftar }}" as="u" hint-placeholder-count="9">
+        <div style="{{ u.wadah }}"><dc-import name="ReviewCard" dc-props="{{ u.kartu }}" hint-size="100%,17rem"></dc-import></div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ adaHalaman }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="Pagination" jenis="garis" hal="{{ hal }}" total="{{ cocok }}" per="{{ per }}" onHal="{{ pilihHal }}" hint-size="100%,6.8rem"></dc-import>
+    </sc-if>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"ulasan":{"editor":null,"tsType":"Array<{judul:string,teks:string,nama:string,kota?:string,tanggal:string,rating:number}>"},"judul":{"editor":null},"judulBesar":{"editor":null},"per":{"editor":null},"$preview":{"width":360,"height":900}}'>
+class Component extends DCLogic {
+  state = { tampil: null, saring: 0, hal: 0 };
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const semua = this.props.ulasan ?? [
+      { judul: 'Ukuran dan tebal pas', teks: 'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.', nama: 'Pak Andi', kota: 'Surabaya', tanggal: '1 Jan 2026', rating: 4 },
+      { judul: 'Penawaran cepat', teks: 'Salesnya ramah, penawaran dikirim cepat lengkap dengan berat per batang.', nama: 'Bu Fitri', kota: 'Malang', tanggal: '8 Jun 2026', rating: 5 }
+    ];
+    const per = this.props.per ?? (desktop ? 9 : 8);
+    const kartu = (u, tata) => ({ jenis: 'daftar', tata, judul: u.judul, teks: u.teks, nama: u.nama, kota: u.kota || '', tanggal: u.tanggal, rating: u.rating });
+    if (!desktop) {
+      const n = semua.length;
+      const tampil = Math.min(this.state.tampil ?? per, n);
+      return {
+        isPonsel: true,
+        isDesktop: false,
+        judul: this.props.judul ?? 'Semua ulasan',
+        daftar: semua.slice(0, tampil).map((u) => kartu(u, 'ponsel')),
+        adaLagi: tampil < n,
+        muatLabel: 'Muat ' + Math.min(per, n - tampil) + ' ulasan lagi',
+        muatLagi: () => this.setState({ tampil: Math.min(tampil + per, n) })
+      };
+    }
+    const saring = this.state.saring;
+    const minim = [0, 5, 4, 3][saring];
+    const cocok = semua.filter((u) => !minim || u.rating === minim);
+    const maxHal = Math.max(1, Math.ceil(cocok.length / per));
+    const hal = Math.min(Math.max(0, this.state.hal), maxHal - 1);
+    const mulai = hal * per;
+    return {
+      isPonsel: false,
+      isDesktop: true,
+      judulBesar: this.props.judulBesar ?? 'Semua Ulasan',
+      saring,
+      pilihSaring: (i) => this.setState({ saring: i, hal: 0 }),
+      tampilan: cocok.length === 0 ? '0' : (mulai + 1) + '–' + Math.min(mulai + per, cocok.length),
+      cocok: cocok.length,
+      per,
+      hal,
+      pilihHal: (h) => this.setState({ hal: h }),
+      adaHalaman: cocok.length > 0,
+      daftar: cocok.slice(mulai, mulai + per).map((u, i) => ({
+        wadah: 'margin-left: ' + (i === 0 ? '0' : '2.4rem') + '; margin-right: 2.4rem',
+        kartu: kartu(u, 'desktop')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

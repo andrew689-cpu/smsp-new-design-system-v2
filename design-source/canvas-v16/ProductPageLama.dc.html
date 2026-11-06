@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductPageLama</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <div>
+    <dc-import name="FraudRibbon" tata="ponsel" ukuranTeks="var(--teks-meta)" hint-size="100%,6rem"></dc-import>
+    <dc-import name="SiteHeader" tata="ponsel" logoTengah="{{ true }}" sisiPonsel="1.6rem" hint-size="100%,5.6rem"></dc-import>
+    <dc-import name="ProductSummary" tata="ponsel" halaman="produk" lama="{{ true }}" hint-size="100%,40rem"></dc-import>
+    <div id="m-harga" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Daftar Harga" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="PriceTable" lama="{{ v }}" lamaRata="{{ lamaRata }}" font="{{ font }}" hrefBaris="{{ hrefBaris }}" foto="{{ fotoKartu }}" alt="{{ altKartu }}" hint-size="100%,300rem"></dc-import>
+    </div>
+    <div id="m-konsultasi" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="ConsultationBanner" tata="ponsel" hint-size="100%,14.8rem"></dc-import>
+    </div>
+    <div id="m-video" style="margin-top: 4rem; padding: 0 1.6rem">
+      <div style="margin-bottom: 1.8rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Info Produk" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="VideoBlock" hint-size="100%,18rem"></dc-import>
+    </div>
+    <div id="m-fungsi" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Fungsi Besi Hollow Hitam" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="FunctionShowcase" lama="{{ true }}" hint-size="100%,20rem"></dc-import>
+    </div>
+    <div id="m-unggul" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Keunggulan Besi Hollow Hitam" hint-size="100%,2.7rem"></dc-import></div>
+      <div style="padding: 0 1.6rem"><dc-import name="AdvantageList" tata="ponsel" lama="{{ true }}" hint-size="100%,24rem"></dc-import></div>
+    </div>
+    <div id="m-terkait" style="margin-top: 4rem; padding-left: 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="RelatedProducts" tata="ponsel" lama="{{ true }}" hint-size="100%,19rem"></dc-import>
+    </div>
+    <div id="m-penawaran" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="ConsultationBanner" tata="ponsel" isi="penawaran" hint-size="100%,14.8rem"></dc-import>
+    </div>
+    <div id="m-faq" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="FaqList" tata="ponsel" varian="lama" kaya="{{ true }}" hint-size="100%,60rem"></dc-import>
+    </div>
+    <div id="m-mitra" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="PartnerLogos" tata="ponsel" lama="{{ true }}" hint-size="100%,28rem"></dc-import>
+    </div>
+    <div id="m-cari" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="RelatedTags" lama="{{ true }}" hint-size="100%,26rem"></dc-import>
+    </div>
+    <div style="margin-top: 4rem">
+      <dc-import name="Footer" tata="ponsel" kategoriGaya="sedang" sisiPonsel="1.6rem" padAtas="2.8rem" jarakBaris="2.2rem 2.2rem 2.2rem 4rem" jarakKategori="1.2rem" jarakInfo="0.9rem" jarakSosial="0.7rem" barisSosial="1.4rem" hint-size="100%,181rem"></dc-import>
+    </div>
+  </div>
+  <dc-import name="CompactHeader" terlihat="{{ gulir }}" sisi="1.6rem" hint-size="100%,8.4rem"></dc-import>
+  <dc-import name="ProductDock" lembar="{{ lembar }}" dc-props="{{ v }}" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"lembar":{"editor":"boolean","default":false,"section":"Resep"},"lamaRata":{"editor":"boolean","default":false,"section":"Resep"},"font":{"editor":"enum","options":["bawaan","source-code"],"default":"bawaan","section":"Resep"},"hrefBaris":{"editor":"text","default":"SkuDetailM4.dc.html","section":"Tautan"},"fotoKartu":{"editor":"text","default":"/_blob/7cf9caf5815cec7ca47570545222d743","section":"Isi"},"altKartu":{"editor":"text","default":"","section":"Isi"},"panelFilter":{"editor":"enum","options":["tertutup","terbuka"],"default":"tertutup","section":"Keadaan awal"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const buka = (props && props.panelFilter) === 'terbuka';
+    this.state = { nav: false, sek: 'm-ringkasan', gulir: false, bantuan: false, cariOpen: false, cariQ: '', ocOpen: buka, urutOpen: false, ocSeg: buka ? 'tebal' : 'ukuran', ukuran: buka ? ['15x15'] : [], tebal: [], urut: 'ukuran', q: '', limit: 50, vm: 'table' };
+  }
+  /* Papan produk versi lama: seluruh keadaan penyaring, urutan dan daftar bagian tinggal di sini; PriceTable dan ProductDock hanya menerima nilai polos. */
+  data() {
+    if (this._d) return this._d;
+    this._d = [[15,15,0.8,2.26,29500],[15,15,1,2.83,37700],[15,15,1.2,3.39,44400],[15,15,1.5,4.24,50300],[15,30,0.8,3.39,45300],[15,30,1,4.24,58100],[15,30,1.2,5.09,68300],[15,30,1.5,6.36,77100],[15,30,1.8,7.63,94000],[15,35,0.8,3.77,53900],[15,35,1,4.71,64700],[15,35,1.2,5.65,76200],[15,35,1.5,7.07,86000],[15,35,1.8,8.48,104800],[16,16,1.5,4.52,57400],[20,20,0.8,3.01,42700],[20,20,1,3.77,51300],[20,20,1.2,4.52,60400],[20,20,1.5,5.65,68000],[20,20,1.8,6.78,83100],[20,40,0.8,4.52,60800],[20,40,1,5.65,78200],[20,40,1.2,6.78,92100],[20,40,1.5,8.48,103800],[20,40,1.8,10.17,126800],[20,40,2,11.3,142000],[20,40,2.3,13,164900],[25,25,0.8,3.77,50500],[25,25,1,4.71,64700],[25,25,1.2,5.65,76200],[25,25,1.5,7.07,87000],[25,25,1.8,8.48,106100],[25,25,2,9.42,117400],[25,25,2.3,10.83,136500],[25,50,0.8,5.65,82100],[25,50,1,7.07,98400],[25,50,1.2,8.48,115800],[25,50,1.5,10.6,132200],[25,50,1.8,12.72,161400],[25,50,2,14.13,178500],[25,50,2.3,16.25,207500],[30,30,0.8,4.52,60800],[30,30,1,5.65,78200],[30,30,1.2,6.78,92100],[30,30,1.5,8.48,105000],[30,30,1.8,10.17,128200],[30,30,2,11.3,142000],[30,30,2.3,13,164900],[30,60,0.8,6.78,92200],[30,60,1,8.48,118600],[30,60,1.2,10.17,139600],[30,60,1.5,12.72,159400],[30,60,1.8,15.26,194500],[30,60,2,16.96,215400],[30,60,2.3,19.5,250200],[30,60,2.5,21.2,276200],[30,60,2.8,23.74,302500],[30,60,3,25.43,341900],[30,60,3.2,27.13,365500],[35,35,0.8,5.28,71300],[35,35,1,6.59,91800],[35,35,1.2,7.91,108000],[35,35,1.5,9.89,121800],[35,35,1.8,11.87,148600],[35,35,2,13.19,166400],[35,35,2.3,15.17,193300],[35,35,2.5,16.49,213300],[35,35,2.8,18.46,233700],[35,35,3,19.78,264200],[35,35,3.2,21.1,282500],[40,40,0.8,6.03,81800],[40,40,1,7.54,105200],[40,40,1.2,9.04,123700],[40,40,1.5,11.3,141300],[40,40,1.8,13.56,170600],[40,40,2,15.07,188600],[40,40,2.3,17.33,221800],[40,40,2.5,18.84,244600],[40,40,2.8,21.1,268100],[40,40,3,22.61,303100],[40,40,3.2,24.12,323900],[40,40,3.5,26.38,538400],[40,40,3.8,28.64,584500],[40,40,4,30.14,615200],[40,60,1,9.42,132100],[40,60,1.2,11.3,155500],[40,60,1.5,14.13,177400],[40,60,1.8,16.96,214200],[40,60,2,18.84,239700],[40,60,2.3,21.67,278600],[40,60,2.5,23.55,307500],[40,60,2.8,26.38,336800],[40,60,3,28.26,380700],[40,60,3.2,30.14,407000],[40,60,3.5,32.97,672857],[40,60,3.8,35.8,730700],[40,60,4,37.68,769000],[40,60,4.5,42.39,865200],[40,80,1,11.3,158900],[40,80,1.2,13.56,187300],[40,80,1.5,16.96,213600],[40,80,1.8,20.35,257800],[40,80,2,22.61,288500],[40,80,2.3,26,335500],[40,80,2.5,28.26,370300],[40,80,2.8,31.65,405600],[40,80,3,33.91,458400],[40,80,3.2,36.17,490000],[40,80,3.5,39.56,807346],[40,80,3.8,42.96,876800],[40,80,4,45.22,922900],[40,80,4.5,50.87,1038200],[45,45,1,8.48,118600],[45,45,1.2,10.17,139600],[45,45,1.5,12.72,159400],[45,45,1.8,15.26,192300],[45,75,1.2,13.56,187300],[45,75,1.5,16.96,213600],[45,75,1.8,20.35,257800],[45,75,2,22.61,288500],[45,75,2.3,26,335500],[45,75,2.5,28.26,370300],[45,75,2.8,31.65,405600],[45,75,3,33.91,458400],[45,75,3.2,36.17,490000],[45,75,3.5,39.56,807346],[45,75,3.8,42.96,876800],[45,75,4,45.22,922900],[45,75,4.5,50.87,1038200],[50,50,1,9.42,132100],[50,50,1.2,11.3,155500],[50,50,1.5,14.13,177400],[50,50,1.8,16.96,214200],[50,50,2,18.84,239700],[50,50,2.3,21.67,278600],[50,50,2.5,23.55,304300],[50,50,2.8,26.38,336800],[50,50,3,28.26,367600],[50,50,3.2,30.14,387200],[50,50,3.5,32.97,672857],[50,50,3.8,35.8,730700],[50,50,4,37.68,769000],[50,50,4.5,42.39,865200],[50,100,1,14.13,199400],[50,100,1.2,16.96,234800],[50,100,1.5,21.2,267900],[50,100,1.8,25.43,323500],[50,100,2,28.26,362000],[50,100,2.3,32.5,420600],[50,100,2.5,35.33,459700],[50,100,2.8,39.56,508700],[50,100,3,42.39,555200],[50,100,3.2,45.22,584800],[50,100,3.5,49.46,1009387],[50,100,3.8,53.69,1095800],[50,100,4,56.52,1153500],[50,100,4.5,63.59,1297800],[50,100,5,70.65,2402100],[50,100,6,84.78,2882600],[60,60,1,11.3,158900],[60,60,1.2,13.56,187300],[60,60,1.5,16.96,213600],[60,60,1.8,20.35,257800],[60,60,2,22.61,288500],[60,60,2.3,26,335500],[60,60,2.5,28.26,366600],[60,60,2.8,31.65,405600],[60,60,3,33.91,442500],[60,60,3.2,36.17,466300],[60,60,3.5,39.56,807346],[60,60,3.8,42.96,876800],[60,60,4,45.22,922900],[60,60,4.5,50.87,1038200],[75,75,1.2,16.96,234800],[75,75,1.5,21.2,267900],[75,75,1.8,25.43,323500],[75,75,2,28.26,362000],[75,75,2.3,32.5,420600],[75,75,2.5,35.33,459700],[75,75,2.8,39.56,508700],[75,75,3,42.39,555200],[75,75,3.2,45.22,584800],[75,75,3.5,49.46,1009400],[75,75,3.8,53.69,986200],[75,75,4,56.52,1038200],[75,75,4.5,63.59,1297800],[75,75,5,70.65,2402100],[75,75,6,84.78,2882600],[75,125,2,37.68,1281200],[75,125,2.3,43.33,1473300],[75,125,2.5,47.1,1601400],[75,125,2.8,52.75,1793500],[75,125,3,56.52,1921700],[75,125,3.2,60.29,2049900],[75,125,3.5,65.94,2242000],[75,125,3.8,71.59,2434100],[75,125,4,75.36,2562300],[75,125,4.5,84.78,2882600],[75,125,5,94.2,3202800],[75,125,6,113.04,3843400],[75,150,3,63.59,2162100],[75,150,3.2,67.82,2305900],[75,150,3.5,74.18,2522200],[75,150,3.8,80.54,2738400],[75,150,4,84.78,2882600],[75,150,4.5,95.38,3243000],[75,150,5,105.98,3603400],[75,150,6,127.17,4323800],[80,80,5,75.36,2562300],[80,80,6,90.43,3074700],[80,80,10,150.72,5727400],[100,100,1.2,22.61,396300],[100,100,1.5,28.26,495300],[100,100,1.8,33.91,594300],[100,100,2,37.68,660400],[100,100,2.3,43.33,759400],[100,100,2.5,47.1,825500],[100,100,2.8,52.75,924500],[100,100,3,56.52,990600],[100,100,3.2,60.29,1056700],[100,100,3.5,65.94,1359600],[100,100,3.8,71.59,1476100],[100,100,4,75.36,1553900],[100,100,4.5,84.78,1748100],[100,100,5,94.2,3202800],[100,100,6,113.04,3843400],[100,150,3,70.65,2402100],[100,150,3.2,75.36,2562300],[100,150,3.5,82.43,2802700],[100,150,3.8,89.49,3042700],[100,150,4,94.2,3202800],[100,150,4.5,105.98,3603400],[100,150,5,117.75,4003500],[100,150,6,141.3,4804200],[100,150,8,188.4,6405600],[100,150,10,235.5,8007000],[100,175,4.5,116.57,3963400],[100,175,5,129.53,4404100],[100,200,3,84.78,2882600],[100,200,3.2,90.43,3074700],[100,200,3.5,98.91,3363000],[100,200,3.8,107.39,3651300],[100,200,4,113.04,3843400],[100,200,4.5,127.17,4323800],[100,200,5,141.3,4804200],[100,200,6,169.56,5765100],[100,200,8,226.08,7686800],[100,200,10,282.6,9608400],[100,250,6,197.82,6725900],[100,250,8,263.76,8967900],[100,250,10,329.7,11209800],[100,300,5,188.4,6405600],[100,300,6,226.08,7686800],[100,350,5,211.95,7206300],[100,350,6,254.34,8647600],[125,125,2.5,58.88,2002000],[125,125,2.8,65.94,2242000],[125,125,3,70.65,2402100],[125,125,3.2,75.36,2562300],[125,125,3.5,82.43,2802700],[125,125,3.8,89.49,3042700],[125,125,4,94.2,3202800],[125,125,4.5,105.98,3603400],[125,125,5,117.75,4003500],[125,175,3,84.78,2882600],[125,175,3.2,90.43,3074700],[150,150,3,84.78,2882600],[150,150,3.2,90.43,3074700],[150,150,3.5,98.91,3363000],[150,150,3.8,107.39,3651300],[150,150,4,113.04,3843400],[150,150,4.5,127.17,4323800],[150,150,5,141.3,4804200],[150,150,6,169.56,5765100],[150,150,8,226.08,7686800],[150,150,10,282.6,9608400],[150,150,12,339.12,11530100],[150,200,6,197.82,6725900],[150,200,8,263.76,8967900],[150,200,10,329.7,11209800],[150,250,8,301.44,10249000],[150,250,10,376.8,12811200],[150,300,8,339.12,11530100],[150,300,10,423.9,14412600],[200,200,4.5,169.56,5765100],[200,200,5,188.4,6405600],[200,200,6,226.08,7686800],[200,200,8,301.44,10249000],[200,200,10,376.8,12811200],[200,300,6,282.6,9608400],[200,300,8,376.8,12811200],[200,400,10,565.2,19216800],[200,400,12,678.24,23060200],[250,250,6,282.6,9608400],[250,250,8,376.8,12811200],[300,300,6,339.12,11530100],[300,300,8,452.16,15373500]].map((r) => ({ a: r[0], b: r[1], uk: r[0] + 'x' + r[1], t: r[2], w: r[3], p: r[4] }));
+    return this._d;
+  }
+  ukuranUnik() {
+    if (this._u) return this._u;
+    const seen = {};
+    this._u = [];
+    this.data().forEach((r) => {
+      if (!seen[r.uk]) { seen[r.uk] = 1; this._u.push({ uk: r.uk, a: r.a, b: r.b }); }
+    });
+    return this._u;
+  }
+  tebalUnik() {
+    if (this._t) return this._t;
+    this._t = [];
+    this.data().forEach((r) => { if (this._t.indexOf(r.t) === -1) this._t.push(r.t); });
+    this._t.sort((x, y) => x - y);
+    return this._t;
+  }
+  componentDidMount() {
+    this._onScroll = () => this.spy();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this.spy();
+    this.pantauLazy(false);
+  }
+  componentDidUpdate() {
+    this.pantauLazy(true);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._lazyIO) this._lazyIO.disconnect();
+  }
+  pantauLazy(paksa) {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (!this._lazyIO) {
+      this._lazyIO = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) this.setState({ limit: (this.state.limit || 50) + 50 });
+      }, { rootMargin: '0px 0px 300px 0px' });
+    }
+    const el = document.querySelector('[data-lazy-sentinel]');
+    if (el !== this._lazyEl || paksa) {
+      if (this._lazyEl) this._lazyIO.unobserve(this._lazyEl);
+      this._lazyEl = el;
+      if (el) this._lazyIO.observe(el);
+    }
+  }
+  seksi() {
+    return [['m-ringkasan', 'Info'], ['m-harga', 'Harga'], ['aksi-filter', 'Filter'], ['m-faq', 'FAQ']];
+  }
+  spy() {
+    if (this.state.nav) this.setState({ nav: false });
+    const lim = (window.innerHeight || 800) * 0.35;
+    const patok = document.getElementById('m-harga');
+    const gulir = !!patok && patok.getBoundingClientRect().top <= lim;
+    let sek = this.seksi()[0][0];
+    this.seksi().forEach((x) => {
+      const el = document.getElementById(x[0]);
+      if (el && el.getBoundingClientRect().top <= lim) sek = x[0];
+    });
+    if (gulir !== this.state.gulir || sek !== this.state.sek) this.setState({ gulir, sek });
+  }
+  cocok(r, uk, tb, q) {
+    if (uk.length && uk.indexOf(r.uk) === -1) return false;
+    if (tb.length && tb.indexOf(r.t) === -1) return false;
+    if (q) {
+      const sisa = (r.a + ' ' + r.b + ' ' + this.koma(r.t)).split(/[^0-9a-z,.]+/).filter((x) => x);
+      const toks = q.split(/[^0-9,.]+/).filter((x) => x).map((x) => x.replace('.', ','));
+      for (let i = 0; i < toks.length; i++) {
+        const j = sisa.findIndex((x) => x.indexOf(toks[i]) === 0);
+        if (j === -1) return false;
+        sisa.splice(j, 1);
+      }
+    }
+    return true;
+  }
+  koma(n) { return String(n).replace('.', ','); }
+  angka(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  togel(kunci, nilai) {
+    const arr = this.state[kunci].slice();
+    const i = arr.indexOf(nilai);
+    if (i === -1) arr.push(nilai); else arr.splice(i, 1);
+    this.setState({ limit: 50, [kunci]: arr });
+  }
+  nilai() {
+    const s = this.state;
+    const semua = this.data();
+    const uk = s.ukuran;
+    const tb = s.tebal;
+    const q = s.q.trim();
+    const URUT = [
+      ['ukuran', 'ukuran', (x, y) => x.a - y.a || x.b - y.b || x.t - y.t],
+      ['harga', 'harga terendah', (x, y) => x.p - y.p],
+      ['berat', 'berat teringan', (x, y) => x.w - y.w]
+    ];
+    const urutKini = URUT.filter((o) => o[0] === s.urut)[0];
+    const hasil = semua.filter((r) => this.cocok(r, uk, tb, q)).sort(urutKini[2]);
+    const tampilBaris = hasil.slice(0, s.limit);
+    const sisa = hasil.length - tampilBaris.length;
+    const adaFilter = uk.length + tb.length > 0 || q !== '';
+    const ocN = uk.length + tb.length + (q ? 1 : 0);
+    const nol = hasil.length === 0;
+    const chipAktif = [];
+    uk.forEach((id) => {
+      const u = id.split('x');
+      chipAktif.push({ label: u[0] + ' × ' + u[1] + ' mm', aria: 'Hapus filter ukuran ' + u[0] + ' kali ' + u[1], buang: () => this.togel('ukuran', id) });
+    });
+    tb.forEach((t) => chipAktif.push({ label: 'Tebal ' + this.koma(t) + ' mm', aria: 'Hapus filter tebal ' + this.koma(t), buang: () => this.togel('tebal', t) }));
+    if (q) chipAktif.push({ label: 'Cari: ' + q, aria: 'Hapus kata pencarian', buang: () => this.setState({ q: '', limit: 50 }) });
+    return {
+      baris: tampilBaris.map((r) => ({ head: 'Besi Hollow ' + r.a + ' × ' + r.b + ' × ' + this.koma(r.t) + ' mm × 6 M [STD, NB]', pNum: this.angka(r.p), vmBerat: this.koma(r.w) + ' kg' })),
+      isTable: s.vm === 'table',
+      isCard2: s.vm === 'card2',
+      vmTableOn: s.vm === 'table' ? 'true' : 'false',
+      vmCard2On: s.vm === 'card2' ? 'true' : 'false',
+      vmTable: () => this.setState({ vm: 'table' }),
+      vmCard2: () => this.setState({ vm: 'card2' }),
+      kosong: nol,
+      tampil: tampilBaris.length,
+      total: semua.length,
+      adaLagi: sisa > 0,
+      lazyLabel: 'Memuat ' + Math.min(50, sisa) + ' SKU berikutnya · ' + tampilBaris.length + ' dari ' + hasil.length,
+      adaFilter,
+      chipAktif,
+      hapusSemua: () => this.setState({ ukuran: [], tebal: [], q: '', limit: 50 }),
+      q: s.q,
+      setQ: (e) => this.setState({ q: e.target.value, limit: 50 }),
+      ocTerbuka: s.ocOpen,
+      ocN,
+      ocToggle: () => this.setState({ ocOpen: !s.ocOpen, bantuan: false }),
+      ocFilter: () => {
+        if (s.ocOpen) { this.setState({ ocOpen: false }); return; }
+        this.setState({ ocOpen: true, urutOpen: false, ocSeg: 'ukuran', bantuan: false });
+      },
+      urutBuka: () => {
+        if (s.urutOpen) { this.setState({ urutOpen: false }); return; }
+        this.setState({ urutOpen: true, ocOpen: false, bantuan: false });
+      },
+      ocExpFilter: s.ocOpen ? 'true' : 'false',
+      ocExpUrut: s.urutOpen ? 'true' : 'false',
+      urutTerbuka: s.urutOpen,
+      ocFilterAria: s.ocOpen ? 'Tutup Filter' : 'Filter' + (ocN ? ', ' + ocN + ' aktif' : ''),
+      urutAda: s.urut !== 'ukuran',
+      ocUrutAria: s.urutOpen ? 'Tutup Urutkan' : 'Urutkan' + (s.urut !== 'ukuran' ? ', ' + urutKini[1] : ''),
+      navOpen: s.nav && !s.cariOpen && !s.ocOpen && !s.urutOpen,
+      navExp: s.nav ? 'true' : 'false',
+      navAria: s.nav ? 'Tutup daftar bagian' : 'Daftar bagian halaman',
+      navDot: ocN > 0,
+      navSet: 'bagian',
+      navTutup: () => this.setState({ nav: false }),
+      navToggle: () => this.setState({ nav: !s.nav, bantuan: false }),
+      bantuanOpen: s.bantuan,
+      bantuanExp: s.bantuan ? 'true' : 'false',
+      bantuanToggle: () => this.setState({ bantuan: !s.bantuan }),
+      fabTampil: !s.ocOpen && !s.urutOpen && !s.cariOpen,
+      seksi: this.seksi().map((x, i) => {
+        const aksi = x[0] === 'aksi-filter';
+        return {
+          href: '#' + x[0], label: x[1], tunda: (70 + i * 55) + 'ms',
+          isAksi: aksi, isFoto: x[0] === 'm-ringkasan', isHarga: x[0] === 'm-harga', isFaq: x[0] === 'm-faq',
+          adaFilter: aksi && ocN > 0,
+          aria: aksi ? (s.ocOpen ? 'Tutup Filter & Urutkan' : 'Filter & Urutkan' + (ocN ? ', ' + ocN + ' aktif' : '')) : '',
+          exp: aksi && s.ocOpen ? 'true' : 'false',
+          kini: !aksi && s.sek === x[0] ? 'true' : 'false',
+          pergi: (e) => {
+            if (e && e.preventDefault) e.preventDefault();
+            if (aksi) {
+              if (s.ocOpen) { this.setState({ ocOpen: false, nav: false }); return; }
+              const tb2 = document.getElementById('btn-filter');
+              if (tb2 && tb2.scrollIntoView) tb2.scrollIntoView({ block: 'center' });
+              this.setState({ ocOpen: true, nav: false, bantuan: false });
+              return;
+            }
+            const el = document.getElementById(x[0]);
+            if (el && el.scrollIntoView) el.scrollIntoView({ block: 'start' });
+            this.setState({ sek: x[0], nav: false });
+          }
+        };
+      }),
+      ocPilText: adaFilter ? hasil.length + ' SKU · urut ' + urutKini[1] : 'Semua ' + semua.length + ' SKU · urut ' + urutKini[1],
+      ocCta: nol ? 'Tidak ada' : 'Lihat ' + hasil.length,
+      ocNol: nol,
+      ocTerap: () => { if (!nol) this.setState({ ocOpen: false }); },
+      urutTerap: () => this.setState({ urutOpen: false }),
+      urutReset: () => this.setState({ urut: 'ukuran' }),
+      urutBersih: s.urut === 'ukuran',
+      ocSeg: s.ocSeg,
+      nUkuran: uk.length,
+      nTebal: tb.length,
+      pilihSeg: (id) => this.setState({ ocSeg: id }),
+      ocUkuran: this.ukuranUnik().map((u) => {
+        const n = semua.filter((r) => r.uk === u.uk && this.cocok(r, [], tb, q)).length;
+        const on = uk.indexOf(u.uk) !== -1;
+        const mati = n === 0 && !on;
+        return { label: u.a + ' × ' + u.b, jumlahLabel: n + ' varian', aktif: on, aria: 'Ukuran ' + u.a + ' kali ' + u.b + ' milimeter, ' + n + ' varian' + (on ? ', dipilih' : ''), mati, pick: () => { if (!mati) this.togel('ukuran', u.uk); } };
+      }),
+      ocTebal: this.tebalUnik().map((t) => {
+        const n = semua.filter((r) => r.t === t && this.cocok(r, uk, [], q)).length;
+        const on = tb.indexOf(t) !== -1;
+        const mati = n === 0 && !on;
+        return { label: this.koma(t), jumlahLabel: n + ' SKU', aktif: on, aria: 'Tebal ' + this.koma(t) + ' milimeter, ' + n + ' SKU' + (on ? ', dipilih' : ''), mati, pick: () => { if (!mati) this.togel('tebal', t); } };
+      }),
+      ocUrut: URUT.map((o) => ({ value: o[0], label: 'Urut ' + o[1], checked: s.urut === o[0], pick: () => this.setState({ urut: o[0], limit: 50 }) })),
+      ocBersih: !adaFilter && s.urut === 'ukuran',
+      ocReset: () => this.setState({ ukuran: [], tebal: [], q: '', urut: 'ukuran', limit: 50 }),
+      cariOpen: s.cariOpen,
+      cariQ: s.cariQ,
+      cariTutup2: !s.cariOpen,
+      cariBuka: () => this.setState({ cariOpen: true, bantuan: false, cariQ: '', ocOpen: false }),
+      cariTutup: () => this.setState({ cariOpen: false, cariQ: '' }),
+      cariUbah: (v) => this.setState({ cariQ: v })
+    };
+  }
+  renderVals() {
+    return {
+      v: this.nilai(),
+      gulir: this.state.gulir,
+      lembar: !!this.props.lembar,
+      lamaRata: !!this.props.lamaRata,
+      font: this.props.font ?? 'bawaan',
+      hrefBaris: this.props.hrefBaris || 'SkuDetailM4.dc.html',
+      fotoKartu: this.props.fotoKartu || '/_blob/7cf9caf5815cec7ca47570545222d743',
+      altKartu: this.props.altKartu ?? ''
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LazyList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div data-lazy-sentinel="1" role="status" aria-live="polite" style="margin: 1.4rem 0 0 0; min-height: 4.8rem; display: flex; align-items: center; justify-content: center">
+  <dc-import name="Spinner" label="{{ label }}" hint-size="100%,2rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tampil":{"editor":"int","default":50,"section":"Isi"},"total":{"editor":"int","default":297,"section":"Isi"},"langkah":{"editor":"int","default":50,"section":"Isi"},"onMuat":{"editor":null},"$preview":{"width":360,"height":62}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (typeof document === 'undefined' || typeof IntersectionObserver === 'undefined') return;
+    this._io = new IntersectionObserver((es) => {
+      for (let i = 0; i < es.length; i++) {
+        if (es[i].isIntersecting) { if (this.props.onMuat) this.props.onMuat(); break; }
+      }
+    }, { rootMargin: '0px 0px 300px 0px' });
+    this.pantau();
+  }
+  componentDidUpdate() { this.pantau(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+  pantau() {
+    if (!this._io) return;
+    const el = document.querySelector('[data-lazy-sentinel]');
+    if (el !== this._el) {
+      if (this._el) this._io.unobserve(this._el);
+      this._el = el;
+      if (el) this._io.observe(el);
+    }
+  }
+  renderVals() {
+    const tampil = this.props.tampil ?? 50;
+    const total = this.props.total ?? 297;
+    const langkah = this.props.langkah ?? 50;
+    return {
+      label: 'Memuat ' + Math.min(langkah, total - tampil) + ' SKU berikutnya · ' + tampil + ' dari ' + total
+    };
+  }
+}
+</script>
+</body>
+</html>

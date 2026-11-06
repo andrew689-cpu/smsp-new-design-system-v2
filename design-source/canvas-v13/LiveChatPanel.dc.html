@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LiveChatPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: {{ talang }}; display: flex; flex-direction: column; gap: var(--rapat)">
+    <sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="ChatHeader" gaya="{{ gaya }}" online="{{ online }}" waHref="{{ waHref }}" telHref="{{ telHref }}" onTutup="{{ onTutup }}" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+      <p style="margin: 0; text-align: center; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ hari }}</p>
+    </sc-if>
+    <div role="log" aria-label="{{ labelLog }}" style="display: flex; flex-direction: column; row-gap: 0.8rem; column-gap: 0">
+      <dc-import name="ChatBubble" tata="{{ tata }}" arah="masuk" teks="{{ salam }}" jam="{{ salamJam }}" hint-size="86%,9rem"></dc-import>
+      <sc-for list="{{ log }}" as="m" hint-placeholder-count="0">
+        <dc-import name="ChatBubble" tata="{{ tata }}" arah="keluar" teks="{{ m.t }}" jam="{{ m.jam }}" hint-size="60%,6rem"></dc-import>
+      </sc-for>
+    </div>
+    <sc-if value="{{ csat }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="CsatRating" nilai="{{ nilaiCsat }}" onNilai="{{ onCsat }}" hint-size="100%,13rem"></dc-import>
+    </sc-if>
+  </div>
+  <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+    <dc-import name="ChatComposer" tata="{{ tata }}" gaya="{{ gaya }}" nilai="{{ pesan }}" onUbah="{{ ubahPesan }}" onKirim="{{ kirim }}" hint-size="100%,7rem"></dc-import>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpBackBar" jenis="polos" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"gaya":{"editor":"enum","options":["baku","blog"],"default":"baku"},"online":{"editor":null},"hari":{"editor":null,"default":"Hari ini"},"labelLog":{"editor":null,"default":"Percakapan dengan customer service"},"salam":{"editor":null,"default":"Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons."},"salamJam":{"editor":null,"default":"09:41"},"log":{"editor":null},"pesan":{"editor":null},"csat":{"editor":"boolean","default":false},"nilaiCsat":{"editor":null},"waHref":{"editor":null,"default":"https://wa.me/628112689889"},"telHref":{"editor":null,"default":"tel:+628112689889"},"onLog":{"editor":null},"onPesan":{"editor":null},"onCsat":{"editor":null},"onKembali":{"editor":null},"onTutup":{"editor":null},"$preview":{"width":360,"height":620}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const log = this.state.log ?? this.props.log ?? [];
+    const pesan = this.state.pesan ?? this.props.pesan ?? '';
+    return {
+      tata,
+      isPonsel: ponsel,
+      isDesktop: !ponsel,
+      gaya: this.props.gaya ?? 'baku',
+      talang: ponsel && this.props.gaya !== 'blog' ? 'var(--talang)' : '1.4rem',
+      online: this.props.online,
+      hari: this.props.hari ?? 'Hari ini',
+      labelLog: this.props.labelLog ?? 'Percakapan dengan customer service',
+      salam: this.props.salam ?? 'Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.',
+      salamJam: this.props.salamJam ?? '09:41',
+      log,
+      pesan,
+      csat: !!this.props.csat,
+      nilaiCsat: this.props.nilaiCsat,
+      onCsat: this.props.onCsat,
+      waHref: this.props.waHref ?? 'https://wa.me/628112689889',
+      telHref: this.props.telHref ?? 'tel:+628112689889',
+      onKembali: this.props.onKembali,
+      onTutup: this.props.onTutup,
+      ubahPesan: (v) => {
+        this.setState({ pesan: v });
+        if (this.props.onPesan) this.props.onPesan(v);
+      },
+      kirim: (t) => {
+        const jam = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        const baru = log.concat([{ t, jam }]);
+        this.setState({ log: baru, pesan: '' });
+        if (this.props.onLog) this.props.onLog(baru);
+        if (this.props.onPesan) this.props.onPesan('');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

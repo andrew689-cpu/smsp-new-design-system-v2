@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Breadcrumb</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<nav aria-label="Remah roti" style="{{ gaya }}">
+  <sc-for list="{{ baris }}" as="b" hint-placeholder-count="3">
+    <sc-if value="{{ b.isTautan }}" hint-placeholder-val="{{ true }}"><a href="{{ b.href }}" style="{{ b.gaya }}">{{ b.teks }}</a></sc-if>
+    <sc-if value="{{ b.isPisah }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="{{ b.gaya }}">{{ b.teks }}</span></sc-if>
+    <sc-if value="{{ b.isKini }}" hint-placeholder-val="{{ false }}"><span aria-current="{{ b.kini }}" style="{{ b.gaya }}">{{ b.teks }}</span></sc-if>
+  </sc-for>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"varian":{"editor":"enum","options":["indeks","sku","artikel"],"default":"indeks","section":"Resep"},"butir":{"editor":null,"section":"Isi","tsType":"Array<{label:string,href?:string}>"},"hrefInduk":{"editor":"text","default":"","section":"Isi"},"$preview":{"width":360,"height":24}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const varian = this.props.varian ?? 'indeks';
+    const resep = {
+      indeks: { nav: 'display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; font-size: var(--teks-meta); color: var(--ink-2)', jarak: '0.3rem', pisah: '/', tautan: 'color: var(--ink-2); text-decoration: underline', kini: 'page', contoh: [{ label: 'Home', href: '#' }, { label: 'Semua Produk' }] },
+      sku: { nav: 'box-sizing: border-box; padding: 2rem 12rem 0 12rem; display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; font-size: var(--teks-meta); color: var(--ink-2)', jarak: '0.4rem', pisah: '/', tautan: 'color: var(--ink-2)', kini: undefined, contoh: [{ label: 'Beranda', href: 'Artboard-pp1u.dc.html' }, { label: 'Besi Hollow Hitam', href: this.props.hrefInduk || 'DesktopProdukM4.dc.html' }, { label: '40 × 40 × 2 mm × 6 m [STD, NB]' }] },
+      artikel: { nav: 'display: flex; align-items: center; row-gap: 0.8rem; column-gap: 0; font-size: var(--teks-body); color: var(--ink-2)', jarak: '0.4rem', pisah: '›', tautan: 'color: var(--ink-2); font-weight: var(--bobot-medium)', kini: 'page', contoh: [{ label: 'Blog', href: '#' }, { label: 'Berita Baja' }] }
+    };
+    const r = resep[varian] || resep.indeks;
+    const butir = this.props.butir ?? r.contoh;
+    const baris = [];
+    butir.forEach((b, i) => {
+      const akhir = i === butir.length - 1;
+      const tepi = 'margin-left: ' + (i === 0 ? '0' : r.jarak) + '; margin-right: ' + r.jarak;
+      if (akhir) baris.push({ isKini: true, teks: b.label, kini: r.kini, gaya: 'color: var(--ink); ' + tepi });
+      else baris.push({ isTautan: true, teks: b.label, href: b.href ?? '#', gaya: r.tautan + '; ' + tepi });
+      if (!akhir) baris.push({ isPisah: true, teks: r.pisah, gaya: 'margin-left: ' + r.jarak + '; margin-right: ' + r.jarak });
+    });
+    return { gaya: r.nav, baris };
+  }
+}
+</script>
+</body>
+</html>

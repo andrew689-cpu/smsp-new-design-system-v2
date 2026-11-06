@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>DesktopIsland</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: fixed; left: 50%; transform: translateX(-50%); bottom: 2.8rem; width: 144rem; max-width: 100%; box-sizing: border-box; padding: 0 12rem; z-index: 60; display: flex; justify-content: flex-end; pointer-events: none">
+  <div style="pointer-events: none; width: 100%; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem">
+    <sc-if value="{{ adaBantuan }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpCentre" tata="desktop" dc-props="{{ bantuan }}" hint-size="36rem,58.7rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ buka }}" hint-placeholder-val="{{ false }}">
+      <div data-pulau="1" role="group" aria-label="Daftar bagian halaman" style="pointer-events: auto; align-self: flex-start; width: fit-content; max-width: 100%; box-sizing: border-box; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border-radius: var(--island); padding: 1.2rem 1.6rem">
+        <div data-set="bagian" style="display: grid; grid-template-columns: auto; row-gap: 0; column-gap: 0">
+          <sc-for list="{{ butir }}" as="sk" hint-placeholder-count="4">
+            <a href="{{ sk.href }}" onClick="{{ sk.pergi }}" aria-current="{{ sk.kini }}" style="{{ sk.gaya }}; animation-delay: {{ sk.tunda }}; min-height: 4.8rem; padding: 0.8rem 1.4rem; row-gap: var(--rapat); column-gap: 0; width: 100%; min-width: 0; box-sizing: border-box; border-radius: var(--pill); font-size: var(--teks-body); display: inline-flex; flex-direction: row; align-items: center; justify-content: flex-start; text-align: left; line-height: var(--tinggi-sedang); overflow-wrap: anywhere; border: 0; {{ sk.tepi }}; margin-right: 0.3rem">
+              <span style="display: flex; flex-shrink: 0; margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="{{ sk.ikon }}" hint-size="2.4rem,2.4rem"></dc-import></span>
+              {{ sk.label }}
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+    <div style="pointer-events: none; width: 100%; display: flex; align-items: center; justify-content: space-between">
+      <span style="pointer-events: auto; display: flex"><dc-import name="GlassButton" ukuran="{{ 72 }}" ikonWarna="var(--ink)" ariaExpanded="{{ navExp }}" ariaLabel="Daftar bagian halaman" onPress="{{ navToggle }}" hint-size="7.2rem,7.2rem"></dc-import></span>
+      <span data-polos="1" style="pointer-events: auto; display: flex"><dc-import name="GlassButton" ukuran="{{ 72 }}" ikon="lambang" ikonUkuran="{{ 47 }}" ikonWarna="var(--brand-hero)" ariaExpanded="{{ bantuanExp }}" ariaLabel="Pusat bantuan" onPress="{{ onBantuan }}" hint-size="7.2rem,7.2rem"></dc-import></span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"terbuka":{"editor":"boolean","default":false},"seksi":{"editor":null},"aktif":{"editor":null},"bantuanTerbuka":{"editor":null},"bantuan":{"editor":null},"onNav":{"editor":null},"onPilih":{"editor":null},"onBantuan":{"editor":null},"$preview":{"width":1440,"height":340}}'>
+class Component extends DCLogic {
+  state = { buka: false, aktif: null };
+  renderVals() {
+    const seksi = this.props.seksi ?? [
+      { id: 'top', label: 'Top', ikon: 'panah-atas' },
+      { id: 'm-harga', label: 'Harga', ikon: 'tabel' },
+      { id: 'm-info', label: 'Info', ikon: 'info' },
+      { id: 'm-faq', label: 'FAQ', ikon: 'tanya' }
+    ];
+    const dikendalikan = this.props.terbuka !== undefined;
+    const buka = dikendalikan ? !!this.props.terbuka : this.state.buka;
+    const aktif = this.props.aktif ?? this.state.aktif ?? seksi[0].id;
+    const n = seksi.length;
+    return {
+      buka,
+      adaBantuan: !!this.props.bantuanTerbuka && !!this.props.bantuan,
+      bantuan: this.props.bantuan,
+      navExp: buka ? 'true' : 'false',
+      bantuanExp: this.props.bantuanTerbuka ? 'true' : 'false',
+      onBantuan: this.props.onBantuan,
+      navToggle: () => {
+        if (!dikendalikan) this.setState({ buka: !buka });
+        if (this.props.onNav) this.props.onNav(!buka);
+      },
+      butir: seksi.map((s, i) => {
+        const on = s.id === aktif;
+        return {
+          label: s.label,
+          ikon: s.ikon,
+          href: s.href ?? '#' + s.id,
+          kini: on ? 'true' : 'false',
+          gaya: on ? 'background: transparent; color: var(--nav-aktif); font-weight: var(--bobot-bold)' : 'background: transparent; color: var(--ink); font-weight: var(--bobot-semibold)',
+          tunda: (70 + i * 55) + 'ms',
+          tepi: 'margin-left: ' + (i === 0 ? '0' : '0.3rem') + '; margin-top: ' + (i === 0 ? '0' : '0.3rem') + '; margin-bottom: ' + (i === n - 1 ? '0' : '0.3rem'),
+          pergi: (e) => {
+            this.setState({ aktif: s.id, buka: dikendalikan ? this.state.buka : false });
+            if (this.props.onPilih) this.props.onPilih(s.id, e);
+            if (dikendalikan && this.props.onNav) this.props.onNav(false);
+          }
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>FaqList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="padding-bottom: {{ ekor }}">
+  <sc-if value="{{ adaJudul }}" hint-placeholder-val="{{ true }}">
+    <span style="{{ gayaJudul }}"><dc-import name="Heading" level="{{ 2 }}" tata="{{ tata }}" varian="{{ varianJudul }}" warna="{{ warnaJudul }}" teks="{{ judul }}" hint-size="100%,2.8rem"></dc-import></span>
+  </sc-if>
+  <sc-if value="{{ adaPengantar }}" hint-placeholder-val="{{ true }}">
+    <p style="{{ gayaPengantar }}">Ada pertanyaan lain? Buka <a href="{{ hrefBantuan }}" style="{{ gayaTautPengantar }}">Pusat Bantuan</a> atau <a href="{{ hrefSales }}" style="{{ gayaTautPengantar }}">Hubungi Sales</a>.</p>
+  </sc-if>
+  <div style="{{ gayaDaftar }}">
+    <sc-for list="{{ butir }}" as="f" hint-placeholder-count="5">
+      <div style="{{ f.gayaItem }}">
+        <sc-if value="{{ f.isLama }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Accordion" jenis="baris" tanya="{{ f.q }}" buka="{{ f.open }}" onUbah="{{ f.togel }}" hint-size="100%,4.4rem"></dc-import>
+          <sc-if value="{{ f.openPolos }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 0.2rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ f.jawab }}</p>
+          </sc-if>
+          <sc-if value="{{ f.openKaya }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top: 0.2rem; display: flex; flex-direction: column; gap: var(--rapat)">
+              <sc-if value="{{ f.adaIntro }}" hint-placeholder-val="{{ true }}">
+                <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ f.aPre }}</p>
+              </sc-if>
+              <sc-if value="{{ f.adaButir }}" hint-placeholder-val="{{ false }}">
+                <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+                  <sc-for list="{{ f.butir }}" as="b" hint-placeholder-count="3">
+                    <li style="{{ b.gayaLama }}">
+                      <span aria-hidden="true" style="flex-shrink: 0; margin-top: 0.8rem; width: 0.5rem; height: 0.5rem; border-radius: var(--pill); background: var(--ink-2); margin-right: 0.45rem"></span>
+                      <div style="min-width: 0; margin-left: 0.45rem; margin-right: 0.45rem">
+                        <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">{{ b.l }}</p>
+                        <p style="margin: 0.3rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ b.tPre }}</p>
+                      </div>
+                    </li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </div>
+          </sc-if>
+        </sc-if>
+        <sc-if value="{{ f.isAkordeon }}" hint-placeholder-val="{{ false }}">
+          <dc-import name="Accordion" tata="{{ tata }}" no="{{ f.no }}" tanya="{{ f.q }}" jawab="{{ f.jawab }}" buka="{{ f.open }}" onUbah="{{ f.ubah }}" hint-size="100%,17rem"></dc-import>
+        </sc-if>
+        <sc-if value="{{ f.isKaya }}" hint-placeholder-val="{{ true }}">
+          <p style="{{ gayaTanya }}"><span style="{{ gayaNo }}">{{ f.no }}</span><span style="{{ gayaTeks }}">{{ f.q }}</span></p>
+          <sc-if value="{{ f.tutup }}" hint-placeholder-val="{{ true }}">
+            <p data-panel-d="{{ panelD }}" style="{{ gayaRingkas }}">{{ f.ringkas }}</p>
+          </sc-if>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <div data-panel-d="{{ panelD }}" style="{{ gayaPanel }}">
+              <sc-if value="{{ f.adaIntro }}" hint-placeholder-val="{{ true }}">
+                <p style="{{ gayaIntro }}">{{ f.aPre }}<sc-if value="{{ f.aAdaTaut }}" hint-placeholder-val="{{ false }}"><a href="{{ f.aUrl }}" target="_blank" rel="noopener" style="color: var(--brand); font-weight: var(--bobot-medium)">{{ f.aTaut }}</a></sc-if>{{ f.aPost }}</p>
+              </sc-if>
+              <sc-if value="{{ f.adaButir }}" hint-placeholder-val="{{ false }}">
+                <ul style="margin: var(--dalam) 0 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+                  <sc-for list="{{ f.butir }}" as="b" hint-placeholder-count="3">
+                    <li style="{{ b.gaya }}">
+                      <span aria-hidden="true" style="{{ gayaPeluru }}"></span>
+                      <div style="{{ gayaIsiButir }}">
+                        <p style="{{ gayaJudulButir }}">{{ b.l }}</p>
+                        <p style="{{ gayaTeksButir }}">{{ b.tPre }}<sc-if value="{{ b.tAdaTaut }}" hint-placeholder-val="{{ false }}"><a href="{{ b.tUrl }}" target="_blank" rel="noopener" style="color: var(--brand); font-weight: var(--bobot-medium)">{{ b.tTaut }}</a></sc-if>{{ b.tPost }}</p>
+                      </div>
+                    </li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </div>
+          </sc-if>
+          <span style="{{ gayaTombol }}"><dc-import name="Button" variant="{{ varianTombol }}" tinggi="3rem" label="{{ f.lagiLabel }}" onPress="{{ f.togel }}" ariaExpanded="{{ f.exp }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ f.open }}" hint-size="16rem,3rem"></dc-import></span>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"halaman":{"editor":"enum","options":["produk","sku"],"default":"produk","section":"Resep"},"judul":{"editor":"text","default":"FAQ","section":"Isi"},"pengantar":{"editor":"boolean","default":true,"section":"Isi"},"hrefBantuan":{"editor":"text","default":"#bantuan","section":"Isi"},"hrefSales":{"editor":"text","default":"#whatsapp","section":"Isi"},"butir":{"editor":null,"tsType":"Array<[tanya:string,jawab:string|string[],butir?:Array<[string,string|string[]]>]>"},"kaya":{"editor":"boolean","default":false,"section":"Resep"},"tanyaTinggi":{"editor":"text","default":"","section":"Tata letak"},"bukaAwal":{"editor":null},"varian":{"editor":"enum","options":["bawaan","lama"],"default":"bawaan","section":"Resep"},"ekorBuka":{"editor":"text","default":"","section":"Jarak"},"$preview":{"width":330,"height":620}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const peta = {};
+    ((props && props.bukaAwal) || []).forEach((i) => { peta[i] = true; });
+    this.state = { faqBuka: peta };
+  }
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const d = tata === 'desktop';
+    const sku = this.props.halaman === 'sku';
+    const lama = this.props.varian === 'lama';
+    const FAQ_PRODUK = [
+      ['Apa perbedaan utama besi hollow hitam, galvanis, dan galvalum?', '', [
+        ['Besi Hollow Hitam', 'Dibuat dari baja polos tanpa lapisan seng dengan panjang standar 6 meter. Ketahanan terhadap karat tergolong rendah sehingga membutuhkan lapisan cat dasar, membuat jenis ini lebih ideal digunakan untuk area interior, pembuatan furnitur, dan struktur umum.'],
+        ['Besi Hollow Galvanis', 'Menggunakan lapisan pelindung seng yang memberikan daya tahan tinggi terhadap karat dan cuaca luar. Dijual dengan panjang standar 6 meter, hollow galvanis sangat cocok dipakai untuk kebutuhan eksterior seperti kanopi, pagar, dan railing.'],
+        ['Besi Hollow Galvalum', 'Dilapisi kombinasi aluminium 55% dan seng 43,5% untuk menghasilkan ketahanan karat yang sangat tinggi. Panjang standarnya adalah 4 meter dan paling sering difungsikan untuk pemasangan rangka plafon serta konstruksi atap ringan.']
+      ]],
+      ['Apakah besi hollow hitam tahan karat dan apakah perlu dicat dasar?', ['Besi hollow hitam tidak tahan karat secara alami karena terbuat dari pelat baja karbon tanpa lapisan seng (non-galvanized). Untuk penggunaan luar ruangan (outdoor), permukaan besi hollow hitam wajib dibersihkan dari minyak/kerak pabrik, lalu dilapisi cat dasar anti-karat (primer epoxy) sebelum diaplikasikan cat akhir (finishing) agar ', 'terhindar dari korosi', 'https://www.smsperkasa.com/blog/cara-mencegah-korosi-mulai-dari-diy-hingga-solusi-industri', ' jangka panjang.']],
+      ['Bagaimana tahapan pembersihan dan pengecatan besi hollow hitam agar cat anti-karat tidak mudah mengelupas?', 'Tahapan pengecatan besi hollow hitam wajib diawali dengan membersihkan lapisan minyak pabrik (milling oil) menggunakan kain yang dibasahi thiner atau cairan degreaser hingga permukaan benar-benar kering dan bebas lemak. Setelah minyak bersih, gosok ringan permukaan besi menggunakan amplas halus untuk menciptakan tekstur cengkeram (keying), lalu lapiskan cat dasar anti-karat (primer epoxy atau zinc chromate) sebagai benteng pelindung utama dari korosi. Setelah lapisan cat dasar kering sempurna (sekitar 12–24 jam), baru aplikasikan cat akhir (top coat) berbasis sintetis/alkyd agar lapisan cat merekat kuat dan tidak mudah mengelupas meskipun terpapar cuaca.'],
+      ['Bagaimana teknik mengelas besi hollow hitam berdinding tipis agar tidak mudah bolong atau melengkung?', 'Mengelas besi hollow hitam berdinding tipis (ketebalan 0,8 mm hingga 1,2 mm) memerlukan pengaturan arus listrik (amperage) mesin las yang rendah, idealnya di kisaran 30 hingga 50 Ampere, dengan kawat las berdiameter kecil seperti ukuran 2,0 mm atau 2,6 mm. Pengelasan tidak boleh dilakukan secara terus-menerus dalam satu jalur (continuous bead), melainkan harus menggunakan teknik las titik (tack welding / las totol) yang diselingi jeda pendinginan guna mencegah panas berlebih (overheating) melubangi pelat besi. Selain itu, jepit sambungan besi hollow menggunakan klem penahan (C-clamp) pada meja kerja datar untuk mencegah perubahan bentuk (warping) akibat pemuaian panas.'],
+      ['Bagaimana panduan memilih ketebalan besi hollow hitam sesuai beban proyek?', 'Panduan memilih ketebalan besi hollow hitam disesuaikan secara teknis dengan besaran beban struktur dan kalkulasi rekayasa proyek, merujuk pada rentang ketebalan 0,8 mm hingga 10,0 mm (dimensi penampang 15 × 15 mm hingga 300 × 300 mm) yang tersedia di SMS Perkasa:', [
+        ['Tebal 0,8 mm – 1,2 mm (Aplikasi Non-Struktural & Dekoratif)', 'Pilihan paling ideal dan ekonomis untuk kerangka furnitur, teralis, rak industri ringan, dan partisi ruangan interior karena mudah dibentuk.'],
+        ['Tebal 1,4 mm – 3,2 mm (Aplikasi Beban Menengah)', ['Direkomendasikan untuk ', 'rangka kanopi carport', 'https://www.smsperkasa.com/blog/inspirasi-desain-carport-minimalis-dengan-material-terbaik', ', pagar minimalis, pintu lipat, dan railing tangga guna memberikan kekakuan (rigidity) yang tahan terhadap benturan serta angin eksterior.']],
+        ['Tebal 3,5 mm – 10,0 mm (Konstruksi Struktural Beban Berat)', ['Wajib digunakan pada penampang besar untuk gording atap gudang/pabrik, ', 'rangka lantai mezanin', 'https://www.smsperkasa.com/blog/standar-ketebalan-besi-hollow-lantai-mezzanine', ', tiang pembatas gedung, dudukan mesin industri bergetar, hingga alternatif kolom pengganti profil WF guna menjamin keamanan beban geser dan daya lentur struktur.']]
+      ]]
+    ];
+    const FAQ_SKU = [
+      ['Apakah besi hollow ukuran 15x15mm tebal 1.5mm kuat untuk dijadikan struktur utama kanopi atau pagar luar ruangan?', 'Tidak direkomendasikan untuk struktur penahan beban utama. Penampang 15x15 mm (1,5 x 1,5 cm) memiliki bidang tumpuan yang sangat sempit sehingga kurang kaku untuk menahan beban angin atau penutup atap kanopi bentang lebar. Namun, varian ini sangat ideal diaplikasikan sebagai isian/jari-jari interior pagar, teralis jendela, railing tangga, atau kisi-kisi dekoratif yang dipadukan dengan frame utama berukuran lebih besar (seperti hollow 40x40 mm atau 40x60 mm).'],
+      ['Mengapa besi hollow 15x15mm dengan tebal 1.5mm lebih disukai perajin furnitur dibanding tebal 0.8mm atau 1.0mm?', 'Ketebalan 1,5 mm memberikan rasio ketebalan terhadap lebar penampang yang sangat solid. Saat proses pembuatan furnitur (seperti rangka meja/kursi industrial), tebal 1,5 mm sangat stabil saat dipotong sudut 45 derajat dan tidak mudah bolong atau lumer saat disambung dengan las listrik (SMAW/MIG). Selain itu, tebal 1,5 mm tidak melengkung (flexing) ketika menerima beban duduk atau tumpuan barang.'],
+      ['Berapa jarak bentangan tumpuan (support span) yang disarankan untuk penampang 15x15x1.5mm agar tidak mengalami lendutan?', 'Untuk mempertahankan kelurusan dan mencegah lendutan (deflection), jarak antar tumpuan penyangga untuk besi hollow 15x15x1.5mm disarankan maksimal 40 cm hingga 60 cm. Jika digunakan sebagai rak buku, sekat interior, atau jari-jari teralis yang lebih panjang dari 60 cm, disarankan menambah titik las pengikat di bagian tengah rangka.'],
+      ['Apakah besi hollow 15x15mm tebal 1.5mm dapat dibentuk melengkung (bending) tanpa kempot atau gepeng?', 'Ya, bisa dibengkokkan dengan rapi. Karena memiliki dinding yang relatif tebal (1,5 mm) dibandingkan ukuran penampangnya yang kecil (15 mm), struktur dindingnya cukup kuat menahan tekanan mekanis dari alat roll bending manual maupun mesin hidrolik tanpa mudah kempot atau patah pada siku lengkungan.']
+    ];
+    const daftar = this.props.butir ?? (sku ? FAQ_SKU : FAQ_PRODUK);
+    const n = daftar.length;
+    const peta = this.state.faqBuka;
+    /* ekorBuka: jarak tambahan di bawah daftar saat satu tanya terbuka, per urutan tanya; lebih dari satu terbuka memakai nilai pertama. */
+    const ekorBuka = String(this.props.ekorBuka || '').split(' ').filter((x) => x);
+    const terbuka = Object.keys(peta).filter((k) => peta[k]);
+    const ekor = (terbuka.length > 1 ? ekorBuka[0] : ekorBuka[terbuka[0]]) || '0';
+    /* Bentuk data: [tanya, jawab, butir]. jawab atau isi butir boleh [sebelum, tautan, url, sesudah]. */
+    const pecah = (v) => {
+      if (Array.isArray(v)) {
+        if (!d) return { pre: (v[0] || '') + (v[1] || '') + (v[3] || ''), taut: '', url: '', post: '', ada: false };
+        return { pre: v[0] || '', taut: v[1] || '', url: v[2] || '', post: v[3] || '', ada: !!v[1] };
+      }
+      return { pre: v || '', taut: '', url: '', post: '', ada: false };
+    };
+    const jarakM = (sku || (lama && this.props.kaya)) ? '1.5rem' : 'calc(var(--jarak-y-dalam) / 2)';
+    const butir = daftar.map((f, i) => {
+      const open = !!peta[i];
+      const a = pecah(f[1]);
+      const isi = f[2] || [];
+      let ringkas = a.pre;
+      if (!ringkas && isi.length) ringkas = isi[0][0] + '. ' + (pecah(isi[0][1]).pre || '');
+      const set = (v) => { const p = lama ? {} : Object.assign({}, this.state.faqBuka); p[i] = v; this.setState({ faqBuka: p }); };
+      return {
+        q: f[0],
+        no: (i + 1) + '.',
+        isAkordeon: sku && !lama,
+        isLama: lama,
+        openPolos: open && !this.props.kaya,
+        openKaya: open && !!this.props.kaya,
+        isKaya: !sku && !lama,
+        jawab: typeof f[1] === 'string' ? f[1] : a.pre + a.taut + a.post,
+        open,
+        tutup: !open,
+        exp: open ? 'true' : 'false',
+        ringkas,
+        lagiLabel: open ? 'Lebih Sedikit' : 'Lihat Selengkapnya',
+        adaIntro: !!a.pre,
+        aPre: a.pre,
+        aTaut: a.taut,
+        aUrl: a.url,
+        aPost: a.post,
+        aAdaTaut: a.ada,
+        adaButir: isi.length > 0,
+        butir: isi.map((b, j) => {
+          const t = pecah(b[1]);
+          return {
+            l: b[0],
+            tPre: t.pre,
+            gayaLama: 'display: flex; row-gap: 0.9rem; column-gap: 0; margin-top: ' + (j === 0 ? '0' : '0.6rem') + '; margin-bottom: ' + (j === isi.length - 1 ? '0' : '0.6rem'),
+            tTaut: t.taut,
+            tUrl: t.url,
+            tPost: t.post,
+            tAdaTaut: t.ada,
+            gaya: 'display: flex; column-gap: 0; ' + (j === 0 ? '' : 'margin-top: calc(var(--rapat) / 2); ') + (j === isi.length - 1 ? '' : 'margin-bottom: calc(var(--rapat) / 2)')
+          };
+        }),
+        togel: () => set(!open),
+        ubah: (v) => set(v),
+        gayaItem: d ? '' : (i === 0 ? '' : 'margin-top: ' + jarakM + '; ') + (i === n - 1 ? '' : 'margin-bottom: ' + jarakM)
+      };
+    });
+    const lebar = d ? '3.6rem' : '2.6rem';
+    const ukuran = d ? 'var(--teks-lead)' : 'var(--teks-body)';
+    const judul = this.props.judul ?? 'FAQ';
+    return {
+      ekor,
+      tata,
+      judul,
+      varianJudul: lama ? 'lama' : undefined,
+      adaJudul: !!judul,
+      warnaJudul: d && sku ? 'var(--ink)' : undefined,
+      gayaJudul: d ? 'display: block; margin-bottom: 2rem' : 'display: block',
+      adaPengantar: this.props.pengantar ?? true,
+      hrefBantuan: this.props.hrefBantuan ?? '#bantuan',
+      hrefSales: this.props.hrefSales ?? '#whatsapp',
+      gayaPengantar: lama && this.props.kaya ? 'margin: 0.8rem 0 0 0; font-size: var(--teks-body); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto' : lama ? 'margin: 1rem 0 0 0; font-size: var(--teks-body); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto' : d ? 'margin: 0 0 2.4rem 0; font-size: var(--teks-lead); color: var(--ink-2)' : 'margin: 2rem 0 0 0; font-size: var(--teks-body); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto',
+      gayaTautPengantar: lama && this.props.kaya ? 'color: var(--brand); font-weight: var(--bobot-medium)' : lama ? 'font-weight: var(--bobot-semibold); text-decoration: underline' : (d ? 'color: var(--ink)' : 'color: var(--produk-nama)') + '; font-weight: var(--bobot-medium); text-decoration: underline',
+      gayaDaftar: d ? 'display: grid; grid-template-columns: minmax(0, 1fr)' : 'display: flex; flex-direction: column; row-gap: 0; column-gap: 0; margin-top: ' + ((sku || lama) ? '1.6rem' : 'var(--jarak-y-dalam)'),
+      butir,
+      panelD: d ? '1' : undefined,
+      gayaTanya: d
+        ? 'display: flex; align-items: baseline; column-gap: 0; width: 100%; ' + (this.props.tanyaTinggi ? 'min-height: ' + this.props.tanyaTinggi + '; ' : '') + 'margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-semibold); line-height: var(--tinggi-sedang)'
+        : 'display: flex; column-gap: 0; align-items: baseline; width: 100%; min-height: 4.4rem; margin: 0; font-size: var(--teks-body); font-weight: var(--bobot-semibold); line-height: var(--tinggi-sedang)',
+      gayaNo: d ? 'flex-shrink: 0; width: 2.6rem; margin-right: 0.5rem' : 'flex-shrink: 0; width: 1.8rem; margin-right: 0.4rem',
+      gayaTeks: d ? 'min-width: 0; margin-left: 0.5rem; margin-right: 0.5rem' : 'min-width: 0; margin-left: 0.4rem; margin-right: 0.4rem',
+      gayaRingkas: 'display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; padding-left: ' + lebar + '; margin: 1rem 0 0 0; font-size: ' + ukuran + '; font-weight: var(--bobot-light); color: var(--ink-2); line-height: ' + (d ? 'var(--tinggi-isi-d)' : 'var(--tinggi-sedang)'),
+      gayaPanel: 'display: flex; flex-direction: column; gap: var(--rapat); padding-left: ' + lebar + '; margin: 1rem 0 0 0',
+      gayaIntro: d
+        ? 'margin: 0; font-size: var(--teks-lead); font-weight: var(--bobot-light); color: var(--ink-2); line-height: var(--tinggi-isi-d)'
+        : 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-light); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto',
+      gayaPeluru: 'flex-shrink: 0; width: 0.5rem; height: 0.5rem; border-radius: var(--pill); background: var(--ink-2); ' + (d ? 'margin-top: 1.3rem; margin-right: 0.5rem' : 'margin-top: 0.8rem; margin-right: 0.45rem'),
+      gayaIsiButir: d ? 'margin-left: 0.5rem; margin-right: 0.5rem' : 'min-width: 0; margin-left: 0.45rem; margin-right: 0.45rem',
+      gayaJudulButir: 'margin: 0; font-size: ' + ukuran + '; line-height: var(--tinggi-sedang); font-weight: var(--bobot-semibold); color: var(--ink)',
+      gayaTeksButir: d
+        ? 'margin: 0.3rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-light); color: var(--ink-2); line-height: var(--tinggi-butir)'
+        : 'margin: 0.3rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-light); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto',
+      gayaTombol: 'display: block; padding-left: ' + lebar + (d ? '; margin: 0 0 2rem 0' : ''),
+      varianTombol: d ? 'teks-tebal' : 'teks'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click": "button:has-text(\"Produk Besi\")"}, {"wait": 700}]

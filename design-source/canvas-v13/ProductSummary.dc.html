@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductSummary</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isMobileProduk }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <dc-import name="PhotoGallery" tata="ponsel" halaman="produk" dc-props="{{ galeri }}" hint-size="100%,28rem"></dc-import>
+    <div id="{{ idTentang }}" style="padding: 0 var(--sisi)">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; column-gap: 0; padding-top: 2rem">
+        <span style="display: block; margin-right: calc(var(--rapat) / 2)"><dc-import name="Heading" level="{{ 1 }}" varian="produk" tata="ponsel" teks="{{ judul }}" hint-size="100%,3.4rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-top: -0.6rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="IconButton" ikon="bagikan" ukuran="{{ 44 }}" ikonUkuran="{{ 17 }}" ariaLabel="Bagikan halaman ini" onPress="{{ onBagikan }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+      </div>
+      <p style="{{ gayaDesk }}">{{ deskripsi }}</p>
+      <span style="display: block; margin-top: -0.6rem"><dc-import name="Button" variant="teks" label="{{ labelLipat }}" onPress="{{ togelDesk }}" ariaExpanded="{{ expDesk }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ buka }}" hint-size="16rem,4.4rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isMobileSku }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <dc-import name="PhotoGallery" tata="ponsel" halaman="sku" dc-props="{{ galeri }}" hint-size="100%,28rem"></dc-import>
+    <div style="padding: 2rem var(--talang) 0 var(--talang)">
+      <div style="display: flex; flex-direction: column; align-items: stretch; gap: 0.6rem">
+        <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+          <p style="margin: 0; min-width: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink); margin-right: calc(var(--rapat) / 2)">{{ judul }}</p>
+          <span style="flex-shrink: 0; display: flex; align-items: center; gap: 0.2rem; margin-top: -1rem; margin-bottom: -1rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="IconButton" ikon="bagikan" ukuran="{{ 44 }}" ikonUkuran="{{ 17 }}" ariaLabel="Bagikan halaman ini" onPress="{{ onBagikan }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+        </div>
+        <p style="margin: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink); font-variant-numeric: tabular-nums">{{ ukuranTeks }}</p>
+        <p style="margin: 0; min-width: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink)">{{ kelas }}</p>
+        <div style="margin-top: var(--dalam); display: flex; white-space: nowrap"><dc-import name="Price" ukuran="sku-m" rata="kiri" angka="{{ angka }}" unit="{{ unit }}" hint-size="16rem,5rem"></dc-import></div>
+        <div style="margin-top: var(--dalam); display: flex; flex-direction: column">
+          <sc-for list="{{ baris }}" as="sr" hint-placeholder-count="2">
+            <dc-import name="SpecRow" tata="ponsel" label="{{ sr.k }}" nilai="{{ sr.v }}" hint-size="100%,3.3rem"></dc-import>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div id="{{ idInfo }}" style="{{ gayaWadahInfo }}">
+      <p style="{{ gayaDesk }}">{{ deskripsi }}</p>
+      <span style="display: block; margin-top: -0.6rem"><dc-import name="Button" variant="teks" label="{{ labelLipat }}" onPress="{{ togelDesk }}" ariaExpanded="{{ expDesk }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ buka }}" hint-size="16rem,4.4rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktopProduk }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; align-items: start">
+    <div style="margin-right: 2.4rem"><dc-import name="PhotoGallery" tata="desktop" halaman="produk" dc-props="{{ galeri }}" hint-size="100%,32rem"></dc-import></div>
+    <div style="display: flex; flex-direction: column; gap: 1.8rem; margin-left: 2.4rem">
+      <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+        <span style="display: block; margin-right: 0.8rem"><dc-import name="Heading" level="{{ 1 }}" varian="produk" tata="desktop" teks="{{ judul }}" hint-size="100%,4.8rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.8rem; margin-right: 0.8rem"><dc-import name="IconButton" ikon="bagikan" ukuran="{{ 52 }}" ikonUkuran="{{ 19 }}" ariaLabel="Bagikan halaman ini" onPress="{{ onBagikan }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+      </div>
+      <p style="margin: 0; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ deskripsi }}</p>
+      <sc-if value="{{ konsultasi }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; align-items: center; gap: var(--rapat); padding-top: 0.4rem"><dc-import name="Button" variant="kecil" label="Konsultasi Sekarang" href="{{ hrefKonsultasi }}" hint-size="16rem,3rem"></dc-import></div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktopSku }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 44%; column-gap: 0; align-items: start">
+    <div style="position: sticky; top: 14.8rem; margin-right: 2.8rem"><dc-import name="PhotoGallery" tata="desktop" halaman="sku" dc-props="{{ galeri }}" hint-size="100%,44rem"></dc-import></div>
+    <div style="display: flex; flex-direction: column; gap: 1.6rem; margin-left: 2.8rem; margin-right: 2.8rem">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; column-gap: 0">
+        <div style="margin-right: 0.8rem">
+          <p style="margin: 0; font-size: var(--teks-judul-sku); font-weight: var(--bobot-medium); color: var(--ink-2); line-height: var(--tinggi-artikel)">{{ judul }}</p>
+          <span style="display: block; margin-top: 0.4rem"><dc-import name="Heading" level="{{ 1 }}" varian="sku" tata="desktop" teks="{{ ukuranTeks }}" hint-size="100%,3.9rem"></dc-import></span>
+          <p style="margin: 0.4rem 0 0 0; font-size: var(--teks-judul-sku); line-height: var(--tinggi-artikel); font-weight: var(--bobot-medium); color: var(--ink)">{{ kelas }}</p>
+        </div>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.8rem; margin-right: 0.8rem"><dc-import name="IconButton" ikon="bagikan" ukuran="{{ 52 }}" ikonUkuran="{{ 19 }}" ariaLabel="Bagikan halaman ini" onPress="{{ onBagikan }}" hint-size="5.2rem,5.2rem"></dc-import></span>
+      </div>
+      <dc-import name="Price" ukuran="sku-d" rata="kiri" angka="{{ angka }}" unit="{{ unit }}" hint-size="24rem,7rem"></dc-import>
+      <div style="display: flex; flex-direction: column">
+        <sc-for list="{{ baris }}" as="sr" hint-placeholder-count="2">
+          <dc-import name="SpecRow" tata="desktop" label="{{ sr.k }}" nilai="{{ sr.v }}" hint-size="100%,3.6rem"></dc-import>
+        </sc-for>
+      </div>
+      <p style="margin: 0.4rem 0 0 0; font-size: var(--teks-lead); color: var(--ink-2); line-height: var(--tinggi-sedang); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ deskripsi }}</p>
+      <sc-if value="{{ konsultasi }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; align-items: center; gap: var(--rapat); padding-top: 0.6rem"><dc-import name="Button" variant="spanduk" label="Konsultasi Sekarang" href="{{ hrefKonsultasi }}" hint-size="36rem,6rem"></dc-import></div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isMobileLama }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <dc-import name="PhotoGallery" tata="ponsel" halaman="sku" tunggal="{{ true }}" dc-props="{{ galeri }}" hint-size="100%,27rem"></dc-import>
+    <div style="padding: 2rem 1.6rem 0 1.6rem">
+      <div style="display: flex; flex-direction: column; align-items: stretch; gap: 0.6rem">
+        <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+          <p style="margin: 0; min-width: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-medium); color: var(--ink); margin-right: calc(var(--rapat) / 2)">{{ judul }}</p>
+          <span style="flex-shrink: 0; display: flex; align-items: center; gap: 0.2rem; margin-top: -1rem; margin-bottom: -1rem; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="IconButton" ikon="bagikan" ukuran="{{ 44 }}" ikonUkuran="{{ 17 }}" ariaLabel="Bagikan halaman ini" onPress="{{ onBagikan }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+        </div>
+        <p style="margin: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink); font-variant-numeric: tabular-nums">{{ ukuranTeks }}</p>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem">
+          <div role="img" aria-label="{{ ratingLabel }}" style="margin: 0; display: flex; align-items: center; row-gap: 0.4rem; column-gap: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2)">
+            <span style="display: flex; flex-shrink: 0; margin-right: 0.2rem"><dc-import name="Rating" nilai="{{ 5 }}" jumlah="{{ 1 }}" ukuran="{{ 16 }}" jarak="0" hint-size="1.6rem,1.6rem"></dc-import></span>
+            <strong style="font-variant-numeric: tabular-nums; font-weight: var(--bobot-bold); color: var(--ink); margin-left: 0.2rem; margin-right: 0.2rem">{{ ratingAvg }}</strong><span style="margin-left: 0.2rem; margin-right: 0.2rem">dari 5 · {{ jumlahUlasan }}</span>
+          </div>
+        </div>
+        <div style="margin-top: 1rem">
+          <div style="margin: 0; display: flex; align-items: baseline; gap: 0.4rem; min-width: 0; white-space: nowrap"><dc-import name="Price" ukuran="lama-sku" angka="{{ angka }}" unit="{{ unitLama }}" hint-size="12rem,2.7rem"></dc-import></div>
+        </div>
+      </div>
+    </div>
+    <div id="{{ idInfo }}" style="scroll-margin-top: 9.2rem; margin-top: 2.8rem; padding: 0 1.6rem">
+      <p style="{{ gayaDesk }}">{{ deskripsi }}</p>
+      <span style="display: block; margin-top: -0.6rem"><dc-import name="Button" variant="teks" label="{{ labelLipat }}" onPress="{{ togelDesk }}" ariaExpanded="{{ expDesk }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ buka }}" hint-size="16rem,4.4rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"halaman":{"editor":"enum","options":["produk","sku"],"default":"produk"},"judul":{"editor":null,"default":"Besi Hollow Hitam"},"ukuranTeks":{"editor":null},"kelas":{"editor":null},"angka":{"editor":null,"default":"188.600"},"unit":{"editor":null,"default":"per batang"},"deskripsi":{"editor":null},"baris":{"editor":null},"foto":{"editor":null},"hero":{"editor":null},"konsultasi":{"editor":"boolean","default":false},"hrefKonsultasi":{"editor":null,"default":"#whatsapp"},"onBagikan":{"editor":null},"idFoto":{"editor":null},"lama":{"editor":"boolean","default":false},"idTentang":{"editor":null},"idInfo":{"editor":null},"varian":{"editor":"enum","options":["bawaan","lama"],"default":"bawaan"},"ratingAvg":{"editor":null},"jumlahUlasan":{"editor":null},"$preview":{"width":360,"height":560}}'>
+class Component extends DCLogic {
+  state = { desk: false };
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const sku = this.props.halaman === 'sku';
+    const buka = this.state.desk;
+    const deskripsiBawaan = sku
+      ? 'Besi Hollow Hitam penampang persegi 15 × 15 mm dengan ketebalan 1,5 mm dan panjang 6 meter berbahan pelat besi hitam dengan berat presisi 4,24 kg per batang. Varian profil kecil dengan tebal 1,5 mm ini memberikan keseimbangan antara kekakuan struktur ringan dan kemudahan pembentukan, sangat ideal untuk kerangka furnitur industrial, teralis, railing tangga indoor, hingga partisi ruangan.'
+      : 'Besi hollow hitam adalah material konstruksi berbentuk profil berongga dengan penampang persegi atau persegi panjang yang terbuat dari pelat besi hitam (hot-rolled atau cold-rolled carbon steel). Berbeda dengan pipa bulat, besi hollow memiliki permukaan rata yang memudahkan proses penyambungan dan perakitan struktur. Material ini memiliki panjang standar 6 meter dan menjadi salah satu komponen paling populer dalam dunia konstruksi, interior, dan industri fabrikasi.';
+    const galeri = {};
+    if (this.props.foto !== undefined) galeri.foto = this.props.foto;
+    if (this.props.hero !== undefined) galeri.hero = this.props.hero;
+    if (this.props.idFoto !== undefined) galeri.idGaleri = this.props.idFoto;
+    if (this.props.lama) galeri.lama = true;
+    const klem = buka ? '' : 'display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; ';
+    return {
+      idTentang: this.props.idTentang,
+      isMobileProduk: !d && !sku,
+      isMobileSku: !d && sku && this.props.varian !== 'lama',
+      isMobileLama: !d && sku && this.props.varian === 'lama',
+      ratingAvg: this.props.ratingAvg ?? '5,0',
+      jumlahUlasan: this.props.jumlahUlasan ?? '3 ulasan',
+      ratingLabel: 'Rata-rata rating ' + (this.props.ratingAvg ?? '5,0') + ' dari 5, dari ' + (this.props.jumlahUlasan ?? '3 ulasan'),
+      unitLama: this.props.unit ?? '/btg',
+      isDesktopProduk: d && !sku,
+      isDesktopSku: d && sku,
+      judul: this.props.judul ?? 'Besi Hollow Hitam',
+      ukuranTeks: this.props.ukuranTeks ?? '40 × 40 × 2 mm × 6 M',
+      kelas: this.props.kelas ?? (d ? '[STD , NB]' : '[STD, NB]'),
+      angka: this.props.angka ?? '188.600',
+      unit: this.props.unit ?? 'per batang',
+      deskripsi: this.props.deskripsi ?? deskripsiBawaan,
+      baris: this.props.baris ?? [{ k: 'Material', v: 'Baja karbon' }, { k: 'Permukaan', v: 'Hitam, tanpa galvanis' }],
+      galeri,
+      konsultasi: !!this.props.konsultasi,
+      hrefKonsultasi: this.props.hrefKonsultasi ?? '#whatsapp',
+      onBagikan: this.props.onBagikan,
+      idInfo: this.props.idInfo,
+      gayaWadahInfo: this.props.idInfo ? 'display: flow-root; scroll-margin-top: 10.2rem; padding: 0 var(--sisi)' : 'padding: 0 var(--sisi)',
+      buka,
+      expDesk: buka ? 'true' : 'false',
+      labelLipat: buka ? 'Lebih Sedikit' : 'Lihat Selengkapnya',
+      togelDesk: () => this.setState({ desk: !buka }),
+      gayaDesk: klem + 'margin: ' + (sku ? '1.4rem' : '1rem') + ' 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto' + (sku ? '; text-justify: inter-word; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

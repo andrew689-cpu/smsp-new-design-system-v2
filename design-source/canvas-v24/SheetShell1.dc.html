@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pecahan · Kerangka situs · bagian 1 dari 2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 48px">
+<h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Kerangka situs dan navigasi · bagian 1 dari 2</h1>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">1 · Kerangka: SiteHeader</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, 56</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="ponsel" hint-size="360px,56px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--surface" catatan="Logo dan menu. 6 papan ponsel; UlasanM4Salinan tanpa header" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, Artikel</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="ponsel" nada="merah" hint-size="360px,56px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" dasar="--merah-artikel" catatan="SalinanArtikel2M4 saja" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, blok telepon</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="ponsel" teleponTampil="{{ true }}" labelTeleponTampil="{{ true }}" hint-size="360px,56px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--brand" ukuran="--teks-chip" catatan="Padam di semua papan kanon, markupnya masih ada" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, 72 + baris kategori 52, sticky z40 dan z35</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="desktop" hint-size="100%,124px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--surface" ukuran="--teks-body" catatan="7 dari 8 papan desktop: tanpa tombol menu" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, dengan tombol menu</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="desktop" menuTampil="{{ true }}" hint-size="100%,124px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--surface" catatan="DesktopUlasanM4 saja" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, Blog dan Artikel</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="desktop" navAria="Kategori artikel" navProduk="{{ blogProduk }}" navTautan="{{ blogTautan }}" hint-size="100%,124px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" ukuran="--teks-meta" catatan="Tautan pertama berbunyi dobel di sumber, disalin apa adanya" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, blok telepon</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SiteHeader" tata="desktop" teleponTampil="{{ true }}" hint-size="100%,124px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--brand" ukuran="--teks-body" catatan="Padam di semua papan kanon" hint-size="100%,48px"></dc-import>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">2 · Kerangka: Footer</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, penuh</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Footer" tata="ponsel" hint-size="360px,1850px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" dasar="--ink" ukuran="--teks-body" catatan="Kategori tebal, panah 1.8. Kategori, Index, Blog, Artikel. Tekan kategori untuk membuka" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, kategori sedang</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Footer" tata="ponsel" kategoriGaya="sedang" hint-size="360px,1850px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" dasar="--ink" ukuran="--teks-body" catatan="Bobot 600, panah 2.2. Beranda, Produk" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel, ringkas</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Footer" tata="ponsel" jenis="ringkas" hint-size="360px,360px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--kaki-redup" dasar="--ink" ukuran="--teks-body" catatan="SkuDetailM4: tautan sebaris, dasar 120" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, 1.4fr + 3 x 1fr</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Footer" tata="desktop" hint-size="100%,430px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" dasar="--ink" ukuran="--teks-lead" catatan="Kolom keempat turun 30 px karena aturan data-tepi-kisi-y=3 di sumber" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop, tanpa sosial</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Footer" tata="desktop" sosial="{{ kosong }}" kolom="{{ kolomSku }}" hint-size="100%,400px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--kaki-redup" dasar="--ink" ukuran="--teks-lead" catatan="DesktopSkuM4, DesktopUlasanM4" hint-size="100%,48px"></dc-import>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">3 · Navigasi ponsel: BottomGlassBar dan SectionSheet</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Dimainkan bersama: tekan tombol kiri</div>
+<div style="position: relative; width: 360px; height: 240px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" terbuka="{{ navBuka }}" onNav="{{ navToggle }}" hint-size="360px,86px"></dc-import>
+<dc-import name="SectionSheet" terbuka="{{ navBuka }}" onTutup="{{ navTutup }}" hint-size="336px,96px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--line" catatan="Bar sembunyi saat lembar terbuka; tekan di luar lembar untuk menutup" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Bar, Produk: jarak 5</div>
+<div style="position: relative; width: 360px; height: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" jenis="produk" hint-size="360px,86px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="kaca --cair-tombol. Press scale .92 hanya di tombol kiri" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Bar, SKU: jarak 4</div>
+<div style="position: relative; width: 360px; height: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" jenis="sku" hint-size="360px,86px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="kaca --cair-tombol" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Bar, Blog: kolom cari terbuka</div>
+<div style="position: relative; width: 360px; height: 180px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" jenis="blog" cariTerbuka="{{ true }}" hint-size="360px,150px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" ukuran="--teks-body" catatan="SearchField kaca, tanpa animasi dan tanpa press scale di papan ini" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Bar, Artikel: tertutup</div>
+<div style="position: relative; width: 360px; height: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" jenis="artikel" hint-size="360px,86px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="Satu tombol, tidak pernah sembunyi" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Bar, Artikel: daftar isi terbuka</div>
+<div style="position: relative; width: 360px; height: 420px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="BottomGlassBar" jenis="artikel" terbuka="{{ true }}" hint-size="360px,380px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" ukuran="--teks-body" catatan="Radius --sheet, kaca --cair" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Lembar, Produk: 4 kolom, 44</div>
+<div style="position: relative; width: 360px; height: 200px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="SectionSheet" varian="harga" hint-size="336px,96px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" dasar="--line" ukuran="--teks-nano" catatan="Chip aktif --line dan --ink, ikon 24 lawan 18" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Lembar, SKU: 3 kolom, 62</div>
+<div style="position: relative; width: 360px; height: 240px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="SectionSheet" varian="sku" hint-size="336px,160px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--nav-aktif" ukuran="--teks-body" catatan="Pintu cari dan tombol maskot. Maskot menukar set ke Hubungi" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Lembar, Blog: rel kategori, 52</div>
+<div style="position: relative; width: 360px; height: 200px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="SectionSheet" varian="kategori" aktif="kat-berita" hint-size="336px,96px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--nav-aktif" ukuran="--teks-meta" catatan="Aktif --teks-body. Bergulir mendatar" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">4 · Navigasi desktop: DesktopIsland dan SectionRail</h2>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Pulau tertutup</div>
+<div style="position: relative; width: 1104px; height: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="DesktopIsland"  hint-size="100%,100px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="Tombol 72 --cair-tombol. Tekan tombol kiri untuk membuka. Press scale .96 hanya di tombol kiri" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Pulau terbuka</div>
+<div style="position: relative; width: 1104px; height: 340px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="DesktopIsland" terbuka="{{ true }}" aktif="m-harga" hint-size="100%,320px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--nav-aktif" ukuran="--teks-body" catatan="Panel radius --island, kaca --cair, animasi pulau-naik" hint-size="100%,48px"></dc-import>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":8000}}'>
+class Component extends DCLogic {
+  state = { navBuka: false, thumb: true };
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    return {
+      navBuka: this.state.navBuka,
+      navToggle: () => this.setState({ navBuka: !this.state.navBuka }),
+      navTutup: () => this.setState({ navBuka: false }),
+      thumb: this.state.thumb,
+      ulangThumb: () => {
+        this.setState({ thumb: false });
+        clearTimeout(this.t);
+        this.t = setTimeout(() => this.setState({ thumb: true }), 60);
+      },
+      hrefPita: 'https://www.smsperkasa.com/hati-hati-penipuan',
+      kosong: [],
+      blogProduk: { label: 'Semua Produk Produk Kategori', href: '#' },
+      blogTautan: ['Berita Baja', 'Industri Baja', 'Produk Besi', 'Team', 'Trivia', 'Semua Kategori'].map((label) => ({ label, href: '#' })),
+      kolomSku: [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

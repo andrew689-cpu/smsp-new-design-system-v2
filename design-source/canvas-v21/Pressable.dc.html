@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pressable</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}"><a data-bantu-row="{{ dataBantuRow }}" href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}"><sc-if value="{{ adaAnak }}" hint-placeholder-val="{{ true }}">{{ anak }}</sc-if></a></sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}"><button type="button" data-bantu-row="{{ dataBantuRow }}" disabled="{{ disabled }}" aria-label="{{ ariaLabel }}" aria-expanded="{{ ariaExpanded }}" aria-pressed="{{ ariaPressed }}" aria-current="{{ ariaCurrent }}" onClick="{{ onPress }}" style="{{ gaya }}"><sc-if value="{{ adaAnak }}" hint-placeholder-val="{{ true }}">{{ anak }}</sc-if></button></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"disabled":{"editor":"boolean","default":false},"gaya":{"editor":"text","default":"display: block; width: 100%; min-height: 4.4rem"},"children":{"editor":null},"href":{"editor":null},"target":{"editor":null},"rel":{"editor":null},"onPress":{"editor":null},"ariaLabel":{"editor":null},"ariaExpanded":{"editor":null},"ariaPressed":{"editor":null},"ariaCurrent":{"editor":null},"dataBantuRow":{"editor":null},"$preview":{"width":240,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const disabled = !!p.disabled;
+    return {
+      isLink: !!p.href && !disabled,
+      isButton: !p.href || disabled,
+      href: p.href,
+      target: p.target,
+      rel: p.rel,
+      disabled,
+      onPress: p.onPress,
+      ariaLabel: p.ariaLabel,
+      ariaExpanded: p.ariaExpanded,
+      ariaPressed: p.ariaPressed,
+      ariaCurrent: p.ariaCurrent,
+      dataBantuRow: p.dataBantuRow,
+      gaya: p.gaya,
+      adaAnak: !!p.children,
+      anak: p.children
+    };
+  }
+}
+</script>
+</body>
+</html>

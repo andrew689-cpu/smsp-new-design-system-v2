@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductSpecs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface)">
+      <img src="{{ gambar }}" alt="{{ alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block">
+    </div>
+    <div style="position: relative; padding: 2.4rem 0 0 0">
+      <div style="display: flex; flex-direction: column">
+        <sc-for list="{{ baris }}" as="sp" hint-placeholder-count="8">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; row-gap: 1.6rem; column-gap: 0; padding: 0.8rem 0">
+            <span style="flex-shrink: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-light); color: var(--ink-2); margin-right: 0.8rem">{{ sp.k }}</span>
+            <span style="min-width: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; margin-left: 0.8rem; margin-right: 0.8rem">{{ sp.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 4.8rem; column-gap: 0; align-items: start">
+    <div style="margin-right: 2.4rem">
+      <div style="display: flex; flex-direction: column">
+        <sc-for list="{{ baris }}" as="sp" hint-placeholder-count="8">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; row-gap: 1.6rem; column-gap: 0; padding: 0.8rem 0">
+            <span style="flex-shrink: 0; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-light); color: var(--ink-2); margin-right: 0.8rem">{{ sp.k }}</span>
+            <span style="min-width: 0; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; margin-left: 0.8rem; margin-right: 0.8rem">{{ sp.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <figure style="margin: -2.4rem 2.4rem 0 2.4rem">
+      <img src="{{ gambar }}" alt="{{ alt }}" style="display: block; width: 100%; height: 25rem; object-fit: contain">
+    </figure>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"gambar":{"editor":null},"alt":{"editor":null},"baris":{"editor":null},"$preview":{"width":330,"height":620}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    return {
+      isPonsel: !d,
+      isDesktop: d,
+      gambar: this.props.gambar ?? '/_blob/9831b4b7d1a2b973749104d4effcff6f',
+      alt: this.props.alt ?? 'Gambar garis isometris dua batang besi hollow, satu berpenampang persegi dan satu persegi panjang, ujungnya terbuka memperlihatkan rongga dan tebal dindingnya',
+      baris: this.props.baris ?? [
+        { k: 'Material Dasar', v: 'Plat besi hitam' },
+        { k: 'Merek', v: 'NB' },
+        { k: 'Kelas', v: 'STD' },
+        { k: 'Bentuk Penampang', v: 'Persegi dan Persegi Panjang' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

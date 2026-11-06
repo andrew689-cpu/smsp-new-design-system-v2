@@ -1,0 +1,204 @@
+component|BerandaM4|RecCreateM4|SkuDetailM4|UlasanM4Salinan|ProdukIndexM4|KategoriM4|SalinanBlogM4|SalinanArtikel2M4|DesktopBerandaM4|DesktopProdukM4|DesktopSkuM4|DesktopUlasanM4|DesktopProdukIndexM4|DesktopKategoriM4|DesktopBlogM4|DesktopArtikelM4
+fraud banner|1|2|1|0|1|1|1|1|1|1|0|0|1|1|1|1
+header tag|1|1|1|0|1|1|2|1|1|1|1|1|1|1|2|1
+search field|0|2|1|0|0|0|1|0|1|1|1|1|1|1|1|1
+search dialog|0|3|3|0|0|0|0|0|0|0|0|0|0|0|0|0
+on-screen keyboard|0|1|1|0|0|0|0|0|0|0|0|0|0|0|0|0
+category btn|0|0|0|0|0|0|0|0|1|1|1|1|1|1|1|1
+hamburger|1|1|1|0|1|1|1|1|1|1|1|1|1|1|1|1
+footer block|3|4|3|0|3|3|3|2|2|2|2|2|2|2|2|2
+breadcrumb|0|0|0|0|1|1|0|0|0|0|1|0|1|1|0|1
+price marker data-harga|5|5|5|0|0|0|0|0|5|5|5|2|0|0|0|0
+rupiah fn|15|6|6|0|0|0|0|0|15|2|2|0|0|0|0|0
+SKU price list|0|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0
+view toggle table/card|0|2|0|0|0|0|0|0|0|2|0|0|0|0|0|0
+filter panel|0|2|0|0|0|0|0|0|0|1|0|0|0|0|0|0
+sort|0|3|0|0|0|0|0|0|0|4|0|0|0|0|0|0
+pagination|0|0|0|0|0|0|0|0|0|1|0|1|0|0|0|0
+FAQ accordion|0|4|4|0|0|0|0|0|0|4|4|0|0|0|0|0
+star rating|8|1|2|2|0|0|1|0|21|1|10|15|0|0|0|0
+review carousel|3|0|3|0|0|0|0|0|0|0|0|0|0|0|0|0
+review marquee|0|0|0|5|0|0|0|0|0|0|0|9|0|0|0|0
+hero/banner carousel|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0
+photo gallery|0|1|1|0|0|0|0|0|0|0|0|0|0|0|0|0
+before-after|6|0|0|0|0|0|0|0|7|0|0|0|0|0|0|0
+WhatsApp link|0|4|0|0|0|0|4|0|0|1|1|0|0|0|0|0
+help centre (bantu)|0|1|0|0|0|0|1|0|0|1|1|0|0|0|0|0
+live chat log|0|1|0|0|0|0|1|0|0|1|1|0|0|0|0|0
+bottom sheet|0|3|3|0|0|0|3|0|0|0|0|0|0|0|0|0
+scrim|0|4|3|0|0|0|3|0|0|0|0|0|0|0|0|0
+bottom island bar|0|3|4|3|0|0|1|1|0|0|0|0|0|0|0|0
+desktop island|0|0|0|0|0|0|0|0|0|3|3|0|0|0|0|0
+chips rail|0|3|0|0|0|0|4|1|0|0|0|0|0|0|1|1
+segmented|0|3|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+sticky compact header|0|3|3|0|0|0|0|0|0|0|0|0|0|0|0|0
+back to top|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+share|0|1|1|0|0|0|0|0|0|1|1|0|0|0|0|0
+copy|0|0|0|0|0|0|0|0|0|0|4|0|0|0|0|0
+calc CTA|3|5|3|0|1|1|4|1|3|6|5|3|1|1|1|1
+UPVC promo|13|2|1|0|2|1|1|1|11|0|0|0|1|0|0|0
+sales CTA banner|3|6|2|0|0|0|1|2|2|11|5|0|0|0|0|2
+video poster|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+partners|0|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0
+related products|0|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0
+related articles|0|1|0|0|0|0|0|0|0|1|0|0|0|0|0|1
+TOC|0|0|0|0|0|0|0|2|0|0|0|0|0|0|0|0
+blockquote|1|0|1|0|0|0|0|0|1|0|1|0|0|0|0|0
+data table|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0|1
+range slider|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0
+radio|0|1|0|0|0|0|0|0|0|2|0|0|0|0|0|0
+lazy spinner|0|5|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+empty state|0|3|1|0|0|0|0|0|0|1|0|0|0|0|0|0
+toast/copied|0|7|2|0|0|0|2|0|0|2|2|0|0|0|0|0
+CSAT|0|2|0|0|0|0|2|0|0|2|2|0|0|0|0|0
+form (name/wa/email)|0|1|0|0|0|0|1|0|0|1|1|0|0|0|0|0
+tabs role|0|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+sektor grid|1|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0
+product rail|3|0|0|0|0|0|0|0|5|0|0|0|0|0|0|0
+
+boards-present across ALL 34 per component
+fraud banner 30
+header tag 33
+search field 21
+search dialog 5
+on-screen keyboard 5
+category btn 10
+hamburger 33
+footer block 29
+breadcrumb 7
+price marker data-harga 15
+rupiah fn 14
+SKU price list 5
+view toggle table/card 5
+filter panel 3
+sort 5
+pagination 3
+FAQ accordion 6
+star rating 20
+review carousel 7
+review marquee 2
+hero/banner carousel 5
+photo gallery 2
+before-after 5
+WhatsApp link 11
+help centre (bantu) 11
+live chat log 11
+bottom sheet 10
+scrim 10
+bottom island bar 18
+desktop island 5
+chips rail 15
+segmented 1
+sticky compact header 5
+back to top 3
+share 9
+copy 2
+calc CTA 33
+UPVC promo 25
+sales CTA banner 27
+video poster 3
+partners 5
+related products 5
+related articles 4
+TOC 6
+blockquote 9
+data table 7
+range slider 5
+radio 5
+lazy spinner 3
+empty state 7
+toast/copied 15
+CSAT 11
+form (name/wa/email) 11
+tabs role 3
+sektor grid 5
+product rail 5
+
+## Duplication
+header canon instances 17 distinct 9 avg_bytes 7513 bytes_total 127732
+header all instances 40 distinct 17 avg_bytes 7111 bytes_total 284475
+fraud banner canon instances 12 distinct 2 avg_bytes 1889 bytes_total 22668
+fraud banner all instances 28 distinct 4 avg_bytes 1956 bytes_total 54783
+:root canon instances 16 distinct 11 avg_bytes 2517 bytes_total 40282
+:root all instances 34 distinct 19 avg_bytes 2526 bytes_total 85910
+_jarakSeksi canon instances 7 distinct 1 avg_bytes 4506 bytes_total 31542
+_jarakSeksi all instances 19 distinct 2 avg_bytes 4538 bytes_total 86229
+_jamKerja canon instances 4 distinct 1 avg_bytes 298 bytes_total 1192
+_jamKerja all instances 11 distinct 1 avg_bytes 298 bytes_total 3278
+help-centre canon instances 4 distinct 4 avg_bytes 47971 bytes_total 191886
+help-centre all instances 11 distinct 6 avg_bytes 50744 bytes_total 558184
+canon line dup: total bytes(>30ch lines) 1026425 unique 542330 bytes in lines shared by >=2 boards 693609 67.6%
+
+## half-gutter calc() counts (canon)
+m [('margin:calc(var(--rapat) / 2)', 350), ('margin:calc(var(--dalam) / 2)', 46), ('margin:calc(var(--jarak-y-dalam) / 2)', 18), ('margin:calc(-0.1rem + calc(var(--rapat) / 2))', 12), ('margin:calc(var(--selokan-ubin) / 2)', 8), ('margin:calc(var(--jarak-x-dua) / 2)', 8), ('column:calc(var(--rapat) / 2)', 7), ('margin:calc(-0.4rem + 0.45rem)', 6), ('margin:calc(var(--selokan-sempit) / 2)', 6), ('margin:calc(-0.6rem + 0.5rem)', 5), ('margin:calc(auto + 0.5rem)', 4), ('margin:calc(-0.1rem + 0.4rem)', 4), ('margin:calc(var(--jarak-x-tiga) / 2)', 2), ('margin:calc(-0.4rem + 0.5rem)', 2), ('margin:calc(-1 * var(--talang))', 2), ('margin:calc(-1rem + calc(var(--rapat) / 2))', 2), ('margin:calc(-0.8rem + 0.4rem)', 1), ('margin:calc(-0.4rem + 0.3rem)', 1), ('margin:calc(auto + 0.4rem)', 1), ('margin:calc(-0.6rem + 0.4rem)', 1)]
+d [('margin:calc(var(--rapat) / 2)', 274), ('margin:calc(var(--seksi) / 2)', 86), ('margin:calc(var(--dalam) / 2)', 30), ('margin:calc(var(--selokan-dalam) / 2)', 10), ('margin:calc(var(--footer-jarak) / 2)', 8), ('margin:calc(-0.1rem + calc(var(--rapat) / 2))', 6), ('margin:calc(-1rem + 0.2rem)', 2), ('margin:calc(var(--dalam) + 1.3rem)', 1), ('column:calc(var(--rapat) / 2)', 1), ('margin:calc(-0.6rem + 0.2rem)', 1)]
+
+## literal marginL/R pairs equal (half gutter literal) canon
+m [('gutter 12.0', 175), ('gutter 8.0', 58), ('gutter 10.0', 50), ('gutter 6.0', 48), ('gutter 9.0', 26), ('gutter 5.0', 17), ('Ygutter 8.0', 16), ('Ygutter 20.0', 14), ('gutter 0.0', 13), ('gutter 30.0', 10), ('Ygutter 0.0', 10), ('gutter 20.0', 10), ('gutter 2.0', 9), ('Ygutter 15.0', 9), ('gutter 18.0', 7), ('gutter 16.0', 6), ('gutter 14.0', 6), ('gutter 7.0', 6), ('gutter 15.0', 4), ('Ygutter 12.0', 3), ('Ygutter 30.0', 3), ('gutter 4.0', 3), ('Ygutter 2.0', 2), ('Ygutter 6.0', 2), ('gutter 28.0', 1), ('Ygutter 26.0', 1), ('gutter -30.0', 1), ('Ygutter -20.0', 1), ('Ygutter 18.0', 1)]
+d [('gutter 12.0', 132), ('gutter 16.0', 107), ('gutter 10.0', 80), ('gutter 6.0', 58), ('gutter 24.0', 49), ('gutter 8.0', 46), ('gutter 7.0', 35), ('gutter 60.0', 24), ('gutter 20.0', 22), ('Ygutter 60.0', 17), ('gutter 2.0', 14), ('gutter 48.0', 13), ('gutter 9.0', 10), ('Ygutter 9.0', 8), ('Ygutter 12.0', 7), ('Ygutter 8.0', 7), ('Ygutter 20.0', 6), ('gutter 4.0', 5), ('gutter 40.0', 4), ('gutter 5.0', 4), ('gutter 56.0', 4), ('gutter 14.0', 4), ('Ygutter 6.0', 3), ('Ygutter 10.0', 2), ('Ygutter 40.0', 2), ('gutter 32.0', 2), ('Ygutter 2.0', 1), ('Ygutter 16.0', 1), ('Ygutter 24.0', 1), ('Ygutter 28.0', 1)]
+
+## Button recipes: elements with filled background (canon)
+16 ('m', 'a', 'var(--surface)', '-', '7.6rem', 'var(--sheet)', '-', '-')
+10 ('m', 'button', 'var(--cair-tombol)', 'var(--ink)', '5.2rem', 'var(--pill)', '-', '-')
+8 ('d', 'a', 'var(--surface)', '-', '7.6rem', 'var(--sheet)', '-', '-')
+8 ('m', 'button', 'var(--surface)', '-', '7.6rem', 'var(--sheet)', '-', '-')
+6 ('d', 'a', 'var(--brand)', '#ffffff', '3rem', 'var(--action)', 'var(--teks-cta)', 'var(--bobot-bold)')
+5 ('m', 'a', 'var(--brand)', '#ffffff', '3rem', 'var(--action)', 'var(--teks-meta)', 'var(--bobot-bold)')
+5 ('d', 'button', 'var(--surface)', '-', '7.6rem', 'var(--sheet)', '-', '-')
+4 ('d', 'button', 'var(--surface)', '-', '4rem', 'var(--control)', 'var(--teks-meta)', 'var(--bobot-bold)')
+4 ('d', 'button', 'var(--cair-tombol)', 'var(--ink)', '7.2rem', 'var(--pill)', '-', '-')
+4 ('m', 'button', 'rgba(255,255,255,0.88)', '-', '4.8rem', 'var(--pill)', '-', '-')
+4 ('m', 'button', 'var(--surface)', '-', '4rem', 'var(--control)', 'var(--teks-meta)', 'var(--bobot-bold)')
+2 ('d', 'a', 'var(--line)', '#ffffff', '-', 'var(--card)', '-', '-')
+2 ('d', 'button', 'var(--cair)', 'var(--ink)', '3.2rem', 'var(--pill)', 'var(--teks-meta)', 'var(--bobot-bold)')
+2 ('d', 'a', 'var(--surface)', '-', '-', 'var(--card)', '-', '-')
+2 ('d', 'a', 'var(--surface)', 'var(--ink)', '7.6rem', 'var(--sheet)', '-', '-')
+2 ('m', 'a', 'var(--surface)', '-', '-', 'var(--card)', '-', '-')
+2 ('m', 'button', 'var(--surface)', '-', '3.6rem', 'var(--pill)', 'var(--teks-body)', '-')
+2 ('m', 'button', 'var(--line)', '-', '3.6rem', 'var(--pill)', 'var(--teks-body)', 'var(--bobot-medium)')
+2 ('m', 'button', 'var(--ink-4)', '-', '2.2rem', 'var(--pill)', '-', '-')
+2 ('m', 'button', '#faf5ff', '-', '7.6rem', 'var(--sheet)', '-', '-')
+2 ('m', 'a', 'var(--brand)', '#ffffff', '4.8rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-bold)')
+1 ('m', 'a', 'var(--surface)', 'var(--ink)', '-', 'var(--tile)', '-', '-')
+1 ('d', 'button', 'var(--surface)', '-', '6.4rem', 'var(--tile)', '-', '-')
+1 ('d', 'a', 'var(--brand)', '#ffffff', '3rem', 'var(--action)', 'var(--teks-meta)', 'var(--bobot-bold)')
+1 ('d', 'button', 'var(--surface)', 'var(--ink)', '3.2rem', 'var(--pill)', 'var(--teks-meta)', 'var(--bobot-semibold)')
+1 ('d', 'button', 'var(--surface)', '-', '4.4rem', 'var(--pill)', 'var(--teks-body)', 'var(--bobot-semibold)')
+1 ('d', 'button', 'var(--line)', '-', '6.4rem', 'var(--tile)', '-', '-')
+1 ('d', 'a', '#157f3c', '#ffffff', '4.8rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-bold)')
+1 ('d', 'button', 'var(--brand)', '#ffffff', '4.8rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-bold)')
+1 ('d', 'button', 'var(--cair)', 'var(--ink)', '4rem', 'var(--pill)', '1.3rem', '700')
+1 ('d', 'a', 'var(--brand)', '#ffffff', '5rem', 'var(--pill)', '1.4rem', '700')
+1 ('m', 'a', 'var(--surface)', '#ffffff', '-', 'var(--card)', '-', '-')
+1 ('m', 'button', 'radial-gradient(125% 125', 'var(--ink)', '2.8rem', 'var(--pill)', 'var(--teks-meta)', 'var(--bobot-bold)')
+1 ('m', 'button', 'var(--surface)', '-', '4.4rem', 'var(--pill)', 'var(--teks-body)', 'var(--bobot-semibold)')
+1 ('m', 'button', 'var(--surface)', '-', '3.2rem', 'var(--pill)', 'var(--teks-meta)', 'var(--bobot-semibold)')
+1 ('m', 'button', 'var(--brand)', '#ffffff', '4.4rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-semibold)')
+1 ('m', 'a', '#157f3c', '#ffffff', '4.4rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-semibold)')
+1 ('m', 'button', '#157f3c', '#ffffff', '4.4rem', 'var(--control)', 'var(--teks-body)', 'var(--bobot-semibold)')
+1 ('m', 'a', 'var(--line)', '#ffffff', '-', 'var(--card)', '-', '-')
+1 ('m', 'button', 'var(--surface)', 'var(--ink)', '3.6rem', 'var(--pill)', 'var(--teks-meta)', 'var(--bobot-medium)')
+
+## price samples
+RecCreateM4 <span data-harga="1" style="font-size: var(--teks-price); line-height: 1.2; font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums"> ... <span style="font-size: var(--teks-sup); font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: 0.02em">Rp</span>{{ r.pNum }}</span> <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)">per batang</span> </span> <svg width
+RecCreateM4 <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)"> ... per batang</span> </span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem"><path d="M9 18l6-6-6-6"></path></svg> </span> </a> </div> </s
+DesktopProdukM4 <span data-harga="1" style="font-size: var(--teks-price-lg); font-weight: var(--bobot-bold); line-height: 1.2; font-variant-numeric: tabular-nums"> ... <span style="font-size: var(--teks-sup); font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: 0.02em">Rp</span>{{ r.pNum }}</span> <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)">per batang</span> </span> <svg 
+DesktopProdukM4 <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)"> ... per batang</span> </span> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-left: 1rem; margin-right: 1rem"><path d="M9 18l6-6-6-6"></path></svg> </a> </div> </sc-for> </div> 
+SkuDetailM4 <strong data-harga="1" style="font-size: var(--teks-page); font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums"> ... <span style="font-size: var(--teks-body); font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: 0.02em">Rp</span>188.600</strong> <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)">per batang</span> </p> </div> <div style="margin-top
+SkuDetailM4 <span data-harga="1" style="font-size: var(--teks-tiny); line-height: 1.2; font-weight: var(--bobot-bold); letter-spacing: 0.01em; white-space: nowrap; color: var(--ink-2)"> ... per batang</span> </p> </div> <div style="margin-top: var(--dalam)"> <sc-if value="{{ standarJudulTampil }}" hint-placeholder-val="{{ false }}"> <h3 style="margin: 0 0 0.8rem 0; font-size: var(--teks-body); line-height: 1.35; font-weight: var(--bobot-medium); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2)">Standar dan mate
+BerandaM4 <span data-harga="1" style="font-weight: var(--bobot-bold); color: var(--ink)"> ... Rp {{ c.rp }}</span></span> <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-meta); line-height: 1.3; color: var(--ink-2)">{{ c.v }}</span> </a> </sc-for> </div> </div> <div style="margin-top: var(--jarak-y-antar); padding: 0 var(--talang)"> <div data-tepi="1" data-kalk-latar="1" style="display: flex; align-items: center; row-gap: 
+BerandaM4 <span data-harga="1" style="font-size: var(--teks-section); font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; color: var(--brand)"> ... <span style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); vertical-align: super; letter-spacing: 0.02em">Rp</span>140.000</span><span style="font-size: var(--teks-chip); font-weight: var(--bobot-regular); color: var(--ink)">/meter</span></span> </div> </div> <div style="margin-top: var(--dalam); box-sizing: border-box; padding: var(--dalam) 0; border-top: 0.1rem solid var(--ga
+RecCreateM4.dc.html data-harga css: [('[data-harga]', 'font-family:var(--font-harga)'), ('#m-harga,#m-tentang,#m-konsultasi,#m-video,#m-fungsi,#m-unggul,#m-terkait,#m-penawaran,#m-faq,#m-mitra,#m-cari', 'scroll-margin-top:9.2rem')]
+DesktopProdukM4.dc.html data-harga css: [('[data-harga]', 'font-family:var(--font-harga);font-variant-numeric:tabular-nums')]
+
+## price colours: Rp context
+[(('-', '-', '-'), 8), (('var(--ink)', '-', 'var(--bobot-bold)'), 2), (('var(--ink)', '-', '-'), 2), (('var(--brand)', 'var(--teks-price)', 'var(--bobot-bold)'), 1), (('-', 'var(--teks-price-lg)', 'var(--bobot-bold)'), 1)]
+
+## domain data
+Rp samples [('Rp 711.000', 12), ('Rp 888.000', 10), ('Rp 1.066.000', 10), ('Rp 140.000', 3)]
+wa.me [('wa.me/628112689889', 32)]
+units {'btg': 7, 'kg': 0, 'm': 42, 'lbr': 0, 'pcs': 0, 'batang': 2, 'roll': 0}
+tel [('+628112689889', 89), ('+62 811-2689-889', 31), ('08465825114', 6), ('+628112689889\n        ', 5), ('+628112689889\n      ', 5)]
+longest visible strings (markup text)
+174
+['Kekurangan besi hollow hitam terletak pada ketiadaan lapisan seng (zinc coating), sehingga permukaannya rentan korosi jika diaplikasikan di luar ruangan (outdoo', 'besi hollow hitam terletak pada ketiadaan lapisan seng (zinc coating), sehingga permukaannya rentan korosi jika diaplikasikan di luar ruangan (outdoor) tanpa pe', 'Besi hollow hitam adalah material konstruksi berbentuk profil berongga dengan penampang persegi atau persegi panjang yang terbuat dari pelat besi hitam (hot-rol', 'Kelebihan utama besi hollow hitam berakar pada arsitektur profil tertutup (closed section) yang memberikan ketahanan torsi (tahanan puntir) dan momen inersia si', 'utama besi hollow hitam berakar pada arsitektur profil tertutup (closed section) yang memberikan ketahanan torsi (tahanan puntir) dan momen inersia simetris jau']

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Spinner</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ adaLabel }}" hint-placeholder-val="{{ true }}">
+  <p style="margin: 0; display: flex; align-items: center; justify-content: center; column-gap: 0.4rem; text-align: center; font-size: var(--teks-body); color: var(--ink-2)"><span data-lazy-spin="1" aria-hidden="true" style="width: 1.6rem; height: 1.6rem; flex-shrink: 0; box-sizing: border-box; border: 0.2rem solid var(--line); border-top-color: var(--ink); border-radius: 50%; margin-right: 0.4rem"></span>{{ label }}</p>
+</sc-if>
+<sc-if value="{{ polos }}" hint-placeholder-val="{{ false }}">
+  <span data-lazy-spin="1" aria-hidden="true" style="display: block; width: 1.6rem; height: 1.6rem; flex-shrink: 0; box-sizing: border-box; border: 0.2rem solid var(--line); border-top-color: var(--ink); border-radius: 50%"></span>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":null,"default":"Memuat 50 SKU berikutnya · 50 dari 212"},"$preview":{"width":360,"height":40}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const label = this.props.label ?? 'Memuat 50 SKU berikutnya · 50 dari 212';
+    return { label, adaLabel: !!label, polos: !label };
+  }
+}
+</script>
+</body>
+</html>

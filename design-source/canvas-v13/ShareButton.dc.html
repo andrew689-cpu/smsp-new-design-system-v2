@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ShareButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBagikan }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="IconButton" ikon="bagikan" ukuran="{{ ukuran }}" ikonUkuran="{{ ikonUkuran }}" ariaLabel="{{ ariaLabel }}" onPress="{{ onPress }}" hint-size="4.4rem,4.4rem"></dc-import>
+</sc-if>
+<sc-if value="{{ isSalin }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Button" variant="salin" ikon="salin" ikonGaris="{{ 1.9 }}" ikonWarna="var(--ink-2)" label="{{ label }}" ariaLabel="{{ ariaLabel }}" onPress="{{ salin }}" hint-size="8rem,4rem"></dc-import>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"aksi":{"editor":"enum","options":["bagikan","salin"],"default":"bagikan"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"disalin":{"editor":"boolean","default":false},"label":{"editor":null},"labelDisalin":{"editor":null},"ariaLabel":{"editor":null},"onPress":{"editor":null},"onSalin":{"editor":null},"$preview":{"width":90,"height":60}}'>
+class Component extends DCLogic {
+  state = { disalin: false };
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const aksi = this.props.aksi ?? 'bagikan';
+    const desktop = this.props.tata === 'desktop';
+    const disalin = this.props.disalin ?? this.state.disalin;
+    return {
+      isBagikan: aksi !== 'salin',
+      isSalin: aksi === 'salin',
+      ukuran: desktop ? 52 : 44,
+      ikonUkuran: desktop ? 19 : 17,
+      onPress: this.props.onPress,
+      label: disalin ? (this.props.labelDisalin ?? 'Tersalin') : (this.props.label ?? 'Salin'),
+      ariaLabel: this.props.ariaLabel ?? (aksi === 'salin' ? 'Salin nomor SKU' : 'Bagikan halaman ini'),
+      salin: () => {
+        if (this.props.onSalin) this.props.onSalin();
+        this.setState({ disalin: true });
+        clearTimeout(this.t);
+        this.t = setTimeout(() => this.setState({ disalin: false }), 1600);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

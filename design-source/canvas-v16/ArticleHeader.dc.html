@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ArticleHeader</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPita }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <dc-import name="ArticleRibbon" judul="{{ judul }}" meta="{{ meta }}" hint-size="100%,19rem"></dc-import>
+    <sc-if value="{{ pembukaTampil }}" hint-placeholder-val="{{ true }}">
+      <div style="box-sizing: border-box; padding-top: var(--jarak-y-antar-rapat)">
+        <dc-import name="ArticleProse" jenis="pembuka" teks="{{ pembuka }}" hint-size="100%,6.8rem"></dc-import>
+      </div>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isKembali }}" hint-placeholder-val="{{ false }}">
+  <div style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+    <span style="display: flex; align-self: flex-start"><dc-import name="Button" variant="kembali-tipis" label="{{ kembaliLabel }}" href="{{ hrefKembali }}" ikon="chevron-kiri" ikonGaris="{{ 2 }}" ikonWarna="var(--ink)" hint-size="9rem,4.4rem"></dc-import></span>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: var(--jarak-y-dalam)">
+      <dc-import name="Heading" level="{{ 1 }}" varian="artikel" tata="ponsel" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,10rem"></dc-import>
+      <span style="font-size: var(--teks-meta); line-height: var(--tinggi-tengah); font-weight: var(--bobot-light); color: var(--ink-2)">{{ tanggal }}</span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isHero }}" hint-placeholder-val="{{ false }}">
+  <div style="position: sticky; top: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box; min-height: 26vh; margin: 0 calc(-1 * var(--talang)); overflow: hidden; background: var(--ink)">
+    <img src="{{ foto }}" alt="{{ fotoAlt }}" loading="lazy" style="width: 100%; aspect-ratio: 1713 / 1105; object-fit: cover; display: block">
+    <span style="position: relative; width: 100%; min-width: 0; box-sizing: border-box; display: block; padding: var(--dalam) var(--talang); background: var(--ink)">
+      <dc-import name="Heading" level="{{ 1 }}" varian="hero" tata="ponsel" warna="var(--surface)" teks="{{ judul }}" hint-size="100%,10rem"></dc-import>
+    </span>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <dc-import name="Heading" level="{{ 1 }}" varian="artikel" tata="desktop" teks="{{ judul }}" hint-size="100%,10rem"></dc-import>
+    <p style="margin: var(--dalam) 0 0 0; font-size: var(--teks-body); font-weight: var(--bobot-medium); color: var(--ink-2)">{{ penulis }} - <span style="color: var(--ink)">{{ kategori }}</span></p>
+    <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-body); font-weight: var(--bobot-light); color: var(--ink-2)">{{ tanggalPanjang }} · {{ lalu }}</p>
+    <dc-import name="ArticleProse" jenis="figur" tata="desktop" foto="{{ foto }}" alt="{{ fotoAlt }}" hint-size="100%,50rem"></dc-import>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"jenis":{"editor":"enum","options":["pita","kembali","hero"],"default":"pita","section":"Resep"},"pembukaTampil":{"editor":"boolean","default":true,"section":"Resep"},"judul":{"editor":"text","default":"Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien","section":"Isi"},"meta":{"editor":"text","default":"Sofia | 25 Jul 2026","section":"Isi"},"tanggal":{"editor":"text","default":"25 Jul 2026","section":"Isi"},"pembuka":{"editor":"text","default":"Struktur baja berstandar adalah cara terbaik membangun sekolah aman yang hemat biaya.","section":"Isi"},"penulis":{"editor":"text","default":"Sofia","section":"Isi"},"kategori":{"editor":"text","default":"Berita Baja","section":"Isi"},"tanggalPanjang":{"editor":"text","default":"Sabtu, 25 Jul 2026","section":"Isi"},"lalu":{"editor":"text","default":"3 bulan yang lalu","section":"Isi"},"hrefKembali":{"editor":"text","default":"#","section":"Tautan"},"kembaliLabel":{"editor":"text","default":"Kembali","section":"Tautan"},"foto":{"editor":"text","default":"/_blob/9e7ee91bf589923471c61c666b6ba690","section":"Gambar"},"fotoAlt":{"editor":"text","default":"Struktur rangka baja bangunan sekolah menggunakan profil H-Beam dan WF primer anti karat.","section":"Gambar"},"$preview":{"width":360,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const jenis = this.props.jenis ?? 'pita';
+    return {
+      isPita: !desktop && jenis === 'pita',
+      isKembali: !desktop && jenis === 'kembali',
+      isHero: !desktop && jenis === 'hero',
+      pembukaTampil: this.props.pembukaTampil ?? true,
+      tanggal: this.props.tanggal ?? '25 Jul 2026',
+      hrefKembali: this.props.hrefKembali ?? '#',
+      kembaliLabel: this.props.kembaliLabel ?? 'Kembali',
+      isDesktop: desktop,
+      judul: this.props.judul ?? 'Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien',
+      meta: this.props.meta ?? 'Sofia | 25 Jul 2026',
+      pembuka: this.props.pembuka ?? 'Struktur baja berstandar adalah cara terbaik membangun sekolah aman yang hemat biaya.',
+      penulis: this.props.penulis ?? 'Sofia',
+      kategori: this.props.kategori ?? 'Berita Baja',
+      tanggalPanjang: this.props.tanggalPanjang ?? 'Sabtu, 25 Jul 2026',
+      lalu: this.props.lalu ?? '3 bulan yang lalu',
+      foto: this.props.foto ?? '/_blob/9e7ee91bf589923471c61c666b6ba690',
+      fotoAlt: this.props.fotoAlt ?? 'Struktur rangka baja bangunan sekolah menggunakan profil H-Beam dan WF primer anti karat.'
+    };
+  }
+}
+</script>
+</body>
+</html>

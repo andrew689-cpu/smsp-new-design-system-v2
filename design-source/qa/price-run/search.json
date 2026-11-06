@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Cari di seluruh SMS Perkasa\"]", "force": true}, {"wait": 700}, {"fill": ["input[type=search], input", "15 15 1"]}, {"wait": 700}]

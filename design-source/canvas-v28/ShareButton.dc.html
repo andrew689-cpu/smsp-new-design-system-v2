@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ShareButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="IconButton" ikon="bagikan" ukuran="{{ ukuran }}" ikonUkuran="{{ ikonUkuran }}" ariaLabel="{{ ariaLabel }}" onPress="{{ onPress }}" hint-size="4.4rem,4.4rem"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"ariaLabel":{"editor":"text","default":"","section":"Isi"},"onPress":{"editor":null},"$preview":{"width":90,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    return {
+      ukuran: desktop ? 52 : 44,
+      ikonUkuran: desktop ? 19 : 17,
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel || 'Bagikan halaman ini'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpContactForm</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ akar }}">
+  <sc-if value="{{ banner }}" hint-placeholder-val="{{ false }}">
+    <dc-import name="HelpBanner" jenis="{{ bannerJenis }}" foto="{{ bannerFoto }}" gambar="{{ bannerGambar }}" alt="{{ bannerAlt }}" tata="{{ tata }}" isi="{{ bannerIsi }}" tutup="{{ true }}" onTutup="{{ onTutup }}" hint-size="100%,16.7rem"></dc-import>
+  </sc-if>
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: {{ talang }}; display: flex; flex-direction: column; gap: var(--rapat)">
+    <sc-if value="{{ formRingkas }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="TextField" jenis="kotak" lebar="penuh" ariaLabel="Nama" autocomplete="name" tipe="text" placeholder="Nama" nilai="{{ nama }}" onUbah="{{ setNama }}" hint-size="100%,3.7rem"></dc-import>
+      <dc-import name="TextField" jenis="kotak" lebar="penuh" ariaLabel="Email" autocomplete="email" tipe="email" placeholder="Email" nilai="{{ email }}" onUbah="{{ setEmail }}" hint-size="100%,3.7rem"></dc-import>
+      <dc-import name="TextField" jenis="kotak" lebar="penuh" ariaLabel="No Whatsapp" autocomplete="tel" tipe="tel" placeholder="No Whatsapp" nilai="{{ wa }}" onUbah="{{ setWa }}" hint-size="100%,3.7rem"></dc-import>
+      <span aria-hidden="true" style="display: flex; align-items: center; column-gap: 1.2rem; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)"><span style="flex: 1 1 0; height: 0.1rem; background: var(--ink-4)"></span>atau<span style="flex: 1 1 0; height: 0.1rem; background: var(--ink-4)"></span></span>
+      <dc-import name="SocialLoginButtons" rupa="lebar" pesan="{{ pesanSosial }}" onPesan="{{ setSosial }}" hint-size="100%,8.6rem"></dc-import>
+      <p style="margin: 0; font-size: var(--teks-tiny); line-height: var(--tinggi-sel); text-align: center; color: var(--ink)">Dengan mengirim, Anda menyetujui <a href="{{ kebijakanHref }}" rel="noopener" style="color: var(--ink); text-decoration: underline; text-underline-offset: 0.2rem">Kebijakan Privasi</a> kami</p>
+      <div style="margin: 2rem 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1rem">
+        <dc-import name="Button" variant="form-pil" disabled="{{ kurang }}" disabledRupa="aktif" label="Live Chat" ikon="chat-bulat" ikonWarna="var(--brand)" ikonGaris="{{ 2.4 }}" ariaLabel="Mulai Live Chat" onPress="{{ keChat }}" hint-size="100%,4.4rem"></dc-import>
+        <dc-import name="Button" variant="form-pil" tone="whatsapp" disabled="{{ kurang }}" disabledRupa="aktif" label="Whatsapp" ikon="whatsapp" ikonWarna="var(--whatsapp)" ariaLabel="Lanjut ke WhatsApp" href="{{ waHref }}" rel="noopener" onPress="{{ keWa }}" hint-size="100%,4.4rem"></dc-import>
+      </div>
+      <p style="margin: 0; font-size: var(--teks-tiny); line-height: var(--tinggi-tengah); text-align: center; color: var(--ink)">*Dengan menekan tombol diatas Anda setuju untuk kami hubungi kembali</p>
+    </sc-if>
+    <sc-if value="{{ formBaku }}" hint-placeholder-val="{{ true }}">
+    <p style="margin: 0; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ ajakanTeks }} <sc-if value="{{ ajakanIkon }}" hint-placeholder-val="{{ true }}"><span style="display: inline-block; vertical-align: -0.2rem"><dc-import name="Icon" ikon="senyum" ukuran="{{ 13 }}" hint-size="1.3rem,1.3rem"></dc-import></span></sc-if></p>
+    <dc-import name="SocialLoginButtons" pesan="{{ pesanSosial }}" onPesan="{{ setSosial }}" hint-size="100%,8rem"></dc-import>
+    <span aria-hidden="true" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0; font-size: var(--teks-tiny); color: var(--ink-2)"><span style="flex: 1 1 0; height: 0.1rem; background: var(--line); margin-right: 0.5rem"></span>atau<span style="flex: 1 1 0; height: 0.1rem; background: var(--line); margin-left: 0.5rem; margin-right: 0.5rem"></span></span>
+    <dc-import name="TextField" label="Nama" tipe="text" placeholder="Nama lengkap" nilai="{{ nama }}" onUbah="{{ setNama }}" hint-size="100%,6.4rem"></dc-import>
+    <dc-import name="TextField" label="Nomor WhatsApp" tipe="tel" placeholder="08xx xxxx xxxx" nilai="{{ wa }}" onUbah="{{ setWa }}" hint-size="100%,6.4rem"></dc-import>
+    <dc-import name="TextField" label="Email" tipe="email" placeholder="nama@perusahaan.com" nilai="{{ email }}" onUbah="{{ setEmail }}" hint-size="100%,6.4rem"></dc-import>
+    <p style="margin: 0; font-size: var(--teks-bantu-syarat); line-height: var(--tinggi-lega); text-align: center; color: var(--ink-2)">Dengan mengirim, Anda menyetujui <a href="{{ kebijakanHref }}" rel="noopener" style="{{ kebijakanGaya }}; font-weight: var(--bobot-bold); text-underline-offset: 0.2rem">Kebijakan Privasi</a> kami.</p>
+    <sc-if value="{{ aksiBesar }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-top: 3rem; display: flex; flex-direction: column; align-items: stretch; row-gap: var(--dalam); column-gap: 0">
+        <div style="min-width: 0; display: flex">
+          <dc-import name="Button" variant="form" disabled="{{ kurang }}" disabledRupa="aktif" label="Live Chat" ikon="chat" ariaLabel="Mulai Live Chat" onPress="{{ keChat }}" hint-size="100%,4.4rem"></dc-import>
+        </div>
+        <div style="min-width: 0; display: flex">
+          <dc-import name="Button" variant="form" tone="whatsapp" disabled="{{ kurang }}" disabledRupa="aktif" label="Whatsapp" ikon="whatsapp" ariaLabel="Lanjut ke WhatsApp" href="{{ waHref }}" rel="noopener" onPress="{{ keWa }}" hint-size="100%,4.4rem"></dc-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ aksiTumpuk }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="Button" variant="form-aksi" tone="whatsapp" label="WhatsApp" ikon="whatsapp" disabled="{{ kurang }}" href="{{ waTautan }}" rel="{{ waRel }}" onPress="{{ keWa }}" hint-size="100%,4.4rem"></dc-import>
+      <dc-import name="Button" variant="form-aksi" label="Live Chat" ikon="chat" ikonUkuran="{{ 17 }}" disabled="{{ kurang }}" onPress="{{ keChat }}" hint-size="100%,4.4rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ setuju }}" hint-placeholder-val="{{ false }}">
+      <p style="margin: -0.6rem 0 0 0; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--brand)">*Dengan menekan tombol diatas Anda setuju untuk kami hubungi kembali</p>
+    </sc-if>
+    </sc-if>
+  </div>
+  <sc-if value="{{ kembali }}" hint-placeholder-val="{{ false }}">
+    <dc-import name="HelpBackBar" jenis="garis" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","blog"],"default":"baku","section":"Resep"},"rupaForm":{"editor":"enum","options":["baku","ringkas"],"default":"baku","section":"Resep"},"banner":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Spanduk"},"bannerJenis":{"editor":"enum","options":["gambar","sapaan"],"default":"sapaan","section":"Spanduk"},"bannerGambar":{"editor":"text","default":"","section":"Spanduk"},"bannerAlt":{"editor":"text","default":"","section":"Spanduk"},"ajakan":{"editor":"text","default":"Yuk isi form dibawah ini","section":"Ajakan"},"ajakanIkon":{"editor":"enum","options":["otomatis","ikon","emoji","tidak"],"default":"otomatis","section":"Ajakan"},"ajakanEmoji":{"editor":"text","default":"\ud83d\ude09","section":"Ajakan"},"setuju":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Bagian"},"kembali":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Bagian"},"nama":{"editor":"text","default":"","section":"Isian"},"wa":{"editor":"text","default":"","section":"Isian"},"email":{"editor":"text","default":"","section":"Isian"},"pesanSosial":{"editor":null},"waHref":{"editor":null,"section":"Tautan"},"kebijakanHref":{"editor":"text","default":"https://www.smsperkasa.com/kebijakan-privasi","section":"Tautan"},"onUbah":{"editor":null},"onPesanSosial":{"editor":null},"onWhatsApp":{"editor":null},"onLiveChat":{"editor":null},"onKembali":{"editor":null},"onTutup":{"editor":null},"$preview":{"width":360,"height":760}}'>
+class Component extends DCLogic {
+  state = {};
+  ubah(kunci, nilai) {
+    this.setState({ [kunci]: nilai });
+    if (this.props.onUbah) this.props.onUbah(kunci, nilai);
+  }
+  renderVals() {
+    const ringkas = this.props.rupaForm === 'ringkas';
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const blog = this.props.gaya === 'blog';
+    const tiga = (v, otomatis) => (v === undefined || v === null || v === '' || v === 'otomatis' ? otomatis : v === true || v === 'ya');
+    const pilihan = this.props.ajakanIkon === true ? 'ikon' : this.props.ajakanIkon === false ? 'tidak' : this.props.ajakanIkon;
+    const tanda = !pilihan || pilihan === 'otomatis' ? 'emoji' : pilihan;
+    const ajakan = this.props.ajakan ?? 'Yuk isi form dibawah ini';
+    const emoji = this.props.ajakanEmoji ?? '\u{1F609}';
+    const bannerJenis = this.props.bannerJenis ?? 'sapaan';
+    const nama = this.state.nama ?? this.props.nama ?? '';
+    const wa = this.state.wa ?? this.props.wa ?? '';
+    const email = this.state.email ?? this.props.email ?? '';
+    const siap = !!(nama.trim() && wa.trim());
+    const kirim = (aksi) => () => {
+      if (!siap) return;
+      if (aksi) aksi();
+    };
+    return {
+      tata,
+      isPonsel: ponsel,
+      isDesktop: !ponsel,
+      akar: (ponsel ? 'flex-grow: 1; ' : '') + 'display: flex; flex-direction: column; min-height: 0',
+      talang: ponsel && !blog ? 'var(--talang)' : '1.4rem',
+      formRingkas: ringkas,
+      formBaku: !ringkas,
+      bannerIsi: ringkas ? ['Yuk, isi form di bawah ini', 'agar tim sales kami dapat', 'menghubungi Anda.'] : undefined,
+      aksiBesar: ponsel && !blog,
+      aksiTumpuk: !ponsel || blog,
+      bannerJenis,
+      bannerFoto: blog && bannerJenis === 'gambar' ? 'salam' : 'menu',
+      bannerGambar: this.props.bannerGambar,
+      bannerAlt: this.props.bannerAlt,
+      ajakanIkon: tanda === 'ikon',
+      kebijakanGaya: ponsel && !blog ? 'color: var(--produk-nama); text-decoration: none' : 'color: var(--brand); text-decoration: underline 0.1rem',
+      waTautan: blog && siap ? this.props.waHref : undefined,
+      waRel: blog && siap ? 'noopener' : undefined,
+      banner: tiga(this.props.banner, ponsel),
+      setuju: tiga(this.props.setuju, !ponsel || blog),
+      kembali: tiga(this.props.kembali, !ponsel),
+      ajakanTeks: tanda === 'emoji' ? ajakan + ' ' + emoji : ajakan,
+      nama,
+      wa,
+      email,
+      siap,
+      kurang: !siap,
+      setNama: (v) => this.ubah('nama', v),
+      setWa: (v) => this.ubah('wa', v),
+      setEmail: (v) => this.ubah('email', v),
+      pesanSosial: this.props.pesanSosial ?? this.state.sosial ?? '',
+      setSosial: (p) => {
+        this.setState({ sosial: p });
+        if (this.props.onPesanSosial) this.props.onPesanSosial(p);
+      },
+      waHref: this.props.waHref,
+      kebijakanHref: this.props.kebijakanHref ?? 'https://www.smsperkasa.com/kebijakan-privasi',
+      keWa: kirim(this.props.onWhatsApp),
+      keChat: kirim(this.props.onLiveChat),
+      onKembali: this.props.onKembali,
+      onTutup: this.props.onTutup
+    };
+  }
+}
+</script>
+</body>
+</html>

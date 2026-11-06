@@ -1,0 +1,369 @@
+{
+ "board": "ProdukIndexM4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": false,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": false,
+  "pixels": false
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 6121,
+   "new": 6121,
+   "delta": 0
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [
+   {
+    "text": "Atap Galvalum",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Atap UPVC",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi As S45C",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi As ST41",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Begel",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Beton",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi CNP",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi H Beam",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow Galvalum",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow Galvanis",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Hollow Hitam",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi INP",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Nako",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Nako Ulir",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi Siku",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi UNP",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Besi WF",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Bondek",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Expanded Metal",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Hollow Stainless 201",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Hollow Stainless 304",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Kanal C Galvalum",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Kawat Bendrat",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Pipa Galvanis",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Pipa Hitam",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Pipa Seamless",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Pipa Stainless 201",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Pipa Stainless 304",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Plat Besi Galvalum",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   },
+   {
+    "text": "Plat Besi Galvanil",
+    "changed": {
+     "color": [
+      "rgb(10, 10, 10)",
+      "rgba(255, 0, 0, 0.8)"
+     ]
+    }
+   }
+  ],
+  "type_styles_count": 41,
+  "pixels": {
+   "pct": 0.903,
+   "orig_size": [
+    360,
+    6121
+   ],
+   "new_size": [
+    360,
+    6121
+   ],
+   "first_y_over_0.5pct": 200,
+   "worst_bands_y_pct": [
+    [
+     3800,
+     2.07
+    ],
+    [
+     1000,
+     1.95
+    ],
+    [
+     2200,
+     1.75
+    ],
+    [
+     2000,
+     1.73
+    ],
+    [
+     2800,
+     1.7
+    ],
+    [
+     3000,
+     1.66
+    ],
+    [
+     4000,
+     1.63
+    ],
+    [
+     3200,
+     1.51
+    ],
+    [
+     2400,
+     1.33
+    ],
+    [
+     1200,
+     1.26
+    ]
+   ]
+  }
+ }
+}

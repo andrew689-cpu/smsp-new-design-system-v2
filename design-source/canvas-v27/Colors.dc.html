@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Fondasi · Warna</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 40px">
+  <h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Warna</h1>
+  <sc-for list="{{ grup }}" as="g" hint-placeholder-count="4">
+    <section style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">{{ g.judul }}</h2>
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
+        <sc-for list="{{ g.isi }}" as="w" hint-placeholder-count="5">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="height: 84px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line-kuat); background: {{ w.css }}"></div>
+            <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang)">{{ w.token }}</div>
+            <div data-harga="1" style="font-size: var(--teks-tiny); line-height: var(--tinggi-sedang); color: var(--ink-2); overflow-wrap: anywhere">{{ w.nilai }}</div>
+            <div style="font-size: var(--teks-tiny); line-height: var(--tinggi-lega); color: var(--ink-2)">{{ w.peran }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":1700}}'>
+class Component extends DCLogic {
+  state = { n: 0 };
+  componentDidMount() {
+    this.t = setInterval(() => {
+      this.setState({ n: this.state.n + 1 });
+      if (this.state.n > 4) clearInterval(this.t);
+    }, 400);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    let gaya = null;
+    try { gaya = getComputedStyle(document.documentElement); } catch (e) {}
+    const baca = (t) => (gaya ? gaya.getPropertyValue(t).trim() : '');
+    const w = (token, peran) => ({ token, peran, css: 'var(' + token + ')', nilai: baca(token) });
+    return {
+      grup: [
+        { judul: 'Teks dan permukaan', isi: [
+          w('--ink', 'Teks utama, footer'),
+          w('--ink-2', 'Teks sekunder, label seksi'),
+          w('--ink-4', 'Teks nonaktif, panah. 1,65:1, gagal AA sebagai teks'),
+          w('--surface', 'Permukaan'),
+          w('--surface-2', 'Permukaan kedua, jarang dipakai')
+        ]},
+        { judul: 'Garis', isi: [
+          w('--line', 'Garis tipis dan dasar cekung (baris zebra)'),
+          w('--line-kuat', 'Garis tegas'),
+          w('--garis-panel', 'Bingkai panel')
+        ]},
+        { judul: 'Merek', isi: [
+          w('--brand', 'Aksi: tombol, tautan, tanda aktif'),
+          w('--brand-hero', 'Logo saja, bukan UI'),
+          w('--brand-subtle', 'Pita peringatan, chip aktif'),
+          w('--nav-aktif', 'Teks chip aktif'),
+          w('--produk-nama', 'Nama produk di baris harga. 3,64:1, gagal AA')
+        ]},
+        { judul: 'Status dan pihak ketiga', isi: [
+          w('--wa-tombol', 'Tombol WhatsApp, 5,08:1 dengan putih'),
+          w('--whatsapp', 'Glif WhatsApp di atas gelap'),
+          w('--online-ikon', 'Status daring'),
+          w('--chat-mati', 'Tombol kirim nonaktif'),
+          w('--chat-ikon', 'Ikon chat, 0 pemakaian')
+        ]},
+        { judul: 'Rating', isi: [
+          w('--bintang', 'Isi bintang'),
+          w('--bintang-garis', 'Garis bintang'),
+          w('--star-kosong', 'Bintang kosong')
+        ]},
+        { judul: 'Keluarga kecil', isi: [
+          w('--biru-tinta', 'Teks pada keping biru'),
+          w('--biru-dasar', 'Dasar keping biru'),
+          w('--keping-abu', 'Keping abu'),
+          w('--keping-biru', 'Keping biru'),
+          w('--keping-hangat', 'Keping hangat')
+        ]},
+        { judul: 'Belum terpakai di papan kanon', isi: [
+          w('--price', 'Sisa lama: harga kini memakai warna teks'),
+          w('--price-bg', 'Sisa lama')
+        ]}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductInfo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 var(--sisi); margin-top: var(--dalam)"><dc-import name="Heading" level="{{ 2 }}" tata="ponsel" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import></div>
+    <figure style="margin: 2rem 0 0 0"><img src="{{ foto }}" alt="{{ alt }}" style="display: block; width: 100%; object-fit: cover; background: var(--line)"></figure>
+    <div style="padding: 0 var(--sisi)">
+      <div style="display: flex; flex-direction: column; margin-top: 2.4rem; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ grup }}" as="g" hint-placeholder-count="2">
+          <div style="{{ g.gaya }}">
+            <div style="margin-bottom: 2rem"><dc-import name="Heading" level="{{ 3 }}" tata="ponsel" teks="{{ g.title }}" hint-size="100%,1.9rem"></dc-import></div>
+            <div style="display: flex; flex-direction: column">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="5">
+                <dc-import name="SpecRow" tata="ponsel" label="{{ r.k }}" nilai="{{ r.v }}" hint-size="100%,3.3rem"></dc-import>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem"><dc-import name="Heading" level="{{ 2 }}" tata="desktop" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,3.1rem"></dc-import></div>
+    <figure style="margin: 0 0 3.2rem 0; display: flex; justify-content: center"><img src="{{ foto }}" alt="{{ alt }}" style="display: block; width: 100%; max-width: 52rem; height: auto"></figure>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0; align-items: start">
+      <sc-for list="{{ grup }}" as="g" hint-placeholder-count="2">
+        <div style="{{ g.gaya }}">
+          <div style="margin-bottom: 1rem"><dc-import name="Heading" level="{{ 3 }}" tata="desktop" teks="{{ g.title }}" hint-size="100%,2.2rem"></dc-import></div>
+          <div>
+            <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="5">
+              <dc-import name="SpecRow" tata="desktop" jenis="info" label="{{ r.k }}" nilai="{{ r.v }}" hint-size="100%,4rem"></dc-import>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isLama }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem; margin-top: 2.8rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import></div>
+    <figure style="margin: 1.6rem 0 0 0"><img src="{{ foto }}" alt="{{ alt }}" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--line)"></figure>
+    <div style="padding: 3.6rem 1.6rem 0 1.6rem">
+      <div style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: 0">
+        <div style="display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; margin-right: calc(var(--rapat) / 2)">
+          <strong style="font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)">Nomor SKU</strong>
+          <span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--teks-body); font-variant-numeric: tabular-nums; color: var(--ink-2)">{{ nomorSku }}</span>
+        </div>
+        <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="IconButton" ikon="salin" ukuran="{{ 44 }}" sudut="var(--sudut-lama-salin)" rataIkon="center end" ikonWarna="var(--ink-2)" ariaLabel="Salin nomor SKU" hint-size="4.4rem,4.4rem"></dc-import></span>
+      </div>
+      <div style="display: flex; flex-direction: column; margin-top: 2.4rem; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ grup }}" as="g" hint-placeholder-count="3">
+          <div style="{{ g.gayaLama }}">
+            <dc-import name="Heading" varian="polos" level="{{ 4 }}" margin="0 0 0.8rem 0" ukuran="var(--teks-meta)" tinggi="var(--tinggi-tengah)" bobot="var(--bobot-black)" renggang="var(--renggang-lama-h4)" kapital="ya" warna="var(--ink-2)" teks="{{ g.title }}" hint-size="100%,1.8rem"></dc-import>
+            <div style="display: flex; flex-direction: column">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="5">
+                <dc-import name="SpecRow" tata="ponsel" jenis="lama" label="{{ r.k }}" nilai="{{ r.v }}" hint-size="100%,3.3rem"></dc-import>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; align-items: flex-start; row-gap: 0.8rem; column-gap: 0; margin-top: 2.4rem">
+        <span style="display: flex; flex-shrink: 0; margin-top: 0.1rem; margin-right: 0.4rem"><dc-import name="Icon" ikon="info-catatan" hint-size="1.9rem,1.9rem"></dc-import></span>
+        <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto; margin-left: 0.4rem; margin-right: 0.4rem"><strong style="font-weight: var(--bobot-bold); color: var(--ink)">{{ catatanJudul }}</strong> {{ catatanTeks }}</p>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"judul":{"editor":"text","default":"Info Produk","section":"Isi"},"foto":{"editor":"text","default":"","section":"Isi"},"alt":{"editor":"text","default":"","section":"Isi"},"grup":{"editor":null,"tsType":"Array<{title:string,rows:Array<{k:string,v:string}>}>"},"varian":{"editor":"enum","options":["bawaan","lama"],"default":"bawaan","section":"Resep"},"nomorSku":{"editor":"text","default":"BHHM-40402C0-6STDNB","section":"Isi"},"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const lama = this.props.varian === 'lama';
+    const BAWAAN = [{"title": "Ukuran dan berat", "rows": [{"k": "Penampang luar (A × B)", "v": "40 × 40 mm"}, {"k": "Tebal dinding (t)", "v": "2 mm"}, {"k": "Panjang batang (L)", "v": "6 M"}, {"k": "Berat per batang", "v": "15,07 kg"}, {"k": "Berat per meter", "v": "2,512 kg"}, {"k": "Perkiraan jumlah per ton", "v": "± 66 batang"}]}, {"title": "Identitas", "rows": [{"k": "Nomor SKU", "v": "BHHM-40402C0-6STDNB"}, {"k": "Merek", "v": "NB"}, {"k": "Kelas", "v": "STD"}, {"k": "Bentuk penampang", "v": "Persegi"}]}];
+    const BAWAAN_LAMA = [{"title": "Ukuran dan berat", "rows": [{"k": "Penampang luar (A × B)", "v": "40 × 40 mm"}, {"k": "Tebal dinding (t)", "v": "2 mm"}, {"k": "Panjang batang (L)", "v": "6 M"}, {"k": "Berat per batang", "v": "15,07 kg"}, {"k": "Berat per meter", "v": "2,512 kg"}, {"k": "Perkiraan isi 1 ton", "v": "± 66 batang"}]}, {"title": "Identitas", "rows": [{"k": "Merek", "v": "NB"}, {"k": "Kelas", "v": "STD"}, {"k": "Bentuk penampang", "v": "Persegi"}]}, {"title": "Standar dan material", "rows": [{"k": "Standar", "v": "JIS G3466 / SNI"}, {"k": "Material", "v": "Baja karbon"}, {"k": "Permukaan", "v": "Hitam, tanpa galvanis"}]}];
+    const daftar = this.props.grup ?? (lama ? BAWAAN_LAMA : BAWAAN);
+    const n = daftar.length;
+    return {
+      isPonsel: !d && !lama,
+      isLama: lama,
+      nomorSku: this.props.nomorSku || 'BHHM-40402C0-6STDNB',
+      catatanJudul: 'Butuh sertifikat pabrik (mill certificate)?',
+      catatanTeks: 'Sebutkan nomor SKU saat menghubungi sales.',
+      isDesktop: d,
+      judul: this.props.judul ?? 'Info Produk',
+      foto: this.props.foto || (lama ? '/_blob/11eb52d435acaefbd5ca45fc9addf878' : d ? '/_blob/e83c282090c723f360cd9e7a619b81fc' : '/_blob/acf5cb9075066a027973ae49018c60a1'),
+      alt: this.props.alt || (d ? 'Diagram besi hollow berpenampang persegi: A tinggi penampang, B lebar penampang, T tebal dinding, L panjang batang' : 'Gambar garis besi hollow berpenampang kotak dengan keterangan ukuran: A tinggi penampang, B lebar penampang, T tebal dinding, L panjang batang'),
+      grup: daftar.map((g, i) => ({
+        title: g.title,
+        rows: g.rows,
+        gayaLama: (i === 0 ? '' : 'margin-top: 1.1rem; ') + (i === n - 1 ? '' : 'margin-bottom: 1.1rem'),
+        gaya: d
+          ? 'margin: ' + (i < 2 ? '0' : '2rem') + ' 2rem ' + (i >= n - 2 ? '0' : '2rem') + ' ' + (i === 0 ? '0' : '2rem')
+          : (i === 0 ? '' : 'margin-top: 1rem; ') + (i === n - 1 ? '' : 'margin-bottom: 1rem')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

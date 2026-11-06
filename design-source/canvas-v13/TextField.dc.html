@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<span style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%">
+  <label for="{{ idBidang }}" style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)">{{ label }}</label>
+  <input id="{{ idBidang }}" type="{{ tipe }}" value="{{ nilai }}" onChange="{{ ubah }}" placeholder="{{ placeholder }}" style="{{ gaya }}">
+</span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":null,"default":"Nama"},"tipe":{"editor":"enum","options":["text","tel","email"],"default":"text"},"nilai":{"editor":null},"placeholder":{"editor":null,"default":"Nama lengkap"},"id":{"editor":null},"onUbah":{"editor":null},"$preview":{"width":320,"height":76}}'>
+class Component extends DCLogic {
+  state = { isi: '' };
+  uid = 'bidang-' + Math.random().toString(36).slice(2, 8);
+  renderVals() {
+    const tipe = this.props.tipe ?? 'text';
+    const dikendalikan = this.props.nilai !== undefined;
+    return {
+      idBidang: this.props.id ?? this.uid,
+      label: this.props.label ?? 'Nama',
+      tipe,
+      nilai: dikendalikan ? this.props.nilai : this.state.isi,
+      placeholder: this.props.placeholder ?? 'Nama lengkap',
+      ubah: (e) => {
+        if (!dikendalikan) this.setState({ isi: e.target.value });
+        if (this.props.onUbah) this.props.onUbah(e.target.value, e);
+      },
+      gaya: 'box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: var(--line); outline: none; font-size: var(--teks-body)' + (tipe === 'tel' ? '; font-variant-numeric: tabular-nums' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

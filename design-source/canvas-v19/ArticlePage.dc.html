@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ArticlePage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div style="--sisi: var(--sisi-artikel); width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+    <dc-import name="FraudRibbon" tata="ponsel" href="{{ hrefAwas }}" hint-size="100%,6rem"></dc-import>
+    <dc-import name="SiteHeader" tata="ponsel" nada="{{ nadaHeader }}" hrefLogo="{{ hrefLogo }}" hint-size="100%,5.6rem"></dc-import>
+    <main style="box-sizing: border-box; padding: 0 var(--talang)">
+      <div>
+        <dc-import name="ArticleHeader" jenis="{{ jenisHeader }}" pembukaTampil="{{ false }}" judul="{{ judul }}" meta="{{ meta }}" tanggal="{{ tanggal }}" hrefKembali="{{ hrefKembali }}" foto="{{ foto }}" fotoAlt="{{ fotoAlt }}" hint-size="100%,19rem"></dc-import>
+        <div style="{{ isiGaya }}">
+          <dc-import name="ArticleProse" jenis="{{ pembukaJenis }}" teks="{{ pembuka }}" hint-size="100%,6.8rem"></dc-import>
+          <dc-import name="ArticleBody" tata="ponsel" irama="{{ irama }}" blok="{{ blok }}" tautan="{{ tautan }}" jarakAtas="{{ jarakAtas }}" celah="{{ celah }}" hint-size="100%,770rem"></dc-import>
+        </div>
+      </div>
+      <dc-import name="BottomGlassBar" jenis="artikel" terbuka="{{ isiBuka }}" daftarIsi="{{ daftarIsi }}" onNav="{{ isiAlih }}" hint-size="100%,5.2rem"></dc-import>
+    </main>
+    <div style="margin-top: var(--seksi)"><dc-import name="Footer" tata="ponsel" hint-size="100%,181rem"></dc-import></div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface); color: var(--ink)">
+    <dc-import name="FraudRibbon" tata="desktop" href="{{ hrefAwas }}" hint-size="100%,5rem"></dc-import>
+    <dc-import name="SiteHeader" tata="desktop" hrefLogo="{{ hrefLogo }}" navIsi="{{ navIsi }}" hint-size="100%,12.4rem"></dc-import>
+    <main style="box-sizing: border-box; padding: 0 var(--sisi)">
+      <div>
+        <div style="margin-top: var(--rapat)"><dc-import name="Breadcrumb" varian="artikel" butir="{{ remah }}" hint-size="100%,2rem"></dc-import></div>
+        <div style="margin-top: var(--dalam); display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); row-gap: var(--seksi); column-gap: 0; align-items: start">
+          <article style="margin-right: calc(var(--seksi) / 2)">
+            <dc-import name="ArticleHeader" tata="desktop" judul="{{ judul }}" penulis="{{ penulis }}" kategori="{{ kategoriArtikel }}" tanggalPanjang="{{ tanggalPanjang }}" lalu="{{ lalu }}" foto="{{ foto }}" fotoAlt="{{ fotoAlt }}" hint-size="100%,70rem"></dc-import>
+            <dc-import name="ArticleBody" tata="desktop" blok="{{ blok }}" tautan="{{ null }}" hint-size="100%,900rem"></dc-import>
+          </article>
+          <aside style="position: sticky; top: var(--dalam); margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2)">
+            <dc-import name="RelatedArticles" judul="Artikel Lainnya" butir="{{ lainnya }}" hint-size="100%,60rem"></dc-import>
+          </aside>
+        </div>
+        <span style="display: inline-flex; margin-top: var(--dalam)"><dc-import name="Button" dc-props="{{ tautanD }}" hint-size="20rem,4rem"></dc-import></span>
+      </div>
+    </main>
+    <div style="margin-top: calc(var(--footer-jarak) / 2)"><dc-import name="Footer" tata="desktop" hint-size="100%,40rem"></dc-import></div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"versi":{"editor":"enum","options":["pita","kembali","hero"],"default":"pita","section":"Resep"},"faqTingkat":{"editor":"enum","options":["otomatis","h2","h3"],"default":"otomatis","section":"Resep"},"hrefLogo":{"editor":"text","default":"Artboard-pp1u.dc.html","section":"Tautan"},"hrefKembali":{"editor":"text","default":"BlogM3.dc.html","section":"Tautan"},"hrefDetail":{"editor":"text","default":"https://www.smsperkasa.com/blog/standarisasi-struktur-baja-bangunan-sekolah","section":"Tautan"},"hrefAwas":{"editor":"text","default":"https://www.smsperkasa.com/hati-hati-penipuan","section":"Tautan"},"tanggalPanjang":{"editor":"text","default":"","section":"Isi"},"lalu":{"editor":"text","default":"","section":"Isi"},"remah":{"editor":null,"section":"Navigasi","tsType":"Array<{label:string,href?:string}>"},"blok":{"editor":null,"section":"Data","tsType":"Array<{t:string,x?:string,foto?:string,alt?:string,items?:string[],rows?:string[][]}>"},"lainnya":{"editor":null,"section":"Data","tsType":"Array<{judul:string,foto:string,kategori:string,tanggal:string,href?:string}>"},"navIsi":{"editor":"enum","options":["produk","artikel"],"default":"artikel","section":"Navigasi"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  state = { isi: false };
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const versi = this.props.versi ?? 'pita';
+    const hero = versi === 'hero';
+    const pita = versi === 'pita';
+    const BLOK = [
+      { t: 'p', x: "Keamanan fasilitas pendidikan dasar menuntut jaminan struktural mutlak dari para perancang konstruksi demi keselamatan jangka panjang. Bangunan fasilitas publik seperti sekolah rakyat memikul beban hidup dinamis dalam intensitas tinggi setiap hari dari aktivitas massal para siswa. Oleh karena itu, spesifikasi material struktur baja bangunan harus mampu mendistribusikan seluruh beban tersebut ke pondasi secara konsisten tanpa mengalami defleksi berlebih atau penurunan performa batas layan." },
+      { t: 'p', x: "Banyak pelaksana proyek terjebak memotong anggaran material tanpa memikirkan konsekuensi batas layan jangka panjang. Penggunaan komponen non-standar memicu penurunan performa bangunan yang membahayakan ribuan nyawa. Standarisasi material merupakan instrumen wajib untuk mengeliminasi drama kegagalan struktur di lapangan." },
+      { t: 'p', x: "Meskipun referensi harga H-Beam mengalami fluktuasi akibat pergerakan pasar, aspek pemenuhan standar tidak boleh dikompromikan. Keamanan jangka panjang anak-anak di sekolah rakyat jauh lebih berharga dibandingkan penghematan budget sesaat. Kolaborasi dengan pihak logistik terpercaya membantu pemenuhan volume material tanpa merusak stabilitas finansial proyek." },
+      { t: 'h2', x: "Parameter Standar Regulasi Struktur Baja Bangunan Menurut SNI 1729:2020" },
+      { t: 'p', x: "Perancangan komponen fabrikasi logam di Indonesia wajib mengacu pada regulasi SNI 1729:2020 . Regulasi ini menetapkan spesifikasi ketat mengenai batas kekuatan dan ketahanan leleh profil baja struktural untuk bangunan gedung. Salah satu aspek utama yang diatur adalah klasifikasi kelangsingan penampang elemen penahan beban." },
+      { t: 'p', x: "Baja struktural grade SS400 yang umum digunakan memiliki batas kuat luluh nominal sebesar 235 MPa dan kuat tarik minimum 400 MPa . Perancang harus memastikan penampang komponen masuk dalam kategori penampang kompak . Penampang kompak mampu mengembangkan momen plastis penuh sebelum terjadi tekuk lokal ( local buckling ) pada elemen sayap maupun badan." },
+      { t: 'h3', x: "Detail Teknis Batas Kompak Penampang" },
+      { t: 'p', x: "Berdasarkan tabel batas kelangsingan SNI 1729:2020, rasio lebar-tebal (⋋) untuk elemen tekan tidak tersentuh (sayap profil I/H) harus memenuhi syarat rasio batas plastis (⋋p):" },
+      { t: 'p', x: "Di mana E adalah modulus elastisitas baja ( 200.000 MPa ) dan Fy adalah tegangan leleh material. Jika nilai melebihi batas tersebut, penampang dikategorikan sebagai non-kompak dan akan mengalami reduksi kapasitas beban nominal." },
+      { t: 'p', x: "Setiap komponen yang dipasang harus lolos uji laboratorium independen demi memvalidasi komposisi kimia logamnya. Penilaian ini meliputi persentase kandungan karbon , mangan , dan silikon yang memengaruhi daktilitas struktur. Kejelasan properti mekanik ini menjadi fondasi utama dalam merancang sistem rangka pemikul momen." },
+      { t: 'table', rows: [["Parameter Mekanis", "Standar SS400 (SNI/JIS)", "Konsekuensi Jika Non-Standar"], ["Kuat Luluh ( Fy )", "Minimal 235 MPa", "Profil melentur permanen di bawah beban desain."], ["Kuat Tarik ( Fu )", "400 – 510 MPa", "Risiko keruntuhan getas tanpa peringatan defleksi."], ["Regangan Minimum", "17 – 21%", "Material retak saat proses fabrikasi atau pengelasan."]] },
+      { t: 'h2', x: "Kapan Memilih H-Beam atau WF?" },
+      { t: 'p', x: "Akurasi pemilihan jenis baja profil berdampak langsung pada efisiensi biaya material dan kekuatan lateral bangunan. Penanggung jawab pengadaan sering kali bingung menentukan prioritas antara profil H-Beam atau Wide Flange ( WF ). Kedua profil ini memiliki karakteristik distribusi tegangan yang berbeda nyata di lapangan." },
+      { t: 'p', x: "Secara geometris, H-Beam memiliki rasio tinggi banding lebar sebesar 1:1 , sedangkan WF memiliki rasio tinggi banding lebar berkisar antara 2:1 hingga 1.5:1 . Perbedaan ini menciptakan perbedaan karakteristik momen inersia penampang pada sumbu kuat ( strong axis ) dan sumbu lemah ( weak axis ). Pemahaman perbedaan besi WF dan H-Beam sangat krusial agar penempatan komponen tepat guna." },
+      { t: 'p', x: "Untuk menyederhanakan proses spesifikasi pengadaan material, gunakan logika kerangka keputusan if/then berikut:" },
+      { t: 'blockquote', x: "KOLOM UTAMA (Komponen Tekan Vertikal) IF elemen struktur berfungsi sebagai komponen tekan vertikal (kolom utama), THEN gunakan profil H-Beam (contoh: ukuran 150×150 mm). Bentuk penampangnya yang simetris menghasilkan jari-jari girasi yang seragam untuk menahan bahaya tekuk ( buckling ) dari segala arah." },
+      { t: 'blockquote', x: "BALOK BENTANG PANJANG (Komponen Lentur Horizontal) IF elemen struktur berfungsi sebagai komponen lentur horizontal (balok bentang panjang), THEN gunakan profil WF (contoh: ukuran 250×125 mm). Momen inersia sumbu X ( Ix ) yang tinggi sangat optimal dalam menahan tegangan lentur dan beban mati plat lantai." },
+      { t: 'blockquote', x: "BATAS LENDUTAN (Bentang > 6 Meter) IF bentang antar kolom ruang kelas melebihi 6 meter tanpa tiang penyangga tengah, THEN naikkan tinggi profil balok WF menjadi minimal 300 mm . Langkah ini wajib dilakukan guna menjaga lendutan batas layan tetap di bawah ambang batas L/360 ." },
+      { t: 'h2', x: "Simulasi Perhitungan Struktur Rangka Ruang Kelas Standar (Worked Example)" },
+      { t: 'img', foto: "/_blob/f1a8ad417f4da1119cfc399a91492b76", alt: "Diagram teknik denah layout grid struktur baja bangunan ruang kelas sekolah rakyat ukuran 7x9 meter, menampilkan konfigurasi kolom utama H-Beam C1, balok pemikul utama WF B1, balok anak B2, serta denah pembesian deck lantai cor beton." },
+      { t: 'p', x: "Implementasi standarisasi struktur baja bangunan sekolah rakyat dapat dipelajari melalui studi kasus ruang kelas tunggal. Skenario ini menggunakan ukuran ruang kelas standar Kementerian Pendidikan yaitu panjang 9 meter , lebar 7 meter , dan tinggi kolom 3,5 meter . Struktur dirancang menggunakan sistem rangka baja bresing konsentris." },
+      { t: 'p', x: "Pada arah memanjang ( 9 meter ), struktur dibagi menjadi dua bentang balok masing-masing 4,5 meter dengan interkoneksi balok anak. Balok utama horizontal menggunakan profil baja WF 250×125 yang memiliki berat nominal 29,6 kg/m . Kolom vertikal utama di setiap sudut menggunakan profil H-Beam 150×150 dengan berat nominal 31,5 kg/m ." },
+      { t: 'p', x: "Mari kita hitung estimasi kebutuhan total berat baja struktural utama untuk satu modul ruang kelas tersebut:" },
+      { t: 'h3', x: "1. Kebutuhan Kolom Vertikal" },
+      { t: 'list', items: ["Jumlah kolom: 6 titik penyangga", "Total panjang kolom: 6 titik × 3,5 meter = 21 meter", "Total berat kolom H-Beam: 21 meter × 31,5 kg/m = 661,5 kg"] },
+      { t: 'h3', x: "2. Kebutuhan Balok Utama (Arah Lebar 7 Meter)" },
+      { t: 'list', items: ["Jumlah balok: 3 baris grid", "Total panjang balok: 3 × 7 meter = 21 meter", "Total berat balok WF: 21 meter × 29,6 kg/m = 621,6 kg"] },
+      { t: 'h3', x: "3. Kebutuhan Balok Utama (Arah Panjang 9 Meter)" },
+      { t: 'list', items: ["Jumlah balok: 2 baris grid (sisi kiri dan kanan)", "Total panjang balok: 2 × 9 meter = 18 meter", "Total berat balok WF: 18 meter × 29,6 kg/m = 532,8 kg"] },
+      { t: 'h3', x: "\u{1F4CA} Total Tonase Per Ruang Kelas" },
+      { t: 'blockquote', x: "Total Berat Baja Struktural Murni: > 661,5 kg + 621,6 kg + 532,8 kg = 1.815,9 kg (Catatan: Estimasi di atas belum termasuk komponen bresing, plat buhul, dan sambungan baut)." },
+      { t: 'p', x: "Estimasi tonase ini menjadi acuan tim procurement untuk memesan material secara kolektif ke distributor besi baja Jabodetabek. Langkah pengadaan massal ini memangkas ongkos logistik secara signifikan. Dengan volume yang terukur, kapasitas truk logistik dapat dioptimalkan hingga batas atas 20 ton per trip ." },
+      { t: 'h2', x: "Kegagalan Fatal Lapangan Akibat Penggunaan Komponen Material Non-SNI" },
+      { t: 'img', foto: "/_blob/544630e38512e6c15ecbf8401646a1dc", alt: "Kegagalan struktural komponen balok baja profil akibat fenomena tekuk lokal badan (web local buckling) dan tekuk lokal sayap (flange local buckling) saat menahan beban batas leleh." },
+      { t: 'p', x: "Menggunakan material di bawah spesifikasi desain (under-spec) demi mengejar harga murah adalah keputusan paling berbahaya dalam pembangunan fasilitas publik. Di pasar sekunder Indonesia, marak beredar profil baja non-SNI yang kerap disebut besi banci. Elemen ini memiliki toleransi ukuran negatif yang melewati batas aman toleransi kelonggaran geometri luar." },
+      { t: 'p', x: "Ketika balok memikul beban plat cor lantai, komponen yang mengalami reduksi ketebalan flange akan memicu fenomena tekuk lateral torsional ( lateral torsional buckling ). Balok baja tiba-tiba terpuntir dan kehilangan stabilitas horizontalnya sebelum mencapai batas kuat nominal. Kegagalan struktural ini bersifat katastropik dan meruntuhkan seluruh lantai bangunan dalam hitungan detik." },
+      { t: 'p', x: "Para penanggung jawab teknik lapangan wajib memverifikasi keaslian material melalui pemeriksaan sertifikat resmi produk sebelum proses pembongkaran muatan di tapak proyek. Penggunaan sistem perpipaan penunjang saluran air dan proteksi kebakaran juga harus dikoordinasikan bersama supplier pipa baja proyek yang mampu menjamin ketebalan dinding pipa standar schedule. Jangan biarkan masa depan bangunan publik dipertaruhkan oleh pengadaan komponen imitasi tanpa regulasi legal." },
+      { t: 'blockquote', x: "Catatan Penting: Informasi teknis dalam artikel ini bersifat panduan umum dan referensi edukasi. Untuk perhitungan struktural dan pemilihan material proyek aktual, konsultasikan dengan insinyur struktur berlisensi. Butuh bantuan memilih material yang tepat? Konsultasi via WhatsApp" },
+      { t: 'h2', x: "FAQ" },
+      { t: 'p', x: "Q: Berapa ukuran baja H-Beam minimum yang aman untuk kolom bangunan sekolah dua lantai?" },
+      { t: 'p', x: "A: Dimensi minimum kolom utama penunjang untuk gedung fasilitas publik dua lantai disarankan menggunakan ukuran H-Beam 150×150 mm dengan berat nominal 31,5 kg/m. Spesifikasi dimensi ini menjamin rasio batas kelangsingan penampang tetap berada dalam kurva kompak sesuai SNI 1729:2020. Penetapan dimensi akhir harus disesuaikan kembali dengan hitungan distribusi beban mati plat cor lantai dan beban hidup dinamis dari aktivitas ruang kelas di atasnya." },
+      { t: 'p', x: "Q: Mengapa struktur baja bangunan dianggap lebih ramah anggaran jangka panjang dibandingkan struktur beton?" },
+      { t: 'p', x: "A: Rangka baja struktural memotong durasi lini masa konstruksi hingga 30-40% karena proses pengerjaan menggunakan sistem fabrikasi dan koneksi baut yang cepat di tapak proyek. Kecepatan instalasi ini mereduksi biaya upah tenaga kerja lapangan serta meminimalkan risiko pembengkakan biaya akibat keterlambatan pengerjaan. Selain itu, nilai sisa material baja yang tinggi memberikan perlindungan aset finansial jangka panjang bagi pihak pengelola bangunan." },
+      { t: 'p', x: "Q: Bagaimana cara memastikan pasokan material baja tidak menghambat timeline pengerjaan di lapangan?" },
+      { t: 'p', x: "A: Kelancaran timeline proyek dijamin melalui konsolidasi wave delivery plan bersama distributor yang memiliki armada logistik mandiri berkepasitas besar. Pengiriman material dalam volume massal (hingga 20 ton per trip) memastikan seluruh kebutuhan profil struktural mendarat di lokasi tapak proyek secara terjadwal sebelum fase ereksi rangka dimulai. Langkah ini meminimalisasi downtime kru lapangan dan sewa alat berat crane akibat keterlambatan pasokan ritel." },
+      { t: 'h3', x: "Kesimpulan" },
+      { t: 'p', x: "Standarisasi struktur baja bangunan pada proyek pembangunan sekolah rakyat merupakan jangkar utama yang menyeimbangkan antara keamanan struktural jangka panjang dan efisiensi anggaran. Melalui pemahaman karakteristik geometris antara H-Beam dan Wide Flange ( WF ), deviasi linear serta risiko kegagalan struktur seperti tekuk lokal dapat dieliminasi sejak fase perencanaan cetak biru. Menggunakan material berstandar SNI yang didukung oleh dokumentasi yang valid bukan lagi sebuah opsi, melainkan tanggung jawab mutlak dalam mendirikan fasilitas publik yang aman, bebas dari risiko site chaos , dan ramah anggaran." },
+      { t: 'p', x: "Jangan biarkan pengerjaan fasilitas publik terhambat oleh pasokan material yang tidak konsisten atau spek yang rancu. Percayakan kebutuhan struktural Anda kepada SMS Perkasa yang berpengalaman di industri konstruksi baja." }
+    ];
+    const faqTingkat = (this.props.faqTingkat && this.props.faqTingkat !== 'otomatis') ? this.props.faqTingkat : (desktop || hero ? 'h3' : 'h2');
+    const blok = (this.props.blok ?? BLOK).map((b) => ((faqTingkat === 'h3' && b.t === 'h2' && b.x === 'FAQ') ? { t: 'h3', x: b.x } : b));
+    let no = 0;
+    const daftarIsi = [];
+    blok.forEach((b) => { if (b.t === 'h2') { no += 1; daftarIsi.push({ href: '#bab-' + no, teks: b.x }); } });
+    // Measured from the removed spacing engine: gap = base x ratio, per boundary, so it still follows the viewport-based base token.
+    const dasar = hero ? 'var(--jarak-y-antar)' : 'var(--jarak-y-antar-rapat)';
+    const penyebut = hero ? 60 : 30;
+    const kali = (px) => 'calc(' + dasar + ' * ' + px + ' / ' + penyebut + ')';
+    const hrefDetail = this.props.hrefDetail || 'https://www.smsperkasa.com/blog/standarisasi-struktur-baja-bangunan-sekolah';
+    const tautanLabel = 'Lihat Detail smsperkasa.com';
+    const tautanAria = 'Lihat detail artikel ini di smsperkasa.com, membuka tab baru';
+    const TANGGAL = '25 Jul 2026';
+    const BULAN = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5, Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11 };
+    const HARI = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const keTanggal = (tgl) => {
+      const q = String(tgl).split(' ');
+      const b = BULAN[q[1]];
+      return (q.length === 3 && b !== undefined) ? new Date(parseInt(q[2], 10), b, parseInt(q[0], 10)) : null;
+    };
+    const namaHari = (tgl) => { const w = keTanggal(tgl); return w ? HARI[w.getDay()] + ', ' + tgl : tgl; };
+    const lewat = (tgl) => {
+      const w = keTanggal(tgl);
+      if (!w) return tgl;
+      const n = Math.floor((Date.now() - w.getTime()) / 86400000);
+      if (n < 1) return 'hari ini';
+      if (n === 1) return 'kemarin';
+      if (n < 30) return n + ' hari yang lalu';
+      if (n < 365) return Math.floor(n / 30) + ' bulan yang lalu';
+      return Math.floor(n / 365) + ' tahun yang lalu';
+    };
+    const LAINNYA = [
+      { judul: 'Cara Quality Control Menghindari Penolakan Material Kementerian PUPR', foto: '/_blob/4a254e10b1f06660a1911ba3c813977f', kategori: 'Berita Baja', tanggal: '5 Okt 2026' },
+      { judul: 'Jangan Salah Beli! Ini Perbedaan Mutlak Spesifikasi H Beam vs Baja WF', foto: '/_blob/e59baf3f84be4e49c58d026350c8d3ea', kategori: 'Berita Baja', tanggal: '29 Jul 2026' },
+      { judul: 'Percepatan Konstruksi Pelat Lantai Jalan Layang: Kombinasi Efisien Bondek Galvanis dan Wiremesh', foto: '/_blob/e5907f6a2d0576cfb96384f890f9e859', kategori: 'Berita Baja', tanggal: '14 Jul 2026' },
+      { judul: 'Harga Besi Baja: Tren dan Cara Menyiasati Proyek', foto: '/_blob/a99bab86ecca79d21fcfe2eedcfe9f9d', kategori: 'Berita Baja', tanggal: '11 Jul 2026' },
+      { judul: 'Prediksi Harga Besi 2024: Industri Konstruksi Wajib Tau!', foto: '/_blob/cc872e39be6f6e13f79dc4c7b6618ee8', kategori: 'Berita Baja', tanggal: '2 Jul 2026' },
+      { judul: 'Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja', foto: '/_blob/ebacf14138b3291bfebf9cf6bd58abe7', kategori: 'Industri Baja', tanggal: '9 Okt 2026' }
+    ].map((x) => ({ href: 'DesktopArtikelM4.dc.html', ...x }));
+    return {
+      isPonsel: !desktop,
+      isDesktop: desktop,
+      hrefAwas: this.props.hrefAwas || 'https://www.smsperkasa.com/hati-hati-penipuan',
+      hrefLogo: this.props.hrefLogo || 'Artboard-pp1u.dc.html',
+      hrefKembali: this.props.hrefKembali || 'BlogM3.dc.html',
+      nadaHeader: pita ? 'merah' : 'surface',
+      jenisHeader: versi,
+      irama: pita ? undefined : 'lama',
+      pembukaJenis: pita ? 'pembuka' : 'pembukaPolos',
+      isiGaya: hero ? 'position: relative; z-index: 1; background: var(--surface); box-sizing: border-box; padding-top: var(--dalam)' : 'box-sizing: border-box; padding-top: var(--jarak-y-antar-rapat)',
+      jarakAtas: kali(hero ? 45 : 23),
+      celah: (hero ? [48, 62, 52, 51, 84] : [24, 31, 26, 33, 29, 42]).map(kali),
+      judul: 'Standarisasi Struktur Baja Bangunan Sekolah: Aman dan Efisien',
+      meta: 'Sofia | 25 Jul 2026',
+      tanggal: TANGGAL,
+      pembuka: 'Struktur baja berstandar adalah cara terbaik membangun sekolah aman yang hemat biaya.',
+      penulis: 'Sofia',
+      kategoriArtikel: 'Berita Baja',
+      tanggalPanjang: this.props.tanggalPanjang || namaHari(TANGGAL),
+      lalu: this.props.lalu || lewat(TANGGAL),
+      foto: '/_blob/9e7ee91bf589923471c61c666b6ba690',
+      fotoAlt: 'Struktur rangka baja bangunan sekolah menggunakan profil H-Beam dan WF primer anti karat.',
+      blok,
+      tautan: { label: tautanLabel, href: hrefDetail, ariaLabel: tautanAria },
+      tautanD: { variant: 'tautan', label: tautanLabel, href: hrefDetail, target: '_blank', rel: 'noopener', ariaLabel: tautanAria },
+      isiBuka: !!this.state.isi,
+      isiAlih: () => this.setState({ isi: !this.state.isi }),
+      daftarIsi,
+      remah: this.props.remah ?? [{ label: 'Blog', href: 'DesktopBlogM4.dc.html' }, { label: 'Berita Baja' }],
+      navIsi: this.props.navIsi ?? 'artikel',
+      lainnya: this.props.lainnya ?? LAINNYA
+    };
+  }
+}
+</script>
+</body>
+</html>

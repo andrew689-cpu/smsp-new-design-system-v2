@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>RelatedArticles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div>
+  <div style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+    <span aria-hidden="true" style="flex-shrink: 0; width: 0.4rem; align-self: stretch; min-height: 2rem; border-radius: var(--pill); background: var(--brand); margin-right: 0.5rem"></span>
+    <span style="display: block; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="Heading" level="{{ 2 }}" varian="kecil" tata="desktop" teks="{{ judul }}" hint-size="100%,2.4rem"></dc-import></span>
+  </div>
+  <div style="margin-top: var(--rapat)">
+    <sc-for list="{{ baris }}" as="b" hint-placeholder-count="6">
+      <dc-import name="BlogRow" dc-props="{{ b }}" hint-size="100%,9.6rem"></dc-import>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"judul":{"editor":null},"butir":{"editor":null,"tsType":"Array<{judul:string,foto:string,kategori:string,tanggal:string,href?:string}>"},"$preview":{"width":440,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const butir = this.props.butir ?? [
+      { judul: 'Cara Quality Control Menghindari Penolakan Material Kementerian PUPR', foto: '/_blob/4a254e10b1f06660a1911ba3c813977f', kategori: 'Berita Baja', tanggal: '5 Okt 2026' },
+      { judul: 'Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja', foto: '/_blob/ebacf14138b3291bfebf9cf6bd58abe7', kategori: 'Industri Baja', tanggal: '9 Okt 2026' }
+    ];
+    return {
+      judul: this.props.judul ?? 'Artikel Lainnya',
+      baris: butir.map((b) => Object.assign({ jenis: 'samping' }, b))
+    };
+  }
+}
+</script>
+</body>
+</html>

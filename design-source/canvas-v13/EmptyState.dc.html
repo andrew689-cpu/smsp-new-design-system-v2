@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>EmptyState</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+  <div style="text-align: center; padding: 4.2rem 1.6rem 0 1.6rem">
+    <span style="display: flex; justify-content: center"><dc-import name="Icon" ikon="rangka" ukuran="{{ 46 }}" hint-size="46px,46px"></dc-import></span>
+    <span style="display: block; margin-top: 1.4rem"><dc-import name="Heading" level="{{ 3 }}" varian="kosong" tata="ponsel" teks="{{ judul }}" hint-size="100%,5rem"></dc-import></span>
+    <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ teks }}</p>
+    <span style="display: block; margin-top: 1.6rem"><dc-import name="Button" variant="pil-garis" label="{{ label }}" onPress="{{ onHapus }}" hint-size="18rem,4.4rem"></dc-import></span>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="padding: 5.6rem 1.6rem; text-align: center">
+    <dc-import name="Heading" level="{{ 3 }}" varian="kosong" tata="desktop" teks="{{ judul }}" hint-size="100%,2.4rem"></dc-import>
+    <p style="margin: 0.8rem 0 1.8rem 0; font-size: var(--teks-body); color: var(--ink-2); line-height: var(--tinggi-lega)">{{ teks }}</p>
+    <dc-import name="Button" variant="pil-garis" label="{{ label }}" onPress="{{ onHapus }}" hint-size="18rem,4.4rem"></dc-import>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null,"default":"Tidak ada SKU untuk kombinasi ini"},"teks":{"editor":null,"default":"Longgarkan salah satu filter, atau minta tim kami mencarikan padanannya."},"label":{"editor":null,"default":"Hapus semua filter"},"onHapus":{"editor":null},"$preview":{"width":360,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    return {
+      isMobile: tata === 'ponsel',
+      isDesktop: tata === 'desktop',
+      judul: this.props.judul ?? 'Tidak ada SKU untuk kombinasi ini',
+      teks: this.props.teks ?? 'Longgarkan salah satu filter, atau minta tim kami mencarikan padanannya.',
+      label: this.props.label ?? 'Hapus semua filter',
+      onHapus: this.props.onHapus ?? (() => {})
+    };
+  }
+}
+</script>
+</body>
+</html>

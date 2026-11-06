@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pecahan · Baris harga dan tombol</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 48px">
+  <h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Dari besar ke kecil</h1>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">1 · Komponen besar: SkuRow</h2>
+    <div style="display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 32px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Ponsel</div>
+        <div style="box-shadow: 0 0 0 1px var(--line); width: 360px">
+          <dc-import name="SkuRow" tata="ponsel" zebra="{{ tidak }}" nama="Hollow Hitam 40x40 tebal 1,6 mm" angka="66.000" hint-size="360px,76px"></dc-import>
+          <dc-import name="SkuRow" tata="ponsel" zebra="{{ ya }}" nama="Hollow Hitam 40x40 tebal 2,0 mm" angka="88.800" hint-size="360px,76px"></dc-import>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Desktop</div>
+        <div style="box-shadow: 0 0 0 1px var(--line)">
+          <dc-import name="SkuRow" tata="desktop" zebra="{{ tidak }}" nama="Hollow Hitam 40x40 tebal 1,6 mm" angka="66.000" hint-size="100%,72px"></dc-import>
+          <dc-import name="SkuRow" tata="desktop" zebra="{{ ya }}" nama="Hollow Hitam 40x40 tebal 2,0 mm" angka="88.800" hint-size="100%,72px"></dc-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">2 · Pecahannya, sampai warna dan ukuran huruf</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+      <sc-for list="{{ pecahan }}" as="p" hint-placeholder-count="6">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line)">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ p.judul }}</div>
+          <sc-if value="{{ p.isHarga }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; min-height: 44px; align-items: center"><dc-import name="Price" dc-props="{{ p.props }}" hint-size="10rem,4rem"></dc-import></div>
+          </sc-if>
+          <sc-if value="{{ p.isIkon }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; min-height: 44px; align-items: center"><dc-import name="Icon" dc-props="{{ p.props }}" hint-size="18px,18px"></dc-import></div>
+          </sc-if>
+          <sc-if value="{{ p.isTeks }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; min-height: 44px; align-items: center; font-size: {{ p.ukuran }}; font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: {{ p.warna }}">Hollow Hitam 40x40</div>
+          </sc-if>
+          <dc-import name="DocSpec" dc-props="{{ p.spec }}" hint-size="100%,40px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">3 · Komponen kecil dengan statenya: Button</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+      <sc-for list="{{ tombol }}" as="t" hint-placeholder-count="9">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--control); box-shadow: inset 0 0 0 1px var(--line); background: {{ t.alas }}">
+          <div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ t.judul }}</div>
+          <div style="display: flex; min-height: 76px; align-items: center"><dc-import name="Button" dc-props="{{ t.props }}" hint-size="100%,48px"></dc-import></div>
+          <dc-import name="DocSpec" dc-props="{{ t.spec }}" hint-size="100%,56px"></dc-import>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 12px">
+    <h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">State yang belum ada di Mobbin 4</h2>
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">Hover, focus, dan pressed pada tombol tidak ditemukan di papan kanon, jadi tidak digambar di sini. Tombol form nonaktif di sumber hanya mengubah kursor.</p>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":1650}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const putih = { warna: '--surface' };
+    const t = (judul, props, spec, alas) => ({
+      judul,
+      alas: alas || 'var(--surface)',
+      props,
+      spec
+    });
+    return {
+      ya: true,
+      tidak: false,
+      pecahan: [
+        { judul: 'Nama produk, ponsel', isTeks: true, ukuran: 'var(--teks-body)', warna: 'var(--produk-nama)', spec: { warna: '--produk-nama', ukuran: '--teks-body' } },
+        { judul: 'Nama produk, desktop', isTeks: true, ukuran: 'var(--teks-lead)', warna: 'var(--ink)', spec: { warna: '--ink', ukuran: '--teks-lead' } },
+        { judul: 'Panah', isIkon: true, props: { ikon: 'chevron', ukuran: 18 }, spec: { warna: '--ink-4', catatan: '16 px ponsel, 18 px desktop' } },
+        { judul: 'Price, baris ponsel', isHarga: true, props: { ukuran: 'baris-m', angka: '66.000' }, spec: { warna: '--ink', ukuran: '--teks-price', catatan: 'unit --teks-tiny --ink-2' } },
+        { judul: 'Price, baris desktop', isHarga: true, props: { ukuran: 'baris-d', angka: '66.000' }, spec: { warna: '--ink', ukuran: '--teks-price-lg', catatan: 'unit --teks-tiny --ink-2' } },
+        { judul: 'Price, halaman', isHarga: true, props: { ukuran: 'halaman', angka: '66.000', tone: 'brand', rata: 'kiri', unit: '' }, spec: { warna: '--brand', ukuran: '--teks-page' } }
+      ],
+      tombol: [
+        t('kecil', { variant: 'kecil' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-meta' }),
+        t('spanduk', { variant: 'spanduk' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-cta' }),
+        t('blok', { variant: 'blok', label: 'Lihat Selengkapnya' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-body' }),
+        t('form · brand', { variant: 'form', label: 'Mulai Live Chat' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-body' }),
+        t('form · whatsapp', { variant: 'form', tone: 'whatsapp', label: 'Chat di WhatsApp' }, { warna: '--surface', dasar: '--wa-tombol', ukuran: '--teks-body' }),
+        t('form · nonaktif', { variant: 'form', disabled: true, label: 'Kirim' }, { warna: '--surface', dasar: '--chat-mati', ukuran: '--teks-body', catatan: 'warna dari tombol kirim chat' }),
+        t('garis', { variant: 'garis', label: 'Bagikan' }, { warna: '--ink', dasar: '--surface', ukuran: '--teks-meta' }),
+        t('pil', { variant: 'pil', label: 'Kirim Ulasan' }, { warna: '--surface', dasar: '--brand', ukuran: '--teks-body' }),
+        t('kaca', { variant: 'kaca', label: 'Hitung Sekarang' }, { warna: '--ink', ukuran: '--teks-meta', catatan: 'dasar kaca --cair' }, 'var(--line)')
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

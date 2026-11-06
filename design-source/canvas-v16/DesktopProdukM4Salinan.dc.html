@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Besi Hollow Hitam — daftar harga, ukuran dan filter (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="desktop" ukuranTeks="var(--teks-meta)" hint-size="100%,4.3rem"></dc-import>
+  <dc-import name="SiteHeader" hrefNavPertama="DesktopProdukM4Salinan.dc.html" tata="desktop" hint-size="100%,12.4rem"></dc-import>
+  <div id="top" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: 4rem 12rem 4rem 12rem">
+    <dc-import name="ProductSummary" tata="desktop" halaman="produk" hint-size="100%,32rem"></dc-import>
+  </div>
+  <div id="m-harga" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: var(--seksi) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; gap: 1.6rem; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" varian="besar" tata="desktop" teks="Daftar Harga" hint-size="100%,3.4rem"></dc-import>
+    </div>
+    <dc-import name="PriceTable" tata="desktop" lagiKecil="{{ true }}" tampilan="{{ tampilan }}" filterAwal="{{ filterAwal }}" hrefBaris="DesktopSkuM4Salinan.dc.html" hint-size="100%,140rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="ConsultationBanner" tata="desktop" hint-size="100%,18rem"></dc-import>
+  </div>
+  <div id="m-info" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; gap: 1.6rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" teks="Info Produk" hint-size="100%,2.9rem"></dc-import>
+    </div>
+  </div>
+  <div style="margin: 2rem 12rem 0 12rem; background: var(--surface); overflow: hidden">
+    <dc-import name="ProductSpecs" tata="desktop" hint-size="100%,40rem"></dc-import>
+    <div id="m-fungsi" style="scroll-margin-top: 14.8rem; margin-top: var(--dalam)">
+      <dc-import name="FunctionShowcase" tata="desktop" hint-size="100%,20rem"></dc-import>
+    </div>
+    <div id="m-unggul" style="scroll-margin-top: 14.8rem; margin-top: var(--dalam)">
+      <dc-import name="AdvantageList" tata="desktop" hint-size="100%,25rem"></dc-import>
+    </div>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="ProductArticles" tata="desktop" judulKecil="{{ true }}" hint-size="100%,36rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="RelatedProducts" tata="desktop" teksKecil="{{ true }}" hint-size="100%,20rem"></dc-import>
+  </div>
+  <div id="m-penawaran" style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="ConsultationBanner" isi="penawaran" tata="desktop" hint-size="100%,18rem"></dc-import>
+  </div>
+  <div id="m-faq" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="FaqList" tata="desktop" tanyaTinggi="6rem" hint-size="100%,60rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--footer-jarak) / 2) var(--sisi)">
+    <dc-import name="PartnerLogos" tata="desktop" hint-size="100%,25rem"></dc-import>
+  </div>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" hint-size="100%,40rem"></dc-import>
+  </div>
+  <dc-import name="DesktopIsland" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tampilan":{"editor":"enum","default":"tabel","options":["tabel","kartu"],"section":"Keadaan awal"},"filterAwal":{"editor":"enum","default":"kosong","options":["kosong","terpilih"],"section":"Keadaan awal"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { tampilan: this.props.tampilan, filterAwal: this.props.filterAwal };
+  }
+}
+</script>
+</body>
+</html>

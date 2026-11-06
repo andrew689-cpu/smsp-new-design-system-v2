@@ -1,0 +1,506 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "BerandaM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Beranda",
+      "w": 360,
+      "x": 1440,
+      "y": -1200
+    },
+    "Button.dc.html": {
+      "h": 60,
+      "is_interactive": true,
+      "page": "components",
+      "title": "Button",
+      "w": 240,
+      "x": 780,
+      "y": 2500
+    },
+    "Colors.dc.html": {
+      "h": 1700,
+      "page": "components",
+      "title": "Fondasi · Warna",
+      "w": 1200,
+      "x": 0,
+      "y": 0
+    },
+    "DesktopArtikelM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Detail Artikel · Desktop",
+      "w": 1440,
+      "x": 9120,
+      "y": 1200
+    },
+    "DesktopBerandaM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Beranda · Desktop",
+      "w": 1440,
+      "x": 6080,
+      "y": 1200
+    },
+    "DesktopBlogM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Blog · Desktop",
+      "w": 1440,
+      "x": 7600,
+      "y": 1200
+    },
+    "DesktopKategoriM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Kategori · Desktop",
+      "w": 1440,
+      "x": 10640,
+      "y": 1200
+    },
+    "DesktopProdukIndexM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Semua Produk · Desktop",
+      "w": 1440,
+      "x": 3040,
+      "y": 1200
+    },
+    "DesktopProdukM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Desktop Product Page",
+      "w": 1440,
+      "x": 0,
+      "y": 1200
+    },
+    "DesktopProdukM4Salinan.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Desktop Product Page",
+      "w": 1440,
+      "x": 0,
+      "y": 2500
+    },
+    "DesktopSkuM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Desktop SKU Page",
+      "w": 1440,
+      "x": 1520,
+      "y": 1200
+    },
+    "DesktopSkuM4Salinan.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Desktop SKU Page",
+      "w": 1440,
+      "x": 1520,
+      "y": 2500
+    },
+    "DesktopUlasanM4.dc.html": {
+      "expand": "fill",
+      "h": 900,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Desktop Ulasan Page",
+      "w": 1440,
+      "x": 4560,
+      "y": 1200
+    },
+    "DetailArtikel2M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Detail Artikel 2",
+      "w": 360,
+      "x": 4840,
+      "y": 0
+    },
+    "DetailArtikel3M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Detail Artikel 3",
+      "w": 360,
+      "x": 5720,
+      "y": 0
+    },
+    "DetailArtikel4M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Detail Artikel 4",
+      "w": 360,
+      "x": 6600,
+      "y": 0
+    },
+    "DocSpec.dc.html": {
+      "h": 60,
+      "page": "components",
+      "title": "DocSpec · alat dokumentasi",
+      "w": 240,
+      "x": 1100,
+      "y": 2500
+    },
+    "FontSizes.dc.html": {
+      "h": 2100,
+      "page": "components",
+      "title": "Fondasi · Ukuran huruf",
+      "w": 1200,
+      "x": 1280,
+      "y": 0
+    },
+    "Icon.dc.html": {
+      "h": 40,
+      "page": "components",
+      "title": "Icon",
+      "w": 40,
+      "x": 660,
+      "y": 2500
+    },
+    "KategoriM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Kategori",
+      "w": 360,
+      "x": 3960,
+      "y": 0
+    },
+    "Price.dc.html": {
+      "h": 60,
+      "page": "components",
+      "title": "Price",
+      "w": 140,
+      "x": 440,
+      "y": 2500
+    },
+    "ProdukIndexM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Semua Produk",
+      "w": 360,
+      "x": 880,
+      "y": 0
+    },
+    "RecCreateM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Mobbin 3 · Produk Page",
+      "w": 360,
+      "x": 0,
+      "y": 0
+    },
+    "RecCreateM4Salinan1.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Mobbin 3 · Produk Page Salinan 1",
+      "w": 360,
+      "x": 2240,
+      "y": -1200
+    },
+    "SalinanArtikel2M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Detail Artikel",
+      "w": 360,
+      "x": 3080,
+      "y": 0
+    },
+    "SalinanArtikel2M4Salinan.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Detail Artikel 2",
+      "w": 360,
+      "x": 3520,
+      "y": 0
+    },
+    "SalinanArtikelM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Detail Artikel",
+      "w": 360,
+      "x": 4240,
+      "y": -1200
+    },
+    "SalinanBeranda2M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Beranda 2",
+      "w": 360,
+      "x": 1320,
+      "y": 0
+    },
+    "SalinanBeranda3M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Beranda 3",
+      "w": 360,
+      "x": 1760,
+      "y": 0
+    },
+    "SalinanBerandaM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Beranda",
+      "w": 360,
+      "x": 1840,
+      "y": -1200
+    },
+    "SalinanBlog2M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Blog 2",
+      "w": 360,
+      "x": 4640,
+      "y": -1200
+    },
+    "SalinanBlog3M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Blog 3",
+      "w": 360,
+      "x": 4400,
+      "y": 0
+    },
+    "SalinanBlog4M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Blog 4",
+      "w": 360,
+      "x": 5280,
+      "y": 0
+    },
+    "SalinanBlog5M4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Blog 5",
+      "w": 360,
+      "x": 6160,
+      "y": 0
+    },
+    "SalinanBlogM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Blog",
+      "w": 360,
+      "x": 2200,
+      "y": 0
+    },
+    "SalinanBlogM4Salinan.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Blog 2",
+      "w": 360,
+      "x": 2640,
+      "y": 0
+    },
+    "SalinanProdukPageM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Produk Page",
+      "w": 360,
+      "x": 2640,
+      "y": -1200
+    },
+    "SalinanSkuPageM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan SKU Page",
+      "w": 360,
+      "x": 3040,
+      "y": -1200
+    },
+    "SheetPriceList.dc.html": {
+      "h": 1650,
+      "is_interactive": true,
+      "page": "components",
+      "title": "Pecahan · Baris harga dan tombol",
+      "w": 1200,
+      "x": 2560,
+      "y": 0
+    },
+    "SkuDetailM4.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Mobbin 3 · Detail SKU",
+      "w": 360,
+      "x": 440,
+      "y": 0
+    },
+    "SkuRow.dc.html": {
+      "h": 76,
+      "is_interactive": true,
+      "page": "components",
+      "title": "SkuRow",
+      "w": 360,
+      "x": 0,
+      "y": 2500
+    },
+    "UlasanM4Salinan.dc.html": {
+      "expand": "fill",
+      "h": 800,
+      "is_interactive": true,
+      "page": "salinan4",
+      "title": "Salinan Mobbin 3 · Semua Ulasan",
+      "w": 360,
+      "x": 3440,
+      "y": -1200
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-03T01:16:10Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "page": "salinan4",
+    "view": "canvas"
+  },
+  "notes": {
+    "n-components-fondasi": {
+      "kind": "title1",
+      "maxW": 3760,
+      "page": "components",
+      "text": "Fondasi dan pecahan",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "n-components-master": {
+      "kind": "title1",
+      "maxW": 1400,
+      "page": "components",
+      "text": "Komponen sumber",
+      "w": 240,
+      "x": 0,
+      "y": 2240
+    },
+    "n-desktop-m4-title": {
+      "kind": "title1",
+      "maxW": 4480,
+      "page": "salinan4",
+      "text": "Desktop M3 · bahasa Mobbin 3 pada 1440",
+      "w": 240,
+      "x": 0,
+      "y": 900
+    }
+  },
+  "order": [
+    "RecCreateM4.dc.html",
+    "SkuDetailM4.dc.html",
+    "RecCreateM4Salinan1.dc.html",
+    "SalinanProdukPageM4.dc.html",
+    "SalinanSkuPageM4.dc.html",
+    "UlasanM4Salinan.dc.html",
+    "DesktopProdukM4.dc.html",
+    "DesktopSkuM4.dc.html",
+    "DesktopUlasanM4.dc.html",
+    "DesktopProdukM4Salinan.dc.html",
+    "DesktopSkuM4Salinan.dc.html",
+    "ProdukIndexM4.dc.html",
+    "DesktopProdukIndexM4.dc.html",
+    "BerandaM4.dc.html",
+    "DesktopBerandaM4.dc.html",
+    "DesktopBlogM4.dc.html",
+    "DesktopArtikelM4.dc.html",
+    "KategoriM4.dc.html",
+    "DesktopKategoriM4.dc.html",
+    "SalinanBlogM4.dc.html",
+    "SalinanBlogM4Salinan.dc.html",
+    "SalinanBlog3M4.dc.html",
+    "SalinanArtikelM4.dc.html",
+    "SalinanBlog2M4.dc.html",
+    "SalinanArtikel2M4.dc.html",
+    "DetailArtikel2M4.dc.html",
+    "SalinanArtikel2M4Salinan.dc.html",
+    "SalinanBerandaM4.dc.html",
+    "SalinanBeranda2M4.dc.html",
+    "SalinanBeranda3M4.dc.html",
+    "SalinanBlog4M4.dc.html",
+    "DetailArtikel3M4.dc.html",
+    "SalinanBlog5M4.dc.html",
+    "DetailArtikel4M4.dc.html",
+    "Colors.dc.html",
+    "FontSizes.dc.html",
+    "SheetPriceList.dc.html",
+    "SkuRow.dc.html",
+    "Price.dc.html",
+    "Icon.dc.html",
+    "Button.dc.html",
+    "DocSpec.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "salinan4",
+      "name": "Prototype Mobbin 4"
+    },
+    {
+      "id": "components",
+      "name": "Components"
+    }
+  ],
+  "title": "Prototype Mobbin 4"
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Footer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div style="background: var(--ink); color: var(--surface); padding: {{ padAtas }} {{ sisiPonsel }} {{ padBawah }} {{ sisiPonsel }}">
+    <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-kaki); color: var(--kaki-redup)">{{ eyebrow }}</p>
+    <p style="margin: 0.6rem 0 0 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ judul }}</p>
+    <sc-if value="{{ isPenuh }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-top: {{ j0 }}; display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ kategori }}" as="fc" hint-placeholder-count="11">
+          <div style="margin-top: {{ fc.atas }}; margin-bottom: {{ fc.bawah }}">
+            <dc-import name="Accordion" jenis="baris" tanya="{{ fc.h }}" buka="{{ fc.open }}" onUbah="{{ fc.toggle }}" tinggiMin="4rem" warna="var(--surface)" bobot="{{ bobotKategori }}" tinggi="inherit" celah="calc(var(--rapat) / 2)" ikon="chevron-bawah" ikonUkuran="{{ 16 }}" ikonWarna="var(--surface)" ikonGaris="{{ garisKategori }}" hint-size="100%,4rem"></dc-import>
+            <sc-if value="{{ fc.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; padding: 0.6rem 0 0 0.4rem; row-gap: 0; column-gap: 0">
+                <sc-for list="{{ fc.items }}" as="fi" hint-placeholder-count="3">
+                  <a href="{{ fi.href }}" style="font-size: var(--teks-body); color: var(--kaki-redup); margin-top: {{ fi.atas }}; margin-bottom: {{ fi.bawah }}">{{ fi.l }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; margin-top: {{ j1 }}; row-gap: 0; column-gap: 0">
+        <sc-for list="{{ info }}" as="fo" hint-placeholder-count="7">
+          <div style="margin-top: {{ fo.atas }}; margin-bottom: {{ fo.bawah }}">
+            <p style="margin: 0 0 0.4rem 0; font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ fo.h }}</p>
+            <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--kaki-redup); white-space: pre-line">{{ fo.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; row-gap: {{ barisSosial }}; column-gap: 0; margin-top: {{ j2 }}">
+        <sc-for list="{{ sosial }}" as="so" hint-placeholder-count="6">
+          <a href="{{ so.href }}" style="font-size: var(--teks-body); font-weight: var(--bobot-bold); color: var(--surface); margin-left: {{ so.kiri }}; margin-right: {{ sisiSosial }}">{{ so.l }}</a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isRingkas }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-wrap: wrap; row-gap: 0.8rem; column-gap: 0; margin-top: {{ jarakTautan }}">
+        <sc-for list="{{ tautan }}" as="t" hint-placeholder-count="6">
+          <a href="{{ t.href }}" style="font-size: var(--teks-body); color: var(--kaki-redup); margin-left: {{ t.kiri }}; margin-right: 0.9rem">{{ t.l }}</a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <p style="margin: {{ j3 }} 0 0 0; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--kaki-redup)">{{ hakCipta }}</p>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="box-sizing: border-box; padding: var(--footer-pad) var(--sisi) 4rem var(--sisi); background: var(--ink); color: var(--surface)">
+    <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <div style="margin-left: 0; margin-right: calc(var(--seksi) / 2); margin-top: 0; margin-bottom: calc(var(--seksi) / 2)">
+        <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: var(--kaki-redup); letter-spacing: var(--renggang-kaki)">{{ eyebrow }}</p>
+        <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold); line-height: var(--tinggi-artikel)">{{ judul }}</p>
+        <sc-if value="{{ adaSosialD }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; row-gap: 1.6rem; column-gap: 0; margin-top: 2rem">
+            <sc-for list="{{ sosialD }}" as="so" hint-placeholder-count="4">
+              <a href="{{ so.href }}" style="font-size: var(--teks-lead); font-weight: var(--bobot-bold); color: var(--surface); margin-left: {{ so.kiri }}; margin-right: 0.8rem">{{ so.l }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <sc-for list="{{ kolom }}" as="kf" hint-placeholder-count="3">
+        <div style="margin-left: calc(var(--seksi) / 2); margin-right: calc(var(--seksi) / 2); margin-top: {{ kf.atas }}; margin-bottom: 0">
+          <p style="margin: 0 0 1.2rem 0; font-size: var(--teks-lead); font-weight: var(--bobot-bold)">{{ kf.h }}</p>
+          <div style="display: flex; flex-direction: column; row-gap: 0; column-gap: 0">
+            <sc-for list="{{ kf.items }}" as="fi" hint-placeholder-count="5">
+              <a href="{{ fi.href }}" style="font-size: var(--teks-lead); color: var(--kaki-redup); line-height: var(--tinggi-kaki); margin-top: {{ fi.atas }}; margin-bottom: {{ fi.bawah }}">{{ fi.l }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 4.8rem 0 0 0; font-size: var(--teks-meta); color: var(--kaki-redup); line-height: var(--tinggi-kaki)">{{ hakCipta }}</p>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"jenis":{"editor":"enum","options":["penuh","ringkas"],"default":"penuh","section":"Resep"},"kategoriGaya":{"editor":"enum","options":["tebal","sedang"],"default":"tebal","section":"Resep"},"eyebrow":{"editor":"text","default":"DISTRIBUTOR BESI TERPERCAYA","section":"Isi"},"judul":{"editor":"text","default":"Besi dan material konstruksi untuk proyek Anda","section":"Isi"},"hakCipta":{"editor":"text","default":"2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.","section":"Isi"},"kategori":{"editor":null,"section":"Isi","tsType":"Array<{h:string,items:Array<string|{label:string,href?:string}>}>"},"info":{"editor":null,"section":"Isi","tsType":"Array<{h:string,t:string}>"},"sosial":{"editor":null,"section":"Isi","tsType":"Array<string|{label:string,href?:string}>"},"tautan":{"editor":null,"section":"Isi","tsType":"Array<string|{label:string,href?:string}>"},"kolom":{"editor":null,"section":"Isi","tsType":"Array<{h:string,items:Array<string|{label:string,href?:string}>}>"},"hrefKategori":{"editor":"text","default":"#produk","section":"Tautan"},"hrefKolom":{"editor":"text","default":"#produk","section":"Tautan"},"hrefSosial":{"editor":"text","default":"#sosial","section":"Tautan"},"sisiPonsel":{"editor":"text","default":"var(--sisi)","section":"Jarak"},"padAtas":{"editor":"text","default":"var(--dalam)","section":"Jarak"},"jarakBaris":{"editor":"text","default":"","section":"Jarak"},"jarakKategori":{"editor":"text","default":"calc(var(--dalam) / 2)","section":"Jarak"},"jarakInfo":{"editor":"text","default":"calc(var(--dalam) / 2)","section":"Jarak"},"jarakSosial":{"editor":"text","default":"calc(var(--rapat) / 2)","section":"Jarak"},"barisSosial":{"editor":"text","default":"var(--rapat)","section":"Jarak"},"jarakTautan":{"editor":"text","default":"var(--dalam)","section":"Jarak"},"isiDesktop":{"editor":"enum","options":["lengkap","ringkas"],"default":"lengkap","section":"Isi"},"$preview":{"width":360,"height":1850}}'>
+class Component extends DCLogic {
+  state = { foot: -1 };
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const jenis = this.props.jenis ?? 'penuh';
+    const desktop = tata === 'desktop';
+    const tautanDari = (x, h) => (typeof x === 'string' ? { l: x, href: h } : { l: x.label, href: x.href ?? '#' });
+    const hrefKategori = this.props.hrefKategori ?? '#produk';
+    const hrefKolom = this.props.hrefKolom ?? '#produk';
+    const hrefSosial = this.props.hrefSosial ?? '#sosial';
+    const y = (i, n, m) => ({ atas: i === 0 ? '0' : m, bawah: i === n - 1 ? '0' : m });
+    const kat = this.props.kategori ?? [
+      { h: 'Besi Hollow dan Pipa Bulat', items: ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis'] },
+      { h: 'Besi Kawat', items: ['Wiremesh', 'Kawat Bendrat', 'Besi Begel'] },
+      { h: 'Plat Besi', items: ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal'] },
+      { h: 'Besi Batangan', items: ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir'] },
+      { h: 'Baja Ringan', items: ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan'] },
+      { h: 'Plat Gelombang', items: ['Bondek', 'Atap Galvalum'] },
+      { h: 'Besi Profil Struktural', items: ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP'] },
+      { h: 'Atap', items: ['Atap UPVC'] },
+      { h: 'Plat Stainless Steel', items: ['Plat Stainless SS304', 'Plat Stainless SS316L'] },
+      { h: 'Hollow Stainless Steel', items: ['Hollow Stainless 201', 'Hollow Stainless 304'] },
+      { h: 'Pipa Stainless Steel', items: ['Pipa Stainless 201', 'Pipa Stainless 304'] }
+    ];
+    const info = this.props.info ?? [
+      { h: 'Gudang Surabaya', t: 'Jl. Mutiara Tambak Langon Blok I / 23H\nTambak Langon, Asem Rowo\nKota Surabaya, Jawa Timur, 60184' },
+      { h: 'Gudang Jakarta', t: 'Jl. Palem Manis Raya, RT.001/RW.004\nGandasari, Kec. Jatiuwung,\nKota Tangerang, Banten, 15137' },
+      { h: 'Kantor', t: 'Jl. BKR Pelajar 51, Ketabang,\nKec. Genteng, Kota Surabaya,\nJawa Timur, 60272' },
+      { h: 'Kontak', t: 'WhatsApp: klik untuk chat\nMobile: +628112689889\nEmail: sales@smsperkasa.com' },
+      { h: 'Perusahaan', t: 'Tentang Kami\nKarir\nBlog' },
+      { h: 'Bantuan', t: 'Kontak Kami\nFAQ\nKebijakan Privasi\nSyarat dan Ketentuan\nCara Pemesanan' },
+      { h: 'Tools', t: 'Kalkulator Material' }
+    ];
+    const ringkasD = this.props.isiDesktop === 'ringkas';
+    const sosial = this.props.sosial ?? (desktop ? (ringkasD ? [] : ['Instagram', 'Facebook', 'YouTube', 'TikTok']) : ['LinkedIn', 'TikTok', 'Facebook', 'X', 'YouTube', 'Instagram']);
+    const tautan = this.props.tautan ?? [
+      { label: 'Bantuan dan FAQ', href: '#bantuan' },
+      { label: 'Kalkulator Berat', href: '#kalkulator' },
+      { label: 'Cara Pemesanan', href: '#cara-pemesanan' },
+      { label: 'Lokasi Gudang', href: '#gudang' },
+      { label: 'Tentang Kami', href: '#tentang' },
+      { label: 'Blog', href: '#blog' }
+    ];
+    const kolom = this.props.kolom ?? [
+      { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF'].concat(ringkasD ? [] : ['Wiremesh']) },
+      { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+      { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+    ];
+    const sedang = this.props.kategoriGaya === 'sedang';
+    const foot = this.state.foot;
+    /* jarakBaris: teks "a b c d" dengan - untuk nilai bawaan. */
+    const jarak = String(this.props.jarakBaris || '').split(' ').map((x) => (x === '-' ? '' : x));
+    const garisSisi = (x, i, m, h) => Object.assign(tautanDari(x, h), { kiri: i === 0 ? '0' : m });
+    return {
+      isPonsel: !desktop,
+      sisiPonsel: this.props.sisiPonsel ?? 'var(--sisi)',
+      padAtas: this.props.padAtas ?? 'var(--dalam)',
+      barisSosial: this.props.barisSosial ?? 'var(--rapat)',
+      sisiSosial: this.props.jarakSosial ?? 'calc(var(--rapat) / 2)',
+      jarakTautan: this.props.jarakTautan ?? 'var(--dalam)',
+      j0: jarak[0] || 'var(--dalam)',
+      j1: jarak[1] || 'var(--dalam)',
+      j2: jarak[2] || 'var(--dalam)',
+      j3: jarak[3] || 'var(--dalam)',
+      isDesktop: desktop,
+      isPenuh: jenis !== 'ringkas',
+      isRingkas: jenis === 'ringkas',
+      padBawah: jenis === 'ringkas' ? '12rem' : '25rem',
+      eyebrow: this.props.eyebrow ?? 'DISTRIBUTOR BESI TERPERCAYA',
+      judul: this.props.judul ?? 'Besi dan material konstruksi untuk proyek Anda',
+      hakCipta: this.props.hakCipta ?? '2012 - 2026 PT. Sumber Makmur Surya Perkasa. Hak cipta dilindungi undang-undang.',
+      bobotKategori: sedang ? 'var(--bobot-semibold)' : 'var(--bobot-bold)',
+      garisKategori: sedang ? 2.2 : 1.8,
+      kategori: kat.map((c, i) => Object.assign({
+        h: c.h,
+        open: foot === i,
+        items: c.items.map((x, j) => Object.assign(tautanDari(x, hrefKategori), y(j, c.items.length, '0.4rem'))),
+        toggle: () => this.setState({ foot: foot === i ? -1 : i })
+      }, y(i, kat.length, this.props.jarakKategori ?? 'calc(var(--dalam) / 2)'))),
+      info: info.map((f, i) => Object.assign({ h: f.h, t: f.t }, y(i, info.length, this.props.jarakInfo ?? 'calc(var(--dalam) / 2)'))),
+      sosial: desktop ? [] : sosial.map((x, i) => garisSisi(x, i, this.props.jarakSosial ?? 'calc(var(--rapat) / 2)', hrefSosial)),
+      tautan: tautan.map((x, i) => garisSisi(x, i, '0.9rem', '#')),
+      adaSosialD: desktop && sosial.length > 0,
+      sosialD: desktop ? sosial.map((x, i) => garisSisi(x, i, '0.8rem', hrefSosial)) : [],
+      kolom: kolom.map((k, i) => ({
+        h: k.h,
+        atas: i === 2 ? 'calc(var(--seksi) / 2)' : '0',
+        items: k.items.map((x, j) => Object.assign(tautanDari(x, hrefKolom), y(j, k.items.length, '0.45rem')))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

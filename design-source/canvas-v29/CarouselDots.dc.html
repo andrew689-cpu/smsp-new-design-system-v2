@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CarouselDots</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isBulat }}" hint-placeholder-val="{{ true }}">
+  <span role="group" aria-label="{{ ariaLabel }}" style="{{ wadah }}">
+    <sc-for list="{{ daftar }}" as="t" hint-placeholder-count="3">
+      <button type="button" onClick="{{ t.pergi }}" aria-label="{{ t.aria }}" aria-current="{{ t.kini }}" style="{{ t.tombol }}">
+        <span aria-hidden="true" style="{{ t.gaya }}"></span>
+      </button>
+    </sc-for>
+  </span>
+</sc-if>
+<sc-if value="{{ isProgres }}" hint-placeholder-val="{{ false }}">
+  <div data-rev-nav="1" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 4.4rem">
+    <sc-for list="{{ daftar }}" as="t" hint-placeholder-count="3">
+      <button type="button" onClick="{{ t.pergi }}" aria-label="{{ t.aria }}" aria-current="{{ t.kini }}" style="width: {{ lebarTombol }}; height: 4.4rem; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 0; border: 0; border-radius: 0.4rem; background: transparent; cursor: pointer">
+        <span aria-hidden="true" style="{{ t.gaya }}"><span style="{{ t.isi }}"></span></span>
+      </button>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["bulat","progres","fungsi"],"default":"bulat"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"titik":{"editor":null,"tsType":"Array<{aria:string,aktif:boolean,pergi:Function}>"},"berjalan":{"editor":"boolean","default":false},"halaman":{"editor":null},"padding":{"editor":null},"ariaLabel":{"editor":null,"default":"Pilih spanduk"},"durasiLebar":{"editor":null},"lebarTombol":{"editor":null},"tinggiTombol":{"editor":"text","default":"","section":"Ukuran"},"$preview":{"width":200,"height":44}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'bulat';
+    const desktop = this.props.tata === 'desktop';
+    const berjalan = !!this.props.berjalan;
+    const halaman = Number(this.props.halaman ?? 0);
+    const titik = this.props.titik ?? [{ aria: 'Spanduk 1 dari 3, sedang tampil', aktif: true }, { aria: 'Spanduk 2 dari 3', aktif: false }, { aria: 'Spanduk 3 dari 3', aktif: false }];
+    const padding = this.props.padding ?? (desktop ? 'var(--rapat) var(--sisi) 0 var(--sisi)' : '0.8rem 0 0 0');
+    const bulat = (on) => desktop
+      ? 'height: 0.8rem; border-radius: var(--pill); ' + (on ? 'width: 1.6rem; background: var(--ink)' : 'width: 0.8rem; background: var(--ink-4)')
+      : 'height: 0.7rem; border-radius: var(--pill); ' + (on ? 'width: 1.4rem; background: var(--ink)' : 'width: 0.7rem; background: var(--ink-4)');
+    const tombol = (i) => desktop
+      ? 'height: 3.2rem; padding: 0 0.6rem; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer; margin-left: ' + (i === 0 ? '0' : '0.1rem') + '; margin-right: 0.1rem'
+      : 'height: ' + (this.props.tinggiTombol || '2.8rem') + '; padding: 0 0.55rem; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer';
+    const progres = (on) => 'display: block; overflow: hidden; border-radius: var(--pill); transition: transform 150ms ease, background 150ms ease, width ' + (this.props.durasiLebar ?? '200ms') + ' ease; ' +
+      (on ? 'width: 2.4rem; height: 0.8rem; background: ' + (berjalan ? 'var(--ink-4)' : 'var(--ink)') + ';' : 'width: 0.8rem; height: 0.8rem; background: var(--ink-4);');
+    const isi = (on) => on && berjalan
+      ? 'display: block; height: 100%; width: 0; border-radius: var(--pill); background: var(--ink); animation: ' + (halaman % 2 ? 'revFillB' : 'revFillA') + ' 3000ms linear forwards;'
+      : 'display: none;';
+    return {
+      isBulat: jenis === 'bulat' || jenis === 'fungsi',
+      lebarTombol: this.props.lebarTombol ?? '2.8rem',
+      isProgres: jenis === 'progres',
+      ariaLabel: this.props.ariaLabel ?? 'Pilih spanduk',
+      wadah: 'display: flex; align-items: center; justify-content: center; column-gap: 0; padding: ' + padding,
+      daftar: titik.map((t, i) => ({
+        aria: t.aria,
+        kini: t.aktif ? 'true' : 'false',
+        pergi: t.pergi,
+        tombol: jenis === 'fungsi' ? 'padding: 1.2rem 0.7rem; background: none; border: 0; display: grid; place-items: center' : tombol(i),
+        gaya: jenis === 'fungsi' ? 'height: 0.8rem; border-radius: var(--pill); ' + (t.aktif ? 'width: 1.6rem; background: var(--ink)' : 'width: 0.8rem; background: var(--star-kosong)') : jenis === 'progres' ? progres(!!t.aktif) : bulat(!!t.aktif),
+        isi: isi(!!t.aktif)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

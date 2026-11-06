@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CsatRating</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="box-sizing: border-box; padding: 1.2rem 1.4rem; border-radius: var(--card); background: var(--line)">
+  <div style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+    <span aria-hidden="true" style="width: 3.4rem; height: 3.4rem; flex-shrink: 0; border-radius: var(--tile); background: var(--awas-bg); display: grid; place-items: center; margin-right: 0.5rem">
+      <dc-import name="Icon" ikon="lambang" hint-size="2rem,2rem"></dc-import>
+    </span>
+    <span style="min-width: 0; margin-left: 0.5rem; margin-right: 0.5rem">
+      <span style="display: block; font-size: var(--teks-meta); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold)">{{ judul }}</span>
+      <span style="display: block; margin-top: 0.2rem; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ tanya }}</span>
+    </span>
+  </div>
+  <div role="group" aria-label="{{ labelKelompok }}" style="margin-top: 0.4rem; display: flex; align-items: center; justify-content: space-between">
+    <sc-for list="{{ bintang }}" as="bt" hint-placeholder-count="5">
+      <button type="button" onClick="{{ bt.pick }}" aria-pressed="{{ bt.sel }}" aria-label="{{ bt.aria }}" style="width: 4.4rem; height: 4.4rem; border-radius: var(--pill); display: grid; place-items: center">
+        <dc-import name="Icon" ikon="bintang" ukuran="{{ 24 }}" isi="{{ bt.isi }}" warna="var(--bintang-garis)" hint-size="2.4rem,2.4rem"></dc-import>
+      </button>
+    </sc-for>
+  </div>
+  <sc-if value="{{ adaKet }}" hint-placeholder-val="{{ false }}">
+    <p aria-live="polite" style="margin: 0.2rem 0 0 0; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ ket }}</p>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"nilai":{"editor":null},"judul":{"editor":null,"default":"CSAT (Customer Satisfaction)"},"tanya":{"editor":null,"default":"Bagaimana pengalaman Anda hari ini?"},"labelKelompok":{"editor":null,"default":"Beri nilai pengalaman Anda"},"onNilai":{"editor":null},"$preview":{"width":330,"height":130}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const nilai = this.state.nilai ?? this.props.nilai ?? 0;
+    return {
+      judul: this.props.judul ?? 'CSAT (Customer Satisfaction)',
+      tanya: this.props.tanya ?? 'Bagaimana pengalaman Anda hari ini?',
+      labelKelompok: this.props.labelKelompok ?? 'Beri nilai pengalaman Anda',
+      bintang: [1, 2, 3, 4, 5].map((n) => ({
+        isi: n <= nilai ? 'var(--bintang)' : 'transparent',
+        sel: n === nilai ? 'true' : 'false',
+        aria: 'Beri nilai ' + n + ' dari 5',
+        pick: () => {
+          this.setState({ nilai: n });
+          if (this.props.onNilai) this.props.onNilai(n);
+        }
+      })),
+      adaKet: nilai > 0,
+      ket: nilai > 0 ? 'Terima kasih — Anda memberi nilai ' + nilai + ' dari 5.' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

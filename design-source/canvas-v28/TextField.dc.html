@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLabel }}" hint-placeholder-val="{{ true }}"><span style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%">
+  <label for="{{ idBidang }}" style="font-size: var(--teks-tiny); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-kecil); text-transform: uppercase; color: var(--ink-2)">{{ label }}</label>
+  <input id="{{ idBidang }}" type="{{ tipe }}" value="{{ nilai }}" onChange="{{ ubah }}" placeholder="{{ placeholder }}" style="{{ gaya }}">
+</span></sc-if>
+<sc-if value="{{ isKotak }}" hint-placeholder-val="{{ false }}"><input id="{{ idPolos }}" type="{{ tipe }}" value="{{ nilai }}" onChange="{{ ubah }}" aria-label="{{ ariaLabel }}" autocomplete="{{ autocomplete }}" placeholder="{{ placeholder }}" style="{{ gayaKotak }}"></sc-if>
+<sc-if value="{{ isPolos }}" hint-placeholder-val="{{ false }}"><input id="{{ idPolos }}" type="{{ tipe }}" value="{{ nilai }}" onChange="{{ ubah }}" aria-label="{{ ariaLabel }}" placeholder="{{ placeholder }}" style="{{ gayaPolos }}"></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":null,"default":"Nama"},"tipe":{"editor":"enum","options":["text","tel","email"],"default":"text","section":"Resep"},"nilai":{"editor":null},"placeholder":{"editor":null,"default":"Nama lengkap"},"id":{"editor":null},"onUbah":{"editor":null},"autocomplete":{"editor":"text","default":"","section":"Polos"},"jenis":{"editor":"enum","options":["label","polos","kotak"],"default":"label","section":"Resep"},"lebar":{"editor":"enum","options":["tumbuh","penuh"],"default":"tumbuh","section":"Polos"},"tinggiMin":{"editor":"text","default":"","section":"Polos"},"margin":{"editor":"text","default":"","section":"Polos"},"ariaLabel":{"editor":null},"$preview":{"width":320,"height":76}}'>
+class Component extends DCLogic {
+  state = { isi: '' };
+  uid = 'bidang-' + Math.random().toString(36).slice(2, 8);
+  renderVals() {
+    const tipe = this.props.tipe ?? 'text';
+    const dikendalikan = this.props.nilai !== undefined;
+    return {
+      isLabel: this.props.jenis !== 'polos' && this.props.jenis !== 'kotak',
+      isKotak: this.props.jenis === 'kotak',
+      autocomplete: this.props.autocomplete,
+      gayaKotak: 'box-sizing: border-box; width: 100%; min-height: 3.7rem; padding: 0 1.4rem; border: 0.1rem solid var(--ink-4); border-radius: var(--action); background: var(--surface); color: var(--ink); font-size: var(--teks-seksi); line-height: var(--tinggi-rapat)' + (tipe === 'tel' ? '; font-variant-numeric: tabular-nums' : ''),
+      isPolos: this.props.jenis === 'polos',
+      idPolos: this.props.id,
+      ariaLabel: this.props.ariaLabel,
+      gayaPolos: ((this.props.lebar ?? 'tumbuh') === 'penuh' ? 'width: 100%' : 'flex-grow: 1; min-width: 0') + (this.props.tinggiMin ? '; box-sizing: border-box; min-height: ' + this.props.tinggiMin : '') + '; border: 0; background: transparent; outline: none; font-size: var(--teks-body)' + (this.props.margin ? '; margin: ' + this.props.margin : ''),
+      idBidang: this.props.id ?? this.uid,
+      label: this.props.label ?? 'Nama',
+      tipe,
+      nilai: dikendalikan ? this.props.nilai : this.state.isi,
+      placeholder: this.props.placeholder ?? 'Nama lengkap',
+      ubah: (e) => {
+        if (!dikendalikan) this.setState({ isi: e.target.value });
+        if (this.props.onUbah) this.props.onUbah(e.target.value, e);
+      },
+      gaya: 'box-sizing: border-box; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; border: 0; border-radius: var(--control); background: var(--line); outline: none; font-size: var(--teks-body)' + (tipe === 'tel' ? '; font-variant-numeric: tabular-nums' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

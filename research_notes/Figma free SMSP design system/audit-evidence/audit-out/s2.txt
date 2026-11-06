@@ -1,0 +1,171 @@
+## stripped sizes/hash
+BerandaM4.dc.html 245094 94202 937629d2 Beranda
+DesktopArtikelM4.dc.html 74096 47099 cd14ca09 Detail Artikel · Desktop
+DesktopBerandaM4.dc.html 151278 80019 32f95570 Beranda · Desktop
+DesktopBlogM4.dc.html 112601 71310 cc15a27d Blog · Desktop
+DesktopKategoriM4.dc.html 47485 28096 1374cf2c Kategori · Desktop
+DesktopProdukIndexM4.dc.html 61141 43484 2184c19b Semua Produk · Desktop
+DesktopProdukM4.dc.html 408136 241418 adecc08f Desktop Product Page
+DesktopProdukM4Salinan.dc.html 402378 240857 ddc898da Salinan Desktop Product Page
+DesktopSkuM4.dc.html 256536 138073 b4395351 Desktop SKU Page
+DesktopSkuM4Salinan.dc.html 272505 153871 9c76dc6f Salinan Desktop SKU Page
+DesktopUlasanM4.dc.html 64152 46462 0cdb29bc Desktop Ulasan Page
+DetailArtikel2M4.dc.html 116714 58260 17969934 Detail Artikel 2
+DetailArtikel3M4.dc.html 118487 58261 792cc275 Detail Artikel 3
+DetailArtikel4M4.dc.html 118487 58261 792cc275 Detail Artikel 4
+KategoriM4.dc.html 60511 32875 19f34946 Kategori
+ProdukIndexM4.dc.html 84626 50076 1b59f2b7 Semua Produk
+RecCreateM4.dc.html 647787 351008 d0829317 Mobbin 3 · Produk Page
+RecCreateM4Salinan1.dc.html 160963 142178 27e0ea06 Mobbin 3 · Produk Page Salinan 1
+SalinanArtikel2M4.dc.html 115678 58259 68d965ab Detail Artikel
+SalinanArtikel2M4Salinan.dc.html 106660 58395 bd2fcf71 Salinan Detail Artikel 2
+SalinanArtikelM4.dc.html 104571 56454 0d72213d Salinan Detail Artikel
+SalinanBeranda2M4.dc.html 317594 109143 392b1ec4 Salinan Beranda 2
+SalinanBeranda3M4.dc.html 272460 110133 bbf81a64 Salinan Beranda 3
+SalinanBerandaM4.dc.html 209433 96728 54c79903 Salinan Beranda
+SalinanBlog2M4.dc.html 374872 192885 b0c9b5ed Salinan Blog 2
+SalinanBlog3M4.dc.html 472732 218796 11c5beac Salinan Blog 3
+SalinanBlog4M4.dc.html 483597 229348 9f83918d Salinan Blog 4
+SalinanBlog5M4.dc.html 479266 223692 bb10056b Salinan Blog 5
+SalinanBlogM4.dc.html 396205 203065 6649d161 Blog
+SalinanBlogM4Salinan.dc.html 406683 211963 3b58c34d Salinan Blog 2
+SalinanProdukPageM4.dc.html 160144 141813 25b5cd12 Salinan Produk Page
+SalinanSkuPageM4.dc.html 110311 95958 c62aea0d Salinan SKU Page
+SkuDetailM4.dc.html 207834 126389 6d1d109a Mobbin 3 · Detail SKU
+UlasanM4Salinan.dc.html 29346 19148 3d113532 Salinan Mobbin 3 · Semua Ulasan
+## dates in comments: min/max/count
+BerandaM4.dc.html 2026-10-13 2026-10-30 136 11
+DesktopArtikelM4.dc.html 2026-10-16 2026-10-30 28 8
+DesktopBerandaM4.dc.html 2026-10-15 2026-10-30 65 9
+DesktopBlogM4.dc.html 2026-10-13 2026-10-30 46 11
+DesktopKategoriM4.dc.html 2026-10-16 2026-10-30 22 8
+DesktopProdukIndexM4.dc.html 2026-10-16 2026-10-30 22 7
+DesktopProdukM4.dc.html 2026-10-12 2026-10-30 212 14
+DesktopProdukM4Salinan.dc.html 2026-10-12 2026-10-30 206 14
+DesktopSkuM4.dc.html 2026-10-12 2026-10-30 134 14
+DesktopSkuM4Salinan.dc.html 2026-10-12 2026-10-30 132 13
+DesktopUlasanM4.dc.html 2026-10-12 2026-10-30 21 8
+DetailArtikel2M4.dc.html 2026-10-17 2026-10-30 60 10
+DetailArtikel3M4.dc.html 2026-10-17 2026-10-31 63 11
+DetailArtikel4M4.dc.html 2026-10-17 2026-10-31 63 11
+KategoriM4.dc.html 2026-10-17 2026-10-30 36 9
+ProdukIndexM4.dc.html 2026-10-17 2026-11-02 44 10
+RecCreateM4.dc.html 2026-10-12 2026-11-02 328 17
+RecCreateM4Salinan1.dc.html 2026-10-16 2026-11-02 10 5
+SalinanArtikel2M4.dc.html 2026-10-17 2026-10-30 59 10
+SalinanArtikel2M4Salinan.dc.html 2026-10-17 2026-10-30 50 10
+SalinanArtikelM4.dc.html 2026-10-17 2026-10-30 49 10
+SalinanBeranda2M4.dc.html 2026-10-13 2026-11-02 184 12
+SalinanBeranda3M4.dc.html 2026-10-13 2026-10-30 144 11
+SalinanBerandaM4.dc.html 2026-10-13 2026-11-02 106 12
+SalinanBlog2M4.dc.html 2026-10-13 2026-10-30 182 15
+SalinanBlog3M4.dc.html 2026-10-13 2026-11-02 254 17
+SalinanBlog4M4.dc.html 2026-10-13 2026-10-31 257 16
+SalinanBlog5M4.dc.html 2026-10-13 2026-11-02 259 17
+SalinanBlogM4.dc.html 2026-10-13 2026-10-30 191 15
+SalinanBlogM4Salinan.dc.html 2026-10-13 2026-10-30 202 15
+SalinanProdukPageM4.dc.html 2026-10-16 2026-11-02 10 5
+SalinanSkuPageM4.dc.html 2026-10-16 2026-11-02 12 5
+SkuDetailM4.dc.html 2026-10-12 2026-11-02 98 15
+UlasanM4Salinan.dc.html 2026-10-16 2026-10-30 8 5
+## best matches
+1.0 DetailArtikel4M4.dc.html SalinanArtikel2M4.dc.html
+1.0 DetailArtikel3M4.dc.html SalinanArtikel2M4.dc.html
+1.0 DetailArtikel3M4.dc.html DetailArtikel4M4.dc.html
+1.0 DetailArtikel2M4.dc.html SalinanArtikel2M4.dc.html
+1.0 DetailArtikel2M4.dc.html DetailArtikel4M4.dc.html
+1.0 DetailArtikel2M4.dc.html DetailArtikel3M4.dc.html
+0.99 DesktopProdukM4.dc.html DesktopProdukM4Salinan.dc.html
+0.976 RecCreateM4Salinan1.dc.html SalinanProdukPageM4.dc.html
+0.962 SalinanBlog3M4.dc.html SalinanBlog5M4.dc.html
+0.951 SalinanBeranda2M4.dc.html SalinanBeranda3M4.dc.html
+0.945 SalinanArtikel2M4.dc.html SalinanArtikel2M4Salinan.dc.html
+0.945 DetailArtikel4M4.dc.html SalinanArtikel2M4Salinan.dc.html
+0.945 DetailArtikel3M4.dc.html SalinanArtikel2M4Salinan.dc.html
+0.945 DetailArtikel2M4.dc.html SalinanArtikel2M4Salinan.dc.html
+0.939 SalinanArtikel2M4Salinan.dc.html SalinanArtikelM4.dc.html
+0.927 SalinanBlogM4.dc.html SalinanBlogM4Salinan.dc.html
+0.92 SalinanBlog3M4.dc.html SalinanBlog4M4.dc.html
+0.913 SalinanArtikel2M4.dc.html SalinanArtikelM4.dc.html
+0.913 DetailArtikel4M4.dc.html SalinanArtikelM4.dc.html
+0.913 DetailArtikel3M4.dc.html SalinanArtikelM4.dc.html
+0.913 DetailArtikel2M4.dc.html SalinanArtikelM4.dc.html
+0.904 SalinanBlog4M4.dc.html SalinanBlog5M4.dc.html
+0.868 SalinanBlog4M4.dc.html SalinanBlogM4Salinan.dc.html
+0.861 SalinanBeranda2M4.dc.html SalinanBerandaM4.dc.html
+0.856 SalinanBeranda3M4.dc.html SalinanBerandaM4.dc.html
+0.856 DesktopSkuM4.dc.html DesktopSkuM4Salinan.dc.html
+0.851 SalinanBlog3M4.dc.html SalinanBlogM4Salinan.dc.html
+0.845 SalinanBlog2M4.dc.html SalinanBlogM4.dc.html
+0.831 SalinanBlog5M4.dc.html SalinanBlogM4Salinan.dc.html
+0.815 SalinanBlog4M4.dc.html SalinanBlogM4.dc.html
+0.807 BerandaM4.dc.html SalinanBerandaM4.dc.html
+0.806 SalinanBlog3M4.dc.html SalinanBlogM4.dc.html
+0.791 SalinanBlog5M4.dc.html SalinanBlogM4.dc.html
+0.789 SalinanBlog2M4.dc.html SalinanBlogM4Salinan.dc.html
+0.75 BerandaM4.dc.html SalinanBeranda3M4.dc.html
+0.742 BerandaM4.dc.html SalinanBeranda2M4.dc.html
+0.717 SalinanBlog2M4.dc.html SalinanBlog4M4.dc.html
+0.708 SalinanBlog2M4.dc.html SalinanBlog3M4.dc.html
+0.695 SalinanBlog2M4.dc.html SalinanBlog5M4.dc.html
+0.64 KategoriM4.dc.html ProdukIndexM4.dc.html
+0.608 KategoriM4.dc.html SalinanArtikelM4.dc.html
+0.602 SalinanSkuPageM4.dc.html SkuDetailM4.dc.html
+0.585 KategoriM4.dc.html SalinanArtikel2M4Salinan.dc.html
+0.574 KategoriM4.dc.html SalinanArtikel2M4.dc.html
+0.574 DetailArtikel4M4.dc.html KategoriM4.dc.html
+0.574 DetailArtikel3M4.dc.html KategoriM4.dc.html
+0.574 DetailArtikel2M4.dc.html KategoriM4.dc.html
+0.541 DesktopKategoriM4.dc.html DesktopProdukIndexM4.dc.html
+0.488 ProdukIndexM4.dc.html SalinanArtikelM4.dc.html
+0.475 DesktopArtikelM4.dc.html DesktopKategoriM4.dc.html
+## nearest neighbour per file
+BerandaM4.dc.html -> SalinanBerandaM4.dc.html 0.807
+DesktopArtikelM4.dc.html -> DesktopKategoriM4.dc.html 0.475
+DesktopBerandaM4.dc.html -> BerandaM4.dc.html 0.349
+DesktopBlogM4.dc.html -> DesktopArtikelM4.dc.html 0.368
+DesktopKategoriM4.dc.html -> DesktopProdukIndexM4.dc.html 0.541
+DesktopProdukIndexM4.dc.html -> DesktopKategoriM4.dc.html 0.541
+DesktopProdukM4.dc.html -> DesktopProdukM4Salinan.dc.html 0.99
+DesktopProdukM4Salinan.dc.html -> DesktopProdukM4.dc.html 0.99
+DesktopSkuM4.dc.html -> DesktopSkuM4Salinan.dc.html 0.856
+DesktopSkuM4Salinan.dc.html -> DesktopSkuM4.dc.html 0.856
+DesktopUlasanM4.dc.html -> DesktopKategoriM4.dc.html 0.304
+DetailArtikel2M4.dc.html -> SalinanArtikel2M4.dc.html 1.0
+DetailArtikel3M4.dc.html -> SalinanArtikel2M4.dc.html 1.0
+DetailArtikel4M4.dc.html -> SalinanArtikel2M4.dc.html 1.0
+KategoriM4.dc.html -> ProdukIndexM4.dc.html 0.64
+ProdukIndexM4.dc.html -> KategoriM4.dc.html 0.64
+RecCreateM4.dc.html -> SalinanBlogM4Salinan.dc.html 0.369
+RecCreateM4Salinan1.dc.html -> SalinanProdukPageM4.dc.html 0.976
+SalinanArtikel2M4.dc.html -> DetailArtikel4M4.dc.html 1.0
+SalinanArtikel2M4Salinan.dc.html -> SalinanArtikel2M4.dc.html 0.945
+SalinanArtikelM4.dc.html -> SalinanArtikel2M4Salinan.dc.html 0.939
+SalinanBeranda2M4.dc.html -> SalinanBeranda3M4.dc.html 0.951
+SalinanBeranda3M4.dc.html -> SalinanBeranda2M4.dc.html 0.951
+SalinanBerandaM4.dc.html -> SalinanBeranda2M4.dc.html 0.861
+SalinanBlog2M4.dc.html -> SalinanBlogM4.dc.html 0.845
+SalinanBlog3M4.dc.html -> SalinanBlog5M4.dc.html 0.962
+SalinanBlog4M4.dc.html -> SalinanBlog3M4.dc.html 0.92
+SalinanBlog5M4.dc.html -> SalinanBlog3M4.dc.html 0.962
+SalinanBlogM4.dc.html -> SalinanBlogM4Salinan.dc.html 0.927
+SalinanBlogM4Salinan.dc.html -> SalinanBlogM4.dc.html 0.927
+SalinanProdukPageM4.dc.html -> RecCreateM4Salinan1.dc.html 0.976
+SalinanSkuPageM4.dc.html -> SkuDetailM4.dc.html 0.602
+SkuDetailM4.dc.html -> SalinanSkuPageM4.dc.html 0.602
+UlasanM4Salinan.dc.html -> DesktopUlasanM4.dc.html 0.209
+## clusters (J>=0.5)
+['BerandaM4.dc.html', 'SalinanBeranda2M4.dc.html', 'SalinanBeranda3M4.dc.html', 'SalinanBerandaM4.dc.html']
+['DesktopArtikelM4.dc.html']
+['DesktopBerandaM4.dc.html']
+['DesktopBlogM4.dc.html']
+['DesktopKategoriM4.dc.html', 'DesktopProdukIndexM4.dc.html']
+['DesktopProdukM4.dc.html', 'DesktopProdukM4Salinan.dc.html']
+['DesktopSkuM4.dc.html', 'DesktopSkuM4Salinan.dc.html']
+['DesktopUlasanM4.dc.html']
+['DetailArtikel2M4.dc.html', 'DetailArtikel3M4.dc.html', 'DetailArtikel4M4.dc.html', 'KategoriM4.dc.html', 'ProdukIndexM4.dc.html', 'SalinanArtikel2M4.dc.html', 'SalinanArtikel2M4Salinan.dc.html', 'SalinanArtikelM4.dc.html']
+['RecCreateM4.dc.html']
+['RecCreateM4Salinan1.dc.html', 'SalinanProdukPageM4.dc.html']
+['SalinanBlog2M4.dc.html', 'SalinanBlog3M4.dc.html', 'SalinanBlog4M4.dc.html', 'SalinanBlog5M4.dc.html', 'SalinanBlogM4.dc.html', 'SalinanBlogM4Salinan.dc.html']
+['SalinanSkuPageM4.dc.html', 'SkuDetailM4.dc.html']
+['UlasanM4Salinan.dc.html']

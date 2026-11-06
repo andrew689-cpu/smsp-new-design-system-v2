@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewSummary</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPanel }}" hint-placeholder-val="{{ true }}">
+  <div style="padding: 2.8rem; border: 0.1rem solid var(--line); border-radius: var(--quote); box-shadow: var(--el-2); color: var(--ink)">
+    <div style="display: flex; align-items: flex-end; column-gap: 0">
+      <span data-harga="1" style="font-size: var(--teks-skor); font-weight: var(--bobot-bold); line-height: var(--tinggi-skor); font-variant-numeric: tabular-nums; margin-right: 0.6rem">{{ teksNilai }}</span>
+      <span style="font-size: var(--teks-body); color: var(--ink-2); padding-bottom: 0.8rem; margin-left: 0.6rem; margin-right: 0.6rem">dari 5</span>
+    </div>
+    <span style="display: inline-flex; margin-top: 1.2rem"><dc-import name="Rating" nilai="{{ nilai }}" ukuran="{{ 22 }}" label="{{ labelBintang }}" hint-size="12.5rem,2.2rem"></dc-import></span>
+    <p style="margin: 1.4rem 0 0 0; font-size: var(--teks-body); color: var(--ink-2)">Dari <strong style="font-weight: var(--bobot-bold); color: var(--ink)">{{ jumlah }}</strong> ulasan terverifikasi</p>
+    <div style="display: flex; flex-direction: column; margin-top: 2.2rem; row-gap: 0">
+      <sc-for list="{{ baris }}" as="sb" hint-placeholder-count="5">
+        <div style="{{ sb.gaya }}">
+          <span style="width: 2.8rem; font-size: var(--teks-meta); color: var(--ink-2); flex-shrink: 0; margin-right: 0.5rem">{{ sb.n }}{{ sb.tanda }}</span>
+          <span style="flex-grow: 1; height: 0.8rem; background: var(--line); border-radius: var(--pill); overflow: hidden; margin-left: 0.5rem; margin-right: 0.5rem">
+            <span style="display: block; height: 100%; width: {{ sb.pct }}; background: var(--bintang); border-radius: var(--pill)"></span>
+          </span>
+          <span style="width: 4.2rem; font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: var(--ink-2); text-align: right; flex-shrink: 0; margin-left: 0.5rem; margin-right: 0.5rem">{{ sb.jml }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isBarisM }}" hint-placeholder-val="{{ false }}">
+  <p role="img" aria-label="{{ labelBaris }}" style="margin: 0; display: flex; align-items: center; column-gap: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2)">
+    <span style="display: flex; flex-shrink: 0; margin-right: 0.2rem"><dc-import name="Icon" ikon="bintang" isi="var(--bintang)" hint-size="1.6rem,1.6rem"></dc-import></span>
+    <strong style="font-variant-numeric: tabular-nums; font-weight: var(--bobot-bold); color: var(--ink); margin-left: 0.2rem; margin-right: 0.2rem">{{ teksNilai }}</strong><span style="margin-left: 0.2rem; margin-right: 0.2rem">dari 5 · {{ jumlah }} ulasan</span>
+  </p>
+</sc-if>
+<sc-if value="{{ isBarisD }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" style="display: inline-flex; align-items: center; column-gap: 0; font-size: var(--teks-body); color: var(--ink-2); min-height: 3.2rem">
+    <span style="display: flex; margin-right: 0.35rem"><dc-import name="Rating" nilai="{{ bintangPenuh }}" ukuran="{{ 16 }}" label="{{ labelBintang }}" hint-size="9rem,1.6rem"></dc-import></span>
+    <strong style="color: var(--ink); font-weight: var(--bobot-bold); margin-left: 0.35rem; margin-right: 0.35rem">{{ teksNilai }}</strong> dari 5 · {{ jumlah }} ulasan
+  </a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["panel","baris"],"default":"panel"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"desktop"},"nilai":{"editor":"float","default":4.8,"min":0,"max":5,"step":0.1},"jumlah":{"editor":null,"default":128},"sebaran":{"editor":null,"tsType":"Array<{n:number,jml:number,pct:string}>"},"href":{"editor":null},"$preview":{"width":360,"height":400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'panel';
+    const desktop = (this.props.tata ?? 'desktop') === 'desktop';
+    const nilai = Number(this.props.nilai ?? 4.8);
+    const teksNilai = String(nilai).replace('.', ',');
+    const jumlah = this.props.jumlah ?? 128;
+    const sebaran = this.props.sebaran ?? [
+      { n: 5, jml: 13, pct: '72%' },
+      { n: 4, jml: 5, pct: '28%' },
+      { n: 3, jml: 0, pct: '0%' },
+      { n: 2, jml: 0, pct: '0%' },
+      { n: 1, jml: 0, pct: '0%' }
+    ];
+    const akhir = sebaran.length - 1;
+    return {
+      isPanel: jenis === 'panel',
+      isBarisM: jenis === 'baris' && !desktop,
+      isBarisD: jenis === 'baris' && desktop,
+      nilai,
+      teksNilai,
+      jumlah,
+      bintangPenuh: Math.floor(nilai),
+      href: this.props.href ?? '#',
+      labelBintang: 'Rata-rata ' + teksNilai + ' dari 5 bintang',
+      labelBaris: 'Rata-rata rating ' + teksNilai + ' dari 5, dari ' + jumlah + ' ulasan',
+      baris: sebaran.map((b, i) => ({
+        n: b.n,
+        tanda: String.fromCharCode(0x2605),
+        jml: b.jml,
+        pct: b.pct,
+        gaya: 'display: flex; align-items: center; column-gap: 0; margin-top: ' + (i === 0 ? '0' : '0.4rem') + '; margin-bottom: ' + (i === akhir ? '0' : '0.4rem')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

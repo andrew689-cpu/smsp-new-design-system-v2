@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CourseRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div data-gulir-kartu="1" style="{{ gaya }}">
+  <sc-for list="{{ kartu }}" as="k" hint-placeholder-count="3">
+    <dc-import name="CourseCard" dc-props="{{ k }}" hint-size="62%,24rem"></dc-import>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"susun":{"editor":"enum","options":["geser","kisi","kolom","katalog"],"default":"geser","section":"Resep"},"jenis":{"editor":"enum","options":["rel","rv","baris"],"default":"rel","section":"Resep"},"ujung":{"editor":"boolean","default":false,"section":"Resep"},"labelUjung":{"editor":"text","default":"Lihat Semua Course","section":"Isi"},"onUjung":{"editor":null,"section":"Aksi"},"pad":{"editor":"text","default":"0 var(--talang)","section":"Tata letak"},"butir":{"editor":null,"section":"Data","tsType":"Array<CourseCard props>"},"$preview":{"width":360,"height":330}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const susun = p.susun ?? 'geser';
+    const gaya = {
+      geser: 'display: flex; column-gap: 1.2rem; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--talang); margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); padding: ' + (p.pad ?? '0 var(--talang)'),
+      kisi: 'display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.2rem; row-gap: 2rem',
+      katalog: 'display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); row-gap: 0.8rem',
+      kolom: 'display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 1.6rem; padding: ' + (p.pad ?? '0')
+    };
+    const kartu = (p.butir ?? [{}, {}, {}]).map((k) => ({ ...k, jenis: p.jenis ?? 'rel' }));
+    if (p.ujung) kartu.push({ jenis: 'ujung', labelUjung: p.labelUjung, onPilih: p.onUjung });
+    return { gaya: gaya[susun] || gaya.geser, kartu };
+  }
+}
+</script>
+</body>
+</html>

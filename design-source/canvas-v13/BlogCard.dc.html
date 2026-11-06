@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogCard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<a href="{{ href }}" target="{{ target }}" rel="noopener" aria-label="{{ ariaLabel }}" style="position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--card); overflow: hidden; background: var(--line); color: var(--surface)">
+  <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+    <img src="{{ foto }}" alt="{{ judul }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+  </sc-if>
+  <span aria-hidden="true" style="position: absolute; inset: 0; display: block; background: var(--blog-tirai)"></span>
+  <span style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: var(--dalam); display: flex; flex-direction: column; gap: 0.6rem">
+    <span aria-hidden="true" style="align-self: flex-start; display: flex"><dc-import name="Tag" jenis="kategori" tata="{{ tata }}" teks="{{ kategori }}" hint-size="8rem,2.2rem"></dc-import></span>
+    <span style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: {{ ukuranJudul }}; line-height: var(--tinggi-artikel); font-weight: var(--bobot-bold); color: var(--surface)">{{ judul }}</span>
+    <span aria-hidden="true" title="{{ tanggal }}" style="font-size: {{ ukuranLalu }}; font-weight: var(--bobot-light); color: var(--blog-lalu)">{{ lalu }}</span>
+  </span>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"judul":{"editor":null},"kategori":{"editor":null},"tanggal":{"editor":null},"lalu":{"editor":null},"foto":{"editor":null},"href":{"editor":null},"target":{"editor":null},"ariaLabel":{"editor":null},"$preview":{"width":330,"height":186}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const judul = this.props.judul ?? 'Penggunaan Artificial Intelligence (AI) dalam Fabrikasi Baja';
+    const kategori = this.props.kategori ?? 'Industri Baja';
+    const tanggal = this.props.tanggal ?? '9 Okt 2026';
+    const foto = this.props.foto === undefined ? '/_blob/ebacf14138b3291bfebf9cf6bd58abe7' : this.props.foto;
+    return {
+      tata: desktop ? 'desktop' : 'ponsel',
+      judul,
+      kategori,
+      tanggal,
+      lalu: this.props.lalu ?? '25 hari yang lalu',
+      foto,
+      adaFoto: !!foto,
+      href: this.props.href ?? '#',
+      target: this.props.target ?? '_self',
+      ariaLabel: this.props.ariaLabel ?? 'Artikel: ' + judul + ', ' + kategori + ', ' + tanggal + ', oleh Sofia, buka halaman artikel',
+      ukuranJudul: desktop ? 'var(--teks-section-md)' : 'var(--teks-section)',
+      ukuranLalu: desktop ? 'var(--teks-body)' : 'var(--teks-chip)'
+    };
+  }
+}
+</script>
+</body>
+</html>

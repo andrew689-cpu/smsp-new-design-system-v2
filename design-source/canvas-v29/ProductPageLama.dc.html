@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductPageLama</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ siap }}" hint-placeholder-val="{{ true }}">
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <div>
+    <dc-import name="FraudRibbon" tata="ponsel" ukuranTeks="var(--teks-meta)" hint-size="100%,6rem"></dc-import>
+    <dc-import name="SiteHeader" tata="ponsel" logoTengah="{{ true }}" sisiPonsel="1.6rem" hint-size="100%,5.6rem"></dc-import>
+    <dc-import name="ProductSummary" tata="ponsel" halaman="produk" lama="{{ true }}" hint-size="100%,40rem"></dc-import>
+    <div id="m-harga" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Daftar Harga" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="PriceTable" lama="{{ v }}" lamaRata="{{ lamaRata }}" font="{{ font }}" hrefBaris="{{ hrefBaris }}" foto="{{ fotoKartu }}" alt="{{ altKartu }}" hint-size="100%,300rem"></dc-import>
+    </div>
+    <div id="m-konsultasi" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="ConsultationBanner" tata="ponsel" hint-size="100%,14.8rem"></dc-import>
+    </div>
+    <div id="m-video" style="margin-top: 4rem; padding: 0 1.6rem">
+      <div style="margin-bottom: 1.8rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Info Produk" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="VideoBlock" hint-size="100%,18rem"></dc-import>
+    </div>
+    <div id="m-fungsi" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Fungsi Besi Hollow Hitam" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="FunctionShowcase" lama="{{ true }}" hint-size="100%,20rem"></dc-import>
+    </div>
+    <div id="m-unggul" style="margin-top: 4rem; scroll-margin-top: 9.2rem">
+      <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 1.6rem"><dc-import name="Heading" level="{{ 2 }}" varian="lama" tata="ponsel" rata="left" teks="Keunggulan Besi Hollow Hitam" hint-size="100%,2.7rem"></dc-import></div>
+      <div style="padding: 0 1.6rem"><dc-import name="AdvantageList" tata="ponsel" lama="{{ true }}" hint-size="100%,24rem"></dc-import></div>
+    </div>
+    <div id="m-terkait" style="margin-top: 4rem; padding-left: 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="RelatedProducts" tata="ponsel" lama="{{ true }}" hint-size="100%,19rem"></dc-import>
+    </div>
+    <div id="m-penawaran" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="ConsultationBanner" tata="ponsel" isi="penawaran" hint-size="100%,14.8rem"></dc-import>
+    </div>
+    <div id="m-faq" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="FaqList" tata="ponsel" varian="lama" kaya="{{ true }}" hint-size="100%,60rem"></dc-import>
+    </div>
+    <div id="m-mitra" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="PartnerLogos" tata="ponsel" lama="{{ true }}" hint-size="100%,28rem"></dc-import>
+    </div>
+    <div id="m-cari" style="margin-top: 4rem; padding: 0 1.6rem; scroll-margin-top: 9.2rem">
+      <dc-import name="RelatedTags" lama="{{ true }}" hint-size="100%,26rem"></dc-import>
+    </div>
+    <div style="margin-top: 4rem">
+      <dc-import name="Footer" tata="ponsel" kategoriGaya="sedang" sisiPonsel="1.6rem" padAtas="2.8rem" jarakBaris="2.2rem 2.2rem 2.2rem 4rem" jarakKategori="1.2rem" jarakInfo="0.9rem" jarakSosial="0.7rem" barisSosial="1.4rem" hint-size="100%,181rem"></dc-import>
+    </div>
+  </div>
+  <dc-import name="CompactHeader" terlihat="{{ gulir }}" sisi="1.6rem" hint-size="100%,8.4rem"></dc-import>
+  <dc-import name="ProductDock" lembar="{{ lembar }}" dc-props="{{ v }}" hint-size="0,0"></dc-import>
+</div>
+</sc-if>
+<sc-if value="{{ perluHarga }}" hint-placeholder-val="{{ false }}"><dc-import name="DataHarga" onData="{{ terimaHarga }}" hint-size="0,0"></dc-import></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"barisHarga":{"editor":null},"lembar":{"editor":"boolean","default":false,"section":"Resep"},"lamaRata":{"editor":"boolean","default":false,"section":"Resep"},"font":{"editor":"enum","options":["bawaan","source-code"],"default":"bawaan","section":"Resep"},"hrefBaris":{"editor":"text","default":"SkuDetailM4.dc.html","section":"Tautan"},"fotoKartu":{"editor":"text","default":"/_blob/7cf9caf5815cec7ca47570545222d743","section":"Isi"},"altKartu":{"editor":"text","default":"","section":"Isi"},"panelFilter":{"editor":"enum","options":["tertutup","terbuka"],"default":"tertutup","section":"Keadaan awal"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const buka = (props && props.panelFilter) === 'terbuka';
+    this.state = { nav: false, sek: 'm-ringkasan', gulir: false, bantuan: false, cariOpen: false, cariQ: '', ocOpen: buka, urutOpen: false, ocSeg: buka ? 'tebal' : 'ukuran', ukuran: buka ? ['15x15'] : [], tebal: [], urut: 'ukuran', q: '', limit: 50, vm: 'table' };
+  }
+  /* Papan produk versi lama: seluruh keadaan penyaring, urutan dan daftar bagian tinggal di sini; PriceTable dan ProductDock hanya menerima nilai polos. */
+  data() {
+    if (this._d) return this._d;
+    const RAW = this.state.barisHarga;
+    if (!RAW) return [];
+    this._d = RAW.map((r) => ({ a: r[0], b: r[1], uk: r[0] + 'x' + r[1], t: r[2], w: r[3], p: r[4] }));
+    return this._d;
+  }
+  ukuranUnik() {
+    if (this._u) return this._u;
+    const seen = {};
+    this._u = [];
+    this.data().forEach((r) => {
+      if (!seen[r.uk]) { seen[r.uk] = 1; this._u.push({ uk: r.uk, a: r.a, b: r.b }); }
+    });
+    return this._u;
+  }
+  tebalUnik() {
+    if (this._t) return this._t;
+    this._t = [];
+    this.data().forEach((r) => { if (this._t.indexOf(r.t) === -1) this._t.push(r.t); });
+    this._t.sort((x, y) => x - y);
+    return this._t;
+  }
+  componentDidMount() {
+    this._onScroll = () => this.spy();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this.spy();
+    this.pantauLazy(false);
+  }
+  componentDidUpdate() {
+    this.pantauLazy(true);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._lazyIO) this._lazyIO.disconnect();
+  }
+  pantauLazy(paksa) {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (!this._lazyIO) {
+      this._lazyIO = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) this.setState({ limit: (this.state.limit || 50) + 50 });
+      }, { rootMargin: '0px 0px 300px 0px' });
+    }
+    const el = document.querySelector('[data-lazy-sentinel]');
+    if (el !== this._lazyEl || paksa) {
+      if (this._lazyEl) this._lazyIO.unobserve(this._lazyEl);
+      this._lazyEl = el;
+      if (el) this._lazyIO.observe(el);
+    }
+  }
+  seksi() {
+    return [['m-ringkasan', 'Info'], ['m-harga', 'Harga'], ['aksi-filter', 'Filter'], ['m-faq', 'FAQ']];
+  }
+  spy() {
+    if (this.state.nav) this.setState({ nav: false });
+    const lim = (window.innerHeight || 800) * 0.35;
+    const patok = document.getElementById('m-harga');
+    const gulir = !!patok && patok.getBoundingClientRect().top <= lim;
+    let sek = this.seksi()[0][0];
+    this.seksi().forEach((x) => {
+      const el = document.getElementById(x[0]);
+      if (el && el.getBoundingClientRect().top <= lim) sek = x[0];
+    });
+    if (gulir !== this.state.gulir || sek !== this.state.sek) this.setState({ gulir, sek });
+  }
+  cocok(r, uk, tb, q) {
+    if (uk.length && uk.indexOf(r.uk) === -1) return false;
+    if (tb.length && tb.indexOf(r.t) === -1) return false;
+    if (q) {
+      const sisa = (r.a + ' ' + r.b + ' ' + this.koma(r.t)).split(/[^0-9a-z,.]+/).filter((x) => x);
+      const toks = q.split(/[^0-9,.]+/).filter((x) => x).map((x) => x.replace('.', ','));
+      for (let i = 0; i < toks.length; i++) {
+        const j = sisa.findIndex((x) => x.indexOf(toks[i]) === 0);
+        if (j === -1) return false;
+        sisa.splice(j, 1);
+      }
+    }
+    return true;
+  }
+  koma(n) { return String(n).replace('.', ','); }
+  angka(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  togel(kunci, nilai) {
+    const arr = this.state[kunci].slice();
+    const i = arr.indexOf(nilai);
+    if (i === -1) arr.push(nilai); else arr.splice(i, 1);
+    this.setState({ limit: 50, [kunci]: arr });
+  }
+  nilai() {
+    const s = this.state;
+    const semua = this.data();
+    const uk = s.ukuran;
+    const tb = s.tebal;
+    const q = s.q.trim();
+    const URUT = [
+      ['ukuran', 'ukuran', (x, y) => x.a - y.a || x.b - y.b || x.t - y.t],
+      ['harga', 'harga terendah', (x, y) => x.p - y.p],
+      ['berat', 'berat teringan', (x, y) => x.w - y.w]
+    ];
+    const urutKini = URUT.filter((o) => o[0] === s.urut)[0];
+    const hasil = semua.filter((r) => this.cocok(r, uk, tb, q)).sort(urutKini[2]);
+    const tampilBaris = hasil.slice(0, s.limit);
+    const sisa = hasil.length - tampilBaris.length;
+    const adaFilter = uk.length + tb.length > 0 || q !== '';
+    const ocN = uk.length + tb.length + (q ? 1 : 0);
+    const nol = hasil.length === 0;
+    const chipAktif = [];
+    uk.forEach((id) => {
+      const u = id.split('x');
+      chipAktif.push({ label: u[0] + ' × ' + u[1] + ' mm', aria: 'Hapus filter ukuran ' + u[0] + ' kali ' + u[1], buang: () => this.togel('ukuran', id) });
+    });
+    tb.forEach((t) => chipAktif.push({ label: 'Tebal ' + this.koma(t) + ' mm', aria: 'Hapus filter tebal ' + this.koma(t), buang: () => this.togel('tebal', t) }));
+    if (q) chipAktif.push({ label: 'Cari: ' + q, aria: 'Hapus kata pencarian', buang: () => this.setState({ q: '', limit: 50 }) });
+    return {
+      baris: tampilBaris.map((r) => ({ head: 'Besi Hollow ' + r.a + ' × ' + r.b + ' × ' + this.koma(r.t) + ' mm × 6 M [STD, NB]', pNum: this.angka(r.p), vmBerat: this.koma(r.w) + ' kg' })),
+      isTable: s.vm === 'table',
+      isCard2: s.vm === 'card2',
+      vmTableOn: s.vm === 'table' ? 'true' : 'false',
+      vmCard2On: s.vm === 'card2' ? 'true' : 'false',
+      vmTable: () => this.setState({ vm: 'table' }),
+      vmCard2: () => this.setState({ vm: 'card2' }),
+      kosong: nol,
+      tampil: tampilBaris.length,
+      total: semua.length,
+      adaLagi: sisa > 0,
+      lazyLabel: 'Memuat ' + Math.min(50, sisa) + ' SKU berikutnya · ' + tampilBaris.length + ' dari ' + hasil.length,
+      adaFilter,
+      chipAktif,
+      hapusSemua: () => this.setState({ ukuran: [], tebal: [], q: '', limit: 50 }),
+      q: s.q,
+      setQ: (e) => this.setState({ q: e.target.value, limit: 50 }),
+      ocTerbuka: s.ocOpen,
+      ocN,
+      ocToggle: () => this.setState({ ocOpen: !s.ocOpen, bantuan: false }),
+      ocFilter: () => {
+        if (s.ocOpen) { this.setState({ ocOpen: false }); return; }
+        this.setState({ ocOpen: true, urutOpen: false, ocSeg: 'ukuran', bantuan: false });
+      },
+      urutBuka: () => {
+        if (s.urutOpen) { this.setState({ urutOpen: false }); return; }
+        this.setState({ urutOpen: true, ocOpen: false, bantuan: false });
+      },
+      ocExpFilter: s.ocOpen ? 'true' : 'false',
+      ocExpUrut: s.urutOpen ? 'true' : 'false',
+      urutTerbuka: s.urutOpen,
+      ocFilterAria: s.ocOpen ? 'Tutup Filter' : 'Filter' + (ocN ? ', ' + ocN + ' aktif' : ''),
+      urutAda: s.urut !== 'ukuran',
+      ocUrutAria: s.urutOpen ? 'Tutup Urutkan' : 'Urutkan' + (s.urut !== 'ukuran' ? ', ' + urutKini[1] : ''),
+      navOpen: s.nav && !s.cariOpen && !s.ocOpen && !s.urutOpen,
+      navExp: s.nav ? 'true' : 'false',
+      navAria: s.nav ? 'Tutup daftar bagian' : 'Daftar bagian halaman',
+      navDot: ocN > 0,
+      navSet: 'bagian',
+      navTutup: () => this.setState({ nav: false }),
+      navToggle: () => this.setState({ nav: !s.nav, bantuan: false }),
+      bantuanOpen: s.bantuan,
+      bantuanExp: s.bantuan ? 'true' : 'false',
+      bantuanToggle: () => this.setState({ bantuan: !s.bantuan }),
+      fabTampil: !s.ocOpen && !s.urutOpen && !s.cariOpen,
+      seksi: this.seksi().map((x, i) => {
+        const aksi = x[0] === 'aksi-filter';
+        return {
+          href: '#' + x[0], label: x[1], tunda: (70 + i * 55) + 'ms',
+          isAksi: aksi, isFoto: x[0] === 'm-ringkasan', isHarga: x[0] === 'm-harga', isFaq: x[0] === 'm-faq',
+          adaFilter: aksi && ocN > 0,
+          aria: aksi ? (s.ocOpen ? 'Tutup Filter & Urutkan' : 'Filter & Urutkan' + (ocN ? ', ' + ocN + ' aktif' : '')) : '',
+          exp: aksi && s.ocOpen ? 'true' : 'false',
+          kini: !aksi && s.sek === x[0] ? 'true' : 'false',
+          pergi: (e) => {
+            if (e && e.preventDefault) e.preventDefault();
+            if (aksi) {
+              if (s.ocOpen) { this.setState({ ocOpen: false, nav: false }); return; }
+              const tb2 = document.getElementById('btn-filter');
+              if (tb2 && tb2.scrollIntoView) tb2.scrollIntoView({ block: 'center' });
+              this.setState({ ocOpen: true, nav: false, bantuan: false });
+              return;
+            }
+            const el = document.getElementById(x[0]);
+            if (el && el.scrollIntoView) el.scrollIntoView({ block: 'start' });
+            this.setState({ sek: x[0], nav: false });
+          }
+        };
+      }),
+      ocPilText: adaFilter ? hasil.length + ' SKU · urut ' + urutKini[1] : 'Semua ' + semua.length + ' SKU · urut ' + urutKini[1],
+      ocCta: nol ? 'Tidak ada' : 'Lihat ' + hasil.length,
+      ocNol: nol,
+      ocTerap: () => { if (!nol) this.setState({ ocOpen: false }); },
+      urutTerap: () => this.setState({ urutOpen: false }),
+      urutReset: () => this.setState({ urut: 'ukuran' }),
+      urutBersih: s.urut === 'ukuran',
+      ocSeg: s.ocSeg,
+      nUkuran: uk.length,
+      nTebal: tb.length,
+      pilihSeg: (id) => this.setState({ ocSeg: id }),
+      ocUkuran: this.ukuranUnik().map((u) => {
+        const n = semua.filter((r) => r.uk === u.uk && this.cocok(r, [], tb, q)).length;
+        const on = uk.indexOf(u.uk) !== -1;
+        const mati = n === 0 && !on;
+        return { label: u.a + ' × ' + u.b, jumlahLabel: n + ' varian', aktif: on, aria: 'Ukuran ' + u.a + ' kali ' + u.b + ' milimeter, ' + n + ' varian' + (on ? ', dipilih' : ''), mati, pick: () => { if (!mati) this.togel('ukuran', u.uk); } };
+      }),
+      ocTebal: this.tebalUnik().map((t) => {
+        const n = semua.filter((r) => r.t === t && this.cocok(r, uk, [], q)).length;
+        const on = tb.indexOf(t) !== -1;
+        const mati = n === 0 && !on;
+        return { label: this.koma(t), jumlahLabel: n + ' SKU', aktif: on, aria: 'Tebal ' + this.koma(t) + ' milimeter, ' + n + ' SKU' + (on ? ', dipilih' : ''), mati, pick: () => { if (!mati) this.togel('tebal', t); } };
+      }),
+      ocUrut: URUT.map((o) => ({ value: o[0], label: 'Urut ' + o[1], checked: s.urut === o[0], pick: () => this.setState({ urut: o[0], limit: 50 }) })),
+      ocBersih: !adaFilter && s.urut === 'ukuran',
+      ocReset: () => this.setState({ ukuran: [], tebal: [], q: '', urut: 'ukuran', limit: 50 }),
+      cariOpen: s.cariOpen,
+      cariQ: s.cariQ,
+      cariTutup2: !s.cariOpen,
+      cariBuka: () => this.setState({ cariOpen: true, bantuan: false, cariQ: '', ocOpen: false }),
+      cariTutup: () => this.setState({ cariOpen: false, cariQ: '' }),
+      cariUbah: (v) => this.setState({ cariQ: v })
+    };
+  }
+  renderVals() {
+    const terimaHarga = (baris) => { this._d = null; this._u = null; this._t = null; this.setState({ barisHarga: baris }); };
+    if (!this.state.barisHarga) return { siap: false, perluHarga: true, terimaHarga };
+    return Object.assign(this.nilaiDasar(), { siap: true, perluHarga: false, terimaHarga });
+  }
+  nilaiDasar() {
+    return {
+      v: this.nilai(),
+      gulir: this.state.gulir,
+      lembar: !!this.props.lembar,
+      lamaRata: !!this.props.lamaRata,
+      font: this.props.font ?? 'bawaan',
+      hrefBaris: this.props.hrefBaris || 'SkuDetailM4.dc.html',
+      fotoKartu: this.props.fotoKartu || '/_blob/7cf9caf5815cec7ca47570545222d743',
+      altKartu: this.props.altKartu ?? ''
+    };
+  }
+}
+</script>
+</body>
+</html>

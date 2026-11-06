@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>IconButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isCakram }}" hint-placeholder-val="{{ false }}"><span style="width: 3.6rem; height: 3.6rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); box-shadow: var(--el-2); display: grid; place-items: center"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    <sc-if value="{{ isPolos }}" hint-placeholder-val="{{ true }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import></sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}">
+  <button type="button" disabled="{{ disabled }}" aria-label="{{ ariaLabel }}" aria-expanded="{{ ariaExpanded }}" aria-pressed="{{ ariaPressed }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isCakram }}" hint-placeholder-val="{{ false }}"><span style="width: 3.6rem; height: 3.6rem; border-radius: var(--pill); background: var(--surface); border: 0.1rem solid var(--line); box-shadow: var(--el-2); display: grid; place-items: center"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    <sc-if value="{{ isPolos }}" hint-placeholder-val="{{ true }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import></sc-if>
+    <sc-if value="{{ adaLencana }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.3rem; right: -0.3rem"><dc-import name="Tag" jenis="lencana" cincin="{{ true }}" teks="{{ lencana }}" hint-size="1.8rem,1.8rem"></dc-import></span></sc-if>
+    <sc-if value="{{ titik }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 0.1rem; right: 0.1rem"><dc-import name="Tag" jenis="titik" hint-size="0.9rem,0.9rem"></dc-import></span></sc-if>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ikon":{"editor":"text","default":"menu"},"ukuran":{"editor":"enum","options":[22,32,35,36,38,40,44,48,52],"default":44},"bentuk":{"editor":"enum","options":["bulat","aksi","tile","control","persegi"],"default":"bulat"},"nada":{"editor":"enum","options":["transparan","permukaan","cincin","isi","cakram"],"default":"transparan"},"aktif":{"editor":"boolean","default":false},"disabled":{"editor":"boolean","default":false},"warna":{"editor":null},"dasar":{"editor":null},"ikonUkuran":{"editor":null},"ikonGaris":{"editor":null},"ikonWarna":{"editor":null},"lencana":{"editor":null},"titik":{"editor":"boolean","default":false},"href":{"editor":null},"target":{"editor":null},"rel":{"editor":null},"onPress":{"editor":null},"ariaLabel":{"editor":null,"default":"Opsi lainnya"},"ariaExpanded":{"editor":null},"ariaPressed":{"editor":null},"$preview":{"width":60,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ukuran = Number(this.props.ukuran ?? 44);
+    const bentuk = { bulat: 'var(--pill)', aksi: 'var(--action)', tile: 'var(--tile)', control: 'var(--control)', persegi: '0' }[this.props.bentuk ?? 'bulat'];
+    const nada = this.props.nada ?? 'transparan';
+    const disabled = !!this.props.disabled;
+    const aktif = !!this.props.aktif;
+    const warna = this.props.warna ?? 'var(--ink)';
+    const isiNada = {
+      transparan: 'background: transparent; border: 0; color: ' + warna,
+      permukaan: 'background: ' + (aktif ? 'var(--line)' : 'var(--surface)') + '; border: 0.1rem solid var(--line); color: ' + warna,
+      cincin: 'background: var(--cincin-dasar); box-shadow: inset 0 0 0 0.1rem var(--cincin-garis); color: ' + warna,
+      isi: 'background: ' + (disabled ? 'var(--chat-mati)' : (this.props.dasar ?? 'var(--brand)')) + '; border: 0; color: ' + warna,
+      cakram: 'background: transparent; border: 0; color: ' + warna
+    };
+    const mati = disabled && nada !== 'isi' ? 'background: var(--line); color: var(--ink-4); box-shadow: none' : '';
+    const ikonProps = { ikon: this.props.ikon ?? 'menu', warna: this.props.ikonWarna ?? 'currentColor' };
+    if (this.props.ikonUkuran !== undefined) ikonProps.ukuran = this.props.ikonUkuran;
+    if (this.props.ikonGaris !== undefined) ikonProps.garis = this.props.ikonGaris;
+    const href = this.props.href;
+    const lencana = this.props.lencana;
+    return {
+      href,
+      target: this.props.target,
+      rel: this.props.rel,
+      disabled,
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel ?? 'Opsi lainnya',
+      ariaExpanded: this.props.ariaExpanded,
+      ariaPressed: this.props.ariaPressed,
+      isLink: !!href && !disabled,
+      isButton: !href || disabled,
+      isCakram: nada === 'cakram',
+      isPolos: nada !== 'cakram',
+      ikonProps,
+      lencana,
+      adaLencana: lencana !== undefined && lencana !== null && lencana !== '',
+      titik: !!this.props.titik,
+      gaya: 'position: relative; box-sizing: border-box; flex-shrink: 0; padding: 0; display: grid; place-items: center; width: ' + ukuran / 10 + 'rem; height: ' + ukuran / 10 + 'rem; border-radius: ' + bentuk + '; ' + (isiNada[nada] || isiNada.transparan) + (mati ? '; ' + mati : '') + (disabled ? '; cursor: default' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

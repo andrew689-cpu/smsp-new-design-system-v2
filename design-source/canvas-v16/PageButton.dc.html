@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PageButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<button type="button" onClick="{{ onPress }}" disabled="{{ disabled }}" aria-current="{{ ariaCurrent }}" aria-label="{{ ariaLabel }}" style="{{ gaya }}"><sc-if value="{{ adaIkon }}" hint-placeholder-val="{{ false }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.7rem,1.7rem"></dc-import></sc-if><sc-if value="{{ tanpaIkon }}" hint-placeholder-val="{{ true }}">{{ label }}</sc-if></button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kaca","garis"],"default":"kaca"},"ikon":{"editor":"enum","options":["","chevron-kiri","chevron"],"default":""},"aktif":{"editor":"boolean","default":false},"disabled":{"editor":"boolean","default":false},"label":{"editor":null,"default":"1"},"onPress":{"editor":null},"ariaLabel":{"editor":null},"$preview":{"width":60,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const kaca = (this.props.jenis ?? 'kaca') === 'kaca';
+    const ikon = this.props.ikon || '';
+    const on = !!this.props.aktif;
+    const disabled = !!this.props.disabled;
+    const dasarKaca = 'background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); border: 0.1rem solid transparent; ';
+    const panah = (kaca ? dasarKaca : 'background: var(--surface); border: 0.1rem solid var(--line); ') + (disabled ? 'color: var(--ink-4); cursor: not-allowed' : 'color: var(--ink)') + '; width: 4rem; height: 4rem; display: grid; place-items: center; border-radius: var(--tile)';
+    const warna = kaca
+      ? dasarKaca + 'color: ' + (on ? 'var(--nav-aktif)' : 'var(--ink)')
+      : (on ? 'background: var(--ink); border: 0.1rem solid var(--ink); color: var(--surface)' : 'background: var(--surface); border: 0.1rem solid var(--line); color: var(--ink)');
+    return {
+      label: this.props.label ?? '1',
+      adaIkon: !!ikon,
+      tanpaIkon: !ikon,
+      ikonProps: { ikon, ukuran: 17, warna: 'currentColor' },
+      disabled,
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel,
+      ariaCurrent: ikon ? undefined : (on ? 'page' : 'false'),
+      gaya: ikon ? panah : warna + '; min-width: 4rem; height: 4rem; padding: 0 1rem; display: grid; place-items: center; border-radius: var(--tile); font-size: var(--teks-body); font-weight: var(--bobot-semibold)'
+    };
+  }
+}
+</script>
+</body>
+</html>

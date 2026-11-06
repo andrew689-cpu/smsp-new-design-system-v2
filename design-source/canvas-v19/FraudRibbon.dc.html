@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>FraudRibbon</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ tampil }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+    <div style="box-sizing: border-box; padding: 1rem 1rem 1rem 1.4rem; background: var(--awas-bg); display: flex; align-items: flex-start; row-gap: 0.9rem; column-gap: 0">
+      <span style="display: flex; flex-shrink: 0; margin-top: 0.1rem; margin-right: 0.45rem"><dc-import name="Icon" ikon="peringatan" hint-size="1.8rem,1.8rem"></dc-import></span>
+      <p style="margin: 0; font-size: {{ ukuranTeks }}; line-height: var(--tinggi-sedang); color: var(--ink); text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 4 3; overflow-wrap: break-word; margin-left: 0.45rem; margin-right: 0.45rem"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: var(--renggang-tipis)">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem; text-decoration-thickness: 0.1rem; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none">Cek selengkapnya</a></p>
+      <span style="display: flex; flex-shrink: 0; align-self: center; margin: -0.4rem calc(-0.4rem + 0.45rem) -0.4rem 0.45rem"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 32 }}" ikonUkuran="{{ 15 }}" ikonGaris="{{ 2.4 }}" ikonWarna="var(--ink-2)" ariaLabel="Tutup peringatan penipuan" onPress="{{ tutup }}" hint-size="3.2rem,3.2rem"></dc-import></span>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+    <div style="box-sizing: border-box; padding: 1.1rem 12rem; background: var(--awas-bg); display: flex; align-items: center; row-gap: var(--rapat); column-gap: 0">
+      <span style="display: flex; flex-shrink: 0; margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="peringatan" hint-size="1.8rem,1.8rem"></dc-import></span>
+      <p style="margin: 0; flex-grow: 1; font-size: {{ ukuranTeks }}; line-height: var(--tinggi-sedang); color: var(--ink); margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><strong style="font-weight: var(--bobot-black); color: var(--brand); text-transform: uppercase; letter-spacing: var(--renggang-tipis)">Waspada penipuan</strong> — Transaksi sah <strong style="font-weight: var(--bobot-black)">HANYA</strong> ke rekening a/n <strong style="font-weight: var(--bobot-bold)">PT. Sumber Makmur Surya Perkasa</strong>. <a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" style="font-weight: var(--bobot-bold); color: var(--brand); text-decoration: underline; text-underline-offset: 0.2rem">Cek selengkapnya</a></p>
+      <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 32 }}" ikonUkuran="{{ 15 }}" ikonGaris="{{ 2.4 }}" ikonWarna="var(--ink-2)" ariaLabel="Tutup peringatan penipuan" onPress="{{ tutup }}" hint-size="3.2rem,3.2rem"></dc-import></span>
+    </div>
+  </sc-if>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"buka":{"editor":"boolean","default":true,"section":"Keadaan"},"href":{"editor":"text","default":"https://www.smsperkasa.com/hati-hati-penipuan","section":"Tautan"},"ukuranTeks":{"editor":"text","default":"var(--teks-micro)","section":"Ukuran"},"onTutup":{"editor":null},"$preview":{"width":360,"height":70}}'>
+class Component extends DCLogic {
+  state = { tutup: false };
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const dikendalikan = this.props.buka !== undefined;
+    const href = this.props.href ?? 'https://www.smsperkasa.com/hati-hati-penipuan';
+    return {
+      tampil: dikendalikan ? !!this.props.buka : !this.state.tutup,
+      ukuranTeks: this.props.ukuranTeks ?? 'var(--teks-micro)',
+      isPonsel: tata !== 'desktop',
+      isDesktop: tata === 'desktop',
+      href,
+      target: href === '#' ? undefined : '_blank',
+      rel: href === '#' ? undefined : 'noopener',
+      tutup: () => {
+        if (!dikendalikan) this.setState({ tutup: true });
+        if (this.props.onTutup) this.props.onTutup();
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

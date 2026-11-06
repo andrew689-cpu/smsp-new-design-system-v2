@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Pusat bantuan\"]"}, {"wait": 900}, {"fill": ["input[placeholder=\"Nama lengkap\"]", "Budi"]}, {"fill": ["input[placeholder=\"08xx xxxx xxxx\"]", "0811"]}, {"wait": 400}, {"click": "[aria-label=\"Mulai Live Chat\"], button:has-text(\"Live Chat\")"}, {"wait": 800}]

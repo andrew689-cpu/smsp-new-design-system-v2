@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>OfficeHours</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isStatus }}" hint-placeholder-val="{{ true }}">
+  <span style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0">
+    <span aria-hidden="true" style="flex-shrink: 0; width: 0.8rem; height: 0.8rem; border-radius: var(--pill); background: {{ warnaTitik }}; margin-right: 0.3rem"></span>
+    <span style="font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); color: {{ warnaLabel }}; margin-left: 0.3rem; margin-right: 0.3rem">{{ label }}</span>
+  </span>
+</sc-if>
+<sc-if value="{{ isJadwal }}" hint-placeholder-val="{{ false }}">
+  <div style="display: flex; align-items: flex-start; row-gap: 1rem; column-gap: 0; box-sizing: border-box">
+    <span style="display: flex; flex-shrink: 0; margin-top: 0.1rem; margin-right: 0.5rem"><dc-import name="Icon" ikon="jam" hint-size="1.5rem,1.5rem"></dc-import></span>
+    <span style="min-width: 0; flex-grow: 1; margin-left: 0.5rem; margin-right: 0.5rem">
+      <span style="display: block; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)">{{ judul }}</span>
+      <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+        <span style="display: flex; align-items: baseline; row-gap: var(--rapat); column-gap: 0; margin-top: {{ b.jarak }}">
+          <span style="width: 7rem; flex-shrink: 0; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2); margin-right: calc(var(--rapat) / 2)">{{ b.hari }}</span>
+          <span style="font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); font-variant-numeric: tabular-nums; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)">{{ b.jam }}</span>
+        </span>
+      </sc-for>
+      <span style="display: block; margin-top: 0.6rem; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ catatan }}</span>
+    </span>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["status","jadwal"],"default":"status"},"latar":{"editor":"enum","options":["terang","gelap"],"default":"terang"},"online":{"editor":null},"labelOnline":{"editor":null,"default":"Online"},"labelOffline":{"editor":null,"default":"Offline"},"judul":{"editor":null,"default":"Jam Operasional"},"baris":{"editor":null},"catatan":{"editor":null,"default":"*Tanggal Merah dan Hari Besar Nasional Libur"},"$preview":{"width":220,"height":76}}'>
+class Component extends DCLogic {
+  state = { tik: 0 };
+  componentDidMount() {
+    this.detak = setInterval(() => this.setState({ tik: Date.now() }), 60000);
+  }
+  componentWillUnmount() { clearInterval(this.detak); }
+  _jamKerja() {
+    const d = new Date();
+    const menit = d.getHours() * 60 + d.getMinutes();
+    const hari = d.getDay();
+    if (hari === 0) return false;
+    const tutup = hari === 6 ? 14 * 60 : 17 * 60;
+    return menit >= (8 * 60 + 30) && menit < tutup;
+  }
+  renderVals() {
+    const jenis = this.props.jenis ?? 'status';
+    const gelap = (this.props.latar ?? 'terang') === 'gelap';
+    const online = this.props.online ?? this._jamKerja();
+    const baris = this.props.baris ?? [{ hari: 'Senin - Jumat', jam: '08.30 - 17.00' }, { hari: 'Sabtu', jam: '08.30 - 14.00' }];
+    return {
+      isStatus: jenis === 'status',
+      isJadwal: jenis === 'jadwal',
+      warnaTitik: gelap ? (online ? 'var(--online-terang)' : 'var(--line-kuat)') : (online ? 'var(--online-ikon)' : 'var(--ink-4)'),
+      warnaLabel: gelap ? 'var(--surface)' : 'var(--ink-2)',
+      label: online ? (this.props.labelOnline ?? 'Online') : (this.props.labelOffline ?? 'Offline'),
+      judul: this.props.judul ?? 'Jam Operasional',
+      baris: baris.map((b, i) => ({ ...b, jarak: i === 0 ? '0.5rem' : '0.3rem' })),
+      catatan: this.props.catatan ?? '*Tanggal Merah dan Hari Besar Nasional Libur'
+    };
+  }
+}
+</script>
+</body>
+</html>

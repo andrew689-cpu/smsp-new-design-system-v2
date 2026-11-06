@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CourseDetail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="padding-top: 0.4rem; display: flex; flex-direction: column; align-items: stretch; row-gap: 1.2rem">
+  <span style="align-self: flex-start; margin-left: -0.4rem"><dc-import name="Button" variant="kembali-tebal" href="" label="{{ labelKembali }}" ikon="chevron-kiri-lebar" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.4 }}" onPress="{{ onKembali }}" hint-size="12rem,4.4rem"></dc-import></span>
+  <img src="{{ foto }}" alt="" style="{{ gayaFoto }}">
+  <dc-import name="Heading" level="{{ 1 }}" varian="polos" font="{{ fontJudul }}" kapital="{{ kapital }}" ukuran="{{ ukuranJudul }}" tinggi="{{ tinggiJudul }}" bobot="{{ bobotJudul }}" renggang="{{ renggang }}" rata="left" warna="var(--ink)" margin="0.4rem 0 0 0" teks="{{ judul }}" hint-size="100%,6rem"></dc-import>
+  <p style="margin: 0; font-size: var(--teks-seksi); line-height: var(--tinggi-sel); color: var(--ink)">{{ ringkas }}</p>
+  <dc-import name="Tag" jenis="{{ jenisLevel }}" teks="{{ level }}" hint-size="6rem,2.2rem"></dc-import>
+  <p style="margin: 0.4rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink)">{{ penyusunAwal }} <span style="font-weight: var(--bobot-bold)">{{ penyusun }}</span></p>
+  <div style="display: flex; flex-direction: column; row-gap: 0.8rem">
+    <sc-for list="{{ fakta }}" as="f" hint-placeholder-count="3">
+      <div style="display: flex; align-items: center; column-gap: 1rem"><dc-import name="Icon" ikon="{{ f.ikon }}" warna="var(--ink)" hint-size="1.8rem,1.8rem"></dc-import><span style="font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink)">{{ f.teks }}</span></div>
+    </sc-for>
+  </div>
+  <dc-import name="Button" variant="{{ varianMulai }}" sudut="{{ sudutMulai }}" ukuranTeks="var(--teks-seksi)" gayaTambah="margin-top: 0.8rem" href="" label="{{ labelMulai }}" onPress="{{ onMulai }}" hint-size="100%,4.8rem"></dc-import>
+  <sc-if value="{{ adaProgres }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: var(--teks-meta); line-height: var(--tinggi-sel); color: {{ warnaProgres }}">{{ progres }}</p></sc-if>
+</div>
+<section aria-label="{{ judulHasil }}" style="{{ gayaHasil }}; margin-top: 3.2rem; box-sizing: border-box; display: flex; flex-direction: column; row-gap: 1.2rem">
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" font="{{ fontJudul }}" kapital="{{ kapital }}" ukuran="{{ ukuranHasil }}" tinggi="{{ tinggiHasil }}" bobot="{{ bobotJudul }}" renggang="{{ renggang }}" rata="left" warna="{{ warnaHasil }}" teks="{{ judulHasil }}" hint-size="100%,2.4rem"></dc-import>
+  <div style="{{ gayaHasilIsi }}; display: flex; flex-direction: column; row-gap: 1.2rem">
+    <sc-for list="{{ hasil }}" as="h" hint-placeholder-count="4">
+      <div style="display: flex; align-items: flex-start; column-gap: 1rem"><span style="display: block; flex-shrink: 0; margin-top: 0.1rem"><dc-import name="Icon" ikon="centang-materi" warna="var(--ink)" hint-size="1.8rem,1.8rem"></dc-import></span><span style="font-size: var(--teks-body); line-height: var(--tinggi-sel); color: var(--ink)">{{ h.teks }}</span></div>
+    </sc-for>
+  </div>
+</section>
+<section aria-label="{{ judulIsi }}" style="margin-top: 3.2rem; display: flex; flex-direction: column; row-gap: 0.8rem">
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" font="{{ fontJudul }}" kapital="{{ kapital }}" ukuran="{{ ukuranIsi }}" tinggi="{{ tinggiIsi }}" bobot="{{ bobotJudul }}" renggang="{{ renggang }}" rata="left" warna="var(--ink)" baris="{{ barisIsi }}" hint-size="100%,2.4rem"></dc-import>
+  <div style="display: flex; flex-direction: column">
+    <sc-for list="{{ daftar }}" as="l" hint-placeholder-count="4">
+      <dc-import name="LessonRow" dc-props="{{ l }}" hint-size="100%,6.4rem"></dc-import>
+    </sc-for>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"rupa":{"editor":"enum","options":["baku","rv","ikon"],"default":"baku","section":"Resep"},"labelKembali":{"editor":"text","default":"Semua materi","section":"Isi"},"judul":{"editor":"text","default":"Mengenal Besi dan Baja","section":"Isi"},"ringkas":{"editor":"text","default":"Bekal pertama sebelum memilih material: apa itu baja, bagaimana ia dibentuk, dan profil apa saja yang ada di pasaran.","section":"Isi"},"level":{"editor":"text","default":"Pemula","section":"Isi"},"foto":{"editor":"text","default":"/_blob/915ec74eaee1f9cf750844653d514177","section":"Gambar"},"penyusunAwal":{"editor":"text","default":"Disusun oleh","section":"Isi"},"penyusun":{"editor":"text","default":"Tim SMS Perkasa","section":"Isi"},"meta":{"editor":"text","default":"4 pelajaran","section":"Isi"},"menit":{"editor":"text","default":"4 menit baca","section":"Isi"},"bahasa":{"editor":"text","default":"Bahasa Indonesia","section":"Isi"},"labelMulai":{"editor":"text","default":"Mulai Belajar","section":"Isi"},"progres":{"editor":"text","default":"","section":"Isi"},"judulHasil":{"editor":"text","default":"Yang akan Anda pelajari","section":"Isi"},"hasil":{"editor":null,"section":"Data","tsType":"string[]"},"judulIsi":{"editor":"text","default":"Isi materi","section":"Isi"},"daftar":{"editor":null,"section":"Data","tsType":"Array<LessonRow props>"},"onKembali":{"editor":null,"section":"Aksi"},"onMulai":{"editor":null,"section":"Aksi"},"gambarMerah":{"editor":"text","default":"","section":"Gambar"},"$preview":{"width":330,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const rupa = p.rupa ?? 'baku';
+    const rv = rupa === 'rv';
+    const ikon = rupa === 'ikon';
+    const bobot = ikon ? 'var(--bobot-regular)' : 'var(--bobot-bold)';
+    const isiJudul = p.judulIsi ?? 'Isi materi';
+    const [isiA, isiB] = rv ? [isiJudul.split(' ')[0] + ' ', isiJudul.split(' ').slice(1).join(' ')] : [isiJudul, ''];
+    return {
+      labelKembali: p.labelKembali ?? 'Semua materi',
+      judul: p.judul ?? 'Mengenal Besi dan Baja',
+      ringkas: p.ringkas ?? 'Bekal pertama sebelum memilih material: apa itu baja, bagaimana ia dibentuk, dan profil apa saja yang ada di pasaran.',
+      level: p.level ?? 'Pemula',
+      foto: p.foto || '/_blob/915ec74eaee1f9cf750844653d514177',
+      gayaFoto: ikon
+        ? 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; box-sizing: border-box; padding: 2.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line-kuat)'
+        : 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--tile); background: var(--line)',
+      fontJudul: rv ? 'var(--font-rv-judul)' : undefined,
+      kapital: rv ? 'ya' : 'tidak',
+      ukuranJudul: (rv || ikon) ? 'var(--teks-populer)' : 'var(--teks-page)',
+      tinggiJudul: rv ? 'var(--tinggi-artikel)' : 'var(--tinggi-artikel-h1)',
+      bobotJudul: bobot,
+      renggang: ikon ? 'var(--renggang-judul)' : '0',
+      jenisLevel: rv ? 'level-isi' : ikon ? 'level-besar-krem' : 'level-besar',
+      penyusunAwal: p.penyusunAwal ?? 'Disusun oleh',
+      penyusun: p.penyusun ?? 'Tim SMS Perkasa',
+      fakta: [{ ikon: 'buku-terbuka', teks: p.meta ?? '4 pelajaran' }, { ikon: 'jam-baca', teks: p.menit ?? '4 menit baca' }, { ikon: 'dunia', teks: p.bahasa ?? 'Bahasa Indonesia' }],
+      varianMulai: ikon ? 'lebar-gelap' : 'lebar-isi',
+      sudutMulai: (rv || ikon) ? 'var(--pill)' : undefined,
+      labelMulai: p.labelMulai ?? 'Mulai Belajar',
+      progres: p.progres ?? '',
+      adaProgres: !!p.progres,
+      warnaProgres: ikon ? 'var(--ink)' : 'var(--ink-2)',
+      judulHasil: p.judulHasil ?? 'Yang akan Anda pelajari',
+      gayaHasil: rv
+        ? 'padding: 2rem 1.6rem; border-radius: var(--sheet); background: ' + (p.gambarMerah ? 'url(' + p.gambarMerah + ') 75% top / auto 72rem no-repeat, ' : '') + 'var(--rv-merah)'
+        : ikon ? 'padding: 2.4rem 2rem; border-radius: var(--sheet); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line-kuat)'
+        : 'padding: 1.6rem; background: var(--line)',
+      gayaHasilIsi: rv ? 'box-sizing: border-box; padding: 1.6rem; border-radius: var(--card); background: var(--surface)' : '',
+      warnaHasil: rv ? 'var(--surface)' : 'var(--ink)',
+      ukuranHasil: rv ? 'var(--teks-section)' : ikon ? 'var(--teks-judul-baris)' : 'var(--teks-price)',
+      tinggiHasil: rv ? 'var(--tinggi-artikel)' : ikon ? 'var(--tinggi-artikel-h1)' : 'var(--tinggi-artikel)',
+      hasil: (p.hasil ?? ['Membedakan besi dan baja', 'Memahami canai panas dan canai dingin', 'Mengenali bentuk profil yang umum', 'Memahami istilah di daftar harga']).map((teks) => ({ teks })),
+      judulIsi: isiJudul,
+      barisIsi: rv ? [{ teks: isiA, sebaris: true }, { teks: isiB, sebaris: true, warna: 'var(--brand)' }] : [{ teks: isiA }],
+      ukuranIsi: rv ? 'var(--teks-page)' : ikon ? 'var(--teks-page)' : 'var(--teks-section)',
+      tinggiIsi: rv ? 'var(--tinggi-artikel)' : ikon ? 'var(--tinggi-artikel-h1)' : 'var(--tinggi-rapat)',
+      daftar: (p.daftar ?? [{}, {}, {}, {}]).map((l, i) => ({ nomor: i + 1, rupa, ...l })),
+      onKembali: p.onKembali,
+      onMulai: p.onMulai
+    };
+  }
+}
+</script>
+</body>
+</html>

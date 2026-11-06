@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CategoryChipRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ true }}">
+  <div data-kat-rel="1" style="overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity">
+    <div data-kat-set="1" style="position: relative; width: max-content; display: flex; align-items: stretch; column-gap: 0">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+        <span style="{{ c.wadah }}">
+          <sc-if value="{{ c.isLokal }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ c.href }}" aria-current="{{ c.kini }}" onClick="{{ c.pilih }}" style="{{ c.gayaLokal }}">
+              <svg width="{{ c.ikonLokal }}" height="{{ c.ikonLokal }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="{{ c.jalur }}"></path></svg>{{ c.label }}
+            </a>
+          </sc-if>
+          <sc-if value="{{ c.isChip }}" hint-placeholder-val="{{ true }}">
+            <dc-import name="Chip" dc-props="{{ c.chip }}" hint-size="9.6rem,5.2rem"></dc-import>
+          </sc-if>
+        </span>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisi }}" hint-placeholder-val="{{ false }}">
+  <div data-kat-set="1" style="display: grid; grid-template-columns: {{ kolom }}; row-gap: 0; column-gap: 0">
+    <sc-for list="{{ chips }}" as="c" hint-placeholder-count="3">
+      <span style="{{ c.wadah }}"><dc-import name="Chip" dc-props="{{ c.chip }}" hint-size="100%,6.2rem"></dc-import></span>
+    </sc-for>
+  </div>
+</sc-if>
+<sc-if value="{{ isNav }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="CategoryNav" dc-props="{{ navProps }}" hint-size="100%,5.2rem"></dc-import>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"jenis":{"editor":"enum","options":["kategori","bagian"],"default":"kategori"},"butir":{"editor":null,"tsType":"Array<{id:string,label:string,ikon?:string,jalur?:string,href?:string}>"},"nilai":{"editor":null},"onPilih":{"editor":null},"kolom":{"editor":null},"pertama":{"editor":null},"ariaLabel":{"editor":null,"default":"Kategori artikel"},"$preview":{"width":336,"height":70}}'>
+class Component extends DCLogic {
+  state = { kat: null };
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const bagian = this.props.jenis === 'bagian';
+    const BAWAAN_REL = [
+      // Nyala "Artikel Baru" digambar dari path sendiri: Icon "api" adalah glif lain.
+      { id: 'kat-baru', label: 'Artikel Baru', jalur: 'M12 1.8c0 3.4 1.6 5.2 3.3 7.1 1.9 2.1 3 4 3 6.4a6.3 6.3 0 0 1-12.6 0c0-1.9.7-3.5 1.9-4.9.1 1.4.8 2.4 1.9 2.8-.5-4.3.9-7.8 2.5-11.4z' },
+      { id: 'kat-berita', label: 'Berita Baja', ikon: 'berita' },
+      { id: 'kat-industri', label: 'Industri Baja', ikon: 'pabrik' },
+      { id: 'kat-produk', label: 'Produk Besi', ikon: 'balok' },
+      { id: 'kat-team', label: 'Team', ikon: 'tim' },
+      { id: 'kat-trivia', label: 'Trivia', ikon: 'lampu' }
+    ];
+    const BAWAAN_KISI = [
+      { id: 's-ringkas', label: 'Info', ikon: 'info' },
+      { id: 's-faq', label: 'FAQ', ikon: 'tanya' },
+      { id: 's-ulasan', label: 'Ulasan', ikon: 'bintang-garis' }
+    ];
+    const BAWAAN_NAV = [
+      { id: 'kat-berita', label: 'Berita Baja' },
+      { id: 'kat-industri', label: 'Industri Baja' },
+      { id: 'kat-produk', label: 'Produk Besi' },
+      { id: 'kat-team', label: 'Team' },
+      { id: 'kat-trivia', label: 'Trivia' },
+      { label: 'Semua Kategori', href: 'https://www.smsperkasa.com/blog' }
+    ];
+    const butir = this.props.butir ?? (desktop ? BAWAAN_NAV : bagian ? BAWAAN_KISI : BAWAAN_REL);
+    const kini = this.props.nilai ?? this.state.kat;
+    const jenisChip = bagian ? 'bagian' : 'kategori';
+    const kolomN = this.props.kolom ?? 'repeat(3, minmax(0, 1fr))';
+    const perBaris = 3;
+    const n = butir.length;
+    const chips = butir.map((b, i) => {
+      const on = kini === b.id;
+      const href = b.href ?? '#' + b.id;
+      const pilih = (e) => {
+        this.setState({ kat: b.id });
+        if (this.props.onPilih) this.props.onPilih(b.id, e);
+      };
+      const wadah = bagian
+        ? '--tunda: ' + (70 + i * 55) + 'ms; display: flex; min-width: 0; margin: ' + (i < perBaris ? '0' : '0.3rem') + ' 0.3rem ' + (i >= n - perBaris ? '0' : '0.3rem') + ' ' + (i === 0 ? '0' : '0.3rem')
+        : '--tunda: ' + (15 + i * 55) + 'ms; display: flex; flex-shrink: 0; scroll-snap-align: center; margin-left: ' + (i === 0 ? '0' : '0.3rem') + '; margin-right: 0.3rem';
+      return {
+        wadah,
+        label: b.label,
+        href,
+        pilih,
+        kini: on ? 'true' : 'false',
+        isLokal: !!b.jalur,
+        isChip: !b.jalur,
+        jalur: b.jalur,
+        ikonLokal: on ? 24 : 18,
+        gayaLokal: 'box-sizing: border-box; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: var(--tinggi-sedang); overflow-wrap: anywhere; border: 0; position: relative; flex-shrink: 0; width: 9.6rem; min-height: 5.2rem; padding: 0.6rem 0.4rem; gap: 0.4rem; color: ' + (on ? 'var(--nav-aktif)' : 'var(--ink)') + '; font-weight: ' + (on ? 'var(--bobot-bold)' : 'var(--bobot-medium)') + '; ' + (on ? 'font-size: var(--teks-body)' : 'font-size: var(--teks-meta)'),
+        chip: { jenis: jenisChip, label: b.label, ikon: b.ikon, href, terpilih: on, onPress: pilih }
+      };
+    });
+    return {
+      isRel: !desktop && !bagian,
+      isKisi: !desktop && bagian,
+      isNav: desktop,
+      kolom: kolomN,
+      chips,
+      navProps: {
+        ariaLabel: this.props.ariaLabel ?? 'Kategori artikel',
+        produk: this.props.pertama ?? { label: 'Semua Produk Produk Kategori', href: '#' },
+        tautan: butir.map((b) => ({ label: b.label, href: b.href ?? '#' + b.id }))
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

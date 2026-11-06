@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>IconButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+  <a id="{{ id }}" href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isCakram }}" hint-placeholder-val="{{ false }}"><span style="{{ gayaCakram }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    <sc-if value="{{ isPolos }}" hint-placeholder-val="{{ true }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import></sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}">
+  <button type="button" id="{{ id }}" disabled="{{ disabled }}" aria-label="{{ ariaLabel }}" aria-expanded="{{ ariaExpanded }}" aria-pressed="{{ ariaPressed }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isCakram }}" hint-placeholder-val="{{ false }}"><span style="{{ gayaCakram }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    <sc-if value="{{ isPolos }}" hint-placeholder-val="{{ true }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.8rem,1.8rem"></dc-import></sc-if>
+    <sc-if value="{{ adaLencana }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -0.3rem; right: -0.3rem"><dc-import name="Tag" jenis="lencana" cincin="{{ true }}" rupa="{{ rupaTanda }}" teks="{{ lencana }}" hint-size="1.8rem,1.8rem"></dc-import></span></sc-if>
+    <sc-if value="{{ titik }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 0.1rem; right: 0.1rem"><dc-import name="Tag" jenis="titik" rupa="{{ rupaTanda }}" hint-size="0.9rem,0.9rem"></dc-import></span></sc-if>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ikon":{"editor":"text","default":"menu","section":"Ikon"},"ukuran":{"editor":"enum","options":[22,32,35,36,38,40,44,48,52],"default":44,"section":"Bentuk"},"bentuk":{"editor":"enum","options":["bulat","aksi","tile","control","persegi"],"default":"bulat","section":"Bentuk"},"nada":{"editor":"enum","options":["transparan","permukaan","cincin","isi","cakram","abu","balik","kaca"],"default":"transparan","section":"Bentuk"},"aktif":{"editor":"boolean","default":false,"section":"Keadaan"},"disabled":{"editor":"boolean","default":false,"section":"Keadaan"},"warna":{"editor":"text","default":"","section":"Warna"},"dasar":{"editor":"text","default":"","section":"Warna"},"ikonUkuran":{"editor":"text","default":"","section":"Ikon"},"ikonGaris":{"editor":"text","default":"","section":"Ikon"},"ikonWarna":{"editor":"text","default":"","section":"Ikon"},"lencana":{"editor":null},"titik":{"editor":"boolean","default":false,"section":"Tanda"},"href":{"editor":null},"target":{"editor":null},"rel":{"editor":null},"onPress":{"editor":null},"ariaLabel":{"editor":null,"default":"Opsi lainnya"},"ariaExpanded":{"editor":null},"ariaPressed":{"editor":null},"sudut":{"editor":"text","default":"","section":"Bentuk"},"rataIkon":{"editor":"text","default":"","section":"Bentuk"},"cakramUkuran":{"editor":"enum","options":[35,36,40],"default":36,"section":"Bentuk"},"cakramRupa":{"editor":"enum","options":["garis","abu"],"default":"garis","section":"Bentuk"},"ikonIsi":{"editor":"text","default":"","section":"Ikon"},"rupaTanda":{"editor":"enum","options":["isi","garis"],"default":"isi","section":"Tanda"},"id":{"editor":null},"$preview":{"width":60,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ukuran = Number(this.props.ukuran ?? 44);
+    const pil = (v, f) => (v === undefined || v === null || v === '' ? f : v);
+    const bentuk = pil(this.props.sudut, { bulat: 'var(--pill)', aksi: 'var(--action)', tile: 'var(--tile)', control: 'var(--control)', persegi: '0' }[this.props.bentuk ?? 'bulat']);
+    const nada = this.props.nada ?? 'transparan';
+    const disabled = !!this.props.disabled;
+    const aktif = !!this.props.aktif;
+    const warna = pil(this.props.warna, 'var(--ink)');
+    const isiNada = {
+      transparan: 'background: transparent; border: 0; color: ' + warna,
+      permukaan: 'background: ' + (aktif ? 'var(--line)' : 'var(--surface)') + '; border: 0.1rem solid var(--line); color: ' + warna,
+      cincin: 'background: var(--cincin-dasar); box-shadow: inset 0 0 0 0.1rem var(--cincin-garis); color: ' + warna,
+      isi: 'background: ' + (disabled ? 'var(--chat-mati)' : pil(this.props.dasar, 'var(--brand)')) + '; border: 0; color: ' + warna,
+      abu: 'background: var(--line); border: 0; color: ' + warna,
+      balik: (aktif ? 'background: var(--ink); border: 0.1rem solid var(--ink); color: var(--surface)' : 'background: var(--surface); border: 0.1rem solid var(--line); color: ' + warna),
+      kaca: 'background: var(--kaca); -webkit-backdrop-filter: var(--kaca-blur); backdrop-filter: var(--kaca-blur); box-shadow: var(--kaca-rim), var(--kaca-bayang); border: 0; color: ' + warna,
+      cakram: 'background: transparent; border: 0; color: ' + warna
+    };
+    const mati = disabled && nada !== 'isi' ? 'background: var(--line); color: var(--ink-4); box-shadow: none' : '';
+    const ikonProps = { ikon: this.props.ikon ?? 'menu', warna: pil(this.props.ikonWarna, 'currentColor') };
+    if (pil(this.props.ikonUkuran) !== undefined) ikonProps.ukuran = this.props.ikonUkuran;
+    if (pil(this.props.ikonGaris) !== undefined) ikonProps.garis = this.props.ikonGaris;
+    if (pil(this.props.ikonIsi) !== undefined) ikonProps.isi = this.props.ikonIsi;
+    const cakram = Number(this.props.cakramUkuran ?? 36) / 10 + 'rem';
+    const href = this.props.href;
+    const lencana = this.props.lencana;
+    return {
+      id: this.props.id,
+      rupaTanda: this.props.rupaTanda ?? 'isi',
+      gayaCakram: 'width: ' + cakram + '; height: ' + cakram + '; border-radius: var(--pill); ' + ((this.props.cakramRupa ?? 'garis') === 'abu' ? 'background: var(--line)' : 'background: var(--surface); border: 0.1rem solid var(--line); box-shadow: var(--el-2)') + '; display: grid; place-items: center',
+      href,
+      target: this.props.target,
+      rel: this.props.rel,
+      disabled,
+      onPress: this.props.onPress,
+      ariaLabel: this.props.ariaLabel ?? 'Opsi lainnya',
+      ariaExpanded: this.props.ariaExpanded,
+      ariaPressed: this.props.ariaPressed,
+      isLink: !!href && !disabled,
+      isButton: !href || disabled,
+      isCakram: nada === 'cakram',
+      isPolos: nada !== 'cakram',
+      ikonProps,
+      lencana,
+      adaLencana: lencana !== undefined && lencana !== null && lencana !== '',
+      titik: !!this.props.titik,
+      gaya: 'position: relative; box-sizing: border-box; flex-shrink: 0; padding: 0; display: grid; place-items: ' + pil(this.props.rataIkon, 'center') + '; width: ' + ukuran / 10 + 'rem; height: ' + ukuran / 10 + 'rem; border-radius: ' + bentuk + '; ' + (isiNada[nada] || isiNada.transparan) + (mati ? '; ' + mati : '') + (disabled ? '; cursor: default' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

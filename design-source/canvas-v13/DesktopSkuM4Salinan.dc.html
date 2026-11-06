@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Besi Hollow Hitam 40 × 40 × 2 mm — detail SKU (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <dc-import name="SiteHeader" tata="desktop" hrefLogo="Artboard-pp1u.dc.html" navProduk="{{ navProduk }}" navTautan="{{ navTautan }}" hint-size="100%,12.4rem"></dc-import>
+  <dc-import name="Breadcrumb" varian="sku" butir="{{ remah }}" hint-size="100%,3.7rem"></dc-import>
+  <div id="s-ringkas" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: 2.4rem var(--sisi) 4rem var(--sisi)">
+    <dc-import name="ProductSummary" tata="desktop" halaman="sku" judul="Besi Hollow Hitam" ukuranTeks="40 × 40 × 2 mm × 6 M" kelas="[STD , NB]" angka="188.600" unit="per batang" deskripsi="{{ deskripsi }}" baris="{{ standar }}" foto="{{ galeri }}" hint-size="100%,54rem"></dc-import>
+  </div>
+  <div id="s-info" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: var(--seksi) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="ProductInfo" tata="desktop" foto="/_blob/e83c282090c723f360cd9e7a619b81fc" alt="Diagram besi hollow berpenampang persegi: A tinggi penampang, B lebar penampang, T tebal dinding, L panjang batang" grup="{{ grupSpek }}" hint-size="100%,75rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" warna="var(--ink)" teks="Ukuran Lainnya" hint-size="100%,3.1rem"></dc-import>
+    </div>
+    <dc-import name="Rail" items="{{ lain }}" panah="desktop" lebar="23%" gutter="0.8rem" pad="0.4rem 0 1.2rem 0" margKanan="0" sembunyi="{{ true }}" hint-size="100%,36rem"></dc-import>
+  </div>
+  <div id="s-faq" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="FaqList" tata="desktop" halaman="sku" butir="{{ faq }}" hint-size="100%,83rem"></dc-import>
+  </div>
+  <div id="s-ulasan" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--footer-jarak) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" warna="var(--ink)" teks="Ulasan Pelanggan" hint-size="100%,3.1rem"></dc-import>
+    </div>
+    <dc-import name="ReviewCarousel" tata="desktop" sepasang="{{ true }}" ulasan="{{ ulasan }}" hint-size="100%,34rem"></dc-import>
+  </div>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" sosial="{{ tanpaSosial }}" kolom="{{ kolomFooter }}" hint-size="100%,40rem"></dc-import>
+  </div>
+  <dc-import name="DesktopIsland" terbuka="{{ sekPulau }}" seksi="{{ seksi }}" aktif="{{ sek }}" bantuanTerbuka="{{ bantuanBuka }}" bantuan="{{ bantuan }}" onNav="{{ navUbah }}" onPilih="{{ pilihSeksi }}" onBantuan="{{ bantuanTogel }}" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sek: 's-ringkas', sekPulau: false, bantuan: false };
+  }
+  componentDidMount() {
+    var self = this;
+    this._jamTik = setInterval(function () { self.setState({ tik: Date.now() }); }, 60000);
+  }
+  componentWillUnmount() {
+    clearInterval(this._jamTik);
+  }
+  _galeri() {
+    return [
+      ['/_blob/f6871938e35011e0aa5d1def2aafdf9f', 'Satu batang besi hollow hitam berpenampang kotak terbaring menyerong, ujung terbukanya menghadap kamera, di latar putih', 'cover'],
+      ['/_blob/bfef5c5ce7326a8b9b8f350b4ba296bc', 'Tumpukan besi hollow berpenampang kotak di dalam gudang, dengan derek kuning di langit-langit dan tumpukan pipa bulat di latar belakang', 'cover'],
+      ['/_blob/46f288fe98b0ee1ee70cb4e82cabc7cb', 'Tumpukan besi hollow hitam berpenampang kotak di gudang beratap seng, ujung batangnya menghadap kamera', 'cover']
+    ];
+  }
+  _rb(n) {
+    var s = Math.round(n).toString(), o = '', c = 0;
+    for (var i = s.length - 1; i >= 0; i--) { o = s[i] + o; if (++c % 3 === 0 && i > 0) o = '.' + o; }
+    return o;
+  }
+  _jamKerja() {
+    var d = new Date();
+    var menit = d.getHours() * 60 + d.getMinutes();
+    var hari = d.getDay();                        // 0 Minggu, 1 Senin ... 6 Sabtu
+    if (hari === 0) return false;                 // Minggu tutup
+    var tutup = hari === 6 ? 14 * 60 : 17 * 60;   // Sabtu lebih awal
+    return menit >= (8 * 60 + 30) && menit < tutup;
+  }
+  _segmen(r) {
+    var parts = [{ teks: r.text }];
+    (r.hi || []).forEach(function (frasa) {
+      var next = [];
+      parts.forEach(function (p) {
+        var idx = p.tebal ? -1 : p.teks.indexOf(frasa);
+        if (idx < 0) { next.push(p); return; }
+        if (idx > 0) next.push({ teks: p.teks.slice(0, idx) });
+        next.push({ teks: frasa, tebal: true });
+        var sisa = p.teks.slice(idx + frasa.length);
+        if (sisa) next.push({ teks: sisa });
+      });
+      parts = next;
+    });
+    return parts;
+  }
+  renderVals() {
+    var self = this, s = this.state;
+    var FAQ = [
+      ['Apakah besi hollow ukuran 15x15mm tebal 1.5mm kuat untuk dijadikan struktur utama kanopi atau pagar luar ruangan?', 'Tidak direkomendasikan untuk struktur penahan beban utama. Penampang 15x15 mm (1,5 x 1,5 cm) memiliki bidang tumpuan yang sangat sempit sehingga kurang kaku untuk menahan beban angin atau penutup atap kanopi bentang lebar. Namun, varian ini sangat ideal diaplikasikan sebagai isian/jari-jari interior pagar, teralis jendela, railing tangga, atau kisi-kisi dekoratif yang dipadukan dengan frame utama berukuran lebih besar (seperti hollow 40x40 mm atau 40x60 mm).'],
+      ['Mengapa besi hollow 15x15mm dengan tebal 1.5mm lebih disukai perajin furnitur dibanding tebal 0.8mm atau 1.0mm?', 'Ketebalan 1,5 mm memberikan rasio ketebalan terhadap lebar penampang yang sangat solid. Saat proses pembuatan furnitur (seperti rangka meja/kursi industrial), tebal 1,5 mm sangat stabil saat dipotong sudut 45 derajat dan tidak mudah bolong atau lumer saat disambung dengan las listrik (SMAW/MIG). Selain itu, tebal 1,5 mm tidak melengkung (flexing) ketika menerima beban duduk atau tumpuan barang.'],
+      ['Berapa jarak bentangan tumpuan (support span) yang disarankan untuk penampang 15x15x1.5mm agar tidak mengalami lendutan?', 'Untuk mempertahankan kelurusan dan mencegah lendutan (deflection), jarak antar tumpuan penyangga untuk besi hollow 15x15x1.5mm disarankan maksimal 40 cm hingga 60 cm. Jika digunakan sebagai rak buku, sekat interior, atau jari-jari teralis yang lebih panjang dari 60 cm, disarankan menambah titik las pengikat di bagian tengah rangka.'],
+      ['Apakah besi hollow 15x15mm tebal 1.5mm dapat dibentuk melengkung (bending) tanpa kempot atau gepeng?', 'Ya, bisa dibengkokkan dengan rapi. Karena memiliki dinding yang relatif tebal (1,5 mm) dibandingkan ukuran penampangnya yang kecil (15 mm), struktur dindingnya cukup kuat menahan tekanan mekanis dari alat roll bending manual maupun mesin hidrolik tanpa mudah kempot atau patah pada siku lengkungan.']
+    ];
+    var ULASAN = [
+      { who: 'Bu Fitri', kota: 'Surabaya', date: '18 Nov 2021', rating: 5,
+        text: 'Selain harga, saya beli besi hollow di SMS Perkasa karena pelayanannya bagus dan bisa diandalkan',
+        hi: ['pelayanannya bagus', 'bisa diandalkan'] },
+      { who: 'Pak Ignasius', kota: 'Surabaya', date: '23 Nov 2021', rating: 5,
+        text: 'Pelayanannya bagus, salesnya ramah dan dapat menjelaskan informasi produk dengan jelas',
+        hi: ['Pelayanannya bagus', 'salesnya ramah'] },
+      { who: 'Bambang Hermanto', kota: 'Surabaya', date: '25 Nov 2021', rating: 5,
+        text: 'Distributor besi baja terlengkap & terpercaya di Surabaya & sekitarnya',
+        hi: ['terlengkap & terpercaya'] },
+      { who: 'Pak Haryono', kota: 'Sidoarjo', date: '2 Des 2021', rating: 5,
+        text: 'Pesan pagi, sore sudah sampai gudang proyek. Pengiriman cepat dan sopirnya kooperatif',
+        hi: ['Pengiriman cepat'] },
+      { who: 'Bu Lilis', kota: 'Gresik', date: '9 Des 2021', rating: 5,
+        text: 'Ukuran dan tebalnya sesuai surat jalan, tidak ada yang penyok waktu bongkar',
+        hi: ['sesuai surat jalan'] },
+      { who: 'Pak Rudi', kota: 'Surabaya', date: '15 Des 2021', rating: 5,
+        text: 'Stok lengkap, jarang kosong. Sekali pesan bisa sekalian beton dan wiremesh',
+        hi: ['Stok lengkap'] },
+      { who: 'Pak Joko', kota: 'Mojokerto', date: '21 Des 2021', rating: 4,
+        text: 'Harga bersaing untuk pembelian ton-tonan, penawaran dikirim lengkap dengan beratnya',
+        hi: ['Harga bersaing'] },
+      { who: 'Bu Maria', kota: 'Surabaya', date: '6 Jan 2022', rating: 5,
+        text: 'Adminnya responsif, sertifikat pabrik dikirim tanpa perlu diminta dua kali',
+        hi: ['Adminnya responsif'] },
+      { who: 'Pak Hendra', kota: 'Sidoarjo', date: '14 Jan 2022', rating: 5,
+        text: 'Potongannya rapi dan siku, tidak perlu banyak gerinda waktu pemasangan',
+        hi: ['Potongannya rapi dan siku'] },
+      { who: 'Bu Ratna', kota: 'Malang', date: '27 Jan 2022', rating: 5,
+        text: 'Sudah langganan tiga tahun, kualitasnya stabil dari kiriman ke kiriman',
+        hi: ['kualitasnya stabil'] },
+      { who: 'Pak Andi', kota: 'Surabaya', date: '8 Feb 2022', rating: 5,
+        text: 'Salesnya paham barang, dibantu pilih ukuran yang pas untuk rangka kanopi',
+        hi: ['Salesnya paham barang'] },
+      { who: 'Pak Sutrisno', kota: 'Gresik', date: '19 Feb 2022', rating: 4,
+        text: 'Timbangan sesuai, berat per batang cocok dengan yang tertulis di penawaran',
+        hi: ['Timbangan sesuai'] },
+      { who: 'Bu Sari', kota: 'Surabaya', date: '3 Mar 2022', rating: 5,
+        text: 'Gudangnya rapi dan muat antre truk, bongkar muat tidak menunggu lama',
+        hi: ['bongkar muat tidak menunggu lama'] }
+    ];
+    var koma = function (n) { return String(n).replace('.', ','); };
+    return {
+      deskripsi: 'Besi Hollow Hitam penampang persegi 15 × 15 mm dengan ketebalan 1,5 mm dan panjang 6 meter berbahan pelat besi hitam dengan berat presisi 4,24 kg per batang. Varian profil kecil dengan tebal 1,5 mm ini memberikan keseimbangan antara kekakuan struktur ringan dan kemudahan pembentukan, sangat ideal untuk kerangka furnitur industrial, teralis, railing tangga indoor, hingga partisi ruangan.',
+      galeri: this._galeri().map(function (g) { return { src: g[0], alt: g[1], fit: g[2] }; }),
+      standar: [
+        { k: 'Material', v: 'Baja karbon' },
+        { k: 'Permukaan', v: 'Hitam, tanpa galvanis' }
+      ],
+      grupSpek: [
+        { title: 'Ukuran dan berat', rows: [
+          { k: 'Penampang luar (A × B)', v: '40 × 40 mm' },
+          { k: 'Tebal dinding (t)', v: '2 mm' },
+          { k: 'Panjang batang (L)', v: '6 M' },
+          { k: 'Berat per batang', v: '15,07 kg' },
+          { k: 'Berat per meter', v: '2,512 kg' },
+          { k: 'Perkiraan jumlah per ton', v: '± 66 batang' }
+        ] },
+        { title: 'Identitas', rows: [
+          { k: 'Nomor SKU', v: 'BHHM-40402C0-6STDNB' },
+          { k: 'Merek', v: 'NB' },
+          { k: 'Kelas', v: 'STD' },
+          { k: 'Bentuk penampang', v: 'Persegi' }
+        ] }
+      ],
+      navProduk: { label: 'Semua Produk', href: '#produk', ikon: 'kotak' },
+      navTautan: [
+        { label: 'Besi Hollow Hitam', href: 'DesktopProdukM4Salinan.dc.html' }, { label: 'Besi H Beam', href: '#besi-h-beam' },
+        { label: 'Besi WF', href: '#besi-wf' }, { label: 'Besi Beton', href: '#besi-beton' },
+        { label: 'Pipa Galvanis', href: '#pipa-galvanis' }, { label: 'Besi Siku', href: '#besi-siku' },
+        { label: 'Plat Besi Hitam', href: '#plat-besi-hitam' }
+      ],
+      remah: [
+        { label: 'Beranda', href: 'Artboard-pp1u.dc.html' },
+        { label: 'Besi Hollow Hitam', href: 'DesktopProdukM4Salinan.dc.html' },
+        { label: '40 × 40 × 2 mm × 6 m [STD, NB]' }
+      ],
+      lain: [
+        [40, 40, 1.8, 13.56, 170600],
+        [40, 40, 2.3, 17.33, 221800],
+        [40, 60, 2, 18.84, 239700],
+        [30, 30, 2, 11.3, 142000]
+      ].map(function (c) {
+        return {
+          jenis: 'sku-rel', tata: 'desktop', href: 'DesktopSkuM4Salinan.dc.html', foto: '/_blob/f6871938e35011e0aa5d1def2aafdf9f',
+          nama: 'Besi Hollow ' + c[0] + ' × ' + c[1] + ' × ' + koma(c[2]) + ' mm × 6 M [STD, NB]',
+          angka: self._rb(c[4]), unit: 'per batang'
+        };
+      }).concat([{ jenis: 'ujung', tata: 'desktop', href: 'DesktopProdukM4Salinan.dc.html', aria: 'Lihat semua ukuran Besi Hollow Hitam', foto: '/_blob/a82f9a73e8f1a687ae571cfd75cca3b9' }]),
+      faq: FAQ,
+      kisi: true,
+      tanpaSosial: [],
+      ulasan: ULASAN.map(function (u) {
+        return { nama: u.who, kota: u.kota, tanggal: u.date, rating: u.rating, segmen: self._segmen(u) };
+      }),
+      kolomFooter: ([
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ]).map(function (k) {
+        return { h: k.h, items: k.items.map(function (l) { return { label: l, href: '#produk' }; }) };
+      }),
+      seksi: [
+        { id: 's-ringkas', label: 'Info', ikon: 'info' },
+        { id: 's-faq', label: 'FAQ', ikon: 'tanya' },
+        { id: 's-ulasan', label: 'Ulasan', ikon: 'bintang-garis' }
+      ],
+      sek: s.sek,
+      sekPulau: s.sekPulau,
+      navUbah: function (v) { self.setState({ sekPulau: v, bantuan: false }); },
+      pilihSeksi: function (id) { self.setState({ sek: id, sekPulau: false }); },
+      bantuanBuka: s.bantuan,
+      bantuan: { buka: s.bantuan, online: this._jamKerja(), onTutup: function () { self.setState({ bantuan: false }); } },
+      bantuanTogel: function () { self.setState({ bantuan: !s.bantuan, sekPulau: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

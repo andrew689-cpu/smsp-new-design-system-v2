@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Accordion</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 100%">
+  <p style="{{ gayaTanya }}"><span style="{{ gayaNo }}">{{ no }}</span><span style="{{ gayaTeks }}">{{ tanya }}</span></p>
+  <p data-panel="1" style="{{ gayaJawab }}">{{ jawab }}</p>
+  <span style="{{ gayaTombol }}"><dc-import name="Button" variant="teks-tebal" tinggi="3rem" label="{{ labelTombol }}" onPress="{{ togel }}" ariaExpanded="{{ exp }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonPutar="{{ buka }}" hint-size="16rem,3rem"></dc-import></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"buka":{"editor":"boolean"},"no":{"editor":null,"default":"1."},"tanya":{"editor":null,"default":"Berapa panjang standar besi hollow?"},"jawab":{"editor":null,"default":"Panjang standar besi hollow di SMS Perkasa adalah 6 meter per batang. Untuk kebutuhan panjang lain, silakan hubungi tim sales kami untuk dibantu menghitung kebutuhan proyek Anda."},"labelBuka":{"editor":null,"default":"Lihat Selengkapnya"},"labelTutup":{"editor":null,"default":"Lebih Sedikit"},"onUbah":{"editor":null},"$preview":{"width":360,"height":170}}'>
+class Component extends DCLogic {
+  state = { buka: false };
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const dikendalikan = this.props.buka !== undefined;
+    const buka = dikendalikan ? !!this.props.buka : this.state.buka;
+    const jepit = 'display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; ';
+    const lebar = desktop ? '3.6rem' : '2.6rem';
+    return {
+      no: this.props.no ?? '1.',
+      tanya: this.props.tanya ?? 'Berapa panjang standar besi hollow?',
+      jawab: this.props.jawab ?? 'Panjang standar besi hollow di SMS Perkasa adalah 6 meter per batang. Untuk kebutuhan panjang lain, silakan hubungi tim sales kami untuk dibantu menghitung kebutuhan proyek Anda.',
+      buka,
+      exp: buka ? 'true' : 'false',
+      labelTombol: buka ? (this.props.labelTutup ?? 'Lebih Sedikit') : (this.props.labelBuka ?? 'Lihat Selengkapnya'),
+      togel: () => {
+        if (!dikendalikan) this.setState({ buka: !buka });
+        if (this.props.onUbah) this.props.onUbah(!buka);
+      },
+      gayaTanya: 'display: flex; align-items: baseline; column-gap: 0; width: 100%; margin: 0; font-weight: var(--bobot-semibold); line-height: var(--tinggi-sedang); ' + (desktop ? 'min-height: 6rem; font-size: var(--teks-lead)' : 'min-height: 4.4rem; font-size: var(--teks-body)'),
+      gayaNo: desktop ? 'flex-shrink: 0; width: 2.6rem; margin-right: 0.5rem' : 'flex-shrink: 0; width: 1.8rem; margin-right: 0.4rem',
+      gayaTeks: desktop ? 'min-width: 0; margin-left: 0.5rem; margin-right: 0.5rem' : 'min-width: 0; margin-left: 0.4rem; margin-right: 0.4rem',
+      gayaJawab: (buka ? (desktop ? '' : 'text-align: justify; -webkit-hyphens: auto; hyphens: auto; ') : jepit) + 'padding-left: ' + lebar + '; margin: 1rem 0 0 0; font-weight: var(--bobot-light); color: var(--ink-2); ' + (desktop ? 'font-size: var(--teks-lead); line-height: var(--tinggi-isi-d)' : 'font-size: var(--teks-body); line-height: var(--tinggi-sedang)'),
+      gayaTombol: 'display: block; padding-left: ' + lebar + (desktop ? '; margin: 0 0 2rem 0' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

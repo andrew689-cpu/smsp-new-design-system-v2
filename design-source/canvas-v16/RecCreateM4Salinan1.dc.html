@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Besi Hollow Hitam — harga, ukuran dan filter (panel tertutup atau terbuka)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="ProductPageLama" font="source-code" panelFilter="{{ panelFilter }}" hint-size="100%,100vh"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { panelFilter: this.props.panelFilter };
+  }
+}
+</script>
+</body>
+</html>

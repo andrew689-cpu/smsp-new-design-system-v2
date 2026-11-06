@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SectionRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: sticky; top: 12.4rem; z-index: 30; padding: 1rem 12rem; background: var(--cair); backdrop-filter: var(--cair-blur); -webkit-backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--rel-garis); display: flex; align-items: center; gap: 1rem">
+  <sc-if value="{{ isNav }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="{{ ariaLabel }}" style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; flex-grow: 1">
+      <sc-for list="{{ butir }}" as="b" hint-placeholder-count="3">
+        <span style="display: flex; margin-left: {{ b.kiri }}; margin-right: 0.3rem"><dc-import name="GlassButton" dc-props="{{ b.props }}" hint-size="10rem,4rem"></dc-import></span>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ isDiv }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; flex-grow: 1">
+      <sc-for list="{{ butir }}" as="b" hint-placeholder-count="4">
+        <span style="display: flex; margin-left: {{ b.kiri }}; margin-right: 0.3rem"><dc-import name="GlassButton" dc-props="{{ b.props }}" hint-size="10rem,4rem"></dc-import></span>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ adaHitung }}" hint-placeholder-val="{{ false }}">
+    <p style="margin: 0; font-size: var(--teks-meta); color: var(--ink-2)">Menampilkan <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ tampil }}</span> dari <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ total }}</span> SKU</p>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"seksi":{"editor":null},"aktif":{"editor":null},"ariaLabel":{"editor":null},"tampil":{"editor":null},"total":{"editor":null},"onPilih":{"editor":null},"$preview":{"width":1440,"height":62}}'>
+class Component extends DCLogic {
+  state = { aktif: null };
+  renderVals() {
+    const seksi = this.props.seksi ?? [
+      { id: 'top', label: 'Top', ikon: 'panah-atas' },
+      { id: 'm-harga', label: 'Harga', ikon: 'tabel' },
+      { id: 'm-info', label: 'Info', ikon: 'info' },
+      { id: 'm-faq', label: 'FAQ', ikon: 'tanya' }
+    ];
+    const aktif = this.props.aktif ?? this.state.aktif ?? seksi[0].id;
+    const ariaLabel = this.props.ariaLabel;
+    return {
+      isNav: !!ariaLabel,
+      isDiv: !ariaLabel,
+      ariaLabel,
+      adaHitung: this.props.total !== undefined,
+      tampil: this.props.tampil,
+      total: this.props.total,
+      butir: seksi.map((s, i) => ({
+        kiri: i === 0 ? '0' : '0.3rem',
+        props: {
+          jenis: 'rel',
+          aktif: s.id === aktif,
+          label: s.label,
+          ikon: s.ikon,
+          href: s.href ?? '#' + s.id,
+          ariaCurrent: s.id === aktif ? 'true' : 'false',
+          onPress: (e) => {
+            this.setState({ aktif: s.id });
+            if (this.props.onPilih) this.props.onPilih(s.id, e);
+          }
+        }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

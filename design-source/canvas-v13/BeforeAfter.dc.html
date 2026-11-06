@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BeforeAfter</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div>
+  <div style="{{ gulir }}">
+    <div role="group" aria-label="Pembanding foto: dengan dan tanpa SMS Perkasa" style="position: relative; width: 100%; aspect-ratio: 2000 / 971; border-radius: {{ sudut }}; overflow: hidden; background: var(--surface)">
+      <sc-if value="{{ adaDengan }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ fotoDengan }}" alt="{{ altDengan }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+      </sc-if>
+      <sc-if value="{{ takDengan }}" hint-placeholder-val="{{ false }}">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center; background: var(--banding-kosong); color: var(--ink-2); font-size: var(--teks-lead); font-weight: var(--bobot-medium); letter-spacing: var(--renggang-kecil); text-transform: uppercase">Foto &ldquo;dengan&rdquo; menunggu berkas</span>
+      </sc-if>
+      <span style="position: absolute; inset: 0; display: block; clip-path: inset(0 0 0 {{ persen }})">
+        <sc-if value="{{ adaTanpa }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ fotoTanpa }}" alt="{{ altTanpa }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+        </sc-if>
+        <sc-if value="{{ takTanpa }}" hint-placeholder-val="{{ false }}">
+          <span style="position: absolute; inset: 0; display: grid; place-items: center; background: var(--ink-4); color: var(--ink); font-size: var(--teks-lead); font-weight: var(--bobot-medium); letter-spacing: var(--renggang-kecil); text-transform: uppercase">Foto &ldquo;tanpa&rdquo; menunggu berkas</span>
+        </sc-if>
+      </span>
+      <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{ persen }}; width: 0.2rem; background: var(--ink); transform: translateX(-50%)"></span>
+      <span style="position: absolute; bottom: {{ bawah }}; left: {{ persen }}; transform: translateX(-50%); display: block">
+        <dc-import name="Icon" ikon="banding" hint-size="50px,50px"></dc-import>
+      </span>
+      <input data-banding="1" type="range" min="0" max="100" step="1" value="{{ nilai }}" onChange="{{ geser }}" aria-label="Geser untuk membandingkan foto dengan dan tanpa SMS Perkasa" style="position: absolute; left: -2.5rem; width: calc(100% + 5rem); bottom: {{ bawah }}; height: 5rem">
+    </div>
+  </div>
+  <div style="margin-top: var(--rapat); min-height: {{ tinggiPita }}; display: flex; align-items: flex-start">
+    <sc-if value="{{ pitaKiri }}" hint-placeholder-val="{{ false }}">
+      <img src="{{ fotoTeksDengan }}" alt="Keuntungan Dengan Sms Perkasa — geser ke kanan" loading="lazy" style="width: 75rem; max-width: 100%; height: auto; display: block; margin-right: auto">
+    </sc-if>
+    <sc-if value="{{ pitaKanan }}" hint-placeholder-val="{{ true }}">
+      <img src="{{ fotoTeksTanpa }}" alt="Bayangkan Tanpa Sms Perkasa — geser ke kiri" loading="lazy" style="width: 73.2rem; max-width: 100%; height: auto; display: block; margin-left: auto">
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"awal":{"editor":"range","min":0,"max":100,"step":1,"default":4},"fotoDengan":{"editor":null},"fotoTanpa":{"editor":null},"fotoTeksDengan":{"editor":null},"fotoTeksTanpa":{"editor":null},"altDengan":{"editor":null},"altTanpa":{"editor":null},"$preview":{"width":330,"height":240}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const awal = this.props.awal ?? (desktop ? 96 : 4);
+    const AMBANG_KIRI = 4;
+    const AMBANG_KANAN = 96;
+    const pos = Math.min(Math.max(Number(this.state.banding == null ? awal : this.state.banding) || 0, 0), 100);
+    const fotoDengan = this.props.fotoDengan ?? '/_blob/f330fd9f78bf3b8358307b31bc216896';
+    const fotoTanpa = this.props.fotoTanpa ?? '/_blob/28578451a6236e2355e3b299c8beaa84';
+    return {
+      gulir: desktop ? '' : 'overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch',
+      sudut: desktop ? 'var(--card)' : 'var(--tile)',
+      bawah: desktop ? 'var(--dalam)' : 'var(--rapat)',
+      tinggiPita: desktop ? '12.9rem' : '5.8rem',
+      fotoDengan,
+      fotoTanpa,
+      adaDengan: !!fotoDengan,
+      adaTanpa: !!fotoTanpa,
+      takDengan: desktop && !fotoDengan,
+      takTanpa: desktop && !fotoTanpa,
+      altDengan: this.props.altDengan ?? 'Dengan SMS Perkasa: informasi produk lengkap dan akurat; respon cepat, pasti dibalas kurang dari 10 menit; pengiriman tepat waktu sesuai schedule; harga kompetitif tanpa mengorbankan kualitas',
+      altTanpa: this.props.altTanpa ?? 'Tanpa SMS Perkasa: spesifikasi produk tidak jelas dan kurang akurat; respon lama, tidak ada jaminan dibalas; pengiriman terlambat tidak tepat waktu; harga produk tidak sesuai dengan kualitas',
+      fotoTeksDengan: this.props.fotoTeksDengan ?? '/_blob/7fa392efb230dc1ae906da597c3a89e2',
+      fotoTeksTanpa: this.props.fotoTeksTanpa ?? '/_blob/1fd3f7db432b36e551160527221f4122',
+      pitaKiri: pos <= AMBANG_KIRI,
+      pitaKanan: pos >= AMBANG_KANAN,
+      nilai: String(pos),
+      persen: pos + '%',
+      geser: (e) => {
+        const v = Number(e.target.value);
+        if (!isFinite(v)) return;
+        this.setState({ banding: Math.min(Math.max(v, 0), 100) });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

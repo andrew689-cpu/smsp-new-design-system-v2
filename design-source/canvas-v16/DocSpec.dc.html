@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>DocSpec</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="display: flex; flex-direction: column; gap: 0.4rem; font-family: var(--font-harga); font-size: var(--teks-tiny); line-height: var(--tinggi-sedang); color: var(--ink-2)">
+  <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+    <div style="display: flex; align-items: center; gap: 0.6rem">
+      <sc-if value="{{ b.adaContoh }}" hint-placeholder-val="{{ true }}">
+        <span aria-hidden="true" style="width: 1.2rem; height: 1.2rem; flex-shrink: 0; border-radius: 0.3rem; box-shadow: inset 0 0 0 0.1rem var(--line-kuat); background: {{ b.contoh }}"></span>
+      </sc-if>
+      <span>{{ b.teks }}</span>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"warna":{"editor":null},"dasar":{"editor":null},"ukuran":{"editor":null},"catatan":{"editor":null},"$preview":{"width":240,"height":60}}'>
+class Component extends DCLogic {
+  state = { n: 0 };
+  componentDidMount() {
+    this.t = setInterval(() => {
+      this.setState({ n: this.state.n + 1 });
+      if (this.state.n > 4) clearInterval(this.t);
+    }, 400);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  nilai(token) {
+    try { return getComputedStyle(document.documentElement).getPropertyValue(token).trim(); }
+    catch (e) { return ''; }
+  }
+  renderVals() {
+    const baris = [];
+    const warna = this.props.warna;
+    const dasar = this.props.dasar;
+    const ukuran = this.props.ukuran;
+    if (warna) baris.push({ adaContoh: true, contoh: 'var(' + warna + ')', teks: 'warna ' + warna + ' ' + this.nilai(warna) });
+    if (dasar) baris.push({ adaContoh: true, contoh: 'var(' + dasar + ')', teks: 'dasar ' + dasar + ' ' + this.nilai(dasar) });
+    if (ukuran) {
+      const rem = parseFloat(this.nilai(ukuran));
+      baris.push({ adaContoh: false, contoh: '', teks: 'huruf ' + ukuran + (rem ? ' ' + Math.round(rem * 100) / 10 + ' px' : '') });
+    }
+    if (this.props.catatan) baris.push({ adaContoh: false, contoh: '', teks: this.props.catatan });
+    return { baris };
+  }
+}
+</script>
+</body>
+</html>

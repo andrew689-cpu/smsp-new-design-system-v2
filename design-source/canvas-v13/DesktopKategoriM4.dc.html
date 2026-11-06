@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Kategori — SMS Perkasa · Desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="desktop" href="https://www.smsperkasa.com/hati-hati-penipuan" hint-size="100%,5.4rem"></dc-import>
+  <dc-import name="SiteHeader" tata="desktop" hrefLogo="DesktopBerandaM4.dc.html" navProduk="{{ navProduk }}" navTautan="{{ navTautan }}" hint-size="100%,12.4rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--sisi)">
+    <dc-import name="PageTitle" tata="desktop" judul="Kategori" remahTampil="{{ remahTampil }}" remah="{{ remah }}" hint-size="100%,7.3rem"></dc-import>
+    <div style="margin-top: var(--seksi)">
+      <dc-import name="Rail" komponen="CategoryTile" kolom="{{ 2 }}" tepi="kisi" penuh="{{ true }}" gutter="calc(var(--dalam) / 2)" items="{{ kategori }}" hint-size="100%,70rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" sosial="{{ footSosial }}" kolom="{{ kolomFooter }}" hint-size="100%,40rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var KATEGORI = [
+      ['Besi', 'besi', '/_blob/5643ddd9c2c99d47e1899581a0d4aaa0'],
+      ['Plastik', 'plastik', '/_blob/78165b927b1cd3bd0b5efc7648e1faf3'],
+      ['Stainless Steel', 'stainless-steel', '/_blob/558ec9759aed356ff57a69ffb3751431']
+    ];
+    return {
+      kategori: KATEGORI.map(function (k) {
+        return { jenis: 'foto', tata: 'desktop', nama: k[0], foto: k[2], aria: 'Kategori ' + k[0], href: 'DesktopProdukIndexM4.dc.html' };
+      }),
+      remahTampil: false,
+      remah: [{ label: 'Home', href: 'DesktopBerandaM4.dc.html' }, { label: 'Kategori' }],
+      navProduk: { label: 'Semua Produk', href: 'DesktopProdukIndexM4.dc.html', ikon: 'kotak' },
+      navTautan: [
+        { label: 'Besi Hollow Hitam', href: 'DesktopProdukM4.dc.html' },
+        { label: 'Besi H Beam', href: '#besi-h-beam' },
+        { label: 'Besi WF', href: '#besi-wf' },
+        { label: 'Besi Beton', href: '#besi-beton' },
+        { label: 'Pipa Galvanis', href: '#pipa-galvanis' },
+        { label: 'Besi Siku', href: '#besi-siku' },
+        { label: 'Plat Besi Hitam', href: '#plat-besi-hitam' }
+      ],
+      footSosial: ['Instagram', 'Facebook', 'YouTube', 'TikTok'].map(function (l) { return { label: l, href: '#sosial' }; }),
+      kolomFooter: [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF', 'Wiremesh'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ].map(function (k) {
+        return { h: k.h, items: k.items.map(function (l) { return { label: l, href: '#produk' }; }) };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

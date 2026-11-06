@@ -1,0 +1,1 @@
+[{"click": "button:has-text(\"Lihat Semua\")", "force": true}, {"wait": 900}, {"click": "button:has-text(\"Semua materi\")"}, {"wait": 900}]

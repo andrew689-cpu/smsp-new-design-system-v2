@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogHero</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isGambar }}" hint-placeholder-val="{{ true }}">
+  <header style="display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" gambar="{{ gambar }}" alt="{{ alt }}" hint-size="100%,13rem"></dc-import>
+  </header>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <header>
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" celah="1rem" baris="{{ barisDesktop }}" hint-size="100%,9rem"></dc-import>
+    <p style="margin: var(--dalam) 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-isi-d); font-weight: var(--bobot-light); color: var(--ink-2)">{{ isi }}</p>
+  </header>
+  <div aria-hidden="true" style="margin-top: var(--dalam); height: 0.1rem; background: var(--line)"></div>
+</sc-if>
+<sc-if value="{{ isMerah }}" hint-placeholder-val="{{ false }}">
+  <header style="box-sizing: border-box; padding: var(--dalam) var(--talang) 0 var(--talang); {{ dasar }}; color: var(--surface); display: flex; flex-direction: column; gap: 0">
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" ukuran="{{ ukuran }}" tinggi="var(--tinggi-sempit)" bobot="var(--bobot-bold)" rata="{{ rata }}" warna="var(--surface)" teks="{{ judul }}" hint-size="100%,8rem"></dc-import>
+    <p style="margin-top: var(--rapat); margin-right: 0; margin-bottom: {{ isiBawah }}; margin-left: 0; font-size: var(--teks-body); line-height: var(--tinggi-isi-d); text-align: {{ rata }}; color: var(--artikel-meta)"><sc-for list="{{ isiBaris }}" as="b" hint-placeholder-count="2">{{ b.teks }}<sc-if value="{{ b.putus }}" hint-placeholder-val="{{ true }}"><br></sc-if></sc-for></p>
+    <sc-if value="{{ cari }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin-top: var(--dalam); margin-bottom: calc(-1 * var(--dalam))"><dc-import name="SearchField" tata="hero" ariaLabel="{{ cariAria }}" placeholder="{{ cariPlaceholder }}" hint-size="100%,4.1rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaTab }}" hint-placeholder-val="{{ false }}">
+      <span style="display: block; margin: var(--dalam) calc(-1 * var(--talang)) 0 calc(-1 * var(--talang)); flex-shrink: 0"><dc-import name="BlogTabs" jenis="lembar" judul="{{ tabJudul }}" sub="{{ tabSub }}" butir="{{ tab }}" hint-size="100%,13rem"></dc-import></span>
+    </sc-if>
+  </header>
+</sc-if>
+<sc-if value="{{ isTerang }}" hint-placeholder-val="{{ false }}">
+  <header style="position: relative; box-sizing: border-box; padding: var(--dalam) var(--talang) 2.8rem var(--talang); background: var(--surface); overflow: hidden; display: flex; flex-direction: column; gap: 0">
+    <img src="{{ gambar }}" alt="" style="position: absolute; top: 0; right: 0; width: 72%; height: 100%; object-fit: cover; object-position: right center; display: block; pointer-events: none">
+    <span aria-hidden="true" style="position: absolute; inset: 0; display: block; pointer-events: none; background: var(--blog-hero-tirai)"></span>
+    <span style="position: relative; align-self: flex-start; display: inline-flex; align-items: center; column-gap: 0.6rem; row-gap: 0; box-sizing: border-box; min-height: 3.2rem; padding: 0.4rem 1.4rem; border-radius: var(--pill); background: var(--brand-subtle); font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--brand)"><dc-import name="Icon" ikon="koran" hint-size="1.5rem,1.5rem"></dc-import>{{ eyebrow }}</span>
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" posisi="relative" margin="var(--dalam) 0 0 0" ukuran="var(--teks-hero-terang)" tinggi="var(--tinggi-hero-terang)" bobot="var(--bobot-bold)" rata="left" warna="var(--ink)" baris="{{ barisTerang }}" hint-size="100%,8rem"></dc-import>
+    <p style="position: relative; margin: var(--rapat) 0 0 0; max-width: 23rem; font-size: var(--teks-body); line-height: var(--tinggi-baca); text-align: left; color: var(--ink-2)">{{ isi }}</p>
+    <a href="{{ ctaHref }}" style="position: relative; align-self: flex-start; margin-top: var(--dalam); box-sizing: border-box; display: inline-flex; align-items: center; column-gap: 1rem; row-gap: 0; min-height: 4.4rem; padding: 0.4rem 0.6rem 0.4rem 2rem; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-body); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); text-decoration: none">{{ ctaLabel }}<span aria-hidden="true" style="flex-shrink: 0; width: 3.2rem; height: 3.2rem; border-radius: var(--pill); background: var(--blog-hero-panah); display: inline-flex; align-items: center; justify-content: center"><dc-import name="Icon" ikon="chevron-kanan" ukuran="{{ 16 }}" garis="{{ 2.4 }}" warna="var(--surface)" hint-size="1.6rem,1.6rem"></dc-import></span></a>
+  </header>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["gambar","desktop","merah","terang"],"default":"gambar","section":"Resep"},"foto":{"editor":"boolean","default":false,"section":"Resep"},"cari":{"editor":"boolean","default":false,"section":"Resep"},"ukuran":{"editor":"text","default":"var(--teks-hero-blog-besar)","section":"Tata letak"},"rata":{"editor":"enum","options":["center","left"],"default":"center","section":"Tata letak"},"isiBawah":{"editor":"text","default":"0","section":"Tata letak"},"gambar":{"editor":"text","default":"","section":"Gambar"},"alt":{"editor":"text","default":"Blog SMS Perkasa — Mau bedah standar SNI, bandingkan material atau pelajari teknik konstruksi? Semuanya dirangkum secara praktis dan teruji.","section":"Gambar"},"eyebrow":{"editor":"text","default":"","section":"Isi"},"judul":{"editor":"text","default":"","section":"Isi"},"judulMerah":{"editor":"text","default":"Berita Terbaru","section":"Isi"},"isi":{"editor":"text","default":"","section":"Isi"},"cariAria":{"editor":"text","default":"Cari panduan, rumus, atau cara ukur","section":"Cari"},"cariPlaceholder":{"editor":"text","default":"Cari panduan, rumus, atau cara ukur...","section":"Cari"},"tabJudul":{"editor":"text","default":"Topik Artikel","section":"Tab"},"tabSub":{"editor":"text","default":"Temukan informasi berdasarkan kategori","section":"Tab"},"ctaLabel":{"editor":"text","default":"Jelajahi Berita","section":"Tautan"},"ctaHref":{"editor":"text","default":"#kat-baru","section":"Tautan"},"isiBaris":{"editor":null,"section":"Data","tsType":"string[]"},"tab":{"editor":null,"section":"Data","tsType":"Array<{label:string,kini?:boolean,pilih?:Function}>"},"$preview":{"width":360,"height":248}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const jenis = p.jenis ?? 'gambar';
+    const terang = jenis === 'terang';
+    const merah = jenis === 'merah';
+    const isiBaris = p.isiBaris ?? ['Bedah standar SNI, bandingkan material, atau pelajari teknik konstruksi?', 'Semuanya dirangkum secara praktis dan teruji.'];
+    const judul = p.judul || (terang ? 'Informasi &' : merah ? 'Pusat Informasi & Panduan Besi Baja' : 'Tanya Apa Saja Soal Besi & Baja');
+    const judulMerah = p.judulMerah ?? 'Berita Terbaru';
+    const eyebrow = p.eyebrow || (terang ? 'News Besi Baja' : 'PUSAT INFORMASI BAJA SMS PERKASA');
+    return {
+      barisDesktop: [
+        { teks: eyebrow, ukuran: 'var(--teks-body)', tinggi: 'var(--tinggi-tengah)', bobot: 'var(--bobot-semibold)', renggang: 'var(--renggang-label-m)', kapital: true, warna: 'var(--ink-2)' },
+        { teks: judul, ukuran: 'var(--teks-display)', tinggi: 'var(--tinggi-sempit)', bobot: 'var(--bobot-bold)', renggang: 'var(--renggang-judul)', warna: 'var(--ink)' }
+      ],
+      barisTerang: [{ teks: judul }, { teks: judulMerah, warna: 'var(--brand)' }],
+      isGambar: jenis === 'gambar',
+      isDesktop: jenis === 'desktop',
+      isMerah: merah,
+      isTerang: terang,
+      gambar: p.gambar || (terang ? '/_blob/967dac9be07f34499152cc411471bbbc' : '/_blob/553b443a196371db58ef1430c0c6b1a1'),
+      alt: p.alt ?? 'Blog SMS Perkasa — Mau bedah standar SNI, bandingkan material atau pelajari teknik konstruksi? Semuanya dirangkum secara praktis dan teruji.',
+      eyebrow,
+      judul,
+      judulMerah,
+      isi: p.isi || (terang ? 'Dapatkan update seputar industri besi baja, tips, dan informasi penting untuk kebutuhan Anda.' : 'Mau cek tabel berat, bedah standar SNI, atau membandingkan material proyek? Semuanya dirangkum secara praktis dan teruji.'),
+      isiBaris: isiBaris.map((teks, i) => ({ teks, putus: i < isiBaris.length - 1 })),
+      isiBawah: p.isiBawah ?? '0',
+      ukuran: p.ukuran ?? 'var(--teks-hero-blog-besar)',
+      rata: p.rata ?? 'center',
+      dasar: p.foto ? 'background: var(--blog-hero-foto); background-blend-mode: multiply, normal' : 'background: var(--merah-artikel)',
+      cari: !!p.cari,
+      cariAria: p.cariAria ?? 'Cari panduan, rumus, atau cara ukur',
+      cariPlaceholder: p.cariPlaceholder ?? 'Cari panduan, rumus, atau cara ukur...',
+      adaTab: !!p.tab,
+      tab: p.tab,
+      tabJudul: p.tabJudul ?? 'Topik Artikel',
+      tabSub: p.tabSub ?? 'Temukan informasi berdasarkan kategori',
+      ctaLabel: p.ctaLabel ?? 'Jelajahi Berita',
+      ctaHref: p.ctaHref ?? '#kat-baru'
+    };
+  }
+}
+</script>
+</body>
+</html>

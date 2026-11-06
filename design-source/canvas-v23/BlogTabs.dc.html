@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogTabs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLembar }}" hint-placeholder-val="{{ true }}">
+  <div style="box-sizing: border-box; padding: var(--dalam) var(--talang) 0 var(--talang); border-radius: 2.8rem 2.8rem 0 0; background: var(--surface); box-shadow: none; display: flex; flex-direction: column; align-items: stretch; row-gap: var(--dalam); column-gap: 0">
+    <span style="flex-shrink: 0; min-width: 0; display: flex; flex-direction: column; row-gap: 0.4rem; column-gap: 0">
+      <span style="font-size: var(--teks-section); line-height: var(--tinggi-artikel); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+      <span style="font-size: var(--teks-meta); line-height: var(--tinggi-sedang); font-weight: var(--bobot-regular); color: var(--ink-2)">{{ sub }}</span>
+    </span>
+    <div role="group" aria-label="{{ ariaLabel }}" style="box-sizing: border-box; flex: 1 1 auto; min-width: 0; display: flex; align-items: stretch; justify-content: space-between; column-gap: var(--rapat); row-gap: 0; padding: 0; border-bottom: 0.1rem solid var(--line)">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <dc-import name="TabButton" jenis="garis" aktif="{{ t.kini }}" label="{{ t.label }}" onPress="{{ t.pilih }}" hint-size="6rem,4.4rem"></dc-import>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isPita }}" hint-placeholder-val="{{ false }}">
+  <nav aria-label="{{ ariaLabel }}" style="box-sizing: border-box; background: var(--merah-artikel); border-bottom: 0.1rem solid var(--blog-hero-panah)">
+    <ul style="list-style: none; margin: 0; padding: 0 var(--talang); display: flex; align-items: stretch; column-gap: var(--dalam); row-gap: 0; overflow-x: auto; scrollbar-width: none">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+        <li style="flex-shrink: 0; display: flex">
+          <dc-import name="TabButton" jenis="pita" aktif="{{ t.kini }}" label="{{ t.label }}" onPress="{{ t.pilih }}" hint-size="6rem,4.4rem"></dc-import>
+        </li>
+      </sc-for>
+    </ul>
+  </nav>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["lembar","pita"],"default":"lembar","section":"Resep"},"judul":{"editor":"text","default":"Topik Artikel","section":"Isi"},"sub":{"editor":"text","default":"Temukan informasi berdasarkan kategori","section":"Isi"},"ariaLabel":{"editor":"text","default":"Kategori artikel","section":"Aksesibilitas"},"butir":{"editor":null,"section":"Data","tsType":"Array<{label:string,kini?:boolean,pilih?:Function}>"},"$preview":{"width":360,"height":130}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const pita = p.jenis === 'pita';
+    const butir = p.butir ?? [{ label: 'Semua', kini: true }, { label: 'Berita Baja' }, { label: 'Industri' }, { label: 'Edukasi' }];
+    return {
+      isLembar: !pita,
+      isPita: pita,
+      judul: p.judul ?? 'Topik Artikel',
+      sub: p.sub ?? 'Temukan informasi berdasarkan kategori',
+      ariaLabel: p.ariaLabel ?? 'Kategori artikel',
+      tabs: butir.map((b) => ({
+        label: b.label,
+        pilih: b.pilih,
+        kini: !!b.kini
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

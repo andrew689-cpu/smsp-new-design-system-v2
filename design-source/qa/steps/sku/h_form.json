@@ -1,0 +1,1 @@
+[{"click": "button[aria-label=\"Pusat bantuan\"]", "wait": 700}, {"click": "[data-bantu] button:has-text(\"Chat Sales\")", "wait": 700}]

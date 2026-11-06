@@ -1,0 +1,1 @@
+[{"click":"button[aria-label=\"Pusat bantuan\"]"},{"wait":700},{"fill":["input[type=\"text\"]","Andi"]},{"fill":["input[type=\"tel\"]","08123456789"]},{"fill":["input[type=\"email\"]","a@b.co"]},{"wait":400},{"click":"button[aria-label=\"Mulai Live Chat\"]"},{"wait":900}]

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>VideoCard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="background: var(--ink); padding: var(--dalam) var(--talang)">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--tile); overflow: hidden; background: var(--ink)">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="{{ muat }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
+      <span style="width: 5.6rem; height: 5.6rem; border-radius: var(--pill); background: var(--brand); display: flex; align-items: center; justify-content: center">
+        <span style="display: block; margin-left: 0.3rem"><dc-import name="Icon" ikon="putar" ukuran="{{ 22 }}" warna="var(--surface)" hint-size="2.2rem,2.2rem"></dc-import></span>
+      </span>
+    </span>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"href":{"editor":null},"aria":{"editor":null},"foto":{"editor":null},"alt":{"editor":null},"muat":{"editor":null,"default":"lazy"},"$preview":{"width":360,"height":225}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      href: this.props.href ?? '#',
+      muat: this.props.muat ?? 'lazy',
+      aria: this.props.aria ?? 'Putar video Besi Hollow di YouTube',
+      foto: this.props.foto ?? '/_blob/2a9d2fc3db3fa8d810663944544e9828',
+      alt: this.props.alt ?? 'Cuplikan video Besi Hollow Hitam: tumpukan batang besi hollow hitam bertuliskan KUAT EFISIEN AESTHETIC'
+    };
+  }
+}
+</script>
+</body>
+</html>

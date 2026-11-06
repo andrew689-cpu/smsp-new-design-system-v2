@@ -1,0 +1,1 @@
+[{"click":"[aria-label=\"Cari artikel\"]"},{"wait":400},{"fill":["input","baja"]},{"wait":600}]

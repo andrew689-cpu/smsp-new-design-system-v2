@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pecahan · Kerangka situs · bagian 2 dari 2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 1200px; box-sizing: border-box; padding: 48px; background: var(--surface); color: var(--ink); font-family: var(--font-isi); display: flex; flex-direction: column; gap: 48px">
+<h1 style="margin: 0; font-size: var(--teks-display); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)">Kerangka situs dan navigasi · bagian 2 dari 2</h1>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">5 · SearchDialog, keyboard palsu dibuang</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Produk: kosong</div>
+<div style="position: relative; width: 360px; height: 720px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchDialog" varian="cincin" hint-size="360px,720px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" dasar="--surface" ukuran="--teks-meta" catatan="RecCreateM4. Kolom 48 dan tombol tutup di kaki" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Produk: hasil</div>
+<div style="position: relative; width: 360px; height: 720px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchDialog" varian="cincin" kueri="besi hollow" hint-size="360px,720px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--produk-nama" ukuran="--teks-body" catatan="Nama hasil berwarna merah" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Produk: nihil</div>
+<div style="position: relative; width: 360px; height: 720px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchDialog" varian="cincin" kueri="zzz" hint-size="360px,720px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" ukuran="--teks-body" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">SKU: kosong</div>
+<div style="position: relative; width: 360px; height: 720px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchDialog" varian="abu" hint-size="360px,720px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" dasar="--line" ukuran="--teks-meta" catatan="SkuDetailM4. Kolom 44 --action, tutup di atas" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">SKU: hasil</div>
+<div style="position: relative; width: 360px; height: 720px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchDialog" varian="abu" kueri="besi hollow" hint-size="360px,720px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" ukuran="--teks-body" catatan="Nama hasil --ink, hapus 22 tampil" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">6 · Pecahannya</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">FraudRibbon, ponsel</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="FraudRibbon" tata="ponsel" href="{{ hrefPita }}" hint-size="360px,62px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--awas-bg" ukuran="--teks-micro" catatan="Rata kanan-kiri, tutup 32. Tekan X untuk menutup" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">FraudRibbon, ponsel, tertutup</div>
+<div style="position: relative; width: 360px; height: 20px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="FraudRibbon" tata="ponsel" buka="{{ false }}" href="{{ hrefPita }}" hint-size="360px,0px"></dc-import>
+</div>
+<dc-import name="DocSpec" catatan="Hilang seluruhnya. SalinanBlogM4 memulai dari keadaan ini" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">CompactHeader, Produk</div>
+<div style="position: relative; width: 360px; height: 112px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="CompactHeader" jenis="produk" terlihat="{{ thumb }}" hint-size="360px,84px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" ukuran="--teks-page" catatan="Foto hdr-thumb 260 ms, tirai --ringkas-tirai" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">CompactHeader, SKU</div>
+<div style="position: relative; width: 360px; height: 112px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--line)">
+<dc-import name="CompactHeader" jenis="sku" terlihat="{{ thumb }}" hint-size="360px,101px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--surface" ukuran="--teks-section" catatan="Baris kecil --ringkas-redup --teks-body" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+<div style="display: flex"><dc-import name="Button" variant="garis" label="Ulangi animasi foto" onPress="{{ ulangThumb }}" hint-size="16rem,3.6rem"></dc-import></div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">FraudRibbon, desktop</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="FraudRibbon" tata="desktop" href="{{ hrefPita }}" hint-size="100%,54px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--awas-bg" ukuran="--teks-micro" catatan="Satu baris, tautan tanpa skip-ink" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">CategoryNav</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="CategoryNav"  hint-size="100%,52px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" dasar="--surface" ukuran="--teks-meta" catatan="Sticky 72, z35. Button nav-produk dan nav-teks" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Breadcrumb, indeks</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Breadcrumb" varian="indeks" hint-size="100%,24px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" ukuran="--teks-meta" catatan="Index dan Kategori. Padam di kanon (remahTampil false)" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 360px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Breadcrumb, artikel</div>
+<div style="position: relative; width: 360px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Breadcrumb" varian="artikel" hint-size="100%,24px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" ukuran="--teks-body" catatan="DesktopArtikelM4, pemisah tanda kutip sudut" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 1104px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">Breadcrumb, SKU</div>
+<div style="position: relative; width: 1104px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 12rem; --seksi: 6rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="Breadcrumb" varian="sku" hint-size="100%,40px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink-2" ukuran="--teks-meta" catatan="DesktopSkuM4, tiga tingkat, tanpa garis bawah, padding 12rem dari sumber" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; width: 120px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">ShareButton, ponsel, 44</div>
+<div style="position: relative; width: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="ShareButton" tata="ponsel" hint-size="44px,44px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="Ikon 17" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 120px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">ShareButton, desktop, 52</div>
+<div style="position: relative; width: 120px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="ShareButton" tata="desktop" hint-size="52px,52px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" catatan="Ikon 19" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 328px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">SearchRow, dengan foto</div>
+<div style="position: relative; width: 328px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchRow"  hint-size="100%,56px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--produk-nama" ukuran="--teks-body" catatan="Foto 44 --tile" hint-size="100%,48px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; width: 328px; max-width: 100%">
+<div style="font-size: var(--teks-meta); font-weight: var(--bobot-bold)">SearchRow, tanpa foto</div>
+<div style="position: relative; width: 328px; max-width: 100%; overflow: hidden; transform: translateZ(0); --sisi: 1.5rem; box-shadow: 0 0 0 1px var(--line); background: var(--surface)">
+<dc-import name="SearchRow" judul="Kalkulator Berat" sub="Hitung berat dari ukuran dan jumlah" barisRapat="{{ true }}" hint-size="100%,56px"></dc-import>
+</div>
+<dc-import name="DocSpec" warna="--ink" dasar="--line" ukuran="--teks-body" catatan="Halaman, ikon kartu-bayar" hint-size="100%,48px"></dc-import>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: var(--teks-section); font-weight: var(--bobot-medium); text-transform: uppercase; letter-spacing: var(--renggang-label-m); line-height: var(--tinggi-sedang); color: var(--ink-2)">State yang belum ada di Mobbin 4</h2>
+<p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--ink-2)">Hover dan focus pada semua komponen di lembar ini tidak ditemukan di papan kanon, jadi tidak digambar. Press scale hanya ada pada tombol navigasi kiri (bar Produk dan SKU, pulau desktop). Tidak ada state loading atau disabled. Sumber tidak punya morf ikon kisi menjadi X: ikonnya kini satu berkas, berputar 30 derajat dan berubah warna saat terbuka, dan bar sudah sembunyi saat itu terjadi. Blok telepon, Breadcrumb indeks, rel bagian, dan tombol Salin padam di kanon, markupnya masih ada, jadi digambar dan diberi tanda. Frame di lembar ini memakai transform supaya komponen fixed tetap di dalam kotaknya, itu hanya alat peraga.</p>
+</section>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":8000}}'>
+class Component extends DCLogic {
+  state = { navBuka: false, thumb: true };
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    return {
+      navBuka: this.state.navBuka,
+      navToggle: () => this.setState({ navBuka: !this.state.navBuka }),
+      navTutup: () => this.setState({ navBuka: false }),
+      thumb: this.state.thumb,
+      ulangThumb: () => {
+        this.setState({ thumb: false });
+        clearTimeout(this.t);
+        this.t = setTimeout(() => this.setState({ thumb: true }), 60);
+      },
+      hrefPita: 'https://www.smsperkasa.com/hati-hati-penipuan',
+      kosong: [],
+      blogProduk: { label: 'Semua Produk Produk Kategori', href: '#' },
+      blogTautan: ['Berita Baja', 'Industri Baja', 'Produk Besi', 'Team', 'Trivia', 'Semua Kategori'].map((label) => ({ label, href: '#' })),
+      kolomSku: [
+        { h: 'Produk', items: ['Besi Hollow Hitam', 'Besi Hollow Galvanis', 'Besi CNP', 'Besi WF'] },
+        { h: 'Bantuan', items: ['Bantuan dan FAQ', 'Kalkulator Berat', 'Cara Pemesanan', 'Hati-hati Penipuan'] },
+        { h: 'Perusahaan', items: ['Tentang Kami', 'Lokasi Gudang', 'Blog', 'Kontak'] }
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

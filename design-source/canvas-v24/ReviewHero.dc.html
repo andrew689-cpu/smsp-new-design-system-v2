@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewHero</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: relative; background: var(--surface); overflow: hidden">
+  <img src="{{ foto }}" alt="" style="{{ g.foto }}">
+  <span aria-hidden="true" style="{{ g.kabut }}"></span>
+  <div style="{{ g.isi }}">
+    <sc-if value="{{ pilTampil }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ pilHref }}" style="display: inline-flex; align-items: center; column-gap: 0; min-height: 4.4rem; padding: 0.5rem 1.6rem 0.5rem 0.5rem; border-radius: var(--pill); background: var(--awas-bg); text-decoration: none">
+        <span aria-hidden="true" style="width: 3.2rem; height: 3.2rem; flex-shrink: 0; border-radius: var(--pill); background: var(--brand); display: grid; place-items: center; margin-right: 0.45rem"><dc-import name="Icon" ikon="chevron-kiri" ukuran="{{ 16 }}" garis="{{ 2.6 }}" warna="var(--surface)" hint-size="1.6rem,1.6rem"></dc-import></span>
+        <span style="font-size: var(--teks-body); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); color: var(--ink); margin-left: 0.45rem; margin-right: 0.45rem">{{ pilLabel }}</span>
+      </a>
+    </sc-if>
+    <span style="{{ g.judul }}"><dc-import name="Heading" level="{{ 1 }}" varian="ulasan" tata="{{ tata }}" baris="{{ baris }}" hint-size="100%,10rem"></dc-import></span>
+    <span aria-hidden="true" style="{{ g.aksen }}"></span>
+    <sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-top: 2rem"><dc-import name="ReviewMarquee" tata="ponsel" ulasan="{{ ulasan }}" hint-size="100%,20rem"></dc-import></div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+    <dc-import name="ReviewMarquee" tata="desktop" ulasan="{{ ulasan }}" hint-size="100%,26rem"></dc-import>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"pilTampil":{"editor":"boolean","default":false,"section":"Resep"},"foto":{"editor":"text","default":"/_blob/210aaa875210ebff1daa24732dc74f8f","section":"Gambar"},"pilLabel":{"editor":"text","default":"Ulasan Pelanggan","section":"Isi"},"pilHref":{"editor":"text","default":"#","section":"Tautan"},"baris":{"editor":null,"section":"Data","tsType":"Array<{teks:string,warna?:string}>"},"ulasan":{"editor":null,"section":"Data","tsType":"Array<{teks:string,nama:string,kota?:string,tanggal:string,rating:number}>"},"$preview":{"width":360,"height":460}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const lapisanPenuh = 'position: absolute; inset: 0; ';
+    return {
+      tata: desktop ? 'desktop' : 'ponsel',
+      isPonsel: !desktop,
+      isDesktop: desktop,
+      foto: this.props.foto ?? '/_blob/210aaa875210ebff1daa24732dc74f8f',
+      ulasan: this.props.ulasan,
+      pilTampil: !desktop && !!this.props.pilTampil,
+      pilLabel: this.props.pilLabel ?? 'Ulasan Pelanggan',
+      pilHref: this.props.pilHref ?? '#',
+      baris: this.props.baris ?? (desktop
+        ? [{ teks: 'Ulasan Pelanggan' }, { teks: 'SMS Perkasa', warna: 'var(--brand)' }]
+        : [{ teks: 'Ulasan' }, { teks: 'Pelanggan' }, { teks: 'SMS Perkasa', warna: 'var(--brand)' }]),
+      g: desktop ? {
+        foto: 'position: absolute; right: 0; top: 0; width: 62%; height: 100%; object-fit: cover',
+        kabut: lapisanPenuh + 'background: var(--ulasan-kabut-d)',
+        isi: 'position: relative; box-sizing: border-box; padding: 4.8rem 12rem 4rem 12rem',
+        judul: 'display: block',
+        aksen: 'display: block; width: 7.2rem; height: 0.5rem; margin-top: 1.8rem; background: var(--brand); border-radius: var(--pill)'
+      } : {
+        foto: 'position: absolute; right: 0; top: 0; width: 76%; height: 100%; object-fit: cover; object-position: left center; -webkit-mask-image: var(--ulasan-topeng-m); mask-image: var(--ulasan-topeng-m); display: block',
+        kabut: lapisanPenuh + 'background: var(--ulasan-kabut-m)',
+        isi: 'position: relative; padding: 1rem 1.6rem 2.2rem 1.6rem',
+        judul: 'display: block; margin-top: 0.6rem',
+        aksen: 'margin-top: 1.2rem; display: block; width: 4.6rem; height: 0.4rem; border-radius: var(--pill); background: var(--brand)'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

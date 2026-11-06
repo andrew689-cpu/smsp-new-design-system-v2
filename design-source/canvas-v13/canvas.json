@@ -1,0 +1,1640 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "BerandaM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Beranda",
+   "w": 360,
+   "x": 1440,
+   "y": -1200
+  },
+  "DesktopArtikelM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Detail Artikel · Desktop",
+   "w": 1440,
+   "x": 9120,
+   "y": 1200
+  },
+  "DesktopBerandaM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Beranda · Desktop",
+   "w": 1440,
+   "x": 6080,
+   "y": 1200
+  },
+  "DesktopBlogM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Blog · Desktop",
+   "w": 1440,
+   "x": 7600,
+   "y": 1200
+  },
+  "DesktopKategoriM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Kategori · Desktop",
+   "w": 1440,
+   "x": 10640,
+   "y": 1200
+  },
+  "DesktopProdukIndexM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Semua Produk · Desktop",
+   "w": 1440,
+   "x": 3040,
+   "y": 1200
+  },
+  "DesktopProdukM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Desktop Product Page",
+   "w": 1440,
+   "x": 0,
+   "y": 1200
+  },
+  "DesktopProdukM4Salinan.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Desktop Product Page",
+   "w": 1440,
+   "x": 0,
+   "y": 2500
+  },
+  "DesktopSkuM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Desktop SKU Page",
+   "w": 1440,
+   "x": 1520,
+   "y": 1200
+  },
+  "DesktopSkuM4Salinan.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Desktop SKU Page",
+   "w": 1440,
+   "x": 1520,
+   "y": 2500
+  },
+  "DesktopUlasanM4.dc.html": {
+   "expand": "fill",
+   "h": 900,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Desktop Ulasan Page",
+   "w": 1440,
+   "x": 4560,
+   "y": 1200
+  },
+  "DetailArtikel2M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Detail Artikel 2",
+   "w": 360,
+   "x": 4840,
+   "y": 0
+  },
+  "DetailArtikel3M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Detail Artikel 3",
+   "w": 360,
+   "x": 5720,
+   "y": 0
+  },
+  "DetailArtikel4M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Detail Artikel 4",
+   "w": 360,
+   "x": 6600,
+   "y": 0
+  },
+  "KategoriM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Kategori",
+   "w": 360,
+   "x": 3960,
+   "y": 0
+  },
+  "ProdukIndexM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Semua Produk",
+   "w": 360,
+   "x": 880,
+   "y": 0
+  },
+  "RecCreateM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Mobbin 3 · Produk Page",
+   "w": 360,
+   "x": 0,
+   "y": 0
+  },
+  "RecCreateM4Salinan1.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Mobbin 3 · Produk Page Salinan 1",
+   "w": 360,
+   "x": 2240,
+   "y": -1200
+  },
+  "SalinanArtikel2M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Detail Artikel",
+   "w": 360,
+   "x": 3080,
+   "y": 0
+  },
+  "SalinanArtikel2M4Salinan.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Detail Artikel 2",
+   "w": 360,
+   "x": 3520,
+   "y": 0
+  },
+  "SalinanArtikelM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Detail Artikel",
+   "w": 360,
+   "x": 4240,
+   "y": -1200
+  },
+  "SalinanBeranda2M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Beranda 2",
+   "w": 360,
+   "x": 1320,
+   "y": 0
+  },
+  "SalinanBeranda3M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Beranda 3",
+   "w": 360,
+   "x": 1760,
+   "y": 0
+  },
+  "SalinanBerandaM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Beranda",
+   "w": 360,
+   "x": 1840,
+   "y": -1200
+  },
+  "SalinanBlog2M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Blog 2",
+   "w": 360,
+   "x": 4640,
+   "y": -1200
+  },
+  "SalinanBlog3M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Blog 3",
+   "w": 360,
+   "x": 4400,
+   "y": 0
+  },
+  "SalinanBlog4M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Blog 4",
+   "w": 360,
+   "x": 5280,
+   "y": 0
+  },
+  "SalinanBlog5M4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Blog 5",
+   "w": 360,
+   "x": 6160,
+   "y": 0
+  },
+  "SalinanBlogM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Blog",
+   "w": 360,
+   "x": 2200,
+   "y": 0
+  },
+  "SalinanBlogM4Salinan.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Blog 2",
+   "w": 360,
+   "x": 2640,
+   "y": 0
+  },
+  "SalinanProdukPageM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Produk Page",
+   "w": 360,
+   "x": 2640,
+   "y": -1200
+  },
+  "SalinanSkuPageM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan SKU Page",
+   "w": 360,
+   "x": 3040,
+   "y": -1200
+  },
+  "SkuDetailM4.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Mobbin 3 · Detail SKU",
+   "w": 360,
+   "x": 440,
+   "y": 0
+  },
+  "UlasanM4Salinan.dc.html": {
+   "expand": "fill",
+   "h": 800,
+   "is_interactive": true,
+   "page": "salinan4",
+   "title": "Salinan Mobbin 3 · Semua Ulasan",
+   "w": 360,
+   "x": 3440,
+   "y": -1200
+  },
+  "Colors.dc.html": {
+   "title": "Fondasi · Warna",
+   "page": "components",
+   "x": 0,
+   "y": 0,
+   "w": 1200,
+   "h": 1890
+  },
+  "FontSizes.dc.html": {
+   "title": "Fondasi · Ukuran huruf",
+   "page": "components",
+   "x": 1280,
+   "y": 0,
+   "w": 1200,
+   "h": 1685
+  },
+  "IconSheet.dc.html": {
+   "title": "Fondasi · Ikon",
+   "page": "components",
+   "x": 2560,
+   "y": 0,
+   "w": 1200,
+   "h": 4220
+  },
+  "SheetPriceList.dc.html": {
+   "title": "Pecahan · Baris harga dan tombol",
+   "page": "components",
+   "x": 3840,
+   "y": 0,
+   "w": 1200,
+   "h": 1717,
+   "is_interactive": true
+  },
+  "SheetAtoms1.dc.html": {
+   "title": "Pecahan · Komponen kecil 1",
+   "page": "components",
+   "x": 5120,
+   "y": 0,
+   "w": 1200,
+   "h": 6589,
+   "is_interactive": true
+  },
+  "SheetAtoms2.dc.html": {
+   "title": "Pecahan · Komponen kecil 2",
+   "page": "components",
+   "x": 6400,
+   "y": 0,
+   "w": 1200,
+   "h": 7245,
+   "is_interactive": true
+  },
+  "SheetAtoms3.dc.html": {
+   "title": "Pecahan · Komponen kecil 3",
+   "page": "components",
+   "x": 7680,
+   "y": 0,
+   "w": 1200,
+   "h": 1237,
+   "is_interactive": true
+  },
+  "SheetShell1.dc.html": {
+   "title": "Pecahan · Kerangka 1",
+   "page": "components",
+   "x": 8960,
+   "y": 0,
+   "w": 1200,
+   "h": 7077,
+   "is_interactive": true
+  },
+  "SheetShell2.dc.html": {
+   "title": "Pecahan · Kerangka 2",
+   "page": "components",
+   "x": 10240,
+   "y": 0,
+   "w": 1200,
+   "h": 3624,
+   "is_interactive": true
+  },
+  "SheetCommerce1.dc.html": {
+   "title": "Pecahan · Katalog 1",
+   "page": "components",
+   "x": 11520,
+   "y": 0,
+   "w": 1200,
+   "h": 6595,
+   "is_interactive": true
+  },
+  "SheetCommerce2.dc.html": {
+   "title": "Pecahan · Katalog 2",
+   "page": "components",
+   "x": 12800,
+   "y": 0,
+   "w": 1200,
+   "h": 6899,
+   "is_interactive": true
+  },
+  "SheetCommerce3.dc.html": {
+   "title": "Pecahan · Katalog 3",
+   "page": "components",
+   "x": 14080,
+   "y": 0,
+   "w": 1200,
+   "h": 6561,
+   "is_interactive": true
+  },
+  "SheetContent1.dc.html": {
+   "title": "Pecahan · Konten 1",
+   "page": "components",
+   "x": 15360,
+   "y": 0,
+   "w": 1200,
+   "h": 6083,
+   "is_interactive": true
+  },
+  "SheetContent2.dc.html": {
+   "title": "Pecahan · Konten 2",
+   "page": "components",
+   "x": 16640,
+   "y": 0,
+   "w": 1200,
+   "h": 5246,
+   "is_interactive": true
+  },
+  "SheetContent3.dc.html": {
+   "title": "Pecahan · Konten 3",
+   "page": "components",
+   "x": 17920,
+   "y": 0,
+   "w": 1200,
+   "h": 3839,
+   "is_interactive": true
+  },
+  "SheetContent4.dc.html": {
+   "title": "Pecahan · Konten 4",
+   "page": "components",
+   "x": 19200,
+   "y": 0,
+   "w": 1200,
+   "h": 4485,
+   "is_interactive": true
+  },
+  "SheetHelp1.dc.html": {
+   "title": "Pecahan · Bantuan 1",
+   "page": "components",
+   "x": 20480,
+   "y": 0,
+   "w": 1200,
+   "h": 6820,
+   "is_interactive": true
+  },
+  "SheetHelp2.dc.html": {
+   "title": "Pecahan · Bantuan 2",
+   "page": "components",
+   "x": 21760,
+   "y": 0,
+   "w": 1200,
+   "h": 7460,
+   "is_interactive": true
+  },
+  "SheetHelp3.dc.html": {
+   "title": "Pecahan · Bantuan 3",
+   "page": "components",
+   "x": 23040,
+   "y": 0,
+   "w": 1200,
+   "h": 779,
+   "is_interactive": true
+  },
+  "Button.dc.html": {
+   "title": "Button",
+   "page": "components",
+   "x": 0,
+   "y": 8260,
+   "w": 240,
+   "h": 40
+  },
+  "Price.dc.html": {
+   "title": "Price",
+   "page": "components",
+   "x": 320,
+   "y": 8260,
+   "w": 140,
+   "h": 40
+  },
+  "Tag.dc.html": {
+   "title": "Tag",
+   "page": "components",
+   "x": 540,
+   "y": 8260,
+   "w": 120,
+   "h": 40
+  },
+  "IconButton.dc.html": {
+   "title": "IconButton",
+   "page": "components",
+   "x": 740,
+   "y": 8260,
+   "w": 60,
+   "h": 46
+  },
+  "GlassButton.dc.html": {
+   "title": "GlassButton",
+   "page": "components",
+   "x": 880,
+   "y": 8260,
+   "w": 90,
+   "h": 54
+  },
+  "Chip.dc.html": {
+   "title": "Chip",
+   "page": "components",
+   "x": 1050,
+   "y": 8260,
+   "w": 160,
+   "h": 40
+  },
+  "Heading.dc.html": {
+   "title": "Heading",
+   "page": "components",
+   "x": 1290,
+   "y": 8260,
+   "w": 360,
+   "h": 40
+  },
+  "TextField.dc.html": {
+   "title": "TextField",
+   "page": "components",
+   "x": 1730,
+   "y": 8260,
+   "w": 320,
+   "h": 64,
+   "is_interactive": true
+  },
+  "SearchField.dc.html": {
+   "title": "SearchField",
+   "page": "components",
+   "x": 2130,
+   "y": 8260,
+   "w": 520,
+   "h": 115,
+   "is_interactive": true
+  },
+  "Radio.dc.html": {
+   "title": "Radio",
+   "page": "components",
+   "x": 2730,
+   "y": 8260,
+   "w": 240,
+   "h": 40,
+   "is_interactive": true
+  },
+  "Rating.dc.html": {
+   "title": "Rating",
+   "page": "components",
+   "x": 3050,
+   "y": 8260,
+   "w": 120,
+   "h": 40
+  },
+  "Spinner.dc.html": {
+   "title": "Spinner",
+   "page": "components",
+   "x": 3250,
+   "y": 8260,
+   "w": 360,
+   "h": 40
+  },
+  "Segmented.dc.html": {
+   "title": "Segmented",
+   "page": "components",
+   "x": 3690,
+   "y": 8260,
+   "w": 200,
+   "h": 42,
+   "is_interactive": true
+  },
+  "Accordion.dc.html": {
+   "title": "Accordion",
+   "page": "components",
+   "x": 3970,
+   "y": 8260,
+   "w": 360,
+   "h": 130,
+   "is_interactive": true
+  },
+  "Icon.dc.html": {
+   "title": "Icon",
+   "page": "components",
+   "x": 4410,
+   "y": 8260,
+   "w": 40,
+   "h": 40
+  },
+  "Logo.dc.html": {
+   "title": "Logo",
+   "page": "components",
+   "x": 4530,
+   "y": 8260,
+   "w": 150,
+   "h": 46
+  },
+  "DocSpec.dc.html": {
+   "title": "DocSpec · alat dokumentasi",
+   "page": "components",
+   "x": 4760,
+   "y": 8260,
+   "w": 240,
+   "h": 62
+  },
+  "SiteHeader.dc.html": {
+   "title": "SiteHeader",
+   "page": "components",
+   "x": 0,
+   "y": 9190,
+   "w": 360,
+   "h": 58,
+   "is_interactive": true
+  },
+  "CategoryNav.dc.html": {
+   "title": "CategoryNav",
+   "page": "components",
+   "x": 440,
+   "y": 9190,
+   "w": 1440,
+   "h": 54
+  },
+  "FraudRibbon.dc.html": {
+   "title": "FraudRibbon",
+   "page": "components",
+   "x": 1960,
+   "y": 9190,
+   "w": 360,
+   "h": 63,
+   "is_interactive": true
+  },
+  "CompactHeader.dc.html": {
+   "title": "CompactHeader",
+   "page": "components",
+   "x": 2400,
+   "y": 9190,
+   "w": 360,
+   "h": 86
+  },
+  "Footer.dc.html": {
+   "title": "Footer",
+   "page": "components",
+   "x": 2840,
+   "y": 9190,
+   "w": 360,
+   "h": 1813,
+   "is_interactive": true
+  },
+  "Breadcrumb.dc.html": {
+   "title": "Breadcrumb",
+   "page": "components",
+   "x": 3280,
+   "y": 9190,
+   "w": 360,
+   "h": 40
+  },
+  "SearchDialog.dc.html": {
+   "title": "SearchDialog",
+   "page": "components",
+   "x": 3720,
+   "y": 9190,
+   "w": 360,
+   "h": 716,
+   "is_interactive": true
+  },
+  "SearchRow.dc.html": {
+   "title": "SearchRow",
+   "page": "components",
+   "x": 4160,
+   "y": 9190,
+   "w": 328,
+   "h": 58
+  },
+  "BottomGlassBar.dc.html": {
+   "title": "BottomGlassBar",
+   "page": "components",
+   "x": 4568,
+   "y": 9190,
+   "w": 360,
+   "h": 168
+  },
+  "SectionSheet.dc.html": {
+   "title": "SectionSheet",
+   "page": "components",
+   "x": 0,
+   "y": 11123,
+   "w": 360,
+   "h": 162,
+   "is_interactive": true
+  },
+  "DesktopIsland.dc.html": {
+   "title": "DesktopIsland",
+   "page": "components",
+   "x": 440,
+   "y": 11123,
+   "w": 1440,
+   "h": 174,
+   "is_interactive": true
+  },
+  "SectionRail.dc.html": {
+   "title": "SectionRail",
+   "page": "components",
+   "x": 1960,
+   "y": 11123,
+   "w": 1440,
+   "h": 62,
+   "is_interactive": true
+  },
+  "ShareButton.dc.html": {
+   "title": "ShareButton",
+   "page": "components",
+   "x": 3480,
+   "y": 11123,
+   "w": 90,
+   "h": 46,
+   "is_interactive": true
+  },
+  "PriceTable.dc.html": {
+   "title": "PriceTable",
+   "page": "components",
+   "x": 0,
+   "y": 12097,
+   "w": 360,
+   "h": 3224,
+   "is_interactive": true
+  },
+  "SkuRow.dc.html": {
+   "title": "SkuRow",
+   "page": "components",
+   "x": 440,
+   "y": 12097,
+   "w": 360,
+   "h": 64
+  },
+  "FilterPanel.dc.html": {
+   "title": "FilterPanel",
+   "page": "components",
+   "x": 880,
+   "y": 12097,
+   "w": 360,
+   "h": 378,
+   "is_interactive": true
+  },
+  "SortMenu.dc.html": {
+   "title": "SortMenu",
+   "page": "components",
+   "x": 1320,
+   "y": 12097,
+   "w": 260,
+   "h": 208,
+   "is_interactive": true
+  },
+  "Pagination.dc.html": {
+   "title": "Pagination",
+   "page": "components",
+   "x": 1660,
+   "y": 12097,
+   "w": 640,
+   "h": 86,
+   "is_interactive": true
+  },
+  "LazyList.dc.html": {
+   "title": "LazyList",
+   "page": "components",
+   "x": 2380,
+   "y": 12097,
+   "w": 360,
+   "h": 64
+  },
+  "EmptyState.dc.html": {
+   "title": "EmptyState",
+   "page": "components",
+   "x": 2820,
+   "y": 12097,
+   "w": 360,
+   "h": 233
+  },
+  "FaqList.dc.html": {
+   "title": "FaqList",
+   "page": "components",
+   "x": 3260,
+   "y": 12097,
+   "w": 330,
+   "h": 889,
+   "is_interactive": true
+  },
+  "ProductCard.dc.html": {
+   "title": "ProductCard",
+   "page": "components",
+   "x": 3670,
+   "y": 12097,
+   "w": 164,
+   "h": 170
+  },
+  "CategoryTile.dc.html": {
+   "title": "CategoryTile",
+   "page": "components",
+   "x": 3914,
+   "y": 12097,
+   "w": 120,
+   "h": 123
+  },
+  "Rail.dc.html": {
+   "title": "Rail",
+   "page": "components",
+   "x": 4114,
+   "y": 12097,
+   "w": 345,
+   "h": 181,
+   "is_interactive": true
+  },
+  "PhotoGallery.dc.html": {
+   "title": "PhotoGallery",
+   "page": "components",
+   "x": 4539,
+   "y": 12097,
+   "w": 360,
+   "h": 286,
+   "is_interactive": true
+  },
+  "PromoCta.dc.html": {
+   "title": "PromoCta",
+   "page": "components",
+   "x": 0,
+   "y": 15441,
+   "w": 330,
+   "h": 157
+  },
+  "ConsultationBanner.dc.html": {
+   "title": "ConsultationBanner",
+   "page": "components",
+   "x": 410,
+   "y": 15441,
+   "w": 330,
+   "h": 161
+  },
+  "PartnerLogos.dc.html": {
+   "title": "PartnerLogos",
+   "page": "components",
+   "x": 820,
+   "y": 15441,
+   "w": 330,
+   "h": 284
+  },
+  "RelatedTags.dc.html": {
+   "title": "RelatedTags",
+   "page": "components",
+   "x": 1230,
+   "y": 15441,
+   "w": 330,
+   "h": 263
+  },
+  "ProductSummary.dc.html": {
+   "title": "ProductSummary",
+   "page": "components",
+   "x": 1640,
+   "y": 15441,
+   "w": 360,
+   "h": 541,
+   "is_interactive": true
+  },
+  "ReviewCard.dc.html": {
+   "title": "ReviewCard",
+   "page": "components",
+   "x": 0,
+   "y": 16782,
+   "w": 232,
+   "h": 204
+  },
+  "CarouselDots.dc.html": {
+   "title": "CarouselDots",
+   "page": "components",
+   "x": 312,
+   "y": 16782,
+   "w": 200,
+   "h": 40
+  },
+  "ReviewCarousel.dc.html": {
+   "title": "ReviewCarousel",
+   "page": "components",
+   "x": 592,
+   "y": 16782,
+   "w": 360,
+   "h": 284,
+   "is_interactive": true
+  },
+  "ReviewMarquee.dc.html": {
+   "title": "ReviewMarquee",
+   "page": "components",
+   "x": 1032,
+   "y": 16782,
+   "w": 360,
+   "h": 176,
+   "is_interactive": true
+  },
+  "StarFilter.dc.html": {
+   "title": "StarFilter",
+   "page": "components",
+   "x": 1472,
+   "y": 16782,
+   "w": 400,
+   "h": 40,
+   "is_interactive": true
+  },
+  "ReviewSummary.dc.html": {
+   "title": "ReviewSummary",
+   "page": "components",
+   "x": 1952,
+   "y": 16782,
+   "w": 360,
+   "h": 319
+  },
+  "ReviewMentions.dc.html": {
+   "title": "ReviewMentions",
+   "page": "components",
+   "x": 2392,
+   "y": 16782,
+   "w": 330,
+   "h": 288
+  },
+  "HeroCarousel.dc.html": {
+   "title": "HeroCarousel",
+   "page": "components",
+   "x": 2802,
+   "y": 16782,
+   "w": 360,
+   "h": 148,
+   "is_interactive": true
+  },
+  "BeforeAfter.dc.html": {
+   "title": "BeforeAfter",
+   "page": "components",
+   "x": 3242,
+   "y": 16782,
+   "w": 330,
+   "h": 233,
+   "is_interactive": true
+  },
+  "BlogCard.dc.html": {
+   "title": "BlogCard",
+   "page": "components",
+   "x": 3652,
+   "y": 16782,
+   "w": 330,
+   "h": 188
+  },
+  "BlogRow.dc.html": {
+   "title": "BlogRow",
+   "page": "components",
+   "x": 4062,
+   "y": 16782,
+   "w": 330,
+   "h": 80
+  },
+  "CategoryChipRail.dc.html": {
+   "title": "CategoryChipRail",
+   "page": "components",
+   "x": 4472,
+   "y": 16782,
+   "w": 336,
+   "h": 54,
+   "is_interactive": true
+  },
+  "ArticleRibbon.dc.html": {
+   "title": "ArticleRibbon",
+   "page": "components",
+   "x": 0,
+   "y": 17221,
+   "w": 360,
+   "h": 175
+  },
+  "ArticleProse.dc.html": {
+   "title": "ArticleProse",
+   "page": "components",
+   "x": 440,
+   "y": 17221,
+   "w": 330,
+   "h": 142
+  },
+  "ArticleHeader.dc.html": {
+   "title": "ArticleHeader",
+   "page": "components",
+   "x": 850,
+   "y": 17221,
+   "w": 360,
+   "h": 250
+  },
+  "ArticleBody.dc.html": {
+   "title": "ArticleBody",
+   "page": "components",
+   "x": 1290,
+   "y": 17221,
+   "w": 330,
+   "h": 1819
+  },
+  "TableOfContents.dc.html": {
+   "title": "TableOfContents",
+   "page": "components",
+   "x": 1700,
+   "y": 17221,
+   "w": 336,
+   "h": 54,
+   "is_interactive": true
+  },
+  "OfficeHours.dc.html": {
+   "title": "OfficeHours",
+   "page": "components",
+   "x": 0,
+   "y": 19840,
+   "w": 220,
+   "h": 40
+  },
+  "HelpTitleBar.dc.html": {
+   "title": "HelpTitleBar",
+   "page": "components",
+   "x": 300,
+   "y": 19840,
+   "w": 360,
+   "h": 74,
+   "is_interactive": true
+  },
+  "HelpBanner.dc.html": {
+   "title": "HelpBanner",
+   "page": "components",
+   "x": 740,
+   "y": 19840,
+   "w": 360,
+   "h": 155,
+   "is_interactive": true
+  },
+  "HelpMenuRow.dc.html": {
+   "title": "HelpMenuRow",
+   "page": "components",
+   "x": 1180,
+   "y": 19840,
+   "w": 330,
+   "h": 82,
+   "is_interactive": true
+  },
+  "HelpMenu.dc.html": {
+   "title": "HelpMenu",
+   "page": "components",
+   "x": 1590,
+   "y": 19840,
+   "w": 360,
+   "h": 365,
+   "is_interactive": true
+  },
+  "HelpBackBar.dc.html": {
+   "title": "HelpBackBar",
+   "page": "components",
+   "x": 2030,
+   "y": 19840,
+   "w": 360,
+   "h": 62,
+   "is_interactive": true
+  },
+  "HelpRowsPanel.dc.html": {
+   "title": "HelpRowsPanel",
+   "page": "components",
+   "x": 2470,
+   "y": 19840,
+   "w": 360,
+   "h": 256,
+   "is_interactive": true
+  },
+  "WhatsAppPanel.dc.html": {
+   "title": "WhatsAppPanel",
+   "page": "components",
+   "x": 2910,
+   "y": 19840,
+   "w": 360,
+   "h": 256,
+   "is_interactive": true
+  },
+  "SocialLoginButtons.dc.html": {
+   "title": "SocialLoginButtons",
+   "page": "components",
+   "x": 3350,
+   "y": 19840,
+   "w": 330,
+   "h": 68,
+   "is_interactive": true
+  },
+  "HelpContactForm.dc.html": {
+   "title": "HelpContactForm",
+   "page": "components",
+   "x": 3760,
+   "y": 19840,
+   "w": 360,
+   "h": 715,
+   "is_interactive": true
+  },
+  "ChatBubble.dc.html": {
+   "title": "ChatBubble",
+   "page": "components",
+   "x": 4200,
+   "y": 19840,
+   "w": 330,
+   "h": 98
+  },
+  "ChatComposer.dc.html": {
+   "title": "ChatComposer",
+   "page": "components",
+   "x": 4610,
+   "y": 19840,
+   "w": 360,
+   "h": 77,
+   "is_interactive": true
+  },
+  "CsatRating.dc.html": {
+   "title": "CsatRating",
+   "page": "components",
+   "x": 0,
+   "y": 20675,
+   "w": 330,
+   "h": 108,
+   "is_interactive": true
+  },
+  "ChatHeader.dc.html": {
+   "title": "ChatHeader",
+   "page": "components",
+   "x": 410,
+   "y": 20675,
+   "w": 330,
+   "h": 58,
+   "is_interactive": true
+  },
+  "LiveChatPanel.dc.html": {
+   "title": "LiveChatPanel",
+   "page": "components",
+   "x": 820,
+   "y": 20675,
+   "w": 360,
+   "h": 297,
+   "is_interactive": true
+  },
+  "HelpQuickList.dc.html": {
+   "title": "HelpQuickList",
+   "page": "components",
+   "x": 1260,
+   "y": 20675,
+   "w": 200,
+   "h": 50
+  },
+  "HelpCentre.dc.html": {
+   "title": "HelpCentre",
+   "page": "components",
+   "x": 1540,
+   "y": 20675,
+   "w": 360,
+   "h": 700,
+   "is_interactive": true
+  },
+  "ReviewHero.dc.html": {
+   "title": "ReviewHero",
+   "page": "components",
+   "x": 0,
+   "y": 22175,
+   "w": 360,
+   "h": 351,
+   "is_interactive": true
+  },
+  "ReviewList.dc.html": {
+   "title": "ReviewList",
+   "page": "components",
+   "x": 440,
+   "y": 22175,
+   "w": 360,
+   "h": 306,
+   "is_interactive": true
+  },
+  "ReviewInvite.dc.html": {
+   "title": "ReviewInvite",
+   "page": "components",
+   "x": 880,
+   "y": 22175,
+   "w": 1200,
+   "h": 60
+  },
+  "PageTitle.dc.html": {
+   "title": "PageTitle",
+   "page": "components",
+   "x": 2160,
+   "y": 22175,
+   "w": 360,
+   "h": 40
+  },
+  "ArticlePage.dc.html": {
+   "title": "ArticlePage",
+   "page": "components",
+   "x": 2600,
+   "y": 22175,
+   "w": 360,
+   "h": 8000,
+   "is_interactive": true
+  },
+  "RelatedArticles.dc.html": {
+   "title": "RelatedArticles",
+   "page": "components",
+   "x": 3040,
+   "y": 22175,
+   "w": 440,
+   "h": 233
+  },
+  "SalesBanner.dc.html": {
+   "title": "SalesBanner",
+   "page": "components",
+   "x": 3560,
+   "y": 22175,
+   "w": 330,
+   "h": 549
+  },
+  "VideoCard.dc.html": {
+   "title": "VideoCard",
+   "page": "components",
+   "x": 3970,
+   "y": 22175,
+   "w": 360,
+   "h": 228
+  },
+  "ProductSpecs.dc.html": {
+   "title": "ProductSpecs",
+   "page": "components",
+   "x": 4410,
+   "y": 22175,
+   "w": 330,
+   "h": 405
+  },
+  "FunctionShowcase.dc.html": {
+   "title": "FunctionShowcase",
+   "page": "components",
+   "x": 4820,
+   "y": 22175,
+   "w": 330,
+   "h": 278,
+   "is_interactive": true
+  },
+  "AdvantageList.dc.html": {
+   "title": "AdvantageList",
+   "page": "components",
+   "x": 0,
+   "y": 30295,
+   "w": 330,
+   "h": 199
+  },
+  "ProductArticles.dc.html": {
+   "title": "ProductArticles",
+   "page": "components",
+   "x": 410,
+   "y": 30295,
+   "w": 330,
+   "h": 176
+  },
+  "RelatedProducts.dc.html": {
+   "title": "RelatedProducts",
+   "page": "components",
+   "x": 820,
+   "y": 30295,
+   "w": 345,
+   "h": 197
+  },
+  "VideoBlock.dc.html": {
+   "title": "VideoBlock",
+   "page": "components",
+   "x": 1245,
+   "y": 30295,
+   "w": 330,
+   "h": 188
+  },
+  "ProductDock.dc.html": {
+   "title": "ProductDock",
+   "page": "components",
+   "x": 1655,
+   "y": 30295,
+   "w": 360,
+   "h": 168,
+   "is_interactive": true
+  },
+  "BlogHero.dc.html": {
+   "title": "BlogHero",
+   "page": "components",
+   "x": 2095,
+   "y": 30295,
+   "w": 360,
+   "h": 144
+  },
+  "BlogSection.dc.html": {
+   "title": "BlogSection",
+   "page": "components",
+   "x": 2535,
+   "y": 30295,
+   "w": 330,
+   "h": 356
+  },
+  "BlogSearchResults.dc.html": {
+   "title": "BlogSearchResults",
+   "page": "components",
+   "x": 2945,
+   "y": 30295,
+   "w": 330,
+   "h": 262
+  },
+  "BlogCardGrid.dc.html": {
+   "title": "BlogCardGrid",
+   "page": "components",
+   "x": 3355,
+   "y": 30295,
+   "w": 1200,
+   "h": 337
+  },
+  "BlogTabs.dc.html": {
+   "title": "BlogTabs",
+   "page": "components",
+   "x": 4635,
+   "y": 30295,
+   "w": 360,
+   "h": 133,
+   "is_interactive": true
+  },
+  "BlogPopularHead.dc.html": {
+   "title": "BlogPopularHead",
+   "page": "components",
+   "x": 0,
+   "y": 30771,
+   "w": 360,
+   "h": 133
+  },
+  "SpecRow.dc.html": {
+   "title": "SpecRow",
+   "page": "components",
+   "x": 440,
+   "y": 30771,
+   "w": 330,
+   "h": 40
+  },
+  "ProductInfo.dc.html": {
+   "title": "ProductInfo",
+   "page": "components",
+   "x": 850,
+   "y": 30771,
+   "w": 360,
+   "h": 544
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-11-03T01:16:10Z",
+  "v": 1
+ },
+ "designSystems": [],
+ "launch": {
+  "page": "salinan4",
+  "view": "canvas"
+ },
+ "notes": {
+  "n-desktop-m4-title": {
+   "kind": "title1",
+   "maxW": 4480,
+   "page": "salinan4",
+   "text": "Desktop M3 · bahasa Mobbin 3 pada 1440",
+   "w": 240,
+   "x": 0,
+   "y": 900
+  },
+  "n-components-pecahan": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Fondasi dan lembar pecahan",
+   "x": 0,
+   "y": -300,
+   "maxW": 24240
+  },
+  "n-components-atoms": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Komponen kecil",
+   "x": 0,
+   "y": 7960,
+   "maxW": 5200
+  },
+  "n-components-shell": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Kerangka dan navigasi",
+   "x": 0,
+   "y": 8890,
+   "maxW": 5200
+  },
+  "n-components-commerce": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Katalog dan harga",
+   "x": 0,
+   "y": 11797,
+   "maxW": 5200
+  },
+  "n-components-content": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Ulasan, beranda, blog, artikel",
+   "x": 0,
+   "y": 16482,
+   "maxW": 5200
+  },
+  "n-components-help": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Pusat bantuan",
+   "x": 0,
+   "y": 19540,
+   "maxW": 5200
+  },
+  "n-components-seksi": {
+   "kind": "title1",
+   "page": "components",
+   "text": "Seksi halaman",
+   "x": 0,
+   "y": 21875,
+   "maxW": 5200
+  }
+ },
+ "order": [
+  "RecCreateM4.dc.html",
+  "SkuDetailM4.dc.html",
+  "RecCreateM4Salinan1.dc.html",
+  "SalinanProdukPageM4.dc.html",
+  "SalinanSkuPageM4.dc.html",
+  "UlasanM4Salinan.dc.html",
+  "DesktopProdukM4.dc.html",
+  "DesktopSkuM4.dc.html",
+  "DesktopUlasanM4.dc.html",
+  "DesktopProdukM4Salinan.dc.html",
+  "DesktopSkuM4Salinan.dc.html",
+  "ProdukIndexM4.dc.html",
+  "DesktopProdukIndexM4.dc.html",
+  "BerandaM4.dc.html",
+  "DesktopBerandaM4.dc.html",
+  "DesktopBlogM4.dc.html",
+  "DesktopArtikelM4.dc.html",
+  "KategoriM4.dc.html",
+  "DesktopKategoriM4.dc.html",
+  "SalinanBlogM4.dc.html",
+  "SalinanBlogM4Salinan.dc.html",
+  "SalinanBlog3M4.dc.html",
+  "SalinanArtikelM4.dc.html",
+  "SalinanBlog2M4.dc.html",
+  "SalinanArtikel2M4.dc.html",
+  "DetailArtikel2M4.dc.html",
+  "SalinanArtikel2M4Salinan.dc.html",
+  "SalinanBerandaM4.dc.html",
+  "SalinanBeranda2M4.dc.html",
+  "SalinanBeranda3M4.dc.html",
+  "SalinanBlog4M4.dc.html",
+  "DetailArtikel3M4.dc.html",
+  "SalinanBlog5M4.dc.html",
+  "DetailArtikel4M4.dc.html",
+  "Colors.dc.html",
+  "FontSizes.dc.html",
+  "IconSheet.dc.html",
+  "SheetPriceList.dc.html",
+  "SheetAtoms1.dc.html",
+  "SheetAtoms2.dc.html",
+  "SheetAtoms3.dc.html",
+  "SheetShell1.dc.html",
+  "SheetShell2.dc.html",
+  "SheetCommerce1.dc.html",
+  "SheetCommerce2.dc.html",
+  "SheetCommerce3.dc.html",
+  "SheetContent1.dc.html",
+  "SheetContent2.dc.html",
+  "SheetContent3.dc.html",
+  "SheetContent4.dc.html",
+  "SheetHelp1.dc.html",
+  "SheetHelp2.dc.html",
+  "SheetHelp3.dc.html",
+  "Button.dc.html",
+  "Price.dc.html",
+  "Tag.dc.html",
+  "IconButton.dc.html",
+  "GlassButton.dc.html",
+  "Chip.dc.html",
+  "Heading.dc.html",
+  "TextField.dc.html",
+  "SearchField.dc.html",
+  "Radio.dc.html",
+  "Rating.dc.html",
+  "Spinner.dc.html",
+  "Segmented.dc.html",
+  "Accordion.dc.html",
+  "Icon.dc.html",
+  "Logo.dc.html",
+  "DocSpec.dc.html",
+  "SiteHeader.dc.html",
+  "CategoryNav.dc.html",
+  "FraudRibbon.dc.html",
+  "CompactHeader.dc.html",
+  "Footer.dc.html",
+  "Breadcrumb.dc.html",
+  "SearchDialog.dc.html",
+  "SearchRow.dc.html",
+  "BottomGlassBar.dc.html",
+  "SectionSheet.dc.html",
+  "DesktopIsland.dc.html",
+  "SectionRail.dc.html",
+  "ShareButton.dc.html",
+  "PriceTable.dc.html",
+  "SkuRow.dc.html",
+  "FilterPanel.dc.html",
+  "SortMenu.dc.html",
+  "Pagination.dc.html",
+  "LazyList.dc.html",
+  "EmptyState.dc.html",
+  "FaqList.dc.html",
+  "ProductCard.dc.html",
+  "CategoryTile.dc.html",
+  "Rail.dc.html",
+  "PhotoGallery.dc.html",
+  "PromoCta.dc.html",
+  "ConsultationBanner.dc.html",
+  "PartnerLogos.dc.html",
+  "RelatedTags.dc.html",
+  "ProductSummary.dc.html",
+  "ReviewCard.dc.html",
+  "CarouselDots.dc.html",
+  "ReviewCarousel.dc.html",
+  "ReviewMarquee.dc.html",
+  "StarFilter.dc.html",
+  "ReviewSummary.dc.html",
+  "ReviewMentions.dc.html",
+  "HeroCarousel.dc.html",
+  "BeforeAfter.dc.html",
+  "BlogCard.dc.html",
+  "BlogRow.dc.html",
+  "CategoryChipRail.dc.html",
+  "ArticleRibbon.dc.html",
+  "ArticleProse.dc.html",
+  "ArticleHeader.dc.html",
+  "ArticleBody.dc.html",
+  "TableOfContents.dc.html",
+  "OfficeHours.dc.html",
+  "HelpTitleBar.dc.html",
+  "HelpBanner.dc.html",
+  "HelpMenuRow.dc.html",
+  "HelpMenu.dc.html",
+  "HelpBackBar.dc.html",
+  "HelpRowsPanel.dc.html",
+  "WhatsAppPanel.dc.html",
+  "SocialLoginButtons.dc.html",
+  "HelpContactForm.dc.html",
+  "ChatBubble.dc.html",
+  "ChatComposer.dc.html",
+  "CsatRating.dc.html",
+  "ChatHeader.dc.html",
+  "LiveChatPanel.dc.html",
+  "HelpQuickList.dc.html",
+  "HelpCentre.dc.html",
+  "ReviewHero.dc.html",
+  "ReviewList.dc.html",
+  "ReviewInvite.dc.html",
+  "PageTitle.dc.html",
+  "ArticlePage.dc.html",
+  "RelatedArticles.dc.html",
+  "SalesBanner.dc.html",
+  "VideoCard.dc.html",
+  "ProductSpecs.dc.html",
+  "FunctionShowcase.dc.html",
+  "AdvantageList.dc.html",
+  "ProductArticles.dc.html",
+  "RelatedProducts.dc.html",
+  "VideoBlock.dc.html",
+  "ProductDock.dc.html",
+  "BlogHero.dc.html",
+  "BlogSection.dc.html",
+  "BlogSearchResults.dc.html",
+  "BlogCardGrid.dc.html",
+  "BlogTabs.dc.html",
+  "BlogPopularHead.dc.html",
+  "SpecRow.dc.html",
+  "ProductInfo.dc.html"
+ ],
+ "pages": [
+  {
+   "id": "salinan4",
+   "name": "Prototype Mobbin 4"
+  },
+  {
+   "id": "components",
+   "name": "Components"
+  }
+ ],
+ "title": "Prototype Mobbin 4"
+}

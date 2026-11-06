@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Besi Hollow Hitam — harga, ukuran dan filter (panel tertutup atau terbuka)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div id="top" style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <div>
+    <dc-import name="FraudRibbon" tata="ponsel" hint-size="100%,6rem"></dc-import>
+    <dc-import name="SiteHeader" tata="ponsel" hint-size="100%,5.6rem"></dc-import>
+    <dc-import name="ProductSummary" tata="ponsel" halaman="produk" hint-size="100%,40rem"></dc-import>
+    <div style="margin-top: calc(var(--jarak-y-antar) * 0.75); display: flex; flex-direction: column; gap: 0">
+      <div id="m-harga" style="scroll-margin-top: 9.2rem">
+        <div style="display: flex; align-items: center; gap: var(--rapat); padding: 0 var(--sisi)">
+          <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" rata="left" teks="Daftar Harga" hint-size="100%,2.7rem"></dc-import>
+        </div>
+        <dc-import name="PriceTable" tata="ponsel" panelFilter="{{ panelFilter }}" hint-size="100%,300rem"></dc-import>
+      </div>
+      <div id="m-konsultasi" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 1.4); padding: 0 var(--sisi)">
+        <dc-import name="ConsultationBanner" tata="ponsel" hint-size="100%,14.8rem"></dc-import>
+      </div>
+      <div style="margin-top: calc(var(--jarak-y-antar) * 0.75); display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+        <div id="m-video" style="scroll-margin-top: 9.2rem; margin-top: 0; padding: 0 var(--sisi)">
+          <dc-import name="Heading" level="{{ 2 }}" tata="ponsel" rata="left" renggang="var(--renggang-info-m)" teks="Info Produk" hint-size="100%,2.7rem"></dc-import>
+        </div>
+        <div style="padding: 0 var(--sisi) 2.2rem var(--sisi); background: var(--surface); overflow: hidden">
+          <dc-import name="ProductSpecs" tata="ponsel" hint-size="100%,60rem"></dc-import>
+          <div id="m-fungsi" style="scroll-margin-top: 9.2rem; margin-top: var(--jarak-y-dalam)">
+            <dc-import name="FunctionShowcase" tata="ponsel" hint-size="100%,25rem"></dc-import>
+          </div>
+          <div id="m-unggul" style="scroll-margin-top: 9.2rem; margin-top: var(--jarak-y-dalam)">
+            <dc-import name="AdvantageList" tata="ponsel" hint-size="100%,30rem"></dc-import>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: calc(var(--jarak-y-antar) * 1.4); padding: 0 var(--sisi)">
+        <dc-import name="ProductArticles" tata="ponsel" hint-size="100%,35rem"></dc-import>
+      </div>
+      <div id="m-terkait" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 37 / 30); padding-left: var(--talang)">
+        <dc-import name="RelatedProducts" tata="ponsel" hint-size="100%,19rem"></dc-import>
+      </div>
+      <div id="m-penawaran" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 13 / 12); padding: 0 var(--sisi)">
+        <dc-import name="ConsultationBanner" isi="penawaran" tata="ponsel" hint-size="100%,14.8rem"></dc-import>
+      </div>
+      <div id="m-faq" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 0.75); padding: 0 var(--sisi)">
+        <dc-import name="FaqList" tata="ponsel" garisTautan="{{ false }}" hint-size="100%,79rem"></dc-import>
+      </div>
+      <div id="m-mitra" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 1.4); padding: 0 var(--sisi)">
+        <dc-import name="PartnerLogos" tata="ponsel" hint-size="100%,28rem"></dc-import>
+      </div>
+      <div id="m-cari" style="scroll-margin-top: 9.2rem; margin-top: calc(var(--jarak-y-antar) * 31 / 30); padding: 0 var(--sisi)">
+        <dc-import name="RelatedTags" hint-size="100%,26rem"></dc-import>
+      </div>
+    </div>
+    <div style="margin-top: calc(var(--jarak-y-antar) * 1.4)">
+      <dc-import name="Footer" tata="ponsel" kategoriGaya="sedang" hint-size="100%,181rem"></dc-import>
+    </div>
+  </div>
+  <dc-import name="ProductChrome" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"panelFilter":{"editor":"enum","default":"tertutup","options":["tertutup","terbuka"],"section":"Keadaan awal"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { panelFilter: this.props.panelFilter };
+  }
+}
+</script>
+</body>
+</html>

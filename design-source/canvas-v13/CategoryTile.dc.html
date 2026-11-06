@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CategoryTile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isIkon }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ href }}" style="{{ gayaKartu }}">
+    <span style="{{ gayaUbin }}">
+      <sc-if value="{{ adaFoto }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block">
+      </sc-if>
+      <sc-if value="{{ takFoto }}" hint-placeholder-val="{{ false }}">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--ink-4)" stroke-width="1.6" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1"></rect><rect x="6.5" y="9.2" width="11" height="5.6" rx="0.6"></rect></svg>
+      </sc-if>
+    </span>
+    <span style="{{ gayaLabel }}">{{ nama }}</span>
+  </a>
+</sc-if>
+<sc-if value="{{ isFoto }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" aria-label="{{ aria }}" style="{{ gayaKartu }}">
+    <img src="{{ foto }}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    <span aria-hidden="true" style="position: absolute; inset: 0; background: var(--tabir-kategori)"></span>
+    <span style="{{ gayaLabel }}">{{ nama }}</span>
+    <span aria-hidden="true" style="{{ gayaPanah }}"><svg width="{{ ikonUkuran }}" height="{{ ikonUkuran }}" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12h13M12.6 5.6l6.4 6.4-6.4 6.4"></path></svg></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isSektor }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" style="{{ gayaKartu }}">
+    <img src="{{ foto }}" alt="{{ nama }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--line); display: block">
+    <span style="position: absolute; inset: auto 0 0 0; box-sizing: border-box; padding: var(--rapat); display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: calc(var(--rapat) / 2); background: var(--tirai-sektor); font-size: var(--teks-body); font-weight: var(--bobot-bold)">{{ nama }} <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2)"><dc-import name="Icon" ikon="chevron-kanan" ukuran="{{ 16 }}" warna="currentColor" hint-size="1.6rem,1.6rem"></dc-import></span></span>
+  </a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["ikon","foto","sektor"],"default":"ikon"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"nama":{"editor":null},"foto":{"editor":null},"aria":{"editor":null},"href":{"editor":null},"warnaLabel":{"editor":null},"$preview":{"width":120,"height":130}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'ikon';
+    const d = this.props.tata === 'desktop';
+    const foto = this.props.foto === undefined ? (jenis === 'foto' ? '/_blob/5643ddd9c2c99d47e1899581a0d4aaa0' : '/_blob/23aef125bea38dac9b2f52a145e31d5b') : this.props.foto;
+    const nama = this.props.nama ?? (jenis === 'foto' ? 'Besi' : 'Besi Hollow dan Pipa Bulat');
+    const v = jenis === 'sektor'
+      ? { kartu: 'position: relative; display: block; border-radius: ' + (d ? 'var(--card)' : 'var(--tile)') + '; overflow: hidden; color: var(--surface)' }
+      : jenis === 'foto'
+      ? {
+        kartu: 'position: relative; display: block; width: 100%; max-width: 100%; aspect-ratio: 560 / 365; border-radius: var(--card); overflow: hidden; color: var(--surface); background: ' + (d ? 'var(--line)' : 'var(--surface)'),
+        label: 'position: absolute; font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat); color: var(--surface); ' + (d ? 'top: var(--dalam); left: 3rem; right: 11rem; font-size: var(--teks-section-md)' : 'top: var(--rapat); left: var(--rapat); right: 6.4rem; font-size: var(--teks-section)'),
+        panah: 'position: absolute; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center; ' + (d ? 'right: 3rem; bottom: var(--dalam); width: 5.6rem; height: 5.6rem' : 'right: var(--rapat); bottom: var(--rapat); width: 4.4rem; height: 4.4rem')
+      }
+      : d ? {
+        kartu: 'display: flex; flex-direction: column; align-items: center; gap: 0.8rem; color: var(--ink)',
+        ubin: 'width: 100%; aspect-ratio: 1 / 1; border-radius: var(--card); background: var(--surface); display: grid; place-items: center; overflow: hidden',
+        label: 'font-size: var(--teks-lead); line-height: var(--tinggi-artikel); font-weight: var(--bobot-medium); text-align: center'
+      } : {
+        kartu: 'box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; color: var(--ink)',
+        ubin: 'width: 8rem; height: 8rem; flex-shrink: 0; border-radius: var(--tile); background: var(--surface); display: grid; place-items: center; overflow: hidden',
+        label: 'font-size: var(--teks-body); line-height: var(--tinggi-artikel); font-weight: var(--bobot-semibold); color: var(--ink); text-align: center'
+      };
+    return {
+      isIkon: jenis === 'ikon',
+      isFoto: jenis === 'foto',
+      isSektor: jenis === 'sektor',
+      adaFoto: !!foto,
+      takFoto: !foto,
+      foto,
+      nama,
+      aria: this.props.aria ?? ('Kategori ' + nama),
+      href: this.props.href ?? '#',
+      ikonUkuran: d ? 24 : 20,
+      gayaKartu: v.kartu,
+      gayaUbin: v.ubin,
+      gayaLabel: this.props.warnaLabel ? v.label + '; color: ' + this.props.warnaLabel : v.label,
+      gayaPanah: v.panah
+    };
+  }
+}
+</script>
+</body>
+</html>

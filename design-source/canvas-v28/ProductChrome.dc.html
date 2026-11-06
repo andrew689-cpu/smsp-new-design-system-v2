@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ProductChrome</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<dc-import name="CompactHeader" dc-props="{{ kepala }}" hint-size="36rem,8.4rem"></dc-import>
+<dc-import name="SectionSheet" dc-props="{{ lembar }}" hint-size="33.6rem,20rem"></dc-import>
+<dc-import name="BottomGlassBar" dc-props="{{ bar }}" hint-size="36rem,5.2rem"></dc-import>
+<dc-import name="SearchDialog" dc-props="{{ cari }}" hint-size="36rem,80rem"></dc-import>
+<sc-if value="{{ adaBantuan }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="HelpCentre" kontakRupa="{{ kontakRupa }}" buka="{{ bantuan }}" onTutup="{{ bantuanTutup }}" hint-size="36rem,80rem"></dc-import>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["produk","sku","sku-lama"],"default":"produk","section":"Resep"},"judul":{"editor":"text","default":"","section":"Isi"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  state = { nav: false, sek: null, gulir: false, cariOpen: false, cariQ: '', bantuan: false };
+  /* Bilah ponsel halaman produk: kepala ringkas, daftar bagian, bilah bawah, pencarian. Keadaan dan pengintai gulir tinggal di sini. */
+  resep() {
+    const produk = (this.props.jenis ?? 'produk') === 'produk';
+    return produk ? { seksi: ['top', 'm-harga', 'm-video', 'm-faq'], patok: 'm-harga' } : { seksi: ['s-ringkas', 's-faq', 's-ulasan'], patok: 's-info' };
+  }
+  componentDidMount() {
+    this._gulir = () => this.spy();
+    window.addEventListener('scroll', this._gulir, { passive: true });
+    this.spy();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._gulir);
+  }
+  spy() {
+    if (this.state.nav) this.setState({ nav: false });
+    const r = this.resep();
+    const lim = (window.innerHeight || 800) * 0.35;
+    const patok = document.getElementById(r.patok);
+    const gulir = !!patok && patok.getBoundingClientRect().top <= lim;
+    let sek = r.seksi[0];
+    r.seksi.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= lim) sek = id;
+    });
+    if (gulir !== this.state.gulir || sek !== this.state.sek) this.setState({ gulir, sek });
+  }
+  renderVals() {
+    const s = this.state;
+    const jenis = this.props.jenis ?? 'produk';
+    const produk = jenis === 'produk';
+    const lama = jenis === 'sku-lama';
+    const aktif = s.sek || this.resep().seksi[0];
+    const pilih = (id) => {
+      if (id === 'top') window.scrollTo({ top: 0, behavior: 'smooth' });
+      else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ block: 'start' });
+      }
+      this.setState({ sek: id, nav: false });
+    };
+    const bukaCari = () => this.setState({ cariOpen: true, bantuan: false, cariQ: '' });
+    const kepala = { terlihat: s.gulir };
+    if (!produk) kepala.jenis = jenis;
+    if (this.props.judul || lama) kepala.judul = this.props.judul || 'Besi Hollow Hitam 40 × 40 × 2 mm';
+    const lembar = { varian: produk ? 'harga' : jenis, terbuka: s.nav && !s.cariOpen, aktif, onPilih: pilih, onTutup: () => this.setState({ nav: false }) };
+    if (jenis === 'sku') lembar.onCari = bukaCari;
+    const bar = { jenis: produk ? 'produk' : 'sku', terlihat: !s.cariOpen, terbuka: s.nav, bantuanTerbuka: s.bantuan, onNav: () => this.setState({ nav: !s.nav, bantuan: false }), onCari: bukaCari, onBantuan: () => this.setState({ bantuan: !s.bantuan, nav: false }) };
+    if (!produk) bar.daftarCepat = true;
+    if (lama) bar.ikonNav = 'navigasi-isi';
+    const cari = { terbuka: s.cariOpen, kueri: s.cariQ, onUbah: (v) => this.setState({ cariQ: v }), onTutup: () => this.setState({ cariOpen: false, cariQ: '' }) };
+    if (jenis === 'produk') cari.warnaJudul = 'var(--ink)';
+    if (jenis === 'sku') cari.varian = 'abu';
+    if (lama) { cari.varian = 'apung'; cari.korpus = 'lama'; }
+    return {
+      kepala,
+      lembar,
+      bar,
+      cari,
+      kontakRupa: jenis === 'produk' ? 'ringkas' : 'baku',
+      adaBantuan: produk,
+      bantuan: s.bantuan,
+      bantuanTutup: () => this.setState({ bantuan: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

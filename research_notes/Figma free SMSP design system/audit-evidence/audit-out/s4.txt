@@ -1,0 +1,210 @@
+## link graph (hrefs to .dc.html in stripped source incl. script)
+BerandaM4.dc.html {'BerandaM4.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 4, 'ProdukIndexM4.dc.html': 1, 'RecCreateM4.dc.html': 2, 'SkuDetailM4.dc.html': 1}
+DesktopArtikelM4.dc.html {'pp1u.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 1, 'DesktopBlogM4.dc.html': 1, 'DesktopArtikelM4.dc.html': 1}
+DesktopBerandaM4.dc.html {'DesktopBerandaM4.dc.html': 1, 'DesktopProdukM4.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 4, 'RecCreateM4.dc.html': 2, 'SkuDetailM4.dc.html': 1}
+DesktopBlogM4.dc.html {'pp1u.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 1, 'RecCreateM3.dc.html': 1, 'DesktopArtikelM3.dc.html': 1}
+DesktopKategoriM4.dc.html {'DesktopBerandaM4.dc.html': 2, 'DesktopProdukIndexM4.dc.html': 2, 'DesktopProdukM4.dc.html': 1}
+DesktopProdukIndexM4.dc.html {'pp1u.dc.html': 1, 'DesktopProdukM4.dc.html': 1, 'RecCreateM4.dc.html': 2}
+DesktopProdukM4.dc.html {'pp1u.dc.html': 1, 'DesktopProdukM4.dc.html': 1, 'DesktopSkuM4.dc.html': 2, 'RecCreateM3.dc.html': 2}
+DesktopProdukM4Salinan.dc.html {'pp1u.dc.html': 1, 'DesktopProdukM4Salinan.dc.html': 1, 'DesktopSkuM4Salinan.dc.html': 2, 'RecCreateM3.dc.html': 2}
+DesktopSkuM4.dc.html {'pp1u.dc.html': 2, 'DesktopProdukM4.dc.html': 4, 'DesktopUlasanM4.dc.html': 2, 'DesktopSkuM4.dc.html': 1, 'DesktopProdukM3.dc.html': 1}
+DesktopSkuM4Salinan.dc.html {'pp1u.dc.html': 2, 'DesktopProdukM4Salinan.dc.html': 4, 'DesktopUlasanM4.dc.html': 2, 'DesktopSkuM4Salinan.dc.html': 1, 'DesktopProdukM3.dc.html': 1}
+DesktopUlasanM4.dc.html {'pp1u.dc.html': 1, 'DesktopProdukM4.dc.html': 1, 'DesktopProdukM3.dc.html': 1}
+DetailArtikel2M4.dc.html {'pp1u.dc.html': 1}
+DetailArtikel3M4.dc.html {'pp1u.dc.html': 1}
+DetailArtikel4M4.dc.html {'pp1u.dc.html': 1}
+KategoriM4.dc.html {'BerandaM4.dc.html': 2, 'ProdukIndexM4.dc.html': 1}
+ProdukIndexM4.dc.html {'pp1u.dc.html': 1, 'RecCreateM4.dc.html': 2}
+RecCreateM4.dc.html {'pp1u.dc.html': 1, 'SkuDetailM4.dc.html': 2}
+RecCreateM4Salinan1.dc.html {'pp1u.dc.html': 1, 'SkuDetailM4.dc.html': 2, 'RecCreateM3Salinan1.dc.html': 1}
+SalinanArtikel2M4.dc.html {'pp1u.dc.html': 1}
+SalinanArtikel2M4Salinan.dc.html {'pp1u.dc.html': 1, 'BlogM3.dc.html': 1}
+SalinanArtikelM4.dc.html {'pp1u.dc.html': 1}
+SalinanBeranda2M4.dc.html {'BerandaM4.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 4, 'ProdukIndexM4.dc.html': 1, 'RecCreateM4.dc.html': 6, 'SkuDetailM4.dc.html': 2}
+SalinanBeranda3M4.dc.html {'BerandaM4.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 4, 'ProdukIndexM4.dc.html': 1, 'RecCreateM4.dc.html': 6, 'SkuDetailM4.dc.html': 2}
+SalinanBerandaM4.dc.html {'BerandaM4.dc.html': 1, 'DesktopProdukIndexM4.dc.html': 4, 'ProdukIndexM4.dc.html': 1, 'RecCreateM4.dc.html': 2, 'SkuDetailM4.dc.html': 1}
+SalinanBlog2M4.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'SalinanArtikel2M3.dc.html': 1}
+SalinanBlog3M4.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'DetailArtikel2M4.dc.html': 1}
+SalinanBlog4M4.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'DetailArtikel3M4.dc.html': 1}
+SalinanBlog5M4.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'DetailArtikel4M4.dc.html': 1}
+SalinanBlogM4.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'SalinanArtikel2M3.dc.html': 1}
+SalinanBlogM4Salinan.dc.html {'pp1u.dc.html': 1, 'RecCreateM3.dc.html': 1, 'ArtikelM3.dc.html': 1, 'SalinanArtikel2M4.dc.html': 1}
+SalinanProdukPageM4.dc.html {'pp1u.dc.html': 1, 'SalinanSkuPageM4.dc.html': 2}
+SalinanSkuPageM4.dc.html {'pp1u.dc.html': 1, 'SalinanProdukPageM4.dc.html': 2, 'UlasanM3.dc.html': 1}
+SkuDetailM4.dc.html {'pp1u.dc.html': 1, 'RecCreateM4.dc.html': 2, 'UlasanM3.dc.html': 1, 'DesktopSkuM3.dc.html': 1}
+UlasanM4Salinan.dc.html {'SkuDetailM4.dc.html': 1}
+## inbound board count
+DesktopProdukIndexM4.dc.html 8
+RecCreateM4.dc.html 8
+SkuDetailM4.dc.html 8
+DesktopProdukM4.dc.html 5
+ProdukIndexM4.dc.html 5
+BerandaM4.dc.html 4
+DesktopUlasanM4.dc.html 2
+DesktopBerandaM4.dc.html 1
+DesktopBlogM4.dc.html 1
+DesktopProdukM4Salinan.dc.html 1
+DesktopSkuM4.dc.html 1
+DesktopSkuM4Salinan.dc.html 1
+DetailArtikel2M4.dc.html 1
+DetailArtikel3M4.dc.html 1
+DetailArtikel4M4.dc.html 1
+SalinanArtikel2M4.dc.html 1
+SalinanProdukPageM4.dc.html 1
+SalinanSkuPageM4.dc.html 1
+DesktopArtikelM4.dc.html 0
+DesktopKategoriM4.dc.html 0
+KategoriM4.dc.html 0
+RecCreateM4Salinan1.dc.html 0
+SalinanArtikel2M4Salinan.dc.html 0
+SalinanArtikelM4.dc.html 0
+SalinanBeranda2M4.dc.html 0
+SalinanBeranda3M4.dc.html 0
+SalinanBerandaM4.dc.html 0
+SalinanBlog2M4.dc.html 0
+SalinanBlog3M4.dc.html 0
+SalinanBlog4M4.dc.html 0
+SalinanBlog5M4.dc.html 0
+SalinanBlogM4.dc.html 0
+SalinanBlogM4Salinan.dc.html 0
+UlasanM4Salinan.dc.html 0
+## targets not on canvas
+Counter({'pp1u.dc.html': 28, 'RecCreateM3.dc.html': 11, 'ArtikelM3.dc.html': 6, 'DesktopProdukM3.dc.html': 3, 'SalinanArtikel2M3.dc.html': 2, 'UlasanM3.dc.html': 2, 'DesktopArtikelM3.dc.html': 1, 'RecCreateM3Salinan1.dc.html': 1, 'BlogM3.dc.html': 1, 'DesktopSkuM3.dc.html': 1})
+## external link hosts
+[('www.smsperkasa.com', 195), ('wa.me', 32), ('www.google.com', 27), ('fonts.googleapis.com', 15), ('www.w3.org', 5), ('www.youtube.com', 3)]
+## :root tokens matrix
+total distinct tokens 96
+--seksi boards=50 | clamp(6rem, 7.5svh, 8rem) [20] || clamp(6rem, 7.5vh, 8rem) [19] || 6rem [10] || clamp(4rem, 7.5vh, 8rem) [1]
+--jarak-y-antar boards=38 | clamp(6rem, 7.5svh, 8rem) [19] || clamp(6rem, 7.5vh, 8rem) [19]
+--surface boards=34 | #ffffff [34]
+--line boards=34 | #ececec [34]
+--ink boards=34 | #0a0a0a [34]
+--ink-2 boards=34 | #5f5f5f [34]
+--ink-4 boards=34 | #c9c9cb [34]
+--brand boards=34 | #D70100 [34]
+--brand-hero boards=34 | #FF0000 [34]
+--pill boards=34 | 99.9rem [34]
+--tile boards=33 | 0.5rem [33]
+--font-harga boards=33 | 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monos [32] || 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Consolas, mono [1]
+--cair boards=33 | radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.86) 0%, rgba( [33]
+--cair-blur boards=33 | blur(1.4rem) saturate(165%) brightness(1.03) contrast(1.02) [33]
+--cair-rim boards=33 | inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem r [33]
+--el-2 boards=33 | 0 0.2rem 1rem rgba(0,0,0,0.08), 0 0.1rem 0.2rem rgba(0,0,0,0.06) [33]
+--price boards=32 | #15763b [32]
+--cair-tombol boards=32 | radial-gradient(125% 125% at 30% 20%, rgba(255,255,255,0.94) 0%, rgba( [32]
+--cair-tombol-blur boards=32 | blur(1.8rem) saturate(160%) brightness(1.02) [32]
+--cair-bayang boards=32 | 0 0.6rem 1.4rem rgba(17,25,33,0.16), 0 0.1rem 0.2rem rgba(17,25,33,0.1 [32]
+--action boards=31 | 0.9rem [31]
+--kaca boards=31 | linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0. [31]
+--kaca-blur boards=31 | blur(1.8rem) saturate(140%) [31]
+--kaca-rim boards=31 | inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(25 [31]
+--kaca-bayang boards=31 | 0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.0 [31]
+--control boards=30 | 0.5rem [30]
+--card boards=30 | 1.4rem [30]
+--sheet boards=30 | 1.6rem [30]
+--quote boards=30 | 1.8rem [30]
+--panel boards=30 | 2.2rem [30]
+--island boards=30 | 2.6rem [30]
+--teks-sup boards=30 | 0.95rem [30]
+--teks-tiny boards=30 | 1.1rem [30]
+--teks-meta boards=30 | 1.3rem [30]
+--teks-body boards=30 | 1.4rem [30]
+--bobot-light boards=30 | 300 [30]
+--bobot-regular boards=30 | 400 [30]
+--bobot-medium boards=30 | 500 [30]
+--bobot-semibold boards=30 | 600 [30]
+--bobot-bold boards=30 | 700 [30]
+--bobot-heavy boards=30 | 800 [30]
+--bobot-black boards=30 | 900 [30]
+--dalam boards=30 | 2rem [30]
+--sisi boards=30 | 1.6rem [12] || 12rem [10] || 1.5rem [8]
+--rapat boards=30 | 1.2rem [30]
+--chat-ikon boards=28 | #2563eb [28]
+--chat-mati boards=28 | #9ca3af [28]
+--line-kuat boards=28 | #d4d4d4 [28]
+--online-ikon boards=28 | #16a34a [28]
+--whatsapp boards=28 | #25d366 [28]
+--brand-subtle boards=26 | #fdecec [26]
+--teks-micro boards=26 | 1rem [26]
+--price-bg boards=23 | #eaf7ee [23]
+--cair-bayang-chip boards=21 | 0 0.2rem 0.6rem rgba(17,25,33,0.10), 0 0.1rem 0.1rem rgba(17,25,33,0.0 [21]
+--teks-price boards=20 | 1.7rem [20]
+--teks-section boards=20 | 2rem [20]
+--teks-page boards=20 | 2.8rem [20]
+--jarak-x-tiga boards=20 | 1.5rem [20]
+--jarak-x-dua boards=20 | 3rem [20]
+--talang boards=20 | 1.5rem [20]
+--teks-chip boards=19 | 1.2rem [19]
+--jarak-y-dalam boards=19 | 1.5rem [19]
+--nav-aktif boards=10 | #A84C46 [10]
+--teks-advantage boards=10 | 1.7rem [10]
+--teks-subhead boards=10 | 1.8rem [10]
+--teks-lead boards=10 | 2rem [10]
+--teks-price-lg boards=10 | 2.2rem [10]
+--teks-subsection boards=10 | 2.2rem [10]
+--teks-section-md boards=10 | 2.6rem [10]
+--teks-cta boards=10 | 2.9rem [10]
+--teks-section-lg boards=10 | 3rem [10]
+--teks-display boards=10 | 4.4rem [10]
+--footer-jarak boards=10 | 7.2rem [10]
+--footer-pad boards=10 | 5.6rem [10]
+--selokan-dalam boards=10 | 4.8rem [10]
+--jarak-y-antar-rapat boards=10 | clamp(3rem, 3.75svh, 4rem) [5] || clamp(3rem, 3.75vh, 4rem) [5]
+--cair-rim-chip boards=9 | inset 0 0.2rem 0.2rem rgba(255,255,255,0.95), inset 0 -0.3rem 0.4rem r [9]
+--el-3 boards=7 | 0 0.8rem 2rem rgba(0,0,0,0.14), 0 0.2rem 0.6rem rgba(0,0,0,0.08) [7]
+--selokan-ubin boards=6 | 3rem [6]
+--surface-2 boards=6 | #f6f6f6 [6]
+--bintang boards=5 | #ffb800 [5]
+--bintang-garis boards=5 | #9a6700 [5]
+--selokan-sempit boards=4 | 1.5rem [4]
+--biru-dasar boards=4 | #eef1f9 [4]
+--biru-tinta boards=4 | #16357a [4]
+--keping-biru boards=4 | #e3e9f7 [4]
+--keping-abu boards=4 | #ededf0 [4]
+--keping-hangat boards=4 | #f1efec [4]
+--garis-panel boards=4 | #dfe4f0 [4]
+--bayang-kartu boards=4 | 0 0.1rem 0.2rem rgba(17,25,33,0.05), 0 0.6rem 1.6rem -0.6rem rgba(17,2 [4]
+--gantung-kartu boards=3 | 3.8rem [3]
+--teks-seksi boards=3 | 1.6rem [3]
+--star boards=3 | #ffb800 [3]
+--star-stroke boards=3 | #9a6700 [3]
+--awas-bg boards=1 | #fdecec [1]
+--star-kosong boards=1 | #dcdcde [1]
+## var() usage (all boards) and undefined refs
+[('--rapat', 2222), ('--ink-2', 1376), ('--ink', 1106), ('--bobot-bold', 870), ('--teks-body', 815), ('--brand', 612), ('--pill', 557), ('--line', 485), ('--surface', 482), ('--dalam', 466), ('--teks-meta', 457), ('--bobot-medium', 406), ('--cair-tombol-blur', 404), ('--teks-tiny', 337), ('--cair-rim', 251), ('--cair-bayang', 236), ('--bobot-semibold', 222), ('--cair-tombol', 219), ('--talang', 208), ('--seksi', 204), ('--jarak-y-dalam', 176), ('--teks-lead', 172), ('--sisi', 171), ('--jarak-y-antar', 152), ('--bobot-light', 143), ('--tile', 138), ('--sheet', 135), ('--bobot-heavy', 132), ('--brand-hero', 123), ('--teks-section', 112), ('--teks-micro', 108), ('--action', 106), ('--card', 89), ('--ink-4', 84), ('--cair-blur', 80), ('--control', 71), ('--teks-chip', 62), ('--bobot-black', 52), ('--bobot-regular', 48), ('--cair', 37), ('--teks-section-md', 35), ('--brand-subtle', 34), ('--selokan-ubin', 28), ('--el-2', 20), ('--footer-jarak', 20), ('--quote', 20), ('--teks-page', 19), ('--line-kuat', 19), ('--jarak-x-dua', 17), ('--kaca-blur', 16), ('--font-harga', 15), ('--bintang', 15), ('--jarak-y-antar-rapat', 15), ('--teks-display', 14), ('--awas-bg', 14), ('--online-ikon', 14), ('--island', 13), ('--kaca-bayang', 13), ('--selokan-dalam', 12), ('--chat-mati', 11), ('--jarak-x-tiga', 10), ('--footer-pad', 10), ('--teks-cta', 10), ('--bintang-garis', 9), ('--teks-subhead', 9), ('--teks-price-lg', 9), ('--teks-seksi', 9), ('--selokan-sempit', 8), ('--el-3', 8), ('--teks-subsection', 8), ('--kaca', 8), ('--kaca-rim', 8), ('--teks-price', 7), ('--teks-sup', 7), ('--whatsapp', 6), ('--star', 5), ('--cair-rim-chip', 4), ('--cair-bayang-chip', 4), ('--star-stroke', 4), ('--biru-tinta', 3), ('--garis-panel', 3), ('--biru-dasar', 2), ('--bayang-kartu', 2), ('--teks-section-lg', 2), ('--nav-aktif', 2), ('--bobot-', 2), ('--keping-biru', 1), ('--keping-abu', 1), ('--keping-hangat', 1), ('--teks-advantage', 1), ('--surface-2', 1), ('--star-kosong', 1)]
+undefined per-board (may be set by script/inline): [(('RecCreateM4.dc.html', '--bobot-'), 2), (('DesktopProdukM4.dc.html', '--awas-bg'), 1), (('DesktopProdukM4Salinan.dc.html', '--awas-bg'), 1), (('DesktopSkuM4.dc.html', '--awas-bg'), 1), (('DesktopSkuM4Salinan.dc.html', '--awas-bg'), 1), (('RecCreateM4.dc.html', '--awas-bg'), 1), (('SalinanBlog2M4.dc.html', '--awas-bg'), 1), (('SalinanBlog3M4.dc.html', '--awas-bg'), 1), (('SalinanBlog4M4.dc.html', '--awas-bg'), 1), (('SalinanBlog5M4.dc.html', '--awas-bg'), 1), (('SalinanBlogM4.dc.html', '--awas-bg'), 1), (('SalinanBlogM4Salinan.dc.html', '--awas-bg'), 1), (('SkuDetailM4.dc.html', '--teks-chip'), 1)]
+tokens per board:
+BerandaM4.dc.html 73
+DesktopArtikelM4.dc.html 66
+DesktopBerandaM4.dc.html 68
+DesktopBlogM4.dc.html 66
+DesktopKategoriM4.dc.html 66
+DesktopProdukIndexM4.dc.html 66
+DesktopProdukM4.dc.html 66
+DesktopProdukM4Salinan.dc.html 65
+DesktopSkuM4.dc.html 59
+DesktopSkuM4Salinan.dc.html 60
+DesktopUlasanM4.dc.html 50
+DetailArtikel2M4.dc.html 63
+DetailArtikel3M4.dc.html 63
+DetailArtikel4M4.dc.html 63
+KategoriM4.dc.html 61
+ProdukIndexM4.dc.html 62
+RecCreateM4.dc.html 62
+RecCreateM4Salinan1.dc.html 24
+SalinanArtikel2M4.dc.html 63
+SalinanArtikel2M4Salinan.dc.html 63
+SalinanArtikelM4.dc.html 62
+SalinanBeranda2M4.dc.html 73
+SalinanBeranda3M4.dc.html 73
+SalinanBerandaM4.dc.html 73
+SalinanBlog2M4.dc.html 59
+SalinanBlog3M4.dc.html 65
+SalinanBlog4M4.dc.html 65
+SalinanBlog5M4.dc.html 65
+SalinanBlogM4.dc.html 63
+SalinanBlogM4Salinan.dc.html 63
+SalinanProdukPageM4.dc.html 24
+SalinanSkuPageM4.dc.html 28
+SkuDetailM4.dc.html 57
+UlasanM4Salinan.dc.html 16

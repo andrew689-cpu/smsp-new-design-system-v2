@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BeforeAfter</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&amp;family=Oswald:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPanel }}" hint-placeholder-val="{{ false }}">
+  <div style="overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch">
+    <div role="group" aria-label="Pembanding: tanpa dan bersama SMS Perkasa" style="position: relative; width: 100%; height: {{ tinggiPanel }}; border-radius: var(--tile); overflow: hidden; background: var(--banding-kertas)">
+      <div style="position: absolute; inset: 0; box-sizing: border-box; padding: 1.2rem 1.2rem 0.8rem 1.2rem; background: var(--surface); display: flex; flex-direction: column; gap: 0.6rem">
+        <sc-if value="{{ papanTampil }}" hint-placeholder-val="{{ true }}"><div style="position: relative; flex-shrink: 0; margin-top: -1.2rem; padding: 1.8rem 0 1.4rem 0; display: flex; justify-content: center">
+          <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: calc(50% - 4.1rem); width: 0.1rem; background: var(--ink-2)"></span>
+          <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: calc(50% + 4.6rem); width: 0.1rem; background: var(--ink-2)"></span>
+          <p style="position: relative; margin: 0; box-sizing: border-box; min-height: 5.2rem; padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: 0.1rem solid var(--ink-2); border-radius: var(--tile); background: var(--surface); box-shadow: 0.4rem 0.4rem 0 var(--brand-hero); font-family: var(--font-rv-judul); font-size: var(--teks-section); font-weight: var(--bobot-semibold); line-height: var(--tinggi-sempit); letter-spacing: var(--renggang-upvc); text-transform: uppercase; white-space: nowrap; color: var(--ink)"><dc-import name="Icon" ikon="lambang-papan" hint-size="2.8rem,3.4rem"></dc-import><span style="font-weight: var(--bobot-bold)">{{ labelBersama }}</span></p>
+        </div></sc-if>
+        <sc-if value="{{ labelPolosTampil }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; text-align: center; font-family: var(--font-sketsa); font-size: var(--teks-body); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-upvc); text-transform: uppercase; color: var(--brand)">{{ labelPolosBersama }}</p></sc-if>
+        <sc-for list="{{ panel }}" as="ks" hint-placeholder-count="3">
+          <div style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column">
+            <span style="flex-shrink: 0; display: block; margin: 0 0 0.2rem 0"><dc-import name="Heading" level="{{ 3 }}" varian="polos" font="var(--font-sketsa)" kapital="ya" ukuran="var(--teks-banding)" tinggi="var(--tinggi-artikel-h1)" bobot="var(--bobot-regular)" renggang="var(--renggang-sup)" rata="center" warna="var(--ink)" teks="{{ ks.bersamaJudul }}" hint-size="100%,2rem"></dc-import></span>
+            <img src="{{ ks.bersamaImg }}" alt="{{ ks.bersamaAlt }}" loading="lazy" style="{{ gayaPanelFoto }}">
+          </div>
+        </sc-for>
+      </div>
+      <span style="position: absolute; inset: 0; display: block; clip-path: inset(0 0 0 {{ persen }})">
+        <div style="position: absolute; inset: 0; box-sizing: border-box; padding: 1.2rem 1.2rem 0.8rem 1.2rem; background: var(--banding-kertas); display: flex; flex-direction: column; gap: 0.6rem">
+          <sc-if value="{{ papanTampil }}" hint-placeholder-val="{{ true }}"><div style="position: relative; flex-shrink: 0; margin-top: -1.2rem; padding: 1.8rem 0 1.4rem 0; display: flex; justify-content: center">
+          <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: calc(50% - 4.1rem); width: 0.1rem; background: var(--ink-2)"></span>
+          <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: calc(50% + 4.6rem); width: 0.1rem; background: var(--ink-2)"></span>
+          <p style="position: relative; margin: 0; box-sizing: border-box; min-height: 5.2rem; padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: 0.1rem solid var(--ink-2); border-radius: var(--tile); background: var(--surface); box-shadow: 0.4rem 0.4rem 0 var(--ink); font-family: var(--font-rv-judul); font-size: var(--teks-section); font-weight: var(--bobot-semibold); line-height: var(--tinggi-sempit); letter-spacing: var(--renggang-upvc); text-transform: uppercase; white-space: nowrap; color: var(--line-kuat)">{{ labelTanpa }}</p>
+        </div></sc-if>
+        <sc-if value="{{ labelPolosTampil }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; text-align: center; font-family: var(--font-sketsa); font-size: var(--teks-body); line-height: var(--tinggi-rapat); letter-spacing: var(--renggang-upvc); text-transform: uppercase; color: var(--brand)">{{ labelTanpa }}</p></sc-if>
+          <sc-for list="{{ panel }}" as="ks" hint-placeholder-count="3">
+            <div style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column">
+              <span style="flex-shrink: 0; display: block; margin: 0 0 0.2rem 0"><dc-import name="Heading" level="{{ 3 }}" varian="polos" font="var(--font-sketsa)" kapital="ya" ukuran="var(--teks-banding)" tinggi="var(--tinggi-artikel-h1)" bobot="var(--bobot-regular)" renggang="var(--renggang-sup)" rata="center" warna="var(--ink)" teks="{{ ks.tanpaJudul }}" hint-size="100%,2rem"></dc-import></span>
+              <img src="{{ ks.tanpaImg }}" alt="{{ ks.tanpaAlt }}" loading="lazy" style="{{ gayaPanelFoto }}">
+            </div>
+          </sc-for>
+        </div>
+      </span>
+      <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{ persen }}; width: 0.2rem; background: var(--ink); transform: translateX(-50%)"></span>
+      <span style="position: absolute; top: 50%; left: {{ persen }}; transform: translate(-50%, -50%); display: block"><dc-import name="Icon" ikon="banding" hint-size="50px,50px"></dc-import></span>
+      <input data-banding="1" type="range" min="0" max="100" step="1" value="{{ nilai }}" onChange="{{ geser }}" aria-label="Geser untuk membandingkan tanpa dan bersama SMS Perkasa" style="position: absolute; left: -2.5rem; width: calc(100% + 5rem); top: calc(50% - 2.5rem); height: 5rem">
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isFoto }}" hint-placeholder-val="{{ true }}">
+<div>
+  <div style="{{ gulir }}">
+    <div role="group" aria-label="Pembanding foto: dengan dan tanpa SMS Perkasa" style="position: relative; width: 100%; aspect-ratio: 2000 / 971; border-radius: {{ sudut }}; overflow: hidden; background: var(--surface)">
+      <sc-if value="{{ adaDengan }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ fotoDengan }}" alt="{{ altDengan }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+      </sc-if>
+      <sc-if value="{{ takDengan }}" hint-placeholder-val="{{ false }}">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center; background: var(--banding-kosong); color: var(--ink-2); font-size: var(--teks-lead); font-weight: var(--bobot-medium); letter-spacing: var(--renggang-kecil); text-transform: uppercase">Foto &ldquo;dengan&rdquo; menunggu berkas</span>
+      </sc-if>
+      <span style="position: absolute; inset: 0; display: block; clip-path: inset(0 0 0 {{ persen }})">
+        <sc-if value="{{ adaTanpa }}" hint-placeholder-val="{{ true }}">
+          <img src="{{ fotoTanpa }}" alt="{{ altTanpa }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+        </sc-if>
+        <sc-if value="{{ takTanpa }}" hint-placeholder-val="{{ false }}">
+          <span style="position: absolute; inset: 0; display: grid; place-items: center; background: var(--ink-4); color: var(--ink); font-size: var(--teks-lead); font-weight: var(--bobot-medium); letter-spacing: var(--renggang-kecil); text-transform: uppercase">Foto &ldquo;tanpa&rdquo; menunggu berkas</span>
+        </sc-if>
+      </span>
+      <span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{ persen }}; width: 0.2rem; background: var(--ink); transform: translateX(-50%)"></span>
+      <span style="position: absolute; bottom: {{ bawah }}; left: {{ persen }}; transform: translateX(-50%); display: block">
+        <dc-import name="Icon" ikon="banding" hint-size="50px,50px"></dc-import>
+      </span>
+      <input data-banding="1" type="range" min="0" max="100" step="1" value="{{ nilai }}" onChange="{{ geser }}" aria-label="Geser untuk membandingkan foto dengan dan tanpa SMS Perkasa" style="position: absolute; left: -2.5rem; width: calc(100% + 5rem); bottom: {{ bawah }}; height: 5rem">
+    </div>
+  </div>
+  <div style="margin-top: var(--rapat); min-height: {{ tinggiPita }}; display: flex; align-items: flex-start">
+    <sc-if value="{{ pitaKiri }}" hint-placeholder-val="{{ false }}">
+      <img src="{{ fotoTeksDengan }}" alt="Keuntungan Dengan Sms Perkasa — geser ke kanan" loading="lazy" style="width: 75rem; max-width: 100%; height: auto; display: block; margin-right: auto">
+    </sc-if>
+    <sc-if value="{{ pitaKanan }}" hint-placeholder-val="{{ true }}">
+      <img src="{{ fotoTeksTanpa }}" alt="Bayangkan Tanpa Sms Perkasa — geser ke kiri" loading="lazy" style="width: 73.2rem; max-width: 100%; height: auto; display: block; margin-left: auto">
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["foto","panel"],"default":"foto","section":"Resep"},"tinggiPanel":{"editor":"text","default":"77.5rem","section":"Tata letak"},"labelTanpa":{"editor":"text","default":"Tanpa SMS Perkasa","section":"Isi"},"labelBersama":{"editor":"text","default":"SMS Perkasa","section":"Isi"},"papan":{"editor":"boolean","default":true,"section":"Resep"},"gambarBersama":{"editor":"enum","options":["pensil","warna"],"default":"pensil","section":"Gambar"},"panel":{"editor":null,"section":"Data","tsType":"Array<{tanpaJudul:string,tanpaImg:string,tanpaAlt:string,bersamaJudul:string,bersamaImg:string,bersamaAlt:string}>"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"awal":{"editor":"range","min":0,"max":100,"step":1,"default":4,"section":"Resep"},"fotoDengan":{"editor":"text","default":"/_blob/f330fd9f78bf3b8358307b31bc216896","section":"Gambar"},"fotoTanpa":{"editor":"text","default":"/_blob/28578451a6236e2355e3b299c8beaa84","section":"Gambar"},"fotoTeksDengan":{"editor":"text","default":"/_blob/7fa392efb230dc1ae906da597c3a89e2","section":"Gambar"},"fotoTeksTanpa":{"editor":"text","default":"/_blob/1fd3f7db432b36e551160527221f4122","section":"Gambar"},"altDengan":{"editor":"text","default":"Dengan SMS Perkasa: informasi produk lengkap dan akurat; respon cepat, pasti dibalas kurang dari 10 menit; pengiriman tepat waktu sesuai schedule; harga kompetitif tanpa mengorbankan kualitas","section":"Aksesibilitas"},"altTanpa":{"editor":"text","default":"Tanpa SMS Perkasa: spesifikasi produk tidak jelas dan kurang akurat; respon lama, tidak ada jaminan dibalas; pengiriman terlambat tidak tepat waktu; harga produk tidak sesuai dengan kualitas","section":"Aksesibilitas"},"$preview":{"width":330,"height":240}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const awal = this.props.awal ?? (desktop ? 96 : 4);
+    const AMBANG_KIRI = 4;
+    const AMBANG_KANAN = 96;
+    const pos = Math.min(Math.max(Number(this.state.banding == null ? awal : this.state.banding) || 0, 0), 100);
+    const fotoDengan = this.props.fotoDengan ?? '/_blob/f330fd9f78bf3b8358307b31bc216896';
+    const fotoTanpa = this.props.fotoTanpa ?? '/_blob/28578451a6236e2355e3b299c8beaa84';
+    const WARNA = ["/_blob/51ea8eabd64ea070cca30a953c197a24", "/_blob/e1e129d61c59195fbb8a219545ff7399", "/_blob/b6e9b943e1888b001cc2d072b78b8ead"];
+    const PANEL = [{"tanpaJudul": "Spesifikasi Tidak Jelas", "tanpaImg": "/_blob/004225b99225d68ab1020af4f17722a3", "tanpaAlt": "Pekerja bingung di depan tumpukan besi hollow: ukuran salah? bukan besi SNI?", "bersamaJudul": "On Spec", "bersamaImg": "/_blob/bc955f06eae0f21ccfa663375689b7c9", "bersamaAlt": "Pekerja mengukur besi dengan jangka sorong: QA passed, SNI, toleransi ketat, presisi sesuai spesifikasi"}, {"tanpaJudul": "Pengiriman Terlambat", "tanpaImg": "/_blob/100c23ad840215a1c202a3c5831dfc53", "tanpaAlt": "Truk tua berasap di jalan dan pekerja menunggu: keterlambatan proyek", "bersamaJudul": "On Time", "bersamaImg": "/_blob/a7235fc9a890a80b1dc1f70f729f549f", "bersamaAlt": "Truk melaju menuju proyek: pengiriman terjadwal dan cepat ke lokasi proyek"}, {"tanpaJudul": "Biaya Over Budget", "tanpaImg": "/_blob/a8f3c472338a1effa000b68989bc4a47", "tanpaAlt": "Orang memegang kepala di depan tumpukan kertas dan grafik turun: RAB membengkak", "bersamaJudul": "On Budget", "bersamaImg": "/_blob/ef88b95bfa5f418a99c1ba7efc7809f1", "bersamaAlt": "Tangan menghitung RAB dengan kalkulator di samping besi hollow: sesuai anggaran, harga transparan, tanpa biaya tambahan"}];
+    const isPanel = this.props.jenis === 'panel';
+    return {
+      isPanel,
+      isFoto: !isPanel,
+      papanTampil: this.props.papan ?? true,
+      labelPolosTampil: !(this.props.papan ?? true),
+      labelPolosBersama: 'Bersama ' + (this.props.labelBersama ?? 'SMS Perkasa'),
+      tinggiPanel: this.props.tinggiPanel ?? ((this.props.papan ?? true) ? '77.5rem' : '72rem'),
+      labelTanpa: this.props.labelTanpa ?? 'Tanpa SMS Perkasa',
+      labelBersama: this.props.labelBersama ?? 'SMS Perkasa',
+      panel: this.props.panel ?? (this.props.gambarBersama === 'warna' ? PANEL.map((x, i) => ({ ...x, bersamaImg: WARNA[i] })) : PANEL),
+      gayaPanelFoto: 'flex: 1 1 0; min-height: 0; width: 100%; object-fit: contain; display: block; -webkit-mask-image: var(--pudar-x), var(--pudar-y); -webkit-mask-composite: source-in; mask-image: var(--pudar-x), var(--pudar-y); mask-composite: intersect',
+      gulir: desktop ? '' : 'overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch',
+      sudut: desktop ? 'var(--card)' : 'var(--tile)',
+      bawah: desktop ? 'var(--dalam)' : 'var(--rapat)',
+      tinggiPita: desktop ? '12.9rem' : '5.8rem',
+      fotoDengan,
+      fotoTanpa,
+      adaDengan: !!fotoDengan,
+      adaTanpa: !!fotoTanpa,
+      takDengan: desktop && !fotoDengan,
+      takTanpa: desktop && !fotoTanpa,
+      altDengan: this.props.altDengan ?? 'Dengan SMS Perkasa: informasi produk lengkap dan akurat; respon cepat, pasti dibalas kurang dari 10 menit; pengiriman tepat waktu sesuai schedule; harga kompetitif tanpa mengorbankan kualitas',
+      altTanpa: this.props.altTanpa ?? 'Tanpa SMS Perkasa: spesifikasi produk tidak jelas dan kurang akurat; respon lama, tidak ada jaminan dibalas; pengiriman terlambat tidak tepat waktu; harga produk tidak sesuai dengan kualitas',
+      fotoTeksDengan: this.props.fotoTeksDengan ?? '/_blob/7fa392efb230dc1ae906da597c3a89e2',
+      fotoTeksTanpa: this.props.fotoTeksTanpa ?? '/_blob/1fd3f7db432b36e551160527221f4122',
+      pitaKiri: pos <= AMBANG_KIRI,
+      pitaKanan: pos >= AMBANG_KANAN,
+      nilai: String(pos),
+      persen: pos + '%',
+      geser: (e) => {
+        const v = Number(e.target.value);
+        if (!isFinite(v)) return;
+        this.setState({ banding: Math.min(Math.max(v, 0), 100) });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

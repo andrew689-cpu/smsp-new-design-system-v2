@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pagination</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<nav aria-label="{{ ariaLabel }}" style="{{ gayaNav }}">
+  <sc-if value="{{ pelapor }}" hint-placeholder-val="{{ false }}">
+    <p style="margin: 0 0.8rem 0 0; font-size: var(--teks-meta); color: var(--ink-2)">Menampilkan <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ rentang }}</span> dari <span style="color: var(--ink); font-weight: var(--bobot-semibold)">{{ total }}</span> SKU</p>
+  </sc-if>
+  <div style="{{ gayaKelompok }}">
+    <span style="display: grid; margin-right: 0.3rem"><dc-import name="PageButton" jenis="{{ jenis }}" ikon="chevron-kiri" disabled="{{ takAdaSebelum }}" ariaLabel="Halaman sebelumnya" onPress="{{ sebelum }}" hint-size="4rem,4rem"></dc-import></span>
+    <sc-for list="{{ halaman }}" as="h" hint-placeholder-count="4">
+      <sc-if value="{{ h.isJeda }}" hint-placeholder-val="{{ false }}">
+        <span aria-hidden="true" style="width: 2.4rem; display: grid; place-items: center; font-size: var(--teks-body); color: var(--ink-2); margin-left: 0.3rem; margin-right: 0.3rem">…</span>
+      </sc-if>
+      <sc-if value="{{ h.isNomor }}" hint-placeholder-val="{{ true }}">
+        <span style="display: grid; margin-left: 0.3rem; margin-right: 0.3rem"><dc-import name="PageButton" jenis="{{ jenis }}" aktif="{{ h.aktif }}" label="{{ h.label }}" ariaLabel="{{ h.aria }}" onPress="{{ h.pilih }}" hint-size="4rem,4rem"></dc-import></span>
+      </sc-if>
+    </sc-for>
+    <span style="display: grid; margin-left: 0.3rem; margin-right: 0.3rem"><dc-import name="PageButton" jenis="{{ jenis }}" ikon="chevron" disabled="{{ takAdaBerikut }}" ariaLabel="Halaman berikutnya" onPress="{{ berikut }}" hint-size="4rem,4rem"></dc-import></span>
+  </div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["kaca","garis"],"default":"kaca","section":"Resep"},"hal":{"editor":"int","default":0,"section":"Keadaan"},"total":{"editor":"int","default":297,"section":"Isi"},"per":{"editor":"int","default":20,"section":"Isi"},"pelapor":{"editor":"boolean","default":false,"section":"Isi"},"ariaLabel":{"editor":"text","default":"Halaman daftar harga","section":"Isi"},"onHal":{"editor":null},"$preview":{"width":640,"height":90}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const jenis = this.props.jenis ?? 'kaca';
+    const kaca = jenis === 'kaca';
+    const total = this.props.total ?? 297;
+    const per = this.props.per ?? 20;
+    const maxHal = Math.max(1, Math.ceil(total / per));
+    const dikendalikan = this.props.onHal !== undefined;
+    const hal = Math.min(Math.max(0, dikendalikan ? (this.props.hal ?? 0) : (this.state.hal ?? this.props.hal ?? 0)), maxHal - 1);
+    const pergi = (h) => {
+      if (!dikendalikan) this.setState({ hal: h });
+      if (this.props.onHal) this.props.onHal(h);
+    };
+    const nomor = [];
+    for (let i = 0; i < maxHal; i++) {
+      if (i === 0 || i === maxHal - 1 || Math.abs(i - hal) <= 1) nomor.push(i);
+      else if (nomor[nomor.length - 1] !== -1) nomor.push(-1);
+    }
+    return {
+      jenis,
+      pelapor: !!this.props.pelapor,
+      total,
+      rentang: total === 0 ? '0' : (hal * per + 1) + '–' + Math.min(hal * per + per, total),
+      ariaLabel: this.props.ariaLabel ?? (kaca ? 'Halaman daftar harga' : 'Halaman ulasan'),
+      gayaNav: 'display: flex; align-items: center; justify-content: flex-end; column-gap: 0; ' + (kaca ? 'padding-top: 2.4rem; margin-top: 2rem' : 'padding-top: 2.8rem'),
+      gayaKelompok: 'display: flex; align-items: center; column-gap: 0' + (kaca ? '; margin-right: 0.8rem' : '') + (this.props.pelapor ? '; margin-left: 0.8rem' : ''),
+      takAdaSebelum: hal === 0,
+      takAdaBerikut: hal >= maxHal - 1,
+      sebelum: () => { if (hal > 0) pergi(hal - 1); },
+      berikut: () => { if (hal < maxHal - 1) pergi(hal + 1); },
+      halaman: nomor.map((i) => {
+        if (i === -1) return { isJeda: true, isNomor: false };
+        const aktif = i === hal;
+        return {
+          isJeda: false,
+          isNomor: true,
+          label: i + 1,
+          aria: 'Halaman ' + (i + 1) + (aktif ? ', halaman ini' : ''),
+          aktif,
+          pilih: () => pergi(i)
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

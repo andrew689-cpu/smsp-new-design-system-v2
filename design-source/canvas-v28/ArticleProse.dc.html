@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ArticleProse</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ is.h2 }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ g.h2 }}"><dc-import name="Heading" level="{{ 2 }}" varian="artikel" tata="{{ tata }}" teks="{{ teks }}" hint-size="100%,3rem"></dc-import></div>
+</sc-if>
+<sc-if value="{{ is.h3 }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ g.h3 }}"><dc-import name="Heading" level="{{ 3 }}" varian="artikel" tata="{{ tata }}" teks="{{ teks }}" hint-size="100%,2.4rem"></dc-import></div>
+</sc-if>
+<sc-if value="{{ is.pembuka }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Heading" level="{{ 3 }}" varian="polos" ukuran="var(--teks-pembuka)" tinggi="var(--tinggi-baca)" bobot="var(--bobot-bold)" warna="var(--ink)" padKiri="var(--rapat)" bayang="inset 0.3rem 0 0 var(--merah-artikel)" teks="{{ teks }}" hint-size="100%,6.8rem"></dc-import>
+</sc-if>
+<sc-if value="{{ is.pembukaPolos }}" hint-placeholder-val="{{ false }}">
+  <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-baca); font-weight: var(--bobot-bold); color: var(--ink)">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.p }}" hint-placeholder-val="{{ true }}">
+  <p style="{{ g.p }}">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.tanya }}" hint-placeholder-val="{{ false }}">
+  <p style="{{ g.tanya }}">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.jawab }}" hint-placeholder-val="{{ false }}">
+  <p style="{{ g.jawab }}">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.kutipan }}" hint-placeholder-val="{{ false }}">
+  <p style="{{ g.kutipan }}">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.gambar }}" hint-placeholder-val="{{ false }}">
+  <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="{{ g.gambar }}">
+</sc-if>
+<sc-if value="{{ is.video }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="VideoBlock" dc-props="{{ video }}" hint-size="100%,18rem"></dc-import>
+</sc-if>
+<sc-if value="{{ is.keterangan }}" hint-placeholder-val="{{ false }}">
+  <p style="margin: -0.8rem 0 0 0; font-size: var(--teks-chip); line-height: var(--tinggi-sel); font-weight: var(--bobot-regular); color: var(--ink-2)">{{ teks }}</p>
+</sc-if>
+<sc-if value="{{ is.figur }}" hint-placeholder-val="{{ false }}">
+  <figure style="margin: var(--dalam) 0 0 0">
+    <img src="{{ foto }}" alt="{{ alt }}" loading="lazy" style="width: 100%; aspect-ratio: 1713 / 1105; object-fit: cover; display: block; border-radius: var(--card); background: var(--line)">
+    <figcaption style="margin-top: 0.8rem; font-size: var(--teks-body); line-height: var(--tinggi-lega); font-weight: var(--bobot-light); color: var(--ink-2)">{{ alt }}</figcaption>
+  </figure>
+</sc-if>
+<sc-if value="{{ is.daftar }}" hint-placeholder-val="{{ false }}">
+  <ul style="{{ g.daftar }}">
+    <sc-for list="{{ butirTampil }}" as="it" hint-placeholder-count="3">
+      <li style="{{ it.gaya }}">{{ it.x }}</li>
+    </sc-for>
+  </ul>
+</sc-if>
+<sc-if value="{{ is.tabel }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ g.tabelWadah }}">
+    <table style="border-collapse: collapse; width: 100%; min-width: 52rem; font-size: {{ g.tabelUkuran }}">
+      <sc-for list="{{ barisTampil }}" as="r" hint-placeholder-count="4">
+        <tr>
+          <sc-for list="{{ r.sel }}" as="c" hint-placeholder-count="3">
+            <td style="box-sizing: border-box; padding: 1rem 1.2rem; box-shadow: inset 0 -0.1rem 0 var(--line); text-align: left; vertical-align: top; line-height: var(--tinggi-sel); color: var(--ink)">{{ c.x }}</td>
+          </sc-for>
+        </tr>
+      </sc-for>
+    </table>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["p","h2","h3","pembuka","pembukaPolos","tanya","jawab","kutipan","gambar","figur","daftar","tabel","keterangan","video"],"default":"p","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"irama":{"editor":"enum","options":["artikel","lama"],"default":"artikel","section":"Resep"},"teks":{"editor":"text","default":"Banyak pelaksana proyek terjebak memotong anggaran material tanpa memikirkan konsekuensi batas layan jangka panjang. Penggunaan komponen non-standar memicu penurunan performa bangunan yang membahayakan ribuan nyawa.","section":"Isi"},"foto":{"editor":"text","default":"","section":"Gambar"},"alt":{"editor":"text","default":"","section":"Gambar"},"video":{"editor":null,"section":"Data","tsType":"{href:string,foto:string,judul:string,sumber:string,ariaLabel:string}"},"butir":{"editor":null,"section":"Data","tsType":"string[]"},"baris":{"editor":null,"section":"Data","tsType":"string[][]"},"rasio":{"editor":"enum","options":["persegi","asli"],"default":"persegi","section":"Resep"},"$preview":{"width":330,"height":140}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'p';
+    const desktop = this.props.tata === 'desktop';
+    const rataM = 'text-align: justify; -webkit-hyphens: auto; hyphens: auto';
+    const g = desktop ? {
+      h2: 'margin: var(--seksi) 0 0 0',
+      h3: 'margin: var(--dalam) 0 0 0',
+      p: 'margin: var(--rapat) 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-artikel-isi); font-weight: var(--bobot-regular); color: var(--ink); ' + rataM + '; overflow-wrap: break-word',
+      tanya: 'margin: var(--dalam) 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)',
+      jawab: 'margin: 0.6rem 0 0 0; font-size: var(--teks-lead); line-height: var(--tinggi-artikel-isi); font-weight: var(--bobot-light); color: var(--ink-2); ' + rataM,
+      kutipan: 'margin: var(--dalam) 0 0 0; box-sizing: border-box; padding: var(--rapat) 0 var(--rapat) var(--rapat); box-shadow: inset 0.3rem 0 0 var(--line-kuat); font-size: var(--teks-lead); line-height: var(--tinggi-baca); font-weight: var(--bobot-light); color: var(--ink-2)',
+      gambar: 'width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; margin-top: var(--dalam); border-radius: var(--tile); background: var(--line)',
+      daftar: 'margin: var(--rapat) 0 0 0; padding-left: 2rem; display: flex; flex-direction: column; row-gap: 0; column-gap: 0',
+      butir: 'font-size: var(--teks-lead); line-height: var(--tinggi-lega); font-weight: var(--bobot-regular); color: var(--ink)',
+      tabelWadah: 'margin-top: var(--dalam); overflow-x: auto',
+      tabelUkuran: 'var(--teks-body)'
+    } : {
+      h2: 'margin: 0',
+      h3: 'margin: 0',
+      p: 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-artikel-m); font-weight: var(--bobot-regular); letter-spacing: var(--renggang-artikel); color: var(--ink); ' + rataM + '; overflow-wrap: break-word',
+      tanya: 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--ink)',
+      jawab: 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-artikel-m); font-weight: var(--bobot-light); letter-spacing: var(--renggang-artikel); color: var(--ink-2); ' + rataM,
+      kutipan: 'margin: 0; box-sizing: border-box; padding: var(--rapat) 0 var(--rapat) var(--rapat); box-shadow: inset 0.3rem 0 0 var(--line-kuat); font-size: var(--teks-body); line-height: var(--tinggi-artikel-m); font-weight: var(--bobot-light); letter-spacing: var(--renggang-artikel); color: var(--ink-2)',
+      gambar: 'width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--tile); background: var(--line)',
+      daftar: 'margin: 0; padding-left: 2rem; display: flex; flex-direction: column; row-gap: 0; column-gap: 0',
+      butir: 'font-size: var(--teks-body); line-height: var(--tinggi-artikel-m); font-weight: var(--bobot-regular); letter-spacing: var(--renggang-artikel); color: var(--ink)',
+      tabelWadah: 'overflow-x: auto',
+      tabelUkuran: 'var(--teks-meta)'
+    };
+    if (!desktop && this.props.irama === 'lama') {
+      g.p = 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-isi-d); font-weight: var(--bobot-regular); color: var(--ink); ' + rataM + '; overflow-wrap: break-word';
+      g.jawab = 'margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-isi-d); font-weight: var(--bobot-light); color: var(--ink-2); ' + rataM;
+      g.kutipan = 'margin: 0; box-sizing: border-box; padding: var(--rapat) 0 var(--rapat) var(--rapat); box-shadow: inset 0.3rem 0 0 var(--line-kuat); font-size: var(--teks-body); line-height: var(--tinggi-baca); font-weight: var(--bobot-light); color: var(--ink-2)';
+      g.butir = 'font-size: var(--teks-body); line-height: var(--tinggi-lega); font-weight: var(--bobot-regular); color: var(--ink)';
+    }
+    const butir = this.props.butir ?? ['Jumlah kolom: 6 titik penyangga', 'Total panjang kolom: 6 titik × 3,5 meter = 21 meter', 'Total berat kolom H-Beam: 21 meter × 31,5 kg/m = 661,5 kg'];
+    const baris = this.props.baris ?? [
+      ['Parameter Mekanis', 'Standar SS400 (SNI/JIS)', 'Konsekuensi Jika Non-Standar'],
+      ['Kuat Luluh ( Fy )', 'Minimal 235 MPa', 'Profil melentur permanen di bawah beban desain.'],
+      ['Kuat Tarik ( Fu )', '400 – 510 MPa', 'Risiko keruntuhan getas tanpa peringatan defleksi.'],
+      ['Regangan Minimum', '17 – 21%', 'Material retak saat proses fabrikasi atau pengelasan.']
+    ];
+    const akhir = butir.length - 1;
+    return {
+      is: { [jenis]: true },
+      video: this.props.video ?? {},
+      tata: desktop ? 'desktop' : 'ponsel',
+      g: this.props.rasio === 'asli' ? { ...g, gambar: 'width: 100%; height: auto; display: block; border-radius: var(--tile); background: var(--line)' } : g,
+      teks: this.props.teks ?? 'Banyak pelaksana proyek terjebak memotong anggaran material tanpa memikirkan konsekuensi batas layan jangka panjang. Penggunaan komponen non-standar memicu penurunan performa bangunan yang membahayakan ribuan nyawa.',
+      foto: this.props.foto || (jenis === 'figur' ? '/_blob/9e7ee91bf589923471c61c666b6ba690' : '/_blob/f1a8ad417f4da1119cfc399a91492b76'),
+      alt: this.props.alt || (jenis === 'figur' ? 'Struktur rangka baja bangunan sekolah menggunakan profil H-Beam dan WF primer anti karat.' : 'Diagram teknik denah layout grid struktur baja bangunan ruang kelas sekolah rakyat ukuran 7x9 meter.'),
+      butirTampil: butir.map((x, i) => ({
+        x,
+        gaya: g.butir + '; margin-top: ' + (i === 0 ? '0' : '0.3rem') + '; margin-bottom: ' + (i === akhir ? '0' : '0.3rem')
+      })),
+      barisTampil: baris.map((r) => ({ sel: r.map((x) => ({ x })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

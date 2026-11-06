@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogCardGrid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+  <sc-for list="{{ kartu }}" as="k" hint-placeholder-count="2">
+    <div style="{{ k.jarak }}"><dc-import name="BlogCard" dc-props="{{ k.props }}" hint-size="100%,33.7rem"></dc-import></div>
+  </sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"desktop"},"butir":{"editor":null},"$preview":{"width":1200,"height":337}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata === 'ponsel' ? 'ponsel' : 'desktop';
+    return {
+      kartu: (this.props.butir ?? [{}, {}]).map((k, i) => ({
+        jarak: i % 2 === 0 ? 'margin-right: calc(var(--rapat) / 2)' : 'margin-left: calc(var(--rapat) / 2)',
+        props: { tata, ...k }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

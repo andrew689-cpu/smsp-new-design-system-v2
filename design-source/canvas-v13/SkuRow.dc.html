@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SkuRow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="background: {{ dasar }}">
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+    <a href="{{ href }}" style="width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; column-gap: 0; padding: 1.2rem">
+      <span data-nama="1" style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; margin-right: 1.4rem">
+        <span style="text-align: justify; text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; display: block; font-size: var(--teks-body); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--produk-nama)">{{ nama }}</span>
+      </span>
+      <span style="display: flex; align-items: center; column-gap: 0; flex-shrink: 0; margin-left: 1.4rem">
+        <span style="display: flex; margin-right: 0.5rem">
+          <dc-import name="Price" angka="{{ angka }}" unit="{{ unit }}" ukuran="baris-m" hint-size="9rem,4rem"></dc-import>
+        </span>
+        <span style="display: flex; margin-left: 0.5rem; margin-right: 0.5rem">
+          <dc-import name="Icon" ikon="chevron" ukuran="{{ 16 }}" hint-size="16px,16px"></dc-import>
+        </span>
+      </span>
+    </a>
+  </sc-if>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+    <a href="{{ href }}" style="display: grid; grid-template-columns: minmax(0, 1fr) 20% auto; column-gap: 0; align-items: center; padding: 1.4rem 1.6rem; min-height: 5.6rem; box-sizing: border-box">
+      <span style="font-size: var(--teks-lead); font-weight: var(--bobot-medium); line-height: var(--tinggi-sedang); color: var(--ink); margin-right: 1rem">{{ nama }}</span>
+      <span style="display: flex; justify-content: flex-end; margin-left: 1rem; margin-right: 1rem">
+        <dc-import name="Price" angka="{{ angka }}" unit="{{ unit }}" ukuran="baris-d" hint-size="11rem,4.4rem"></dc-import>
+      </span>
+      <span style="display: flex; margin-left: 1rem; margin-right: 1rem">
+        <dc-import name="Icon" ikon="chevron" ukuran="{{ 18 }}" hint-size="18px,18px"></dc-import>
+      </span>
+    </a>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"zebra":{"editor":"boolean","default":false},"nama":{"editor":null,"default":"Hollow Hitam 40x40 tebal 1,6 mm"},"angka":{"editor":null,"default":"66.000"},"unit":{"editor":null,"default":"per batang"},"href":{"editor":null},"$preview":{"width":360,"height":76}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    return {
+      isMobile: tata === 'ponsel',
+      isDesktop: tata === 'desktop',
+      dasar: this.props.zebra ? 'var(--line)' : 'var(--surface)',
+      nama: this.props.nama ?? 'Hollow Hitam 40x40 tebal 1,6 mm',
+      angka: this.props.angka ?? '66.000',
+      unit: this.props.unit ?? 'per batang',
+      href: this.props.href ?? '#'
+    };
+  }
+}
+</script>
+</body>
+</html>

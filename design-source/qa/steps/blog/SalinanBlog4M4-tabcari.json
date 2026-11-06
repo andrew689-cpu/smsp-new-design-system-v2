@@ -1,0 +1,1 @@
+[{"click": "button:has-text(\"Edukasi\")"}, {"wait": 500}, {"click": "[aria-label=\"Cari artikel\"]"}, {"wait": 500}, {"fill": ["input[placeholder=\"Cari judul artikel\"]", "besi"]}, {"wait": 700}]

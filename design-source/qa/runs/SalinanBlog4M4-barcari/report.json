@@ -1,0 +1,78 @@
+{
+ "board": "SalinanBlog4M4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": true,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": true,
+  "pixels": true
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 2466,
+   "new": 2466,
+   "delta": 0
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 0.096,
+   "orig_size": [
+    360,
+    2466
+   ],
+   "new_size": [
+    360,
+    2466
+   ],
+   "first_y_over_0.5pct": 200,
+   "worst_bands_y_pct": [
+    [
+     200,
+     0.78
+    ],
+    [
+     1200,
+     0.14
+    ],
+    [
+     800,
+     0.11
+    ],
+    [
+     1000,
+     0.11
+    ],
+    [
+     600,
+     0.04
+    ]
+   ]
+  }
+ }
+}

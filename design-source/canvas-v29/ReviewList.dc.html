@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ReviewList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <section aria-label="{{ judul }}">
+    <ol style="margin: 0; padding: 0; list-style: none">
+      <sc-for list="{{ daftar }}" as="u" hint-placeholder-count="8">
+        <dc-import name="ReviewCard" dc-props="{{ u }}" hint-size="100%,14rem"></dc-import>
+      </sc-for>
+    </ol>
+    <sc-if value="{{ adaLagi }}" hint-placeholder-val="{{ true }}">
+      <span style="display: flex; margin-top: 1.4rem"><dc-import name="Button" variant="muat-lebar" label="{{ muatLabel }}" onPress="{{ muatLagi }}" hint-size="100%,4.8rem"></dc-import></span>
+    </sc-if>
+  </section>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0; margin-bottom: 0.8rem">
+      <span style="display: block; margin-right: 0.8rem"><dc-import name="Heading" level="{{ 2 }}" varian="ulasan-besar" tata="desktop" teks="{{ judulBesar }}" hint-size="24rem,3.2rem"></dc-import></span>
+      <span style="display: flex; margin-left: 0.8rem; margin-right: 0.8rem"><dc-import name="StarFilter" nilai="{{ saring }}" onPilih="{{ pilihSaring }}" hint-size="36rem,3.6rem"></dc-import></span>
+    </div>
+    <p style="margin: 0 0 2.4rem 0; font-size: var(--teks-meta); color: var(--ink-2)">Menampilkan {{ tampilan }} dari {{ cocok }} ulasan.</p>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0">
+      <sc-for list="{{ daftar }}" as="u" hint-placeholder-count="9">
+        <div style="{{ u.wadah }}"><dc-import name="ReviewCard" dc-props="{{ u.kartu }}" hint-size="100%,17rem"></dc-import></div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ adaHalaman }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="Pagination" jenis="garis" hal="{{ hal }}" total="{{ cocok }}" per="{{ per }}" onHal="{{ pilihHal }}" hint-size="100%,6.8rem"></dc-import>
+    </sc-if>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"per":{"editor":"int","min":0,"max":50,"default":0,"section":"Resep"},"judul":{"editor":"text","default":"Semua ulasan","section":"Isi"},"judulBesar":{"editor":"text","default":"Semua Ulasan","section":"Isi"},"ulasan":{"editor":null,"section":"Data","tsType":"Array<{judul:string,teks:string,nama:string,kota?:string,tanggal:string,rating:number}>"},"$preview":{"width":360,"height":900}}'>
+class Component extends DCLogic {
+  state = { tampil: null, saring: 0, hal: 0 };
+  // Lima puluh ulasan contoh untuk ponsel, dirakit dari potongan kalimat.
+  _contohPonsel() {
+    const nama = ['Pak Andi', 'Bu Fitri', 'Pak Ignasius', 'Bu Ratna', 'Pak Hendra', 'Bu Lilis', 'Pak Joko', 'Bu Maria', 'Pak Rudi', 'Bu Sari'];
+    const kota = ['Surabaya', 'Sidoarjo', 'Gresik', 'Malang', 'Mojokerto'];
+    const judul = ['Ukuran dan tebal pas', 'Penawaran cepat', 'Kirim tepat waktu', 'Harga bersaing', 'Potongan rapi', 'Kualitas stabil', 'Admin responsif', 'Stok selalu ada'];
+    const kalimat = [
+      'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.',
+      'Salesnya ramah, penawaran dikirim cepat lengkap dengan berat per batang.',
+      'Kirim tepat waktu ke lokasi proyek, sopirnya kooperatif waktu bongkar.',
+      'Harga bersaing dan beratnya sesuai dengan yang tertulis di penawaran.',
+      'Potongan rapi, tidak perlu banyak gerinda waktu pemasangan.',
+      'Sudah langganan dua tahun, kualitasnya stabil dari kiriman ke kiriman.',
+      'Admin responsif, sertifikat pabrik dikirim tanpa diminta dua kali.',
+      'Stok selalu ada, pesan pagi sore sudah jalan ke lokasi.'
+    ];
+    const bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt'];
+    return Array.from({ length: 50 }, (_, i) => ({
+      judul: judul[(i * 3) % judul.length],
+      teks: kalimat[(i * 3) % kalimat.length],
+      nama: nama[i % nama.length] + ' \u2014 ' + kota[(i * 3) % kota.length],
+      tanggal: (((i * 7) % 28) + 1) + ' ' + bulan[(i * 5) % bulan.length] + ' 2026',
+      rating: i % 11 === 0 ? 4 : 5
+    }));
+  }
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const semua = this.props.ulasan ?? (desktop ? [
+      {"judul": "Presisi dan cepat", "teks": "Barangnya sesuai ukuran, pengiriman ke Sidoarjo cuma sehari. Sales-nya responsif.", "nama": "Pak Hendra", "kota": "Sidoarjo", "tanggal": "Maret 2026", "rating": 5},
+      {"judul": "Toleransi tebal konsisten", "teks": "Las-lasan rapat tanpa penyesuaian di lapangan. Untuk rangka kanopi ini penting sekali.", "nama": "Bu Ratna", "kota": "Surabaya", "tanggal": "Februari 2026", "rating": 5},
+      {"judul": "Penawaran cepat keluar", "teks": "Tonase dan ongkos kirim dihitung sekalian, jadi tidak perlu bolak-balik tanya.", "nama": "Pak Yusuf", "kota": "Gresik", "tanggal": "Januari 2026", "rating": 4},
+      {"judul": "Stok jelas sejak awal", "teks": "Ditanya ketersediaan langsung dicek gudang, tidak digantung berhari-hari.", "nama": "Pak Dimas", "kota": "Malang", "tanggal": "Januari 2026", "rating": 5},
+      {"judul": "Muat rapi", "teks": "Batang diikat per kelompok ukuran, bongkar di proyek jadi gampang dihitung.", "nama": "Bu Sari", "kota": "Mojokerto", "tanggal": "Desember 2025", "rating": 5},
+      {"judul": "Harga transparan", "teks": "Harga per kg dan per batang dua-duanya disebut, tidak ada biaya yang muncul belakangan.", "nama": "Pak Anwar", "kota": "Pasuruan", "tanggal": "Desember 2025", "rating": 4},
+      {"judul": "Pengiriman tepat janji", "teks": "Dijanjikan Rabu, datang Rabu pagi. Untuk jadwal cor ini menentukan.", "nama": "Pak Bagus", "kota": "Lamongan", "tanggal": "November 2025", "rating": 5},
+      {"judul": "Dibantu pilih ukuran", "teks": "Saya salah hitung tebal, tim sales mengoreksi sebelum pesanan diproses.", "nama": "Bu Wulan", "kota": "Kediri", "tanggal": "November 2025", "rating": 5},
+      {"judul": "Permukaan bersih", "teks": "Tidak banyak karat permukaan walau stok lama, jadi pengecatan lebih hemat.", "nama": "Pak Rizal", "kota": "Jombang", "tanggal": "Oktober 2025", "rating": 4},
+      {"judul": "Komunikasi enak", "teks": "Balasan WhatsApp cepat dan tidak template. Pertanyaan teknis dijawab teknis.", "nama": "Pak Toni", "kota": "Sidoarjo", "tanggal": "Oktober 2025", "rating": 5},
+      {"judul": "Sertifikat dikirim", "teks": "Minta mill certificate untuk keperluan audit proyek, dikirim tanpa dipersulit.", "nama": "Bu Ayu", "kota": "Surabaya", "tanggal": "September 2025", "rating": 5},
+      {"judul": "Potong sesuai permintaan", "teks": "Minta potong 3 meter untuk muat di pickup, dikerjakan dengan biaya wajar.", "nama": "Pak Eko", "kota": "Madiun", "tanggal": "September 2025", "rating": 4},
+      {"judul": "Barang sesuai foto", "teks": "Yang datang sama dengan yang ditawarkan, tidak ada substitusi diam-diam.", "nama": "Pak Haris", "kota": "Tuban", "tanggal": "Agustus 2025", "rating": 5},
+      {"judul": "Tim gudang membantu", "teks": "Saat ambil sendiri, dibantu muat dan dihitung ulang di depan saya.", "nama": "Pak Slamet", "kota": "Surabaya", "tanggal": "Agustus 2025", "rating": 5},
+      {"judul": "Pesanan besar lancar", "teks": "Dua truk untuk proyek gudang, dijadwalkan bertahap supaya lahan tidak penuh.", "nama": "Bu Nadia", "kota": "Bangkalan", "tanggal": "Juli 2025", "rating": 5},
+      {"judul": "Ukuran lengkap", "teks": "Ukuran yang jarang ada di tempat lain justru ready di sini.", "nama": "Pak Imam", "kota": "Probolinggo", "tanggal": "Juli 2025", "rating": 4},
+      {"judul": "Faktur rapi", "teks": "Dokumen lengkap untuk klaim pajak, tidak perlu minta revisi.", "nama": "Bu Fitri", "kota": "Surabaya", "tanggal": "Juni 2025", "rating": 5},
+      {"judul": "Jadi langganan", "teks": "Sudah pesanan keempat, kualitasnya tetap sama. Itu yang bikin balik lagi.", "nama": "Pak Gunawan", "kota": "Sidoarjo", "tanggal": "Juni 2025", "rating": 5}
+    ] : this._contohPonsel());
+    const per = this.props.per || (desktop ? 9 : 8);
+    const kartu = (u, tata) => ({ jenis: 'daftar', tata, judul: u.judul, teks: u.teks, nama: u.nama, kota: u.kota || '', tanggal: u.tanggal, rating: u.rating });
+    if (!desktop) {
+      const n = semua.length;
+      const tampil = Math.min(this.state.tampil ?? per, n);
+      return {
+        isPonsel: true,
+        isDesktop: false,
+        judul: this.props.judul ?? 'Semua ulasan',
+        daftar: semua.slice(0, tampil).map((u) => kartu(u, 'ponsel')),
+        adaLagi: tampil < n,
+        muatLabel: 'Muat ' + Math.min(per, n - tampil) + ' ulasan lagi',
+        muatLagi: () => this.setState({ tampil: Math.min(tampil + per, n) })
+      };
+    }
+    const saring = this.state.saring;
+    const minim = [0, 5, 4, 3][saring];
+    const cocok = semua.filter((u) => !minim || u.rating === minim);
+    const maxHal = Math.max(1, Math.ceil(cocok.length / per));
+    const hal = Math.min(Math.max(0, this.state.hal), maxHal - 1);
+    const mulai = hal * per;
+    return {
+      isPonsel: false,
+      isDesktop: true,
+      judulBesar: this.props.judulBesar ?? 'Semua Ulasan',
+      saring,
+      pilihSaring: (i) => this.setState({ saring: i, hal: 0 }),
+      tampilan: cocok.length === 0 ? '0' : (mulai + 1) + '–' + Math.min(mulai + per, cocok.length),
+      cocok: cocok.length,
+      per,
+      hal,
+      pilihHal: (h) => this.setState({ hal: h }),
+      adaHalaman: cocok.length > 0,
+      daftar: cocok.slice(mulai, mulai + per).map((u, i) => ({
+        wadah: 'margin-left: ' + (i === 0 ? '0' : '2.4rem') + '; margin-right: 2.4rem',
+        kartu: kartu(u, 'desktop')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+ "board": "DesktopProdukM4",
+ "viewport": [
+  1440,
+  900
+ ],
+ "passed": true,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": true,
+  "pixels": true
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 6405,
+   "new": 6405,
+   "delta": 0
+  },
+  "width": {
+   "orig": 1440,
+   "new": 1440
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 0.0,
+   "orig_size": [
+    1440,
+    6405
+   ],
+   "new_size": [
+    1440,
+    6405
+   ],
+   "first_y_over_0.5pct": null,
+   "worst_bands_y_pct": []
+  }
+ }
+}

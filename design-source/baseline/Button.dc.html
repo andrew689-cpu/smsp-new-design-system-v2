@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ true }}">
+  <a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ ikonAwal }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    {{ label }}
+    <sc-if value="{{ ikonAkhir }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ false }}">
+  <button type="button" disabled="{{ disabled }}" aria-label="{{ ariaLabel }}" aria-expanded="{{ ariaExpanded }}" aria-pressed="{{ ariaPressed }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ ikonAwal }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+    {{ label }}
+    <sc-if value="{{ ikonAkhir }}" hint-placeholder-val="{{ false }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="1.6rem,1.6rem"></dc-import></span></sc-if>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["kecil","spanduk","blok","form","form-pil","garis","garis-lebar","pil","kaca","kaca-m","pil-garis","muat","muat-lebar","apung","teks","teks-tebal","teks-besar","tautan","tautan-besar","indeks","indeks-besar","kembali","kembali-tipis","merah","hapus","terap","terap-kecil","form-aksi","blok-form","salin","nav-teks","nav-kategori","nav-produk","nav-telepon","situs","batal","hapus-garis","terap-gelap","lebar-isi","lebar-garis","lebar-gelap","lebar-putih","pil-garis-putih","pil-isi","pil-putih-garis","pil-kalk","pil-pelajari","teks-panah","kembali-materi","kembali-tebal","teks-merah-kecil"],"default":"kecil","section":"Resep"},"tone":{"editor":"enum","options":["brand","whatsapp"],"default":"brand","section":"Resep"},"disabled":{"editor":"boolean","default":false,"section":"Keadaan"},"label":{"editor":null,"default":"Konsultasi Sekarang"},"href":{"editor":null},"onPress":{"editor":null},"ikon":{"editor":"text","default":"","section":"Ikon"},"ikonPosisi":{"editor":"enum","options":["awal","akhir"],"default":"awal","section":"Ikon"},"ikonUkuran":{"editor":"text","default":"","section":"Ikon"},"ikonGaris":{"editor":"text","default":"","section":"Ikon"},"ikonWarna":{"editor":"text","default":"","section":"Ikon"},"ikonPutar":{"editor":"boolean","default":false,"section":"Ikon"},"tinggi":{"editor":"text","default":"","section":"Ukuran"},"ukuranTeks":{"editor":"text","default":"","section":"Ukuran"},"target":{"editor":null},"rel":{"editor":null},"ariaLabel":{"editor":null},"ariaExpanded":{"editor":null},"ariaPressed":{"editor":null},"disabledRupa":{"editor":"enum","options":["mati","aktif"],"default":"mati","section":"Keadaan"},"ikonKotak":{"editor":"text","default":"","section":"Ikon"},"sudut":{"editor":"text","default":"","section":"Tata letak"},"gayaTambah":{"editor":"text","default":"","section":"Tata letak"},"$preview":{"width":240,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const variant = this.props.variant ?? 'kecil';
+    const tone = this.props.tone ?? 'brand';
+    const disabled = !!this.props.disabled;
+    const mati = disabled && (this.props.disabledRupa ?? 'mati') !== 'aktif';
+    const pil = (v, f) => (v === undefined || v === null || v === '' ? f : v);
+    const href = this.props.href ?? (this.props.onPress ? '' : '#whatsapp');
+    const isi = mati ? 'var(--chat-mati)' : tone === 'whatsapp' ? 'var(--wa-tombol)' : 'var(--brand)';
+    const isiAbu = mati ? 'var(--line)' : tone === 'whatsapp' ? 'var(--wa-tombol)' : 'var(--brand)';
+    const tintaAbu = mati ? 'var(--ink-4)' : 'var(--surface)';
+    const dasar = 'box-sizing: border-box; align-items: center; justify-content: center; text-align: center; text-decoration: none; ';
+    const tanpaIsi = 'display: inline-flex; background: none; border: 0; padding: 0; ';
+    const resep = {
+      kecil: 'display: inline-flex; align-self: flex-start; min-height: 3rem; padding: 0.4rem 1.2rem; border-radius: var(--action); background: ' + isi + '; color: var(--surface); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang)',
+      spanduk: 'display: inline-flex; flex-shrink: 0; min-height: 3rem; padding: 1.2rem 2rem; border-radius: var(--action); background: ' + isi + '; color: var(--surface); font-size: var(--teks-cta); font-weight: var(--bobot-bold); line-height: var(--tinggi-rapat)',
+      blok: 'display: flex; width: 100%; min-height: 4.8rem; column-gap: 0.4rem; border-radius: var(--control); background: ' + isi + '; color: var(--surface); font-size: var(--teks-body); font-weight: var(--bobot-bold)',
+      form: 'display: inline-flex; width: 100%; min-height: 4.4rem; padding: 0 1.4rem; gap: 0.8rem; border-radius: var(--control); background: ' + isi + '; box-shadow: var(--el-2); color: var(--surface); font-size: var(--teks-body); font-weight: var(--bobot-semibold); line-height: var(--tinggi-rapat)',
+      'form-pil': 'display: inline-flex; width: 100%; min-height: 4.4rem; padding: 0 0.8rem; column-gap: 0.6rem; border: 0; border-radius: var(--pill); background: var(--surface); box-shadow: var(--bayang-kontak); color: ' + (tone === 'whatsapp' ? 'var(--wa-tombol)' : 'var(--brand)') + '; font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-medium)',
+      'garis-lebar': 'display: flex; width: 100%; min-height: 3.7rem; padding: 0 1.4rem; column-gap: 0.8rem; border: 0.1rem solid var(--ink-4); border-radius: var(--action); background: var(--surface); color: var(--ink); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-medium)',
+      garis: 'display: flex; flex: 1 1 0; min-width: 0; min-height: 4rem; column-gap: 0.4rem; border-radius: var(--control); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line); color: var(--ink); font-size: var(--teks-meta); font-weight: var(--bobot-bold)',
+      pil: 'display: inline-flex; flex-shrink: 0; height: 5rem; padding: 0 2.6rem; border-radius: var(--pill); background: ' + isi + '; color: var(--surface); font-size: var(--teks-body); font-weight: var(--bobot-bold)',
+      kaca: 'display: inline-flex; min-height: 3.2rem; padding: 0 1.3rem; border-radius: var(--pill); background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12); color: var(--ink); font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang)',
+      'kaca-m': 'display: inline-flex; min-height: 2.8rem; padding: 0 1.1rem; border: 0; border-radius: var(--pill); background: var(--cair-bening); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), 0 0.1rem 0.3rem rgba(17,25,33,0.12), 0 0.1rem 0.1rem rgba(17,25,33,0.07); color: var(--ink); font-size: var(--teks-meta); font-variant-numeric: tabular-nums; font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang)',
+      'pil-garis': 'display: inline-flex; height: 4.4rem; padding: 0 2.2rem; border: 0.1rem solid var(--line); border-radius: var(--pill); background: var(--surface); font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      muat: 'display: inline-flex; min-height: 3.6rem; padding: 0.8rem 1.8rem; border: 0.1rem solid var(--line-kuat); border-radius: var(--pill); background: var(--surface); color: var(--ink); font-size: var(--teks-meta); font-weight: var(--bobot-medium); line-height: var(--tinggi-tengah)',
+      'muat-lebar': 'display: flex; width: 100%; min-height: 4.8rem; border-radius: var(--pill); background: var(--surface); box-shadow: 0 0 0 0.1rem var(--cincin-garis); color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-bold)',
+      apung: 'display: inline-flex; min-height: 4.8rem; padding: 0 1.8rem; column-gap: 0.5rem; border: 0.1rem solid var(--line); border-radius: var(--pill); background: var(--surface); box-shadow: var(--bayang-apung); color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-bold); white-space: nowrap',
+      teks: tanpaIsi + 'min-height: 4.4rem; column-gap: 0.3rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-medium)',
+      'teks-tebal': tanpaIsi + 'min-height: 4.4rem; column-gap: 0.3rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      'teks-besar': tanpaIsi + 'min-height: 4.4rem; column-gap: 0.35rem; color: var(--ink); font-size: var(--teks-lead); font-weight: var(--bobot-semibold)',
+      tautan: 'display: inline-flex; flex-shrink: 0; min-height: 4rem; gap: 0.6rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-medium); text-decoration: underline',
+      'tautan-besar': 'display: inline-flex; flex-shrink: 0; gap: 0.6rem; color: var(--ink); font-size: var(--teks-lead); font-weight: var(--bobot-medium); text-decoration: underline',
+      indeks: 'display: inline-flex; flex-shrink: 0; min-height: 4rem; column-gap: 0.3rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-medium); text-decoration: underline; text-underline-offset: 0.3rem',
+      'indeks-besar': 'display: inline-flex; flex-shrink: 0; min-height: 4rem; column-gap: 0.3rem; color: var(--ink); font-size: var(--teks-lead); font-weight: var(--bobot-medium); text-decoration: underline; text-underline-offset: 0.3rem',
+      'kembali-tipis': 'display: inline-flex; min-height: 4.4rem; column-gap: 0.3rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-medium)',
+      kembali: 'display: inline-flex; min-height: 4.4rem; padding: 0 0.6rem; column-gap: 0.45rem; color: var(--brand); font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      merah: 'display: inline-flex; min-height: 4.4rem; column-gap: 0.3rem; color: var(--brand); font-size: var(--teks-body); font-weight: var(--bobot-bold)',
+      hapus: 'display: inline-flex; min-height: 3.2rem; color: var(--brand); font-size: var(--teks-meta); font-weight: var(--bobot-semibold)',
+      terap: 'display: inline-flex; flex-shrink: 0; height: 4.4rem; padding: 0 1.8rem; border-radius: var(--pill); background: ' + isiAbu + '; color: ' + tintaAbu + '; font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      'terap-kecil': 'display: grid; place-items: center; width: 100%; min-height: 3.2rem; padding: 0 1.8rem; border: 0; border-radius: var(--action); background: ' + isiAbu + '; color: ' + tintaAbu + '; font-size: var(--teks-meta); font-weight: var(--bobot-bold)',
+      'form-aksi': 'display: flex; width: 100%; min-height: 4.4rem; padding: 0.4rem 1.2rem; column-gap: 0.4rem; border: 0; border-radius: var(--action); background: ' + isiAbu + '; color: ' + tintaAbu + '; font-size: var(--teks-meta); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang)',
+      'blok-form': 'display: flex; width: 100%; min-height: 4.8rem; gap: 0.9rem; border: 0; border-radius: var(--control); background: ' + isiAbu + '; color: ' + tintaAbu + '; font-size: var(--teks-body); font-weight: var(--bobot-bold)',
+      salin: 'display: inline-flex; align-self: flex-start; height: 4rem; padding: 0 0.4rem; column-gap: 0.4rem; font-size: var(--teks-meta); font-weight: var(--bobot-semibold)',
+      'nav-teks': 'display: inline-flex; flex-shrink: 0; min-height: 4.4rem; color: var(--ink-2); font-size: var(--teks-meta); font-weight: var(--bobot-medium); white-space: nowrap',
+      'nav-kategori': 'display: inline-flex; flex-shrink: 0; min-height: 4.4rem; padding: 0; column-gap: 0.5rem; color: var(--ink); font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      'nav-produk': 'display: inline-flex; flex-shrink: 0; min-height: 4.4rem; column-gap: 0.4rem; color: var(--ink); font-size: var(--teks-meta); font-weight: var(--bobot-bold); white-space: nowrap',
+      situs: 'display: flex; width: fit-content; height: fit-content; column-gap: 0.5rem; white-space: nowrap; padding: 1.2rem 1.8rem; border-radius: 0.8rem; background: var(--situs-merah); color: var(--situs-kertas); font-size: var(--teks-chip); line-height: var(--tinggi-baca); font-weight: var(--bobot-bold)',
+      'lebar-isi': 'display: flex; font-family: inherit; column-gap: 1rem; min-height: 4.8rem; padding: 0 1.6rem; border: 0; border-radius: var(--control); background: var(--brand); color: var(--surface); font-size: var(--teks-seksi); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'lebar-garis': 'display: flex; font-family: inherit; column-gap: 1rem; min-height: 4.8rem; padding: 0 1.6rem; border: 0; border-radius: var(--control); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--ink); color: var(--ink); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'lebar-gelap': 'display: flex; font-family: inherit; column-gap: 1rem; min-height: 4.8rem; padding: 0 1.6rem; border: 0; border-radius: var(--control); background: var(--ink); color: var(--surface); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'pil-garis-putih': 'display: flex; flex: 1 1 auto; font-family: inherit; height: 4.4rem; padding: 0 1.6rem; border: 0.15rem solid var(--surface); border-radius: var(--pill); background: transparent; color: var(--surface); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-regular); white-space: nowrap',
+      'pil-isi': 'display: flex; flex: 0 0 auto; font-family: inherit; height: 4.4rem; padding: 0 1.6rem; border: 0; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-regular); white-space: nowrap',
+      'pil-putih-garis': 'display: flex; font-family: inherit; column-gap: 1rem; min-height: 5.6rem; padding: 0 2rem; border: 0; border-radius: var(--pill); background: var(--surface); box-shadow: var(--materi-baris-bayang); color: var(--ink); font-size: var(--teks-seksi); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'pil-kalk': 'display: flex; width: fit-content; height: 4.4rem; padding: 0 1.8rem; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-meta); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); white-space: nowrap',
+      'pil-pelajari': 'display: inline-flex; font-family: inherit; align-self: stretch; column-gap: 0.5rem; min-height: 3.5rem; padding: 0 0.4rem; border: 0; border-radius: var(--pill); background: var(--brand); color: var(--surface); font-size: var(--teks-meta); line-height: var(--tinggi-rapat); font-weight: var(--bobot-regular); white-space: nowrap',
+      'teks-panah': 'display: inline-flex; font-family: inherit; align-self: center; column-gap: 0.6rem; min-height: 4.4rem; padding: 0 1.6rem; border: 0; background: transparent; color: var(--brand); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-semibold)',
+      'kembali-materi': 'display: inline-flex; font-family: inherit; column-gap: 0.4rem; min-height: 4.4rem; padding: 0 0.4rem; border: 0; background: transparent; color: var(--ink); font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'lebar-putih': 'display: flex; font-family: inherit; column-gap: 1rem; min-height: 5.6rem; padding: 0 2rem; border: 0; border-radius: var(--pill); background: var(--surface); color: var(--ink); font-size: var(--teks-seksi); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'kembali-tebal': 'display: inline-flex; font-family: inherit; column-gap: 0.4rem; min-height: 4.4rem; padding: 0 0.4rem; border: 0; background: transparent; color: var(--ink); text-align: left; font-size: var(--teks-body); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      'teks-merah-kecil': 'display: inline-flex; font-family: inherit; flex-shrink: 0; min-height: 4.4rem; margin-top: -1rem; margin-bottom: -1rem; padding: 0; border: 0; background: transparent; color: var(--brand); font-size: var(--teks-meta); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold)',
+      batal: 'display: inline-flex; flex-shrink: 0; height: 4.4rem; padding: 0 1.2rem; color: var(--ink-2); font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      'hapus-garis': 'display: inline-flex; height: 3.2rem; padding: 0 0.4rem; color: var(--ink-2); font-size: var(--teks-meta); font-weight: var(--bobot-semibold); text-decoration: underline',
+      'terap-gelap': 'display: inline-flex; flex-shrink: 0; height: 4rem; padding: 0 1.6rem; border-radius: var(--pill); background: ' + (mati ? 'var(--line)' : 'var(--ink)') + '; color: ' + (mati ? 'var(--ink-4)' : 'var(--surface)') + '; font-size: var(--teks-body); font-weight: var(--bobot-semibold)',
+      'nav-telepon': 'display: inline-flex; min-height: 4.4rem; column-gap: 0.35rem; color: var(--brand); font-size: var(--teks-body); font-weight: var(--bobot-bold); white-space: nowrap'
+    };
+    const margin = { blok: '0 0.4rem', teks: '0 0.3rem', 'teks-tebal': '0 0.3rem', 'teks-besar': '0 0.35rem', indeks: '0 0.3rem', 'indeks-besar': '0 0.3rem', merah: '0 0.3rem', garis: '0 0.4rem 0 0', apung: '0 0.5rem 0 0', kembali: '0 0.45rem 0 0', 'kembali-tipis': '0 0.3rem 0 0', 'form-aksi': '0 0.4rem 0 0', salin: '0 0.4rem 0 0', 'nav-kategori': '0 0.5rem 0 0', 'nav-produk': '0 0.4rem 0 0', 'nav-telepon': '0 0.35rem 0 0' };
+    const ikonBawaan = { blok: 17, form: 15, 'form-pil': 20, 'garis-lebar': 20, garis: 15, apung: 18, kembali: 18, 'kembali-tipis': 18, 'form-aksi': 17, 'blok-form': 17, indeks: 17, 'indeks-besar': 17, merah: 16, 'nav-kategori': 20, 'nav-produk': 14, 'nav-telepon': 18, salin: 16 };
+    const ikon = this.props.ikon || undefined;
+    const akhir = (this.props.ikonPosisi ?? 'awal') === 'akhir';
+    const ikonProps = { ikon, ukuran: pil(this.props.ikonUkuran, ikonBawaan[variant] ?? 16), warna: pil(this.props.ikonWarna, 'currentColor') };
+    if (pil(this.props.ikonGaris) !== undefined) ikonProps.garis = this.props.ikonGaris;
+    const kotak = this.props.ikonKotak;
+    return {
+      label: this.props.label ?? 'Konsultasi Sekarang',
+      href,
+      disabled,
+      onPress: this.props.onPress,
+      target: this.props.target,
+      rel: this.props.rel,
+      ariaLabel: this.props.ariaLabel,
+      ariaExpanded: this.props.ariaExpanded,
+      ariaPressed: this.props.ariaPressed,
+      isLink: !!href && !disabled,
+      isButton: !href || disabled,
+      ikonAwal: !!ikon && !akhir,
+      ikonAkhir: !!ikon && akhir,
+      ikonProps,
+      ikonGaya: (kotak ? 'display: grid; place-items: center; width: ' + kotak + '; height: ' + kotak : 'display: flex') + '; flex-shrink: 0; margin: ' + (margin[variant] || '0') + (this.props.ikonPutar ? '; transform: rotate(180deg)' : ''),
+      gaya: dasar + (resep[variant] || resep.kecil) + (this.props.tinggi ? '; min-height: ' + this.props.tinggi : '') + (this.props.ukuranTeks ? '; font-size: ' + this.props.ukuranTeks : '') + (this.props.sudut ? '; border-radius: ' + this.props.sudut : '') + (this.props.gayaTambah ? '; ' + this.props.gayaTambah : '') + (disabled ? (mati ? '; cursor: default' : '; cursor: pointer') : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

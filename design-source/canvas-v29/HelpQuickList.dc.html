@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpQuickList</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<ul aria-label="{{ label }}" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem">
+  <sc-for list="{{ item }}" as="i" hint-placeholder-count="1">
+    <li><dc-import name="Button" dc-props="{{ i }}" hint-size="16rem,4.8rem"></dc-import></li>
+  </sc-for>
+</ul>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":"text","default":"Pusat bantuan","section":"Aksesibilitas"},"item":{"editor":null,"default":[{"label":"Hubungi Sales","href":"#whatsapp"}]},"$preview":{"width":200,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const item = this.props.item ?? [{ label: 'Hubungi Sales', href: '#whatsapp' }];
+    return {
+      label: this.props.label ?? 'Pusat bantuan',
+      item: item.map((i) => ({ variant: 'apung', ikon: 'chat-polos', ikonGaris: 1.9, ...i }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpCentre</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ terbuka }}" hint-placeholder-val="{{ true }}">
+  <div data-bantu="{{ dataBantu }}" role="dialog" aria-label="{{ labelDialog }}" style="{{ gaya }}">
+    <sc-if value="{{ bilah }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpTitleBar" online="{{ online }}" onTutup="{{ tutup }}" hint-size="100%,7.2rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isMenu }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpMenu" dc-props="{{ menu }}" hint-size="100%,40rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isForm }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="HelpContactForm" dc-props="{{ form }}" hint-size="100%,72rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isWa }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="WhatsAppPanel" dc-props="{{ wa }}" hint-size="100%,26rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="LiveChatPanel" dc-props="{{ chat }}" hint-size="100%,60rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isKalk }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpRowsPanel" dc-props="{{ kalk }}" hint-size="100%,26rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isGudang }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpRowsPanel" dc-props="{{ gudang }}" hint-size="100%,44rem"></dc-import>
+    </sc-if>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","blog","sku"],"default":"baku","section":"Resep"},"kontakRupa":{"editor":"enum","options":["baku","putih"],"default":"baku","section":"Resep"},"tertanam":{"editor":"boolean","default":false,"section":"Resep"},"buka":{"editor":"boolean","default":true,"section":"Keadaan"},"tab":{"editor":"enum","options":["otomatis","menu","form","wa","chat","kalk","gudang"],"default":"otomatis","section":"Keadaan"},"bilah":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Keadaan"},"online":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Keadaan"},"csat":{"editor":"boolean","default":false,"section":"Keadaan"},"jadwal":{"editor":"boolean","default":false,"section":"Keadaan"},"terisi":{"editor":"boolean","default":false,"section":"Keadaan"},"bannerJenis":{"editor":"enum","options":["gambar","sapaan"],"default":"sapaan","section":"Formulir"},"ajakanIkon":{"editor":"enum","options":["otomatis","ikon","emoji","tidak"],"default":"otomatis","section":"Formulir"},"nama":{"editor":"text","default":"","section":"Isian"},"wa":{"editor":"text","default":"","section":"Isian"},"email":{"editor":"text","default":"","section":"Isian"},"pesan":{"editor":"text","default":"","section":"Isian"},"nilaiCsat":{"editor":"int","default":0,"min":0,"max":5,"section":"Isian"},"log":{"editor":null},"pesanSosial":{"editor":null},"barisGudang":{"editor":null},"labelDialog":{"editor":"text","default":"Pusat bantuan SMS Perkasa","section":"Aksesibilitas"},"waHref":{"editor":"text","default":"https://wa.me/628112689889","section":"Tautan"},"telHref":{"editor":"text","default":"tel:+628112689889","section":"Tautan"},"kalkHref":{"editor":"text","default":"","section":"Tautan"},"gudangHref":{"editor":"text","default":"","section":"Tautan"},"onTutup":{"editor":null},"telTeks":{"editor":"text","default":"+62 811-2689-889","section":"Tautan"},"$preview":{"width":360,"height":760}}'>
+class Component extends DCLogic {
+  state = {};
+  componentDidUpdate(pp) {
+    if (pp.buka !== false && this.props.buka === false) this.setState({ tab: undefined, sosial: '' });
+  }
+  renderVals() {
+    const p = this.props;
+    const s = this.state;
+    const tata = p.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const tertanam = !!p.tertanam;
+    const tiga = (v, otomatis) => (v === undefined || v === null || v === '' || v === 'otomatis' ? otomatis : v === true || v === 'ya');
+    const sku = p.gaya === 'sku';
+    const tabProp = p.tab && p.tab !== 'otomatis' ? p.tab : undefined;
+    const tab = s.tab ?? tabProp ?? (ponsel ? 'form' : 'menu');
+    const ke = (t) => () => this.setState({ tab: t });
+    const terisi = s.terisi ?? !!p.terisi;
+    const waHref = p.waHref ?? 'https://wa.me/628112689889';
+    const telHref = p.telHref ?? 'tel:+628112689889';
+    const tutup = () => {
+      this.setState({ tab: undefined, sosial: '' });
+      if (p.onTutup) p.onTutup();
+    };
+    const keChat = () => this.setState({ tab: terisi ? 'chat' : 'form' });
+    const keWa = () => this.setState({ tab: terisi ? 'wa' : 'form' });
+    const dialogPonsel = (tertanam ? 'position: relative; height: 100%; ' : 'position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 10003; ') + 'width: 36rem; max-width: 100%; box-sizing: border-box; background: var(--surface); color: var(--ink); overflow-y: auto; display: flex; flex-direction: column';
+    const dialogDesktop = 'width: 36rem; max-width: 100%; min-height: 58.727rem; ' + (tertanam ? '' : 'max-height: calc(100vh - 15rem); ') + 'box-sizing: border-box; border-radius: var(--sudut-bantu-panel); overflow-x: hidden; overflow-y: auto; background: var(--surface); color: var(--ink); box-shadow: var(--bayang-bantu-panel); display: flex; flex-direction: column';
+    const maps = (u) => 'https://www.google.com/maps/place/' + u;
+    return {
+      terbuka: p.buka ?? true,
+      dataBantu: tertanam ? 'tertanam' : tata,
+      labelDialog: p.labelDialog ?? 'Pusat bantuan SMS Perkasa',
+      gaya: ponsel ? dialogPonsel : dialogDesktop,
+      bilah: tiga(p.bilah, !ponsel),
+      online: p.online,
+      tutup,
+      isMenu: tab === 'menu',
+      isForm: tab === 'form',
+      isWa: tab === 'wa',
+      isChat: tab === 'chat',
+      isKalk: tab === 'kalk',
+      isGudang: tab === 'gudang',
+      menu: { tata, jadwal: !!p.jadwal, waHref, telHref, telTeks: p.telTeks ?? '+62 811-2689-889', kalkHref: p.kalkHref || (sku ? '#kalkulator' : ''), gudangHref: p.gudangHref || (sku ? '#gudang' : ''), onWa: keWa, onChat: keChat, onKalkulator: ke('kalk'), onGudang: ke('gudang'), onTutup: tutup },
+      form: {
+        rupaTombol: p.kontakRupa === 'putih' ? 'putih' : undefined,
+        gaya: p.gaya === 'blog' ? 'blog' : undefined,
+        bannerJenis: p.bannerJenis,
+        ajakanIkon: p.ajakanIkon,
+        tata,
+        nama: s.nama ?? p.nama,
+        wa: s.wa ?? p.wa,
+        email: s.email ?? p.email,
+        pesanSosial: s.sosial ?? p.pesanSosial,
+        waHref,
+        onUbah: (k, v) => this.setState({ [k]: v }),
+        onPesanSosial: (t) => this.setState({ sosial: t }),
+        onWhatsApp: () => this.setState(ponsel ? { terisi: true } : { terisi: true, tab: 'wa' }),
+        onLiveChat: () => this.setState({ terisi: true, tab: 'chat' }),
+        onKembali: ke('menu'),
+        onTutup: tutup
+      },
+      wa: { tata, jenis: sku ? 'kartu' : 'baris', waHref, jadwal: !!p.jadwal, onChat: keChat, onKembali: ke('menu') },
+      chat: {
+        tutupKanan: p.kontakRupa === 'putih',
+        gaya: p.gaya,
+        tata,
+        online: p.online,
+        log: s.log ?? p.log,
+        pesan: s.pesan ?? p.pesan,
+        csat: !!p.csat,
+        nilaiCsat: s.csat ?? p.nilaiCsat,
+        waHref,
+        telHref,
+        onLog: (l) => this.setState({ log: l }),
+        onPesan: (t) => this.setState({ pesan: t }),
+        onCsat: (n) => this.setState({ csat: n }),
+        onKembali: ke('menu'),
+        onTutup: tutup
+      },
+      kalk: { tata, onKembali: ke('menu') },
+      gudang: {
+        tata,
+        onKembali: ke('menu'),
+        baris: p.barisGudang ?? [
+          { judul: 'Kantor', alamat: ['Jl. BKR Pelajar 51, Ketabang,', 'Kec. Genteng, Kota Surabaya,', 'Jawa Timur, 60272'], labelSr: 'Buka di Google Maps', ikon: 'pin', ikonDepan: false, target: '_blank', rel: 'noopener', href: maps('SMS+Perkasa+%7C+Toko+Besi+%7C+Harga+Distributor,+Pengiriman+Cepat/@-7.2576621,112.7521415,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd7f97ac6b73b71:0xfc739fd4d35a3868!8m2!3d-7.2576621!4d112.7521415!16s%2Fg%2F11bz0xbzcc?entry=tts&shorturl=1') },
+          { judul: 'Gudang Surabaya', alamat: ['Jl. Mutiara Tambak Langon Blok I / 23H', 'Tambak Langon, Asem Rowo', 'Kota Surabaya,', 'Jawa Timur, 60184'], labelSr: 'Buka di Google Maps', ikon: 'pin', ikonDepan: false, target: '_blank', rel: 'noopener', href: maps('Distributor+Besi+Baja+%7C+SMS+Perkasa+%7C+Surabaya+%7C+Gudang/@-7.229027,112.6652445,457m/data=!3m1!1e3!4m6!3m5!1s0x2dd7ff570e17a265:0x81cf40ba8e7dd406!8m2!3d-7.2299648!4d112.6651077!16s%2Fg%2F11g0h7xdsy!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D') },
+          { judul: 'Gudang Jakarta', alamat: ['Jl. Palem Manis Raya, RT.001/RW.004', 'Gandasari, Kecamatan. Jatiuwung,', 'Kota Tangerang', 'Banten, 15137'], labelSr: 'Buka di Google Maps', ikon: 'pin', ikonDepan: false, target: '_blank', rel: 'noopener', href: maps('6%C2%B012%2740.5%22S+106%C2%B035%2716.3%22E/@-6.2107569,106.5879089,229m/data=!3m1!1e3!4m4!3m3!8m2!3d-6.21125!4d106.5878611!5m1!1e1?hl=id&entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D') }
+        ]
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>VideoBlock</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+      <a href="{{ href }}" target="_blank" rel="noopener" aria-label="{{ ariaLabel }}" style="display: block; text-decoration: none; color: inherit">
+        <span style="position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--card); overflow: hidden; background: var(--line)">
+          <img src="{{ foto }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+          <span aria-hidden="true" style="position: absolute; inset: 0; background: var(--video-tirai)"></span>
+          <span aria-hidden="true" style="position: absolute; left: 50%; top: 50%; margin: -3.2rem 0 0 -3.2rem; width: 6.4rem; height: 6.4rem; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: grid; place-items: center">
+            <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="display: block; margin-left: 0.3rem; fill: var(--ink)"><path d="M7.5 4.8v14.4l12-7.2z"></path></svg>
+          </span>
+          <span style="position: absolute; left: 1.4rem; right: 1.4rem; bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.1rem">
+            <span style="font-size: var(--teks-body); font-weight: var(--bobot-bold); line-height: var(--tinggi-sedang); color: var(--surface); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ judul }}</span>
+            <span style="font-size: var(--teks-meta); line-height: var(--tinggi-sedang); color: var(--video-redup); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ sumber }}</span>
+          </span>
+        </span>
+      </a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"href":{"editor":null},"foto":{"editor":null},"ariaLabel":{"editor":null},"judul":{"editor":null},"sumber":{"editor":null},"$preview":{"width":330,"height":186}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return {
+      href: p.href ?? 'https://www.youtube.com/watch?v=KX-nxvzJq_I',
+      foto: p.foto ?? '/_blob/7cf9caf5815cec7ca47570545222d743',
+      ariaLabel: p.ariaLabel ?? 'Putar video Besi Hollow dari SMS Perkasa di YouTube',
+      judul: p.judul ?? 'Besi Hollow',
+      sumber: p.sumber ?? 'SMS Perkasa'
+    };
+  }
+}
+</script>
+</body>
+</html>

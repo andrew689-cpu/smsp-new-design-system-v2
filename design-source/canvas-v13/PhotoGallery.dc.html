@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PhotoGallery</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div id="{{ idGaleri }}" role="group" aria-roledescription="carousel" aria-label="{{ ariaGaleri }}" style="{{ gayaHeroM }}">
+      <img src="{{ aktifSrc }}" alt="{{ aktifAlt }}" style="{{ gayaImgM }}">
+      <sc-if value="{{ lama }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ mundur }}" aria-label="Foto sebelumnya" style="position: absolute; top: 25%; left: 1rem; transform: translateY(-50%); z-index: 2; box-sizing: border-box; width: 4.4rem; height: 4.4rem; border: 0; padding: 0; border-radius: var(--pill); display: grid; place-items: center; background: var(--kaca); -webkit-backdrop-filter: var(--kaca-blur); backdrop-filter: var(--kaca-blur); box-shadow: var(--kaca-rim), var(--kaca-bayang)"><dc-import name="Icon" ikon="chevron-kiri" ukuran="{{ 18 }}" warna="var(--ink)" garis="{{ 2.2 }}" hint-size="1.8rem,1.8rem"></dc-import></button>
+        <button type="button" onClick="{{ maju }}" aria-label="Foto berikutnya" style="position: absolute; top: 25%; right: 1rem; transform: translateY(-50%); z-index: 2; box-sizing: border-box; width: 4.4rem; height: 4.4rem; border: 0; padding: 0; border-radius: var(--pill); display: grid; place-items: center; background: var(--kaca); -webkit-backdrop-filter: var(--kaca-blur); backdrop-filter: var(--kaca-blur); box-shadow: var(--kaca-rim), var(--kaca-bayang)"><dc-import name="Icon" ikon="chevron-kanan" warna="var(--ink)" garis="{{ 2.2 }}" hint-size="1.8rem,1.8rem"></dc-import></button>
+      </sc-if>
+      <sc-if value="{{ pil }}" hint-placeholder-val="{{ false }}">
+        <span style="position: absolute; right: 1rem; bottom: 1rem; z-index: 2; display: flex"><dc-import name="Button" variant="kaca-m" label="{{ hitung }}" ariaLabel="{{ hitungAria }}" onPress="{{ maju }}" hint-size="5rem,2.8rem"></dc-import></span>
+      </sc-if>
+    </div>
+    <sc-if value="{{ adaTitik }}" hint-placeholder-val="{{ true }}">
+    <span role="group" aria-label="Pilih foto" style="display: flex; align-items: center; justify-content: center; padding: 0.8rem 0 0 0">
+      <sc-for list="{{ titik }}" as="t" hint-placeholder-count="4">
+        <button type="button" onClick="{{ t.pergi }}" aria-label="{{ t.aria }}" aria-current="{{ t.kini }}" style="{{ gayaTitikTombol }}"><span aria-hidden="true" style="{{ t.gaya }}"></span></button>
+      </sc-for>
+    </span>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="display: flex; column-gap: 0; align-items: flex-start">
+    <div data-ubin-rel="{{ dataRel }}" style="{{ gayaRel }}">
+      <sc-for list="{{ ubin }}" as="u" hint-placeholder-count="4">
+        <button type="button" onClick="{{ u.pilih }}" aria-label="{{ u.aria }}" aria-pressed="{{ u.kini }}" style="{{ u.gaya }}"><img src="{{ u.src }}" alt="" style="{{ u.gayaImg }}"></button>
+      </sc-for>
+    </div>
+    <div style="{{ gayaHeroD }}">
+      <img src="{{ aktifSrc }}" alt="{{ aktifAlt }}" style="{{ gayaImgD }}">
+      <sc-if value="{{ pil }}" hint-placeholder-val="{{ false }}">
+        <span style="position: absolute; right: 1.4rem; bottom: 1.4rem; display: flex"><dc-import name="Button" variant="kaca" label="{{ hitung }}" ariaLabel="{{ hitungAria }}" onPress="{{ maju }}" hint-size="5rem,3.2rem"></dc-import></span>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"halaman":{"editor":"enum","options":["produk","sku"],"default":"produk"},"foto":{"editor":null},"hero":{"editor":null},"pil":{"editor":"boolean","default":false},"ariaGaleri":{"editor":null,"default":"Foto Besi Hollow Hitam"},"onUbah":{"editor":null},"idGaleri":{"editor":null},"lama":{"editor":"boolean","default":false},"tunggal":{"editor":"boolean","default":false},"$preview":{"width":360,"height":290}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const sku = this.props.halaman === 'sku';
+    const altHitam = 'Dua batang besi hollow hitam berpenampang kotak, satu besar satu kecil, terbaring menyerong dengan ujung terbukanya menghadap kamera di latar putih';
+    const altGudang = 'Tumpukan besi hollow berpenampang kotak di dalam gudang, dengan derek kuning di langit-langit dan tumpukan pipa bulat di latar belakang';
+    const altSeng = 'Tumpukan besi hollow hitam berpenampang kotak di gudang beratap seng, ujung batangnya menghadap kamera';
+    const bawaan = sku
+      ? [
+        { src: '/_blob/f6871938e35011e0aa5d1def2aafdf9f', alt: 'Satu batang besi hollow hitam berpenampang kotak terbaring menyerong, ujung terbukanya menghadap kamera, di latar putih', fit: 'cover' },
+        { src: '/_blob/bfef5c5ce7326a8b9b8f350b4ba296bc', alt: altGudang, fit: 'cover' },
+        { src: '/_blob/46f288fe98b0ee1ee70cb4e82cabc7cb', alt: altSeng, fit: 'cover' }
+      ]
+      : [
+        { src: '/_blob/3e253621e68085ed4f1ceb648cc0b533', alt: altHitam, fit: 'cover' },
+        { src: '/_blob/e80385dc6e7a552755f0b487ef119438', alt: 'Setumpuk batang besi hollow hitam berpenampang kotak, ujungnya menghadap kamera di latar putih', fit: 'cover' },
+        { src: '/_blob/bfef5c5ce7326a8b9b8f350b4ba296bc', alt: altGudang, fit: 'cover' },
+        { src: '/_blob/46f288fe98b0ee1ee70cb4e82cabc7cb', alt: altSeng, fit: 'cover' }
+      ];
+    const foto = this.props.foto ?? bawaan;
+    const n = foto.length;
+    const dikendalikan = this.props.hero !== undefined;
+    const hero = Math.min(Math.max(0, dikendalikan ? this.props.hero : (this.state.hero ?? 0)), n - 1);
+    const pergi = (i) => {
+      if (!dikendalikan) this.setState({ hero: i });
+      if (this.props.onUbah) this.props.onUbah(i);
+    };
+    const kini = foto[hero];
+    const contain = kini.fit === 'contain';
+    const rasio = sku ? '1448 / 1086' : '1447 / 1087';
+    return {
+      idGaleri: this.props.idGaleri,
+      lama: !!this.props.lama,
+      mundur: () => pergi((hero + n - 1) % n),
+      isMobile: !d,
+      adaTitik: !this.props.tunggal && !this.props.lama,
+      isDesktop: d,
+      pil: !!this.props.pil,
+      ariaGaleri: this.props.ariaGaleri ?? 'Foto Besi Hollow Hitam',
+      aktifSrc: kini.src,
+      aktifAlt: kini.alt,
+      hitung: (hero + 1) + '/' + n,
+      hitungAria: d ? 'Foto ' + (hero + 1) + ' dari ' + n + ', tekan untuk foto berikutnya' : 'Foto ' + (hero + 1) + ' dari ' + n + ', ketuk untuk foto berikutnya',
+      maju: () => pergi((hero + 1) % n),
+      gayaHeroM: this.props.tunggal
+        ? 'position: relative'
+        : sku
+        ? 'position: relative; margin-left: var(--talang); margin-right: var(--talang)'
+        : this.props.lama ? 'position: relative; aspect-ratio: ' + rasio + '; background: var(--line); overflow: hidden' : 'position: relative; aspect-ratio: ' + rasio + '; background: var(--surface); overflow: hidden; margin-left: var(--talang); margin-right: var(--talang)',
+      gayaImgM: sku
+        ? 'width: 100%; height: auto; aspect-ratio: ' + rasio + '; object-fit: ' + (kini.fit || 'cover') + '; display: block; background: ' + (this.props.tunggal ? 'var(--line)' : 'var(--surface)')
+        : 'width: 100%; height: 100%; ' + (contain ? 'object-fit: contain; background: var(--surface)' : 'object-fit: cover') + '; display: block',
+      gayaTitikTombol: 'height: ' + (sku ? '3.6rem' : '2.8rem') + '; padding: 0 0.55rem; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer',
+      titik: foto.map((x, i) => {
+        const on = i === hero;
+        return {
+          kini: on ? 'true' : 'false',
+          aria: 'Foto ' + (i + 1) + ' dari ' + n + (on ? ', sedang tampil' : ''),
+          gaya: 'display: block; height: 0.7rem; border-radius: var(--pill); ' + (on ? 'width: 1.4rem; background: var(--ink)' : 'width: 0.7rem; background: var(--ink-4)'),
+          pergi: () => pergi(i)
+        };
+      }),
+      dataRel: sku ? undefined : '1',
+      gayaRel: 'display: flex; flex-direction: column; flex-shrink: 0; row-gap: 0; column-gap: 0; margin-right: calc(var(--rapat) / 2)' + (sku ? '' : '; max-height: 32rem; overflow-y: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch'),
+      ubin: foto.map((x, i) => ({
+        src: x.src,
+        kini: hero === i ? 'true' : 'false',
+        aria: 'Lihat foto ' + (i + 1) + ': ' + x.alt,
+        gaya: 'border: 0.1rem solid ' + (hero === i ? 'var(--ink)' : 'var(--line)') + '; width: 8.4rem; height: 6.4rem; border-radius: var(--tile); overflow: hidden; background: ' + (sku ? 'var(--line)' : 'var(--surface)') + '; padding: 0; ' + (i === 0 ? '' : 'margin-top: 0.5rem; ') + (i === n - 1 ? '' : 'margin-bottom: 0.5rem'),
+        gayaImg: 'display: block; width: 100%; height: 100%; object-fit: ' + (x.fit || 'cover'),
+        pilih: () => pergi(i)
+      })),
+      gayaHeroD: 'position: relative; flex-grow: 1; min-width: 0; border-radius: 0; overflow: hidden; margin-left: calc(var(--rapat) / 2); margin-right: calc(var(--rapat) / 2); aspect-ratio: ' + rasio + '; background: ' + (sku ? 'var(--line)' : 'var(--surface); max-height: 32rem'),
+      gayaImgD: 'display: block; width: 100%; height: 100%; object-fit: ' + (kini.fit || 'cover')
+    };
+  }
+}
+</script>
+</body>
+</html>

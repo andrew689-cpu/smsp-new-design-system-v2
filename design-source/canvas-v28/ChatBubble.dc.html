@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ChatBubble</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div data-bantu-row="{{ tata }}" style="{{ gaya }}">
+  <p style="margin: 0; font-size: {{ huruf }}; line-height: var(--tinggi-lega)">{{ teks }}</p>
+  <span style="{{ jamGaya }}">{{ jam }}</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"arah":{"editor":"enum","options":["masuk","keluar"],"default":"masuk","section":"Resep"},"rupa":{"editor":"enum","options":["baku","biru"],"default":"baku","section":"Resep"},"teks":{"editor":"text","default":"Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.","section":"Teks"},"jam":{"editor":"text","default":"09:41","section":"Teks"},"$preview":{"width":330,"height":110}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const keluar = (this.props.arah ?? 'masuk') === 'keluar';
+    const biru = keluar && this.props.rupa === 'biru';
+    const sudut = ponsel ? 'var(--quote)' : (keluar ? 'var(--card) var(--card) 0.4rem var(--card)' : 'var(--card) var(--card) var(--card) 0.4rem');
+    return {
+      tata,
+      teks: this.props.teks ?? 'Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.',
+      jam: this.props.jam ?? '09:41',
+      huruf: ponsel ? 'var(--teks-body)' : 'var(--teks-meta)',
+      jamGaya: 'display: block; margin-top: ' + (ponsel ? '0.2rem' : '0.6rem') + '; text-align: right; font-size: var(--teks-tiny); color: ' + (biru ? 'var(--pita-kartu-m)' : 'var(--ink-2)') + (ponsel ? '; white-space: nowrap' : ''),
+      gaya: 'align-self: ' + (keluar ? 'flex-end' : 'flex-start') + '; max-width: 86%; box-sizing: border-box; padding: ' + (ponsel ? '1rem 1.4rem' : '1.1rem 1.3rem') + '; border-radius: ' + sudut + '; background: ' + (biru ? 'var(--chat-kirim); color: var(--surface)' : keluar ? 'var(--brand-subtle); color: var(--ink)' : 'var(--line)')
+    };
+  }
+}
+</script>
+</body>
+</html>

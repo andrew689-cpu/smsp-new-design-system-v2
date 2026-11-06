@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>GlassButton</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" target="{{ target }}" rel="{{ rel }}" aria-label="{{ ariaLabel }}" aria-current="{{ ariaCurrent }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isBulat }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="{{ kilau }}"></span></sc-if>
+    <sc-if value="{{ adaIkon }}" hint-placeholder-val="{{ true }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="2.5rem,2.5rem"></dc-import></span></sc-if>
+    <sc-if value="{{ adaLabel }}" hint-placeholder-val="{{ false }}">{{ label }}</sc-if>
+  </a>
+</sc-if>
+<sc-if value="{{ isButton }}" hint-placeholder-val="{{ true }}">
+  <button type="button" data-grid="{{ dataGrid }}" aria-label="{{ ariaLabel }}" aria-expanded="{{ ariaExpanded }}" aria-pressed="{{ ariaPressed }}" onClick="{{ onPress }}" style="{{ gaya }}">
+    <sc-if value="{{ isBulat }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="{{ kilau }}"></span></sc-if>
+    <sc-if value="{{ adaIkon }}" hint-placeholder-val="{{ true }}"><span style="{{ ikonGaya }}"><dc-import name="Icon" dc-props="{{ ikonProps }}" hint-size="2.5rem,2.5rem"></dc-import></span></sc-if>
+    <sc-if value="{{ adaLabel }}" hint-placeholder-val="{{ false }}">{{ label }}</sc-if>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["bulat","rel","jeda"],"default":"bulat"},"ukuran":{"editor":"enum","options":[44,52,72],"default":52},"aktif":{"editor":"boolean","default":false},"ikon":{"editor":"text","default":"navigasi"},"ikonUkuran":{"editor":null},"ikonGaris":{"editor":null},"ikonWarna":{"editor":null},"warna":{"editor":null},"label":{"editor":null},"href":{"editor":null},"target":{"editor":null},"rel":{"editor":null},"onPress":{"editor":null},"ariaLabel":{"editor":null,"default":"Daftar bagian halaman"},"ariaExpanded":{"editor":null},"ariaPressed":{"editor":null},"ariaCurrent":{"editor":null},"$preview":{"width":90,"height":90}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'bulat';
+    const ukuran = Number(this.props.ukuran ?? 52);
+    const aktif = !!this.props.aktif;
+    const warna = this.props.warna ?? 'var(--ink)';
+    const kilauPeta = { 44: ['0.8rem', '0.6rem', '2rem', '1.2rem'], 52: ['1rem', '0.7rem', '2.4rem', '1.4rem'], 72: ['1.4rem', '1rem', '3.3rem', '1.9rem'] };
+    const k = kilauPeta[ukuran] || kilauPeta[52];
+    const ikonBawaan = { 44: 22, 52: 25, 72: 35 };
+    const resep = {
+      bulat: 'box-sizing: border-box; position: relative; flex-shrink: 0; display: grid; place-items: center; width: ' + ukuran / 10 + 'rem; height: ' + ukuran / 10 + 'rem; border-radius: var(--pill); background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim), var(--cair-bayang); color: ' + warna,
+      rel: 'display: inline-flex; align-items: center; min-height: 4rem; padding: 0 1.6rem; border-radius: var(--pill); font-size: var(--teks-lead); color: ' + warna + '; ' + (aktif ? 'background: var(--cair-tombol); -webkit-backdrop-filter: var(--cair-tombol-blur); backdrop-filter: var(--cair-tombol-blur); box-shadow: var(--cair-rim-chip), var(--cair-bayang-chip); font-weight: var(--bobot-bold)' : 'background: transparent; font-weight: var(--bobot-semibold)'),
+      jeda: 'display: inline-flex; align-items: center; min-height: 4rem; padding: 0 1.6rem; border-radius: var(--pill); font-size: var(--teks-meta); font-weight: var(--bobot-bold); color: ' + warna + '; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang-tipis)'
+    };
+    const ikon = this.props.ikon ?? (jenis === 'bulat' ? 'navigasi' : undefined);
+    const ikonProps = { ikon, warna: this.props.ikonWarna ?? 'currentColor', ukuran: this.props.ikonUkuran ?? (jenis === 'bulat' ? ikonBawaan[ukuran] : jenis === 'jeda' ? 14 : 25) };
+    if (this.props.ikonGaris !== undefined) ikonProps.garis = this.props.ikonGaris;
+    const href = this.props.href;
+    return {
+      isBulat: jenis === 'bulat',
+      isLink: !!href,
+      isButton: !href,
+      href,
+      target: this.props.target,
+      rel: this.props.rel,
+      onPress: this.props.onPress,
+      dataGrid: jenis === 'bulat' ? String(ukuran) : undefined,
+      ariaLabel: this.props.ariaLabel ?? (jenis === 'bulat' ? 'Daftar bagian halaman' : undefined),
+      ariaExpanded: this.props.ariaExpanded,
+      ariaPressed: this.props.ariaPressed,
+      ariaCurrent: this.props.ariaCurrent,
+      label: this.props.label ?? '',
+      adaLabel: !!this.props.label,
+      adaIkon: !!ikon,
+      ikonProps,
+      ikonGaya: jenis === 'bulat' ? 'display: grid' : 'display: flex; flex-shrink: 0; margin-right: 0.4rem',
+      kilau: 'position: absolute; left: ' + k[0] + '; top: ' + k[1] + '; width: ' + k[2] + '; height: ' + k[3] + '; border-radius: 50%; background: var(--cair-kilau); pointer-events: none',
+      gaya: resep[jenis] || resep.bulat
+    };
+  }
+}
+</script>
+</body>
+</html>

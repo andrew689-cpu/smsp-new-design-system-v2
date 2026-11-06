@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpBackBar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ gaya }}">
+  <dc-import name="Button" variant="kembali" ikon="kembali" label="{{ label }}" onPress="{{ onKembali }}" hint-size="10rem,4.4rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["tempel","garis","polos"],"default":"tempel"},"label":{"editor":null,"default":"Kembali"},"onKembali":{"editor":null},"$preview":{"width":360,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const jenis = this.props.jenis ?? 'tempel';
+    const dasar = 'box-sizing: border-box; padding: 0.6rem 1.4rem 1rem 1.4rem';
+    const gaya = {
+      tempel: 'position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; ' + dasar + '; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)',
+      garis: 'flex-shrink: 0; ' + dasar + '; box-shadow: 0 -0.1rem 0 var(--line)',
+      polos: dasar
+    };
+    return {
+      gaya: gaya[jenis] || gaya.tempel,
+      label: this.props.label ?? 'Kembali',
+      onKembali: this.props.onKembali ?? (() => {})
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>FilterPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ dialogTampil }}" hint-placeholder-val="{{ true }}">
+  <div role="dialog" aria-label="{{ judul }}" style="position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; z-index: 10003; box-sizing: border-box; background: var(--surface); color: var(--ink); display: flex; flex-direction: column">
+    <div style="flex-shrink: 0; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; column-gap: 0; min-height: 5.6rem; padding: 0.8rem 1.6rem; box-shadow: 0 0.1rem 0 var(--line)">
+      <span style="display: block; min-width: 0; flex-grow: 1; overflow: hidden; white-space: nowrap; margin-right: 0.4rem"><dc-import name="Heading" level="{{ 2 }}" varian="filter" teks="{{ judul }}" hint-size="100%,2rem"></dc-import></span>
+      <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: calc(-0.8rem + 0.4rem)"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 40 }}" ikonUkuran="{{ 20 }}" ikonGaris="{{ 2.2 }}" ariaLabel="Tutup filter" onPress="{{ tutup }}" hint-size="4rem,4rem"></dc-import></span>
+    </div>
+    <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 1.2rem 1.6rem 14rem 1.6rem">
+      <p style="margin: 1rem 0 0 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold)">{{ labelSeg }}</p>
+      <sc-if value="{{ isUkuran }}" hint-placeholder-val="{{ true }}">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 1rem; box-sizing: border-box">
+          <sc-for list="{{ ubinUkuranM }}" as="c" hint-placeholder-count="9">
+            <span style="{{ c.gaya }}"><dc-import name="Chip" jenis="ubin" label="{{ c.label }}" terpilih="{{ c.on }}" disabled="{{ c.mati }}" ariaLabel="{{ c.aria }}" onPress="{{ c.pilih }}" hint-size="100%,4.8rem"></dc-import></span>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isTebal }}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 1rem; box-sizing: border-box">
+          <sc-for list="{{ ubinTebalM }}" as="c" hint-placeholder-count="8">
+            <span style="{{ c.gaya }}"><dc-import name="Chip" jenis="ubin" rapat="{{ true }}" label="{{ c.label }}" terpilih="{{ c.on }}" disabled="{{ c.mati }}" ariaLabel="{{ c.aria }}" onPress="{{ c.pilih }}" hint-size="100%,4.8rem"></dc-import></span>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+    <div style="position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; z-index: 5; box-sizing: border-box; padding: 1.2rem 1.6rem; border-radius: var(--island); overflow: hidden; background: var(--cair); -webkit-backdrop-filter: var(--cair-blur); backdrop-filter: var(--cair-blur); box-shadow: var(--cair-rim), var(--cair-bayang); display: flex; flex-direction: column; gap: var(--rapat)">
+      <span aria-hidden="true" style="position: absolute; z-index: 0; left: 8%; right: 8%; top: 0.2rem; height: 4.2rem; border-radius: 50%; background: var(--cair-kilau-atas); pointer-events: none"></span>
+      <span aria-hidden="true" style="position: absolute; z-index: 0; left: 16%; right: 16%; bottom: 0.1rem; height: 2rem; border-radius: 50%; background: var(--cair-kilau-bawah); pointer-events: none"></span>
+      <sc-if value="{{ adaDraf }}" hint-placeholder-val="{{ true }}">
+        <div data-keping-rel="1" style="display: flex; flex-wrap: nowrap; align-items: center; column-gap: 0; box-sizing: border-box; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none">
+          <sc-for list="{{ chipM }}" as="c" hint-placeholder-count="2">
+            <span style="{{ c.gaya }}"><dc-import name="Chip" jenis="hapus" label="{{ c.label }}" ariaLabel="{{ c.aria }}" onPress="{{ c.buang }}" hint-size="14rem,3.2rem"></dc-import></span>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="position: relative; z-index: 1; display: flex; align-items: center; column-gap: 0">
+        <span style="display: flex; flex-grow: 1; min-width: 0; margin-right: 0.4rem"><dc-import name="Segmented" jenis="teks" opsi="{{ seg }}" nilai="{{ segKini }}" ariaLabel="Filter dan urutkan" onPilih="{{ pilihSeg }}" hint-size="100%,4.2rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.4rem; margin-right: 0.4rem"><dc-import name="IconButton" ikon="ulang" ukuran="{{ 38 }}" nada="cincin" disabled="{{ bersih }}" ariaLabel="Reset filter dan urutan" onPress="{{ reset }}" hint-size="3.8rem,3.8rem"></dc-import></span>
+      </div>
+      <span style="position: relative; z-index: 1; display: block"><dc-import name="Button" variant="terap-kecil" label="{{ labelTerap }}" disabled="{{ nol }}" onPress="{{ terap }}" hint-size="100%,3.2rem"></dc-import></span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <aside style="position: sticky; top: 20rem; max-height: calc(100vh - 22rem); overflow-y: auto; display: flex; flex-direction: column; gap: 2.2rem; padding: 2rem; border-right: 0.1rem solid var(--line); margin-right: 2rem">
+    <div style="display: flex; align-items: center; justify-content: space-between; column-gap: 0">
+      <span style="display: block; margin-right: 0.5rem"><dc-import name="Heading" level="{{ 3 }}" varian="filter" tata="desktop" teks="Filter" hint-size="8rem,2.4rem"></dc-import></span>
+      <sc-if value="{{ adaFilter }}" hint-placeholder-val="{{ true }}">
+        <span style="display: flex; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="Button" variant="hapus" label="Hapus semua" onPress="{{ hapusSemua }}" hint-size="9rem,3.2rem"></dc-import></span>
+      </sc-if>
+    </div>
+    <sc-if value="{{ adaFilter }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-wrap: wrap; row-gap: 0.8rem; column-gap: 0">
+        <sc-for list="{{ chipD }}" as="c" hint-placeholder-count="2">
+          <span style="{{ c.gaya }}"><dc-import name="Chip" jenis="hapus" label="{{ c.label }}" ariaLabel="{{ c.aria }}" onPress="{{ c.buang }}" hint-size="12rem,3.2rem"></dc-import></span>
+        </sc-for>
+      </div>
+    </sc-if>
+    <div>
+      <p style="margin: 0 0 0.2rem 0; font-size: var(--teks-body); font-weight: var(--bobot-bold)">Ukuran penampang (A × B)</p>
+      <sc-if value="{{ satuan }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: var(--teks-meta); color: var(--ink-2)">mm x mm</p>
+      </sc-if>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 1rem">
+        <sc-for list="{{ ubinUkuranD }}" as="u" hint-placeholder-count="12">
+          <span style="{{ u.gaya }}"><dc-import name="Chip" jenis="ubin" tata="desktop" tinggiMin="0" label="{{ u.label }}" terpilih="{{ u.on }}" disabled="{{ u.mati }}" ariaLabel="{{ u.aria }}" onPress="{{ u.pilih }}" hint-size="100%,4rem"></dc-import></span>
+        </sc-for>
+      </div>
+      <sc-if value="{{ ukuranLagi }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 1rem"><dc-import name="Button" variant="teks-tebal" tinggi="3.6rem" ukuranTeks="{{ ukuranLagi2 }}" label="{{ ukuranLabel }}" onPress="{{ ukuranTogel }}" ariaExpanded="{{ ukuranExp }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonUkuran="{{ 15 }}" ikonPutar="{{ ukuranTerbuka }}" hint-size="22rem,3.6rem"></dc-import></span>
+      </sc-if>
+    </div>
+    <div>
+      <p style="margin: 0 0 0.2rem 0; font-size: var(--teks-subhead); font-weight: var(--bobot-bold)">Tebal dinding (t)</p>
+      <sc-if value="{{ satuan }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: var(--teks-meta); color: var(--ink-2)">mm</p>
+      </sc-if>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; column-gap: 0; margin-top: 1rem">
+        <sc-for list="{{ ubinTebalD }}" as="t" hint-placeholder-count="8">
+          <span style="{{ t.gaya }}"><dc-import name="Chip" jenis="ubin" tata="desktop" tinggiMin="0" arah="baris" rapat="{{ true }}" label="{{ t.label }}" terpilih="{{ t.on }}" disabled="{{ t.mati }}" ariaLabel="{{ t.aria }}" onPress="{{ t.pilih }}" hint-size="100%,4rem"></dc-import></span>
+        </sc-for>
+      </div>
+      <sc-if value="{{ tebalLagi }}" hint-placeholder-val="{{ true }}">
+        <span style="display: block; margin-top: 1rem"><dc-import name="Button" variant="teks-tebal" tinggi="3.6rem" ukuranTeks="{{ ukuranLagi2 }}" label="{{ tebalLabel }}" onPress="{{ tebalTogel }}" ariaExpanded="{{ tebalExp }}" ikon="chevron-bawah" ikonPosisi="akhir" ikonUkuran="{{ 15 }}" ikonPutar="{{ tebalTerbuka }}" hint-size="22rem,3.6rem"></dc-import></span>
+      </sc-if>
+    </div>
+    <sc-if value="{{ urutTampil }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="SortMenu" jenis="inline" tata="desktop" urut="{{ urut }}" onPilih="{{ onUrut }}" hint-size="100%,20rem"></dc-import>
+    </sc-if>
+  </aside>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"panelFilter":{"editor":"enum","options":["tertutup","terbuka"],"default":"terbuka","section":"Keadaan awal"},"filterAwal":{"editor":"enum","options":["kosong","terpilih"],"default":"kosong","section":"Keadaan awal"},"terbuka":{"editor":null},"ukuran":{"editor":null},"tebal":{"editor":null},"katalog":{"editor":null},"segAwal":{"editor":"enum","options":["otomatis","ukuran","tebal"],"default":"otomatis","section":"Keadaan awal"},"judul":{"editor":"text","default":"Filter Besi Hollow Hitam","section":"Isi"},"adaUrut":{"editor":null},"urutTampil":{"editor":"boolean","default":false,"section":"Isi"},"urut":{"editor":"enum","options":["populer","hargaMin","hargaMax","ukuranMin","ukuranMax"],"default":"populer","section":"Keadaan awal"},"satuanTampil":{"editor":"boolean","default":false,"section":"Isi"},"onUrut":{"editor":null},"onUbah":{"editor":null},"onTerap":{"editor":null},"onTutup":{"editor":null},"onReset":{"editor":null},"lagiKecil":{"editor":"boolean","default":false,"section":"Tata letak"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const d = props && props.tata === 'desktop';
+    const buka = !d && (props && props.panelFilter) !== 'tertutup';
+    const awal = d && (props && props.filterAwal) === 'terpilih';
+    const ukuran = awal ? ['40 × 40'] : (buka ? ['15 × 15'] : []);
+    const tebal = awal ? ['1,5'] : [];
+    this.state = {
+      terbuka: buka, ukuran, tebal,
+      drafU: (props && props.ukuran) || ukuran, drafT: (props && props.tebal) || tebal,
+      seg: (props && props.segAwal && props.segAwal !== 'otomatis') ? props.segAwal : (buka ? 'tebal' : 'ukuran'),
+      ukuranBuka: false, tebalBuka: false
+    };
+  }
+  componentDidUpdate(prev) {
+    if (this.props.terbuka !== undefined && prev.terbuka !== this.props.terbuka && this.props.terbuka) {
+      this.setState({ drafU: this.terpasang('ukuran'), drafT: this.terpasang('tebal'), seg: 'ukuran' });
+    }
+  }
+  terpasang(kunci) { return this.props[kunci] ?? this.state[kunci]; }
+  katalog() {
+    if (this.props.katalog) return this.props.katalog;
+    if (this._kat) return this._kat;
+    const RAW = [[15,15,0.8],[15,15,1],[15,15,1.2],[15,15,1.5],[15,30,0.8],[15,30,1],[15,30,1.2],[15,30,1.5],[15,30,1.8],[15,35,0.8],[15,35,1],[15,35,1.2],[15,35,1.5],[15,35,1.8],[16,16,1.5],[20,20,0.8],[20,20,1],[20,20,1.2],[20,20,1.5],[20,20,1.8],[20,40,0.8],[20,40,1],[20,40,1.2],[20,40,1.5],[20,40,1.8],[20,40,2],[20,40,2.3],[25,25,0.8],[25,25,1],[25,25,1.2],[25,25,1.5],[25,25,1.8],[25,25,2],[25,25,2.3],[25,50,0.8],[25,50,1],[25,50,1.2],[25,50,1.5],[25,50,1.8],[25,50,2],[25,50,2.3],[30,30,0.8],[30,30,1],[30,30,1.2],[30,30,1.5],[30,30,1.8],[30,30,2],[30,30,2.3],[30,60,0.8],[30,60,1],[30,60,1.2],[30,60,1.5],[30,60,1.8],[30,60,2],[30,60,2.3],[30,60,2.5],[30,60,2.8],[30,60,3],[30,60,3.2],[35,35,0.8],[35,35,1],[35,35,1.2],[35,35,1.5],[35,35,1.8],[35,35,2],[35,35,2.3],[35,35,2.5],[35,35,2.8],[35,35,3],[35,35,3.2],[40,40,0.8],[40,40,1],[40,40,1.2],[40,40,1.5],[40,40,1.8],[40,40,2],[40,40,2.3],[40,40,2.5],[40,40,2.8],[40,40,3],[40,40,3.2],[40,40,3.5],[40,40,3.8],[40,40,4],[40,60,1],[40,60,1.2],[40,60,1.5],[40,60,1.8],[40,60,2],[40,60,2.3],[40,60,2.5],[40,60,2.8],[40,60,3],[40,60,3.2],[40,60,3.5],[40,60,3.8],[40,60,4],[40,60,4.5],[40,80,1],[40,80,1.2],[40,80,1.5],[40,80,1.8],[40,80,2],[40,80,2.3],[40,80,2.5],[40,80,2.8],[40,80,3],[40,80,3.2],[40,80,3.5],[40,80,3.8],[40,80,4],[40,80,4.5],[45,45,1],[45,45,1.2],[45,45,1.5],[45,45,1.8],[45,75,1.2],[45,75,1.5],[45,75,1.8],[45,75,2],[45,75,2.3],[45,75,2.5],[45,75,2.8],[45,75,3],[45,75,3.2],[45,75,3.5],[45,75,3.8],[45,75,4],[45,75,4.5],[50,50,1],[50,50,1.2],[50,50,1.5],[50,50,1.8],[50,50,2],[50,50,2.3],[50,50,2.5],[50,50,2.8],[50,50,3],[50,50,3.2],[50,50,3.5],[50,50,3.8],[50,50,4],[50,50,4.5],[50,100,1],[50,100,1.2],[50,100,1.5],[50,100,1.8],[50,100,2],[50,100,2.3],[50,100,2.5],[50,100,2.8],[50,100,3],[50,100,3.2],[50,100,3.5],[50,100,3.8],[50,100,4],[50,100,4.5],[50,100,5],[50,100,6],[60,60,1],[60,60,1.2],[60,60,1.5],[60,60,1.8],[60,60,2],[60,60,2.3],[60,60,2.5],[60,60,2.8],[60,60,3],[60,60,3.2],[60,60,3.5],[60,60,3.8],[60,60,4],[60,60,4.5],[75,75,1.2],[75,75,1.5],[75,75,1.8],[75,75,2],[75,75,2.3],[75,75,2.5],[75,75,2.8],[75,75,3],[75,75,3.2],[75,75,3.5],[75,75,3.8],[75,75,4],[75,75,4.5],[75,75,5],[75,75,6],[75,125,2],[75,125,2.3],[75,125,2.5],[75,125,2.8],[75,125,3],[75,125,3.2],[75,125,3.5],[75,125,3.8],[75,125,4],[75,125,4.5],[75,125,5],[75,125,6],[75,150,3],[75,150,3.2],[75,150,3.5],[75,150,3.8],[75,150,4],[75,150,4.5],[75,150,5],[75,150,6],[80,80,5],[80,80,6],[80,80,10],[100,100,1.2],[100,100,1.5],[100,100,1.8],[100,100,2],[100,100,2.3],[100,100,2.5],[100,100,2.8],[100,100,3],[100,100,3.2],[100,100,3.5],[100,100,3.8],[100,100,4],[100,100,4.5],[100,100,5],[100,100,6],[100,150,3],[100,150,3.2],[100,150,3.5],[100,150,3.8],[100,150,4],[100,150,4.5],[100,150,5],[100,150,6],[100,150,8],[100,150,10],[100,175,4.5],[100,175,5],[100,200,3],[100,200,3.2],[100,200,3.5],[100,200,3.8],[100,200,4],[100,200,4.5],[100,200,5],[100,200,6],[100,200,8],[100,200,10],[100,250,6],[100,250,8],[100,250,10],[100,300,5],[100,300,6],[100,350,5],[100,350,6],[125,125,2.5],[125,125,2.8],[125,125,3],[125,125,3.2],[125,125,3.5],[125,125,3.8],[125,125,4],[125,125,4.5],[125,125,5],[125,175,3],[125,175,3.2],[150,150,3],[150,150,3.2],[150,150,3.5],[150,150,3.8],[150,150,4],[150,150,4.5],[150,150,5],[150,150,6],[150,150,8],[150,150,10],[150,150,12],[150,200,6],[150,200,8],[150,200,10],[150,250,8],[150,250,10],[150,300,8],[150,300,10],[200,200,4.5],[200,200,5],[200,200,6],[200,200,8],[200,200,10],[200,300,6],[200,300,8],[200,400,10],[200,400,12],[250,250,6],[250,250,8],[300,300,6],[300,300,8]];
+    this._kat = RAW.map((r) => ({ uk: r[0] + ' × ' + r[1], tb: String(r[2]).replace('.', ',') }));
+    return this._kat;
+  }
+  renderVals() {
+    const d = this.props.tata === 'desktop';
+    const s = this.state;
+    const kat = this.katalog();
+    const UK = [];
+    const TB = [];
+    kat.forEach((x) => { if (UK.indexOf(x.uk) === -1) UK.push(x.uk); if (TB.indexOf(x.tb) === -1) TB.push(x.tb); });
+    TB.sort((a, b) => parseFloat(a.replace(',', '.')) - parseFloat(b.replace(',', '.')));
+    const cocok = (r, u, t) => (!u.length || u.indexOf(r.uk) !== -1) && (!t.length || t.indexOf(r.tb) !== -1);
+    const terbuka = this.props.terbuka ?? s.terbuka;
+    const ukuran = this.terpasang('ukuran');
+    const tebal = this.terpasang('tebal');
+    const uD = s.drafU;
+    const tD = s.drafT;
+    const togelArr = (arr, v) => (arr.indexOf(v) === -1 ? arr.concat([v]) : arr.filter((x) => x !== v));
+    const kiri = (i) => (i === 0 ? '0' : '0.4rem');
+    const marginTile = (i, n, kolom) => 'margin: ' + (i < kolom ? '0' : '0.4rem') + ' 0.4rem ' + (i >= n - kolom ? '0' : '0.4rem') + ' ' + kiri(i);
+    const ubinM = (daftar, kunci, kolom) => daftar.map((v, i) => {
+      const uk = kunci === 'uk';
+      const n = kat.filter((r) => (uk ? r.uk === v && cocok(r, [], tD) : r.tb === v && cocok(r, uD, []))).length;
+      const on = (uk ? uD : tD).indexOf(v) !== -1;
+      const mati = n === 0 && !on;
+      const bagian = v.split(' × ');
+      return {
+        label: v,
+        on,
+        mati,
+        aria: uk
+          ? 'Ukuran ' + bagian[0] + ' kali ' + bagian[1] + ' milimeter, ' + n + ' varian' + (on ? ', dipilih' : '')
+          : 'Tebal ' + v + ' milimeter, ' + n + ' SKU' + (on ? ', dipilih' : ''),
+        gaya: 'display: grid; min-width: 0; ' + marginTile(i, daftar.length, kolom),
+        pilih: () => { if (!mati) this.setState(uk ? { drafU: togelArr(uD, v) } : { drafT: togelArr(tD, v) }); }
+      };
+    });
+    const nDraf = kat.filter((r) => cocok(r, uD, tD)).length;
+    const adaDraf = uD.length + tD.length > 0;
+    const adaUrut = !!this.props.adaUrut;
+    const chipGaya = (i) => 'display: flex; flex-shrink: 0; margin-right: 0.4rem' + (i === 0 ? '' : '; margin-left: 0.4rem');
+    const chipM = uD.map((v) => {
+      const b = v.split(' × ');
+      return { label: b[0] + 'mm × ' + b[1] + 'mm', aria: 'Hapus filter ukuran ' + b[0] + ' kali ' + b[1], buang: () => this.setState({ drafU: togelArr(uD, v) }) };
+    }).concat(tD.map((v) => ({ label: 'Tebal ' + v + ' mm', aria: 'Hapus filter tebal ' + v, buang: () => this.setState({ drafT: togelArr(tD, v) }) })))
+      .map((c, i) => Object.assign(c, { gaya: chipGaya(i) }));
+    const setTerpasang = (u, t) => {
+      if (this.props.ukuran === undefined) this.setState({ ukuran: u, tebal: t });
+      if (this.props.onUbah) this.props.onUbah({ ukuran: u, tebal: t });
+    };
+    const FOLD = 12;
+    const ukTutup = !s.ukuranBuka && !ukuran.some((v) => UK.indexOf(v) >= FOLD);
+    const tbTutup = !s.tebalBuka && !tebal.some((v) => TB.indexOf(v) >= FOLD);
+    const ubinD = (daftar, kunci) => daftar.map((v, i) => {
+      const uk = kunci === 'uk';
+      const n = kat.filter((x) => (uk ? x.uk === v && (!tebal.length || tebal.indexOf(x.tb) !== -1) : x.tb === v && (!ukuran.length || ukuran.indexOf(x.uk) !== -1))).length;
+      const on = (uk ? ukuran : tebal).indexOf(v) !== -1;
+      const mati = n === 0 && !on;
+      return {
+        label: v,
+        on,
+        mati,
+        aria: (uk ? 'Ukuran ' : 'Tebal ') + v + ', ' + n + ' SKU' + (on ? ', terpilih' : ''),
+        gaya: 'display: grid; min-width: 0; ' + marginTile(i, daftar.length, 3),
+        pilih: () => {
+          if (mati) return;
+          if (uk) setTerpasang(togelArr(ukuran, v), tebal); else setTerpasang(ukuran, togelArr(tebal, v));
+        }
+      };
+    });
+    const chipD = ukuran.map((v) => ({ label: v + ' mm', aria: 'Hapus filter ukuran ' + v, buang: () => setTerpasang(ukuran.filter((x) => x !== v), tebal) }))
+      .concat(tebal.map((v) => ({ label: 'Tebal ' + v + ' mm', aria: 'Hapus filter tebal ' + v, buang: () => setTerpasang(ukuran, tebal.filter((x) => x !== v)) })))
+      .map((c, i) => Object.assign(c, { gaya: 'display: flex; margin-right: 0.4rem' + (i === 0 ? '' : '; margin-left: 0.4rem') }));
+    const tutupDialog = () => {
+      if (this.props.terbuka === undefined) this.setState({ terbuka: false });
+      this.setState({ drafU: ukuran, drafT: tebal });
+      if (this.props.onTutup) this.props.onTutup();
+    };
+    return {
+      dialogTampil: !d && terbuka,
+      isDesktop: d,
+      judul: this.props.judul ?? 'Filter Besi Hollow Hitam',
+      tutup: tutupDialog,
+      labelSeg: s.seg === 'tebal' ? 'Tebal dinding' : 'Ukuran penampang',
+      isUkuran: s.seg === 'ukuran',
+      isTebal: s.seg === 'tebal',
+      ubinUkuranM: d ? [] : ubinM(UK, 'uk', 3),
+      ubinTebalM: d ? [] : ubinM(TB, 'tb', 4),
+      adaDraf,
+      chipM,
+      seg: [{ id: 'ukuran', label: 'Ukuran', n: uD.length }, { id: 'tebal', label: 'Tebal', n: tD.length }],
+      segKini: s.seg,
+      pilihSeg: (id) => this.setState({ seg: id }),
+      bersih: !adaDraf && !adaUrut,
+      reset: () => {
+        this.setState({ drafU: [], drafT: [] });
+        if (this.props.onReset) this.props.onReset();
+      },
+      labelTerap: nDraf === 0 ? 'Tidak ada SKU yang cocok' : 'Terapkan',
+      nol: nDraf === 0,
+      terap: () => {
+        if (nDraf === 0) return;
+        if (this.props.ukuran === undefined) this.setState({ ukuran: uD, tebal: tD });
+        if (this.props.terbuka === undefined) this.setState({ terbuka: false });
+        if (this.props.onTerap) this.props.onTerap({ ukuran: uD, tebal: tD });
+      },
+      adaFilter: !!(ukuran.length || tebal.length),
+      chipD,
+      hapusSemua: () => setTerpasang([], []),
+      satuan: !!this.props.satuanTampil,
+      ubinUkuranD: d ? ubinD(ukTutup ? UK.slice(0, FOLD) : UK, 'uk') : [],
+      ukuranLagi: UK.length > FOLD,
+      ukuranExp: ukTutup ? 'false' : 'true',
+      ukuranTerbuka: !ukTutup,
+      ukuranLabel: ukTutup ? 'Lihat ' + (UK.length - FOLD) + ' ukuran lainnya' : 'Lebih Sedikit',
+      ukuranLagi2: this.props.lagiKecil ? 'var(--teks-meta)' : undefined,
+      ukuranTogel: () => this.setState({ ukuranBuka: !s.ukuranBuka }),
+      ubinTebalD: d ? ubinD(tbTutup ? TB.slice(0, FOLD) : TB, 'tb') : [],
+      tebalLagi: TB.length > FOLD,
+      tebalExp: tbTutup ? 'false' : 'true',
+      tebalTerbuka: !tbTutup,
+      tebalLabel: tbTutup ? 'Lihat ' + (TB.length - FOLD) + ' tebal lainnya' : 'Lebih Sedikit',
+      tebalTogel: () => this.setState({ tebalBuka: !s.tebalBuka }),
+      urutTampil: !!this.props.urutTampil,
+      urut: this.props.urut ?? 'populer',
+      onUrut: this.props.onUrut
+    };
+  }
+}
+</script>
+</body>
+</html>

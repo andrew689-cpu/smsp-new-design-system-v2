@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LearningHero</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRv }}" hint-placeholder-val="{{ true }}">
+  <section aria-label="Pembuka" style="{{ gayaMerah }}; box-sizing: border-box; padding: 7.9rem var(--talang) 5.8rem var(--talang); display: flex; flex-direction: column; align-items: stretch; row-gap: 1.6rem; text-align: center">
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" font="var(--font-rv-judul)" kapital="ya" ukuran="var(--teks-populer)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-bold)" renggang="0" rata="center" warna="var(--surface)" baris="{{ judulRv }}" hint-size="100%,8rem"></dc-import>
+    <p style="margin: 0; font-size: var(--teks-section); line-height: var(--tinggi-sedang); font-weight: var(--bobot-bold); color: var(--surface)">{{ teksSatu }}</p>
+    <dc-import name="Button" variant="lebar-putih" gayaTambah="margin-top: 0.4rem" href="" label="{{ labelTombol }}" ikon="panah-pil" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.4 }}" ikonPosisi="akhir" onPress="{{ onTombol }}" hint-size="100%,5.6rem"></dc-import>
+  </section>
+  <section aria-label="Kepercayaan" style="position: relative; margin-top: -2.6rem; border-radius: var(--island) var(--island) 0 0; background: var(--surface); box-sizing: border-box; padding: 2.4rem var(--talang) 0 var(--talang); display: flex; flex-direction: column; align-items: stretch; row-gap: 1.6rem; text-align: center">
+    <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-sel); color: var(--ink-2)">{{ penyusunAwal }} <span style="font-weight: var(--bobot-bold); color: var(--ink)">{{ penyusun }}</span></p>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0.8rem">
+      <sc-for list="{{ stat }}" as="st" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; row-gap: 0.2rem">
+          <span style="font-family: var(--font-rv-judul); font-size: var(--teks-page); line-height: var(--tinggi-artikel-h1); font-weight: var(--bobot-bold); color: var(--brand)">{{ st.angka }}</span>
+          <span style="font-size: var(--teks-meta); line-height: var(--tinggi-tengah); color: var(--ink-2)">{{ st.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+<sc-if value="{{ isIkon }}" hint-placeholder-val="{{ false }}">
+  <p style="margin: 0 0 0 0.3rem; font-size: var(--teks-meta); line-height: var(--tinggi-sel); color: var(--surface)">{{ remah }}</p>
+  <dc-import name="Heading" level="{{ 1 }}" varian="polos" ukuran="var(--teks-hero-serif)" tinggi="var(--tinggi-hero-serif)" bobot="var(--bobot-regular)" renggang="var(--renggang-judul)" rata="left" warna="var(--surface)" margin="1.6rem 0 0 0.3rem" baris="{{ judulIkon }}" hint-size="100%,10rem"></dc-import>
+  <p style="margin: 0.8rem 0 0 0.3rem; font-size: var(--teks-seksi); line-height: var(--tinggi-sel); color: var(--surface)"><sc-for list="{{ teksBaris }}" as="b" hint-placeholder-count="2">{{ b.teks }}<sc-if value="{{ b.putus }}" hint-placeholder-val="{{ true }}"><br></sc-if></sc-for></p>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["rv","ikon"],"default":"rv","section":"Resep"},"gambar":{"editor":"text","default":"/_blob/0431e3e9af59f92d750099354ff0126e","section":"Gambar"},"judulAtas":{"editor":"text","default":"Edukasi Besi Baja","section":"Isi"},"judulBawah":{"editor":"text","default":"SMS Perkasa","section":"Isi"},"teks":{"editor":"text","default":"Bedah detail karakteristik material, cara ukur presisi, dan aplikasi proyek","section":"Isi"},"teksBaris":{"editor":null,"section":"Isi","tsType":"string[]"},"labelTombol":{"editor":"text","default":"Lihat Semua Materi","section":"Isi"},"onTombol":{"editor":null,"section":"Aksi"},"penyusunAwal":{"editor":"text","default":"Disusun oleh","section":"Isi"},"penyusun":{"editor":"text","default":"tim SMS Perkasa","section":"Isi"},"stat":{"editor":null,"section":"Data","tsType":"Array<{angka:string,label:string}>"},"remah":{"editor":"text","default":"Learning / Materi","section":"Isi"},"$preview":{"width":360,"height":440}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const jenis = p.jenis ?? 'rv';
+    const atas = p.judulAtas ?? 'Edukasi Besi Baja';
+    const bawah = p.judulBawah ?? 'SMS Perkasa';
+    const baris = p.teksBaris ?? ['Bedah detail karakteristik material,', 'cara ukur presisi, dan aplikasi proyek'];
+    return {
+      isRv: jenis === 'rv',
+      isIkon: jenis === 'ikon',
+      gayaMerah: 'background: url(' + (p.gambar || '/_blob/0431e3e9af59f92d750099354ff0126e') + ') 75% top / auto 72rem no-repeat, var(--rv-merah)',
+      judulRv: [{ teks: atas }, { teks: bawah, warna: 'var(--ink)' }],
+      judulIkon: [{ teks: atas }, { teks: bawah }],
+      teksSatu: p.teks ?? 'Bedah detail karakteristik material, cara ukur presisi, dan aplikasi proyek',
+      teksBaris: baris.map((teks, i) => ({ teks, putus: i < baris.length - 1 })),
+      labelTombol: p.labelTombol ?? 'Lihat Semua Materi',
+      onTombol: p.onTombol,
+      penyusunAwal: p.penyusunAwal ?? 'Disusun oleh',
+      penyusun: p.penyusun ?? 'tim SMS Perkasa',
+      stat: p.stat ?? [{ angka: '8', label: 'Materi' }, { angka: '31', label: 'Pelajaran' }, { angka: '3', label: 'Topik' }],
+      remah: p.remah ?? 'Learning / Materi'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click":"button:has-text(\"Market News\")"},{"wait":700}]

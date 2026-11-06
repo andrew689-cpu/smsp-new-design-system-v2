@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogPopularHead</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="position: relative; overflow: hidden; box-sizing: border-box; {{ tepi }}; display: flex; flex-direction: column; align-items: flex-start; row-gap: var(--rapat); column-gap: 0; background: var(--surface)">
+  <img src="{{ gambar }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; display: block; pointer-events: none">
+  <span style="position: relative; display: inline-flex; align-items: center; column-gap: 0.6rem; row-gap: 0; box-sizing: border-box; min-height: 3.2rem; padding: 0.4rem 1.4rem; border-radius: var(--pill); background: var(--brand-subtle); font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--brand)"><dc-import name="Icon" ikon="nyala-populer" hint-size="1.5rem,1.5rem"></dc-import>{{ label }}</span>
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" posisi="relative" ukuran="var(--teks-populer)" tinggi="var(--tinggi-artikel-h1)" renggang="0" bobot="var(--bobot-bold)" kapital="tidak" warna="var(--ink)" baris="{{ barisJudul }}" hint-size="100%,3.6rem"></dc-import>
+  <span aria-hidden="true" style="position: relative; display: block; width: 12rem; height: 0.6rem; border-radius: var(--pill); background: var(--brand)"></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tepi":{"editor":"enum","options":["penuh","kanan"],"default":"penuh","section":"Resep"},"gambar":{"editor":"text","default":"/_blob/5bce39256931002559805d7909ce91f6","section":"Gambar"},"label":{"editor":"text","default":"Paling Populer","section":"Isi"},"judul":{"editor":"text","default":"Paling Banyak","section":"Isi"},"judulMerah":{"editor":"text","default":"Dibaca","section":"Isi"},"$preview":{"width":360,"height":170}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return {
+      tepi: p.tepi === 'kanan'
+        ? 'margin-right: calc(-1 * var(--talang)); padding: var(--dalam) var(--talang) var(--rapat) 0'
+        : 'margin-left: calc(-1 * var(--talang)); margin-right: calc(-1 * var(--talang)); padding: var(--dalam) var(--talang) var(--rapat) var(--talang)',
+      gambar: p.gambar ?? '/_blob/5bce39256931002559805d7909ce91f6',
+      label: p.label ?? 'Paling Populer',
+      barisJudul: [{ teks: (p.judul ?? 'Paling Banyak') + ' ', sebaris: true }, { teks: p.judulMerah ?? 'Dibaca', sebaris: true, warna: 'var(--brand)' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

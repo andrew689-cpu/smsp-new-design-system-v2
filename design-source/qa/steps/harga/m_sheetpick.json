@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Daftar bagian halaman\"]"}, {"wait": 600}, {"click": "text=FAQ >> nth=0", "force": true}, {"wait": 800}]

@@ -1,0 +1,1 @@
+[{"click": "button[aria-label=\"Pusat bantuan\"]"}, {"wait": 700}, {"fill": ["input[type=\"text\"]", "Andi"]}, {"fill": ["input[type=\"tel\"]", "08123456789"]}, {"wait": 400}]

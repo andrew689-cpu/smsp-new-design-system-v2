@@ -1,0 +1,78 @@
+{
+ "board": "LearningM4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": true,
+ "gates": {
+  "no_errors": true,
+  "height": true,
+  "width": true,
+  "text": true,
+  "links": true,
+  "images": true,
+  "type_styles": true,
+  "pixels": true
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 4330,
+   "new": 4330,
+   "delta": 0
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": []
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [],
+   "extra": []
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 0.025,
+   "orig_size": [
+    360,
+    4330
+   ],
+   "new_size": [
+    360,
+    4330
+   ],
+   "first_y_over_0.5pct": null,
+   "worst_bands_y_pct": [
+    [
+     200,
+     0.14
+    ],
+    [
+     3000,
+     0.14
+    ],
+    [
+     2600,
+     0.11
+    ],
+    [
+     2800,
+     0.11
+    ],
+    [
+     3200,
+     0.04
+    ]
+   ]
+  }
+ }
+}

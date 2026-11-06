@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Rail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ true }}">
+  <div data-rail-wadah="1" style="position: relative">
+    <div data-rail="1" data-lain-rel="{{ dataSembunyi }}" onScroll="{{ saatGulir }}" style="{{ gayaTrek }}">
+      <sc-if value="{{ adaAnak }}" hint-placeholder-val="{{ false }}">{{ anak }}</sc-if>
+      <sc-for list="{{ butir }}" as="b" hint-placeholder-count="5">
+        <div style="{{ b.gaya }}">
+          <sc-if value="{{ b.isProduk }}" hint-placeholder-val="{{ true }}"><dc-import name="ProductCard" dc-props="{{ b.props }}" hint-size="100%,18rem"></dc-import></sc-if>
+          <sc-if value="{{ b.isKategori }}" hint-placeholder-val="{{ false }}"><dc-import name="CategoryTile" dc-props="{{ b.props }}" hint-size="100%,12rem"></dc-import></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ adaPanahPonsel }}" hint-placeholder-val="{{ false }}">
+      <span style="{{ gayaPrev }}"><dc-import name="IconButton" ikon="chevron-kiri" ukuran="{{ 44 }}" nada="cakram" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaPrev }}" onPress="{{ prev }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+      <span style="{{ gayaNext }}"><dc-import name="IconButton" ikon="chevron" ukuran="{{ 44 }}" nada="cakram" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaNext }}" onPress="{{ next }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+    <sc-if value="{{ adaPanahDesktop }}" hint-placeholder-val="{{ false }}">
+      <span style="{{ gayaPrev }}"><dc-import name="IconButton" ikon="chevron-kiri" ukuran="{{ 44 }}" nada="cakram" cakramUkuran="{{ 40 }}" ikonUkuran="{{ 17 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaPrev }}" onPress="{{ prev }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+      <span style="{{ gayaNext }}"><dc-import name="IconButton" ikon="chevron" ukuran="{{ 44 }}" nada="cakram" cakramUkuran="{{ 40 }}" ikonUkuran="{{ 17 }}" ikonWarna="var(--ink)" ariaLabel="{{ ariaNext }}" onPress="{{ next }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisi }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ gayaKisi }}">
+    <sc-for list="{{ butir }}" as="b" hint-placeholder-count="6">
+      <div style="{{ b.gaya }}">
+        <sc-if value="{{ b.isProduk }}" hint-placeholder-val="{{ true }}"><dc-import name="ProductCard" dc-props="{{ b.props }}" hint-size="100%,18rem"></dc-import></sc-if>
+        <sc-if value="{{ b.isKategori }}" hint-placeholder-val="{{ false }}"><dc-import name="CategoryTile" dc-props="{{ b.props }}" hint-size="100%,12rem"></dc-import></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"items":{"editor":null},"komponen":{"editor":"enum","options":["ProductCard","CategoryTile"],"default":"ProductCard","section":"Resep"},"kolom":{"editor":"int","default":0,"section":"Resep"},"tepi":{"editor":"enum","options":["pertama","kisi"],"default":"pertama","section":"Resep"},"lebar":{"editor":"text","default":"","section":"Tata letak"},"gutter":{"editor":"text","default":"","section":"Tata letak"},"celahY":{"editor":"text","default":"","section":"Tata letak"},"penuh":{"editor":"boolean","default":false,"section":"Resep"},"snap":{"editor":"boolean","default":true,"section":"Resep"},"sembunyi":{"editor":"boolean","default":false,"section":"Resep"},"pad":{"editor":"text","default":"","section":"Tata letak"},"margKanan":{"editor":"text","default":"","section":"Tata letak"},"panah":{"editor":"enum","options":["tanpa","ponsel","desktop"],"default":"tanpa","section":"Resep"},"ariaPrev":{"editor":"text","default":"Ukuran sebelumnya","section":"Isi"},"ariaNext":{"editor":"text","default":"Ukuran berikutnya","section":"Isi"},"tambahLangkah":{"editor":"int","default":2,"section":"Tata letak"},"koleksi":{"editor":"enum","options":["","lain","lain-lama","kategori-foto","indeks"],"default":"","section":"Isi"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Isi"},"hrefButir":{"editor":"text","default":"","section":"Isi"},"hrefUjung":{"editor":"text","default":"","section":"Isi"},"saring":{"editor":"text","default":"","section":"Isi"},"$preview":{"width":345,"height":240}}'>
+class Component extends DCLogic {
+  state = { awal: true, akhir: false };
+  /* Isi bersama antar layar: satu tempat, layar cukup memilih `koleksi`. */
+  isiKoleksi(koleksi, d) {
+    if (!koleksi) return null;
+    const tata = d ? { tata: 'desktop' } : {};
+    const hrefButir = this.props.hrefButir || '';
+    const koma = (n) => String(n).replace('.', ',');
+    const rb = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    const LAIN = [[40, 40, 1.8, 170600], [40, 40, 2.3, 221800], [40, 60, 2, 239700], [30, 30, 2, 142000]];
+    const FOTO_KATEGORI = [['Besi', '/_blob/5643ddd9c2c99d47e1899581a0d4aaa0'], ['Plastik', '/_blob/78165b927b1cd3bd0b5efc7648e1faf3'], ['Stainless Steel', '/_blob/558ec9759aed356ff57a69ffb3751431']];
+    if (koleksi === 'lain') return LAIN.map((c) => Object.assign({ jenis: 'sku-rel' }, tata, { href: hrefButir || (d ? 'DesktopSkuM4.dc.html' : 'RecCreateM4.dc.html'), foto: d ? '/_blob/f6871938e35011e0aa5d1def2aafdf9f' : '/_blob/5db4b8e10723e4ae0eff8ff2dd6664ef', nama: 'Besi Hollow ' + c[0] + ' × ' + c[1] + ' × ' + koma(c[2]) + ' mm × 6 M [STD, NB]', angka: rb(c[3]) }))
+      .concat([Object.assign({ jenis: 'ujung' }, tata, { href: this.props.hrefUjung || (d ? 'DesktopProdukM4.dc.html' : 'RecCreateM4.dc.html'), aria: 'Lihat semua ukuran Besi Hollow Hitam', foto: d ? '/_blob/a82f9a73e8f1a687ae571cfd75cca3b9' : '/_blob/f3df462445d9bdde4d5d6754dc291ed1' })]);
+    if (koleksi === 'lain-lama') {
+      const BERAT = [13.56, 17.33, 18.84, 11.3];
+      const out = [];
+      LAIN.forEach((c, i) => {
+        out.push({ jenis: 'sku-lama', href: hrefButir || 'SalinanProdukPageM4.dc.html', foto: '/_blob/ab47cd3db5ffc927153b8467518ab5c9', nama: 'Besi Hollow ' + c[0] + ' × ' + c[1] + ' × ' + koma(c[2]) + ' mm × 6 M [STD, NB]', angka: rb(c[3]), unit: '/btg', berat: koma(BERAT[i]) + ' kg' });
+        out.push({ jenis: 'ujung-lama', href: hrefButir || 'SalinanProdukPageM4.dc.html', nama: 'Lihat Semua Ukuran' });
+      });
+      return out;
+    }
+    if (koleksi === 'indeks') {
+      const FOTO_DESKTOP = {"Besi Hollow Galvalum": "/_blob/04ef8f24397e0834c7c370508187664b", "Bondek": "/_blob/617ea90bc5d349914d10558213d68a6a"};
+      const saring = String(this.props.saring || '').trim().toLowerCase();
+      return [ ['Atap Galvalum',48,'/_blob/6c0bc8a35b8ee06893797a7a59319d69'],['Atap UPVC',9,'/_blob/fe3192e56a64979040a659d41227f532'],['Besi As S45C',35,'/_blob/701fa266eb25c4f60193b65622d721ed'],['Besi As ST41',34,'/_blob/2145ec443a30ffa4e189d22725ad2b96'], ['Besi Begel',16,'/_blob/2c4e30ae366be332aab73f3a0f8e24aa'],['Besi Beton',10,'/_blob/31aea6bfad3d6009de172f36cf47db15'], ['Besi CNP',52,'/_blob/e75e2d2fb08d3a642356f1cb1aef2fe4'],['Besi H Beam',13,'/_blob/f5be4f0265110d444048a8f7fb76d342'], ['Besi Hollow Galvalum',4,'/_blob/914c4dee7d64f3ba55558dce430e25f8'],['Besi Hollow Galvanis',30,'/_blob/9b73a3dbb17f2db16e00ceec68e965d4'], ['Besi Hollow Hitam',297,'/_blob/3e253621e68085ed4f1ceb648cc0b533'], ['Besi INP',1,'/_blob/41190816b6df2994769c75161945f0e2'],['Besi Nako',17,'/_blob/a44f9c68501f36f9f8b6819ca2477c24'],['Besi Nako Ulir',3,'/_blob/2f283fb3d8fd5efdb7b65674b173b3b6'], ['Besi Siku',32,'/_blob/afbf9d3db78dee3edbdfd256a4405af2'],['Besi UNP',18,'/_blob/7c01234c6e2be6155f4fed6361c66c58'], ['Besi WF',21,'/_blob/59cfcd53ccef894b51c950d62f6fb9bc'],['Bondek',12,'/_blob/7f39b35d3ab9f472800ee56c3d9f10b8'], ['Expanded Metal',34,'/_blob/79dc08de1917a081137e9690e68ce83d'],['Hollow Stainless 201',112,'/_blob/baaa505c8694bdf9ab15c8870b27e078'],['Hollow Stainless 304',114,'/_blob/baaa505c8694bdf9ab15c8870b27e078'], ['Kanal C Galvalum',10,'/_blob/92cecc0aea17f5ac59de80429b161ea3'],['Kawat Bendrat',1,'/_blob/9cf258c5ae1970bbba3eb2fe7ace9f39'],['Pipa Galvanis',48,'/_blob/9e7c0a4d3c5a29432ba57b124e64d961'], ['Pipa Hitam',124,'/_blob/2f0b09d29615e4e4c8cf08b13f273784'],['Pipa Seamless',38,'/_blob/918498f0a0b5ccd3ddf2043d29b748b8'],['Pipa Stainless 201',72,'/_blob/3e3576292a6f6c7323fe7a9b78c4adc0'], ['Pipa Stainless 304',72,'/_blob/3e3576292a6f6c7323fe7a9b78c4adc0'],['Plat Besi Galvalum',3,'/_blob/dcc56128d9dfcad8805614e105f428b1'],['Plat Besi Galvanil',12,'/_blob/0a647c74e2ba2371c2b1fe2c93ab2d64'], ['Plat Besi Galvanis',9,'/_blob/e9bbf1297011b74b044d30b09a1ce3c4'],['Plat Besi Hitam',36,'/_blob/e1474c92af7d2b81503b90b37b2e4758'], ['Plat Besi Putih',11,'/_blob/2f3a1883eceb54f3b050d8bf28333c40'],['Plat Bordes',22,'/_blob/8286c74dd576f8a488241db3dbfc76b8'],['Plat Kapal',44,'/_blob/713d9710fc7c11b65a171d0eaea8ba6e'],['Plat Lubang',129,'/_blob/28868c679ec829281f61e01fb95a9b52'], ['Plat Stainless SS304',12,'/_blob/69a3a03727742bc6c5fbceeed41f06b5'],['Plat Stainless SS316L',12,'/_blob/69a3a03727742bc6c5fbceeed41f06b5'],['Plat Strip',49,'/_blob/6df7fc078ff352955509d2499704412b'], ['Reng Baja Ringan',4,'/_blob/eaba17e08cf2095e44e636547c3fa614'],['Wiremesh',14,'/_blob/88d50d5f1bac06aacb8aa1f89e2168d4'] ]
+        .filter((x) => !saring || x[0].toLowerCase().indexOf(saring) !== -1)
+        .map((x) => ({ jenis: 'indeks', tata: d ? 'desktop' : 'ponsel', nama: x[0], varian: 'Tersedia ' + x[1] + ' varian', aria: x[0] + ', tersedia ' + x[1] + ' varian', foto: (d && FOTO_DESKTOP[x[0]]) || x[2], href: hrefButir || 'RecCreateM4.dc.html' }));
+    }
+    if (koleksi === 'kategori-foto') return FOTO_KATEGORI.map((k) => ({ jenis: 'foto', tata: d ? 'desktop' : 'ponsel', nama: k[0], foto: k[1], aria: 'Kategori ' + k[0], href: hrefButir || (d ? 'DesktopProdukIndexM4.dc.html' : 'ProdukIndexM4.dc.html') }));
+    return null;
+  }
+  renderVals() {
+    const koleksi = this.props.koleksi || '';
+    const d = this.props.tata === 'desktop';
+    const ubinKoleksi = koleksi === 'kategori-foto';
+    const komponen = this.props.komponen ?? (ubinKoleksi ? 'CategoryTile' : 'ProductCard');
+    const kolom = Number(this.props.kolom ?? 0);
+    const tepi = this.props.tepi ?? 'pertama';
+    const kategoriRel = komponen === 'CategoryTile' && !kolom;
+    const lebar = this.props.lebar || (kategoriRel ? '30%' : '48%');
+    const gutter = this.props.gutter || (kolom > 0 ? 'calc(var(--rapat) / 2)' : kategoriRel ? 'calc(var(--jarak-x-tiga) / 2)' : 'calc(var(--selokan-ubin) / 2)');
+    const celahY = this.props.celahY || gutter;
+    const snap = this.props.snap ?? true;
+    const sembunyi = !!this.props.sembunyi;
+    const panah = this.props.panah ?? 'tanpa';
+    const daftar = this.props.items ?? this.isiKoleksi(koleksi, d) ?? [
+      { jenis: 'dasar', nama: 'Besi Hollow Hitam', varian: 'Tersedia 297 varian', foto: '/_blob/3e253621e68085ed4f1ceb648cc0b533' },
+      { jenis: 'dasar', nama: 'Besi Beton', varian: 'Tersedia 10 varian', foto: '/_blob/31aea6bfad3d6009de172f36cf47db15' },
+      { jenis: 'dasar', nama: 'Besi Siku', varian: 'Tersedia 32 varian', foto: '/_blob/afbf9d3db78dee3edbdfd256a4405af2' },
+      { jenis: 'dasar', nama: 'Reng Baja Ringan', varian: 'Tersedia 4 varian', foto: '/_blob/eaba17e08cf2095e44e636547c3fa614' },
+      { jenis: 'dasar', nama: 'Plat Besi Hitam', varian: 'Tersedia 36 varian', foto: '/_blob/e1474c92af7d2b81503b90b37b2e4758' }
+    ];
+    const n = daftar.length;
+    const butir = daftar.map((p, i) => {
+      let gaya;
+      if (kolom > 0) {
+        const kiri = tepi === 'kisi' ? i % kolom === 0 : i === 0;
+        const kanan = tepi === 'kisi' && i % kolom === kolom - 1;
+        gaya = 'display: grid; min-width: 0; margin: ' + (i < kolom ? '0' : celahY) + ' ' + (kanan ? '0' : gutter) + ' ' + (i >= n - kolom ? '0' : celahY) + ' ' + (kiri ? '0' : gutter) + (this.props.penuh ? '; width: 100%' : '');
+      } else {
+        gaya = 'display: grid; flex: 0 0 ' + lebar + '; max-width: 100%; min-width: 0; ' + (snap ? 'scroll-snap-align: start; ' : '') + 'margin-right: ' + gutter + (i === 0 ? '' : '; margin-left: ' + gutter);
+      }
+      return { gaya, props: p, isProduk: komponen === 'ProductCard', isKategori: komponen === 'CategoryTile' };
+    });
+    const anak = this.props.children;
+    const geser = (arah) => (e) => {
+      const wadah = e.currentTarget.closest('[data-rail-wadah]');
+      const el = wadah.querySelector('[data-rail]');
+      if (el) el.scrollBy({ left: arah * (panah === 'desktop' ? el.clientWidth * 0.23 + 16 : el.clientWidth * 0.52 + (this.props.tambahLangkah ?? 2)), behavior: 'smooth' });
+    };
+    const lokasi = panah === 'desktop'
+      ? ['left: -2.2rem; top: 9.5rem', 'right: -2.2rem; top: 9.5rem']
+      : ['left: 0; top: 9.6rem', 'right: 1.6rem; top: 9.6rem'];
+    const tombol = (mati, sisi) => (mati ? 'display: none' : 'display: grid') + '; position: absolute; ' + sisi + '; width: 4.4rem; height: 4.4rem; place-items: center; z-index: 2';
+    return {
+      isRel: !kolom,
+      isKisi: kolom > 0,
+      butir,
+      adaAnak: !!anak,
+      anak,
+      dataSembunyi: sembunyi ? '1' : undefined,
+      saatGulir: panah === 'tanpa' ? undefined : (e) => {
+        const el = e.currentTarget;
+        const awal = el.scrollLeft <= 2;
+        const akhir = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+        if (awal !== this.state.awal || akhir !== this.state.akhir) this.setState({ awal, akhir });
+      },
+      gayaTrek: 'display: flex; column-gap: ' + (anak ? 'calc(' + gutter + ' * 2)' : '0') + '; overflow-x: auto; ' + (snap ? 'scroll-snap-type: x mandatory; ' : '') + (sembunyi ? 'overscroll-behavior-x: contain; scrollbar-width: none; ' : '') + 'margin-right: ' + (this.props.margKanan || (panah !== 'tanpa' ? '0' : 'var(--talang)')) + '; padding: ' + (this.props.pad || 'var(--talang) 0 0 0'),
+      gayaKisi: 'display: grid; grid-template-columns: repeat(' + kolom + ', minmax(0, 1fr)); column-gap: 0; row-gap: 0',
+      adaPanahPonsel: panah === 'ponsel',
+      adaPanahDesktop: panah === 'desktop',
+      gayaPrev: tombol(this.state.awal, lokasi[0]),
+      gayaNext: tombol(this.state.akhir, lokasi[1]),
+      ariaPrev: this.props.ariaPrev ?? 'Ukuran sebelumnya',
+      ariaNext: this.props.ariaNext ?? 'Ukuran berikutnya',
+      prev: geser(-1),
+      next: geser(1)
+    };
+  }
+}
+</script>
+</body>
+</html>

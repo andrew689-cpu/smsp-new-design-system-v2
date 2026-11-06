@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LiveChatPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="{{ akar }}">
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: {{ talang }}; display: flex; flex-direction: column; gap: var(--rapat)">
+    <sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="ChatHeader" gaya="{{ gaya }}" tutupKanan="{{ tutupKanan }}" online="{{ online }}" waHref="{{ waHref }}" telHref="{{ telHref }}" onTutup="{{ onTutup }}" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+      <p style="margin: 0; text-align: center; font-size: var(--teks-tiny); line-height: var(--tinggi-rapat); color: var(--ink-2)">{{ hari }}</p>
+    </sc-if>
+    <div role="log" aria-label="{{ labelLog }}" style="display: flex; flex-direction: column; row-gap: 0.8rem; column-gap: 0">
+      <dc-import name="ChatBubble" tata="{{ tata }}" arah="masuk" teks="{{ salam }}" jam="{{ salamJam }}" hint-size="86%,9rem"></dc-import>
+      <sc-for list="{{ log }}" as="m" hint-placeholder-count="0">
+        <dc-import name="ChatBubble" tata="{{ tata }}" arah="keluar" rupa="{{ rupaKeluar }}" teks="{{ m.t }}" jam="{{ m.jam }}" hint-size="60%,6rem"></dc-import>
+      </sc-for>
+    </div>
+    <sc-if value="{{ komposerDalam }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="ChatComposer" tata="{{ tata }}" gaya="{{ gaya }}" nilai="{{ pesan }}" onUbah="{{ ubahPesan }}" onKirim="{{ kirim }}" hint-size="100%,12rem"></dc-import>
+    </sc-if>
+    <sc-if value="{{ csat }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="CsatRating" nilai="{{ nilaiCsat }}" onNilai="{{ onCsat }}" hint-size="100%,13rem"></dc-import>
+    </sc-if>
+  </div>
+  <sc-if value="{{ komposerTempel }}" hint-placeholder-val="{{ true }}">
+  <div style="position: sticky; bottom: 0; z-index: 3; flex-shrink: 0; box-sizing: border-box; background: var(--surface); box-shadow: 0 -0.1rem 0 var(--line)">
+    <dc-import name="ChatComposer" tata="{{ tata }}" gaya="{{ gaya }}" nilai="{{ pesan }}" onUbah="{{ ubahPesan }}" onKirim="{{ kirim }}" hint-size="100%,7rem"></dc-import>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="HelpBackBar" jenis="polos" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+    </sc-if>
+  </div>
+  </sc-if>
+  <sc-if value="{{ komposerDalam }}" hint-placeholder-val="{{ false }}">
+    <dc-import name="HelpBackBar" jenis="garis" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tutupKanan":{"editor":"boolean","default":false,"section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","blog","sku"],"default":"baku","section":"Resep"},"rupaKeluar":{"editor":"enum","options":["baku","biru"],"default":"baku","section":"Resep"},"online":{"editor":"enum","options":["otomatis","ya","tidak"],"default":"otomatis","section":"Keadaan"},"csat":{"editor":"boolean","default":false,"section":"Keadaan"},"nilaiCsat":{"editor":"int","default":0,"min":0,"max":5,"section":"Keadaan"},"hari":{"editor":"text","default":"Hari ini","section":"Teks"},"salam":{"editor":"text","default":"Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.","section":"Teks"},"salamJam":{"editor":"text","default":"09:41","section":"Teks"},"labelLog":{"editor":"text","default":"Percakapan dengan customer service","section":"Aksesibilitas"},"pesan":{"editor":"text","default":"","section":"Isian"},"log":{"editor":null},"waHref":{"editor":null,"section":"Tautan"},"telHref":{"editor":null,"section":"Tautan"},"onLog":{"editor":null},"onPesan":{"editor":null},"onCsat":{"editor":null},"onKembali":{"editor":null},"onTutup":{"editor":null},"$preview":{"width":360,"height":620}}'>
+class Component extends DCLogic {
+  state = {};
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const ponsel = tata === 'ponsel';
+    const log = this.state.log ?? this.props.log ?? [];
+    const pesan = this.state.pesan ?? this.props.pesan ?? '';
+    const sku = this.props.gaya === 'sku';
+    return {
+      tutupKanan: !!this.props.tutupKanan,
+      tata,
+      isPonsel: ponsel,
+      isDesktop: !ponsel,
+      gaya: this.props.gaya ?? 'baku',
+      akar: (sku ? '' : 'flex-grow: 1; ') + 'display: flex; flex-direction: column; min-height: 0',
+      komposerDalam: sku,
+      komposerTempel: !sku,
+      rupaKeluar: this.props.rupaKeluar || (sku ? 'biru' : 'baku'),
+      talang: ponsel && this.props.gaya !== 'blog' ? 'var(--talang)' : '1.4rem',
+      online: this.props.online,
+      hari: this.props.hari ?? 'Hari ini',
+      labelLog: this.props.labelLog ?? 'Percakapan dengan customer service',
+      salam: this.props.salam ?? 'Halo! Terima kasih telah menghubungi kami. Silakan tulis pesan Anda, dan tim kami akan segera merespons.',
+      salamJam: this.props.salamJam ?? '09:41',
+      log,
+      pesan,
+      csat: !!this.props.csat,
+      nilaiCsat: this.props.nilaiCsat,
+      onCsat: this.props.onCsat,
+      waHref: this.props.waHref,
+      telHref: this.props.telHref,
+      onKembali: this.props.onKembali,
+      onTutup: this.props.onTutup,
+      ubahPesan: (v) => {
+        this.setState({ pesan: v });
+        if (this.props.onPesan) this.props.onPesan(v);
+      },
+      kirim: (t) => {
+        const jam = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        const baru = log.concat([{ t, jam }]);
+        this.setState({ log: baru, pesan: '' });
+        if (this.props.onLog) this.props.onLog(baru);
+        if (this.props.onPesan) this.props.onPesan('');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

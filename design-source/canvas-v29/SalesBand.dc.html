@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SalesBand</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<section aria-label="{{ ariaLabel }}" style="box-sizing: border-box; padding: 4rem var(--talang); background: var(--ink); display: flex; flex-direction: column; row-gap: 1.6rem">
+  <p style="margin: 0; font-size: var(--teks-meta); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-m); text-transform: uppercase; color: var(--rv-merah-muda)">{{ eyebrow }}</p>
+  <dc-import name="Heading" level="{{ 2 }}" varian="polos" font="var(--font-rv-judul)" kapital="ya" ukuran="var(--teks-populer)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--surface)" baris="{{ judul }}" hint-size="100%,8rem"></dc-import>
+  <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-baca); color: var(--rv-pudar)">{{ teks }}</p>
+  <sc-for list="{{ data }}" as="d" hint-placeholder-count="4">
+    <div style="box-sizing: border-box; padding: 1.6rem; border-radius: var(--card); background: var(--rv-kotak); box-shadow: inset 0 0 0 0.1rem var(--rv-kotak-garis); display: flex; flex-direction: column; row-gap: 0.6rem">
+      <span style="font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-m); text-transform: uppercase; color: var(--rv-merah-muda)">{{ d.tag }}</span>
+      <span style="font-size: var(--teks-price); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--surface)">{{ d.judul }}</span>
+      <span style="font-size: var(--teks-body); line-height: var(--tinggi-lega); color: var(--rv-pudar)">{{ d.teks }}</span>
+    </div>
+  </sc-for>
+  <dc-import name="Button" variant="lebar-isi" tinggi="5.6rem" sudut="var(--pill)" gayaTambah="margin-top: 0.4rem; padding: 0 2rem" href="" label="{{ label }}" ikon="panah-pil" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.4 }}" ikonPosisi="akhir" onPress="{{ onTombol }}" hint-size="100%,5.6rem"></dc-import>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ariaLabel":{"editor":"text","default":"Hubungi Sales","section":"Aksesibilitas"},"eyebrow":{"editor":"text","default":"Untuk proyek Anda","section":"Isi"},"judulAtas":{"editor":"text","default":"Butuh bantuan ","section":"Isi"},"judulBawah":{"editor":"text","default":"memilih material?","section":"Isi"},"teks":{"editor":"text","default":"Tim sales kami siap membantu kebutuhan proyek Anda. Siapkan data ini agar lebih cepat.","section":"Isi"},"data":{"editor":null,"section":"Data","tsType":"Array<{tag:string,judul:string,teks:string}>"},"label":{"editor":"text","default":"Hubungi Sales","section":"Isi"},"onTombol":{"editor":null,"section":"Aksi"},"$preview":{"width":360,"height":690}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    return {
+      ariaLabel: p.ariaLabel ?? 'Hubungi Sales',
+      eyebrow: p.eyebrow ?? 'Untuk proyek Anda',
+      judul: [{ teks: p.judulAtas ?? 'Butuh bantuan ' }, { teks: p.judulBawah ?? 'memilih material?', warna: 'var(--rv-merah-muda)' }],
+      teks: p.teks ?? 'Tim sales kami siap membantu kebutuhan proyek Anda. Siapkan data ini agar lebih cepat.',
+      data: p.data ?? [
+        { tag: 'Produk', judul: 'Nama dan ukuran', teks: 'Nama produk, ukuran, atau nomor SKU.' },
+        { tag: 'Jumlah', judul: 'Jumlah per ukuran', teks: 'Berapa batang atau lembar untuk tiap ukuran.' },
+        { tag: 'Lokasi', judul: 'Lokasi proyek', teks: 'Kota atau alamat tujuan pengiriman.' },
+        { tag: 'Waktu', judul: 'Waktu dibutuhkan', teks: 'Kapan material harus sudah sampai.' }
+      ],
+      label: p.label ?? 'Hubungi Sales',
+      onTombol: p.onTombol
+    };
+  }
+}
+</script>
+</body>
+</html>

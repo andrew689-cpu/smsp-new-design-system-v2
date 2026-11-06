@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Besi Hollow Hitam 40 × 40 × 2 mm — detail SKU (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <dc-import name="SiteHeader" tata="desktop" hint-size="100%,12.4rem"></dc-import>
+  <dc-import name="Breadcrumb" varian="sku" hint-size="100%,3.7rem"></dc-import>
+  <div id="s-ringkas" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: 2.4rem var(--sisi) 4rem var(--sisi)">
+    <dc-import name="ProductSummary" tata="desktop" halaman="sku" hint-size="100%,54rem"></dc-import>
+  </div>
+  <div id="s-info" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: var(--seksi) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="ProductInfo" tata="desktop" hint-size="100%,75rem"></dc-import>
+  </div>
+  <div style="box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" warna="var(--ink)" teks="Ukuran Lainnya" hint-size="100%,3.1rem"></dc-import>
+    </div>
+    <dc-import name="Rail" koleksi="lain" tata="desktop" panah="desktop" lebar="23%" gutter="0.8rem" pad="0.4rem 0 1.2rem 0" sembunyi="{{ true }}" hint-size="100%,36rem"></dc-import>
+  </div>
+  <div id="s-faq" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="FaqList" tata="desktop" halaman="sku" hint-size="100%,83rem"></dc-import>
+  </div>
+  <div id="s-ulasan" style="scroll-margin-top: 14.8rem; box-sizing: border-box; padding: calc(var(--seksi) / 2) var(--sisi) calc(var(--footer-jarak) / 2) var(--sisi)">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem">
+      <dc-import name="Heading" level="{{ 2 }}" tata="desktop" warna="var(--ink)" teks="Ulasan Pelanggan" hint-size="100%,3.1rem"></dc-import>
+    </div>
+    <dc-import name="ReviewCarousel" koleksi="produk" tata="desktop" kisi="{{ true }}" hint-size="100%,24rem"></dc-import>
+  </div>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" isiDesktop="ringkas" hint-size="100%,40rem"></dc-import>
+  </div>
+  <dc-import name="DesktopIsland" varian="sku" hint-size="0,0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

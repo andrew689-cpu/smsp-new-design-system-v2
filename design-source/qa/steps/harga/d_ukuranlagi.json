@@ -1,0 +1,1 @@
+[{"click": "button:has-text(\"ukuran lainnya\")"}, {"wait": 500}]

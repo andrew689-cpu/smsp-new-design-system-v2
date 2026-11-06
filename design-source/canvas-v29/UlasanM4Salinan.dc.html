@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Salinan Semua Ulasan — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface)">
+  <dc-import name="ReviewHero" tata="ponsel" hint-size="100%,44rem"></dc-import>
+  <div style="margin: 2.4rem 1.6rem 0 1.6rem">
+    <dc-import name="ReviewMentions" tata="ponsel" hint-size="100%,31rem"></dc-import>
+  </div>
+  <div style="margin-top: 4rem; padding: 0 1.6rem 4rem 1.6rem">
+    <dc-import name="ReviewList" tata="ponsel" hint-size="100%,120rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

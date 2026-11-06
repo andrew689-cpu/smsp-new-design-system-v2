@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Radio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<label style="{{ gaya }}">
+  <input type="radio" data-bul="{{ bul }}" name="{{ kelompok }}" value="{{ nilai }}" checked="{{ terpilih }}" onChange="{{ pilih }}" style="{{ gayaBulat }}">
+  {{ label }}
+</label>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"terpilih":{"editor":null},"label":{"editor":null,"default":"Harga terendah"},"nilai":{"editor":null,"default":"murah"},"kelompok":{"editor":null,"default":"urut"},"onPilih":{"editor":null},"cincin":{"editor":"enum","options":["otomatis","4","5"],"default":"otomatis","section":"Resep"},"tinggiMin":{"editor":"text","default":"","section":"Ukuran"},"padding":{"editor":"text","default":"","section":"Ukuran"},"$preview":{"width":240,"height":44}}'>
+class Component extends DCLogic {
+  state = { pilih: false };
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const dikendalikan = this.props.terpilih !== undefined;
+    const nilai = this.props.nilai ?? 'murah';
+    return {
+      bul: (this.props.cincin ?? 'otomatis') === 'otomatis' ? (desktop ? '18' : '15') : (String(this.props.cincin) === '5' ? '18' : '15'),
+      kelompok: this.props.kelompok ?? 'urut',
+      nilai,
+      label: this.props.label ?? 'Harga terendah',
+      terpilih: dikendalikan ? !!this.props.terpilih : this.state.pilih,
+      pilih: () => {
+        if (!dikendalikan) this.setState({ pilih: true });
+        if (this.props.onPilih) this.props.onPilih(nilai);
+      },
+      gayaBulat: desktop ? 'width: 1.8rem; height: 1.8rem; flex-shrink: 0; margin-right: 0.5rem' : 'width: 1.5rem; height: 1.5rem; flex-shrink: 0; margin-right: 0.5rem',
+      gaya: 'display: flex; align-items: center; column-gap: 0.5rem; cursor: pointer; ' + 'min-height: ' + (this.props.tinggiMin || (desktop ? '4rem' : '3.6rem')) + '; padding: ' + (this.props.padding || (desktop ? '0 0.4rem' : '0 0.8rem')) + '; font-size: ' + (desktop ? 'var(--teks-body)' : 'var(--teks-meta)')
+    };
+  }
+}
+</script>
+</body>
+</html>

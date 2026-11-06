@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Beranda — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="ponsel" hint-size="100%,6.05rem"></dc-import>
+  <dc-import name="SiteHeader" tata="ponsel" nada="tembus" logoKe="beranda" hint-size="100%,5.6rem"></dc-import>
+  <main style="display: flex; flex-direction: column; gap: 0">
+    <dc-import name="SketchRail" rupa="kertas" hint-size="100%,44.2rem"></dc-import>
+    <dc-import name="HomeRail" bagian="kategori" atas="8.1rem" pad="var(--dalam) 0 0 0" hint-size="100%,20rem"></dc-import>
+    <dc-import name="HomeRail" bagian="unggulan" atas="5.8rem" ukuranRel="dua" hint-size="100%,20rem"></dc-import>
+    <dc-import name="HomeRail" bagian="dicari" fotoCari="lama" ukuranRel="dua" hint-size="100%,20rem"></dc-import>
+    <div style="margin-top: 6.1rem; padding: 0 var(--talang)">
+      <dc-import name="PromoCta" jenis="kalkulator" tata="ponsel" hint-size="100%,22.6rem"></dc-import>
+    </div>
+    <div style="margin-top: 4.5rem; padding-left: var(--talang); padding-right: var(--talang)">
+      <div><dc-import name="Heading" teks="Produk terbaru kami" hint-size="100%,2.7rem"></dc-import></div>
+      <dc-import name="SalesBanner" rupa="merah" warnaJudul="tinta" hint-size="100%,46rem"></dc-import>
+    </div>
+    <div style="margin-top: 4.7rem">
+      <dc-import name="ConsultationBanner" rupa="staf" isi="butuh" hint-size="100%,20.1rem"></dc-import>
+    </div>
+    <dc-import name="HomeRail" bagian="sektor" irama="beranda" hint-size="100%,10rem"></dc-import>
+    <div style="margin-top: 4.5rem; margin-left: var(--talang); margin-right: var(--talang)">
+      <dc-import name="Heading" teks="Kenapa harus SMS Perkasa?" hint-size="100%,2.7rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="BeforeAfter" tata="ponsel" hint-size="100%,42rem"></dc-import></div>
+    </div>
+    <div style="margin-top: 5.9rem; padding: 0 var(--talang)">
+      <dc-import name="PartnerLogos" tata="ponsel" halaman="beranda" hint-size="100%,31.4rem"></dc-import>
+    </div>
+    <div style="margin-top: 5.9rem; padding: 0 var(--talang)">
+      <dc-import name="Heading" teks="Ulasan Pelanggan" hint-size="100%,2.7rem"></dc-import>
+      <div style="margin-top: var(--dalam)"><dc-import name="ReviewCarousel" tata="ponsel" umumkan="{{ false }}" hint-size="100%,30rem"></dc-import></div>
+    </div>
+    <div id="m-konsultasi" style="margin-top: 2.2rem">
+      <dc-import name="ConsultationBanner" rupa="staf" isi="temukan" hint-size="100%,20.1rem"></dc-import>
+    </div>
+    <dc-import name="HomeRail" bagian="baru-dilihat" irama="beranda" ukuranRel="dua" hint-size="100%,20rem"></dc-import>
+  </main>
+  <div style="margin-top: 6rem">
+    <dc-import name="Footer" tata="ponsel" kategoriGaya="sedang" irama="beranda" hint-size="100%,181rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

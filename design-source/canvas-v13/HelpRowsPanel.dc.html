@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HelpRowsPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="flex-grow: 1; display: flex; flex-direction: column; min-height: 0">
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: {{ talang }}; display: flex; flex-direction: column; gap: var(--rapat)">
+    <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+      <dc-import name="HelpMenuRow" dc-props="{{ b }}" hint-size="100%,7.6rem"></dc-import>
+    </sc-for>
+    <sc-if value="{{ jadwal }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="OfficeHours" jenis="jadwal" hint-size="100%,7rem"></dc-import>
+    </sc-if>
+  </div>
+  <dc-import name="HelpBackBar" jenis="tempel" onKembali="{{ onKembali }}" hint-size="100%,6rem"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel"},"baris":{"editor":null},"jadwal":{"editor":"boolean","default":false},"onKembali":{"editor":null},"$preview":{"width":360,"height":260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tata = this.props.tata ?? 'ponsel';
+    const bawaan = [
+      { judul: 'Berat Besi Beton', ket: '', ikon: 'kalkulator', ikonDepan: false, href: 'https://www.smsperkasa.com/tools/kalkulator-berat-besi-beton', target: '_blank', rel: 'noopener', ariaLabel: 'Berat Besi Beton, buka di smsperkasa.com' },
+      { judul: 'Kebutuhan Atap', ket: '', ikon: 'beranda', ikonDepan: false, href: 'https://www.smsperkasa.com/tools/kalkulator-atap', target: '_blank', rel: 'noopener', ariaLabel: 'Kebutuhan Atap, buka di smsperkasa.com' }
+    ];
+    return {
+      talang: tata === 'ponsel' ? 'var(--talang)' : '1.4rem',
+      baris: (this.props.baris ?? bawaan).map((b) => ({ tata, ...b })),
+      jadwal: !!this.props.jadwal,
+      onKembali: this.props.onKembali
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>BlogSearchResults</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <section style="{{ gayaAkar }}">
+    <dc-import name="Heading" level="{{ 2 }}" varian="{{ judulVarian }}" tata="ponsel" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    <p style="margin: {{ pAtas }} 0 0 0; font-size: var(--teks-body); font-weight: var(--bobot-light); color: var(--ink-2)">{{ hitung }}</p>
+    <div style="margin-top: {{ daftarAtas }}">
+      <sc-for list="{{ hasil }}" as="k" hint-placeholder-count="3">
+        <dc-import name="BlogCard" dc-props="{{ k }}" hint-size="100%,18.6rem"></dc-import>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <section>
+    <div style="display: flex; align-items: center; row-gap: 1rem; column-gap: 0">
+      <span aria-hidden="true" style="flex-shrink: 0; width: 0.4rem; align-self: stretch; min-height: 2rem; border-radius: var(--pill); background: var(--brand); margin-right: 0.5rem"></span>
+      <span style="display: block; margin-left: 0.5rem; margin-right: 0.5rem"><dc-import name="Heading" level="{{ 2 }}" varian="label" tata="desktop" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import></span>
+    </div>
+    <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-lead); font-weight: var(--bobot-light); color: var(--ink-2)">{{ hitung }}</p>
+    <div style="margin-top: var(--rapat); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0">
+      <sc-for list="{{ baris }}" as="b" hint-placeholder-count="2">
+        <div style="{{ b.gaya }}"><dc-import name="BlogRow" dc-props="{{ b.props }}" hint-size="100%,12rem"></dc-import></div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"gaya":{"editor":"enum","options":["baku","lama"],"default":"baku","section":"Resep"},"judulVarian":{"editor":"enum","options":["label","seksi"],"default":"label","section":"Resep"},"judul":{"editor":"text","default":"Hasil pencarian","section":"Isi"},"hitung":{"editor":"text","default":"1 artikel cocok dengan \"baja\"","section":"Isi"},"hasil":{"editor":null,"section":"Data","tsType":"Array<BlogCard props>"},"$preview":{"width":330,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const desktop = p.tata === 'desktop';
+    const tata = desktop ? 'desktop' : 'ponsel';
+    const hasil = p.hasil ?? [{}];
+    return {
+      isPonsel: !desktop,
+      judulVarian: p.judulVarian ?? 'label',
+      gayaAkar: p.gaya === 'lama' ? 'display: block' : 'display: flex; flex-direction: column; gap: var(--jarak-y-dalam)',
+      pAtas: p.gaya === 'lama' ? '0.8rem' : '0',
+      daftarAtas: p.gaya === 'lama' ? 'var(--rapat)' : '0',
+      isDesktop: desktop,
+      judul: p.judul ?? 'Hasil pencarian',
+      hitung: p.hitung ?? '1 artikel cocok dengan "baja"',
+      hasil: desktop ? [] : hasil.map((k) => ({ tata, ...k })),
+      baris: desktop ? hasil.map((k, i) => ({
+        gaya: i % 2 === 0 ? 'margin-right: calc(var(--seksi) / 2)' : 'margin-left: calc(var(--seksi) / 2)',
+        props: { jenis: 'indeks', tata, ...k }
+      })) : []
+    };
+  }
+}
+</script>
+</body>
+</html>

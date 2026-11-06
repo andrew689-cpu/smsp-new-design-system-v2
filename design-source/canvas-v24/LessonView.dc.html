@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>LessonView</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<article style="padding-top: 0.4rem; display: flex; flex-direction: column; align-items: flex-start; row-gap: 1.6rem">
+  <span style="margin-left: -0.4rem"><dc-import name="Button" variant="kembali-tebal" ukuranTeks="var(--teks-meta)" gayaTambah="line-height: var(--tinggi-artikel)" href="" label="{{ materi }}" ikon="chevron-kiri-lebar" ikonUkuran="{{ 16 }}" ikonGaris="{{ 2.4 }}" onPress="{{ onKembali }}" hint-size="20rem,4.4rem"></dc-import></span>
+  <img src="{{ foto }}" alt="" style="{{ gayaFoto }}">
+  <div style="align-self: stretch; display: flex; flex-direction: column; row-gap: 0.8rem">
+    <span aria-hidden="true" style="display: block; height: 0.4rem; border-radius: var(--pill); background: var(--line); overflow: hidden"><span style="display: block; height: 100%; background: var(--ink); width: {{ persen }}"></span></span>
+    <p style="margin: 0; font-size: var(--teks-chip); line-height: var(--tinggi-tengah); color: {{ warnaMeta }}">{{ posisi }} · {{ menit }}</p>
+    <dc-import name="Heading" level="{{ 1 }}" varian="polos" font="{{ fontJudul }}" kapital="{{ kapital }}" ukuran="{{ ukuranJudul }}" tinggi="{{ tinggiJudul }}" bobot="{{ bobotJudul }}" renggang="{{ renggang }}" rata="left" warna="var(--ink)" margin="0.2rem 0 0 0" teks="{{ judul }}" hint-size="100%,6rem"></dc-import>
+  </div>
+  <sc-for list="{{ isi }}" as="b" hint-placeholder-count="3">
+    <sc-if value="{{ b.adaP }}" hint-placeholder-val="{{ true }}"><p style="margin: 0; font-size: var(--teks-seksi); line-height: var(--tinggi-butir); color: var(--ink)">{{ b.p }}</p></sc-if>
+    <sc-if value="{{ b.adaPoin }}" hint-placeholder-val="{{ false }}"><ul style="margin: 0; padding: 0 0 0 2rem; display: flex; flex-direction: column; row-gap: 0.8rem; font-size: var(--teks-seksi); line-height: var(--tinggi-baca); color: var(--ink)"><sc-for list="{{ b.poin }}" as="x" hint-placeholder-count="3"><li>{{ x.teks }}</li></sc-for></ul></sc-if>
+    <sc-if value="{{ b.adaContoh }}" hint-placeholder-val="{{ false }}"><div style="align-self: stretch; box-sizing: border-box; padding: 1.4rem 1.6rem; background: var(--line); display: flex; flex-direction: column; row-gap: 0.4rem"><p style="margin: 0; font-size: var(--teks-chip); line-height: var(--tinggi-tengah); font-weight: var(--bobot-bold); color: var(--ink)">{{ labelContoh }}</p><p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-baca); color: var(--ink)">{{ b.contoh }}</p></div></sc-if>
+  </sc-for>
+  <p style="margin: 0.8rem 0 0 0; font-size: var(--teks-chip); line-height: var(--tinggi-lega); color: {{ warnaMeta }}">{{ catatan }}</p>
+  <div style="align-self: stretch; display: flex; column-gap: 0.8rem">
+    <sc-if value="{{ adaSebelum }}" hint-placeholder-val="{{ false }}"><dc-import name="Button" variant="lebar-garis" sudut="{{ sudut }}" gayaTambah="flex: 1 1 0; min-width: 0; padding: 0 1rem" href="" label="{{ labelSebelum }}" onPress="{{ onSebelum }}" hint-size="50%,4.8rem"></dc-import></sc-if>
+    <dc-import name="Button" variant="lebar-gelap" sudut="{{ sudut }}" gayaTambah="flex: 1 1 0; min-width: 0; padding: 0 1rem" href="" label="{{ labelBerikut }}" onPress="{{ onBerikut }}" hint-size="50%,4.8rem"></dc-import>
+  </div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"rupa":{"editor":"enum","options":["baku","rv","ikon"],"default":"baku","section":"Resep"},"materi":{"editor":"text","default":"Mengenal Besi dan Baja","section":"Isi"},"foto":{"editor":"text","default":"/_blob/915ec74eaee1f9cf750844653d514177","section":"Gambar"},"nomor":{"editor":"number","default":0,"section":"Data"},"jumlah":{"editor":"number","default":4,"section":"Data"},"menit":{"editor":"text","default":"1 menit baca","section":"Isi"},"judul":{"editor":"text","default":"Besi atau baja, apa bedanya?","section":"Isi"},"blok":{"editor":null,"section":"Data","tsType":"Array<{p?:string,poin?:string[],contoh?:string}>"},"labelContoh":{"editor":"text","default":"Contoh","section":"Isi"},"catatan":{"editor":"text","default":"Materi ini panduan umum. Untuk struktur yang menahan beban, ikuti perhitungan ahli struktur.","section":"Isi"},"labelSebelum":{"editor":"text","default":"Sebelumnya","section":"Isi"},"labelLanjut":{"editor":"text","default":"Berikutnya","section":"Isi"},"labelSelesai":{"editor":"text","default":"Selesai","section":"Isi"},"onKembali":{"editor":null,"section":"Aksi"},"onSebelum":{"editor":null,"section":"Aksi"},"onBerikut":{"editor":null,"section":"Aksi"},"$preview":{"width":330,"height":700}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const rupa = p.rupa ?? 'baku';
+    const rv = rupa === 'rv';
+    const ikon = rupa === 'ikon';
+    const no = p.nomor ?? 0;
+    const n = p.jumlah ?? 4;
+    return {
+      materi: p.materi ?? 'Mengenal Besi dan Baja',
+      foto: p.foto || '/_blob/915ec74eaee1f9cf750844653d514177',
+      gayaFoto: 'margin-top: -0.8rem; ' + (ikon
+        ? 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; box-sizing: border-box; padding: 2.4rem; border-radius: var(--sheet); background: var(--surface); box-shadow: inset 0 0 0 0.1rem var(--line-kuat)'
+        : 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--tile); background: var(--line)'),
+      persen: Math.round((no + 1) / n * 100) + '%',
+      warnaMeta: ikon ? 'var(--ink)' : 'var(--ink-2)',
+      posisi: 'Pelajaran ' + (no + 1) + ' dari ' + n,
+      menit: p.menit ?? '1 menit baca',
+      fontJudul: rv ? 'var(--font-rv-judul)' : undefined,
+      kapital: rv ? 'ya' : 'tidak',
+      ukuranJudul: (rv || ikon) ? 'var(--teks-populer)' : 'var(--teks-page)',
+      tinggiJudul: rv ? 'var(--tinggi-artikel)' : 'var(--tinggi-artikel-h1)',
+      bobotJudul: ikon ? 'var(--bobot-regular)' : 'var(--bobot-bold)',
+      renggang: ikon ? 'var(--renggang-judul)' : '0',
+      judul: p.judul ?? 'Besi atau baja, apa bedanya?',
+      isi: (p.blok ?? [{ p: 'Di lapangan, kata besi dan baja sering dipakai bergantian.' }]).map((b) => ({ adaP: !!b.p, p: b.p || '', adaPoin: !!b.poin, poin: (b.poin || []).map((x) => ({ teks: x })), adaContoh: !!b.contoh, contoh: b.contoh || '' })),
+      labelContoh: p.labelContoh ?? 'Contoh',
+      catatan: p.catatan ?? 'Materi ini panduan umum. Untuk struktur yang menahan beban, ikuti perhitungan ahli struktur.',
+      sudut: (rv || ikon) ? 'var(--pill)' : undefined,
+      adaSebelum: no > 0,
+      labelSebelum: p.labelSebelum ?? 'Sebelumnya',
+      labelBerikut: no === n - 1 ? (p.labelSelesai ?? 'Selesai') : (p.labelLanjut ?? 'Berikutnya'),
+      onKembali: p.onKembali,
+      onSebelum: p.onSebelum,
+      onBerikut: p.onBerikut
+    };
+  }
+}
+</script>
+</body>
+</html>

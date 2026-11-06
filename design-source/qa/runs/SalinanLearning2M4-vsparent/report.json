@@ -1,0 +1,161 @@
+{
+ "board": "SalinanLearning2M4",
+ "viewport": [
+  360,
+  800
+ ],
+ "passed": false,
+ "gates": {
+  "no_errors": true,
+  "height": false,
+  "width": true,
+  "text": false,
+  "links": true,
+  "images": false,
+  "type_styles": true,
+  "pixels": false
+ },
+ "details": {
+  "errors": [],
+  "height": {
+   "orig": 2930,
+   "new": 3174,
+   "delta": 244
+  },
+  "width": {
+   "orig": 360,
+   "new": 360
+  },
+  "text": {
+   "missing": [],
+   "extra": [
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "4",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "pelajaran",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "·",
+    "menit",
+    "menit"
+   ]
+  },
+  "links": {
+   "missing": [],
+   "extra": []
+  },
+  "images": {
+   "missing": [
+    "/_blob/6afe7139a4dc46bbc107697f91689853",
+    "/_blob/14a28d5c6e3c9c0ff3780acf1c8c9a76",
+    "/_blob/efd33831cb0865bb1e27d6e109b1b8c9",
+    "/_blob/99ea1b34e31ca97bedc4ac1a63ef9137",
+    "/_blob/0c270299f0571a6b8820fc6382dfad04",
+    "/_blob/6116d18e70337aa7159096b7e94cc71c",
+    "/_blob/138ffd6718995706d63d67ca8cc8d46d",
+    "/_blob/3d96bc6a23380e784af4fd44c16255b6",
+    "/_blob/5b645a6df2ef0a2eec03d9b705bfee22",
+    "/_blob/313f455a48bcc99bcf79e3cbb58b0059"
+   ],
+   "extra": [
+    "/_blob/e6abee53e8bf41b7ef01156914bcc7f2",
+    "/_blob/45626a8acf7bfd6470218032dc466704",
+    "/_blob/c3f584533079233db96bb3ff4a9948b4",
+    "/_blob/3e718bc7ab6cda584e48720fc28ee7cd",
+    "/_blob/343247a0d251eec4595cb018cff9b4da",
+    "/_blob/e7f2127a766f0219cda3dc23cae0a90f",
+    "/_blob/d20b7834b40029e6a01d7d9e49a55879",
+    "/_blob/6d3373162aceeb585cd97aee2f1f90af",
+    "/_blob/ce14cfbac99380984174bfc46479c179",
+    "/_blob/11b6f83cba0fa51b9699df77e3bf8523"
+   ]
+  },
+  "type_styles": [],
+  "type_styles_count": 0,
+  "pixels": {
+   "pct": 21.836,
+   "orig_size": [
+    360,
+    2930
+   ],
+   "new_size": [
+    360,
+    3174
+   ],
+   "first_y_over_0.5pct": 200,
+   "worst_bands_y_pct": [
+    [
+     1200,
+     83.12
+    ],
+    [
+     1000,
+     68.13
+    ],
+    [
+     400,
+     30.41
+    ],
+    [
+     800,
+     28.53
+    ],
+    [
+     600,
+     27.93
+    ],
+    [
+     2200,
+     14.28
+    ],
+    [
+     2000,
+     13.29
+    ],
+    [
+     2400,
+     11.87
+    ],
+    [
+     1800,
+     8.82
+    ],
+    [
+     1400,
+     8.78
+    ]
+   ]
+  }
+ }
+}

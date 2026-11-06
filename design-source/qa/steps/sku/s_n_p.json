@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Cari di seluruh SMS Perkasa\"]", "wait": 700}, {"click": "button:has-text(\"Wiremesh\")", "wait": 500}]

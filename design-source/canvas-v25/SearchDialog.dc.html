@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SearchDialog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ terbuka }}" hint-placeholder-val="{{ true }}">
+  <div role="{{ peran }}" aria-label="{{ ariaLabel }}" style="{{ gayaAkar }}">
+    <div style="{{ gayaGulir }}">
+      <sc-if value="{{ kosong }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: {{ selaKepala }}; margin-top: {{ atasKepala }}">
+            <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-d); text-transform: uppercase; color: var(--ink-2); margin-right: {{ kananKepala }}">Pencarian terakhir</p>
+            <sc-if value="{{ tutupDiAtas }}" hint-placeholder-val="{{ false }}">
+              <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(-1rem + calc(var(--rapat) / 2))"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 44 }}" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="Tutup pencarian" onPress="{{ tutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; row-gap: 0.8rem; column-gap: 0; margin-top: 1rem">
+            <sc-for list="{{ recent }}" as="rc" hint-placeholder-count="3">
+              <span style="display: flex; margin-left: {{ rc.kiri }}; margin-right: 0.4rem"><dc-import name="Chip" jenis="garis" label="{{ rc.l }}" onPress="{{ rc.pakai }}" hint-size="9rem,3.6rem"></dc-import></span>
+            </sc-for>
+          </div>
+          <p style="margin: 2.4rem 0 0 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-d); text-transform: uppercase; color: var(--ink-2)">Pencarian pilihan</p>
+          <div style="margin-top: 0.6rem">
+            <sc-for list="{{ populer }}" as="pp" hint-placeholder-count="6">
+              <dc-import name="SearchRow" judul="{{ pp.n }}" sub="{{ pp.sub }}" gambar="{{ pp.img }}" warnaJudul="var(--produk-nama)" sudut="{{ sudutBaris }}" onPress="{{ pp.pakai }}" hint-size="100%,5.6rem"></dc-import>
+            </sc-for>
+          </div>
+          <p style="margin: 2.4rem 0 0 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-d); text-transform: uppercase; color: var(--ink-2)">Kategori produk</p>
+          <div style="display: flex; flex-wrap: wrap; row-gap: 0.8rem; column-gap: 0; margin-top: 1rem">
+            <sc-for list="{{ kategori }}" as="kt" hint-placeholder-count="8">
+              <span style="display: flex; margin-left: {{ kt.kiri }}; margin-right: 0.4rem"><dc-import name="Chip" jenis="isi" label="{{ kt.l }}" onPress="{{ kt.pakai }}" hint-size="12rem,3.6rem"></dc-import></span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ adaQ }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; row-gap: var(--rapat); column-gap: {{ selaKepala }}; margin-top: 1.4rem">
+            <p aria-live="polite" style="margin: 0; font-size: var(--teks-meta); color: var(--ink-2); margin-right: {{ kananKepala }}">{{ ringkas }}</p>
+            <sc-if value="{{ tutupDiAtas }}" hint-placeholder-val="{{ false }}">
+              <span style="display: flex; flex-shrink: 0; margin-left: calc(var(--rapat) / 2); margin-right: calc(-1rem + calc(var(--rapat) / 2))"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 44 }}" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="Tutup pencarian" onPress="{{ tutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+            </sc-if>
+          </div>
+          <sc-for list="{{ grup }}" as="cg" hint-placeholder-count="3">
+            <div style="margin-top: 2rem">
+              <p style="margin: 0; font-size: var(--teks-meta); font-weight: var(--bobot-bold); letter-spacing: var(--renggang-label-d); text-transform: uppercase; color: var(--ink-2)">{{ cg.h }}</p>
+              <div style="margin-top: 0.4rem">
+                <sc-for list="{{ cg.items }}" as="it" hint-placeholder-count="4">
+                  <dc-import name="SearchRow" dc-props="{{ it }}" hint-size="100%,5.6rem"></dc-import>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ nihil }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 2.8rem 0 0 0; font-size: var(--teks-body); line-height: var(--tinggi-sedang); color: var(--ink-2); text-align: justify; -webkit-hyphens: auto; hyphens: auto">{{ teksNihil }}</p>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ isCincin }}" hint-placeholder-val="{{ true }}">
+      <div style="flex-shrink: 0; box-sizing: border-box; display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0; min-height: 5.6rem; padding: 0.6rem 1rem; box-shadow: 0 -0.1rem 0 var(--line)">
+        <span style="flex-grow: 1; min-width: 0; display: flex; margin-right: 0.3rem"><dc-import name="SearchField" tata="dialog" nilai="{{ q }}" placeholder="{{ placeholder }}" onUbah="{{ ubah }}" onHapus="{{ hapus }}" hint-size="100%,4.8rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.3rem; margin-right: calc(-0.4rem + 0.3rem)"><dc-import name="IconButton" ikon="tutup" ukuran="{{ 44 }}" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.2 }}" ikonWarna="var(--ink)" ariaLabel="Tutup pencarian" onPress="{{ tutup }}" hint-size="4.4rem,4.4rem"></dc-import></span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isApung }}" hint-placeholder-val="{{ false }}">
+      <div style="box-sizing: border-box; background: var(--surface); box-shadow: var(--bayang-lama); border-radius: var(--sudut-lama-kolom); padding: 0.6rem; display: flex; align-items: center; row-gap: 0.6rem; column-gap: 0">
+        <span style="flex-grow: 1; min-width: 0; display: flex; margin-right: 0.3rem"><dc-import name="SearchField" tata="abu" id="{{ idKolom }}" ikonHapus="{{ ikonHapus }}" bisaHapus="{{ bisaHapus }}" nilai="{{ q }}" onUbah="{{ ubah }}" onHapus="{{ hapus }}" placeholder="{{ placeholder }}" hint-size="100%,4.4rem"></dc-import></span>
+        <span style="display: flex; flex-shrink: 0; margin-left: 0.3rem; margin-right: 0.3rem"><dc-import name="Button" variant="batal" label="Tutup" onPress="{{ tutup }}" hint-size="6rem,4.4rem"></dc-import></span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isAbu }}" hint-placeholder-val="{{ false }}">
+      <div style="flex-shrink: 0; box-sizing: border-box; display: flex; align-items: center; gap: 0.6rem; min-height: 5.6rem; padding: 0.6rem 1rem; box-shadow: 0 -0.1rem 0 var(--line)">
+        <span style="flex-grow: 1; min-width: 0; display: flex"><dc-import name="SearchField" tata="abu" sudut="var(--action)" bisaHapus="{{ adaQ }}" nilai="{{ q }}" onUbah="{{ ubah }}" onHapus="{{ hapus }}" placeholder="{{ placeholder }}" hint-size="100%,4.4rem"></dc-import></span>
+      </div>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ perluHarga }}" hint-placeholder-val="{{ false }}"><dc-import name="DataHarga" onData="{{ terimaHarga }}" hint-size="0,0"></dc-import></sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"barisHarga":{"editor":null},"varian":{"editor":"enum","options":["cincin","abu","apung"],"default":"cincin","section":"Resep"},"terbuka":{"editor":"boolean","default":true,"section":"Keadaan"},"kueri":{"editor":null,"section":"Keadaan"},"ariaLabel":{"editor":"text","default":"Cari di seluruh SMS Perkasa","section":"Isi"},"placeholder":{"editor":"text","default":"Cari produk, ukuran, atau info","section":"Isi"},"teksNihil":{"editor":"text","default":"Tidak ada yang cocok. Coba kata lain, atau hubungi tim sales kami lewat tombol di kanan bawah.","section":"Isi"},"recent":{"editor":null,"section":"Isi","tsType":"string[]"},"populer":{"editor":null,"section":"Isi","tsType":"Array<{n:string,sub:string,img:string}>"},"kategori":{"editor":null,"section":"Isi","tsType":"string[]"},"barisSku":{"editor":null,"section":"Isi","tsType":"Array<{a:number,b:number,tb?:string,t?:number,harga?:number,p?:number}>"},"grup":{"editor":null,"section":"Isi","tsType":"Array<{h:string,items:Array<{n:string,sub:string,img?:string,onPress?:Function}>}>"},"onUbah":{"editor":null},"onHapus":{"editor":null},"onTutup":{"editor":null},"korpus":{"editor":"enum","options":["baku","lama"],"default":"baku","section":"Isi"},"idKolom":{"editor":"text","default":"","section":"Isi"},"ikonHapus":{"editor":"text","default":"","section":"Isi"},"hapusSelalu":{"editor":"boolean","default":false,"section":"Isi"},"tertanam":{"editor":"boolean","default":false,"section":"Resep"},"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  state = { q: '' };
+  // Korpus pencarian situs: satu tempat untuk semua halaman. SKU per halaman masuk lewat barisSku; grup menggantikan seluruh hasil.
+  korpus() {
+    const TREE = [
+      ['Besi Hollow dan Pipa Bulat', ['Besi Hollow Hitam', 'Pipa Seamless', 'Pipa Hitam', 'Pipa Galvanis', 'Besi Hollow Galvanis']],
+      ['Besi Kawat', ['Wiremesh', 'Kawat Bendrat', 'Besi Begel']],
+      ['Plat Besi', ['Plat Besi Hitam', 'Plat Kapal', 'Plat Bordes', 'Plat Besi Galvanis', 'Plat Lubang', 'Plat Besi Putih', 'Plat Besi Galvalum', 'Plat Besi Galvanil', 'Expanded Metal']],
+      ['Besi Batangan', ['Besi Beton', 'Plat Strip', 'Besi As ST41', 'Besi As S45C', 'Besi Nako', 'Besi Nako Ulir']],
+      ['Baja Ringan', ['Besi Hollow Galvalum', 'Kanal C Galvalum', 'Reng Baja Ringan']],
+      ['Plat Gelombang', ['Bondek', 'Atap Galvalum']],
+      ['Besi Profil Struktural', ['Besi CNP', 'Besi Siku', 'Besi WF', 'Besi H Beam', 'Besi UNP', 'Besi INP']],
+      ['Atap', ['Atap UPVC']]
+    ];
+    const COUNT = { 'Besi Hollow Hitam': 297, 'Besi Beton': 10, 'Wiremesh': 16, 'Plat Besi Hitam': 54, 'Besi CNP': 120, 'Besi Siku': 35, 'Besi WF': 15 };
+    const IMG = {
+      'Besi Hollow Hitam': '/_blob/928b84bafaf16246170e60dc1a770fc0', 'Besi Beton': '/_blob/50686b8e03284de6842ecb5d2840032d',
+      
+      
+      
+      
+      
+      
+      
+      
+      'Wiremesh': '/_blob/2f0e519d8e8ec397d9c2c6d971788eef', 'Plat Besi Hitam': '/_blob/e1474c92af7d2b81503b90b37b2e4758',
+      'Besi CNP': '/_blob/baf32a1187b00ce8dfb51a4627d7a4b6', 'Besi Siku': '/_blob/05647cd4dfc831d7d827b044a051fd2e',
+      'Besi WF': '/_blob/2dd626b92633150dfefad568b9c0c59d'
+    };
+    const beton = [
+      ['BBTP-6280-12NB', 'polos', 6, 'NB', 2.66, 28900], ['BBTP-8280-12JAS', 'polos', 8, 'JAS', 4.74, 51000],
+      ['BBTP-10280-12JAS', 'polos', 10, 'JAS', 7.4, 78100], ['BBTP-12280-12JAS', 'polos', 12, 'JAS', 10.66, 113600],
+      ['BBTU-10420B-12JAS', 'ulir', 10, 'JAS', 7.4, 79600], ['BBTU-13420B-12JAS', 'ulir', 13, 'JAS', 12.48, 134200],
+      ['BBTU-16420B-12JAS', 'ulir', 16, 'JAS', 18.96, 204800], ['BBTU-19420B-12JAS', 'ulir', 19, 'JAS', 26.76, 290400],
+      ['BBTU-22420B-12JAS', 'ulir', 22, 'JAS', 35.81, 388600], ['BBTU-25420B-12JAS', 'ulir', 25, 'JAS', 46.2, 503600]
+    ];
+    const halaman = [
+      ['Bantuan dan FAQ', 'Pertanyaan yang sering diajukan'], ['Kalkulator Berat', 'Hitung berat dari ukuran dan jumlah'],
+      ['Cara Pemesanan', 'Dari tanya harga sampai barang dikirim'], ['Lokasi Gudang', 'Surabaya · Tangerang'],
+      ['Tentang Kami', 'PT. Sumber Makmur Surya Perkasa'], ['Waspada penipuan', 'Transaksi sah hanya ke rekening a/n PT. Sumber Makmur Surya Perkasa'],
+      ['Berapa panjang besi hollow per batang?', 'FAQ · Besi Hollow Hitam'], ['Apakah besi hollow hitam perlu dicat?', 'FAQ · Besi Hollow Hitam'],
+      ['Dari gudang mana barang dikirim?', 'FAQ · Pengiriman'], ['Blog SMS Perkasa', 'Artikel dan tips material konstruksi']
+    ];
+    if (this.props.korpus === 'lama') IMG['Plat Besi Hitam'] = '/_blob/4d36d41d6c4360add29ebf1a61c9e305';
+    const SKU = this.state.barisHarga || [];
+    return { TREE, COUNT, IMG, beton, halaman, SKU };
+  }
+  cocok(hay, toks) {
+    const sisa = hay.split(/[^0-9a-z,.]+/).filter((x) => x);
+    for (let i = 0; i < toks.length; i++) {
+      const j = sisa.findIndex((s) => s.indexOf(toks[i]) === 0);
+      if (j === -1) return false;
+      sisa.splice(j, 1);
+    }
+    return true;
+  }
+  renderVals() {
+    return Object.assign(this.nilaiDasar(), { perluHarga: true, terimaHarga: (baris) => this.setState({ barisHarga: baris }) });
+  }
+  nilaiDasar() {
+    const varian = this.props.varian ?? 'cincin';
+    const isAbu = varian === 'abu';
+    const isApung = varian === 'apung';
+    const K = this.korpus();
+    const dikendalikan = this.props.kueri !== undefined;
+    const q = dikendalikan ? this.props.kueri : this.state.q;
+    const qSitus = (q || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    const toks = qSitus ? qSitus.split(' ') : [];
+    const atur = (nilai) => {
+      if (!dikendalikan) this.setState({ q: nilai });
+      if (this.props.onUbah) this.props.onUbah(nilai);
+    };
+    const pakai = (kata) => () => atur(kata);
+    let grup = this.props.grup;
+    if (grup === undefined && qSitus) {
+      const rp = (n) => 'Rp ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      const koma = (n) => String(n).replace('.', ',');
+      const produk = [];
+      K.TREE.forEach((g) => g[1].forEach((n) => produk.push({ n, grup: g[0], jml: K.COUNT[n] || 0, img: K.IMG[n] || '' })));
+      const pr = produk.filter((x) => this.cocok((x.n + ' ' + x.grup).toLowerCase(), toks)).slice(0, 6).map((x) => ({ n: x.n, sub: x.jml ? x.jml + ' SKU · ' + x.grup : x.grup, img: x.img }));
+      const sk = [];
+      (this.props.barisSku ?? K.SKU.map((r) => ({ a: r[0], b: r[1], t: r[2], p: r[4] }))).forEach((r) => {
+        if (sk.length >= 6) return;
+        const tb = r.tb ?? koma(r.t);
+        if (this.cocok(('besi hollow hitam ' + r.a + ' ' + r.b + ' ' + tb).toLowerCase(), toks)) sk.push({ n: r.a + ' × ' + r.b + ' × ' + tb + ' mm × 6 M', sub: 'Besi Hollow Hitam · ' + rp(r.harga ?? r.p) + ' per batang', img: K.IMG['Besi Hollow Hitam'] });
+      });
+      K.beton.forEach((r) => {
+        if (sk.length >= 8) return;
+        if (this.cocok(('besi beton ' + r[1] + ' ' + r[2] + ' ' + r[3] + ' ' + r[0]).toLowerCase(), toks)) sk.push({ n: 'Besi Beton ' + r[1] + ' Ø' + r[2] + ' mm · ' + r[3], sub: koma(r[4]) + ' kg · ' + rp(r[5]) + ' per batang', img: K.IMG['Besi Beton'] });
+      });
+      const hl = K.halaman.filter((x) => this.cocok((x[0] + ' ' + x[1]).toLowerCase(), toks)).slice(0, 5).map((x) => ({ n: x[0], sub: x[1], img: '' }));
+      grup = [];
+      if (pr.length) grup.push({ h: 'Produk', items: pr });
+      if (sk.length) grup.push({ h: 'SKU', items: sk });
+      if (hl.length) grup.push({ h: 'Halaman', items: hl });
+    }
+    grup = grup || [];
+    const nHasil = grup.reduce((a, g) => a + g.items.length, 0);
+    const placeholder = this.props.placeholder ?? 'Cari produk, ukuran, atau info';
+    const recent = this.props.recent ?? ['40 40 2', 'besi beton ulir 13', 'wiremesh'];
+    const populer = this.props.populer ?? ['Besi Hollow Hitam', 'Besi Beton', 'Wiremesh', 'Plat Besi Hitam', 'Besi CNP', 'Besi Siku'].map((n) => ({ n, sub: (K.COUNT[n] || 0) + ' SKU', img: K.IMG[n] || '' }));
+    const kategori = this.props.kategori ?? K.TREE.map((g) => g[0]);
+    return {
+      terbuka: this.props.terbuka ?? true,
+      ariaLabel: this.props.ariaLabel ?? 'Cari di seluruh SMS Perkasa',
+      placeholder,
+      q,
+      isCincin: !isAbu && !isApung,
+      isApung,
+      peran: isApung ? undefined : 'dialog',
+      gayaAkar: isApung && this.props.tertanam
+        ? 'display: flex; flex-direction: column; align-items: stretch; gap: var(--rapat)'
+        : isApung
+        ? 'position: fixed; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; box-sizing: border-box; padding: 0 1.2rem; bottom: 3.4rem; z-index: 9999; display: flex; flex-direction: column; align-items: stretch; gap: var(--rapat)'
+        : 'position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 36rem; max-width: 100%; z-index: 9999; box-sizing: border-box; background: var(--surface); display: flex; flex-direction: column',
+      gayaGulir: isApung
+        ? 'box-sizing: border-box; background: var(--surface); box-shadow: var(--bayang-lama); border-radius: var(--sudut-lama-baris); max-height: 39.2rem; overflow-y: auto; padding: 0.4rem 1.4rem 1.4rem 1.4rem'
+        : 'flex-grow: 1; min-height: 0; overflow-y: auto; box-sizing: border-box; padding: 0.4rem 1.6rem 1.8rem 1.6rem',
+      atasKepala: isApung ? '1.4rem' : '0.4rem',
+      sudutBaris: isApung ? 'var(--sudut-lama)' : 'var(--tile)',
+      isAbu,
+      tutupDiAtas: isAbu,
+      selaKepala: isAbu ? '0' : 'var(--rapat)',
+      kananKepala: isAbu ? 'calc(var(--rapat) / 2)' : '0',
+      kosong: qSitus === '',
+      adaQ: qSitus !== '',
+      idKolom: this.props.idKolom || undefined,
+      ikonHapus: this.props.ikonHapus || undefined,
+      bisaHapus: !!this.props.hapusSelalu || qSitus !== '',
+      nihil: qSitus !== '' && nHasil === 0,
+      ringkas: nHasil + ' hasil untuk “' + (q || '').trim() + '”',
+      teksNihil: this.props.teksNihil ?? 'Tidak ada yang cocok. Coba kata lain, atau hubungi tim sales kami lewat tombol di kanan bawah.',
+      recent: recent.map((l, i) => ({ l, pakai: pakai(l), kiri: i === 0 ? '0' : '0.4rem' })),
+      populer: populer.map((p) => ({ n: p.n, sub: p.sub, img: p.img, pakai: pakai(p.n) })),
+      kategori: kategori.map((l, i) => ({ l, pakai: pakai(l), kiri: i === 0 ? '0' : '0.4rem' })),
+      grup: grup.map((g) => ({
+        h: g.h,
+        items: g.items.map((it) => ({ judul: it.n, sub: it.sub, gambar: it.img || '', barisRapat: true, warnaJudul: (isAbu || isApung) ? undefined : 'var(--produk-nama)', sudut: isApung ? 'var(--sudut-lama)' : 'var(--tile)', onPress: it.onPress }))
+      })),
+      ubah: (nilai) => atur(nilai),
+      hapus: () => {
+        if (!dikendalikan) this.setState({ q: '' });
+        if (this.props.onHapus) this.props.onHapus();
+        if (this.props.onUbah) this.props.onUbah('');
+      },
+      tutup: () => {
+        if (!dikendalikan) this.setState({ q: '' });
+        if (this.props.onTutup) this.props.onTutup();
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

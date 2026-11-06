@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>ArticleBody</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isPonsel }}" hint-placeholder-val="{{ true }}">
+  <div data-isi-artikel="1" style="margin-top: {{ jarakAtas }}; display: flex; flex-direction: column; row-gap: {{ jarakBaris }}">
+    <sc-for list="{{ bagian }}" as="bg" hint-placeholder-count="3">
+      <section id="{{ bg.id }}" style="margin-top: {{ bg.atas }}; scroll-margin-top: 5.6rem; display: flex; flex-direction: column; gap: var(--jarak-y-dalam)">
+        <sc-for list="{{ bg.blok }}" as="b" hint-placeholder-count="6">
+          <dc-import name="ArticleProse" dc-props="{{ b }}" hint-size="100%,8rem"></dc-import>
+        </sc-for>
+      </section>
+    </sc-for>
+    <sc-if value="{{ adaTautan }}" hint-placeholder-val="{{ true }}">
+      <span style="margin-top: {{ tautanAtas }}; display: flex; align-self: flex-start"><dc-import name="Button" dc-props="{{ tautanProps }}" hint-size="20rem,4rem"></dc-import></span>
+    </sc-if>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="margin-top: var(--seksi)">
+    <sc-for list="{{ blokD }}" as="b" hint-placeholder-count="8">
+      <dc-import name="ArticleProse" dc-props="{{ b }}" hint-size="100%,8rem"></dc-import>
+    </sc-for>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"irama":{"editor":"enum","options":["artikel","lama"],"default":"artikel","section":"Resep"},"jarakAtas":{"editor":"text","default":"var(--jarak-y-antar-rapat)","section":"Tata letak"},"blok":{"editor":null,"section":"Data","tsType":"Array<{t:string,x?:string,foto?:string,alt?:string,items?:string[],rows?:string[][]}>"},"tautan":{"editor":null,"section":"Data","tsType":"{label:string,href:string,ariaLabel?:string}|null"},"celah":{"editor":null,"section":"Tata letak","tsType":"string[]"},"rasio":{"editor":"enum","options":["persegi","asli"],"default":"persegi","section":"Resep"},"celahOtomatis":{"editor":"boolean","default":false,"section":"Tata letak"},"$preview":{"width":330,"height":1500}}'>
+class Component extends DCLogic {
+  state = { celahUkur: null };
+  // Artikel pilihan: jarak antarbagian mengikuti rasio tinggi tetangganya, rumus jarak kanvas ini.
+  _ukur() {
+    if (!this.props.celahOtomatis) return;
+    const w = document.querySelector('[data-isi-artikel="1"]');
+    if (!w) return;
+    const anak = Array.prototype.filter.call(w.children, (el) => el.offsetHeight);
+    const nilai = anak.slice(1).map((el, i) => {
+      const f = Math.min(1.4, Math.max(0.75, Math.pow(anak[i].offsetHeight / el.offsetHeight, 0.35)));
+      return 'calc(var(--jarak-y-antar-rapat) * ' + Math.round(f * 30) + ' / 30)';
+    });
+    if (nilai.join() !== (this.state.celahUkur || []).join()) this.setState({ celahUkur: nilai });
+  }
+  componentDidMount() {
+    this._ukur();
+    const w = document.querySelector('[data-isi-artikel="1"]');
+    if (w && window.ResizeObserver) { this._ro = new ResizeObserver(() => this._ukur()); this._ro.observe(w); }
+  }
+  componentDidUpdate() { this._ukur(); }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+  renderVals() {
+    const desktop = this.props.tata === 'desktop';
+    const tata = desktop ? 'desktop' : 'ponsel';
+    const BLOK = this.props.blok ?? [
+      { t: 'p', x: 'Banyak pelaksana proyek terjebak memotong anggaran material tanpa memikirkan konsekuensi batas layan jangka panjang. Penggunaan komponen non-standar memicu penurunan performa bangunan yang membahayakan ribuan nyawa. Standarisasi material merupakan instrumen wajib untuk mengeliminasi drama kegagalan struktur di lapangan.' },
+      { t: 'h2', x: 'Parameter Standar Regulasi Struktur Baja Bangunan Menurut SNI 1729:2020' },
+      { t: 'p', x: 'Perancangan komponen fabrikasi logam di Indonesia wajib mengacu pada regulasi SNI 1729:2020 . Regulasi ini menetapkan spesifikasi ketat mengenai batas kekuatan dan ketahanan leleh profil baja struktural untuk bangunan gedung.' },
+      { t: 'h3', x: 'Detail Teknis Batas Kompak Penampang' },
+      { t: 'p', x: 'Berdasarkan tabel batas kelangsingan SNI 1729:2020, rasio lebar-tebal (⋋) untuk elemen tekan tidak tersentuh (sayap profil I/H) harus memenuhi syarat rasio batas plastis (⋋p):' },
+      { t: 'table', rows: [['Parameter Mekanis', 'Standar SS400 (SNI/JIS)', 'Konsekuensi Jika Non-Standar'], ['Kuat Luluh ( Fy )', 'Minimal 235 MPa', 'Profil melentur permanen di bawah beban desain.'], ['Kuat Tarik ( Fu )', '400 – 510 MPa', 'Risiko keruntuhan getas tanpa peringatan defleksi.'], ['Regangan Minimum', '17 – 21%', 'Material retak saat proses fabrikasi atau pengelasan.']] },
+      { t: 'h2', x: 'Kapan Memilih H-Beam atau WF?' },
+      { t: 'blockquote', x: 'Total Berat Baja Struktural Murni: > 661,5 kg + 621,6 kg + 532,8 kg = 1.815,9 kg (Catatan: Estimasi di atas belum termasuk komponen bresing, plat buhul, dan sambungan baut).' },
+      { t: 'img', foto: '/_blob/f1a8ad417f4da1119cfc399a91492b76', alt: 'Diagram teknik denah layout grid struktur baja bangunan ruang kelas sekolah rakyat ukuran 7x9 meter.' },
+      { t: 'list', items: ['Jumlah kolom: 6 titik penyangga', 'Total panjang kolom: 6 titik × 3,5 meter = 21 meter', 'Total berat kolom H-Beam: 21 meter × 31,5 kg/m = 661,5 kg'] },
+      { t: 'h2', x: 'FAQ' },
+      { t: 'p', x: 'Q: Berapa ukuran baja H-Beam minimum yang aman untuk kolom bangunan sekolah dua lantai?' },
+      { t: 'p', x: 'A: Dimensi minimum kolom utama penunjang untuk gedung fasilitas publik dua lantai disarankan menggunakan ukuran H-Beam 150×150 mm dengan berat nominal 31,5 kg/m.' }
+    ];
+    // Paragraf berawalan "Q: " dan "A: " dipisah; awalannya dibuang dari teks yang tampil.
+    const kePecahan = (b) => {
+      const x = b.x || '';
+      const isQ = b.t === 'p' && x.indexOf('Q: ') === 0;
+      const isA = b.t === 'p' && x.indexOf('A: ') === 0;
+      const peta = { p: isQ ? 'tanya' : isA ? 'jawab' : 'p', h2: 'h2', h3: 'h3', blockquote: 'kutipan', img: 'gambar', list: 'daftar', table: 'tabel', ket: 'keterangan' };
+      const props = { jenis: peta[b.t] || 'p', tata };
+      if (this.props.irama) props.irama = this.props.irama;
+      if (b.t === 'img') { props.foto = b.foto; props.alt = b.alt; if (this.props.rasio) props.rasio = this.props.rasio; }
+      else if (b.t === 'list') props.butir = b.items || [];
+      else if (b.t === 'table') props.baris = b.rows || [];
+      else props.teks = (isQ || isA) ? x.slice(3) : x;
+      return props;
+    };
+    // Ponsel: blok dikelompokkan per h2. id bab-N sama dengan yang dibangkitkan TableOfContents.
+    const bagian = [];
+    let babKe = 0;
+    BLOK.forEach((b) => {
+      if (b.t === 'h2') {
+        babKe += 1;
+        bagian.push({ id: 'bab-' + babKe, blok: [] });
+      } else if (!bagian.length) {
+        bagian.push({ id: 'pembuka', blok: [] });
+      }
+      bagian[bagian.length - 1].blok.push(kePecahan(b));
+    });
+    const celah = this.props.celahOtomatis ? (this.state.celahUkur || undefined) : this.props.celah;
+    bagian.forEach((bg, i) => { bg.atas = (celah && i > 0) ? celah[i - 1] : '0'; });
+    const tautan = this.props.tautan === undefined
+      ? { label: 'Lihat Detail smsperkasa.com', href: '#', ariaLabel: 'Lihat detail artikel ini di smsperkasa.com, membuka tab baru' }
+      : this.props.tautan;
+    return {
+      isPonsel: !desktop,
+      isDesktop: desktop,
+      bagian,
+      jarakAtas: this.props.jarakAtas ?? 'var(--jarak-y-antar-rapat)',
+      jarakBaris: celah ? '0' : 'var(--jarak-y-antar-rapat)',
+      tautanAtas: celah ? celah[bagian.length - 1] : '0',
+      blokD: BLOK.map(kePecahan),
+      adaTautan: !!tautan,
+      tautanProps: tautan ? { variant: 'tautan', label: tautan.label, href: tautan.href, target: '_blank', rel: 'noopener', ariaLabel: tautan.ariaLabel } : {}
+    };
+  }
+}
+</script>
+</body>
+</html>

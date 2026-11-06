@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>HomeRail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isGeser }}" hint-placeholder-val="{{ true }}">
+  <div style="margin-top: {{ atas }}; padding-left: var(--talang)">
+    <div style="padding-right: var(--talang)"><dc-import name="Heading" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import></div>
+    <dc-import name="Rail" dc-props="{{ rail }}" hint-size="100%,17.8rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isKisiPonsel }}" hint-placeholder-val="{{ false }}">
+  <div style="margin-top: {{ atas }}; padding: 0 var(--talang)">
+    <dc-import name="Heading" teks="{{ judul }}" hint-size="100%,2.7rem"></dc-import>
+    <div style="margin-top: var(--dalam)"><dc-import name="Rail" dc-props="{{ rail }}" hint-size="100%,10rem"></dc-import></div>
+  </div>
+</sc-if>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ false }}">
+  <div style="padding: {{ atas }} var(--sisi) calc(var(--seksi) / 2) var(--sisi)">
+    <dc-import name="Heading" tata="desktop" teks="{{ judul }}" hint-size="100%,2.9rem"></dc-import>
+    <div style="margin-top: var(--dalam)"><dc-import name="Rail" dc-props="{{ rail }}" hint-size="100%,31rem"></dc-import></div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"bagian":{"editor":"enum","options":["kategori","unggulan","dicari","sektor","baru-dilihat"],"default":"kategori","section":"Resep"},"tata":{"editor":"enum","options":["ponsel","desktop"],"default":"ponsel","section":"Resep"},"judul":{"editor":"text","default":"","section":"Isi"},"fotoCari":{"editor":"enum","options":["baku","lama"],"default":"baku","section":"Isi"},"rupaSektor":{"editor":"enum","options":["lebar","tegak"],"default":"lebar","section":"Isi"},"hrefItem":{"editor":"text","default":"","section":"Tautan"},"warnaTeks":{"editor":"color","default":"","section":"Isi"},"items":{"editor":null,"section":"Isi","tsType":"Array<{nama:string,foto:string,href?:string}>"},"atas":{"editor":"text","default":"","section":"Jarak"},"ukuranRel":{"editor":"enum","options":["baku","dua"],"default":"baku","section":"Jarak"},"lebar":{"editor":"text","default":"","section":"Jarak"},"gutter":{"editor":"text","default":"","section":"Jarak"},"celahY":{"editor":"text","default":"","section":"Jarak"},"pad":{"editor":"text","default":"","section":"Jarak"},"$preview":{"width":360,"height":320}}'>
+class Component extends DCLogic {
+  /* Daftar beranda: satu tempat untuk semua halaman Beranda. Layar hanya memilih `bagian`. */
+  isi(bagian, d) {
+    const tata = d ? { tata: 'desktop' } : {};
+    const warna = this.props.warnaTeks || '';
+    const warnaNama = warna ? { warnaNama: warna } : {};
+    const hrefItem = this.props.hrefItem || '';
+    if (bagian === 'kategori') {
+      return [['Besi Hollow dan Pipa Bulat', '/_blob/23aef125bea38dac9b2f52a145e31d5b'], ['Besi Kawat', '/_blob/1863af4f60b1c6f3cf6eb417eb07400d'], ['Plat Besi', '/_blob/592df35adc0215b033587b4a92c01a81'], ['Besi Batangan', '/_blob/a9b3fb8e546c43b5974d5f36aebdd314'], ['Baja Ringan', '/_blob/e70dcda72140589417bbbbf4b6d6e61f'], ['Plat Gelombang', '/_blob/003fd2f193fd218ea35a62f955ccc310'], ['Besi Profil Struktural', '/_blob/4aeffa0071c4dd8a2c63365c353fdfb4'], ['Atap', '/_blob/a817d07e6ad934bc3b9aeb2117042218'], ['Plat Stainless Steel', '/_blob/e2eb01d471fd672cec77b5fb75af98b1'], ['Hollow Stainless Steel', '/_blob/302c285b8750eec10e8cbd31c28a709b'], ['Pipa Stainless Steel', '/_blob/f1a87454111eb1a77616b7009b3fa17a']]
+        .map((k) => Object.assign({}, tata, { nama: k[0], foto: k[1], href: hrefItem || 'DesktopProdukIndexM4.dc.html' }, warna ? { warnaLabel: warna } : {}));
+    }
+    if (bagian === 'sektor') {
+      const tegak = this.props.rupaSektor === 'tegak';
+      const FOTO = tegak ? ['/_blob/78e5a35417083032c72379f40861eda2', '/_blob/d78587f9b15304c2be5181fc9127d852'] : ['/_blob/06dd89df3db505a6f139f4fabc380bfd', '/_blob/055cb11c44519b7e926d2ad2020751d9'];
+      return ['Konstruksi', 'Infrastruktur & Transportasi']
+        .map((n, i) => Object.assign({ jenis: 'sektor' }, tata, tegak ? { rupa: 'tegak' } : {}, { nama: n, foto: FOTO[i], href: hrefItem || 'DesktopProdukIndexM4.dc.html' }));
+    }
+    if (bagian === 'unggulan') {
+      const daftar = d
+        ? [['Besi Hollow Hitam', 297, '/_blob/4bcf87068f67276957dfc7b5d37158f1'], ['Besi Beton', 10, '/_blob/fc2eb617aa30449207d2b620798b9d15'], ['Besi Siku', 32, '/_blob/e672303b59d20807a09f49fbe89a6d21'], ['Reng Baja Ringan', 4, '/_blob/1777699a74102b9ad040f0818b4198d3'], ['Plat Besi Hitam', 36, '/_blob/b46dd9bae0e0c1c13fbb115d6d68c643']]
+        : [['Besi Hollow Hitam', 297, '/_blob/3e253621e68085ed4f1ceb648cc0b533'], ['Besi Beton', 10, '/_blob/31aea6bfad3d6009de172f36cf47db15'], ['Besi Siku', 32, '/_blob/afbf9d3db78dee3edbdfd256a4405af2'], ['Reng Baja Ringan', 4, '/_blob/eaba17e08cf2095e44e636547c3fa614'], ['Plat Besi Hitam', 36, '/_blob/e1474c92af7d2b81503b90b37b2e4758']];
+      return daftar.map((u) => Object.assign({ jenis: 'dasar' }, tata, { nama: u[0], varian: 'Tersedia ' + u[1] + ' varian', foto: u[2], aria: u[0] + ', tersedia ' + u[1] + ' varian', href: hrefItem || 'RecCreateM4.dc.html' }, warnaNama));
+    }
+    if (bagian === 'dicari') {
+      const foto = this.props.fotoCari === 'lama'
+        ? ['/_blob/06706257a1bee8e051b2d384965f7cc4', '/_blob/eaba17e08cf2095e44e636547c3fa614', '/_blob/3e253621e68085ed4f1ceb648cc0b533', '/_blob/06706257a1bee8e051b2d384965f7cc4', '/_blob/3e253621e68085ed4f1ceb648cc0b533']
+        : ['/_blob/be424b2d44724044816ae127301ca356', '/_blob/36364298e62a1e0b0a31416966c3fa7e', '/_blob/8ff32089116bb62a12ccd87255b2ea37', '/_blob/be424b2d44724044816ae127301ca356', '/_blob/8ff32089116bb62a12ccd87255b2ea37'];
+      return [['Harga Besi 8', '42.000', 1], ['Harga Reng Baja Ringan', '32.400', 4], ['harga besi hollow 4x4', '83.000', 11], ['harga besi 10 panjang 12 meter', '64.400', 1], ['harga besi hollow 4x6', '106.700', 11]]
+        .map((c, i) => Object.assign({ jenis: 'mulai' }, tata, { nama: c[0], angka: c[1], varian: 'Tersedia ' + c[2] + ' varian', foto: foto[i], aria: c[0] + ', mulai Rp ' + c[1] + ', tersedia ' + c[2] + ' varian', href: hrefItem || 'RecCreateM4.dc.html' }, warnaNama));
+    }
+    return [['Besi Hollow Hitam', 'Tersedia 297 varian', '/_blob/3e253621e68085ed4f1ceb648cc0b533', 'RecCreateM4.dc.html', false], ['Besi Beton', 'Tersedia 10 varian', '/_blob/31aea6bfad3d6009de172f36cf47db15', 'RecCreateM4.dc.html', false], ['Pipa Seamless', 'Tersedia 38 varian', '/_blob/bc7690b7178a161331f9b8aee2f22009', 'RecCreateM4.dc.html', false], ['Atap UPVC Double Layer 12mm x 760mm x 4M [Mattaka, Biru]', 'Rp 711.000', '/_blob/54f43a08a1384c69e762171c48898e59', 'SkuDetailM4.dc.html', true], ['Wiremesh', 'Tersedia 14 varian', '/_blob/ed9353df4c669115e311d4bfdea076c2', 'RecCreateM4.dc.html', false]]
+      .map((b) => Object.assign({ jenis: 'dasar', nama: b[0], varian: b[1], foto: b[2], href: hrefItem || b[3], varianTebal: b[4], aria: b[0] + ', ' + b[1] }, warnaNama));
+  }
+  renderVals() {
+    const p = this.props;
+    const bagian = p.bagian ?? 'kategori';
+    const d = p.tata === 'desktop';
+    const JUDUL = { kategori: 'Kategori produk', unggulan: 'Produk unggulan kami', dicari: 'Paling banyak dicari', sektor: 'Cari berdasarkan Sektor', 'baru-dilihat': 'Produk yang baru anda lihat' };
+    const ATAS = { kategori: '5.6rem', unggulan: '5.7rem', dicari: '5.7rem', sektor: '8.4rem', 'baru-dilihat': '6.6rem' };
+    const ubin = bagian === 'kategori' || bagian === 'sektor';
+    const rail = { komponen: ubin ? 'CategoryTile' : 'ProductCard', items: p.items ?? this.isi(bagian, d) };
+    if (!ubin) rail.snap = false;
+    if (d) {
+      rail.kolom = { kategori: 6, unggulan: 5, dicari: 2, sektor: 2 }[bagian] || 5;
+      rail.tepi = 'kisi';
+      if (bagian === 'unggulan') rail.celahY = 'calc(var(--dalam) / 2)';
+      if (bagian === 'dicari') { rail.gutter = 'calc(var(--selokan-dalam) / 2)'; rail.celahY = 'calc(var(--rapat) / 2)'; }
+    } else if (bagian === 'sektor') {
+      rail.kolom = 2;
+      rail.tepi = 'kisi';
+      rail.celahY = 'calc(var(--rapat) / 2)';
+    }
+    if (p.ukuranRel === 'dua') Object.assign(rail, { lebar: '15rem', gutter: 'calc(var(--jarak-x-dua) / 2)', pad: 'var(--dalam) 0 0 0' });
+    ['lebar', 'gutter', 'celahY', 'pad'].forEach((k) => { if (p[k]) rail[k] = p[k]; });
+    return {
+      isGeser: !d && bagian !== 'sektor',
+      isKisiPonsel: !d && bagian === 'sektor',
+      isDesktop: d,
+      judul: p.judul || JUDUL[bagian],
+      atas: p.atas || (d ? (bagian === 'kategori' ? 'var(--seksi)' : 'calc(var(--seksi) / 2)') : ATAS[bagian]),
+      rail
+    };
+  }
+}
+</script>
+</body>
+</html>

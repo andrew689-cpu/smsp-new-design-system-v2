@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>CourseCard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<sc-if value="{{ isRel }}" hint-placeholder-val="{{ true }}">
+  <dc-import name="Pressable" onPress="{{ onPilih }}" ariaLabel="{{ ariaLabel }}" gaya="{{ gayaRel }}" hint-size="100%,24rem">
+    <img src="{{ foto }}" alt="" loading="lazy" style="{{ gayaFotoRel }}">
+    <span style="margin-top: 0.6rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: var(--teks-seksi); line-height: var(--tinggi-artikel); font-weight: var(--bobot-bold); color: var(--ink)">{{ judul }}</span>
+    <span style="{{ gayaMeta }}">{{ penulis }}</span>
+    <span style="{{ gayaMeta }}">{{ meta }}</span>
+    <span style="margin-top: auto; padding-top: 0.6rem; display: flex; align-items: center; column-gap: 0.8rem"><dc-import name="Tag" jenis="{{ jenisLevel }}" teks="{{ level }}" hint-size="6rem,1.9rem"></dc-import></span>
+  </dc-import>
+</sc-if>
+<sc-if value="{{ isRv }}" hint-placeholder-val="{{ false }}">
+  <div style="flex: 0 0 80%; min-width: 0; scroll-snap-align: start; box-sizing: border-box; display: flex; flex-direction: column; border-radius: var(--sheet); background: var(--surface); box-shadow: var(--el-2); overflow: hidden">
+    <div style="position: relative; aspect-ratio: 16 / 10; background: var(--line)">
+      <img src="{{ foto }}" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover">
+      <div aria-hidden="true" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: var(--rv-tirai)"></div>
+      <span style="position: absolute; top: 1.6rem; left: 1.6rem; right: 1.6rem; display: block"><dc-import name="Heading" level="{{ 3 }}" varian="polos" font="var(--font-rv-judul)" kapital="ya" ukuran="var(--teks-section)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-bold)" renggang="0" rata="left" warna="var(--surface)" teks="{{ judul }}" hint-size="100%,5rem"></dc-import></span>
+    </div>
+    <div style="flex-grow: 1; box-sizing: border-box; padding: 1.6rem; display: flex; flex-direction: column; align-items: flex-start; row-gap: 1.2rem">
+      <div style="display: flex; flex-wrap: wrap; column-gap: 0.6rem; row-gap: 0.6rem">
+        <dc-import name="Tag" jenis="pil-garis" teks="{{ topik }}" hint-size="8rem,2.2rem"></dc-import>
+        <sc-if value="{{ levelTampil }}" hint-placeholder-val="{{ false }}"><dc-import name="Tag" jenis="pil-isi" teks="{{ level }}" hint-size="6rem,2.2rem"></dc-import></sc-if>
+      </div>
+      <p style="margin: 0; font-size: var(--teks-body); line-height: var(--tinggi-baca); color: var(--ink-2)">{{ ringkas }}</p>
+      <sc-if value="{{ metaTampil }}" hint-placeholder-val="{{ false }}"><span style="margin-top: auto"><dc-import name="Tag" jenis="pil-meta" teks="{{ meta }}" hint-size="14rem,3rem"></dc-import></span></sc-if>
+      <dc-import name="Button" variant="lebar-isi" tinggi="4.4rem" sudut="var(--pill)" ukuranTeks="var(--teks-body)" gayaTambah="align-self: stretch; margin-top: auto" href="" label="{{ labelMulai }}" ikon="panah-pil" ikonUkuran="{{ 18 }}" ikonGaris="{{ 2.4 }}" ikonPosisi="akhir" ariaLabel="{{ ariaLabel }}" onPress="{{ onPilih }}" hint-size="100%,4.4rem"></dc-import>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isUjung }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Pressable" onPress="{{ onPilih }}" gaya="flex: 0 0 80%; min-width: 0; min-height: 4.4rem; scroll-snap-align: start; box-sizing: border-box; padding: 2.4rem 1.6rem; border: 0; border-radius: var(--sheet); background: var(--surface); box-shadow: var(--el-2); display: flex; flex-direction: column; align-items: center; justify-content: center; row-gap: 1.6rem; text-align: center; color: var(--ink)" hint-size="100%,30rem">
+    <span aria-hidden="true" style="width: 6.4rem; height: 6.4rem; border-radius: var(--pill); background: var(--brand); display: grid; place-items: center"><dc-import name="Icon" ikon="panah-pil" ukuran="{{ 28 }}" warna="var(--surface)" hint-size="2.8rem,2.8rem"></dc-import></span>
+    <span style="font-family: var(--font-rv-judul); font-size: var(--teks-section); line-height: var(--tinggi-artikel); font-weight: var(--bobot-bold); text-transform: uppercase; color: var(--ink)">{{ labelUjung }}</span>
+  </dc-import>
+</sc-if>
+<sc-if value="{{ isBaris }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Pressable" onPress="{{ onPilih }}" ariaLabel="{{ ariaLabel }}" gaya="box-sizing: border-box; width: 100%; min-width: 0; min-height: 5.7rem; padding: 0.3rem 1rem 0.3rem 0.8rem; border: 0; border-radius: var(--card); background: var(--surface); box-shadow: var(--materi-baris-bayang); display: flex; align-items: center; column-gap: 0.5rem; text-align: left; color: var(--materi-baris-tinta)" hint-size="100%,5.7rem">
+    <img src="{{ foto }}" alt="" loading="lazy" style="flex-shrink: 0; display: block; width: 8.6rem; height: 5.1rem; margin-right: 0.4rem; object-fit: contain">
+    <span style="flex-grow: 1; min-width: 0; white-space: pre-line; font-family: var(--font-kartu-ikon); font-size: var(--teks-body); line-height: var(--tinggi-artikel); font-weight: var(--bobot-bold); color: var(--materi-baris-tinta)">{{ baris }}</span>
+    <span aria-hidden="true" style="flex-shrink: 0; width: 2.5rem; height: 2.5rem; border-radius: var(--pill); background: var(--materi-baris-lingkar); display: grid; place-items: center"><dc-import name="Icon" ikon="chevron-sektor" ukuran="{{ 12 }}" garis="{{ 3.2 }}" warna="var(--brand)" hint-size="1.2rem,1.2rem"></dc-import></span>
+  </dc-import>
+</sc-if>
+<sc-if value="{{ isProduk }}" hint-placeholder-val="{{ false }}">
+  <div style="min-width: 0; box-sizing: border-box; padding: 1.4rem 1.2rem 1.2rem 1.2rem; display: flex; flex-direction: column; row-gap: 0.4rem; border-radius: var(--action); background: var(--surface); box-shadow: var(--sektor-bayang)">
+    <dc-import name="Heading" level="{{ 3 }}" varian="polos" ukuran="var(--teks-seksi)" tinggi="var(--tinggi-artikel)" bobot="var(--bobot-semibold)" renggang="0" rata="center" warna="var(--ink)" teks="{{ judul }}" hint-size="100%,2rem"></dc-import>
+    <img src="{{ foto }}" alt="{{ altProduk }}" loading="lazy" style="{{ gayaFotoProduk }}">
+    <dc-import name="Button" variant="pil-pelajari" gayaTambah="{{ gayaPelajari }}" href="" label="{{ labelPelajari }}" ikon="panah-pil" ikonUkuran="{{ 14 }}" ikonGaris="{{ 2.4 }}" ikonPosisi="akhir" ariaLabel="{{ ariaLabel }}" onPress="{{ onPilih }}" hint-size="100%,3.5rem"></dc-import>
+  </div>
+</sc-if>
+<sc-if value="{{ isIkon }}" hint-placeholder-val="{{ false }}">
+  <dc-import name="Pressable" onPress="{{ onPilih }}" ariaLabel="{{ ariaLabel }}" gaya="position: relative; overflow: hidden; box-sizing: border-box; width: 100%; min-width: 0; padding: 1.7rem 0.8rem 1.1rem 1.6rem; border: 0; border-radius: var(--sheet); background: var(--surface); display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; color: var(--kartu-ikon-tinta)" hint-size="100%,18rem">
+    <span aria-hidden="true" style="position: absolute; top: 0; right: 0; width: 4.3rem; height: 8.1rem; border-bottom-left-radius: 100%; background: var(--kartu-ikon-sudut)"></span>
+    <span style="position: relative; box-sizing: border-box; width: 6.2rem; height: 6.2rem; border-radius: var(--card); background: var(--kartu-ikon-kotak); display: grid; place-items: center"><img src="{{ foto }}" alt="" loading="lazy" style="display: block; width: 5.4rem; height: 5.4rem; object-fit: contain"></span>
+    <span style="position: relative; margin-top: 1.2rem; padding-right: 0.5rem; font-family: var(--font-kartu-ikon); font-size: var(--teks-pembuka); line-height: var(--tinggi-rapat); font-weight: var(--bobot-bold); color: var(--kartu-ikon-tinta)">{{ judul }}</span>
+    <span aria-hidden="true" style="position: relative; display: block; margin-top: 1rem; width: 3.4rem; height: 0.2rem; background: var(--kartu-ikon-garis)"></span>
+    <span style="position: relative; margin-top: auto; padding-top: 1.2rem; display: block">
+      <span style="box-sizing: border-box; margin-left: -0.8rem; margin-right: 0; display: flex; align-items: center; justify-content: space-between; column-gap: 0.3rem; min-height: 2.4rem; padding: 0 0.5rem; border-radius: var(--pill); background: var(--kartu-ikon-pil)">
+        <dc-import name="Icon" ikon="jam-kartu" warna="var(--kartu-ikon-garis)" hint-size="1.3rem,1.3rem"></dc-import>
+        <span style="flex-grow: 1; min-width: 0; font-family: var(--font-kartu-ikon); font-size: var(--teks-pil-kartu); line-height: var(--tinggi-satu); white-space: nowrap; color: var(--kartu-ikon-tinta)">{{ meta }}</span>
+        <dc-import name="Icon" ikon="chevron-kartu" warna="var(--kartu-ikon-garis)" hint-size="1rem,1rem"></dc-import>
+      </span>
+    </span>
+  </dc-import>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"jenis":{"editor":"enum","options":["rel","rv","ujung","ikon","baris","produk"],"default":"rel","section":"Resep"},"baris":{"editor":"text","default":"","section":"Isi"},"levelTampil":{"editor":"boolean","default":false,"section":"Resep"},"metaTampil":{"editor":"boolean","default":false,"section":"Resep"},"fotoBawah":{"editor":"boolean","default":false,"section":"Resep"},"labelPelajari":{"editor":"text","default":"Pelajari","section":"Isi"},"lebar":{"editor":"text","default":"0 0 62%","section":"Tata letak"},"krem":{"editor":"boolean","default":false,"section":"Resep"},"judul":{"editor":"text","default":"Mengenal Besi dan Baja","section":"Isi"},"foto":{"editor":"text","default":"/_blob/915ec74eaee1f9cf750844653d514177","section":"Gambar"},"topik":{"editor":"text","default":"Dasar Baja","section":"Isi"},"level":{"editor":"text","default":"Pemula","section":"Isi"},"meta":{"editor":"text","default":"4 pelajaran · 4 menit baca","section":"Isi"},"ringkas":{"editor":"text","default":"Bekal pertama sebelum memilih material: apa itu baja, bagaimana ia dibentuk, dan profil apa saja yang ada di pasaran.","section":"Isi"},"penulis":{"editor":"text","default":"Tim SMS Perkasa","section":"Isi"},"labelMulai":{"editor":"text","default":"Mulai Belajar","section":"Isi"},"labelUjung":{"editor":"text","default":"Lihat Semua Course","section":"Isi"},"ariaLabel":{"editor":"text","default":"","section":"Aksesibilitas"},"onPilih":{"editor":null,"section":"Aksi"},"levelMerah":{"editor":"boolean","default":false,"section":"Resep"},"$preview":{"width":264,"height":320}}'>
+class Component extends DCLogic {
+renderVals() {
+    const p = this.props;
+    const jenis = p.jenis ?? 'rel';
+    const krem = !!p.krem;
+    return {
+      isRel: jenis === 'rel',
+      isRv: jenis === 'rv',
+      isUjung: jenis === 'ujung',
+      isIkon: jenis === 'ikon',
+      isBaris: jenis === 'baris',
+      isProduk: jenis === 'produk',
+      levelTampil: !!p.levelTampil,
+      metaTampil: !!p.metaTampil,
+      altProduk: 'Gambar garis ' + (p.judul ?? ''),
+      labelPelajari: p.labelPelajari ?? 'Pelajari',
+      gayaFotoProduk: 'display: block; width: 100%; height: auto; aspect-ratio: 420 / 376' + (p.fotoBawah ? '; margin-top: auto; object-fit: contain' : ''),
+      gayaPelajari: p.fotoBawah ? '' : 'margin-top: auto',
+      baris: p.baris ?? p.judul,
+      gayaRel: 'flex: ' + (p.lebar ?? '0 0 62%') + '; min-width: 0; scroll-snap-align: start; box-sizing: border-box; display: flex; flex-direction: column; align-items: stretch; row-gap: 0.4rem; padding: 0; border: 0; background: transparent; text-align: left; color: var(--ink)',
+      gayaFotoRel: krem
+        ? 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; box-sizing: border-box; padding: 1.2rem; border-radius: var(--tile); background: var(--surface)'
+        : 'display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--tile); background: var(--line)',
+      gayaMeta: 'font-size: var(--teks-chip); line-height: var(--tinggi-sedang); color: ' + (krem ? 'var(--ink)' : 'var(--ink-2)'),
+      jenisLevel: krem ? 'level-krem' : p.levelMerah ? 'level-merah' : 'level',
+      judul: p.judul ?? 'Mengenal Besi dan Baja',
+      foto: p.foto ?? '/_blob/915ec74eaee1f9cf750844653d514177',
+      topik: p.topik ?? 'Dasar Baja',
+      level: p.level ?? 'Pemula',
+      meta: p.meta ?? '4 pelajaran · 4 menit baca',
+      ringkas: p.ringkas ?? 'Bekal pertama sebelum memilih material: apa itu baja, bagaimana ia dibentuk, dan profil apa saja yang ada di pasaran.',
+      penulis: p.penulis ?? 'Tim SMS Perkasa',
+      labelMulai: p.labelMulai ?? 'Mulai Belajar',
+      labelUjung: p.labelUjung ?? 'Lihat Semua Course',
+      ariaLabel: p.ariaLabel || undefined,
+      onPilih: p.onPilih
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Salinan Semua Ulasan — SMS Perkasa</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+
+[data-tepi="1"] > *:first-child{margin-left:0 !important}
+
+[data-tepi-y="1"] > *:first-child{margin-top:0 !important}
+[data-tepi-y="1"] > *:last-child{margin-bottom:0 !important}
+:root{
+  --surface:#ffffff;
+  --line:#ececec;
+  
+  --ink:#0a0a0a;
+  --ink-2:#5f5f5f;
+  
+  --ink-4:#c9c9cb;
+  --brand:#D70100;
+  --brand-hero:#FF0000;
+  --star:#ffb800;
+  --star-stroke:#9a6700;
+  --star-kosong:#dcdcde;
+  --pill:99.9rem;
+  
+  --action:0.9rem;
+  --kaca:linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(243,247,249,0.45) 100%), rgba(250,252,253,0.93);
+  --kaca-blur:blur(1.8rem) saturate(140%);
+  --kaca-rim:inset 0 0 0 0.1rem rgba(17,25,33,0.07), inset 0 0.1rem 0.05rem rgba(255,255,255,0.90);
+  --kaca-bayang:0 0.1rem 0.2rem rgba(17,25,33,0.04), 0 0.6rem 1.6rem rgba(17,25,33,0.07), 0 1.6rem 3.4rem -1.4rem rgba(17,25,33,0.12);
+}
+
+html{font-size:62.5%}
+  body{font-size:1.6rem;margin:0;font-family:-apple-system,"SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+
+@keyframes geser{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[data-pita]{animation:geser 46s linear infinite}
+[data-pita]:hover,[data-pita]:focus-within{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){[data-pita]{animation:none}}
+@keyframes masuk{0%{opacity:0;transform:translateY(1.4rem)}100%{opacity:1;transform:none}}
+[data-baris]{animation:masuk 420ms cubic-bezier(.16,1,.3,1) both}
+@media (prefers-reduced-motion: reduce){[data-baris]{animation:none}}
+</style>
+</helmet>
+
+
+<div style="width: 36rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; position: relative; background: var(--surface); color: var(--ink)">
+
+  
+  
+  <div style="position: relative; background: var(--surface); overflow: hidden">
+
+    <img src="/_blob/336b40737e35fc88492d50e34b37e909" alt="" style="position: absolute; right: 0; top: 0; width: 76%; height: 100%; object-fit: cover; object-position: left center; -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.55) 34%, #000 78%); mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.55) 34%, #000 78%); display: block">
+    <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(115deg, #fdecec 0%, rgba(253,236,236,0.72) 26%, rgba(255,255,255,0) 62%)"></span>
+
+    <div style="position: relative; padding: 1rem 1.6rem 2.2rem 1.6rem">
+
+      
+      <sc-if value="{{ pilTampil }}" hint-placeholder-val="{{ false }}">
+      <a data-tepi="1" href="SkuDetailM4.dc.html" style="display: inline-flex; align-items: center; row-gap: 0.9rem; column-gap: 0; min-height: 4.4rem; padding: 0.5rem 1.6rem 0.5rem 0.5rem; border-radius: var(--pill); background: #fdecec; text-decoration: none">
+        <span aria-hidden="true" style="width: 3.2rem; height: 3.2rem; flex-shrink: 0; border-radius: var(--pill); background: var(--brand); display: grid; place-items: center; margin-left: 0.45rem; margin-right: 0.45rem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+        </span>
+        <span style="font-size: 1.4rem; font-weight: 700; line-height: 1.35; color: var(--ink); margin-left: 0.45rem; margin-right: 0.45rem">Ulasan Pelanggan</span>
+      </a>
+      </sc-if>
+
+      <h1 style="margin: 0.6rem 0 0 0; font-size: 3rem; line-height: 1.12; font-weight: 900; letter-spacing: -0.06rem; color: var(--ink)">Ulasan<br>Pelanggan<br><span style="color: var(--brand)">SMS Perkasa</span></h1>
+      <span aria-hidden="true" style="margin-top: 1.2rem; display: block; width: 4.6rem; height: 0.4rem; border-radius: var(--pill); background: var(--brand)"></span>
+
+      
+      <div role="region" aria-label="{{ pitaLabel }}" style="margin: 2rem -1.6rem 0 -1.6rem; position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2rem, #000 calc(100% - 2rem), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 2rem, #000 calc(100% - 2rem), transparent 100%)">
+        <div data-pita="1" style="display: flex; align-items: stretch; width: max-content; padding: 0.6rem 0 1.2rem 0">
+          <sc-for list="{{ pita }}" as="k" hint-placeholder-count="8">
+            <article aria-hidden="{{ k.salinan }}" style="flex-shrink: 0; width: 27.2rem; margin-right: 1.2rem; box-sizing: border-box; padding: 1.6rem; border-radius: var(--action); background: rgba(255,255,255,0.86); -webkit-backdrop-filter: blur(1rem); backdrop-filter: blur(1rem); box-shadow: 0 0 0 0.1rem rgba(17,25,33,0.06), 0 1rem 2.6rem -1.2rem rgba(17,25,33,0.26); display: flex; flex-direction: column">
+              <div data-tepi="1" style="display: flex; align-items: flex-start; row-gap: 1rem; column-gap: 0">
+                <span aria-hidden="true" style="flex-shrink: 0; font-size: 3rem; line-height: 0.9; font-weight: 900; color: var(--brand); margin-left: 0.5rem; margin-right: 0.5rem">“</span>
+                <p style="margin: 0; min-width: 0; font-size: 1.4rem; line-height: 1.35; color: var(--ink); margin-left: 0.5rem; margin-right: 0.5rem">{{ k.text }}</p>
+              </div>
+              <span data-tepi="1" role="img" aria-label="{{ k.ratingLabel }}" style="margin-top: 1rem; display: inline-flex; row-gap: 0.2rem; column-gap: 0">
+                <sc-for list="{{ k.stars }}" as="st" hint-placeholder-count="5">
+                  <svg style="margin-left: 0.1rem; margin-right: 0.1rem" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.3 4 13.5l1-4.4-3.4-3 4.5-.5z" style="fill: {{ st.fill }}"></path></svg>
+                </sc-for>
+              </span>
+              <div data-tepi="1" style="margin-top: 1rem; display: flex; align-items: center; row-gap: 0.9rem; column-gap: 0">
+                <span aria-hidden="true" style="width: 2.8rem; height: 2.8rem; flex-shrink: 0; border-radius: var(--pill); background: #fdecec; display: grid; place-items: center; margin-left: 0.45rem; margin-right: 0.45rem">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.4" r="3.4"></circle><path d="M5.6 19.2c0-3 2.9-5 6.4-5s6.4 2 6.4 5"></path></svg>
+                </span>
+                <span style="min-width: 0; margin-left: 0.45rem; margin-right: 0.45rem">
+                  <span style="display: block; font-size: 1.3rem; font-weight: 700; line-height: 1.25">{{ k.who }}</span>
+                  <span style="display: block; margin-top: 0.1rem; font-size: 1.2rem; line-height: 1.25; color: var(--ink-2)">{{ k.date }}</span>
+                </span>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <section aria-label="Yang sering disebut pelanggan" style="margin: 2.4rem 1.6rem 0 1.6rem; box-sizing: border-box; padding: 1.8rem 0 2rem 0">
+
+    <div data-tepi="1" style="display: flex; align-items: center; row-gap: 1.2rem; column-gap: 0">
+      <span aria-hidden="true" style="width: 4rem; height: 4rem; flex-shrink: 0; border-radius: 1.2rem; background: var(--brand); display: grid; place-items: center; margin-left: 0.6rem; margin-right: 0.6rem">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 17l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"></path></svg>
+      </span>
+      <h2 style="margin: 0; min-width: 0; font-size: 1.4rem; line-height: 1.2; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin-left: 0.6rem; margin-right: 0.6rem">Semua ulasan</h2>
+    </div>
+
+    <div data-tepi="1" data-tepi-y="1" style="margin-top: 1.8rem; display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); row-gap: 0; column-gap: 0">
+      <sc-for list="{{ sebutan }}" as="sb" hint-placeholder-count="4">
+        
+        <div data-tepi="1" style="min-width: 0; display: flex; align-items: center; row-gap: 1.2rem; column-gap: 0; margin-left: 0.9rem; margin-right: 0.9rem; margin-top: 0.9rem; margin-bottom: 0.9rem">
+          <span aria-hidden="true" style="width: 3.4rem; height: 3.4rem; flex-shrink: 0; border-radius: var(--pill); background: #fdecec; display: grid; place-items: center; margin-left: 0.6rem; margin-right: 0.6rem">
+<sc-if value="{{ sb.isPerisai }}" hint-placeholder-val="{{ true }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l6.4 2.5v5.1c0 3.9-2.6 7.3-6.4 8.4-3.8-1.1-6.4-4.5-6.4-8.4V5.7z"></path><path d="M9.2 11.9l2 2 3.6-4"></path></svg></sc-if>
+              <sc-if value="{{ sb.isObrol }}" hint-placeholder-val="{{ false }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.4c0 3.8-3.7 6.9-8.2 6.9-1 0-2-.2-2.9-.5l-4.3 1.3 1.2-3.6c-1.4-1.2-2.2-2.8-2.2-4.6 0-3.8 3.7-6.9 8.2-6.9s8.2 3.1 8.2 6.9z"></path></svg></sc-if>
+              <sc-if value="{{ sb.isTruk }}" hint-placeholder-val="{{ false }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 7.2h10v9.1h-10z"></path><path d="M12.8 10.4h3.6l2.8 2.9v3h-6.4z"></path><circle cx="6.6" cy="17.6" r="1.8"></circle><circle cx="16.4" cy="17.6" r="1.8"></circle></svg></sc-if>
+              <sc-if value="{{ sb.isLabel }}" hint-placeholder-val="{{ false }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.2 3.4H19a1.6 1.6 0 0 1 1.6 1.6v7.8L11 22.4 2.6 14 11.2 3.4z"></path><circle cx="16.3" cy="7.9" r="1.3"></circle></svg></sc-if>
+          </span>
+          <span style="min-width: 0; flex-grow: 1; margin-left: 0.6rem; margin-right: 0.6rem">
+            <span data-tepi="1" style="display: flex; align-items: baseline; justify-content: space-between; row-gap: 0.6rem; column-gap: 0">
+              <span style="min-width: 0; font-size: 1.3rem; font-weight: 700; line-height: 1.35; color: var(--ink); overflow-wrap: anywhere; margin-left: 0.3rem; margin-right: 0.3rem">{{ sb.label }}</span>
+              <span style="flex-shrink: 0; font-size: 1.2rem; font-weight: 700; color: var(--ink-2); font-variant-numeric: tabular-nums; margin-left: 0.3rem; margin-right: 0.3rem">{{ sb.pctLabel }}</span>
+            </span>
+            <span aria-hidden="true" style="margin-top: 0.7rem; display: block; width: 100%; height: 0.6rem; border-radius: var(--pill); background: var(--line); overflow: hidden"><span style="{{ sb.barGaya }}; display: block; height: 100%; border-radius: var(--pill); background: var(--brand)"></span></span>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+
+  </section>
+
+  <section aria-label="Semua ulasan" style="margin-top: 4rem; padding: 0 1.6rem 4rem 1.6rem">
+    <ol style="margin: 0; padding: 0; list-style: none">
+      <sc-for list="{{ daftar }}" as="u" hint-placeholder-count="6">
+        
+        <li data-baris="1" style="padding: 1.8rem 0 2rem 0">
+          <p style="margin: 0; font-size: 1.4rem; line-height: 1.35; color: var(--ink); text-align: justify; -webkit-hyphens: auto; hyphens: auto"><span style="font-weight: 700">{{ u.judul }}.</span> {{ u.text }}</p>
+          <span data-tepi="1" role="img" aria-label="{{ u.ratingLabel }}" style="margin-top: 1.1rem; display: inline-flex; row-gap: 0.2rem; column-gap: 0">
+            <sc-for list="{{ u.stars }}" as="st2" hint-placeholder-count="5">
+              <svg style="margin-left: 0.1rem; margin-right: 0.1rem" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.3 4 13.5l1-4.4-3.4-3 4.5-.5z" style="fill: {{ st2.fill }}"></path></svg>
+            </sc-for>
+          </span>
+          <span style="margin-top: 1rem; display: block; font-size: 1.4rem; font-weight: 700; line-height: 1.25">{{ u.who }}</span>
+          <span style="margin-top: 0.2rem; display: block; font-size: 1.3rem; line-height: 1.35; color: var(--ink-2)">{{ u.date }}</span>
+        </li>
+      </sc-for>
+    </ol>
+
+    <sc-if value="{{ adaLagi }}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{ muatLagi }}" style="margin-top: 1.4rem; width: 100%; min-height: 4.8rem; border-radius: var(--pill); background: var(--surface); box-shadow: 0 0 0 0.1rem rgba(17,25,33,0.11); font-size: 1.4rem; font-weight: 700; text-align: center; display: grid; place-items: center">{{ muatLabel }}</button>
+    </sc-if>
+  </section>
+
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // DATA CONTOH — 50 ulasan karangan untuk menguji tata letak, bukan ulasan nyata.
+    // Sifat sesuai/tepat/respons juga contoh; persentase di bilah dihitung darinya,
+    // jadi angka di layar selalu cocok dengan daftar di bawahnya.
+    // Pita bergerak lewat animasi CSS, jadi tidak ada timer di sini: satu-satunya
+    // keadaan yang tersisa adalah berapa ulasan yang sudah dimuat di daftar bawah.
+    this.state = { tampil: 8 };
+  }
+
+  _data() {
+    var nama = ['Pak Andi', 'Bu Fitri', 'Pak Ignasius', 'Bu Ratna', 'Pak Hendra', 'Bu Lilis', 'Pak Joko',
+                'Bu Maria', 'Pak Rudi', 'Bu Sari'];
+    var kota = ['Surabaya', 'Sidoarjo', 'Gresik', 'Malang', 'Mojokerto'];
+    var judul = [
+      'Ukuran dan tebal pas', 'Penawaran cepat', 'Kirim tepat waktu', 'Harga bersaing',
+      'Potongan rapi', 'Kualitas stabil', 'Admin responsif', 'Stok selalu ada'
+    ];
+    var kalimat = [
+      'Barang sesuai ukuran, tebalnya pas dan tidak ada yang penyok saat bongkar.',
+      'Salesnya ramah, penawaran dikirim cepat lengkap dengan berat per batang.',
+      'Kirim tepat waktu ke lokasi proyek, sopirnya kooperatif waktu bongkar.',
+      'Harga bersaing dan beratnya sesuai dengan yang tertulis di penawaran.',
+      'Potongan rapi, tidak perlu banyak gerinda waktu pemasangan.',
+      'Sudah langganan dua tahun, kualitasnya stabil dari kiriman ke kiriman.',
+      'Admin responsif, sertifikat pabrik dikirim tanpa diminta dua kali.',
+      'Stok selalu ada, pesan pagi sore sudah jalan ke lokasi.'
+    ];
+    var bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt'];
+    var out = [];
+    for (var i = 0; i < 50; i++) {
+      var r = i % 11 === 0 ? 4 : 5;                       // sesekali 4, selebihnya 5
+      out.push({
+        who: nama[i % nama.length] + ' — ' + kota[(i * 3) % kota.length],
+        date: (((i * 7) % 28) + 1) + ' ' + bulan[(i * 5) % bulan.length] + ' 2026',
+        rating: r,
+        judul: judul[(i * 3) % judul.length],
+        text: kalimat[(i * 3) % kalimat.length],
+        // Tujuh penanda, modulusnya sengaja berbeda-beda supaya persentasenya
+        // MELEBAR (98 … 50 %), bukan menumpuk di angka sembilan puluhan. Tiga
+        // penanda lama semuanya 90/90/84, dan pada rentang sesempit itu ukuran
+        // huruf yang jujur hampir tak terlihat bedanya. Ini data contoh, jadi
+        // sebarannya boleh dipilih; begitu ulasan sungguhan masuk, angkanyalah
+        // yang menentukan ukuran.
+        sesuai: i % 50 !== 0,
+        respons: i % 12 !== 0,
+        tepat: i % 7 !== 0,
+        harga: i % 5 !== 0,
+        potong: i % 4 !== 0,
+        kualitas: i % 3 !== 0,
+        stok: i % 2 !== 0
+      });
+    }
+    return out;
+  }
+
+  _hias(r, i) {
+    return Object.assign({}, r, {
+      ratingLabel: 'Rating ' + r.rating + ' dari 5',
+      stars: [1, 2, 3, 4, 5].map(function (k) {
+        return { fill: k <= r.rating ? 'var(--star)' : 'var(--star-kosong)' };
+      })
+    });
+  }
+
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    var SEMUA = this._data();
+    var n = SEMUA.length;
+    var tampil = Math.min(s.tampil || 8, n);
+
+
+    // Bagian yang dipuji, dihitung dari data contoh lalu diurutkan dari yang terbanyak.
+    var bagian = function (kunci) {
+      return SEMUA.filter(function (r) { return r[kunci]; }).length / n;
+    };
+    // ikon menempel pada MAKNA, bukan pada urutan: daftar ini diurutkan ulang menurut
+    // persentase, jadi memilih ikon dari posisi akan memindahkan truk ke harga begitu
+    // angkanya bergeser.
+    var sebutan = [
+      { label: 'Barang sesuai', ikon: 'perisai', p: bagian('sesuai') },
+      { label: 'Admin responsif', ikon: 'obrol', p: bagian('respons') },
+      { label: 'Tepat Waktu', ikon: 'truk', p: bagian('tepat') },
+      { label: 'Harga bersaing', ikon: 'label', p: bagian('harga') },
+      { label: 'Potongan rapi', ikon: 'perisai', p: bagian('potong') },
+      { label: 'Kualitas stabil', ikon: 'perisai', p: bagian('kualitas') },
+      { label: 'Stok tersedia', ikon: 'truk', p: bagian('stok') }
+    ].sort(function (x, y) { return y.p - x.p; });
+    var DELAPAN = SEMUA.slice(0, 8);
+
+    return {
+      // Empat tema teratas saja, seperti acuan; sisanya tetap dihitung tapi tidak
+      // ditampilkan. Ukuran huruf tidak lagi ikut nilainya — di panel ini yang
+      // membawa besarannya adalah bilah dan angkanya.
+      sebutan: sebutan.slice(0, 4).map(function (b) {
+        return { label: b.label, pctLabel: Math.round(b.p * 100) + '%',
+                 barGaya: 'width:' + Math.round(b.p * 100) + '%',
+                 isPerisai: b.ikon === 'perisai', isObrol: b.ikon === 'obrol',
+                 isTruk: b.ikon === 'truk', isLabel: b.ikon === 'label' };
+      }),
+
+      // Rel pita = DUA salinan dari delapan ulasan pertama. Salinan kedua hanya untuk
+      // mata: aria-hidden, supaya pembaca layar tidak membacakan daftar yang sama dua kali.
+      // false = pil kembali di hero disembunyikan; true memunculkannya lagi.
+      pilTampil: false,
+
+      pitaLabel: 'Ulasan terbaru, berjalan otomatis',
+      pita: DELAPAN.map(function (r, i) {
+        return Object.assign(self._hias(r, i), { salinan: 'false' });
+      }).concat(DELAPAN.map(function (r, i) {
+        return Object.assign(self._hias(r, i), { salinan: 'true' });
+      })),
+
+      daftar: SEMUA.slice(0, tampil).map(function (r, i) { return self._hias(r, i); }),
+      adaLagi: tampil < n,
+      muatLabel: 'Muat ' + Math.min(8, n - tampil) + ' ulasan lagi',
+      muatLagi: function () { self.setState({ tampil: Math.min(tampil + 8, n) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

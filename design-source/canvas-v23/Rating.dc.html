@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Rating</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<span role="img" aria-label="{{ label }}" style="display: inline-flex; column-gap: 0">
+  <sc-for list="{{ bintang }}" as="b" hint-placeholder-count="5">
+    <span style="{{ b.gaya }}">
+      <sc-if value="{{ b.adaGradien }}" hint-placeholder-val="{{ false }}">
+        <svg width="0" height="0" aria-hidden="true" style="position: absolute"><defs><linearGradient id="{{ b.id }}" x1="0" x2="1" y1="0" y2="0"><stop offset="{{ b.stop }}" stop-color="var(--bintang)"></stop><stop offset="{{ b.stop }}" stop-color="var(--star-kosong)"></stop></linearGradient></defs></svg>
+      </sc-if>
+      <dc-import name="Icon" dc-props="{{ b.props }}" hint-size="1.6rem,1.6rem"></dc-import>
+    </span>
+  </sc-for>
+</span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"nilai":{"editor":"float","default":5,"min":0,"max":5,"step":0.1},"jumlah":{"editor":"int","default":5},"ukuran":{"editor":"enum","options":[15,16,18,22,24],"default":16},"polos":{"editor":"boolean","default":false},"jarak":{"editor":null},"label":{"editor":null},"$preview":{"width":120,"height":30}}'>
+class Component extends DCLogic {
+  uid = 'bt-' + Math.random().toString(36).slice(2, 8);
+  renderVals() {
+    const nilai = Number(this.props.nilai ?? 5);
+    const jumlah = Number(this.props.jumlah ?? 5);
+    const ukuran = Number(this.props.ukuran ?? 16);
+    const polos = !!this.props.polos;
+    const pecahan = nilai % 1 !== 0;
+    const jarak = this.props.jarak ?? (ukuran === 22 ? '0.15rem' : '0.1rem');
+    const bintang = [];
+    for (let i = 0; i < jumlah; i++) {
+      const bagian = Math.max(0, Math.min(1, nilai - i));
+      const id = this.uid + '-' + i;
+      const separuh = pecahan && bagian > 0 && bagian < 1;
+      const penuh = bagian >= 1;
+      const props = { ikon: 'bintang', ukuran, garis: polos ? 0 : pecahan ? 1.1 : 1.2 };
+      props.isi = separuh ? 'url(#' + id + ')' : penuh ? 'var(--bintang)' : 'var(--star-kosong)';
+      props.warna = polos ? 'none' : (penuh || pecahan) ? 'var(--bintang-garis)' : 'var(--star-kosong)';
+      bintang.push({
+        props,
+        id,
+        stop: Math.round(bagian * 100) + '%',
+        adaGradien: separuh,
+        gaya: 'display: flex; margin-left: ' + (i === 0 ? '0' : jarak) + '; margin-right: ' + jarak
+      });
+    }
+    const teksNilai = String(nilai).replace('.', ',');
+    return {
+      bintang,
+      label: this.props.label ?? (pecahan ? 'Rata-rata ' + teksNilai + ' dari 5 bintang' : teksNilai + ' dari 5 bintang')
+    };
+  }
+}
+</script>
+</body>
+</html>

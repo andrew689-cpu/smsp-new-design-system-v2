@@ -1,0 +1,305 @@
+## fonts
+BerandaM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopArtikelM4.dc.html 'JetBrains Mono', ui-monospace set()
+DesktopBerandaM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopBlogM4.dc.html 'JetBrains Mono', ui-monospace set()
+DesktopKategoriM4.dc.html 'JetBrains Mono', ui-monospace set()
+DesktopProdukIndexM4.dc.html 'JetBrains Mono', ui-monospace set()
+DesktopProdukM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopProdukM4Salinan.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopSkuM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopSkuM4Salinan.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DesktopUlasanM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+DetailArtikel2M4.dc.html 'JetBrains Mono', ui-monospace set()
+DetailArtikel3M4.dc.html 'JetBrains Mono', ui-monospace set()
+DetailArtikel4M4.dc.html 'JetBrains Mono', ui-monospace set()
+KategoriM4.dc.html 'JetBrains Mono', ui-monospace set()
+ProdukIndexM4.dc.html 'JetBrains Mono', ui-monospace set()
+RecCreateM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+RecCreateM4Salinan1.dc.html 'Source Code Pro', ui-monospac {'fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&amp;display=swap'}
+SalinanArtikel2M4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanArtikel2M4Salinan.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanArtikelM4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBeranda2M4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+SalinanBeranda3M4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+SalinanBerandaM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+SalinanBlog2M4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBlog3M4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBlog4M4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBlog5M4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBlogM4.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanBlogM4Salinan.dc.html 'JetBrains Mono', ui-monospace set()
+SalinanProdukPageM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+SalinanSkuPageM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+SkuDetailM4.dc.html 'JetBrains Mono', ui-monospace {'fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap'}
+UlasanM4Salinan.dc.html  set()
+## font-face 0
+## --font-harga usage count per board canon
+BerandaM4.dc.html 0
+DesktopArtikelM4.dc.html 0
+DesktopBerandaM4.dc.html 0
+DesktopBlogM4.dc.html 0
+DesktopKategoriM4.dc.html 0
+DesktopProdukIndexM4.dc.html 0
+DesktopProdukM4.dc.html 0
+DesktopSkuM4.dc.html 0
+DesktopUlasanM4.dc.html 0
+KategoriM4.dc.html 0
+ProdukIndexM4.dc.html 0
+RecCreateM4.dc.html 0
+SalinanArtikel2M4.dc.html 0
+SalinanBlogM4.dc.html 0
+SkuDetailM4.dc.html 0
+UlasanM4Salinan.dc.html 0
+## svg icons
+total svg all 1241 distinct geometry 103 | canon total 474 distinct 87
+mode all Counter({'stroke': 1000, 'fill': 241}) canon Counter({'stroke': 372, 'fill': 102})
+stroke-widths all [('2', 346), ('1.8', 199), ('1.9', 139), ('2.2', 114), ('2.6', 48), ('2.4', 47), ('1.2', 30), ('1.7', 30), ('2.1', 16), ('1.75', 14), ('1.5', 13), ('1.725', 10), ('1.95', 9), ('1.24', 5), ('3', 5), ('1.6', 2), ('2.3', 2), ('1.1', 1)]
+stroke-widths canon [('2', 106), ('1.8', 77), ('1.9', 55), ('2.2', 43), ('2.4', 19), ('2.6', 19), ('1.2', 16), ('1.7', 16), ('1.5', 9), ('1.725', 8), ('1.75', 6), ('2.1', 6), ('1.24', 2), ('1.6', 2), ('3', 2), ('2.3', 1), ('1.1', 1)]
+sizes canon [('18x18', 105), ('15x15', 63), ('16x16', 53), ('21x21', 38), ('17x17', 32), ('24x24', 29), ('19x19', 25), ('20x20', 23), ('26x26', 16), ('22x22', 16), ('14x14', 12), ('25x25', 11), ('150x44', 8), ('102x30', 7), ('{{ sk.ikon }}x{{ sk.ikon }}', 6), ('30x30', 4), ('34x34', 3), ('50x50', 2), ('13x13', 2), ('35x35', 2), ('47x47', 2), ('11x11', 2), ('{{ tabelIkon }}x{{ tabelIkon }}', 1), ('{{ kartuIkon }}x{{ kartuIkon }}', 1), ('{{ filterIkon }}x{{ filterIkon }}', 1), ('{{ urutIkon }}x{{ urutIkon }}', 1), ('{{ vmTableIkon }}x{{ vmTableIkon }}', 1), ('{{ vmCard2Ikon }}x{{ vmCard2Ikon }}', 1), ('46x46', 1), ('{{ kat5Ikon }}x{{ kat5Ikon }}', 1), ('{{ kat0Ikon }}x{{ kat0Ikon }}', 1), ('{{ kat1Ikon }}x{{ kat1Ikon }}', 1), ('{{ kat2Ikon }}x{{ kat2Ikon }}', 1), ('{{ kat3Ikon }}x{{ kat3Ikon }}', 1), ('{{ kat4Ikon }}x{{ kat4Ikon }}', 1)]
+viewBox canon [('0 0 24 24', 405), ('0 0 16 16', 19), ('0 0 364 107', 15), ('45.5 44.25 330 330', 11), ('0 0 20 20', 8), ('0 0 23 23', 8), ('0 0 14 14', 6), ('0 0 31 32', 2)]
+viewBox all [('0 0 24 24', 1101), ('0 0 364 107', 33), ('0 0 16 16', 33), ('45.5 44.25 330 330', 28), ('0 0 20 20', 10), ('0 0 23 23', 10), ('0 0 39 39', 9), ('0 0 14 14', 8), ('0 0 31 32', 5), ('0 0 12 12', 4)]
+top icons canon:
+55 all=178 boards=18 0 0 24 24 18 <path d="M9 5l7 7-7 7"></path> CTX []
+27 all=72 boards=12 0 0 24 24 18 <path d="M6 6l12 12M18 6L6 18"></path> CTX [('Tutup pusat bantuan', 58), ('Tutup pencarian', 3)]
+18 all=32 boards=20 0 0 16 16 15 <path d="M8 1.5l1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.3 4 13.5l1-4.4-3.4-3 4.5-.5z"></path> CTX [('Rata-rata 4,8 dari 5 bintang', 2), ('5 dari 5 bintang', 1)]
+18 all=51 boards=11 0 0 24 24 18 <path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path> CTX []
+16 all=38 boards=30 0 0 24 24 11 <path d="M6.4 6.4l11.2 11.2M17.6 6.4L6.4 17.6"></path> CTX [('Tutup peringatan penipuan', 28), ('Hapus kata pencarian', 5)]
+13 all=38 boards=24 0 0 24 24 16 <path d="M19.6 16.3v2.4a1.6 1.6 0 0 1-1.8 1.6 15.9 15.9 0 0 1-6.9-2.5 15.6 15.6 0 0 1-4.8-4.8A1 CTX []
+13 all=25 boards=9 0 0 24 24 16 <path d="M6 9.5l6 6 6-6"></path> CTX []
+13 all=38 boards=11 0 0 24 24 21 <path d="M12 21.2s6.8-5.4 6.8-10.9a6.8 6.8 0 1 0-13.6 0c0 5.5 6.8 10.9 6.8 10.9z"></path><circl CTX []
+13 all=34 boards=11 0 0 24 24 20 <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.2-3.2"></path> CTX []
+12 all=28 boards=28 0 0 24 24 18 <path d="M12 3.6L2.6 20h18.8z"></path><path d="M12 10v4.4M12 17.3h.01"></path> CTX []
+11 all=27 boards=7 0 0 24 24 17 <path d="M5 12h13M12.5 6l6 6-6 6"></path> CTX []
+11 all=30 boards=11 0 0 24 24 22 <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17. CTX []
+11 all=28 boards=15 45.5 44.25 330 330 34 <circle cx="259" cy="146" r="98"></circle><circle cx="124" cy="258" r="60"></circle><circle cx= CTX []
+10 all=29 boards=11 0 0 24 24 22 <path d="M20.5 11.3a7.6 7.6 0 0 1-8 7.6l-4.3 2 .6-3.1a7.6 7.6 0 1 1 11.7-6.5z"></path><path d=" CTX []
+8 all=10 boards=10 0 0 364 107 150 <path fill-rule="evenodd" d="M48.04 80.54c0-3.9 3.11-7.1 6.9-7.11 3.66-.02 6.97 2.92 6.98 7.12. CTX [('SMS Perkasa — beranda', 10)]
+8 all=10 boards=10 0 0 20 20 20 <rect x="1" y="1.5" width="7" height="7" rx="2.5"></rect><rect x="1" y="11.5" width="7" height= CTX []
+8 all=10 boards=10 0 0 23 23 21 <ellipse cx="10.047" cy="9.958" rx="8.789" ry="8.333"></ellipse><path d="M16.086 16.164l5.493 5 CTX [('Cari', 10)]
+8 all=10 boards=10 0 0 24 24 24 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7a.75.75 0 01-.75.75H4a.75.75 0 010-1.5 CTX [('Buka menu', 10)]
+8 all=10 boards=10 0 0 24 24 18 <path d="M6.6 3.5h2.9l1.5 3.7-2 1.3a10.4 10.4 0 0 0 4.9 4.9l1.3-2 3.7 1.5v2.9a1.8 1.8 0 0 1-2 1 CTX []
+8 all=17 boards=9 0 0 24 24 16 <path d="M9 18l6-6-6-6"></path> CTX [('Halaman berikutnya', 3)]
+8 all=22 boards=11 0 0 24 24 15 <circle cx="12" cy="12" r="8.4"></circle><path d="M12 7.4V12l3 1.8"></path> CTX []
+7 all=23 boards=23 0 0 364 107 102 <path fill-rule="evenodd" d="M45.27 78.64c-.18.11-.37.26-.55.02-.1-.13-.1-.28.01-.4.18-.2.36-.0 CTX [('SMS Perkasa — beranda', 23)]
+7 all=23 boards=23 0 0 24 24 18 <path d="M4.4 7h15.2M4.4 12h15.2M4.4 17h15.2"></path> CTX [('Opsi lainnya', 23)]
+7 all=20 boards=11 0 0 24 24 21 <rect x="5" y="3" width="14" height="18" rx="2.2"></rect><path d="M8.5 7.2h7"></path><path d="M CTX []
+6 all=6 boards=2 0 0 24 24 16 <circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.4v2M12 19.6v2M4.8 4.8l1.5 1.5M17.7 17.7 CTX []
+6 all=28 boards=22 0 0 24 24 17 <path d="M6 9l6 6 6-6"></path> CTX [('Tutup filter dan urutkan', 2), ('Tutup urutkan', 2)]
+6 all=8 boards=8 0 0 14 14 14 <path fill-rule="evenodd" clip-rule="evenodd" d="M7 .73c-.353 0-.678.087-1.033.234-.344.142-.74 CTX []
+6 all=13 boards=9 0 0 24 24 24 <circle cx="12" cy="12" r="8.5"></circle><path d="M12 11.2v4.8M12 8.3h.01"></path> CTX []
+6 all=13 boards=9 0 0 24 24 24 <circle cx="12" cy="12" r="8.5"></circle><path d="M9.7 9.4a2.4 2.4 0 1 1 2.9 2.8c-.5.2-.8.6-.8  CTX []
+6 all=15 boards=15 0 0 24 24 25 <path d="M2.9 4.2h1.8M2.9 9.9h5.1M2.9 15.1h5.1M2.9 20.4h18.2"></path><path d="M12.2 4.2h1.5a3.4 CTX []
+5 all=8 boards=8 0 0 24 24 16 <path d="M15 18l-6-6 6-6"></path> CTX [('Halaman sebelumnya', 3)]
+4 all=9 boards=9 0 0 24 24 17 <circle cx="18" cy="5.2" r="2.6"></circle><circle cx="6" cy="12" r="2.6"></circle><circle cx="1 CTX [('Bagikan halaman ini', 4)]
+4 all=9 boards=5 0 0 24 24 18 <rect x="3.5" y="4" width="4" height="4" rx="1"></rect><rect x="3.5" y="10" width="4" height="4 CTX [('Tampilan daftar', 5)]
+4 all=11 boards=11 0 0 24 24 24 <path d="M4.5 13.5v-1.6a7.5 7.5 0 0 1 15 0v1.6"></path><path d="M4.5 13h1.2a1.3 1.3 0 0 1 1.3 1 CTX []
+4 all=11 boards=11 0 0 24 24 22 <path d="M4.6 7.4A3.2 3.2 0 0 1 7.8 4.2h8.4a3.2 3.2 0 0 1 3.2 3.2v5.2a3.2 3.2 0 0 1-3.2 3.2H9.9 CTX []
+4 all=11 boards=11 0 0 24 24 15 <path d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3.01h3.88c2 CTX []
+4 all=11 boards=11 0 0 24 24 15 <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.4 CTX []
+4 all=11 boards=11 0 0 24 24 19 <circle cx="12" cy="12" r="8.4"></circle><path d="M9.2 14.4a3.6 3.6 0 0 0 5.6 0"></path><path d CTX [('Sisipkan emotikon', 11)]
+3 all=5 boards=3 0 0 24 24 {{ sk.ikon }} <path d="M12 19.5V5.2"></path><path d="M5.6 11.6L12 5.2l6.4 6.4"></path> CTX []
+3 all=9 boards=9 0 0 24 24 15 <path d="M21 12L3.2 4.8 7 12l-3.8 7.2z"></path> CTX [('Kirim pesan', 9)]
+3 all=9 boards=9 0 0 24 24 21 <path d="M2.6 12.2L12 4.6l9.4 7.6"></path><path d="M5.4 12.2v7.2h13.2v-7.2"></path><path d="M9. CTX []
+3 all=6 boards=4 0 0 24 24 24 <path d="M12 3.6l2.6 5.5 6 .8-4.4 4.1 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.9l6-.8z"></path> CTX []
+3 all=4 boards=4 0 0 24 24 19 <path d="M12 3.2l6.4 2.5v5.1c0 3.9-2.6 7.3-6.4 8.4-3.8-1.1-6.4-4.5-6.4-8.4V5.7z"></path><path d CTX []
+3 all=9 boards=5 0 0 24 24 18 <path d="M20.5 11.6a7.5 7.5 0 0 1-11 6.7l-5 1.3 1.3-4.9a7.5 7.5 0 1 1 14.7-3.1z"></path> CTX []
+2 all=2 boards=2 0 0 24 24 18 <path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 8.5-4.1-.9-7-4.3-7-8.5V6l7-3z"></path><path d="M9 12l2 2 CTX []
+2 all=5 boards=5 0 0 31 32 50 <rect width="29.76" height="29.76" x="0.62" y="0.654" rx="14.88"></rect><rect width="29.76" hei CTX []
+2 all=2 boards=2 0 0 24 24 20 <path d="M5 12h13M12.6 5.6l6.4 6.4-6.4 6.4"></path> CTX []
+2 all=2 boards=2 0 0 24 24 30 <rect x="3" y="6" width="18" height="12" rx="1"></rect><rect x="6.5" y="9.2" width="11" height= CTX []
+2 all=3 boards=3 0 0 24 24 {{ urutIkon }} <path d="M9 3.6v16.8"></path><path d="M3.6 15l5.4 5.4"></path><path d="M15 20.4V3.6"></path><pa CTX []
+2 all=5 boards=5 0 0 24 24 18 <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" hei CTX [('Tampilan kartu kecil, 2 kolom', 3), ('Tampilan kartu', 2)]
+2 all=7 boards=7 0 0 24 24 15 <path d="M6.6 8.4h10.8l1.75 10.1a1.6 1.6 0 0 1-1.58 1.9H6.43a1.6 1.6 0 0 1-1.58-1.9z"></path><p CTX []
+2 all=5 boards=5 0 0 24 24 26 <rect x="3" y="5" width="18" height="14" rx="1.5"></rect><rect x="6.5" y="8.5" width="11" heigh CTX []
+2 all=5 boards=5 0 0 24 24 26 <path d="M11 3.5l1.9 4.8 4.8 1.9-4.8 1.9L11 17l-1.9-4.9-4.8-1.9 4.8-1.9z"></path><path d="M18 1 CTX []
+2 all=5 boards=5 0 0 24 24 26 <path d="M12 2.8c3.4 3 5.1 5.7 5.1 8.2 0 1.5-.5 2.8-1.4 3.8.2-1.6-.4-3-1.8-4.3.1 2-.6 3.5-2 4.6 CTX []
+2 all=5 boards=5 0 0 24 24 26 <path d="M14.8 3.6a4.6 4.6 0 0 0-5.9 5.9L3.8 14.6a1.9 1.9 0 0 0 2.7 2.7l5.1-5.1a4.6 4.6 0 0 0 5 CTX []
+## library signature tests (from memory of each library path grammar)
+lucide chevron-right 0
+lucide chevron-down 0
+lucide x 0
+lucide search 0
+lucide check 0
+lucide arrow-right 0
+lucide phone 0
+lucide menu 0
+feather chevron polyline 0
+heroicons outline 24 ch-down 0
+heroicons x 0
+material zero box 0
+tabler zero box 0
+phosphor viewbox 0
+remix 5
+icon font / sprite use: <use 0 material-symbols 0 class="lucide 0
+## images
+canon m img tags 51 alt-missing 0 alt-empty 13 alt-literal 25 alt-dynamic 13 lazy 29 eager 0 width attr 0 src-dynamic 26 distinct blobs 160
+canon d img tags 50 alt-missing 0 alt-empty 11 alt-literal 20 alt-dynamic 19 lazy 31 eager 0 width attr 0 src-dynamic 36 distinct blobs 161
+all m img tags 175 alt-missing 0 alt-empty 46 alt-literal 83 alt-dynamic 46 lazy 117 eager 0 width attr 0 src-dynamic 92 distinct blobs 182
+all d img tags 73 alt-missing 0 alt-empty 15 alt-literal 34 alt-dynamic 24 lazy 36 eager 0 width attr 0 src-dynamic 49 distinct blobs 161
+external img hosts Counter()
+## semantics
+board|header|nav|main|section|article|aside|footer|figure|figcaption|ul|ol|li|table|h1|h2|h3|h4|button|a|input|select|textarea|label|form|dialog|details|summary|blockquote|div|span|p|strong
+*BerandaM4.dc.html|1|0|1|0|0|0|0|0|0|1|0|1|0|1|6|1|0|5|16|1|0|0|0|0|0|0|0|1|53|44|12|4
+*DesktopArtikelM4.dc.html|1|2|1|0|1|1|0|1|1|1|0|1|1|1|2|1|0|4|15|1|0|0|1|0|0|0|0|0|17|15|11|3
+*DesktopBerandaM4.dc.html|1|1|1|0|1|0|0|0|0|0|0|0|0|1|6|1|0|6|23|2|0|0|1|0|0|0|0|1|49|47|11|3
+*DesktopBlogM4.dc.html|2|1|1|7|0|0|0|0|0|0|0|0|0|1|6|0|0|4|29|1|0|0|1|0|0|0|0|0|31|65|12|3
+*DesktopKategoriM4.dc.html|1|2|1|0|0|0|0|0|0|0|0|0|0|1|0|0|0|4|15|1|0|0|1|0|0|0|0|0|12|9|5|3
+*DesktopProdukIndexM4.dc.html|1|2|1|0|0|0|0|0|0|0|0|0|0|1|0|0|0|4|15|1|0|0|1|0|0|0|0|0|12|9|6|3
+*DesktopProdukM4.dc.html|1|2|0|0|0|1|0|1|0|1|0|1|0|1|6|7|0|49|35|7|0|0|7|0|0|0|0|0|128|154|35|3
+*DesktopSkuM4.dc.html|1|3|0|0|1|0|0|1|0|0|0|0|0|1|4|1|0|30|28|5|0|0|5|0|0|0|0|1|79|94|24|4
+*DesktopUlasanM4.dc.html|1|2|0|0|1|0|0|0|0|0|0|0|0|1|2|0|0|8|12|1|0|0|1|0|0|0|0|0|33|33|10|1
+*KategoriM4.dc.html|1|1|1|0|0|0|0|0|0|0|0|0|0|1|0|0|0|3|7|0|0|0|0|0|0|0|0|0|12|8|6|3
+*ProdukIndexM4.dc.html|1|1|1|0|0|0|0|0|0|0|0|0|0|1|0|0|0|3|7|0|0|0|0|0|0|0|0|0|12|8|7|3
+*RecCreateM4.dc.html|1|0|0|0|0|0|0|0|0|2|0|2|0|1|8|4|0|66|33|7|0|0|5|0|0|0|0|0|151|221|55|3
+*SalinanArtikel2M4.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|2|0|4|7|0|0|0|0|0|0|0|0|0|18|6|10|3
+*SalinanBlogM4.dc.html|2|0|1|9|0|0|0|0|0|0|0|0|0|1|7|0|0|34|44|5|0|0|5|0|0|0|0|0|78|170|22|3
+*SkuDetailM4.dc.html|1|0|0|0|0|0|0|1|0|2|0|2|0|0|4|2|0|24|15|1|0|0|0|0|0|0|0|1|62|45|22|5
+*UlasanM4Salinan.dc.html|0|0|0|2|1|0|0|0|0|0|1|1|0|1|1|0|0|1|1|0|0|0|0|0|0|0|0|0|10|23|2|0
+ DesktopProdukM4Salinan.dc.html|1|2|0|0|0|1|0|1|0|1|0|1|0|1|6|7|0|49|35|7|0|0|7|0|0|0|0|0|128|154|35|3
+ DesktopSkuM4Salinan.dc.html|1|3|0|0|0|0|0|1|0|1|0|1|0|1|4|1|0|31|28|5|0|0|5|0|0|0|0|1|81|96|25|4
+ DetailArtikel2M4.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|2|0|4|7|0|0|0|0|0|0|0|0|0|18|6|10|3
+ DetailArtikel3M4.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|2|0|4|7|0|0|0|0|0|0|0|0|0|18|6|10|3
+ DetailArtikel4M4.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|2|0|4|7|0|0|0|0|0|0|0|0|0|18|6|10|3
+ RecCreateM4Salinan1.dc.html|1|0|0|0|0|0|0|0|0|3|0|3|0|1|8|2|0|38|18|3|0|0|1|0|0|0|0|0|84|64|29|3
+ SalinanArtikel2M4Salinan.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|1|0|4|8|0|0|0|0|0|0|0|0|0|18|6|11|3
+ SalinanArtikelM4.dc.html|1|1|1|1|0|0|0|0|0|1|1|2|1|1|1|1|0|4|7|0|0|0|0|0|0|0|0|0|17|6|11|3
+ SalinanBeranda2M4.dc.html|1|0|1|0|0|0|0|0|0|1|0|1|0|1|8|0|0|5|18|1|0|0|0|0|0|0|0|1|72|42|12|5
+ SalinanBeranda3M4.dc.html|1|0|1|0|0|0|0|0|0|1|0|1|0|1|8|0|0|5|19|1|0|0|0|0|0|0|0|1|73|44|12|5
+ SalinanBerandaM4.dc.html|1|0|1|0|0|0|0|0|0|1|0|1|0|1|6|0|0|5|16|1|0|0|0|0|0|0|0|1|64|35|9|5
+ SalinanBlog2M4.dc.html|2|0|1|9|0|0|0|0|0|0|0|0|0|1|7|0|0|34|43|5|0|0|5|0|0|0|0|0|78|176|22|3
+ SalinanBlog3M4.dc.html|2|0|1|9|0|0|0|0|0|0|0|0|0|1|2|0|0|34|39|5|0|0|5|0|0|0|0|0|76|200|30|3
+ SalinanBlog4M4.dc.html|2|0|1|9|0|0|0|0|0|0|0|0|0|1|7|0|0|38|44|5|0|0|5|0|0|0|0|0|90|193|35|3
+ SalinanBlog5M4.dc.html|2|1|1|9|0|0|0|0|0|1|0|5|0|1|2|0|0|39|40|5|0|0|5|0|0|0|0|0|76|204|30|3
+ SalinanBlogM4Salinan.dc.html|2|0|1|9|0|0|0|0|0|0|0|0|0|1|7|0|0|34|44|6|0|0|6|0|0|0|0|0|87|190|35|3
+ SalinanProdukPageM4.dc.html|1|0|0|0|0|0|0|0|0|3|0|3|0|1|8|2|0|39|18|3|0|0|1|0|0|0|0|0|84|64|29|3
+ SalinanSkuPageM4.dc.html|1|0|0|0|0|0|0|1|0|2|0|2|0|0|4|0|1|19|14|1|0|0|0|0|0|0|0|1|53|38|20|5
+canon totals {'header': 17, 'nav': 18, 'main': 10, 'section': 19, 'article': 5, 'aside': 2, 'footer': 0, 'figure': 4, 'figcaption': 1, 'ul': 8, 'ol': 2, 'li': 10, 'table': 2, 'h1': 15, 'h2': 53, 'h3': 19, 'h4': 0, 'button': 249, 'a': 302, 'input': 33, 'select': 0, 'textarea': 0, 'label': 28, 'form': 0, 'dialog': 0, 'details': 0, 'summary': 0, 'blockquote': 4, 'div': 757, 'span': 951, 'p': 250, 'strong': 47}
+semantic-ish 1050 div+span 1708
+## aria/role
+roles canon [('group', 26), ('img', 11), ('dialog', 9), ('region', 4), ('log', 4), ('radiogroup', 3), ('status', 1), ('tablist', 1), ('tab', 1)]
+aria attrs canon [('aria-hidden', 656), ('aria-label', 339), ('aria-expanded', 34), ('aria-current', 27), ('aria-pressed', 23), ('aria-live', 14), ('aria-roledescription', 6), ('aria-selected', 1)]
+## headings per board (h1 count, first texts)
+BerandaM4.dc.html h1=1 12222322 | main 1 footer 0 header 1
+DesktopArtikelM4.dc.html h1=1 1232 | main 1 footer 0 header 1
+DesktopBerandaM4.dc.html h1=1 12222322 | main 1 footer 0 header 1
+DesktopBlogM4.dc.html h1=1 1222222 | main 1 footer 0 header 2
+DesktopKategoriM4.dc.html h1=1 1 | main 1 footer 0 header 1
+DesktopProdukIndexM4.dc.html h1=1 1 | main 1 footer 0 header 1
+DesktopProdukM4.dc.html h1=1 12332333332222 | main 0 footer 0 header 1
+DesktopSkuM4.dc.html h1=1 123222 | main 0 footer 0 header 1
+DesktopUlasanM4.dc.html h1=1 122 | main 0 footer 0 header 1
+KategoriM4.dc.html h1=1 1 | main 1 footer 0 header 1
+ProdukIndexM4.dc.html h1=1 1 | main 1 footer 0 header 1
+RecCreateM4.dc.html h1=1 1232333222222 | main 0 footer 0 header 1
+SalinanArtikel2M4.dc.html h1=1 1323 | main 1 footer 0 header 1
+SalinanBlogM4.dc.html h1=1 12222222 | main 1 footer 0 header 2
+SkuDetailM4.dc.html h1=0 323222 | main 0 footer 0 header 1
+UlasanM4Salinan.dc.html h1=1 12 | main 0 footer 0 header 0
+## interactive sizes (canon): explicit box sizes on <button>/<a>
+m Counter({'>=44': 126, 'no explicit size': 78, '24-43.9': 62, '<24': 4}) heights<44: [(40.0, 23), (32.0, 11), (36.0, 8), (30.0, 7), (28.0, 4), (34.0, 4), (35.0, 4), (22.0, 2), (0.0, 2), (38.0, 1)]
+d Counter({'>=44': 160, '24-43.9': 60, 'no explicit size': 59, '<24': 2}) heights<44: [(40.0, 22), (32.0, 13), (30.0, 9), (38.0, 8), (36.0, 5), (34.0, 2), (0.0, 2), (35.0, 1)]
+## inputs
+Counter({'placeholder': 28, 'text': 20, 'with id': 18, 'with aria-label': 5, 'tel': 4, 'email': 4, 'radio': 3, 'range': 2, 'disabled': 0}) label tags 28 for= 16
+disabled attrs canon 23
+## divs with onClick (non-semantic click targets)
+Counter({'button': 203, 'a': 14})
+## token defined vs used (all boards)
+--chat-ikon def_boards=28 uses_all=0 uses_canon=0
+--price def_boards=32 uses_all=0 uses_canon=0
+--price-bg def_boards=23 uses_all=0 uses_canon=0
+--panel def_boards=30 uses_all=0 uses_canon=0
+--nav-aktif def_boards=10 uses_all=0 uses_canon=0
+--gantung-kartu def_boards=3 uses_all=0 uses_canon=0
+--keping-biru def_boards=4 uses_all=1 uses_canon=1
+--keping-abu def_boards=4 uses_all=1 uses_canon=1
+--keping-hangat def_boards=4 uses_all=1 uses_canon=1
+--teks-advantage def_boards=10 uses_all=1 uses_canon=0
+--surface-2 def_boards=6 uses_all=1 uses_canon=0
+--star-kosong def_boards=1 uses_all=1 uses_canon=1
+--biru-dasar def_boards=4 uses_all=2 uses_canon=2
+--bayang-kartu def_boards=4 uses_all=2 uses_canon=2
+--teks-section-lg def_boards=10 uses_all=2 uses_canon=1
+--biru-tinta def_boards=4 uses_all=3 uses_canon=3
+--garis-panel def_boards=4 uses_all=3 uses_canon=3
+--cair-rim-chip def_boards=9 uses_all=4 uses_canon=2
+--cair-bayang-chip def_boards=21 uses_all=4 uses_canon=2
+--star-stroke def_boards=3 uses_all=4 uses_canon=2
+--star def_boards=3 uses_all=5 uses_canon=3
+--whatsapp def_boards=28 uses_all=6 uses_canon=1
+--online-ikon def_boards=28 uses_all=7 uses_canon=2
+--teks-sup def_boards=30 uses_all=7 uses_canon=5
+--teks-price def_boards=20 uses_all=7 uses_canon=5
+--el-3 def_boards=7 uses_all=7 uses_canon=2
+--selokan-sempit def_boards=4 uses_all=8 uses_canon=8
+--kaca def_boards=31 uses_all=8 uses_canon=0
+--kaca-rim def_boards=31 uses_all=8 uses_canon=0
+--teks-subsection def_boards=10 uses_all=8 uses_canon=5
+--bintang-garis def_boards=5 uses_all=9 uses_canon=6
+--teks-subhead def_boards=10 uses_all=9 uses_canon=5
+--teks-price-lg def_boards=10 uses_all=9 uses_canon=5
+--teks-seksi def_boards=3 uses_all=9 uses_canon=0
+--jarak-x-tiga def_boards=20 uses_all=10 uses_canon=3
+--teks-cta def_boards=10 uses_all=10 uses_canon=7
+--footer-pad def_boards=10 uses_all=10 uses_canon=8
+--chat-mati def_boards=28 uses_all=11 uses_canon=4
+--selokan-dalam def_boards=10 uses_all=12 uses_canon=12
+--island def_boards=30 uses_all=13 uses_canon=6
+--kaca-bayang def_boards=31 uses_all=13 uses_canon=2
+--teks-display def_boards=10 uses_all=14 uses_canon=10
+--awas-bg def_boards=1 uses_all=14 uses_canon=7
+--bintang def_boards=5 uses_all=15 uses_canon=12
+--font-harga def_boards=33 uses_all=15 uses_canon=7
+--jarak-y-antar-rapat def_boards=5 uses_all=15 uses_canon=3
+--kaca-blur def_boards=31 uses_all=16 uses_canon=0
+--jarak-x-dua def_boards=20 uses_all=17 uses_canon=9
+--line-kuat def_boards=28 uses_all=19 uses_canon=6
+--teks-page def_boards=20 uses_all=19 uses_canon=8
+--quote def_boards=30 uses_all=20 uses_canon=8
+--footer-jarak def_boards=10 uses_all=20 uses_canon=16
+--el-2 def_boards=33 uses_all=22 uses_canon=12
+--selokan-ubin def_boards=6 uses_all=28 uses_canon=10
+--brand-subtle def_boards=26 uses_all=34 uses_canon=3
+--teks-section-md def_boards=10 uses_all=35 uses_canon=26
+--cair def_boards=33 uses_all=37 uses_canon=13
+--bobot-regular def_boards=30 uses_all=48 uses_canon=14
+--bobot-black def_boards=30 uses_all=52 uses_canon=24
+--teks-chip def_boards=19 uses_all=62 uses_canon=15
+--control def_boards=30 uses_all=71 uses_canon=29
+--ink-4 def_boards=34 uses_all=75 uses_canon=36
+--cair-blur def_boards=33 uses_all=80 uses_canon=30
+--card def_boards=30 uses_all=89 uses_canon=37
+--action def_boards=31 uses_all=101 uses_canon=57
+--teks-section def_boards=20 uses_all=107 uses_canon=39
+--teks-micro def_boards=26 uses_all=108 uses_canon=32
+--brand-hero def_boards=34 uses_all=123 uses_canon=57
+--bobot-heavy def_boards=30 uses_all=132 uses_canon=45
+--sheet def_boards=30 uses_all=137 uses_canon=48
+--tile def_boards=33 uses_all=138 uses_canon=70
+--bobot-light def_boards=30 uses_all=143 uses_canon=61
+--jarak-y-antar def_boards=19 uses_all=147 uses_canon=48
+--jarak-y-dalam def_boards=19 uses_all=171 uses_canon=44
+--sisi def_boards=30 uses_all=171 uses_canon=114
+--teks-lead def_boards=10 uses_all=172 uses_canon=127
+--seksi def_boards=30 uses_all=198 uses_canon=141
+--talang def_boards=20 uses_all=208 uses_canon=51
+--cair-tombol def_boards=32 uses_all=208 uses_canon=71
+--bobot-semibold def_boards=30 uses_all=222 uses_canon=101
+--cair-bayang def_boards=32 uses_all=232 uses_canon=77
+--cair-rim def_boards=33 uses_all=244 uses_canon=84
+--teks-tiny def_boards=30 uses_all=337 uses_canon=125
+--cair-tombol-blur def_boards=32 uses_all=404 uses_canon=140
+--bobot-medium def_boards=30 uses_all=406 uses_canon=198
+--teks-meta def_boards=30 uses_all=456 uses_canon=210
+--line def_boards=34 uses_all=460 uses_canon=193
+--dalam def_boards=30 uses_all=466 uses_canon=197
+--surface def_boards=34 uses_all=481 uses_canon=192
+--pill def_boards=34 uses_all=553 uses_canon=206
+--brand def_boards=34 uses_all=587 uses_canon=228
+--teks-body def_boards=30 uses_all=809 uses_canon=319
+--bobot-bold def_boards=30 uses_all=865 uses_canon=357
+--ink def_boards=34 uses_all=1073 uses_canon=459
+--ink-2 def_boards=34 uses_all=1367 uses_canon=570
+--rapat def_boards=30 uses_all=2222 uses_canon=875
+## hex in JS outside style decls (canon)
+[('#0a0a0a', 34), ('#ffffff', 31), ('#a84c46', 16), ('#ececec', 10), ('#c9c9cb', 8), ('#dcdcde', 8), ('#ffb800', 6), ('#9a6700', 6), ('#4ade80', 4), ('#d4d4d4', 4), ('#157f3c', 3), ('#d6d6db', 2), ('#1d4ed8', 1)]

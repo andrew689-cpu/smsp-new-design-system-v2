@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Semua Produk — SMS Perkasa · Desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap">
+<link rel="stylesheet" href="tokens.css">
+</helmet>
+<div style="width: 144rem; max-width: 100%; margin: 0 auto; box-sizing: border-box; min-height: 100vh; background: var(--surface)">
+  <dc-import name="FraudRibbon" tata="desktop" hint-size="100%,5.4rem"></dc-import>
+  <dc-import name="SiteHeader" tata="desktop" nilai="{{ cariQ }}" onUbah="{{ cariKetik }}" hint-size="100%,12.4rem"></dc-import>
+  <main style="box-sizing: border-box; padding: 0 var(--sisi)">
+    <dc-import name="PageTitle" tata="desktop" hint-size="100%,7.3rem"></dc-import>
+    <div style="margin-top: var(--seksi)">
+      <dc-import name="Rail" koleksi="indeks" tata="desktop" saring="{{ cariQ }}" kolom="{{ 4 }}" tepi="kisi" celahY="calc(var(--seksi) / 2)" hint-size="100%,300rem"></dc-import>
+    </div>
+  </main>
+  <div style="margin-top: calc(var(--footer-jarak) / 2)">
+    <dc-import name="Footer" tata="desktop" hint-size="100%,40rem"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  state = { q: '' };
+  renderVals() {
+    return { cariQ: this.state.q, cariKetik: (v) => this.setState({ q: v }) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"click": "[aria-label=\"Daftar bagian halaman\"]", "wait": 800}, {"click": "[data-sheet] a:has-text(\"FAQ\")", "wait": 900}]
